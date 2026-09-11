@@ -133,8 +133,7 @@ function StickyResults() {
                   key={item.label}
                   item={item}
                   progress={progress}
-                  peak={PEAKS[index]!}
-                  halfW={HALF_WIDTHS[index]!}
+                  range={RANGES[index]!}
                 />
               ))}
             </ol>
