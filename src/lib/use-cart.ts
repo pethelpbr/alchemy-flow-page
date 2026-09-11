@@ -6,7 +6,7 @@ import { buildCheckoutUrl, variants, type Variant } from "./product";
  * integração com Shopify/Yampi aconteça em um único lugar.
  */
 export function useCart() {
-  const [selected, setSelected] = useState<Variant>(variants[1]);
+  const [selected, setSelected] = useState<Variant>(variants[1]!);
 
   const checkout = useCallback(() => {
     const url = buildCheckoutUrl(selected);
