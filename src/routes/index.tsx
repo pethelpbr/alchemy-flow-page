@@ -8,6 +8,7 @@ import { StorySection } from "@/components/StorySection";
 import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { IngredientsSection } from "@/components/IngredientsSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
+import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
