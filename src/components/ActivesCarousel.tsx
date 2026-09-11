@@ -99,7 +99,7 @@ export function ActivesCarousel() {
 
         <Carousel
           setApi={setApi}
-          opts={{ loop: true, align: "start", dragFree: false }}
+          opts={{ loop: true, align: "start", dragFree: true }}
           aria-label="Ativos da fórmula"
           className="mt-12 cursor-grab select-none active:cursor-grabbing"
         >
