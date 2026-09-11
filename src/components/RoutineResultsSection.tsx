@@ -21,10 +21,10 @@ const timeline = [
 type Step = (typeof timeline)[number];
 
 const ranges: [number, number][] = [
-  [0.04, 0.26],
-  [0.2, 0.44],
-  [0.38, 0.62],
-  [0.56, 0.8],
+  [0.05, 0.2],
+  [0.13, 0.28],
+  [0.21, 0.36],
+  [0.29, 0.44],
 ];
 
 function StepItem({ item }: { item: Step }) {
