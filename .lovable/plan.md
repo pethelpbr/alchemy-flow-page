@@ -1,43 +1,45 @@
-# Alteração de tipografia na landing page
+# Aplicação das tipografias personalizadas
 
 ## Objetivo
-Trocar a família tipográfica dos textos da landing page Nutraflow (títulos e corpo), mantendo a estética premium e clean beauty.
+Adicionar ao site os três arquivos enviados e aplicar cada fonte conforme definido:
 
-## Como a tipografia está organizada hoje
+- **Fields Bold** — títulos principais e títulos de seção.
+- **Gabarito Variable** — subtítulos, textos corridos, menus, botões, preços e demais informações.
+- **Firula Test Regular** — pequenos destaques editoriais, usados com moderação.
 
-```text
-src/routes/__root.tsx   -> carrega as fontes do Google Fonts
-src/styles.css          -> define as variáveis --font-display e --font-sans
-src/components/*.tsx    -> usam essas variáveis via classes utilitárias
-```
+## Aplicação visual
 
-- **Títulos** usam a variável `--font-display` (atualmente `Cormorant Garamond`).
-- **Texto corrido, botões e navegação** usam `--font-sans` (atualmente `Karla`).
+1. **Títulos com Fields**
+   - Headline principal.
+   - Títulos das seções.
+   - Títulos dos cards quando fizer sentido na hierarquia.
 
-## Passos do ajuste
+2. **Textos com Gabarito**
+   - Parágrafos e descrições.
+   - Subtítulos e títulos menores.
+   - Menu, botões, valores, avaliações e FAQ.
+   - Aproveitar os pesos disponíveis na fonte variável para preservar contraste e legibilidade.
 
-1. **Escolher as novas fontes** (necessário confirmar com você).
-   - Indicar a fonte para títulos (`--font-display`).
-   - Indicar a fonte para corpo (`--font-sans`).
+3. **Destaques discretos com Firula**
+   - Aplicar somente em pequenas chamadas editoriais selecionadas.
+   - Evitar menus, botões, preços e textos longos.
+   - Manter os rótulos pequenos em caixa alta com Gabarito quando Firula prejudicar a leitura.
 
-2. **Atualizar o carregamento das fontes**
-   - Trocar o `<link>` das Google Fonts em `src/routes/__root.tsx` para as novas famílias e pesos desejados.
+## Implementação
 
-3. **Atualizar as variáveis CSS**
-   - Em `src/styles.css`, dentro do bloco `@theme inline`, alterar:
-     - `--font-display`
-     - `--font-sans`
+- Hospedar os três arquivos como recursos próprios do site, sem depender do Google Fonts.
+- Registrar as famílias e pesos corretos com `@font-face`.
+- Criar três papéis tipográficos no sistema visual: título, texto e apoio.
+- Remover o carregamento atual de Cormorant Garamond e Karla.
+- Ajustar pesos e espaçamentos onde a Fields Bold alterar a ocupação dos títulos.
+- Aplicar Firula pontualmente nas chamadas de apoio mais adequadas, sem mudar conteúdo, cores ou estrutura.
 
-4. **Ajustar pesos e tamanhos, se necessário**
-   - Revisar `@layer base` onde `h1, h2, h3` têm `font-weight: 300`.
-   - Avaliar se a nova fonte de título precisa de peso diferente para ficar legível.
+## Verificação
 
-5. **Verificar visualmente**
-   - Conferir hero, cards de preço, botões e FAQ nos viewports desktop e mobile.
-
-## O que preciso de você
-Me confirme quais duas fontes você quer usar (títulos + corpo). Se quiser, posso sugerir combinações premium que combinam com a marca.
+- Conferir títulos longos, botões, card de compra, FAQ e menu.
+- Validar a página em computador e celular, garantindo que nenhum texto corte ou sobreponha outros elementos.
+- Confirmar que todos os arquivos de fonte carregam corretamente e que não há erros na página.
 
 ## Escopo
-- Somente alteração de tipografia.
-- Nenhuma mudança de estrutura, cores ou animação está inclusa.
+
+Somente tipografia. Estrutura, textos, imagens, cores e funcionamento de compra permanecem iguais.
