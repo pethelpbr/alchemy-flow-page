@@ -157,26 +157,12 @@ export function ProductVideoFeedback() {
     <div className="mt-8 border-t border-border pt-7">
       <h3 className="text-base font-semibold text-ink">Vídeos de quem já usa</h3>
 
-      {/* Mobile: stack vertical */}
-      <div className="md:hidden">
-        <Thumbnails className="mt-4 grid-cols-4" onSelect={setSelectedVideo} />
-        <IngredientsButton />
-        <div className="mt-7">
-          <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
-        </div>
+      <Thumbnails className="mt-4 grid-cols-4" onSelect={setSelectedVideo} />
+      <IngredientsButton />
+      <div className="mt-7">
+        <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
       </div>
 
-      {/* Desktop: vídeos fixados à esquerda, accordions rolam à direita */}
-      <div className="hidden md:grid md:grid-cols-2 md:gap-8 md:items-start">
-        <div className="sticky top-28 self-start">
-          <Thumbnails className="mt-4 grid-cols-4" onSelect={setSelectedVideo} />
-          <IngredientsButton />
-        </div>
-
-        <div className="flex min-h-[260px] flex-col justify-between">
-          <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
-        </div>
-      </div>
 
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedVideo(null)}>
         <DialogContent className="max-w-sm overflow-hidden rounded-2xl border-0 bg-card p-0">
