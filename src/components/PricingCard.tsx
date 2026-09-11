@@ -5,6 +5,7 @@ import { brl, variantTotals, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { KitBooster, addonsTotal } from "@/components/KitBooster";
+import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
 
 const seals = [
   { icon: Lock, label: "Compra segura" },
@@ -94,6 +95,8 @@ export function PricingCard({
       <p className="mt-4 flex items-center justify-center gap-2 text-[11px] text-muted-foreground">
         <ShieldCheck size={13} strokeWidth={1.4} /> Pagamento processado em ambiente criptografado
       </p>
+
+      {!compact && <ProductVideoFeedback />}
     </div>
   );
 }
