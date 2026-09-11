@@ -118,7 +118,7 @@ function StickyBenefits() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b, i) => (
-              <ScrollCard key={b.title} b={b} progress={progress} range={ranges[i]} />
+              <ScrollCard key={b.title} b={b} progress={progress} range={ranges[i]!} />
             ))}
           </div>
         </div>
