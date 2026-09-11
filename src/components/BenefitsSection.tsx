@@ -38,10 +38,10 @@ const benefits = [
 type Benefit = (typeof benefits)[number];
 
 const ranges: [number, number][] = [
-  [0.1, 0.3],
-  [0.25, 0.45],
-  [0.4, 0.6],
-  [0.55, 0.75],
+  [0.06, 0.3],
+  [0.22, 0.46],
+  [0.38, 0.62],
+  [0.54, 0.78],
 ];
 
 function BenefitCard({ b }: { b: Benefit }) {
