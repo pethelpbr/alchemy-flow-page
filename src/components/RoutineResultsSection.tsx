@@ -68,7 +68,10 @@ function ScrollStep({
 function Images({ scale }: { scale?: MotionValue<number> }) {
   return (
     <div className="relative mx-auto w-full max-w-xl">
-      <motion.div style={scale ? { scale } : undefined} className="relative aspect-4/5 w-full">
+      <motion.div
+        {...(scale ? { style: { scale } } : {})}
+        className="relative aspect-4/5 w-full"
+      >
         <div className="absolute top-0 right-0 h-4/5 w-4/5 overflow-hidden rounded-xl shadow-soft">
           <img
             src={lifestyle}
