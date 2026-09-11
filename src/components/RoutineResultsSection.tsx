@@ -111,7 +111,7 @@ function StickyResults() {
   const imageScale = useTransform(progress, [0, 1], [1, 1.05]);
 
   return (
-    <div ref={wrapperRef} className="relative h-[220vh] bg-card">
+    <div ref={wrapperRef} className="relative h-[150vh] bg-card">
       <div className="sticky top-0 flex min-h-screen items-center overflow-hidden py-20">
         <div className="container-x grid w-full items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
