@@ -21,10 +21,10 @@ const timeline = [
 type Step = (typeof timeline)[number];
 
 const ranges: [number, number][] = [
-  [0.04, 0.26],
-  [0.2, 0.44],
-  [0.38, 0.62],
-  [0.56, 0.8],
+  [0.05, 0.2],
+  [0.13, 0.28],
+  [0.21, 0.36],
+  [0.29, 0.44],
 ];
 
 function StepItem({ item }: { item: Step }) {
@@ -111,7 +111,7 @@ function StickyResults() {
   const imageScale = useTransform(progress, [0, 1], [1, 1.05]);
 
   return (
-    <div ref={wrapperRef} className="relative h-[220vh] bg-card">
+    <div ref={wrapperRef} className="relative h-[150vh] bg-card">
       <div className="sticky top-0 flex min-h-screen items-center overflow-hidden py-20">
         <div className="container-x grid w-full items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
