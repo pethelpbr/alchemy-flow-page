@@ -148,7 +148,7 @@ function StickyResults() {
               </h2>
             </Reveal>
 
-            <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/40 py-1 pl-8 sm:mt-12 sm:pl-10">
+            <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
               {timeline.map((item, index) => (
                 <ScrollStep
                   key={item.label}
@@ -179,7 +179,7 @@ function StaticResults() {
             </h2>
           </Reveal>
 
-          <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/40 py-1 pl-8 sm:mt-12 sm:pl-10">
+          <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
             {timeline.map((item, index) => (
               <Reveal key={item.label} delay={index * 0.08}>
                 <StepItem item={item} />
