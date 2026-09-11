@@ -45,7 +45,7 @@ export function HeroSection({
         </motion.div>
 
         <motion.div
-          className="lg:pb-[38vh]"
+          className="lg:pb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
