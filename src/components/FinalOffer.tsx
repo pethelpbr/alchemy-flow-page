@@ -15,8 +15,8 @@ export function FinalOffer({
 }) {
   return (
     <section className="section bg-sand/60">
-      <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-        <Reveal>
+      <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+        <Reveal className="self-start">
           <img
             src={productHero}
             alt="Pote do suplemento Daily Greens"
