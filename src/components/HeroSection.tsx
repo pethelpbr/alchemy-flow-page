@@ -1,11 +1,5 @@
-import { useRef, useState } from "react";
-import {
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import type { Variant } from "@/lib/product";
 import { ProductGallery } from "@/components/ProductGallery";
 import { PricingCard } from "@/components/PricingCard";
@@ -30,17 +24,6 @@ export function HeroSection({
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.07]);
 
-  const [scrollIdx, setScrollIdx] = useState(0);
-  const [manualIdx, setManualIdx] = useState<number | null>(null);
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (reduced) return;
-    setScrollIdx(Math.min(3, Math.floor(v * 4)));
-    setManualIdx(null);
-  });
-
-  const active = manualIdx ?? scrollIdx;
-
   return (
     <section
       ref={sectionRef}
@@ -58,11 +41,7 @@ export function HeroSection({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <ProductGallery
-            activeIndex={reduced ? undefined : active}
-            onSelect={(i) => setManualIdx(i)}
-            scale={reduced ? undefined : scale}
-          />
+          <ProductGallery autoplay={!reduced} scale={reduced ? undefined : scale} />
         </motion.div>
 
         <motion.div
