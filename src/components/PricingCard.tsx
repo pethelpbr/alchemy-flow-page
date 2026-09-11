@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { ShieldCheck, Truck, RefreshCw, Lock } from "lucide-react";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
+import { KitBooster, addonsTotal } from "@/components/KitBooster";
 
 const seals = [
   { icon: Lock, label: "Compra segura" },
