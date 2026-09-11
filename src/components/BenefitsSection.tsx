@@ -3,7 +3,6 @@ import {
   motion,
   useReducedMotion,
   useScroll,
-  useSpring,
   useTransform,
   type MotionValue,
 } from "motion/react";
@@ -64,13 +63,17 @@ function ScrollCard({
   range: [number, number];
 }) {
   const [start, end] = range;
-  const opacity = useTransform(progress, [start, end], [0, 1]);
-  const y = useTransform(progress, [start, end], [24, 0]);
-  const blur = useTransform(progress, [start, end], [4, 0]);
-  const filter = useTransform(blur, (v) => `blur(${v}px)`);
+  const eased = (v: number) => {
+    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
+    return 1 - Math.pow(1 - t, 3);
+  };
+
+  const opacity = useTransform(progress, (v) => eased(v));
+  const y = useTransform(progress, (v) => 12 * (1 - eased(v)));
+  const scale = useTransform(progress, (v) => 0.98 + 0.02 * eased(v));
 
   return (
-    <motion.div style={{ opacity, y, filter }}>
+    <motion.div style={{ opacity, y, scale }}>
       <BenefitCard b={b} />
     </motion.div>
   );
@@ -78,14 +81,9 @@ function ScrollCard({
 
 function StickyBenefits() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress: progress } = useScroll({
     target: wrapperRef,
     offset: ["start start", "end end"],
-  });
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 55,
-    damping: 26,
-    mass: 0.6,
   });
 
   const scale = useTransform(progress, [0, 1], [1, 1.08]);
