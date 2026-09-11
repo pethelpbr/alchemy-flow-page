@@ -9,7 +9,6 @@ import { IngredientsSection } from "@/components/IngredientsSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { HowToUse } from "@/components/HowToUse";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
-import { GallerySection } from "@/components/GallerySection";
 import { FinalOffer } from "@/components/FinalOffer";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { StickyMobileBuy } from "@/components/StickyMobileBuy";
