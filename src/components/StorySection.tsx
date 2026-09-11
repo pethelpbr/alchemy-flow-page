@@ -29,7 +29,7 @@ export function StorySection() {
               Nem sempre conseguimos manter uma rotina perfeita.
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              <span className="font-accent text-lg text-ink">Entre trabalho, deslocamento e vida pessoal,</span>{" "}
+              <span className="font-sans text-lg font-medium text-ink">Entre trabalho, deslocamento e vida pessoal,</span>{" "}
               a nutrição costuma ser a primeira coisa
               a ficar para depois. Criamos uma fórmula prática para facilitar seu dia — sem
               preparo, sem complicação, sem excesso de potes na bancada.
