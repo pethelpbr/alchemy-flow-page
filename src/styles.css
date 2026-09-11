@@ -69,6 +69,7 @@
   --color-clay: var(--clay);
   --color-gold: var(--gold);
   --color-ink: var(--ink);
+  --color-terracotta: var(--terracotta);
 }
 
 :root {
