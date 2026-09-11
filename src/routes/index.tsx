@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { StorySection } from "@/components/StorySection";
+import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { IngredientsSection } from "@/components/IngredientsSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { HowToUse } from "@/components/HowToUse";
@@ -48,6 +49,7 @@ function Index() {
         <BenefitsSection />
         <RoutineResultsSection />
         <StorySection />
+        <FormulaTechSection />
         <IngredientsSection />
         <ComparisonSection />
         <HowToUse />
