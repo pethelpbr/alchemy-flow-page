@@ -1,24 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Header } from "@/components/Header";
+import { HeroSection } from "@/components/HeroSection";
+import { BenefitsSection } from "@/components/BenefitsSection";
+import { StorySection } from "@/components/StorySection";
+import { IngredientsSection } from "@/components/IngredientsSection";
+import { ComparisonSection } from "@/components/ComparisonSection";
+import { HowToUse } from "@/components/HowToUse";
+import { ReviewsCarousel } from "@/components/ReviewsCarousel";
+import { GallerySection } from "@/components/GallerySection";
+import { FinalOffer } from "@/components/FinalOffer";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { StickyMobileBuy } from "@/components/StickyMobileBuy";
+import { Footer } from "@/components/Footer";
+import { useCart } from "@/lib/use-cart";
+
+const title = "Nutraflow Daily Greens | Suplemento diário premium";
+const description =
+  "Fórmula premium de dose única: energia e equilíbrio em um ritual de 30 segundos. Kits com até 48% off, 30 dias de garantia e envio rápido.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "product" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const { selected, setSelected, checkout } = useCart();
+
+  const goToOffer = () => {
+    document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Header onBuy={goToOffer} />
+      <main>
+        <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <BenefitsSection />
+        <StorySection />
+        <IngredientsSection />
+        <ComparisonSection />
+        <HowToUse />
+        <ReviewsCarousel />
+        <GallerySection />
+        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <FAQAccordion />
+      </main>
+      <Footer />
+      <StickyMobileBuy selected={selected} onBuy={goToOffer} />
     </div>
   );
 }
