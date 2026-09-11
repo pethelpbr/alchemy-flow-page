@@ -20,12 +20,18 @@ const timeline = [
 
 type Step = (typeof timeline)[number];
 
-const ranges: [number, number][] = [
-  [0.05, 0.2],
-  [0.13, 0.28],
-  [0.21, 0.36],
-  [0.29, 0.44],
+// Cada item entra suavemente em uma faixa do scroll, fica visível,
+// e sai da mesma forma quando o usuário rola para cima.
+const RANGES: [number, number][] = [
+  [0.0, 0.13],
+  [0.1, 0.23],
+  [0.2, 0.33],
+  [0.3, 0.43],
 ];
+
+function smoothstep(t: number) {
+  return t * t * (3 - 2 * t);
+}
 
 function StepItem({ item }: { item: Step }) {
   return (
@@ -49,14 +55,13 @@ function ScrollStep({
   range: [number, number];
 }) {
   const [start, end] = range;
-  const eased = (v: number) => {
-    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
-    return 1 - Math.pow(1 - t, 3);
-  };
 
-  const opacity = useTransform(progress, (v) => eased(v));
-  const y = useTransform(progress, (v) => 12 * (1 - eased(v)));
-  const scale = useTransform(progress, (v) => 0.98 + 0.02 * eased(v));
+  const opacity = useTransform(progress, (v) => {
+    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
+    return smoothstep(t);
+  });
+  const y = useTransform(opacity, (o) => 10 * (1 - o));
+  const scale = useTransform(opacity, (o) => 1 - 0.015 * (1 - o));
 
   return (
     <motion.div style={{ opacity, y, scale }}>
@@ -128,7 +133,7 @@ function StickyResults() {
                   key={item.label}
                   item={item}
                   progress={progress}
-                  range={ranges[index]!}
+                  range={RANGES[index]!}
                 />
               ))}
             </ol>
