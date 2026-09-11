@@ -18,9 +18,9 @@ export function ProductGallery({
   onSelect,
   scale,
 }: {
-  activeIndex?: number;
-  onSelect?: (index: number) => void;
-  scale?: MotionValue<number>;
+  activeIndex?: number | undefined;
+  onSelect?: ((index: number) => void) | undefined;
+  scale?: MotionValue<number> | undefined;
 }) {
   const [internal, setInternal] = useState(0);
   const active = activeIndex ?? internal;
