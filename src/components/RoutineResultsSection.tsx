@@ -20,12 +20,21 @@ const timeline = [
 
 type Step = (typeof timeline)[number];
 
-const ranges: [number, number][] = [
-  [0.05, 0.2],
-  [0.13, 0.28],
-  [0.21, 0.36],
-  [0.29, 0.44],
-];
+// Cada passo brilha em um ponto do scroll e suaviza nos pontos vizinhos.
+// Ao subir, o destaque retorna na direção contrária — nenhum texto "some".
+const PEAKS = [0.12, 0.34, 0.56, 0.78];
+const HALF_WIDTHS = [0.18, 0.18, 0.18, 0.18];
+const MIN_OPACITY = 0.35;
+
+function smoothstep(t: number) {
+  return t * t * (3 - 2 * t);
+}
+
+function spotlightIntensity(progress: number, peak: number, halfW: number) {
+  const dist = Math.abs(progress - peak) / halfW;
+  const t = Math.max(0, Math.min(1, dist));
+  return 1 - smoothstep(t);
+}
 
 function StepItem({ item }: { item: Step }) {
   return (
@@ -42,21 +51,24 @@ function StepItem({ item }: { item: Step }) {
 function ScrollStep({
   item,
   progress,
-  range,
+  peak,
+  halfW,
 }: {
   item: Step;
   progress: MotionValue<number>;
-  range: [number, number];
+  peak: number;
+  halfW: number;
 }) {
-  const [start, end] = range;
-  const eased = (v: number) => {
-    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
-    return 1 - Math.pow(1 - t, 3);
-  };
+  const intensity = useTransform(progress, (v) =>
+    spotlightIntensity(v, peak, halfW)
+  );
 
-  const opacity = useTransform(progress, (v) => eased(v));
-  const y = useTransform(progress, (v) => 12 * (1 - eased(v)));
-  const scale = useTransform(progress, (v) => 0.98 + 0.02 * eased(v));
+  const opacity = useTransform(
+    intensity,
+    (i) => MIN_OPACITY + (1 - MIN_OPACITY) * i
+  );
+  const y = useTransform(intensity, (i) => 10 * (1 - i));
+  const scale = useTransform(intensity, (i) => 1 - 0.015 * (1 - i));
 
   return (
     <motion.div style={{ opacity, y, scale }}>
@@ -128,7 +140,8 @@ function StickyResults() {
                   key={item.label}
                   item={item}
                   progress={progress}
-                  range={ranges[index]!}
+                  peak={PEAKS[index]!}
+                  halfW={HALF_WIDTHS[index]!}
                 />
               ))}
             </ol>
