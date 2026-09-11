@@ -39,6 +39,21 @@ export function ReviewsCarousel() {
   const move = (dir: number) =>
     setIndex((i) => (i + dir + reviews.length) % reviews.length);
 
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    const measure = () => {
+      const card = trackRef.current?.firstElementChild as HTMLElement | undefined;
+      if (!card) return;
+      setStep(card.offsetWidth + 20);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+
   return (
     <section id="avaliacoes" className="section scroll-mt-24 bg-sand/60">
       <div className="container-x">
