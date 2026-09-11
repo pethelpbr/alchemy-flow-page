@@ -4,6 +4,30 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Fields";
+  src: url("/__l5e/assets-v1/06c7c8a6-0906-41ce-a991-7985aeb7ed9e/Fields.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Firula Test";
+  src: url("/__l5e/assets-v1/61ded521-bf60-452f-b434-e1ad596af2b4/FirulaTest-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gabarito";
+  src: url("/__l5e/assets-v1/da37ea5b-878f-413e-b72a-1e86bd712e77/Gabarito-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
 /*
  * NUTRAFLOW — design system
  * Clean beauty / premium supplement. Ivory + deep olive + soft gold.
@@ -18,8 +42,9 @@
   --radius-3xl: calc(var(--radius) + 24px);
   --radius-4xl: calc(var(--radius) + 40px);
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fields", Georgia, serif;
+  --font-sans: "Gabarito", ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "Firula Test", "Fields", Georgia, serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -91,11 +116,10 @@
 
   h1,
   h2,
-  h3,
-  blockquote {
+  h2 {
     font-family: var(--font-display);
-    font-weight: 300;
-    letter-spacing: -0.015em;
+    font-weight: 700;
+    letter-spacing: 0;
   }
 }
 
