@@ -66,6 +66,12 @@ export function ComparisonSection() {
                   </div>
                 </div>
               ))}
+              {/* Bottom cap of the brand card */}
+              <div className="grid grid-cols-[1fr_auto_1fr] items-stretch sm:grid-cols-[1.2fr_0.9fr_1.2fr]">
+                <div />
+                <div className="rounded-b-3xl bg-background py-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
+                <div />
+              </div>
             </div>
           </div>
         </Reveal>
