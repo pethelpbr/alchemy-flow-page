@@ -117,7 +117,7 @@ export function ActivesCarousel() {
                     draggable={false}
                     className="aspect-[3/4] w-full object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 flex h-[30%] flex-col justify-start gap-2 bg-primary-foreground/10 px-5 py-4 backdrop-blur-md">
+                  <div className="absolute inset-x-0 bottom-0 flex h-[36%] flex-col justify-between bg-primary-foreground/10 px-5 py-5 backdrop-blur-md">
                     <h3 className="font-display text-[13px] tracking-[0.14em] text-primary-foreground uppercase">
                       {active.name}
                     </h3>
