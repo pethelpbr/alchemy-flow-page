@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
@@ -76,8 +76,9 @@ export function ReviewsCarousel() {
 
         <div className="mt-12 overflow-hidden">
           <motion.div
+            ref={trackRef}
             className="flex gap-5"
-            animate={{ x: `calc(${-index} * (100% / 1))` }}
+            animate={{ x: -index * step }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             {reviews.map((r) => (
