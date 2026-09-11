@@ -61,6 +61,21 @@ export const variants: Variant[] = [
 export const brl = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
+export type Addon = {
+  id: string;
+  name: string;
+  price: number;
+  fullPrice: number;
+  image: string;
+};
+
+/** Produtos complementares exibidos no bloco "Turbine seu kit". */
+export const addonCatalog: Omit<Addon, "image">[] = [
+  { id: "collagen", name: "Colágeno Hidrolisado Premium", price: 49.9, fullPrice: 129.9 },
+  { id: "omega", name: "Ômega 3 Ultra", price: 39.9, fullPrice: 99.9 },
+  { id: "vitc", name: "Vitamina C Efervescente", price: 29.9, fullPrice: 79.9 },
+];
+
 export function variantTotals(variant: Variant) {
   const total = variant.unitPrice * variant.units;
   const oldTotal = variant.fullPrice * variant.units;
