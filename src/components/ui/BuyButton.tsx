@@ -21,7 +21,7 @@ export function BuyButton({
         size === "md" && "px-7 py-3.5 text-sm uppercase tracking-[0.16em]",
         size === "lg" && "w-full px-8 py-5 text-sm uppercase tracking-[0.2em]",
         variant === "solid" &&
-          "bg-primary text-primary-foreground shadow-card hover:bg-ink hover:shadow-soft",
+          "bg-primary text-primary-foreground shadow-card hover:bg-terracotta hover:shadow-soft",
         variant === "outline" &&
           "border border-primary/30 text-primary hover:border-primary hover:bg-primary/5",
         variant === "ghost" && "text-primary hover:opacity-70",

@@ -54,7 +54,7 @@ export function IngredientsSection() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {it.description}
                   </p>
-                  <p className="mt-5 border-t border-border pt-4 text-sm text-primary">
+                  <p className="mt-5 border-t border-border pt-4 text-sm text-secondary">
                     {it.benefit}
                   </p>
                 </div>
