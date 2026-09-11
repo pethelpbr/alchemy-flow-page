@@ -117,11 +117,12 @@ export function ActivesCarousel() {
                     draggable={false}
                     className="aspect-[4/5] w-full object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent p-5 pt-14">
-                    <h3 className="font-display text-sm tracking-[0.12em] text-primary-foreground uppercase">
+                  <div className="absolute inset-x-0 bottom-0 flex min-h-[42%] flex-col justify-end bg-foreground/55 p-5 pt-10 backdrop-blur-md">
+                    <div className="absolute inset-x-0 top-0 h-12 -translate-y-1/2 bg-gradient-to-t from-foreground/55 to-transparent" />
+                    <h3 className="relative font-display text-sm tracking-[0.12em] text-primary-foreground uppercase">
                       {active.name}
                     </h3>
-                    <p className="mt-2 text-[13px] leading-relaxed text-primary-foreground/85">
+                    <p className="relative mt-2 text-[13px] leading-relaxed text-primary-foreground/90">
                       {active.description}
                     </p>
                   </div>
