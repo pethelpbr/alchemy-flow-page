@@ -52,7 +52,6 @@ function Index() {
         <ComparisonSection />
         <HowToUse />
         <ReviewsCarousel />
-        <GallerySection />
         <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
         <FAQAccordion />
       </main>
