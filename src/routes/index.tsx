@@ -6,7 +6,7 @@ import { BenefitsSection } from "@/components/BenefitsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { StorySection } from "@/components/StorySection";
 import { FormulaTechSection } from "@/components/FormulaTechSection";
-import { IngredientsSection } from "@/components/IngredientsSection";
+
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
@@ -51,7 +51,6 @@ function Index() {
         <RoutineResultsSection />
         <StorySection />
         <FormulaTechSection />
-        <IngredientsSection />
         <ComparisonSection />
         <HowToUse />
         <ActivesCarousel />
