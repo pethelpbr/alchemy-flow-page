@@ -14,7 +14,7 @@ const shots = [
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
 ];
 
-const AUTO_INTERVAL = 7000;
+const AUTO_INTERVAL = 5000;
 
 export function ProductGallery({
   activeIndex,
