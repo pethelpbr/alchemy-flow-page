@@ -1,11 +1,19 @@
-import { useRef } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { CarouselApi } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 import activeGreentea from "@/assets/active-greentea.jpg";
 import activeCreatine from "@/assets/active-creatine.jpg";
 import activeOrange from "@/assets/active-orange.jpg";
 import activeGreencoffee from "@/assets/active-greencoffee.jpg";
 import activeGinger from "@/assets/active-ginger.jpg";
 import activeGuarana from "@/assets/active-guarana.jpg";
+import activesBackground from "@/assets/actives-background-clean.jpg";
 
 const actives = [
   {
@@ -47,73 +55,108 @@ const actives = [
 ];
 
 export function ActivesCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const scrollBy = (dir: 1 | -1) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.querySelector<HTMLElement>("[data-card]");
-    const step = card ? card.offsetWidth + 16 : 320;
-    track.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
+  const updateSelected = useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setSelectedIndex(carouselApi.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+    updateSelected(api);
+    api.on("select", updateSelected);
+    api.on("reInit", updateSelected);
+
+    return () => {
+      api.off("select", updateSelected);
+      api.off("reInit", updateSelected);
+    };
+  }, [api, updateSelected]);
 
   return (
-    <section className="bg-[#241d16] py-16 sm:py-24">
+    <section className="relative isolate overflow-hidden bg-foreground py-16 sm:py-24">
+      <img
+        src={activesBackground}
+        alt=""
+        loading="lazy"
+        width={1920}
+        height={1080}
+        className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover"
+      />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-foreground/75" />
+
       <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl tracking-wide text-white sm:text-4xl">
+          <h2 className="font-display text-3xl tracking-wide text-primary-foreground sm:text-4xl">
             ATIVOS QUE VIRAM CUIDADO
           </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-white/70">
+          <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/75">
             Cada ingrediente tem uma função na fórmula, sem excesso e sem enrolação.
           </p>
         </div>
 
-        <div
-          ref={trackRef}
-          className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        <Carousel
+          setApi={setApi}
+          opts={{ loop: true, align: "start", dragFree: false }}
+          aria-label="Ativos da fórmula"
+          className="mt-12 cursor-grab select-none active:cursor-grabbing"
         >
-          {actives.map((a) => (
-            <article
-              key={a.name}
-              data-card
-              className="relative w-[260px] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[300px]"
-            >
-              <img
-                src={a.image}
-                alt={a.name}
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 pt-14">
-                <h3 className="font-display text-sm tracking-[0.12em] text-white uppercase">
-                  {a.name}
-                </h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-white/85">
-                  {a.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+          <CarouselContent className="touch-pan-y">
+            {actives.map((active) => (
+              <CarouselItem
+                key={active.name}
+                className="basis-[76%] sm:basis-[46%] lg:basis-[28%] xl:basis-1/4"
+              >
+                <article className="relative overflow-hidden rounded-3xl">
+                  <img
+                    src={active.image}
+                    alt={active.name}
+                    loading="lazy"
+                    draggable={false}
+                    className="aspect-[4/5] w-full object-cover"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent p-5 pt-14">
+                    <h3 className="font-display text-sm tracking-[0.12em] text-primary-foreground uppercase">
+                      {active.name}
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-relaxed text-primary-foreground/85">
+                      {active.description}
+                    </p>
+                  </div>
+                </article>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
 
-        <div className="mt-8 flex justify-end gap-3">
-          <button
+        <div className="mt-8 flex items-center justify-between gap-4">
+          <p className="text-xs text-primary-foreground/60" aria-live="polite">
+            {String(selectedIndex + 1).padStart(2, "0")} / {String(actives.length).padStart(2, "0")}
+          </p>
+          <div className="flex gap-3">
+          <Button
             type="button"
-            onClick={() => scrollBy(-1)}
+            variant="ghost"
+            size="icon"
+            onClick={() => api?.scrollPrev()}
             aria-label="Anterior"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
+            className="h-11 w-11 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
           >
             <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
-            onClick={() => scrollBy(1)}
+            variant="secondary"
+            size="icon"
+            onClick={() => api?.scrollNext()}
             aria-label="Próximo"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#241d16] transition-colors hover:bg-white/85"
+            className="h-11 w-11 rounded-full bg-card text-foreground hover:bg-card/85"
           >
             <ChevronRight className="h-5 w-5" />
-          </button>
+          </Button>
+          </div>
         </div>
       </div>
     </section>
