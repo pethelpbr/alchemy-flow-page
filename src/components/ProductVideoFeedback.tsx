@@ -169,11 +169,11 @@ export function ProductVideoFeedback() {
       {/* Desktop: vídeos fixados à esquerda, accordions rolam à direita */}
       <div className="hidden md:grid md:grid-cols-2 md:gap-8 md:items-start">
         <div className="sticky top-28 self-start">
-          <Thumbnails className="mt-4 grid-cols-2" onSelect={setSelectedVideo} />
+          <Thumbnails className="mt-4 grid-cols-4" onSelect={setSelectedVideo} />
           <IngredientsButton />
         </div>
 
-        <div className="flex min-h-[420px] flex-col justify-between">
+        <div className="flex min-h-[260px] flex-col justify-between">
           <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
         </div>
       </div>
