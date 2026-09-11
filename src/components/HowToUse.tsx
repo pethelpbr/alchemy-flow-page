@@ -9,13 +9,6 @@ const steps = [
   { n: "03", title: "Consuma", text: "Beba pela manhã, antes ou depois do café.", image: galleryDrink },
 ];
 
-const timeline = [
-  { label: "Primeiro uso", text: "Sabor e textura reconhecidos na primeira dose." },
-  { label: "Adaptação", text: "O ritual encontra um horário fixo no seu dia." },
-  { label: "Uso contínuo", text: "A dose diária deixa de exigir lembrete." },
-  { label: "Novo hábito", text: "O ritual passa a fazer parte da rotina." },
-];
-
 export function HowToUse() {
   return (
     <section id="como-usar" className="section scroll-mt-24">
@@ -49,26 +42,6 @@ export function HowToUse() {
           ))}
         </div>
 
-        <div className="mt-24 grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-20">
-          <Reveal>
-            <p className="eyebrow">Resultado na rotina</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight text-ink">
-              O que muda ao longo das semanas
-            </h2>
-          </Reveal>
-
-          <ol className="relative border-l border-border pl-8">
-            {timeline.map((t, i) => (
-              <Reveal key={t.label} delay={i * 0.08}>
-                <li className="relative pb-10 last:pb-0">
-                  <span className="absolute -left-[2.31rem] top-1.5 h-2 w-2 rounded-full bg-primary" />
-                  <h3 className="text-xl text-ink">{t.label}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
       </div>
     </section>
   );
