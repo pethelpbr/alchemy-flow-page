@@ -34,7 +34,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
-          ? "border-b border-border/70 bg-background/85 backdrop-blur-xl"
+          ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
