@@ -11,7 +11,7 @@ export function FormulaTechSection() {
   return (
     <section id="tecnologia" className="section scroll-mt-24">
       <div className="container-x">
-        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-primary">O que tem dentro de cada dose</p>
             <h2 className="mt-3 max-w-md font-display text-4xl leading-tight text-ink sm:text-5xl">
@@ -36,14 +36,14 @@ export function FormulaTechSection() {
             </p>
           </div>
 
-          <div>
+          <div className="h-full min-h-0">
             <img
               src={formulaIngredients}
               alt="Ingredientes da fórmula Nutraflow em pequenos recipientes de vidro"
               loading="lazy"
               width={1200}
               height={800}
-              className="aspect-[3/2] w-full rounded-3xl object-cover shadow-soft"
+              className="h-full w-full rounded-3xl object-cover shadow-soft"
             />
           </div>
         </div>
