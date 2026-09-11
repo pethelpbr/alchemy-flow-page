@@ -12,10 +12,26 @@ import lifestyle from "@/assets/lifestyle-1.jpg";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
 const timeline = [
-  { label: "Primeiro uso", text: "Sabor e textura reconhecidos na primeira dose." },
-  { label: "Adaptação", text: "O ritual encontra um horário fixo no seu dia." },
-  { label: "Uso contínuo", text: "A dose diária deixa de exigir lembrete." },
-  { label: "Novo hábito", text: "O ritual passa a fazer parte da rotina." },
+  {
+    badge: "1ª semana",
+    label: "A rotina começa",
+    text: "Uma dose todos os dias, com ou sem treino. O primeiro passo é criar o hábito.",
+  },
+  {
+    badge: "4ª semana",
+    label: "A rotina se consolida",
+    text: "Com o uso diário, a fórmula passa a acompanhar naturalmente o seu dia.",
+  },
+  {
+    badge: "8ª semana",
+    label: "Mais ritmo na rotina",
+    text: "Com o ritual incorporado ao dia a dia, fica mais fácil manter a regularidade.",
+  },
+  {
+    badge: "12ª semana",
+    label: "Constância que acompanha a evolução",
+    text: "Rotina, alimentação e cuidado trabalhando juntos, dia após dia, de forma consistente.",
+  },
 ];
 
 type Step = (typeof timeline)[number];
