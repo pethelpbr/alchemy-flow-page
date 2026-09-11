@@ -43,7 +43,7 @@ export function ProductGallery({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          style={scale ? { scale } : undefined}
+          style={{ ...(scale ? { scale } : {}) }}
           className="aspect-[4/5] w-full object-cover"
         />
       </div>
