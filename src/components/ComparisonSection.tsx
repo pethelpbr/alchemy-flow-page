@@ -51,9 +51,9 @@ export function ComparisonSection() {
               {rows.map((row) => (
                 <div
                   key={row.feature}
-                  className="grid grid-cols-[1fr_auto_1fr] items-stretch border-t border-background/15 sm:grid-cols-[1.2fr_0.9fr_1.2fr]"
+                  className="grid grid-cols-[1fr_auto_1fr] items-stretch sm:grid-cols-[1.2fr_0.9fr_1.2fr]"
                 >
-                  <div className="flex items-center bg-ink/40 px-4 py-4 backdrop-blur-sm sm:px-7 sm:py-5">
+                  <div className="flex items-center border-b border-background/15 bg-ink/40 px-4 py-4 backdrop-blur-sm last:border-b-0 sm:px-7 sm:py-5">
                     <p className="text-xs font-medium text-background sm:text-base">{row.feature}</p>
                   </div>
                   <div className="flex items-center justify-center bg-background px-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)] sm:px-8">
@@ -61,7 +61,7 @@ export function ComparisonSection() {
                       <Check size={15} strokeWidth={3} className="text-primary-foreground" />
                     </span>
                   </div>
-                  <div className="flex items-center justify-center bg-ink/40 px-3 py-4 text-center backdrop-blur-sm sm:px-6 sm:py-5">
+                  <div className="flex items-center justify-center border-b border-background/15 bg-ink/40 px-3 py-4 text-center backdrop-blur-sm last:border-b-0 sm:px-6 sm:py-5">
                     <p className="text-[11px] text-background/75 sm:text-sm">{row.common}</p>
                   </div>
                 </div>
