@@ -65,8 +65,8 @@ function ScrollCard({
 }) {
   const [start, end] = range;
   const opacity = useTransform(progress, [start, end], [0, 1]);
-  const y = useTransform(progress, [start, end], [56, 0]);
-  const blur = useTransform(progress, [start, end], [10, 0]);
+  const y = useTransform(progress, [start, end], [24, 0]);
+  const blur = useTransform(progress, [start, end], [4, 0]);
   const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   return (
@@ -83,9 +83,9 @@ function StickyBenefits() {
     offset: ["start start", "end end"],
   });
   const progress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 28,
-    mass: 0.4,
+    stiffness: 55,
+    damping: 26,
+    mass: 0.6,
   });
 
   const scale = useTransform(progress, [0, 1], [1, 1.08]);
