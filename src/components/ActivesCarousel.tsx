@@ -109,26 +109,24 @@ export function ActivesCarousel() {
                 key={active.name}
                 className="basis-[76%] sm:basis-[46%] lg:basis-[28%] xl:basis-1/4"
               >
-                <article className="relative overflow-hidden rounded-3xl">
+                <article className="relative overflow-hidden rounded-2xl">
                   <img
                     src={active.image}
                     alt={active.name}
                     loading="lazy"
                     draggable={false}
-                    className="aspect-[4/5] w-full object-cover"
+                    className="aspect-[3/4] w-full object-cover"
                   />
-                  <div className="absolute inset-x-0 bottom-0 flex h-[46%] flex-col justify-end border-t border-primary-foreground/15 bg-foreground/60 p-5 pt-10 backdrop-blur-xl">
-                    <div className="pointer-events-none absolute inset-x-0 top-0 h-10 -translate-y-full bg-gradient-to-t from-foreground/40 to-transparent" />
-                    <div className="relative flex h-full flex-col justify-end">
-                      <h3 className="font-display text-sm tracking-[0.12em] text-primary-foreground uppercase">
-                        {active.name}
-                      </h3>
-                      <p className="mt-2 line-clamp-4 text-[13px] leading-relaxed text-primary-foreground/90">
-                        {active.description}
-                      </p>
-                    </div>
+                  <div className="absolute inset-x-0 bottom-0 flex h-[30%] flex-col justify-start gap-2 bg-primary-foreground/10 px-5 py-4 backdrop-blur-md">
+                    <h3 className="font-display text-[13px] tracking-[0.14em] text-primary-foreground uppercase">
+                      {active.name}
+                    </h3>
+                    <p className="line-clamp-3 text-[13px] leading-snug text-primary-foreground/90">
+                      {active.description}
+                    </p>
                   </div>
                 </article>
+
               </CarouselItem>
             ))}
           </CarouselContent>
