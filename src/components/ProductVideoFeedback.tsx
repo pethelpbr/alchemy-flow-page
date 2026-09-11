@@ -107,12 +107,8 @@ function DetailsAccordion({
       {details.map((detail, index) => {
         const isOpen = openDetail === index;
         return (
-          <motion.div
+          <div
             key={detail.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
             className="border-b border-border last:border-b-0"
           >
             <Button
