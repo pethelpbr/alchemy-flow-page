@@ -20,20 +20,17 @@ const timeline = [
 
 type Step = (typeof timeline)[number];
 
-// Cada passo brilha em um ponto do scroll e suaviza nos pontos vizinhos.
-// Ao subir, o destaque retorna na direção contrária — nenhum texto "some".
-const PEAKS = [0.12, 0.34, 0.56, 0.78];
-const HALF_WIDTHS = [0.18, 0.18, 0.18, 0.18];
-const MIN_OPACITY = 0.35;
+// Cada item entra suavemente em uma faixa do scroll, fica visível,
+// e sai da mesma forma quando o usuário rola para cima.
+const RANGES: [number, number][] = [
+  [0.0, 0.13],
+  [0.1, 0.23],
+  [0.2, 0.33],
+  [0.3, 0.43],
+];
 
 function smoothstep(t: number) {
   return t * t * (3 - 2 * t);
-}
-
-function spotlightIntensity(progress: number, peak: number, halfW: number) {
-  const dist = Math.abs(progress - peak) / halfW;
-  const t = Math.max(0, Math.min(1, dist));
-  return 1 - smoothstep(t);
 }
 
 function StepItem({ item }: { item: Step }) {
@@ -51,24 +48,20 @@ function StepItem({ item }: { item: Step }) {
 function ScrollStep({
   item,
   progress,
-  peak,
-  halfW,
+  range,
 }: {
   item: Step;
   progress: MotionValue<number>;
-  peak: number;
-  halfW: number;
+  range: [number, number];
 }) {
-  const intensity = useTransform(progress, (v) =>
-    spotlightIntensity(v, peak, halfW)
-  );
+  const [start, end] = range;
 
-  const opacity = useTransform(
-    intensity,
-    (i) => MIN_OPACITY + (1 - MIN_OPACITY) * i
-  );
-  const y = useTransform(intensity, (i) => 10 * (1 - i));
-  const scale = useTransform(intensity, (i) => 1 - 0.015 * (1 - i));
+  const opacity = useTransform(progress, (v) => {
+    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
+    return smoothstep(t);
+  });
+  const y = useTransform(opacity, (o) => 10 * (1 - o));
+  const scale = useTransform(opacity, (o) => 1 - 0.015 * (1 - o));
 
   return (
     <motion.div style={{ opacity, y, scale }}>
