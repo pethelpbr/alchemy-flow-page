@@ -1,5 +1,6 @@
 import { Zap, HeartPulse, Brain, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import benefitsBg from "@/assets/benefits-bg.jpg";
 
 const benefits = [
   {
@@ -26,22 +27,32 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section id="beneficios" className="section scroll-mt-24">
-      <div className="container-x">
-        <Reveal className="max-w-2xl">
-          <p className="eyebrow">Benefícios</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+    <section id="beneficios" className="relative scroll-mt-24 overflow-hidden">
+      <img
+        src={benefitsBg}
+        alt="Nutraflow Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"
+        loading="lazy"
+        width={1920}
+        height={1088}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.18_0.02_60/0.92)_0%,oklch(0.18_0.02_60/0.55)_45%,oklch(0.18_0.02_60/0.35)_100%)]" />
+
+      <div className="container-x relative flex min-h-[42rem] flex-col justify-between gap-16 py-20 md:min-h-[46rem] md:py-28">
+        <Reveal className="max-w-xl">
+          <p className="eyebrow text-primary">Benefícios</p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-card sm:text-5xl lg:text-6xl">
             Por que esse produto virou parte da rotina?
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b, i) => (
             <Reveal key={b.title} delay={i * 0.08}>
-              <article className="h-full rounded-3xl border border-border bg-card p-7 transition-shadow duration-500 hover:shadow-card">
-                <b.icon size={22} strokeWidth={1.2} className="text-primary" />
-                <h3 className="mt-6 text-xl text-ink">{b.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.text}</p>
+              <article className="h-full rounded-2xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-card/15">
+                <b.icon size={20} strokeWidth={1.4} className="text-primary" />
+                <h3 className="mt-5 text-sm tracking-[0.14em] text-card uppercase">{b.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-card/75">{b.text}</p>
               </article>
             </Reveal>
           ))}
