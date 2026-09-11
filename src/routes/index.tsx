@@ -53,6 +53,7 @@ function Index() {
         <FormulaTechSection />
         <IngredientsSection />
         <ComparisonSection />
+        <ActivesCarousel />
         <HowToUse />
         <ReviewsCarousel />
         <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
