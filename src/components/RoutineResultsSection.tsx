@@ -211,7 +211,7 @@ function MarqueeStrip() {
     <>
       {items.map((word) => (
         <span key={word} className="flex items-center gap-6 sm:gap-8">
-          <span className="whitespace-nowrap font-display text-sm font-medium uppercase tracking-[0.2em] text-white sm:text-base">
+          <span className="whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.22em] text-white sm:text-base">
             {word}
           </span>
           <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
