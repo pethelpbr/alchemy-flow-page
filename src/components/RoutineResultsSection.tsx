@@ -196,10 +196,59 @@ function StaticResults() {
   );
 }
 
+function MarqueeStrip() {
+  const items = [
+    "ENERGIA",
+    "FOCO",
+    "DISPOSIÇÃO",
+    "BEM-ESTAR",
+    "NUTRIÇÃO",
+    "EQUILÍBRIO",
+    "ROTINA",
+  ];
+
+  const content = (
+    <>
+      {items.map((word) => (
+        <span key={word} className="flex items-center gap-6 sm:gap-8">
+          <span className="whitespace-nowrap font-display text-sm font-medium uppercase tracking-[0.2em] text-white sm:text-base">
+            {word}
+          </span>
+          <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+        </span>
+      ))}
+    </>
+  );
+
+  return (
+    <div className="relative overflow-hidden bg-primary py-3 sm:py-4">
+      <motion.div
+        className="flex w-max items-center gap-6 sm:gap-8"
+        animate={{ x: [0, "-50%"] }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 22,
+            ease: "linear",
+          },
+        }}
+      >
+        {content}
+        {content}
+      </motion.div>
+    </div>
+  );
+}
+
 export function RoutineResultsSection() {
   const isMobile = useIsMobile();
   const reduced = useReducedMotion();
 
-  if (isMobile || reduced) return <StaticResults />;
-  return <StickyResults />;
+  return (
+    <>
+      {isMobile || reduced ? <StaticResults /> : <StickyResults />}
+      <MarqueeStrip />
+    </>
+  );
 }
