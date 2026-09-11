@@ -1,0 +1,70 @@
+import { Reveal } from "@/components/ui/Reveal";
+import lifestyle from "@/assets/lifestyle-1.jpg";
+import galleryDrink from "@/assets/gallery-drink.jpg";
+
+const timeline = [
+  { label: "Primeiro uso", text: "Sabor e textura reconhecidos na primeira dose." },
+  { label: "Adaptação", text: "O ritual encontra um horário fixo no seu dia." },
+  { label: "Uso contínuo", text: "A dose diária deixa de exigir lembrete." },
+  { label: "Novo hábito", text: "O ritual passa a fazer parte da rotina." },
+];
+
+export function RoutineResultsSection() {
+  return (
+    <section className="section overflow-hidden bg-card">
+      <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+        <div>
+          <Reveal>
+            <p className="eyebrow text-primary">Resultado na rotina</p>
+            <h2 className="mt-4 max-w-lg font-display text-4xl leading-tight text-ink sm:text-5xl">
+              O que muda ao longo das semanas
+            </h2>
+          </Reveal>
+
+          <ol className="relative mt-10 ml-2 border-l border-border py-1 pl-8 sm:mt-12 sm:pl-10">
+            {timeline.map((item, index) => (
+              <Reveal key={item.label} delay={index * 0.08}>
+                <li className="relative pb-9 last:pb-0 sm:pb-10">
+                  <span className="absolute -left-[2.38rem] top-1.5 h-3.5 w-3.5 rounded-full bg-primary ring-8 ring-card sm:-left-[2.62rem]" />
+                  <p className="text-lg font-semibold text-ink sm:text-xl">{item.label}</p>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+                    {item.text}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+
+        <Reveal className="relative mx-auto w-full max-w-xl">
+          <div className="relative aspect-4/5 w-full">
+            <div className="absolute top-0 right-0 h-4/5 w-4/5 overflow-hidden rounded-xl shadow-soft">
+              <img
+                src={lifestyle}
+                alt="Mulher preparando sua bebida Nutraflow durante a rotina"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="absolute bottom-0 left-0 h-[62%] w-[72%] overflow-hidden rounded-xl border-8 border-card shadow-card sm:border-[10px]">
+              <img
+                src={galleryDrink}
+                alt="Bebida Nutraflow pronta para consumo"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="absolute right-3 bottom-10 max-w-40 rounded-lg border border-border bg-card px-4 py-3 shadow-card sm:right-0 sm:max-w-48 sm:px-5 sm:py-4">
+              <p className="eyebrow text-primary">Uma dose por dia</p>
+              <p className="mt-1 font-accent text-lg leading-snug text-ink sm:text-xl">
+                Consistência que cabe na rotina
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

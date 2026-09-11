@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
+import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { StorySection } from "@/components/StorySection";
 import { IngredientsSection } from "@/components/IngredientsSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
@@ -46,6 +47,7 @@ function Index() {
       <main>
         <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} />
         <BenefitsSection />
+        <RoutineResultsSection />
         <StorySection />
         <IngredientsSection />
         <ComparisonSection />
