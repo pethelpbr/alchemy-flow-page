@@ -1,4 +1,11 @@
-import { motion } from "motion/react";
+import { useRef, useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import type { Variant } from "@/lib/product";
 import { ProductGallery } from "@/components/ProductGallery";
 import { PricingCard } from "@/components/PricingCard";
@@ -13,23 +20,53 @@ export function HeroSection({
   onSelect: (v: Variant) => void;
   onBuy: () => void;
 }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.07]);
+
+  const [scrollIdx, setScrollIdx] = useState(0);
+  const [manualIdx, setManualIdx] = useState<number | null>(null);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (reduced) return;
+    setScrollIdx(Math.min(3, Math.floor(v * 4)));
+    setManualIdx(null);
+  });
+
+  const active = manualIdx ?? scrollIdx;
+
   return (
-    <section id="topo" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-28">
+    <section
+      ref={sectionRef}
+      id="topo"
+      className="relative overflow-x-clip pt-28 pb-16 md:pt-36 md:pb-28"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-linear-to-b from-sand to-transparent"
       />
       <div className="container-x relative grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
         <motion.div
+          className="self-start lg:sticky lg:top-28"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <ProductGallery />
+          <ProductGallery
+            activeIndex={reduced ? undefined : active}
+            onSelect={(i) => setManualIdx(i)}
+            scale={reduced ? undefined : scale}
+          />
         </motion.div>
 
         <motion.div
-          className="lg:sticky lg:top-28"
+          className="lg:pb-[38vh]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
