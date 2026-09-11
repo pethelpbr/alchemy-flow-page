@@ -138,7 +138,7 @@ function DetailsAccordion({
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
+          </div>
         );
       })}
     </div>
