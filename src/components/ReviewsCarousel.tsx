@@ -131,18 +131,12 @@ export function ReviewsCarousel() {
     <section id="avaliacoes" className="section scroll-mt-24 bg-sand/60">
       <div className="container-x">
         <Reveal>
-          <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-            <div>
-              <p className="eyebrow">Avaliações</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                Quem já tornou isso um hábito
-              </h2>
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <span className="font-display text-3xl text-ink">4,9</span>
-                <Stars />
-                <span className="text-sm text-muted-foreground">2.418 avaliações verificadas</span>
-              </div>
-            </div>
+          <div>
+            <p className="eyebrow">Avaliações</p>
+            <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+              Quem já tornou isso um hábito
+            </h2>
+            <RatingBreakdown />
           </div>
         </Reveal>
 
