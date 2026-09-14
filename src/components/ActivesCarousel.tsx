@@ -149,11 +149,11 @@ export function ActivesCarousel() {
           </Button>
           <Button
             type="button"
-            variant="secondary"
+            variant="ghost"
             size="icon"
             onClick={() => api?.scrollNext()}
             aria-label="Próximo"
-            className="h-11 w-11 rounded-full bg-card text-foreground hover:bg-card/85"
+            className="h-11 w-11 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
           >
             <ChevronRight className="h-5 w-5" />
           </Button>
