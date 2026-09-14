@@ -51,7 +51,7 @@ export function HeroSection({
           transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="eyebrow">Fórmula diária · 30 doses</p>
-          <h1 className="mt-4 font-display text-[50px] leading-[1.05] text-ink sm:text-[50px]">
+          <h1 className="mt-4 font-display text-[40px] leading-[1.05] text-ink sm:text-[40px]">
             PataHelp - Hidratação,Cicatrização e Proteção 100% Natural
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
