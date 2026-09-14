@@ -122,13 +122,6 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
             loading="lazy"
             className="aspect-[3/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
-
-          <div className="absolute right-3 bottom-3 max-w-40 rounded-lg border border-border bg-card/95 px-4 py-3 shadow-card backdrop-blur-sm sm:right-4 sm:bottom-4 sm:max-w-48 sm:px-5 sm:py-4">
-            <p className="eyebrow text-primary">Uma dose por dia</p>
-            <p className="mt-1 font-accent text-base leading-snug text-ink sm:text-lg">
-              Consistência que cabe na rotina
-            </p>
-          </div>
         </div>
       </motion.div>
 
