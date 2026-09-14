@@ -52,7 +52,11 @@ export function HeroSection({
         >
           <p className="eyebrow">Fórmula diária · 30 doses</p>
           <h1 className="mt-4 font-display text-[2.6rem] leading-[1.05] text-ink sm:text-6xl">
-            PataHelp - Hidratação,\nCicatrização e Proteção\n100% Natural
+            PataHelp - Hidratação,
+            <br />
+            Cicatrização e Proteção
+            <br />
+            100% Natural
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             Uma fórmula premium desenvolvida para acompanhar sua rotina e entregar praticidade —
