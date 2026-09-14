@@ -29,22 +29,20 @@ export function KitBooster({
         <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
           2
         </span>
-        Turbine seu kit
+        Aproveite e compre junto
       </p>
 
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-3 md:gap-4">
         {addons.map((a) => {
           const isActive = selectedIds.includes(a.id);
           return (
-            <button
+            <div
               key={a.id}
-              onClick={() => onToggle(a.id)}
-              aria-pressed={isActive}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-card p-3 text-left transition-all duration-300 md:p-4",
+                "relative flex flex-col rounded-2xl border bg-card p-3 transition-all duration-300 md:p-4",
                 isActive
                   ? "border-primary/70 shadow-card"
-                  : "border-border hover:border-primary/30",
+                  : "border-border",
               )}
             >
               <span className="relative block overflow-hidden rounded-xl bg-sand">
@@ -56,7 +54,9 @@ export function KitBooster({
                   height={768}
                   className="aspect-square w-full object-cover"
                 />
-                <span
+                <button
+                  onClick={() => onToggle(a.id)}
+                  aria-pressed={isActive}
                   className={cn(
                     "absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full border transition-colors",
                     isActive
@@ -67,17 +67,29 @@ export function KitBooster({
                   {isActive && (
                     <Check size={14} strokeWidth={3} className="text-primary-foreground" />
                   )}
-                </span>
+                </button>
               </span>
 
               <span className="mt-3 block text-sm font-semibold leading-snug text-ink md:text-base">
-                {a.name}
+                {a.name.toUpperCase()}
               </span>
               <span className="mt-1 block text-xs text-muted-foreground line-through md:text-sm">
                 {brl(a.fullPrice)}
               </span>
               <span className="block text-base font-bold text-ink md:text-lg">{brl(a.price)}</span>
-            </button>
+
+              <button
+                onClick={() => onToggle(a.id)}
+                className={cn(
+                  "mt-3 w-full rounded-full border py-2.5 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-300 md:text-sm",
+                  isActive
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border text-ink hover:border-primary hover:bg-primary/5",
+                )}
+              >
+                {isActive ? "Adicionado" : "Adicionar"}
+              </button>
+            </div>
           );
         })}
       </div>
