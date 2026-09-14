@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { BRAND } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { cn } from "@/lib/utils";
