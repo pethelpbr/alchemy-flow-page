@@ -37,7 +37,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-x grid grid-cols-[auto_1fr_auto] items-center gap-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
+      <div className="container-x grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 lg:grid-cols-[1fr_auto_1fr]">
         <button
           aria-label="Abrir menu"
           onClick={() => setOpen(true)}
