@@ -79,50 +79,56 @@ export function ComparisonSection() {
 
         {/* MOBILE — reference style */}
         <Reveal className="mt-10 sm:hidden">
-          <div className="relative mx-auto max-w-md">
-            {/* Product labels */}
-            <div className="relative mb-1 flex items-end justify-center gap-2">
-              <div className="z-10 w-[45%] rounded-t-3xl bg-background px-3 pb-4 pt-5 text-center shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]">
-                <p className="font-display text-base font-bold text-ink">{BRAND}</p>
-              </div>
-              <div className="w-[45%] rounded-t-2xl bg-ink/40 px-3 pb-3 pt-4 text-center backdrop-blur-sm">
-                <p className="text-sm font-semibold text-background/90">Fórmula comum</p>
-              </div>
-            </div>
+          <div className="relative mx-auto max-w-md pb-7">
+            {/* White capsule behind the brand column */}
+            <div className="absolute inset-y-0 left-1/2 w-[33%] -translate-x-1/2 rounded-[2.5rem] bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
 
-            {/* Table body */}
-            <div className="relative overflow-hidden rounded-2xl">
-              {/* Center brand pill */}
-              <div className="absolute bottom-0 left-1/2 top-0 z-10 w-[24%] -translate-x-1/2 rounded-3xl bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
+            <div className="grid grid-cols-[1fr_33%_1fr]">
+              {/* Header labels */}
+              <div className="h-24" />
+              <div className="relative z-10 flex h-24 items-end justify-center px-2 pb-3">
+                <p className="text-center font-display text-base font-bold leading-tight text-ink">
+                  {BRAND}
+                </p>
+              </div>
+              <div className="flex h-24 items-end justify-center px-2 pb-3">
+                <p className="text-center text-sm font-bold leading-tight text-background">
+                  Fórmula comum
+                </p>
+              </div>
 
-              <div className="relative z-0">
-                {rows.map((row, i) => (
-                  <div key={row.feature} className="grid grid-cols-[1fr_24%_1fr] items-stretch">
+              {/* Rows */}
+              {rows.map((row, i) => {
+                const last = i === rows.length - 1;
+                const divider = last ? "" : "border-b border-background/15";
+                return (
+                  <Fragment key={row.feature}>
                     <div
-                      className={`flex items-center border-b border-background/15 bg-ink/50 px-3 py-4 backdrop-blur-sm ${
+                      className={`flex items-center bg-ink/45 px-4 py-5 backdrop-blur-sm ${divider} ${
                         i === 0 ? "rounded-tl-2xl" : ""
-                      } ${i === rows.length - 1 ? "rounded-bl-2xl border-b-0" : ""}`}
+                      } ${last ? "rounded-bl-2xl" : ""}`}
                     >
-                      <p className="text-xs font-medium leading-snug text-background">{row.feature}</p>
+                      <p className="text-sm font-medium leading-snug text-background">{row.feature}</p>
                     </div>
-                    <div className="z-20 flex items-center justify-center px-1 py-4">
-                      <span className="grid size-7 place-items-center rounded-full bg-primary">
-                        <Check size={14} strokeWidth={3} className="text-primary-foreground" />
+                    <div className={`flex items-center justify-center bg-ink/45 py-5 backdrop-blur-sm ${divider}`}>
+                      <span className="relative z-10 grid size-8 place-items-center rounded-full bg-primary">
+                        <Check size={16} strokeWidth={3} className="text-primary-foreground" />
                       </span>
                     </div>
                     <div
-                      className={`flex items-center justify-center border-b border-background/15 bg-ink/50 px-2 py-4 text-center backdrop-blur-sm ${
+                      className={`flex items-center justify-center bg-ink/45 px-3 py-5 text-center backdrop-blur-sm ${divider} ${
                         i === 0 ? "rounded-tr-2xl" : ""
-                      } ${i === rows.length - 1 ? "rounded-br-2xl border-b-0" : ""}`}
+                      } ${last ? "rounded-br-2xl" : ""}`}
                     >
-                      <p className="text-[11px] leading-snug text-background/80">{row.common}</p>
+                      <p className="text-sm leading-snug text-background/80">{row.common}</p>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  </Fragment>
+                );
+              })}
             </div>
           </div>
         </Reveal>
+
       </div>
     </section>
   );
