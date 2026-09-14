@@ -31,7 +31,7 @@ export function HowToUse() {
                   className="aspect-4/5 w-full rounded-3xl object-cover"
                 />
                 <div className="mt-6 flex items-baseline gap-4">
-                  <span className="font-display text-3xl text-clay">{s.n}</span>
+                  <span className="font-display text-3xl text-primary">{s.n}</span>
                   <div>
                     <h3 className="text-xl text-ink">{s.title}</h3>
                     <p className="mt-2 text-base leading-relaxed text-muted-foreground">{s.text}</p>
