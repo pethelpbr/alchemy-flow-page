@@ -22,7 +22,7 @@ export function ProductSelector({
             className={cn(
               "relative grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border px-4 py-4 text-left transition-all duration-300 sm:px-5",
               isActive
-                ? "border-2 border-primary bg-card shadow-[0_8px_30px_-12px_oklch(0.62_0.19_47.6/0.45)] sm:border sm:border-primary sm:bg-primary/[0.08]"
+                ? "border-primary bg-primary/[0.08] shadow-[0_8px_30px_-12px_oklch(0.62_0.19_47.6/0.45)]"
                 : "border-border bg-card hover:border-primary/30",
             )}
           >
