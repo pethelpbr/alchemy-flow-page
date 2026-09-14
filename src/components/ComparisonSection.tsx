@@ -56,7 +56,7 @@ export function ComparisonSection() {
                   <div className="flex items-center border-b border-background/15 bg-ink/40 px-4 py-4 backdrop-blur-sm last:border-b-0 sm:px-7 sm:py-5">
                     <p className="text-xs font-medium text-background sm:text-base">{row.feature}</p>
                   </div>
-                  <div className="flex items-center justify-center bg-background px-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)] sm:px-8">
+                  <div className="flex items-center justify-center bg-background px-4 sm:px-8">
                     <span className="grid size-7 place-items-center rounded-full bg-primary sm:size-8">
                       <Check size={15} strokeWidth={3} className="text-primary-foreground" />
                     </span>
