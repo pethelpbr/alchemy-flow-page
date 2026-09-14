@@ -159,12 +159,12 @@ export function ReviewsCarousel() {
               key={r.name}
               className="basis-[85%] sm:basis-[46%] lg:basis-[32%] xl:basis-1/3"
             >
-              <article className="h-full rounded-3xl border border-border bg-card p-8">
+              <article className="h-full rounded-3xl border border-border bg-card p-8 lg:p-6">
                 <Stars />
-                <blockquote className="mt-5 font-display text-2xl leading-snug text-ink">
+                <blockquote className="mt-5 font-display text-2xl leading-snug text-ink lg:text-xl">
                   “{r.text}”
                 </blockquote>
-                <div className="mt-7 flex items-center gap-3">
+                <div className="mt-7 flex items-center gap-3 lg:mt-5">
                   <img
                     src={r.photo}
                     alt={r.name}
@@ -172,10 +172,10 @@ export function ReviewsCarousel() {
                     draggable={false}
                     width={512}
                     height={512}
-                    className="h-11 w-11 shrink-0 rounded-full object-cover"
+                    className="h-11 w-11 shrink-0 rounded-full object-cover lg:h-10 lg:w-10"
                   />
                   <div className="min-w-0">
-                    <p className="truncate text-base font-medium text-ink">{r.name}</p>
+                    <p className="truncate text-base font-medium text-ink lg:text-sm">{r.name}</p>
                     <p className="truncate text-xs text-muted-foreground">{r.city}</p>
                   </div>
                 </div>
