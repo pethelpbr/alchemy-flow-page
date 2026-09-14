@@ -11,7 +11,7 @@ const steps = [
 
 export function HowToUse() {
   return (
-    <section id="como-usar" className="section scroll-mt-24">
+    <section id="como-usar" className="section scroll-mt-20">
       <div className="container-x">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Como usar</p>

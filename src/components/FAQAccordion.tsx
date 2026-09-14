@@ -35,7 +35,7 @@ export function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section scroll-mt-24">
+    <section id="faq" className="section scroll-mt-20">
       <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-20">
         <Reveal>
           <p className="eyebrow">Dúvidas</p>

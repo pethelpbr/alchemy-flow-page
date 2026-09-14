@@ -28,7 +28,7 @@ export function HeroSection({
     <section
       ref={sectionRef}
       id="topo"
-      className="relative overflow-x-clip pt-28 pb-16 md:pt-36 md:pb-28"
+      className="relative overflow-x-clip pt-24 pb-14 md:pt-32 md:pb-24"
     >
       <div
         aria-hidden
@@ -36,7 +36,7 @@ export function HeroSection({
       />
       <div className="container-x relative grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
         <motion.div
-          className="self-start lg:sticky lg:top-28"
+          className="self-start lg:sticky lg:top-24"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
