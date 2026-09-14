@@ -19,7 +19,7 @@ import { StickyMobileBuy } from "@/components/StickyMobileBuy";
 import { Footer } from "@/components/Footer";
 import { useCart } from "@/lib/use-cart";
 
-const title = "PetHelp Daily Greens | Suplemento diário premium";
+const title = "Nutraflow Daily Greens | Suplemento diário premium";
 const description =
   "Fórmula premium de dose única: energia e equilíbrio em um ritual de 30 segundos. Kits com até 48% off, 30 dias de garantia e envio rápido.";
 
