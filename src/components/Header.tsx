@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, ShoppingBag, UserRound, X } from "lucide-react";
 import { BRAND } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { cn } from "@/lib/utils";
@@ -31,42 +31,49 @@ export function Header({ onBuy }: { onBuy: () => void }) {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        "fixed inset-x-0 top-0 z-50 border-b bg-card transition-all duration-500",
         scrolled
-          ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent",
+          ? "border-border/70 shadow-card"
+          : "border-border/50",
       )}
     >
-      <div className="container-x grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
+      <div className="container-x grid h-[72px] grid-cols-[1fr_auto_1fr] items-center gap-2 sm:h-[84px]">
+        <button
+          aria-label="Abrir menu"
+          onClick={() => setOpen(true)}
+          className="grid h-11 w-11 place-items-center text-ink transition-colors hover:text-primary"
+        >
+          <Menu className="h-7 w-7 sm:h-8 sm:w-8" strokeWidth={1.5} />
+        </button>
+
         <a
           href="#topo"
-          className="min-w-0 font-display text-xl tracking-[0.32em] uppercase text-ink"
+          className="whitespace-nowrap text-center font-sans text-xl font-semibold uppercase text-ink sm:text-[28px]"
         >
           {BRAND}
         </a>
 
-        <nav className="hidden items-center gap-9 lg:flex">
-          {links.map((l) => (
-            <button
-              key={l.href}
-              onClick={() => go(l.href)}
-              className="text-[13px] text-muted-foreground transition-colors hover:text-ink"
-            >
-              {l.label}
-            </button>
-          ))}
-        </nav>
-
-        <div className="flex shrink-0 items-center justify-end gap-2">
-          <BuyButton size="sm" onClick={onBuy} className="hidden sm:inline-flex">
-            Comprar agora
-          </BuyButton>
+        <div className="flex shrink-0 items-center justify-end gap-0.5 sm:gap-3">
           <button
-            aria-label="Abrir menu"
+            aria-label="Pesquisar no menu"
             onClick={() => setOpen(true)}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-ink lg:hidden"
+            className="grid h-10 w-10 place-items-center text-ink transition-colors hover:text-primary"
           >
-            <Menu size={18} strokeWidth={1.5} />
+            <Search className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.6} />
+          </button>
+          <a
+            href="#avaliacoes"
+            aria-label="Ver avaliações"
+            className="grid h-10 w-10 place-items-center text-ink transition-colors hover:text-primary"
+          >
+            <UserRound className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.6} />
+          </a>
+          <button
+            aria-label="Comprar agora"
+            onClick={onBuy}
+            className="grid h-10 w-10 place-items-center text-ink transition-colors hover:text-primary"
+          >
+            <ShoppingBag className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.6} />
           </button>
         </div>
       </div>
@@ -75,17 +82,17 @@ export function Header({ onBuy }: { onBuy: () => void }) {
         {open && (
           <>
             <motion.div
-              className="fixed inset-0 bg-ink/25 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 bg-ink/25 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
             <motion.aside
-              className="fixed inset-y-0 right-0 z-50 flex w-[82%] max-w-sm flex-col bg-background p-7 lg:hidden"
-              initial={{ x: "100%" }}
+              className="fixed inset-y-0 left-0 z-50 flex w-[82%] max-w-sm flex-col bg-background p-7"
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 260 }}
             >
               <div className="flex items-center justify-between">
