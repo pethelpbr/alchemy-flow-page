@@ -241,6 +241,8 @@ function MarqueeStrip() {
       >
         {content}
         {content}
+        {content}
+        {content}
       </motion.div>
     </div>
   );
