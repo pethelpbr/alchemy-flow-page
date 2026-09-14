@@ -183,26 +183,26 @@ export function ReviewsCarousel() {
             {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
           </p>
           <div className="flex gap-3">
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={() => api?.scrollPrev()}
-              aria-label="Anterior"
-              className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <Button
-              type="button"
-              variant="secondary"
-              size="icon"
-              onClick={() => api?.scrollNext()}
-              aria-label="Próximo"
-              className="h-11 w-11 rounded-full bg-ink text-background hover:bg-ink/90"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            onClick={() => api?.scrollPrev()}
+            aria-label="Anterior"
+            className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            onClick={() => api?.scrollNext()}
+            aria-label="Próximo"
+            className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </Button>
           </div>
         </div>
       </div>
