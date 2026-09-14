@@ -96,43 +96,44 @@ export function ActivesCarousel() {
             Cada ingrediente tem uma função na fórmula, sem excesso e sem enrolação.
           </p>
         </div>
+      </div>
 
-        <Carousel
-          setApi={setApi}
-          opts={{ loop: true, align: "start", dragFree: true }}
-          aria-label="Ativos da fórmula"
-          className="mt-12 cursor-grab select-none active:cursor-grabbing"
-        >
-          <CarouselContent className="touch-pan-y">
-            {actives.map((active) => (
-              <CarouselItem
-                key={active.name}
-                className="basis-[76%] sm:basis-[46%] lg:basis-[28%] xl:basis-1/4"
-              >
-                <article className="relative overflow-hidden rounded-2xl">
-                  <img
-                    src={active.image}
-                    alt={active.name}
-                    loading="lazy"
-                    draggable={false}
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 flex h-[36%] flex-col justify-start gap-2 bg-primary-foreground/10 px-5 py-5 backdrop-blur-md">
-                    <h3 className="min-h-[2.5em] font-display text-[13px] leading-tight tracking-[0.14em] text-primary-foreground uppercase">
-                      {active.name}
-                    </h3>
-                    <p className="min-h-[4.2em] text-[13px] leading-snug text-primary-foreground/90 line-clamp-3">
-                      {active.description}
-                    </p>
-                  </div>
-                </article>
+      <Carousel
+        setApi={setApi}
+        opts={{ loop: true, align: "start", dragFree: true }}
+        aria-label="Ativos da fórmula"
+        className="mt-12 cursor-grab select-none active:cursor-grabbing"
+      >
+        <CarouselContent className="touch-pan-y pl-4 sm:pl-[max(1rem,calc((100vw-1400px)/2+1rem))]">
+          {actives.map((active) => (
+            <CarouselItem
+              key={active.name}
+              className="basis-[76%] pr-3 sm:basis-[46%] sm:pr-4 lg:basis-[28%] xl:basis-1/4"
+            >
+              <article className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={active.image}
+                  alt={active.name}
+                  loading="lazy"
+                  draggable={false}
+                  className="aspect-[3/4] w-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex h-[36%] flex-col justify-start gap-2 bg-primary-foreground/10 px-5 py-5 backdrop-blur-md">
+                  <h3 className="min-h-[2.5em] font-display text-[13px] leading-tight tracking-[0.14em] text-primary-foreground uppercase">
+                    {active.name}
+                  </h3>
+                  <p className="min-h-[4.2em] text-[13px] leading-snug text-primary-foreground/90 line-clamp-3">
+                    {active.description}
+                  </p>
+                </div>
+              </article>
 
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
 
-        <div className="mt-8 flex items-center justify-between gap-4">
+      <div className="mx-auto mt-8 flex max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-8">
           <p className="text-xs text-primary-foreground/60" aria-live="polite">
             {String(selectedIndex + 1).padStart(2, "0")} / {String(actives.length).padStart(2, "0")}
           </p>
