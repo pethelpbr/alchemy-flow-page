@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { BRAND } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { cn } from "@/lib/utils";
@@ -37,10 +37,18 @@ export function Header({ onBuy }: { onBuy: () => void }) {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-x grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
+      <div className="container-x grid grid-cols-[auto_1fr_auto] items-center gap-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
+        <button
+          aria-label="Abrir menu"
+          onClick={() => setOpen(true)}
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-ink lg:hidden"
+        >
+          <Menu size={18} strokeWidth={1.5} />
+        </button>
+
         <a
           href="#topo"
-          className="min-w-0 font-display text-xl tracking-[0.32em] uppercase text-ink"
+          className="min-w-0 text-center font-display text-xl tracking-[0.32em] uppercase text-ink lg:text-left"
         >
           {BRAND}
         </a>
@@ -58,16 +66,30 @@ export function Header({ onBuy }: { onBuy: () => void }) {
         </nav>
 
         <div className="flex shrink-0 items-center justify-end gap-2">
-          <BuyButton size="sm" onClick={onBuy} className="hidden sm:inline-flex">
+          <BuyButton size="sm" onClick={onBuy} className="hidden lg:inline-flex">
             Comprar agora
           </BuyButton>
-          <button
-            aria-label="Abrir menu"
-            onClick={() => setOpen(true)}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-ink lg:hidden"
-          >
-            <Menu size={18} strokeWidth={1.5} />
-          </button>
+
+          <div className="flex items-center gap-0.5 lg:hidden">
+            <button
+              aria-label="Buscar"
+              className="grid h-10 w-10 place-items-center text-ink"
+            >
+              <Search size={20} strokeWidth={1.5} />
+            </button>
+            <button
+              aria-label="Conta"
+              className="grid h-10 w-10 place-items-center text-ink"
+            >
+              <User size={20} strokeWidth={1.5} />
+            </button>
+            <button
+              aria-label="Sacola"
+              className="grid h-10 w-10 place-items-center text-ink"
+            >
+              <ShoppingBag size={20} strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
       </div>
 
