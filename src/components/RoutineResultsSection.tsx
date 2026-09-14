@@ -100,7 +100,7 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
       >
         {/* Antes — troque a imagem quando tiver a foto real */}
         <div className="group relative overflow-hidden rounded-2xl bg-muted shadow-soft">
-          <span className="absolute top-3 left-3 z-10 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-sm">
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
             Antes
           </span>
           <img
@@ -113,7 +113,7 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
 
         {/* Depois — troque a imagem quando tiver a foto real */}
         <div className="group relative overflow-hidden rounded-2xl bg-muted shadow-soft">
-          <span className="absolute top-3 left-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-sm">
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
             Depois
           </span>
           <img
@@ -125,7 +125,7 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
         </div>
       </motion.div>
 
-      <p className="mt-4 text-center text-xs text-muted-foreground sm:text-sm">
+      <p className="mt-4 text-center text-xs text-muted-foreground sm:text-base">
         Resultados individuais podem variar de acordo com a rotina e alimentação.
       </p>
     </div>
@@ -216,7 +216,7 @@ function MarqueeStrip() {
     <>
       {items.map((word) => (
         <span key={word} className="flex items-center gap-6 sm:gap-8">
-          <span className="whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.22em] text-white sm:text-base">
+          <span className="whitespace-nowrap font-display text-base font-bold uppercase tracking-[0.22em] text-white sm:text-base">
             {word}
           </span>
           <span className="h-1.5 w-1.5 rounded-full bg-white/80" />

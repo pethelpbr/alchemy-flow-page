@@ -36,7 +36,7 @@ export function TrustBadgesStrip() {
               <h3 className="mt-4 font-sans text-base font-semibold tracking-[0.12em] text-ink">
                 {badge.title}
               </h3>
-              <p className="mt-2 max-w-[260px] text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 max-w-[260px] text-base leading-relaxed text-muted-foreground">
                 {badge.description}
               </p>
             </div>

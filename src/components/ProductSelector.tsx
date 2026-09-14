@@ -48,7 +48,7 @@ export function ProductSelector({
             </span>
 
             <span className="shrink-0 text-right">
-              <span className="block text-sm font-medium text-ink">{brl(total)}</span>
+              <span className="block text-base font-medium text-ink">{brl(total)}</span>
               <span className="block text-[11px] text-muted-foreground">-{discount}%</span>
             </span>
           </button>

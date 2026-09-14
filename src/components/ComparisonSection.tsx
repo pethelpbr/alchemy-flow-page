@@ -62,7 +62,7 @@ export function ComparisonSection() {
                     </span>
                   </div>
                   <div className="flex items-center justify-center border-b border-background/15 bg-ink/40 px-3 py-4 text-center backdrop-blur-sm last:border-b-0 sm:px-6 sm:py-5">
-                    <p className="text-[11px] text-background/75 sm:text-sm">{row.common}</p>
+                    <p className="text-[11px] text-background/75 sm:text-base">{row.common}</p>
                   </div>
                 </div>
               ))}

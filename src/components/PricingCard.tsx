@@ -60,22 +60,22 @@ export function PricingCard({
         transition={{ duration: 0.35 }}
         className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1"
       >
-        <span className="text-sm text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
+        <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
         <span className="font-display text-4xl leading-none text-ink">{brl(grandTotal)}</span>
         <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-primary">
           {discount}% off
         </span>
       </motion.div>
 
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-base text-muted-foreground">
         ou {selected.installments}x de {brl(grandTotal / selected.installments)} sem juros
       </p>
-      <p className="mt-1 text-sm text-primary">
+      <p className="mt-1 text-base text-primary">
         Você economiza {brl(savings)} nesta oferta.
       </p>
 
       {extra > 0 && (
-        <p className="mt-3 flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 text-sm">
+        <p className="mt-3 flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 text-base">
           <span className="text-muted-foreground">Preço total com adicionais</span>
           <span className="font-semibold text-ink">{brl(grandTotal)}</span>
         </p>

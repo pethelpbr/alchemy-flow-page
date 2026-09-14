@@ -90,7 +90,7 @@ function IngredientsButton() {
       type="button"
       variant="outline"
       onClick={scrollToIngredients}
-      className="mt-4 h-12 w-full rounded-full border-primary/30 bg-card text-sm text-ink hover:border-primary hover:bg-primary/5"
+      className="mt-4 h-12 w-full rounded-full border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-primary/5"
     >
       Ver tabela completa e ingredientes
     </Button>
@@ -257,7 +257,7 @@ export function ProductVideoFeedback({
 
               <div className="flex items-center gap-3 rounded-b-[18px] bg-muted px-3 py-3">
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-bold text-ink">{productName}</p>
+                  <p className="truncate text-base font-bold text-ink">{productName}</p>
                   <p className="mt-0.5 flex flex-wrap items-baseline gap-1.5 text-xs">
                     <span className="text-muted-foreground line-through">{brl(oldPrice)}</span>
                     <span className="font-bold text-ink">{brl(currentPrice)}</span>
