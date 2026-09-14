@@ -35,7 +35,7 @@ export function StatsBanner() {
                   : ""
               }`}
             >
-              <span className="font-display text-5xl leading-none tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
+              <span className="font-sans text-5xl font-semibold leading-none tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
                 {stat.value}
               </span>
               <p className="max-w-[220px] text-sm leading-snug text-primary-foreground/90 sm:text-[15px]">
