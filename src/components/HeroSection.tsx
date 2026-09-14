@@ -52,7 +52,7 @@ export function HeroSection({
         >
           <p className="eyebrow">Fórmula diária · 30 doses</p>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
-            <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
+            <h1 className="inline-block font-display text-[2.6rem] leading-[1.05] text-ink sm:text-[40px]">
               PataHelp - Hidratação, Cicatrização e Proteção 100% Natural
             </h1>
             <div className="inline-flex shrink-0 items-center gap-2">
