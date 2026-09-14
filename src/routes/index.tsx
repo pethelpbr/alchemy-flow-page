@@ -59,6 +59,7 @@ function Index() {
         <ActivesCarousel />
         <ReviewsCarousel />
         <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <TrustBadgesStrip />
         <FAQAccordion />
       </main>
       <Footer />
