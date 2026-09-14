@@ -38,11 +38,12 @@ export function Header({ onBuy }: { onBuy: () => void }) {
       )}
     >
       <div className="container-x grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:grid-cols-[1fr_auto_1fr]">
-        <a
-          href="#topo"
-          className="min-w-0 font-display text-xl tracking-[0.32em] uppercase text-ink"
-        >
-          {BRAND}
+        <a href="#topo" className="min-w-0">
+          <img
+            src={logoAsset.url}
+            alt="PetHelp"
+            className="h-8 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">
@@ -89,7 +90,11 @@ export function Header({ onBuy }: { onBuy: () => void }) {
               transition={{ type: "spring", damping: 30, stiffness: 260 }}
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-lg tracking-[0.3em] uppercase">{BRAND}</span>
+                <img
+                  src={logoAsset.url}
+                  alt="PetHelp"
+                  className="h-7 w-auto object-contain"
+                />
                 <button
                   aria-label="Fechar menu"
                   onClick={() => setOpen(false)}
