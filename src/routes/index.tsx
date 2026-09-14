@@ -58,8 +58,8 @@ function Index() {
         <HowToUse />
         <ActivesCarousel />
         <ReviewsCarousel />
-        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
         <TrustBadgesStrip />
+        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
         <FAQAccordion />
       </main>
       <Footer />
