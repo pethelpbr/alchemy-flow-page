@@ -59,7 +59,7 @@ function StepItem({ item }: { item: Step }) {
       <p className="mt-3 text-xl leading-snug font-medium text-ink sm:text-2xl">
         {item.label}
       </p>
-      <p className="mt-1 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+      <p className="mt-1 max-w-md text-base leading-relaxed text-muted-foreground sm:text-base">
         {item.text}
       </p>
     </li>

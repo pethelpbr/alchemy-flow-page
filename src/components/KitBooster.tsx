@@ -25,7 +25,7 @@ export function KitBooster({
 }) {
   return (
     <div className="mt-6">
-      <p className="flex items-center gap-2 text-sm font-medium text-ink">
+      <p className="flex items-center gap-2 text-base font-medium text-ink">
         <span className="grid h-5 w-5 place-items-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
           2
         </span>

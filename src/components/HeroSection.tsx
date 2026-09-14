@@ -61,7 +61,7 @@ export function HeroSection({
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Stars />
-            <span className="text-sm text-muted-foreground">
+            <span className="text-base text-muted-foreground">
               4,9 · mais de 12.000 clientes satisfeitos
             </span>
           </div>

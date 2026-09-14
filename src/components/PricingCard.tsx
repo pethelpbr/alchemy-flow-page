@@ -41,7 +41,7 @@ export function PricingCard({
       className="scroll-mt-28 rounded-3xl border border-border bg-background/70 p-5 backdrop-blur sm:p-7"
     >
       {!compact && (
-        <p className="mb-4 flex items-center gap-2 text-sm font-medium text-ink">
+        <p className="mb-4 flex items-center gap-2 text-base font-medium text-ink">
           <span className="grid h-5 w-5 place-items-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
             1
           </span>

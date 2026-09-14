@@ -42,7 +42,7 @@ export function ComparisonSection() {
                 <p className="font-display text-base font-bold text-ink sm:text-lg">{BRAND}</p>
               </div>
               <div className="px-3 pb-4 text-center sm:px-6">
-                <p className="text-sm font-semibold text-background sm:text-base">Fórmula comum</p>
+                <p className="text-base font-semibold text-background sm:text-base">Fórmula comum</p>
               </div>
             </div>
 

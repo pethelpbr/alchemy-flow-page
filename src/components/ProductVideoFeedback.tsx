@@ -134,7 +134,7 @@ function DetailsAccordion({
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-1 pb-5 pr-8 text-sm leading-relaxed text-muted-foreground">
+                  <p className="px-1 pb-5 pr-8 text-base leading-relaxed text-muted-foreground">
                     {detail.content}
                   </p>
                 </motion.div>

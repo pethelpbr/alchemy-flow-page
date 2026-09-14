@@ -41,7 +41,7 @@ export function StorySection() {
               <Reveal key={p.label} delay={i * 0.08}>
                 <div className="grid grid-cols-[minmax(0,7rem)_minmax(0,1fr)] gap-4 py-5">
                   <span className="eyebrow pt-1">{p.label}</span>
-                  <p className="text-sm leading-relaxed text-ink">{p.text}</p>
+                  <p className="text-base leading-relaxed text-ink">{p.text}</p>
                 </div>
               </Reveal>
             ))}

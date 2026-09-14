@@ -34,7 +34,7 @@ export function HowToUse() {
                   <span className="font-display text-3xl text-clay">{s.n}</span>
                   <div>
                     <h3 className="text-xl text-ink">{s.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+                    <p className="mt-2 text-base leading-relaxed text-muted-foreground">{s.text}</p>
                   </div>
                 </div>
               </div>

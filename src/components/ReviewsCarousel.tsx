@@ -76,7 +76,7 @@ function RatingBreakdown() {
         <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,9</span>
         <div className="pt-1">
           <Stars />
-          <p className="mt-1 text-sm text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
+          <p className="mt-1 text-base text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
         </div>
       </div>
 
