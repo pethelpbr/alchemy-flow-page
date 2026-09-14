@@ -38,6 +38,18 @@ const reviews = [
     city: "Belo Horizonte, MG",
     photo: c1,
   },
+  {
+    text: "Consigo sentir a diferença na disposição desde a primeira semana. Recomendo demais.",
+    name: "Fernanda T.",
+    city: "Rio de Janeiro, RJ",
+    photo: c2,
+  },
+  {
+    text: "Finalmente um suplemento que não fica aquele gosto ruim na boca. Uso todo dia sem falta.",
+    name: "Lucas M.",
+    city: "Porto Alegre, RS",
+    photo: c3,
+  },
 ];
 
 export function ReviewsCarousel() {
