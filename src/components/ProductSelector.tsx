@@ -37,7 +37,7 @@ export function ProductSelector({
 
             <span className="min-w-0">
               <span className="flex flex-wrap items-center gap-2">
-                <span className="truncate text-sm font-medium text-ink">{v.label}</span>
+                <span className="truncate text-base font-medium text-ink">{v.label}</span>
                 {v.badge && (
                   <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em] text-accent-foreground">
                     {v.badge}
@@ -48,7 +48,7 @@ export function ProductSelector({
             </span>
 
             <span className="shrink-0 text-right">
-              <span className="block text-sm font-medium text-ink">{brl(total)}</span>
+              <span className="block text-base font-medium text-ink">{brl(total)}</span>
               <span className="block text-[11px] text-muted-foreground">-{discount}%</span>
             </span>
           </button>

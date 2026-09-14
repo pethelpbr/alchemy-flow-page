@@ -47,8 +47,8 @@ function BenefitCard({ b }: { b: Benefit }) {
   return (
     <article className="h-full rounded-2xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-card/15 md:p-9">
       <b.icon strokeWidth={1.4} className="h-5 w-5 text-primary md:h-7 md:w-7" />
-      <h3 className="mt-5 text-sm tracking-[0.14em] text-card uppercase md:mt-7 md:text-[26px] md:tracking-[0.1em]">{b.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-card/75 md:mt-5 md:text-[24px] md:leading-relaxed">{b.text}</p>
+      <h3 className="mt-5 text-base tracking-[0.14em] text-card uppercase md:mt-7 md:text-[26px] md:tracking-[0.1em]">{b.title}</h3>
+      <p className="mt-3 text-base leading-relaxed text-card/75 md:mt-5 md:text-[24px] md:leading-relaxed">{b.text}</p>
     </article>
   );
 }

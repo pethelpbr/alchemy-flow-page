@@ -76,7 +76,7 @@ function RatingBreakdown() {
         <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,9</span>
         <div className="pt-1">
           <Stars />
-          <p className="mt-1 text-sm text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
+          <p className="mt-1 text-base text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
         </div>
       </div>
 
@@ -101,7 +101,7 @@ function RatingBreakdown() {
                   style={{ width: `${percent}%` }}
                 />
               </div>
-              <span className="w-10 text-right text-sm tabular-nums text-muted-foreground">
+              <span className="w-10 text-right text-base tabular-nums text-muted-foreground">
                 {row.count.toLocaleString("pt-BR")}
               </span>
             </div>
@@ -175,7 +175,7 @@ export function ReviewsCarousel() {
                     className="h-11 w-11 shrink-0 rounded-full object-cover"
                   />
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-ink">{r.name}</p>
+                    <p className="truncate text-base font-medium text-ink">{r.name}</p>
                     <p className="truncate text-xs text-muted-foreground">{r.city}</p>
                   </div>
                 </div>

@@ -42,7 +42,7 @@ export function ComparisonSection() {
                 <p className="font-display text-base font-bold text-ink sm:text-lg">{BRAND}</p>
               </div>
               <div className="px-3 pb-4 text-center sm:px-6">
-                <p className="text-sm font-semibold text-background sm:text-base">Fórmula comum</p>
+                <p className="text-base font-semibold text-background sm:text-base">Fórmula comum</p>
               </div>
             </div>
 
@@ -62,7 +62,7 @@ export function ComparisonSection() {
                     </span>
                   </div>
                   <div className="flex items-center justify-center border-b border-background/15 bg-ink/40 px-3 py-4 text-center backdrop-blur-sm last:border-b-0 sm:px-6 sm:py-5">
-                    <p className="text-[11px] text-background/75 sm:text-sm">{row.common}</p>
+                    <p className="text-[11px] text-background/75 sm:text-base">{row.common}</p>
                   </div>
                 </div>
               ))}

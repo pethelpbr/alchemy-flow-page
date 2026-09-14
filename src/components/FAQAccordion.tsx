@@ -73,7 +73,7 @@ export function FAQAccordion() {
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="max-w-2xl pb-7 text-sm leading-relaxed text-muted-foreground">
+                      <p className="max-w-2xl pb-7 text-base leading-relaxed text-muted-foreground">
                         {f.a}
                       </p>
                     </motion.div>

@@ -23,7 +23,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,1fr))]">
           <div>
             <p className="font-display text-xl tracking-[0.32em] uppercase text-ink">{BRAND}</p>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-xs text-base leading-relaxed text-muted-foreground">
               Suplementos de dose única para rituais diários simples.
             </p>
             <div className="mt-6 flex gap-3">
@@ -46,7 +46,7 @@ export function Footer() {
               <ul className="mt-5 flex flex-col gap-3">
                 {c.links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-ink">
+                    <a href="#" className="text-base text-muted-foreground hover:text-ink">
                       {l}
                     </a>
                   </li>
