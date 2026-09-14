@@ -199,7 +199,7 @@ export function ProductVideoFeedback({
                   Vídeo feedbacks
                 </DialogTitle>
                 <DialogDescription className="sr-only">
-                  Relatos em vídeo de clientes Nutraflow
+                  Relatos em vídeo de clientes PetHelp
                 </DialogDescription>
                 <div className="mt-4 flex gap-2.5">
                   {feedbacks.map((feedback, index) => (

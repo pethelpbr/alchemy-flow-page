@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nutraflow | Suplementos premium de dose única" },
+      { title: "PetHelp | Suplementos premium de dose única" },
       {
         name: "description",
         content:

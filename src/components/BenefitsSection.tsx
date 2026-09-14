@@ -94,7 +94,7 @@ function StickyBenefits() {
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.img
           src={benefitsBg}
-          alt="Nutraflow Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"
+          alt="PetHelp Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"
           loading="lazy"
           width={1920}
           height={1088}
@@ -130,7 +130,7 @@ function StaticBenefits() {
     <section id="beneficios" className="relative scroll-mt-24 overflow-hidden">
       <img
         src={benefitsBg}
-        alt="Nutraflow Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"
+        alt="PetHelp Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"
         loading="lazy"
         width={1920}
         height={1088}
