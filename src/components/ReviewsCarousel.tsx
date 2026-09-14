@@ -139,45 +139,47 @@ export function ReviewsCarousel() {
             <RatingBreakdown />
           </div>
         </Reveal>
+      </div>
 
-        <Carousel
-          setApi={setApi}
-          opts={{ loop: true, align: "start", dragFree: true }}
-          aria-label="Avaliações de clientes"
-          className="mt-12 cursor-grab select-none active:cursor-grabbing"
-        >
-          <CarouselContent className="touch-pan-y">
-            {reviews.map((r) => (
-              <CarouselItem
-                key={r.name}
-                className="basis-[85%] sm:basis-[46%] lg:basis-[32%] xl:basis-1/3"
-              >
-                <article className="h-full rounded-3xl border border-border bg-card p-8">
-                  <Stars />
-                  <blockquote className="mt-5 font-display text-2xl leading-snug text-ink">
-                    “{r.text}”
-                  </blockquote>
-                  <div className="mt-7 flex items-center gap-3">
-                    <img
-                      src={r.photo}
-                      alt={r.name}
-                      loading="lazy"
-                      draggable={false}
-                      width={512}
-                      height={512}
-                      className="h-11 w-11 shrink-0 rounded-full object-cover"
-                    />
-                    <div className="min-w-0">
-                      <p className="truncate text-sm font-medium text-ink">{r.name}</p>
-                      <p className="truncate text-xs text-muted-foreground">{r.city}</p>
-                    </div>
+      <Carousel
+        setApi={setApi}
+        opts={{ loop: true, align: "start", dragFree: true }}
+        aria-label="Avaliações de clientes"
+        className="mt-12 cursor-grab select-none active:cursor-grabbing"
+      >
+        <CarouselContent className="touch-pan-y pl-4 sm:pl-[max(1rem,calc((100vw-1400px)/2+1rem))]">
+          {reviews.map((r) => (
+            <CarouselItem
+              key={r.name}
+              className="basis-[85%] sm:basis-[46%] lg:basis-[32%] xl:basis-1/3"
+            >
+              <article className="h-full rounded-3xl border border-border bg-card p-8">
+                <Stars />
+                <blockquote className="mt-5 font-display text-2xl leading-snug text-ink">
+                  “{r.text}”
+                </blockquote>
+                <div className="mt-7 flex items-center gap-3">
+                  <img
+                    src={r.photo}
+                    alt={r.name}
+                    loading="lazy"
+                    draggable={false}
+                    width={512}
+                    height={512}
+                    className="h-11 w-11 shrink-0 rounded-full object-cover"
+                  />
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium text-ink">{r.name}</p>
+                    <p className="truncate text-xs text-muted-foreground">{r.city}</p>
                   </div>
-                </article>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                </div>
+              </article>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
 
+      <div className="container-x">
         <div className="mt-8 flex items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground" aria-live="polite">
             {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
