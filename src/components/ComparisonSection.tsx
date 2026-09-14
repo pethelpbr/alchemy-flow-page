@@ -33,7 +33,8 @@ export function ComparisonSection() {
           </h2>
         </Reveal>
 
-        <Reveal className="mt-12 sm:mt-16">
+        {/* DESKTOP — unchanged */}
+        <Reveal className="mt-12 hidden sm:block sm:mt-16">
           <div className="mx-auto max-w-4xl">
             {/* Header */}
             <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-0 sm:grid-cols-[1.2fr_0.9fr_1.2fr]">
@@ -71,6 +72,53 @@ export function ComparisonSection() {
                 <div />
                 <div className="rounded-b-3xl bg-background py-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
                 <div />
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* MOBILE — reference style */}
+        <Reveal className="mt-10 sm:hidden">
+          <div className="relative mx-auto max-w-md">
+            {/* Product labels */}
+            <div className="relative mb-1 flex items-end justify-center gap-2">
+              <div className="z-10 w-[45%] rounded-t-3xl bg-background px-3 pb-4 pt-5 text-center shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]">
+                <p className="font-display text-base font-bold text-ink">{BRAND}</p>
+              </div>
+              <div className="w-[45%] rounded-t-2xl bg-ink/40 px-3 pb-3 pt-4 text-center backdrop-blur-sm">
+                <p className="text-sm font-semibold text-background/90">Fórmula comum</p>
+              </div>
+            </div>
+
+            {/* Table body */}
+            <div className="relative overflow-hidden rounded-2xl">
+              {/* Center brand pill */}
+              <div className="absolute bottom-0 left-1/2 top-0 z-10 w-[24%] -translate-x-1/2 rounded-3xl bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
+
+              <div className="relative z-0">
+                {rows.map((row, i) => (
+                  <div key={row.feature} className="grid grid-cols-[1fr_24%_1fr] items-stretch">
+                    <div
+                      className={`flex items-center border-b border-background/15 bg-ink/50 px-3 py-4 backdrop-blur-sm ${
+                        i === 0 ? "rounded-tl-2xl" : ""
+                      } ${i === rows.length - 1 ? "rounded-bl-2xl border-b-0" : ""}`}
+                    >
+                      <p className="text-xs font-medium leading-snug text-background">{row.feature}</p>
+                    </div>
+                    <div className="z-20 flex items-center justify-center px-1 py-4">
+                      <span className="grid size-7 place-items-center rounded-full bg-primary">
+                        <Check size={14} strokeWidth={3} className="text-primary-foreground" />
+                      </span>
+                    </div>
+                    <div
+                      className={`flex items-center justify-center border-b border-background/15 bg-ink/50 px-2 py-4 text-center backdrop-blur-sm ${
+                        i === 0 ? "rounded-tr-2xl" : ""
+                      } ${i === rows.length - 1 ? "rounded-br-2xl border-b-0" : ""}`}
+                    >
+                      <p className="text-[11px] leading-snug text-background/80">{row.common}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
