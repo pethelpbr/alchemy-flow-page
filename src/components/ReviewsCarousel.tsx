@@ -50,6 +50,12 @@ const reviews = [
     city: "Porto Alegre, RS",
     photo: c3,
   },
+  {
+    text: "Comentário provisório para apresentar uma nova experiência com o produto e completar o carrossel.",
+    name: "Cliente Nutraflow",
+    city: "Brasil",
+    photo: c1,
+  },
 ];
 
 const breakdown = [
