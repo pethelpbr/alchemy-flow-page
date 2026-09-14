@@ -58,7 +58,7 @@ export function PricingCard({
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1"
+        className="mt-6 hidden flex-wrap items-end gap-x-3 gap-y-1 sm:flex"
       >
         <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
         <span className="font-display text-4xl leading-none text-ink">{brl(grandTotal)}</span>
@@ -67,10 +67,10 @@ export function PricingCard({
         </span>
       </motion.div>
 
-      <p className="mt-2 text-base text-muted-foreground">
+      <p className="mt-2 hidden text-base text-muted-foreground sm:block">
         ou {selected.installments}x de {brl(grandTotal / selected.installments)} sem juros
       </p>
-      <p className="mt-1 text-base text-primary">
+      <p className="mt-1 hidden text-base text-primary sm:block">
         Você economiza {brl(savings)} nesta oferta.
       </p>
 
@@ -81,9 +81,18 @@ export function PricingCard({
         </p>
       )}
 
-      <BuyButton size="lg" className="mt-6" onClick={onBuy}>
-        Comprar agora
-      </BuyButton>
+      <div className="mt-6 sm:mt-8">
+        <div className="mb-3 flex items-end justify-between sm:hidden">
+          <span className="text-base font-medium text-ink">Preço total:</span>
+          <span className="flex items-center gap-2">
+            <span className="text-sm text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
+            <span className="font-display text-3xl leading-none text-ink">{brl(grandTotal)}</span>
+          </span>
+        </div>
+        <BuyButton size="lg" className="w-full sm:w-auto" onClick={onBuy}>
+          Comprar agora
+        </BuyButton>
+      </div>
 
       <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
         {seals.map((s) => (
