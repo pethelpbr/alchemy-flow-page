@@ -90,7 +90,7 @@ function StickyBenefits() {
   const veil = useTransform(progress, [0, 1], [0.75, 1]);
 
   return (
-    <div ref={wrapperRef} id="beneficios" className="relative h-[250vh] scroll-mt-24">
+    <div ref={wrapperRef} id="beneficios" className="relative h-[250vh] scroll-mt-20">
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.img
           src={benefitsBg}
@@ -127,7 +127,7 @@ function StickyBenefits() {
 
 function StaticBenefits() {
   return (
-    <section id="beneficios" className="relative scroll-mt-24 overflow-hidden">
+    <section id="beneficios" className="relative scroll-mt-20 overflow-hidden">
       <img
         src={benefitsBg}
         alt="Nutraflow Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"

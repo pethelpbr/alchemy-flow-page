@@ -134,7 +134,7 @@ export function ReviewsCarousel() {
   }, [api, updateSelected]);
 
   return (
-    <section id="avaliacoes" className="section scroll-mt-24 bg-sand/60">
+    <section id="avaliacoes" className="section scroll-mt-20 bg-sand/60">
       <div className="container-x">
         <Reveal>
           <div>
