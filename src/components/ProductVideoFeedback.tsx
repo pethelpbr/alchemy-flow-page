@@ -147,7 +147,6 @@ function DetailsAccordion({
   );
 }
 
-export function ProductVideoFeedback() {
 export function ProductVideoFeedback({
   productName,
   currentPrice,
@@ -192,7 +191,7 @@ export function ProductVideoFeedback({
 
 
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
-        <DialogContent className="max-h-[94dvh] w-[calc(100%-1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-[22px] border border-border bg-card p-2.5 shadow-soft sm:rounded-[22px] [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
+        <DialogContent className="max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-[22px] border border-border bg-card p-2.5 shadow-soft sm:rounded-[22px] [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (
             <>
               <div className="px-2 pb-3 pt-2">
