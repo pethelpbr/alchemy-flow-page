@@ -108,7 +108,7 @@ export function ActivesCarousel() {
           {actives.map((active) => (
             <CarouselItem
               key={active.name}
-              className="basis-[76%] pr-3 sm:basis-[46%] sm:pr-4 lg:basis-[28%] xl:basis-1/4"
+              className="basis-[76%] sm:basis-[46%] lg:basis-[28%] xl:basis-1/4"
             >
               <article className="relative overflow-hidden rounded-2xl">
                 <img
