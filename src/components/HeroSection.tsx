@@ -51,20 +51,19 @@ export function HeroSection({
           transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="eyebrow">Fórmula diária · 30 doses</p>
-          <h1 className="mt-4 font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
-            PataHelp - Hidratação, Cicatrização e Proteção 100% Natural
-          </h1>
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
+              PataHelp - Hidratação, Cicatrização e Proteção 100% Natural
+            </h1>
+            <div className="inline-flex shrink-0 items-center gap-2">
+              <Stars size={16} />
+              <span className="text-sm text-muted-foreground">4,8 | +743 avaliações</span>
+            </div>
+          </div>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             Uma fórmula premium desenvolvida para acompanhar sua rotina e entregar praticidade —
             uma dose, um copo de água, trinta segundos.
           </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Stars />
-            <span className="text-base text-muted-foreground">
-              4,9 · mais de 12.000 clientes satisfeitos
-            </span>
-          </div>
 
           <div className="mt-8">
             <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} />
