@@ -52,6 +52,60 @@ const reviews = [
   },
 ];
 
+const breakdown = [
+  { stars: 5, count: 2045 },
+  { stars: 4, count: 242 },
+  { stars: 3, count: 73 },
+  { stars: 2, count: 36 },
+  { stars: 1, count: 22 },
+];
+
+const totalReviews = breakdown.reduce((sum, row) => sum + row.count, 0);
+const maxCount = Math.max(...breakdown.map((row) => row.count));
+
+function RatingBreakdown() {
+  return (
+    <div className="mt-8 grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start">
+      <div className="flex items-start gap-4">
+        <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,9</span>
+        <div className="pt-1">
+          <Stars />
+          <p className="mt-1 text-sm text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
+        </div>
+      </div>
+
+      <div className="w-full max-w-xl space-y-2">
+        {breakdown.map((row) => {
+          const percent = (row.count / maxCount) * 100;
+          return (
+            <div key={row.stars} className="flex items-center gap-3">
+              <div className="flex w-16 items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    size={10}
+                    strokeWidth={0}
+                    className={i < row.stars ? "fill-primary" : "fill-border"}
+                  />
+                ))}
+              </div>
+              <div className="relative h-2 flex-1 overflow-hidden rounded-full bg-border/60">
+                <div
+                  className="absolute left-0 top-0 h-full rounded-full bg-primary transition-all duration-700 ease-out"
+                  style={{ width: `${percent}%` }}
+                />
+              </div>
+              <span className="w-10 text-right text-sm tabular-nums text-muted-foreground">
+                {row.count.toLocaleString("pt-BR")}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export function ReviewsCarousel() {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
