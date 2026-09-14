@@ -105,19 +105,19 @@ export function ComparisonSection() {
                 return (
                   <Fragment key={row.feature}>
                     <div
-                      className={`flex items-center bg-ink/45 px-4 py-5 backdrop-blur-sm ${divider} ${
+                      className={`relative z-10 flex items-center bg-ink/45 px-4 py-5 backdrop-blur-sm ${divider} ${
                         i === 0 ? "rounded-tl-2xl" : ""
                       } ${last ? "rounded-bl-2xl" : ""}`}
                     >
                       <p className="text-sm font-medium leading-snug text-background">{row.feature}</p>
                     </div>
-                    <div className={`flex items-center justify-center bg-ink/45 py-5 backdrop-blur-sm ${divider}`}>
+                    <div className={`relative z-0 flex items-center justify-center bg-transparent py-5 ${divider}`}>
                       <span className="relative z-10 grid size-8 place-items-center rounded-full bg-primary">
                         <Check size={16} strokeWidth={3} className="text-primary-foreground" />
                       </span>
                     </div>
                     <div
-                      className={`flex items-center justify-center bg-ink/45 px-3 py-5 text-center backdrop-blur-sm ${divider} ${
+                      className={`relative z-10 flex items-center justify-center bg-ink/45 px-3 py-5 text-center backdrop-blur-sm ${divider} ${
                         i === 0 ? "rounded-tr-2xl" : ""
                       } ${last ? "rounded-br-2xl" : ""}`}
                     >
