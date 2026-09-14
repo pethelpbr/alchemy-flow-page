@@ -234,7 +234,7 @@ function MarqueeStrip() {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 22,
+            duration: 28,
             ease: "linear",
           },
         }}
