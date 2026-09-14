@@ -160,7 +160,6 @@ export function ActivesCarousel() {
           </Button>
           </div>
         </div>
-      </div>
     </section>
   );
 }
