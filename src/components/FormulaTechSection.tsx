@@ -39,7 +39,7 @@ export function FormulaTechSection() {
           <div className="h-full min-h-0">
             <img
               src={formulaIngredients}
-              alt="Ingredientes da fórmula Nutraflow em pequenos recipientes de vidro"
+              alt="Ingredientes da fórmula PetHelp em pequenos recipientes de vidro"
               loading="lazy"
               width={1200}
               height={800}

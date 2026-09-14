@@ -52,7 +52,7 @@ const reviews = [
   },
   {
     text: "Comentário provisório para apresentar uma nova experiência com o produto e completar o carrossel.",
-    name: "Cliente Nutraflow",
+    name: "Cliente PetHelp",
     city: "Brasil",
     photo: c1,
   },

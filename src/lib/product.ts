@@ -20,7 +20,7 @@ export type Variant = {
   externalId: string | null;
 };
 
-export const BRAND = "Nutraflow";
+export const BRAND = "PetHelp";
 export const PRODUCT_NAME = "Daily Greens";
 
 export const variants: Variant[] = [
