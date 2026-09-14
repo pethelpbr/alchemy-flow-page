@@ -52,6 +52,12 @@ const actives = [
     description:
       "Estimula o estado de alerta, o foco e a disposição, com ação antioxidante.",
   },
+  {
+    image: activeGreentea,
+    name: "Novo ativo",
+    description:
+      "Conteúdo provisório para o próximo ingrediente que fará parte da apresentação da fórmula.",
+  },
 ];
 
 export function ActivesCarousel() {
