@@ -45,10 +45,10 @@ const ranges: [number, number][] = [
 
 function BenefitCard({ b }: { b: Benefit }) {
   return (
-    <article className="h-full rounded-2xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-card/15">
-      <b.icon size={20} strokeWidth={1.4} className="text-primary" />
-      <h3 className="mt-5 text-sm tracking-[0.14em] text-card uppercase">{b.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-card/75">{b.text}</p>
+    <article className="h-full rounded-2xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-card/15 md:p-8">
+      <b.icon strokeWidth={1.4} className="h-5 w-5 text-primary md:h-6 md:w-6" />
+      <h3 className="mt-5 text-sm tracking-[0.14em] text-card uppercase md:mt-6 md:text-[18px] md:tracking-[0.12em]">{b.title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-card/75 md:mt-4 md:text-base">{b.text}</p>
     </article>
   );
 }
