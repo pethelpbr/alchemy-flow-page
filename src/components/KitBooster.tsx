@@ -70,13 +70,13 @@ export function KitBooster({
                 </span>
               </span>
 
-              <span className="mt-2 block text-[11px] font-medium leading-snug text-ink">
+              <span className="mt-2 block text-[11px] font-medium leading-snug text-ink lg:text-[15px]">
                 {a.name}
               </span>
-              <span className="mt-1 block text-[10px] text-muted-foreground line-through">
+              <span className="mt-1 block text-[10px] text-muted-foreground line-through lg:text-[14px]">
                 {brl(a.fullPrice)}
               </span>
-              <span className="block text-xs font-semibold text-ink">{brl(a.price)}</span>
+              <span className="block text-xs font-semibold text-ink lg:text-base">{brl(a.price)}</span>
             </button>
           );
         })}
