@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, Play } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -9,6 +9,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { brl } from "@/lib/product";
+import { BuyButton } from "@/components/ui/BuyButton";
 import customer1 from "@/assets/customer-1.jpg";
 import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
@@ -145,40 +147,130 @@ function DetailsAccordion({
   );
 }
 
-export function ProductVideoFeedback() {
-  const [selectedVideo, setSelectedVideo] = useState<(typeof feedbacks)[number] | null>(null);
+export function ProductVideoFeedback({
+  productName,
+  currentPrice,
+  oldPrice,
+  onBuy,
+}: {
+  productName: string;
+  currentPrice: number;
+  oldPrice: number;
+  onBuy: () => void;
+}) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [openDetail, setOpenDetail] = useState<number | null>(null);
+  const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
+
+  const selectFeedback = (feedback: (typeof feedbacks)[number]) => {
+    const index = feedbacks.indexOf(feedback);
+    setSelectedIndex(index >= 0 ? index : 0);
+  };
+
+  const showPrevious = () => {
+    setSelectedIndex((current) =>
+      current === null ? 0 : (current - 1 + feedbacks.length) % feedbacks.length,
+    );
+  };
+
+  const showNext = () => {
+    setSelectedIndex((current) =>
+      current === null ? 0 : (current + 1) % feedbacks.length,
+    );
+  };
 
   return (
     <div className="mt-8 border-t border-border pt-7">
       <h3 className="text-base font-semibold text-ink">Vídeos de quem já usa</h3>
 
-      <Thumbnails className="mt-4 grid-cols-4" onSelect={setSelectedVideo} />
+      <Thumbnails className="mt-4 grid-cols-4" onSelect={selectFeedback} />
       <IngredientsButton />
       <div className="mt-7">
         <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
       </div>
 
 
-      <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedVideo(null)}>
-        <DialogContent className="max-w-sm overflow-hidden rounded-2xl border-0 bg-card p-0">
+      <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
+        <DialogContent className="max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-[22px] border border-border bg-card p-2.5 shadow-soft sm:rounded-[22px] [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (
             <>
-              <div className="relative">
+              <div className="px-2 pb-3 pt-2">
+                <DialogTitle className="pr-10 font-display text-xl font-bold uppercase text-ink">
+                  Vídeo feedbacks
+                </DialogTitle>
+                <DialogDescription className="sr-only">
+                  Relatos em vídeo de clientes Nutraflow
+                </DialogDescription>
+                <div className="mt-4 flex gap-2.5">
+                  {feedbacks.map((feedback, index) => (
+                    <Button
+                      key={feedback.name}
+                      type="button"
+                      variant="ghost"
+                      aria-label={`Ver relato de ${feedback.name}`}
+                      aria-pressed={selectedIndex === index}
+                      onClick={() => setSelectedIndex(index)}
+                      className={cn(
+                        "h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90",
+                        selectedIndex === index ? "border-primary" : "border-transparent",
+                      )}
+                    >
+                      <img
+                        src={feedback.image}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden rounded-t-[18px] bg-muted">
                 <img
                   src={selectedVideo.image}
                   alt={`Prévia do relato de ${selectedVideo.name}`}
-                  className="aspect-[9/14] max-h-[70vh] w-full object-cover"
+                  className="h-[min(58dvh,570px)] w-full object-cover"
                 />
-                <span className="absolute inset-0 grid place-items-center bg-ink/20">
-                  <span className="grid h-16 w-16 place-items-center rounded-full bg-card/90 text-primary shadow-soft">
-                    <Play className="ml-1 h-6 w-6 fill-current" />
-                  </span>
+                <span className="absolute inset-0 bg-ink/10" />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  aria-label="Relato anterior"
+                  onClick={showPrevious}
+                  className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-card/90 p-0 text-ink shadow-card hover:bg-card"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
+                <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card">
+                  <Play className="ml-0.5 h-5 w-5 fill-current" />
                 </span>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  aria-label="Próximo relato"
+                  onClick={showNext}
+                  className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-card/90 p-0 text-ink shadow-card hover:bg-card"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
               </div>
-              <div className="p-5">
-                <DialogTitle className="text-xl text-ink">Relato de {selectedVideo.name}</DialogTitle>
-                <DialogDescription className="mt-1">{selectedVideo.caption}</DialogDescription>
+
+              <div className="flex items-center gap-3 rounded-b-[18px] bg-muted px-3 py-3">
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-bold text-ink">{productName}</p>
+                  <p className="mt-0.5 flex flex-wrap items-baseline gap-1.5 text-xs">
+                    <span className="text-muted-foreground line-through">{brl(oldPrice)}</span>
+                    <span className="font-bold text-ink">{brl(currentPrice)}</span>
+                  </p>
+                  <p className="sr-only">{selectedVideo.caption}, por {selectedVideo.name}</p>
+                </div>
+                <BuyButton
+                  size="sm"
+                  onClick={onBuy}
+                  className="shrink-0 normal-case tracking-normal"
+                >
+                  Comprar agora
+                </BuyButton>
               </div>
             </>
           )}
