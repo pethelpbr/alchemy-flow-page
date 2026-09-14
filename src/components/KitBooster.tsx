@@ -25,14 +25,14 @@ export function KitBooster({
 }) {
   return (
     <div className="mt-6">
-      <p className="flex items-center gap-2 text-base font-medium text-ink">
-        <span className="grid h-5 w-5 place-items-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
+      <p className="flex items-center gap-2 text-lg font-medium text-ink md:text-xl">
+        <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
           2
         </span>
         Turbine seu kit
       </p>
 
-      <div className="mt-3 grid grid-cols-3 gap-2.5">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-3 md:gap-4">
         {addons.map((a) => {
           const isActive = selectedIds.includes(a.id);
           return (
@@ -41,7 +41,7 @@ export function KitBooster({
               onClick={() => onToggle(a.id)}
               aria-pressed={isActive}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-card p-2.5 text-left transition-all duration-300",
+                "relative flex flex-col rounded-2xl border bg-card p-3 text-left transition-all duration-300 md:p-4",
                 isActive
                   ? "border-primary/70 shadow-card"
                   : "border-border hover:border-primary/30",
@@ -58,25 +58,25 @@ export function KitBooster({
                 />
                 <span
                   className={cn(
-                    "absolute right-1.5 top-1.5 grid h-5 w-5 place-items-center rounded-full border transition-colors",
+                    "absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full border transition-colors",
                     isActive
                       ? "border-primary bg-primary"
                       : "border-clay bg-card/90",
                   )}
                 >
                   {isActive && (
-                    <Check size={11} strokeWidth={3} className="text-primary-foreground" />
+                    <Check size={14} strokeWidth={3} className="text-primary-foreground" />
                   )}
                 </span>
               </span>
 
-              <span className="mt-2 block text-[11px] font-medium leading-snug text-ink">
+              <span className="mt-3 block text-sm font-semibold leading-snug text-ink md:text-base">
                 {a.name}
               </span>
-              <span className="mt-1 block text-[10px] text-muted-foreground line-through">
+              <span className="mt-1 block text-xs text-muted-foreground line-through md:text-sm">
                 {brl(a.fullPrice)}
               </span>
-              <span className="block text-xs font-semibold text-ink">{brl(a.price)}</span>
+              <span className="block text-base font-bold text-ink md:text-lg">{brl(a.price)}</span>
             </button>
           );
         })}
