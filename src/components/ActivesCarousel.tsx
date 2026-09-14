@@ -128,7 +128,7 @@ export function ActivesCarousel() {
                   <h3 className="min-h-[2.5em] font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[24px]">
                     {active.name}
                   </h3>
-                  <p className="min-h-[4.2em] text-[13px] leading-snug text-primary-foreground/90 line-clamp-3 lg:text-[24px] lg:leading-relaxed">
+                  <p className="min-h-[4.2em] text-[13px] leading-snug text-primary-foreground/90 line-clamp-3 lg:text-[22px] lg:leading-relaxed">
                     {active.description}
                   </p>
                 </div>
