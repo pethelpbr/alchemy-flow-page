@@ -13,6 +13,7 @@ import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
+import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { StickyMobileBuy } from "@/components/StickyMobileBuy";
 import { Footer } from "@/components/Footer";
@@ -58,6 +59,7 @@ function Index() {
         <ActivesCarousel />
         <ReviewsCarousel />
         <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <TrustBadgesStrip />
         <FAQAccordion />
       </main>
       <Footer />
