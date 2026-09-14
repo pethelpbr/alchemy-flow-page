@@ -96,7 +96,14 @@ export function PricingCard({
         <ShieldCheck size={13} strokeWidth={1.4} /> Pagamento processado em ambiente criptografado
       </p>
 
-      {!compact && <ProductVideoFeedback />}
+      {!compact && (
+        <ProductVideoFeedback
+          productName={selected.units === 1 ? "Daily Greens" : selected.label}
+          currentPrice={grandTotal}
+          oldPrice={oldTotal + extra}
+          onBuy={onBuy}
+        />
+      )}
     </div>
   );
 }
