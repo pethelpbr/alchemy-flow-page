@@ -89,7 +89,7 @@ export function PricingCard({
             <span className="font-display text-3xl leading-none text-ink">{brl(grandTotal)}</span>
           </span>
         </div>
-        <BuyButton size="lg" className="w-full sm:w-auto" onClick={onBuy}>
+        <BuyButton size="lg" className="w-full" onClick={onBuy}>
           Comprar agora
         </BuyButton>
       </div>
