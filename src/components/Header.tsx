@@ -48,7 +48,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
 
         <a
           href="#topo"
-          className="min-w-0 text-center font-display text-xl tracking-[0.32em] uppercase text-ink lg:text-left"
+          className="min-w-0 text-center font-display text-base tracking-[0.32em] uppercase text-ink lg:text-left lg:text-xl"
         >
           {BRAND}
         </a>
