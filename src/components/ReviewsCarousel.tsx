@@ -1,8 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Stars } from "@/components/ui/Stars";
+import type { CarouselApi } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 import c1 from "@/assets/customer-1.jpg";
 import c2 from "@/assets/customer-2.jpg";
 import c3 from "@/assets/customer-3.jpg";
@@ -35,24 +41,25 @@ const reviews = [
 ];
 
 export function ReviewsCarousel() {
-  const [index, setIndex] = useState(0);
-  const move = (dir: number) =>
-    setIndex((i) => (i + dir + reviews.length) % reviews.length);
+  const [api, setApi] = useState<CarouselApi>();
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState(0);
-
-  useEffect(() => {
-    const measure = () => {
-      const card = trackRef.current?.firstElementChild as HTMLElement | undefined;
-      if (!card) return;
-      setStep(card.offsetWidth + 20);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+  const updateSelected = useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setSelectedIndex(carouselApi.selectedScrollSnap());
   }, []);
 
+  useEffect(() => {
+    if (!api) return;
+    updateSelected(api);
+    api.on("select", updateSelected);
+    api.on("reInit", updateSelected);
+
+    return () => {
+      api.off("select", updateSelected);
+      api.off("reInit", updateSelected);
+    };
+  }, [api, updateSelected]);
 
   return (
     <section id="avaliacoes" className="section scroll-mt-24 bg-sand/60">
@@ -70,58 +77,73 @@ export function ReviewsCarousel() {
                 <span className="text-sm text-muted-foreground">2.418 avaliações verificadas</span>
               </div>
             </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => move(-1)}
-                aria-label="Anterior"
-                className="grid h-11 w-11 place-items-center rounded-full border border-border text-ink transition-colors hover:border-primary"
-              >
-                <ArrowLeft size={16} strokeWidth={1.4} />
-              </button>
-              <button
-                onClick={() => move(1)}
-                aria-label="Próximo"
-                className="grid h-11 w-11 place-items-center rounded-full border border-border text-ink transition-colors hover:border-primary"
-              >
-                <ArrowRight size={16} strokeWidth={1.4} />
-              </button>
-            </div>
           </div>
         </Reveal>
 
-        <div className="mt-12 overflow-hidden">
-          <motion.div
-            ref={trackRef}
-            className="flex gap-5"
-            animate={{ x: -index * step }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
+        <Carousel
+          setApi={setApi}
+          opts={{ loop: true, align: "start", dragFree: true }}
+          aria-label="Avaliações de clientes"
+          className="mt-12 cursor-grab select-none active:cursor-grabbing"
+        >
+          <CarouselContent className="touch-pan-y">
             {reviews.map((r) => (
-              <article
+              <CarouselItem
                 key={r.name}
-                className="w-full shrink-0 rounded-3xl border border-border bg-card p-8 md:w-[calc((100%-2.5rem)/3)]"
+                className="basis-[85%] sm:basis-[46%] lg:basis-[32%] xl:basis-1/3"
               >
-                <Stars />
-                <blockquote className="mt-5 font-display text-2xl leading-snug text-ink">
-                  “{r.text}”
-                </blockquote>
-                <div className="mt-7 flex items-center gap-3">
-                  <img
-                    src={r.photo}
-                    alt={r.name}
-                    loading="lazy"
-                    width={512}
-                    height={512}
-                    className="h-11 w-11 shrink-0 rounded-full object-cover"
-                  />
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium text-ink">{r.name}</p>
-                    <p className="truncate text-xs text-muted-foreground">{r.city}</p>
+                <article className="h-full rounded-3xl border border-border bg-card p-8">
+                  <Stars />
+                  <blockquote className="mt-5 font-display text-2xl leading-snug text-ink">
+                    “{r.text}”
+                  </blockquote>
+                  <div className="mt-7 flex items-center gap-3">
+                    <img
+                      src={r.photo}
+                      alt={r.name}
+                      loading="lazy"
+                      draggable={false}
+                      width={512}
+                      height={512}
+                      className="h-11 w-11 shrink-0 rounded-full object-cover"
+                    />
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium text-ink">{r.name}</p>
+                      <p className="truncate text-xs text-muted-foreground">{r.city}</p>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </CarouselItem>
             ))}
-          </motion.div>
+          </CarouselContent>
+        </Carousel>
+
+        <div className="mt-8 flex items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground" aria-live="polite">
+            {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
+          </p>
+          <div className="flex gap-3">
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => api?.scrollPrev()}
+              aria-label="Anterior"
+              className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              size="icon"
+              onClick={() => api?.scrollNext()}
+              aria-label="Próximo"
+              className="h-11 w-11 rounded-full bg-ink text-background hover:bg-ink/90"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
