@@ -20,26 +20,33 @@ export function ProductSelector({
             onClick={() => onSelect(v)}
             aria-pressed={isActive}
             className={cn(
-              "relative grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border bg-card px-4 py-4 text-left transition-all duration-300 sm:px-5",
+              "relative grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border px-4 py-4 text-left transition-all duration-300 sm:px-5",
               isActive
-                ? "border-primary/70 shadow-card"
-                : "border-border hover:border-primary/30",
+                ? "border-primary bg-primary/[0.08] shadow-[0_8px_30px_-12px_oklch(0.62_0.19_47.6/0.45)]"
+                : "border-border bg-card hover:border-primary/30",
             )}
           >
             <span
               className={cn(
                 "grid h-5 w-5 shrink-0 place-items-center rounded-full border transition-colors",
-                isActive ? "border-primary bg-primary" : "border-clay",
+                isActive
+                  ? "border-primary bg-primary-foreground"
+                  : "border-clay bg-card",
               )}
             >
-              {isActive && <Check size={12} strokeWidth={3} className="text-primary-foreground" />}
+              {isActive && <Check size={12} strokeWidth={3} className="text-primary" />}
             </span>
 
             <span className="min-w-0">
               <span className="flex flex-wrap items-center gap-2">
-                <span className="truncate text-base font-medium text-ink">{v.label}</span>
+                <span className={cn("truncate text-base font-medium", isActive ? "text-ink" : "text-ink")}>{v.label}</span>
                 {v.badge && (
-                  <span className="rounded-full bg-accent px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em] text-accent-foreground">
+                  <span className={cn(
+                    "rounded-full px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em]",
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-accent text-accent-foreground",
+                  )}>
                     {v.badge}
                   </span>
                 )}
@@ -48,7 +55,7 @@ export function ProductSelector({
             </span>
 
             <span className="shrink-0 text-right">
-              <span className="block text-base font-medium text-ink">{brl(total)}</span>
+              <span className={cn("block text-base font-medium", isActive ? "text-primary" : "text-ink")}>{brl(total)}</span>
               <span className="block text-[11px] text-muted-foreground">-{discount}%</span>
             </span>
           </button>
