@@ -93,36 +93,48 @@ function ScrollStep({
 
 function Images({ scale }: { scale?: MotionValue<number> }) {
   return (
-    <div className="relative mx-auto w-full max-w-xl">
+    <div className="relative mx-auto w-full max-w-2xl">
       <motion.div
         {...(scale ? { style: { scale } } : {})}
-        className="relative aspect-4/5 w-full"
+        className="grid grid-cols-2 gap-3 sm:gap-4"
       >
-        <div className="absolute top-0 right-0 h-4/5 w-4/5 overflow-hidden rounded-xl shadow-soft">
+        {/* Antes — troque a imagem quando tiver a foto real */}
+        <div className="group relative overflow-hidden rounded-2xl bg-muted shadow-soft">
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-sm">
+            Antes
+          </span>
           <img
             src={lifestyle}
-            alt="Mulher preparando sua bebida Nutraflow durante a rotina"
+            alt="Foto de antes do uso do produto"
             loading="lazy"
-            className="h-full w-full object-cover"
+            className="aspect-[3/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
         </div>
 
-        <div className="absolute bottom-0 left-0 h-[62%] w-[72%] overflow-hidden rounded-xl border-8 border-card shadow-card sm:border-[10px]">
+        {/* Depois — troque a imagem quando tiver a foto real */}
+        <div className="group relative overflow-hidden rounded-2xl bg-muted shadow-soft">
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-sm">
+            Depois
+          </span>
           <img
             src={galleryDrink}
-            alt="Bebida Nutraflow pronta para consumo"
+            alt="Foto de depois do uso do produto"
             loading="lazy"
-            className="h-full w-full object-cover"
+            className="aspect-[3/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />
-        </div>
 
-        <div className="absolute right-3 bottom-10 max-w-40 rounded-lg border border-border bg-card px-4 py-3 shadow-card sm:right-0 sm:max-w-48 sm:px-5 sm:py-4">
-          <p className="eyebrow text-primary">Uma dose por dia</p>
-          <p className="mt-1 font-accent text-lg leading-snug text-ink sm:text-xl">
-            Consistência que cabe na rotina
-          </p>
+          <div className="absolute right-3 bottom-3 max-w-40 rounded-lg border border-border bg-card/95 px-4 py-3 shadow-card backdrop-blur-sm sm:right-4 sm:bottom-4 sm:max-w-48 sm:px-5 sm:py-4">
+            <p className="eyebrow text-primary">Uma dose por dia</p>
+            <p className="mt-1 font-accent text-base leading-snug text-ink sm:text-lg">
+              Consistência que cabe na rotina
+            </p>
+          </div>
         </div>
       </motion.div>
+
+      <p className="mt-4 text-center text-xs text-muted-foreground sm:text-sm">
+        Resultados individuais podem variar de acordo com a rotina e alimentação.
+      </p>
     </div>
   );
 }
