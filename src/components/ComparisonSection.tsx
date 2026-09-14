@@ -82,17 +82,17 @@ export function ComparisonSection() {
         <Reveal className="mt-10 sm:hidden">
           <div className="relative mx-auto max-w-md pb-7">
             {/* White capsule behind the brand column */}
-            <div className="absolute inset-y-0 left-1/2 w-[33%] -translate-x-1/2 rounded-[2.5rem] bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
+            <div className="absolute inset-y-0 left-1/2 z-0 w-[33%] -translate-x-1/2 rounded-[2.5rem] bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
 
-            <div className="grid grid-cols-[1fr_33%_1fr]">
+            <div className="relative z-10 grid grid-cols-[1fr_33%_1fr]">
               {/* Header labels */}
-              <div className="h-24" />
-              <div className="relative z-10 flex h-24 items-end justify-center px-2 pb-3">
+              <div className="h-14" />
+              <div className="relative z-10 flex h-14 items-end justify-center px-2 pb-2">
                 <p className="text-center font-display text-base font-bold leading-tight text-ink">
                   {BRAND}
                 </p>
               </div>
-              <div className="flex h-24 items-end justify-center px-2 pb-3">
+              <div className="flex h-14 items-end justify-center px-2 pb-2">
                 <p className="text-center text-sm font-bold leading-tight text-background">
                   Fórmula comum
                 </p>
