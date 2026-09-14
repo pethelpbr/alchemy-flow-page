@@ -147,7 +147,7 @@ export function ReviewsCarousel() {
         aria-label="Avaliações de clientes"
         className="mt-12 cursor-grab select-none active:cursor-grabbing"
       >
-        <CarouselContent className="touch-pan-y pl-4 sm:pl-[max(1rem,calc((100vw-1400px)/2+1rem))]">
+        <CarouselContent className="touch-pan-y">
           {reviews.map((r) => (
             <CarouselItem
               key={r.name}
