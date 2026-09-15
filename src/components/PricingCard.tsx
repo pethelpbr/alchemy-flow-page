@@ -38,7 +38,7 @@ export function PricingCard({
   return (
     <div
       id="comprar"
-      className="scroll-mt-28 rounded-2xl border border-border bg-background/70 p-5 backdrop-blur sm:p-7"
+      className="scroll-mt-28 overflow-hidden rounded-2xl border border-border bg-background/70 p-5 backdrop-blur sm:p-7"
     >
       {!compact && (
         <p className="mb-4 flex items-center gap-2 text-base font-medium text-ink">
@@ -102,12 +102,14 @@ export function PricingCard({
       </p>
 
       {!compact && (
-        <ProductVideoFeedback
-          productName={selected.units === 1 ? "Daily Greens" : selected.label}
-          currentPrice={grandTotal}
-          oldPrice={oldTotal + extra}
-          onBuy={onBuy}
-        />
+        <div className="relative mt-8 -mx-5 -mb-5 border-t border-border bg-sand/30 px-5 pt-8 sm:-mx-7 sm:-mb-7 sm:px-7">
+          <ProductVideoFeedback
+            productName={selected.units === 1 ? "Daily Greens" : selected.label}
+            currentPrice={grandTotal}
+            oldPrice={oldTotal + extra}
+            onBuy={onBuy}
+          />
+        </div>
       )}
     </div>
   );

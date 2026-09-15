@@ -180,15 +180,16 @@ export function ProductVideoFeedback({
   };
 
   return (
-    <div className="mt-8 border-t border-border pt-7">
-      <h3 className="text-base font-semibold text-ink">Vídeos de quem já usa</h3>
-
-      <Thumbnails className="mt-4 grid-cols-4" onSelect={selectFeedback} />
-      <IngredientsButton />
-      <div className="mt-7">
-        <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
+    <div>
+      <div>
+        <h3 className="text-base font-semibold text-ink">Vídeos de quem já usa</h3>
+        <Thumbnails className="mt-4 grid-cols-4" onSelect={selectFeedback} />
+        <IngredientsButton />
       </div>
 
+      <div className="mt-7 border-t border-border pt-6">
+        <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
+      </div>
 
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
         <DialogContent className="max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
