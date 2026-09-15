@@ -17,21 +17,21 @@ export function PricingCard({
   onSelect,
   onBuy,
   compact = false,
+  addonIds,
+  onToggleAddon,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
   compact?: boolean;
+  addonIds: string[];
+  onToggleAddon: (id: string) => void;
 }) {
   const { total, oldTotal, savings, discount, installmentValue } = variantTotals(selected);
-  const [addonIds, setAddonIds] = useState<string[]>([]);
-
-  const toggleAddon = (id: string) =>
-    setAddonIds((prev) =>
-      prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id],
-    );
+  const toggleAddon = onToggleAddon;
 
   const extra = addonsTotal(addonIds);
+  const extraFull = addonsFullTotal(addonIds);
   const grandTotal = total + extra;
 
   return (
