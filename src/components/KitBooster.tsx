@@ -76,12 +76,14 @@ export function KitBooster({
               <span className="mt-2 block text-[11px] font-medium leading-snug text-ink lg:text-[15px]">
                 {a.name}
               </span>
-              <span className="mt-1 block text-[10px] text-muted-foreground line-through lg:text-[14px]">
-                {brl(a.fullPrice)}
-              </span>
 
               <div className="mt-1 flex items-center gap-2">
-                <span className="text-xs font-semibold text-ink lg:text-base">{brl(a.price)}</span>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-[10px] text-muted-foreground line-through lg:text-[14px]">
+                    {brl(a.fullPrice)}
+                  </span>
+                  <span className="text-xs font-semibold text-ink lg:text-base">{brl(a.price)}</span>
+                </div>
                 <div className="flex flex-1 justify-center">
                   <button
                     type="button"
