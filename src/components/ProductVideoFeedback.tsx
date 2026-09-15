@@ -159,7 +159,7 @@ export function ProductVideoFeedback({
   onBuy: () => void;
 }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [openDetail, setOpenDetail] = useState<number | null>(null);
+  const [openDetail, setOpenDetail] = useState<number | null>(0);
   const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
 
   const selectFeedback = (feedback: (typeof feedbacks)[number]) => {
