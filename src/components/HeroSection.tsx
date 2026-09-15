@@ -70,7 +70,13 @@ export function HeroSection({
           </p>
 
           <div className="mt-8">
-            <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} />
+            <PricingCard
+              selected={selected}
+              onSelect={onSelect}
+              onBuy={onBuy}
+              addonIds={addonIds}
+              onToggleAddon={onToggleAddon}
+            />
           </div>
         </motion.div>
       </div>
