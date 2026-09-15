@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ShieldCheck, Truck, RefreshCw, Lock } from "lucide-react";
+import { Truck, RefreshCw, Lock } from "lucide-react";
 import { brl, variantTotals, addonsTotal, addonsFullTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
