@@ -8,10 +8,14 @@ export function FinalOffer({
   selected,
   onSelect,
   onBuy,
+  addonIds,
+  onToggleAddon,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
+  addonIds: string[];
+  onToggleAddon: (id: string) => void;
 }) {
   return (
     <section className="section bg-sand/60">
@@ -41,7 +45,14 @@ export function FinalOffer({
           </p>
 
           <div className="mt-8">
-            <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} compact />
+            <PricingCard
+              selected={selected}
+              onSelect={onSelect}
+              onBuy={onBuy}
+              addonIds={addonIds}
+              onToggleAddon={onToggleAddon}
+              compact
+            />
           </div>
         </Reveal>
       </div>

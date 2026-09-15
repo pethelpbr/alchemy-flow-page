@@ -7,12 +7,16 @@ import productHero from "@/assets/product-hero.jpg";
 export function StickyMobileBuy({
   selected,
   onBuy,
+  addonsExtra = 0,
 }: {
   selected: Variant;
   onBuy: () => void;
+  addonsExtra?: number;
 }) {
   const [visible, setVisible] = useState(false);
-  const { total, installmentValue } = variantTotals(selected);
+  const { total } = variantTotals(selected);
+  const grandTotal = total + addonsExtra;
+  const installmentValue = grandTotal / selected.installments;
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.9);
@@ -39,7 +43,7 @@ export function StickyMobileBuy({
               className="h-12 w-12 shrink-0 rounded-lg object-cover"
             />
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-ink">{brl(total)}</p>
+              <p className="truncate text-sm font-medium text-ink">{brl(grandTotal)}</p>
               <p className="truncate text-[11px] text-muted-foreground">
                 {selected.installments}x de {brl(installmentValue)}
               </p>

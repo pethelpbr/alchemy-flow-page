@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { ShieldCheck, Truck, RefreshCw, Lock } from "lucide-react";
-import { brl, variantTotals, type Variant } from "@/lib/product";
+import { brl, variantTotals, addonsTotal, addonsFullTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
-import { KitBooster, addonsTotal } from "@/components/KitBooster";
+import { KitBooster } from "@/components/KitBooster";
 import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
 
 const seals = [
@@ -18,21 +17,21 @@ export function PricingCard({
   onSelect,
   onBuy,
   compact = false,
+  addonIds,
+  onToggleAddon,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
   compact?: boolean;
+  addonIds: string[];
+  onToggleAddon: (id: string) => void;
 }) {
   const { total, oldTotal, savings, discount, installmentValue } = variantTotals(selected);
-  const [addonIds, setAddonIds] = useState<string[]>([]);
-
-  const toggleAddon = (id: string) =>
-    setAddonIds((prev) =>
-      prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id],
-    );
+  const toggleAddon = onToggleAddon;
 
   const extra = addonsTotal(addonIds);
+  const extraFull = addonsFullTotal(addonIds);
   const grandTotal = total + extra;
 
   return (
@@ -58,7 +57,7 @@ export function PricingCard({
           transition={{ duration: 0.35 }}
           className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1"
         >
-          <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
+          <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extraFull)}</span>
           <span className="font-display text-4xl leading-none text-ink">{brl(grandTotal)}</span>
           <span className="rounded-lg bg-primary/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-primary">
             {discount}% off
@@ -105,7 +104,7 @@ export function PricingCard({
           <ProductVideoFeedback
             productName={selected.units === 1 ? "Daily Greens" : selected.label}
             currentPrice={grandTotal}
-            oldPrice={oldTotal + extra}
+            oldPrice={oldTotal + extraFull}
             onBuy={onBuy}
           />
         </div>

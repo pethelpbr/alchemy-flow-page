@@ -9,10 +9,14 @@ export function HeroSection({
   selected,
   onSelect,
   onBuy,
+  addonIds,
+  onToggleAddon,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
+  addonIds: string[];
+  onToggleAddon: (id: string) => void;
 }) {
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
@@ -66,7 +70,13 @@ export function HeroSection({
           </p>
 
           <div className="mt-8">
-            <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} />
+            <PricingCard
+              selected={selected}
+              onSelect={onSelect}
+              onBuy={onBuy}
+              addonIds={addonIds}
+              onToggleAddon={onToggleAddon}
+            />
           </div>
         </motion.div>
       </div>

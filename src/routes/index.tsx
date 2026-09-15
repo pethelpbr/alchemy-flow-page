@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { selected, setSelected, checkout } = useCart();
+  const { selected, setSelected, checkout, addonIds, toggleAddon, addonsExtra } = useCart();
 
   const goToOffer = () => {
     document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -48,7 +48,13 @@ function Index() {
     <div className="min-h-screen bg-background">
       <Header onBuy={goToOffer} />
       <main>
-        <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <HeroSection
+          selected={selected}
+          onSelect={setSelected}
+          onBuy={checkout}
+          addonIds={addonIds}
+          onToggleAddon={toggleAddon}
+        />
         <BenefitsSection />
         <RoutineResultsSection />
         <StorySection />
@@ -59,11 +65,17 @@ function Index() {
         <ActivesCarousel />
         <ReviewsCarousel />
         <TrustBadgesStrip />
-        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <FinalOffer
+          selected={selected}
+          onSelect={setSelected}
+          onBuy={checkout}
+          addonIds={addonIds}
+          onToggleAddon={toggleAddon}
+        />
         <FAQAccordion />
       </main>
       <Footer />
-      <StickyMobileBuy selected={selected} onBuy={goToOffer} />
+      <StickyMobileBuy selected={selected} onBuy={goToOffer} addonsExtra={addonsExtra} />
     </div>
   );
 }
