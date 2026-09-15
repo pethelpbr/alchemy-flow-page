@@ -94,9 +94,6 @@ export function PricingCard({
           ))}
         </div>
 
-        <p className="mt-4 flex items-center justify-center gap-2 text-[11px] text-muted-foreground">
-          <ShieldCheck size={13} strokeWidth={1.4} /> Pagamento processado em ambiente criptografado
-        </p>
       </div>
 
       {!compact && (
