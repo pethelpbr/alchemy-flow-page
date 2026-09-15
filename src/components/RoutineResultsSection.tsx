@@ -228,7 +228,7 @@ function MarqueeStrip() {
   return (
     <div className="relative overflow-hidden bg-primary py-3 sm:py-4">
       <motion.div
-        className="flex w-max items-center gap-6 sm:gap-8"
+        className="flex w-max items-center gap-3 sm:gap-8"
         animate={{ x: [0, "-50%"] }}
         transition={{
           x: {
