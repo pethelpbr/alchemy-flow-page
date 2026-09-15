@@ -101,7 +101,7 @@ export function PricingCard({
       </div>
 
       {!compact && (
-        <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
+        <div className="px-5 sm:px-7">
           <ProductVideoFeedback
             productName={selected.units === 1 ? "Daily Greens" : selected.label}
             currentPrice={grandTotal}
