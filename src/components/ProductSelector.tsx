@@ -30,11 +30,11 @@ export function ProductSelector({
               className={cn(
                 "grid h-5 w-5 shrink-0 place-items-center rounded-full border transition-colors",
                 isActive
-                  ? "border-primary bg-primary-foreground"
+                  ? "border-primary bg-primary"
                   : "border-clay bg-card",
               )}
             >
-              {isActive && <Check size={12} strokeWidth={3} className="text-primary" />}
+              {isActive && <Check size={12} strokeWidth={3} className="text-primary-foreground" />}
             </span>
 
             <span className="min-w-0">
