@@ -43,7 +43,7 @@ export function StickyMobileBuy({
               className="h-12 w-12 shrink-0 rounded-lg object-cover"
             />
             <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-ink">{brl(total)}</p>
+              <p className="truncate text-sm font-medium text-ink">{brl(grandTotal)}</p>
               <p className="truncate text-[11px] text-muted-foreground">
                 {selected.installments}x de {brl(installmentValue)}
               </p>
