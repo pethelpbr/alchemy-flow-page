@@ -105,7 +105,7 @@ function DetailsAccordion({
   setOpenDetail: (i: number | null) => void;
 }) {
   return (
-    <div className="border-y border-border">
+    <div className="border-b border-border">
       {details.map((detail, index) => {
         const isOpen = openDetail === index;
         return (
