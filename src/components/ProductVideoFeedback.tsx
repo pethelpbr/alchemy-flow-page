@@ -105,7 +105,7 @@ function DetailsAccordion({
   setOpenDetail: (i: number | null) => void;
 }) {
   return (
-    <div className="border-b border-border">
+    <div className="border-y border-border">
       {details.map((detail, index) => {
         const isOpen = openDetail === index;
         return (
@@ -187,7 +187,7 @@ export function ProductVideoFeedback({
         <IngredientsButton />
       </div>
 
-      <div className="mt-7 border-t border-border pt-6">
+      <div className="mt-7 pt-2">
         <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
       </div>
 
