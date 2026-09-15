@@ -18,6 +18,17 @@ export function FormulaTechSection() {
               Tecnologia por trás da fórmula
             </h2>
 
+            <div className="mt-6 lg:hidden">
+              <img
+                src={formulaIngredients}
+                alt="Ingredientes da fórmula Nutraflow em pequenos recipientes de vidro"
+                loading="lazy"
+                width={1200}
+                height={800}
+                className="h-auto w-full rounded-2xl object-cover shadow-soft"
+              />
+            </div>
+
             <ul className="mt-8">
               {items.map((item) => (
                 <li
@@ -36,7 +47,7 @@ export function FormulaTechSection() {
             </p>
           </div>
 
-          <div className="h-full min-h-0">
+          <div className="hidden h-full min-h-0 lg:block">
             <img
               src={formulaIngredients}
               alt="Ingredientes da fórmula Nutraflow em pequenos recipientes de vidro"
