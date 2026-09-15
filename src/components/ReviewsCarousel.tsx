@@ -75,7 +75,7 @@ function RatingBreakdown() {
       <div className="flex items-start gap-4">
         <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,9</span>
         <div className="pt-1">
-          <Stars />
+          <Stars size={18} />
           <p className="mt-1 text-base text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
         </div>
       </div>
@@ -160,7 +160,7 @@ export function ReviewsCarousel() {
               className="basis-[85%] sm:basis-[46%] lg:basis-[32%] xl:basis-1/3"
             >
               <article className="h-full rounded-2xl border border-border bg-card p-5 sm:p-6 lg:p-6">
-                <Stars />
+                <Stars size={18} />
                 <blockquote className="mt-4 font-display text-xl leading-snug text-ink lg:text-xl">
                   “{r.text}”
                 </blockquote>
