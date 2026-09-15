@@ -75,7 +75,7 @@ function Index() {
         <FAQAccordion />
       </main>
       <Footer />
-      <StickyMobileBuy selected={selected} onBuy={goToOffer} />
+      <StickyMobileBuy selected={selected} onBuy={goToOffer} addonsExtra={addonsExtra} />
     </div>
   );
 }
