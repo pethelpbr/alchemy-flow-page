@@ -89,7 +89,7 @@ function RatingBreakdown() {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    size={18}
+                    size={20}
                     strokeWidth={0}
                     className={i < row.stars ? "fill-primary" : "fill-border"}
                   />
