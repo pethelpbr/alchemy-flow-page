@@ -45,7 +45,14 @@ export function FinalOffer({
           </p>
 
           <div className="mt-8">
-            <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} compact />
+            <PricingCard
+              selected={selected}
+              onSelect={onSelect}
+              onBuy={onBuy}
+              addonIds={addonIds}
+              onToggleAddon={onToggleAddon}
+              compact
+            />
           </div>
         </Reveal>
       </div>
