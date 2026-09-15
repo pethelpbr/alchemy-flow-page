@@ -75,6 +75,20 @@ export const addonCatalog: Omit<Addon, "image">[] = [
   { id: "vitc", name: "Vitamina C Efervescente", price: 29.9, fullPrice: 79.9 },
 ];
 
+/** Soma dos adicionais selecionados no bloco "Turbine seu kit". */
+export function addonsTotal(selectedIds: string[]) {
+  return addonCatalog
+    .filter((a) => selectedIds.includes(a.id))
+    .reduce((sum, a) => sum + a.price, 0);
+}
+
+/** Soma dos adicionais pelo preço cheio (para o valor riscado). */
+export function addonsFullTotal(selectedIds: string[]) {
+  return addonCatalog
+    .filter((a) => selectedIds.includes(a.id))
+    .reduce((sum, a) => sum + a.fullPrice, 0);
+}
+
 export function variantTotals(variant: Variant) {
   const total = variant.unitPrice * variant.units;
   const oldTotal = variant.fullPrice * variant.units;
