@@ -77,8 +77,8 @@ export function KitBooster({
                 {a.name}
               </span>
 
-              <div className="mt-1 flex items-center gap-2">
-                <div className="flex flex-col leading-tight">
+              <div className="mt-1 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
+                <div className="flex min-w-0 flex-col leading-tight">
                   <span className="text-[10px] text-muted-foreground line-through lg:text-[14px]">
                     {brl(a.fullPrice)}
                   </span>
@@ -89,7 +89,7 @@ export function KitBooster({
                     type="button"
                     onClick={() => onToggle(a.id)}
                     className={cn(
-                      "rounded-lg px-3 py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors lg:text-[13px]",
+                      "w-full whitespace-nowrap rounded-lg px-3 py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors sm:w-auto lg:text-[13px]",
                       isActive
                         ? "bg-primary text-primary-foreground"
                         : "bg-primary/10 text-primary hover:bg-primary/20",
