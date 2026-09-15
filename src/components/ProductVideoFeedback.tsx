@@ -187,7 +187,7 @@ export function ProductVideoFeedback({
         <IngredientsButton />
       </div>
 
-      <div className="mt-7 border-t border-border pt-6">
+      <div className="mt-7 pt-2">
         <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
       </div>
 
