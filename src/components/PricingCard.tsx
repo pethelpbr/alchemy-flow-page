@@ -104,7 +104,7 @@ export function PricingCard({
           <ProductVideoFeedback
             productName={selected.units === 1 ? "Daily Greens" : selected.label}
             currentPrice={grandTotal}
-            oldPrice={oldTotal + extra}
+            oldPrice={oldTotal + extraFull}
             onBuy={onBuy}
           />
         </div>
