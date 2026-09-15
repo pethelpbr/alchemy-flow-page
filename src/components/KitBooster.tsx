@@ -36,10 +36,8 @@ export function KitBooster({
         {addons.map((a) => {
           const isActive = selectedIds.includes(a.id);
           return (
-            <button
+            <div
               key={a.id}
-              onClick={() => onToggle(a.id)}
-              aria-pressed={isActive}
               className={cn(
                 "relative flex flex-col rounded-2xl border bg-card p-2.5 text-left transition-all duration-300",
                 isActive
@@ -47,7 +45,10 @@ export function KitBooster({
                   : "border-border hover:border-primary/30",
               )}
             >
-              <span className="relative block overflow-hidden rounded-xl bg-sand">
+              <span
+                onClick={() => onToggle(a.id)}
+                className="relative block cursor-pointer overflow-hidden rounded-xl bg-sand"
+              >
                 <img
                   src={a.image}
                   alt={a.name}
@@ -57,8 +58,12 @@ export function KitBooster({
                   className="aspect-square w-full object-cover"
                 />
                 <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggle(a.id);
+                  }}
                   className={cn(
-                    "absolute right-1.5 top-1.5 grid h-5 w-5 place-items-center rounded-full border transition-colors",
+                    "absolute right-1.5 top-1.5 grid h-5 w-5 cursor-pointer place-items-center rounded-full border transition-colors",
                     isActive
                       ? "border-primary bg-primary"
                       : "border-clay bg-card/90",
@@ -77,7 +82,20 @@ export function KitBooster({
                 {brl(a.fullPrice)}
               </span>
               <span className="block text-xs font-semibold text-ink lg:text-base">{brl(a.price)}</span>
-            </button>
+
+              <button
+                type="button"
+                onClick={() => onToggle(a.id)}
+                className={cn(
+                  "mt-2 w-full rounded-xl py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors lg:text-[13px]",
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-primary/10 text-primary hover:bg-primary/20",
+                )}
+              >
+                {isActive ? "ADICIONADO" : "ADICIONAR"}
+              </button>
+            </div>
           );
         })}
       </div>
