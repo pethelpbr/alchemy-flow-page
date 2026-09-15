@@ -48,7 +48,13 @@ function Index() {
     <div className="min-h-screen bg-background">
       <Header onBuy={goToOffer} />
       <main>
-        <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <HeroSection
+          selected={selected}
+          onSelect={setSelected}
+          onBuy={checkout}
+          addonIds={addonIds}
+          onToggleAddon={toggleAddon}
+        />
         <BenefitsSection />
         <RoutineResultsSection />
         <StorySection />
