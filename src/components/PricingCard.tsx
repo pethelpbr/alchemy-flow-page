@@ -102,7 +102,7 @@ export function PricingCard({
       </p>
 
       {!compact && (
-        <div className="relative mt-8 -mx-5 -mb-5 border-t border-border bg-sand/30 px-5 pt-8 sm:-mx-7 sm:-mb-7 sm:px-7">
+        <div className="mt-8 rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
           <ProductVideoFeedback
             productName={selected.units === 1 ? "Daily Greens" : selected.label}
             currentPrice={grandTotal}
