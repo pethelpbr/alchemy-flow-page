@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { ShieldCheck, Truck, RefreshCw, Lock } from "lucide-react";
-import { brl, variantTotals, type Variant } from "@/lib/product";
+import { brl, variantTotals, addonsTotal, addonsFullTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
-import { KitBooster, addonsTotal } from "@/components/KitBooster";
+import { KitBooster } from "@/components/KitBooster";
 import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
 
 const seals = [
