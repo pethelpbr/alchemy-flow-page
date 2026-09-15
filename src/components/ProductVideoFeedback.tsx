@@ -118,7 +118,7 @@ function DetailsAccordion({
               variant="ghost"
               aria-expanded={isOpen}
               onClick={() => setOpenDetail(isOpen ? null : index)}
-              className="h-auto w-full justify-between rounded-none px-1 py-5 text-left text-[15px] font-semibold text-ink hover:bg-transparent hover:text-primary"
+              className="h-auto w-full justify-between rounded-none px-1 py-5 text-left text-lg font-semibold text-ink hover:bg-transparent hover:text-primary"
             >
               <span className="whitespace-normal">{detail.title}</span>
               <ChevronDown
@@ -134,7 +134,7 @@ function DetailsAccordion({
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-1 pb-5 pr-8 text-base leading-relaxed text-muted-foreground">
+                  <p className="px-1 pb-5 pr-8 text-lg leading-relaxed text-muted-foreground">
                     {detail.content}
                   </p>
                 </motion.div>
