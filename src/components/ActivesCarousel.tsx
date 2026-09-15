@@ -116,7 +116,7 @@ export function ActivesCarousel() {
               key={active.name}
               className="basis-[76%] sm:basis-[46%] lg:basis-[28%] xl:basis-1/4"
             >
-              <article className="relative overflow-hidden rounded-2xl">
+              <article className="relative overflow-hidden rounded-xl">
                 <img
                   src={active.image}
                   alt={active.name}

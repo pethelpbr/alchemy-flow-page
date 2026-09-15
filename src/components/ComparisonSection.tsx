@@ -40,7 +40,7 @@ export function ComparisonSection() {
             {/* Header */}
             <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-0 sm:grid-cols-[1.2fr_0.9fr_1.2fr]">
               <div />
-              <div className="rounded-t-3xl bg-background px-4 pb-5 pt-6 text-center shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)] sm:px-8">
+              <div className="rounded-t-2xl bg-background px-4 pb-5 pt-6 text-center shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)] sm:px-8">
                 <p className="font-display text-base font-bold text-ink sm:text-lg">{BRAND}</p>
               </div>
               <div className="px-3 pb-4 text-center sm:px-6">
@@ -49,7 +49,7 @@ export function ComparisonSection() {
             </div>
 
             {/* Rows */}
-            <div className="overflow-hidden rounded-2xl rounded-t-none sm:rounded-3xl sm:rounded-t-none">
+            <div className="overflow-hidden rounded-xl rounded-t-none sm:rounded-2xl sm:rounded-t-none">
               {rows.map((row) => (
                 <div
                   key={row.feature}
@@ -71,7 +71,7 @@ export function ComparisonSection() {
               {/* Bottom cap of the brand card */}
               <div className="grid grid-cols-[1fr_auto_1fr] items-stretch sm:grid-cols-[1.2fr_0.9fr_1.2fr]">
                 <div />
-                <div className="rounded-b-3xl bg-background py-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
+                <div className="rounded-b-2xl bg-background py-4 shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
                 <div />
               </div>
             </div>
@@ -82,7 +82,7 @@ export function ComparisonSection() {
         <Reveal className="mt-10 sm:hidden">
           <div className="relative mx-auto max-w-md pb-7">
             {/* White capsule behind the brand column */}
-            <div className="absolute inset-y-0 left-1/2 z-0 w-[33%] -translate-x-1/2 rounded-[2.5rem] bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
+            <div className="absolute inset-y-0 left-1/2 z-0 w-[33%] -translate-x-1/2 rounded-3xl bg-background shadow-[0_24px_50px_-20px_rgba(0,0,0,0.55)]" />
 
             <div className="relative z-10 grid grid-cols-[1fr_33%_1fr]">
               {/* Header labels */}
@@ -106,8 +106,8 @@ export function ComparisonSection() {
                   <Fragment key={row.feature}>
                     <div
                       className={`relative z-10 flex items-center bg-ink/45 px-4 py-5 backdrop-blur-sm ${divider} ${
-                        i === 0 ? "rounded-tl-2xl" : ""
-                      } ${last ? "rounded-bl-2xl" : ""}`}
+                        i === 0 ? "rounded-tl-xl" : ""
+                      } ${last ? "rounded-bl-xl" : ""}`}
                     >
                       <p className="text-sm font-medium leading-snug text-background">{row.feature}</p>
                     </div>
@@ -118,8 +118,8 @@ export function ComparisonSection() {
                     </div>
                     <div
                       className={`relative z-10 flex items-center justify-center bg-ink/45 px-3 py-5 text-center backdrop-blur-sm ${divider} ${
-                        i === 0 ? "rounded-tr-2xl" : ""
-                      } ${last ? "rounded-br-2xl" : ""}`}
+                        i === 0 ? "rounded-tr-xl" : ""
+                      } ${last ? "rounded-br-xl" : ""}`}
                     >
                       <p className="text-sm leading-snug text-background/80">{row.common}</p>
                     </div>

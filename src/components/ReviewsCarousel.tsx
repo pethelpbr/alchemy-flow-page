@@ -159,7 +159,7 @@ export function ReviewsCarousel() {
               key={r.name}
               className="basis-[85%] sm:basis-[46%] lg:basis-[32%] xl:basis-1/3"
             >
-              <article className="h-full rounded-3xl border border-border bg-card p-5 sm:p-6 lg:p-6">
+              <article className="h-full rounded-2xl border border-border bg-card p-5 sm:p-6 lg:p-6">
                 <Stars />
                 <blockquote className="mt-4 font-display text-xl leading-snug text-ink lg:text-xl">
                   “{r.text}”

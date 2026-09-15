@@ -36,7 +36,7 @@ export function StickyMobileBuy({
               src={productHero}
               alt=""
               loading="lazy"
-              className="h-12 w-12 shrink-0 rounded-xl object-cover"
+              className="h-12 w-12 shrink-0 rounded-lg object-cover"
             />
             <div className="min-w-0">
               <p className="truncate text-sm font-medium text-ink">{brl(total)}</p>

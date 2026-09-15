@@ -23,7 +23,7 @@ export function FinalOffer({
             loading="lazy"
             width={1200}
             height={1504}
-            className="aspect-4/5 w-full rounded-3xl object-cover"
+            className="aspect-4/5 w-full rounded-2xl object-cover"
           />
         </Reveal>
 
@@ -36,7 +36,7 @@ export function FinalOffer({
             Quanto maior o kit, menor o valor por pote — e menos vezes você precisa se lembrar de
             repor.
           </p>
-          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/25 px-4 py-2 text-xs uppercase tracking-[0.14em] text-primary">
+          <p className="mt-6 inline-flex items-center gap-2 rounded-lg border border-primary/25 px-4 py-2 text-xs uppercase tracking-[0.14em] text-primary">
             <RefreshCw size={13} strokeWidth={1.5} /> 30 dias de garantia total
           </p>
 

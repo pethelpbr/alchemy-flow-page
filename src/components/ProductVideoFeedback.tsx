@@ -62,7 +62,7 @@ function Thumbnails({
           variant="ghost"
           aria-label={`Assistir ao relato de ${feedback.name}`}
           onClick={() => onSelect(feedback)}
-          className="group relative h-auto overflow-hidden rounded-xl p-0 shadow-none"
+          className="group relative h-auto overflow-hidden rounded-lg p-0 shadow-none"
         >
           <img
             src={feedback.image}
@@ -90,7 +90,7 @@ function IngredientsButton() {
       type="button"
       variant="outline"
       onClick={scrollToIngredients}
-      className="mt-4 h-12 w-full rounded-full border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-primary/5"
+      className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-primary/5"
     >
       Ver tabela completa e ingredientes
     </Button>
@@ -191,7 +191,7 @@ export function ProductVideoFeedback({
 
 
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
-        <DialogContent className="max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-[22px] border border-border bg-card p-2.5 shadow-soft sm:rounded-[22px] [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
+        <DialogContent className="max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (
             <>
               <div className="px-2 pb-3 pt-2">
@@ -225,7 +225,7 @@ export function ProductVideoFeedback({
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-t-[18px] bg-muted">
+              <div className="relative overflow-hidden rounded-t-xl bg-muted">
                 <img
                   src={selectedVideo.image}
                   alt={`Prévia do relato de ${selectedVideo.name}`}
@@ -255,7 +255,7 @@ export function ProductVideoFeedback({
                 </Button>
               </div>
 
-              <div className="flex items-center gap-3 rounded-b-[18px] bg-muted px-3 py-3">
+              <div className="flex items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-base font-bold text-ink">{productName}</p>
                   <p className="mt-0.5 flex flex-wrap items-baseline gap-1.5 text-xs">
