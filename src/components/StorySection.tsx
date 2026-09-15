@@ -18,7 +18,7 @@ export function StorySection() {
             loading="lazy"
             width={1200}
             height={1408}
-            className="aspect-4/5 w-full rounded-3xl object-cover"
+            className="aspect-4/5 w-full rounded-2xl object-cover"
           />
         </Reveal>
 

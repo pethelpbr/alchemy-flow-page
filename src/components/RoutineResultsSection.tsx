@@ -53,7 +53,7 @@ function StepItem({ item }: { item: Step }) {
   return (
     <li className="relative pb-20 last:pb-0 sm:pb-28">
       <span className="absolute top-1 left-[calc(-2rem+0.375rem)] h-3 w-3 rounded-full bg-primary sm:left-[calc(-2.5rem+0.375rem)]" />
-      <span className="eyebrow inline-block rounded-full bg-primary/12 px-3 py-1 text-primary">
+      <span className="eyebrow inline-block rounded-lg bg-primary/12 px-3 py-1 text-primary">
         {item.badge}
       </span>
       <p className="mt-3 text-xl leading-snug font-medium text-ink sm:text-2xl">
@@ -99,8 +99,8 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
         className="grid grid-cols-2 gap-3 sm:gap-4"
       >
         {/* Antes — troque a imagem quando tiver a foto real */}
-        <div className="group relative overflow-hidden rounded-2xl bg-muted shadow-soft">
-          <span className="absolute top-3 left-3 z-10 rounded-full bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
+        <div className="group relative overflow-hidden rounded-xl bg-muted shadow-soft">
+          <span className="absolute top-3 left-3 z-10 rounded-lg bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
             Antes
           </span>
           <img
@@ -112,8 +112,8 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
         </div>
 
         {/* Depois — troque a imagem quando tiver a foto real */}
-        <div className="group relative overflow-hidden rounded-2xl bg-muted shadow-soft">
-          <span className="absolute top-3 left-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
+        <div className="group relative overflow-hidden rounded-xl bg-muted shadow-soft">
+          <span className="absolute top-3 left-3 z-10 rounded-lg bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
             Depois
           </span>
           <img
