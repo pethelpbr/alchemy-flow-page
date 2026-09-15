@@ -57,7 +57,7 @@ export function PricingCard({
           transition={{ duration: 0.35 }}
           className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1"
         >
-          <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
+          <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extraFull)}</span>
           <span className="font-display text-4xl leading-none text-ink">{brl(grandTotal)}</span>
           <span className="rounded-lg bg-primary/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-primary">
             {discount}% off
