@@ -2,12 +2,10 @@ import { Check } from "lucide-react";
 import { brl, addonCatalog, type Addon } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import addonCollagen from "@/assets/addon-collagen.jpg";
-import addonOmega from "@/assets/addon-omega.jpg";
 import addonVitc from "@/assets/addon-vitc.jpg";
 
 const images: Record<string, string> = {
   collagen: addonCollagen,
-  omega: addonOmega,
   vitc: addonVitc,
 };
 
@@ -32,7 +30,7 @@ export function KitBooster({
         Turbine seu kit
       </p>
 
-      <div className="mt-3 grid grid-cols-3 gap-2.5">
+      <div className="mt-3 grid grid-cols-2 gap-2.5">
         {addons.map((a) => {
           const isActive = selectedIds.includes(a.id);
           return (

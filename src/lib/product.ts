@@ -72,7 +72,6 @@ export type Addon = {
 /** Produtos complementares exibidos no bloco "Turbine seu kit". */
 export const addonCatalog: Omit<Addon, "image">[] = [
   { id: "collagen", name: "Colágeno Hidrolisado Premium", price: 49.9, fullPrice: 129.9 },
-  { id: "omega", name: "Ômega 3 Ultra", price: 39.9, fullPrice: 99.9 },
   { id: "vitc", name: "Vitamina C Efervescente", price: 29.9, fullPrice: 79.9 },
 ];
 
