@@ -28,7 +28,7 @@ export function HowToUse() {
                   src={s.image}
                   alt={s.title}
                   loading="lazy"
-                  className="aspect-4/5 w-full rounded-3xl object-cover"
+                  className="aspect-4/5 w-full rounded-2xl object-cover"
                 />
                 <div className="mt-6 flex items-baseline gap-4">
                   <span className="font-display text-3xl text-primary">{s.n}</span>

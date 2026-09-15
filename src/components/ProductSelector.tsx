@@ -20,7 +20,7 @@ export function ProductSelector({
             onClick={() => onSelect(v)}
             aria-pressed={isActive}
             className={cn(
-              "relative grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-2xl border px-4 py-4 text-left transition-all duration-300 sm:px-5",
+              "relative grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border px-4 py-4 text-left transition-all duration-300 sm:px-5",
               isActive
                 ? "border-primary bg-primary/[0.08] shadow-[0_8px_30px_-12px_oklch(0.62_0.19_47.6/0.45)]"
                 : "border-border bg-card hover:border-primary/30",
@@ -42,7 +42,7 @@ export function ProductSelector({
                 <span className={cn("truncate text-base font-medium", isActive ? "text-ink" : "text-ink")}>{v.label}</span>
                 {v.badge && (
                   <span className={cn(
-                    "rounded-full px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em]",
+                    "rounded-lg px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em]",
                     isActive
                       ? "bg-primary text-primary-foreground"
                       : "bg-accent text-accent-foreground",

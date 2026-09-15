@@ -38,7 +38,7 @@ export function PricingCard({
   return (
     <div
       id="comprar"
-      className="scroll-mt-28 rounded-3xl border border-border bg-background/70 p-5 backdrop-blur sm:p-7"
+      className="scroll-mt-28 rounded-2xl border border-border bg-background/70 p-5 backdrop-blur sm:p-7"
     >
       {!compact && (
         <p className="mb-4 flex items-center gap-2 text-base font-medium text-ink">
@@ -62,7 +62,7 @@ export function PricingCard({
       >
         <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extra)}</span>
         <span className="font-display text-4xl leading-none text-ink">{brl(grandTotal)}</span>
-        <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-primary">
+        <span className="rounded-lg bg-primary/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-primary">
           {discount}% off
         </span>
       </motion.div>
@@ -75,7 +75,7 @@ export function PricingCard({
       </p>
 
       {extra > 0 && (
-        <p className="mt-3 flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 text-base">
+        <p className="mt-3 flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-base">
           <span className="text-muted-foreground">Preço total com adicionais</span>
           <span className="font-semibold text-ink">{brl(grandTotal)}</span>
         </p>

@@ -43,7 +43,7 @@ export function FormulaTechSection() {
               loading="lazy"
               width={1200}
               height={800}
-              className="h-full w-full rounded-3xl object-cover shadow-soft"
+              className="h-full w-full rounded-2xl object-cover shadow-soft"
             />
           </div>
         </div>

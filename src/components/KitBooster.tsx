@@ -37,7 +37,7 @@ export function KitBooster({
             <div
               key={a.id}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-card p-2.5 text-left transition-all duration-300",
+                "relative flex flex-col rounded-xl border bg-card p-2.5 text-left transition-all duration-300",
                 isActive
                   ? "border-primary/70 shadow-card"
                   : "border-border hover:border-primary/30",
@@ -45,7 +45,7 @@ export function KitBooster({
             >
               <span
                 onClick={() => onToggle(a.id)}
-                className="relative block cursor-pointer overflow-hidden rounded-xl bg-sand"
+                className="relative block cursor-pointer overflow-hidden rounded-lg bg-sand"
               >
                 <img
                   src={a.image}
@@ -85,7 +85,7 @@ export function KitBooster({
                 type="button"
                 onClick={() => onToggle(a.id)}
                 className={cn(
-                  "mt-2 w-full rounded-xl py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors lg:text-[13px]",
+                  "mt-2 w-full rounded-lg py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors lg:text-[13px]",
                   isActive
                     ? "bg-primary text-primary-foreground"
                     : "bg-primary/10 text-primary hover:bg-primary/20",

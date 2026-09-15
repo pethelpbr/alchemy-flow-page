@@ -53,7 +53,7 @@ export function ProductGallery({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative overflow-hidden rounded-3xl bg-sand">
+      <div className="relative overflow-hidden rounded-2xl bg-sand">
         <motion.img
           key={active}
           src={current.src}
@@ -90,7 +90,7 @@ export function ProductGallery({
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "overflow-hidden rounded-2xl border transition-all duration-300",
+              "overflow-hidden rounded-xl border transition-all duration-300",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
