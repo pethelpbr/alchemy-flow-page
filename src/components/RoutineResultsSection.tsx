@@ -51,7 +51,7 @@ function smoothstep(t: number) {
 
 function StepItem({ item }: { item: Step }) {
   return (
-    <li className="relative pb-20 last:pb-0 sm:pb-28">
+    <li className="relative pb-24 last:pb-0 sm:pb-32">
       <span className="absolute top-1 left-[calc(-2rem+0.375rem)] h-3 w-3 rounded-full bg-primary sm:left-[calc(-2.5rem+0.375rem)]" />
       <span className="eyebrow inline-block rounded-lg bg-primary/12 px-3 py-1 text-primary">
         {item.badge}
@@ -59,7 +59,7 @@ function StepItem({ item }: { item: Step }) {
       <p className="mt-3 text-xl leading-snug font-medium text-ink sm:text-2xl">
         {item.label}
       </p>
-      <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-base">
+      <p className="mt-1 max-w-md text-base leading-relaxed text-muted-foreground sm:text-base">
         {item.text}
       </p>
     </li>
