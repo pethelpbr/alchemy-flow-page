@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ShieldCheck, Truck, RefreshCw, Lock } from "lucide-react";
+import { Truck, RefreshCw, Lock } from "lucide-react";
 import { brl, variantTotals, addonsTotal, addonsFullTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
@@ -94,9 +94,6 @@ export function PricingCard({
           ))}
         </div>
 
-        <p className="mt-4 flex items-center justify-center gap-2 text-[11px] text-muted-foreground">
-          <ShieldCheck size={13} strokeWidth={1.4} /> Pagamento processado em ambiente criptografado
-        </p>
       </div>
 
       {!compact && (
