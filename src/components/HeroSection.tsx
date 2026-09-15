@@ -9,10 +9,14 @@ export function HeroSection({
   selected,
   onSelect,
   onBuy,
+  addonIds,
+  onToggleAddon,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
+  addonIds: string[];
+  onToggleAddon: (id: string) => void;
 }) {
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
