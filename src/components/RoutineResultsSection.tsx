@@ -215,11 +215,11 @@ function MarqueeStrip() {
   const content = (
     <>
       {items.map((word) => (
-        <span key={word} className="flex items-center gap-6 sm:gap-8">
-          <span className="whitespace-nowrap font-display text-base font-bold uppercase tracking-[0.22em] text-white sm:text-base">
+        <span key={word} className="flex items-center gap-3 sm:gap-8">
+          <span className="whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.18em] text-white sm:text-base">
             {word}
           </span>
-          <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+          <span className="h-1 w-1 rounded-full bg-white/80 sm:h-1.5 sm:w-1.5" />
         </span>
       ))}
     </>
