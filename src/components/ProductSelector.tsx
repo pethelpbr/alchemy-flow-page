@@ -43,9 +43,7 @@ export function ProductSelector({
                 {v.badge && (
                   <span className={cn(
                     "rounded-lg px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em]",
-                    isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-accent text-accent-foreground",
+                    "bg-primary text-primary-foreground",
                   )}>
                     {v.badge}
                   </span>
