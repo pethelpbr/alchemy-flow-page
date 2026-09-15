@@ -79,20 +79,22 @@ export function KitBooster({
               <span className="mt-1 block text-[10px] text-muted-foreground line-through lg:text-[14px]">
                 {brl(a.fullPrice)}
               </span>
-              <span className="block text-xs font-semibold text-ink lg:text-base">{brl(a.price)}</span>
 
-              <button
-                type="button"
-                onClick={() => onToggle(a.id)}
-                className={cn(
-                  "mt-2 w-full rounded-lg py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors lg:text-[13px]",
-                  isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-primary/10 text-primary hover:bg-primary/20",
-                )}
-              >
-                {isActive ? "ADICIONADO" : "ADICIONAR"}
-              </button>
+              <div className="mt-1 flex items-center justify-between gap-2">
+                <span className="text-xs font-semibold text-ink lg:text-base">{brl(a.price)}</span>
+                <button
+                  type="button"
+                  onClick={() => onToggle(a.id)}
+                  className={cn(
+                    "rounded-lg px-3 py-2 text-center text-[10px] font-semibold uppercase tracking-wider transition-colors lg:text-[13px]",
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-primary/10 text-primary hover:bg-primary/20",
+                  )}
+                >
+                  {isActive ? "ADICIONADO" : "ADICIONAR"}
+                </button>
+              </div>
             </div>
           );
         })}
