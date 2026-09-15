@@ -8,10 +8,14 @@ export function FinalOffer({
   selected,
   onSelect,
   onBuy,
+  addonIds,
+  onToggleAddon,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
+  addonIds: string[];
+  onToggleAddon: (id: string) => void;
 }) {
   return (
     <section className="section bg-sand/60">
