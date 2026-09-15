@@ -65,7 +65,13 @@ function Index() {
         <ActivesCarousel />
         <ReviewsCarousel />
         <TrustBadgesStrip />
-        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} />
+        <FinalOffer
+          selected={selected}
+          onSelect={setSelected}
+          onBuy={checkout}
+          addonIds={addonIds}
+          onToggleAddon={toggleAddon}
+        />
         <FAQAccordion />
       </main>
       <Footer />
