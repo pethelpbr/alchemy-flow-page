@@ -54,7 +54,7 @@ export function HeroSection({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="eyebrow">Fórmula diária · 30 doses</p>
+          <p className="eyebrow">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</p>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
             <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
               PataHelp - Hidratação, Cicatrização e Proteção 100% Natural
