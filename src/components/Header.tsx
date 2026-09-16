@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { BuyButton } from "@/components/ui/BuyButton";
@@ -14,15 +14,26 @@ const links = [
 ];
 
 export function Header({ onBuy }: { onBuy: () => void }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [open, setOpen] = useState(false);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [marqueeH, setMarqueeH] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrollY(window.scrollY);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const measure = () => setMarqueeH(marqueeRef.current?.offsetHeight ?? 0);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const scrolled = scrollY > 24;
 
   const go = (href: string) => {
     setOpen(false);
