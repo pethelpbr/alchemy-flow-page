@@ -1,1 +1,1 @@
-- [ ] Ajustar somente o estilo e os textos da tarja superior conforme a referência, preservando cores e demais elementos.
+- [x] Ajustar somente o estilo e os textos da tarja superior conforme a referência, preservando cores e demais elementos.
