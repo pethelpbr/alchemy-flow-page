@@ -148,15 +148,7 @@ function DetailsAccordion({
   );
 }
 
-export function ProductVideoFeedback({
-  productName,
-  currentPrice,
-  onBuy,
-}: {
-  productName: string;
-  currentPrice: number;
-  onBuy: () => void;
-}) {
+export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [openDetail, setOpenDetail] = useState<number | null>(0);
   const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
