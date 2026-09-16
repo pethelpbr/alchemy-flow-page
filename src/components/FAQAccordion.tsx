@@ -46,7 +46,6 @@ export function FAQAccordion() {
           items={faqs.map((f) => ({ title: f.q, content: f.a }))}
           openIndex={open}
           onOpenChange={setOpen}
-          icon="plus"
         />
       </div>
     </section>
