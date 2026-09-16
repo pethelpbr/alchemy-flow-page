@@ -150,12 +150,10 @@ function DetailsAccordion({
 export function ProductVideoFeedback({
   productName,
   currentPrice,
-  oldPrice,
   onBuy,
 }: {
   productName: string;
   currentPrice: number;
-  oldPrice: number;
   onBuy: () => void;
 }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -260,7 +258,6 @@ export function ProductVideoFeedback({
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-base font-bold text-ink">{productName}</p>
                   <p className="mt-0.5 flex flex-wrap items-baseline gap-1.5 text-xs">
-                    <span className="text-muted-foreground line-through">{brl(oldPrice)}</span>
                     <span className="font-bold text-ink">{brl(currentPrice)}</span>
                   </p>
                   <p className="sr-only">{selectedVideo.caption}, por {selectedVideo.name}</p>
