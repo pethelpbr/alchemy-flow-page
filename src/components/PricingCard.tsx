@@ -33,6 +33,10 @@ export function PricingCard({
   const extra = addonsTotal(addonIds);
   const extraFull = addonsFullTotal(addonIds);
   const grandTotal = total + extra;
+  const installment =
+    selected.installmentValue != null
+      ? selected.installmentValue + extra / selected.installments
+      : grandTotal / selected.installments;
 
   return (
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
@@ -65,7 +69,7 @@ export function PricingCard({
         </motion.div>
 
         <p className="mt-2 text-base text-muted-foreground">
-          ou {selected.installments}x de {brl(grandTotal / selected.installments)} sem juros
+          ou {selected.installments}x de {brl(installment)} sem juros
         </p>
         <p className="mt-1 text-base text-primary">
           Você economiza {brl(savings)} nesta oferta.

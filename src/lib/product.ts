@@ -16,6 +16,10 @@ export type Variant = {
   unitPrice: number;
   fullPrice: number;
   installments: number;
+  /** Valor fixo da parcela (quando o parcelamento tem juros). */
+  installmentValue?: number;
+  /** Frete exibido junto ao preço (ex.: pote único). */
+  shipping?: number;
   /** ID da variante na Shopify/Yampi (preencher na integração). */
   externalId: string | null;
 };
@@ -27,11 +31,13 @@ export const variants: Variant[] = [
   {
     id: "1-un",
     units: 1,
-    label: "1 unidade",
-    sublabel: "30 doses · 1 mês de ritual",
-    unitPrice: 197,
+    label: "1 pote",
+    sublabel: "1 mês de cuidado",
+    unitPrice: 139,
     fullPrice: 247,
     installments: 6,
+    installmentValue: 24.82,
+    shipping: 9.9,
     externalId: null,
   },
   {
@@ -94,7 +100,7 @@ export function variantTotals(variant: Variant) {
   const oldTotal = variant.fullPrice * variant.units;
   const savings = oldTotal - total;
   const discount = Math.round((savings / oldTotal) * 100);
-  const installmentValue = total / variant.installments;
+  const installmentValue = variant.installmentValue ?? total / variant.installments;
   return { total, oldTotal, savings, discount, installmentValue };
 }
 
