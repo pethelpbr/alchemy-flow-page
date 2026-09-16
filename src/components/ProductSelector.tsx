@@ -55,6 +55,9 @@ export function ProductSelector({
             <span className="shrink-0 text-right">
               <span className={cn("block text-base font-medium", isActive ? "text-primary" : "text-ink")}>{brl(total)}</span>
               <span className="block text-[11px] text-muted-foreground">-{discount}%</span>
+              {v.shipping != null && (
+                <span className="block text-[11px] text-muted-foreground">+ frete {brl(v.shipping)}</span>
+              )}
             </span>
           </button>
         );
