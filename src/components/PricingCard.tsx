@@ -87,7 +87,7 @@ export function PricingCard({
 
         <BuyButton
           size="lg"
-          className="mt-6 normal-case tracking-normal text-base"
+          className="mt-6 normal-case tracking-normal text-lg"
           onClick={onBuy}
         >
           Quero cuidar da pele do meu pet
