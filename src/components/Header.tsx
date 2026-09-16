@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
-import { BRAND } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { cn } from "@/lib/utils";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
