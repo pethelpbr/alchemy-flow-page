@@ -69,9 +69,6 @@ export function PricingCard({
         <p className="mt-1 text-base text-muted-foreground">
           ou {selected.installments}x de {brl(installment)} sem juros
         </p>
-        <p className="mt-1 text-base text-primary">
-          Você economiza {brl(savings)} nesta oferta.
-        </p>
 
         {extra > 0 && (
           <p className="mt-3 flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-base">
