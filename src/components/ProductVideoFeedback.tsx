@@ -16,6 +16,8 @@ import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
 import lifestyle from "@/assets/lifestyle-1.jpg";
 
+const videoLegend = "Coceira noturna · Tutora da Mel";
+
 const feedbacks = [
   { image: customer1, name: "Marina", caption: "Virou parte da minha manhã" },
   { image: customer2, name: "Rodrigo", caption: "Prático para todos os dias" },
