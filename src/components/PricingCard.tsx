@@ -109,11 +109,7 @@ export function PricingCard({
 
       {!compact && (
         <div className="px-5 sm:px-7">
-          <ProductVideoFeedback
-            productName={selected.units === 1 ? "Daily Greens" : selected.label}
-            currentPrice={grandTotal}
-            onBuy={onBuy}
-          />
+          <ProductVideoFeedback onBuy={onBuy} />
         </div>
       )}
     </div>
