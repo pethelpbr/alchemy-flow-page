@@ -166,6 +166,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
           </>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 }
