@@ -14,23 +14,23 @@ import benefitsBg from "@/assets/benefits-bg.jpg";
 const benefits = [
   {
     icon: Zap,
-    title: "Se coça o dia inteiro",
-    text: "Coça com força, até a pele ficar vermelha e quente. Você já mandou parar mil vezes. Ele volta.",
+    title: "Noites inteiras",
+    text: "Menos pata batendo no chão de madrugada, menos lambida na mesma pata. Ele dorme — e você também.",
   },
   {
     icon: HeartPulse,
-    title: "Lambe sempre a mesma pata",
-    text: "De madrugada você escuta o barulhinho da lambida. É sempre a mesma pata, até o pelo ali ficar escuro.",
+    title: "Pele mais calma",
+    text: "Menos vermelhidão e menos irritação. As feridinhas de unha param de abrir de novo no mesmo lugar.",
   },
   {
     icon: Brain,
-    title: "Está ficando com falhas no pelo",
-    text: "Começou com uma falha pequena e virou um buraco. Toda semana parece um pouco maior.",
+    title: "Pelo que volta",
+    text: "Menos queda, fio mais forte e as falhas começando a fechar. Menos pelo pela casa.",
   },
   {
     icon: Sparkles,
-    title: "Sacode a cabeça e a orelha tem cheiro",
-    text: "Você limpa, melhora uns dias, e duas semanas depois aquele cheiro está de volta.",
+    title: "O cão de antes",
+    text: "Mais disposição, mais brincadeira, menos tempo parado se coçando no canto.",
   },
 ];
 
