@@ -9,12 +9,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { brl } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import customer1 from "@/assets/customer-1.jpg";
 import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
 import lifestyle from "@/assets/lifestyle-1.jpg";
+
+const videoLegend = "Coceira noturna · Tutora da Mel";
 
 const feedbacks = [
   { image: customer1, name: "Marina", caption: "Virou parte da minha manhã" },
@@ -147,15 +148,7 @@ function DetailsAccordion({
   );
 }
 
-export function ProductVideoFeedback({
-  productName,
-  currentPrice,
-  onBuy,
-}: {
-  productName: string;
-  currentPrice: number;
-  onBuy: () => void;
-}) {
+export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [openDetail, setOpenDetail] = useState<number | null>(0);
   const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
@@ -255,13 +248,9 @@ export function ProductVideoFeedback({
               </div>
 
               <div className="flex items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-base font-bold text-ink">{productName}</p>
-                  <p className="mt-0.5 flex flex-wrap items-baseline gap-1.5 text-xs">
-                    <span className="font-bold text-ink">{brl(currentPrice)}</span>
-                  </p>
-                  <p className="sr-only">{selectedVideo.caption}, por {selectedVideo.name}</p>
-                </div>
+                <p className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">
+                  {videoLegend}
+                </p>
                 <BuyButton
                   size="sm"
                   onClick={onBuy}
