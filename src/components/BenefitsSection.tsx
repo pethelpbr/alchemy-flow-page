@@ -14,8 +14,8 @@ import benefitsBg from "@/assets/benefits-bg.jpg";
 const benefits = [
   {
     icon: Zap,
-    title: "Energia constante",
-    text: "Uma dose pela manhã para começar o dia com disposição estável.",
+    title: "Se coça o dia inteiro",
+    text: "Coça com força, até a pele ficar vermelha e quente. Você já mandou parar mil vezes. Ele volta.",
   },
   {
     icon: HeartPulse,
