@@ -255,13 +255,9 @@ export function ProductVideoFeedback({
               </div>
 
               <div className="flex items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-base font-bold text-ink">{productName}</p>
-                  <p className="mt-0.5 flex flex-wrap items-baseline gap-1.5 text-xs">
-                    <span className="font-bold text-ink">{brl(currentPrice)}</span>
-                  </p>
-                  <p className="sr-only">{selectedVideo.caption}, por {selectedVideo.name}</p>
-                </div>
+                <p className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">
+                  {videoLegend}
+                </p>
                 <BuyButton
                   size="sm"
                   onClick={onBuy}
