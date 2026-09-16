@@ -8,8 +8,8 @@ import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
 
 const seals = [
   { icon: Lock, label: "Compra segura" },
-  { icon: RefreshCw, label: "Garantia 30 dias" },
-  { icon: Truck, label: "Envio rápido" },
+  { icon: RefreshCw, label: "Garantia de 60 dias" },
+  { icon: Truck, label: "Envio para todo o Brasil" },
 ];
 
 export function PricingCard({
