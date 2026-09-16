@@ -14,7 +14,6 @@ export type Variant = {
   sublabel: string;
   badge?: string;
   unitPrice: number;
-  fullPrice: number;
   installments: number;
   /** Valor fixo da parcela (quando o parcelamento tem juros). */
   installmentValue?: number;
@@ -34,7 +33,6 @@ export const variants: Variant[] = [
     label: "1 pote",
     sublabel: "1 mês de cuidado",
     unitPrice: 139,
-    fullPrice: 247,
     installments: 6,
     installmentValue: 24.82,
     shipping: 9.9,
@@ -47,7 +45,6 @@ export const variants: Variant[] = [
     sublabel: "90 doses · 3 meses de ritual",
     badge: "Mais vendido",
     unitPrice: 157,
-    fullPrice: 247,
     installments: 12,
     externalId: null,
   },
@@ -58,7 +55,6 @@ export const variants: Variant[] = [
     sublabel: "150 doses · 5 meses de ritual",
     badge: "Maior economia",
     unitPrice: 127,
-    fullPrice: 247,
     installments: 12,
     externalId: null,
   },
@@ -71,14 +67,13 @@ export type Addon = {
   id: string;
   name: string;
   price: number;
-  fullPrice: number;
   image: string;
 };
 
 /** Produtos complementares exibidos no bloco "Turbine seu kit". */
 export const addonCatalog: Omit<Addon, "image">[] = [
-  { id: "collagen", name: "Colágeno", price: 49.9, fullPrice: 129.9 },
-  { id: "vitc", name: "Colágeno", price: 29.9, fullPrice: 79.9 },
+  { id: "collagen", name: "Colágeno", price: 49.9 },
+  { id: "vitc", name: "Colágeno", price: 29.9 },
 ];
 
 /** Soma dos adicionais selecionados no bloco "Turbine seu kit". */
@@ -88,20 +83,10 @@ export function addonsTotal(selectedIds: string[]) {
     .reduce((sum, a) => sum + a.price, 0);
 }
 
-/** Soma dos adicionais pelo preço cheio (para o valor riscado). */
-export function addonsFullTotal(selectedIds: string[]) {
-  return addonCatalog
-    .filter((a) => selectedIds.includes(a.id))
-    .reduce((sum, a) => sum + a.fullPrice, 0);
-}
-
 export function variantTotals(variant: Variant) {
   const total = variant.unitPrice * variant.units;
-  const oldTotal = variant.fullPrice * variant.units;
-  const savings = oldTotal - total;
-  const discount = Math.round((savings / oldTotal) * 100);
   const installmentValue = variant.installmentValue ?? total / variant.installments;
-  return { total, oldTotal, savings, discount, installmentValue };
+  return { total, installmentValue };
 }
 
 /** Substituir pela URL de checkout da Shopify/Yampi na integração. */
