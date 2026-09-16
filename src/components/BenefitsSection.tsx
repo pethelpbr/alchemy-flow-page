@@ -24,8 +24,8 @@ const benefits = [
   },
   {
     icon: Brain,
-    title: "Foco na rotina",
-    text: "Pensado para quem tem dias cheios e pouco tempo para preparar.",
+    title: "Está ficando com falhas no pelo",
+    text: "Começou com uma falha pequena e virou um buraco. Toda semana parece um pouco maior.",
   },
   {
     icon: Sparkles,
