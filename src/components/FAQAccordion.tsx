@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Plus } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
+import { AccordionBlock } from "@/components/ui/AccordionBlock";
 
 const faqs = [
   {
@@ -44,45 +42,11 @@ export function FAQAccordion() {
           </h2>
         </Reveal>
 
-        <div className="divide-y divide-border border-y border-border">
-          {faqs.map((f, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={f.q}>
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-6 text-left"
-                >
-                  <span className="min-w-0 text-lg text-ink">{f.q}</span>
-                  <Plus
-                    size={18}
-                    strokeWidth={1.3}
-                    className={cn(
-                      "shrink-0 text-muted-foreground transition-transform duration-300",
-                      isOpen && "rotate-45",
-                    )}
-                  />
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="max-w-2xl pb-7 text-base leading-relaxed text-muted-foreground">
-                        {f.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
+        <AccordionBlock
+          items={faqs.map((f) => ({ title: f.q, content: f.a }))}
+          openIndex={open}
+          onOpenChange={setOpen}
+        />
       </div>
     </section>
   );
