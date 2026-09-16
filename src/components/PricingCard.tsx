@@ -85,8 +85,12 @@ export function PricingCard({
           </p>
         )}
 
-        <BuyButton size="lg" className="mt-6" onClick={onBuy}>
-          Comprar agora
+        <BuyButton
+          size="lg"
+          className="mt-6 normal-case tracking-normal text-base"
+          onClick={onBuy}
+        >
+          Quero cuidar da pele do meu pet
         </BuyButton>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
