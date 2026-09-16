@@ -19,6 +19,12 @@ export type Variant = {
   installmentValue?: number;
   /** Frete exibido junto ao preço (ex.: pote único). */
   shipping?: number;
+  /** Linha de destaque abaixo do preço (ex.: frete grátis e economia). */
+  note?: string;
+  /** Valor por pote exibido abaixo do preço. */
+  perPot?: number;
+  /** Oculta a linha de parcelamento abaixo do preço. */
+  hideInstallments?: boolean;
   /** ID da variante na Shopify/Yampi (preencher na integração). */
   externalId: string | null;
 };
@@ -39,13 +45,16 @@ export const variants: Variant[] = [
     externalId: null,
   },
   {
-    id: "3-un",
-    units: 3,
-    label: "Kit 3 unidades",
-    sublabel: "90 doses · 3 meses de ritual",
+    id: "2-un",
+    units: 2,
+    label: "2 potes",
+    sublabel: "2 meses de cuidado",
     badge: "Mais vendido",
-    unitPrice: 157,
+    unitPrice: 99.5,
     installments: 12,
+    note: "Frete grátis · economize R$ 98",
+    perPot: 99.5,
+    hideInstallments: true,
     externalId: null,
   },
   {
