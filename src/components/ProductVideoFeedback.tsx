@@ -194,8 +194,8 @@ export function ProductVideoFeedback({
           {selectedVideo && (
             <>
               <div className="px-2 pb-3 pt-2">
-                <DialogTitle className="pr-10 font-display text-xl font-bold uppercase text-ink">
-                  Vídeo feedbacks
+                <DialogTitle className="pr-10 font-display text-xl font-bold text-ink">
+                  Tutores que já passaram por isso
                 </DialogTitle>
                 <DialogDescription className="sr-only">
                   Relatos em vídeo de clientes Nutraflow
