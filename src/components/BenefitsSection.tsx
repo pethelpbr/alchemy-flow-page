@@ -19,8 +19,8 @@ const benefits = [
   },
   {
     icon: HeartPulse,
-    title: "Corpo em equilíbrio",
-    text: "Nutrientes selecionados que complementam a alimentação real.",
+    title: "Lambe sempre a mesma pata",
+    text: "De madrugada você escuta o barulhinho da lambida. É sempre a mesma pata, até o pelo ali ficar escuro.",
   },
   {
     icon: Brain,
