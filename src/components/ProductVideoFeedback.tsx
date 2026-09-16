@@ -46,7 +46,7 @@ const details = [
   {
     title: "O que é o Daily Greens?",
     content:
-      "Uma fórmula em pó de uso diário que reúne ingredientes selecionados em uma dose prática para acompanhar sua rotina.",
+      "Um suplemento alimentar em pó para cães e gatos, com 44 nutrientes em uma fórmula 8 em 1. Reúne probióticos, prebióticos, ômega 3, vitaminas, minerais e aminoácidos para apoiar a saúde da pele, da pelagem e do intestino. Sabor carne, misturado na ração uma vez por dia.",
   },
   {
     title: "Para quem é?",
