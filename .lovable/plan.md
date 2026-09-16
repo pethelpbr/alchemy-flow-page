@@ -3,7 +3,7 @@
 ## Alterações
 - Reaproveitar a mesma tarja animada de palavras, mantendo cores, tipografia, espaçamentos e velocidade atuais.
 - Exibir uma cópia no topo da página, acima do cabeçalho.
-- Ajustar a posição do cabeçalho para permanecer logo abaixo da nova tarja, inclusive durante a rolagem.
+- Ajustar a posição do cabeçalho para permanecer logo abaixo da nova tarja, que continuará fixa no topo durante toda a rolagem.
 - Manter a tarja original abaixo do bloco de resultados sem alterações.
 
 ## Validação
