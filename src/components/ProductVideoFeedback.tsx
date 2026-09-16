@@ -15,13 +15,31 @@ import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
 import lifestyle from "@/assets/lifestyle-1.jpg";
 
-const videoLegend = "Coceira noturna · Tutora da Mel";
-
 const feedbacks = [
-  { image: customer1, name: "Marina", caption: "Virou parte da minha manhã" },
-  { image: customer2, name: "Rodrigo", caption: "Prático para todos os dias" },
-  { image: customer3, name: "Júlia", caption: "Leve e fácil de preparar" },
-  { image: lifestyle, name: "Camila", caption: "Meu novo ritual diário" },
+  {
+    image: customer1,
+    name: "Marina",
+    caption: "Virou parte da minha manhã",
+    legend: "Coceira noturna · Tutora da Mel",
+  },
+  {
+    image: customer2,
+    name: "Rodrigo",
+    caption: "Prático para todos os dias",
+    legend: "Lambedura de pata · Tutor do Thor",
+  },
+  {
+    image: customer3,
+    name: "Júlia",
+    caption: "Leve e fácil de preparar",
+    legend: "Falhas no pelo · Tutora da Nina",
+  },
+  {
+    image: lifestyle,
+    name: "Camila",
+    caption: "Meu novo ritual diário",
+    legend: "Orelha e cheiro · Tutora do Bento",
+  },
 ];
 
 const details = [
