@@ -25,7 +25,25 @@ export type Variant = {
   perPot?: number;
   /** Oculta a linha de parcelamento abaixo do preço. */
   hideInstallments?: boolean;
-...
+  /** ID da variante na Shopify/Yampi (preencher na integração). */
+  externalId: string | null;
+};
+
+export const BRAND = "Nutraflow";
+export const PRODUCT_NAME = "Daily Greens";
+
+export const variants: Variant[] = [
+  {
+    id: "1-un",
+    units: 1,
+    label: "1 pote",
+    sublabel: "1 mês de cuidado",
+    unitPrice: 139,
+    installments: 6,
+    installmentValue: 24.82,
+    shipping: 9.9,
+    externalId: null,
+  },
   {
     id: "2-un",
     units: 2,
