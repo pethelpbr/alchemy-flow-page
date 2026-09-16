@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { BuyButton } from "@/components/ui/BuyButton";
@@ -14,15 +14,26 @@ const links = [
 ];
 
 export function Header({ onBuy }: { onBuy: () => void }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [open, setOpen] = useState(false);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [marqueeH, setMarqueeH] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrollY(window.scrollY);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const measure = () => setMarqueeH(marqueeRef.current?.offsetHeight ?? 0);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const scrolled = scrollY > 24;
 
   const go = (href: string) => {
     setOpen(false);
@@ -30,15 +41,19 @@ export function Header({ onBuy }: { onBuy: () => void }) {
   };
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <MarqueeStrip />
+    <>
+      <div ref={marqueeRef}>
+        <MarqueeStrip />
+      </div>
+      <header
+        style={{ top: Math.max(0, marqueeH - scrollY) }}
+        className={cn(
+          "fixed inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
+          scrolled
+            ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent",
+        )}
+      >
       <div className="container-x grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 lg:grid-cols-[1fr_auto_1fr]">
         <button
           aria-label="Abrir menu"
@@ -151,6 +166,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
           </>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 }
