@@ -68,7 +68,10 @@ export function PricingCard({
           </span>
         </motion.div>
 
-        <p className="mt-2 text-base text-muted-foreground">
+        {selected.units === 1 && selected.shipping != null && (
+          <p className="mt-2 text-base text-muted-foreground">+ frete {brl(selected.shipping)}</p>
+        )}
+        <p className="mt-1 text-base text-muted-foreground">
           ou {selected.installments}x de {brl(installment)} sem juros
         </p>
         <p className="mt-1 text-base text-primary">
