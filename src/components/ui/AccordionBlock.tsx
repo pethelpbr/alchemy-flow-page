@@ -53,7 +53,7 @@ export function AccordionBlock({
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="max-w-2xl px-1 pb-5 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p className="max-w-2xl px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
                     {item.content}
                   </p>
                 </motion.div>
