@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
-import { BRAND } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { cn } from "@/lib/utils";
+import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 const links = [
   { label: "Benefícios", href: "#beneficios" },
@@ -48,9 +48,13 @@ export function Header({ onBuy }: { onBuy: () => void }) {
 
         <a
           href="#topo"
-          className="min-w-0 text-center font-display text-base tracking-[0.32em] uppercase text-ink lg:text-left lg:text-xl"
+          className="flex min-w-0 justify-center lg:justify-start"
         >
-          {BRAND}
+          <img
+            src={petHelpLogo.url}
+            alt="PetHelp"
+            className="h-6 w-auto object-contain lg:h-8"
+          />
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">
@@ -111,7 +115,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
               transition={{ type: "spring", damping: 30, stiffness: 260 }}
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-lg tracking-[0.3em] uppercase">{BRAND}</span>
+                <img src={petHelpLogo.url} alt="PetHelp" className="h-7 w-auto object-contain" />
                 <button
                   aria-label="Fechar menu"
                   onClick={() => setOpen(false)}
