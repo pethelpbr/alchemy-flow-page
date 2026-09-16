@@ -49,7 +49,9 @@ export function ProductSelector({
                   </span>
                 )}
               </span>
-              <span className="mt-1 block text-xs text-muted-foreground">{v.sublabel}</span>
+              {v.sublabel && (
+                <span className="mt-1 block text-xs text-muted-foreground">{v.sublabel}</span>
+              )}
             </span>
 
             <span className="shrink-0 text-right">
