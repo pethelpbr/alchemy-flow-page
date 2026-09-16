@@ -65,8 +65,9 @@ export function HeroSection({
             </div>
           </div>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            Uma fórmula premium desenvolvida para acompanhar sua rotina e entregar praticidade —
-            uma dose, um copo de água, trinta segundos.
+            A coceira que vai e volta raramente começa na pele. O NutraHelp é um suplemento diário
+            que cuida da flora intestinal e repõe os nutrientes que a pele usa para se manter firme —
+            de dentro para fora. Sabor carne, misturado na ração, uma vez por dia.
           </p>
 
           <div className="mt-8">
