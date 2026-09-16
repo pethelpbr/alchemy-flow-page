@@ -39,7 +39,7 @@ export function ProductSelector({
 
             <span className="min-w-0">
               <span className="flex flex-wrap items-center gap-2">
-                <span className={cn("truncate text-base font-medium", isActive ? "text-ink" : "text-ink")}>{v.label}</span>
+                <span className={cn("text-base font-medium leading-snug", isActive ? "text-ink" : "text-ink")}>{v.label}</span>
                 {v.badge && (
                   <span className={cn(
                     "rounded-lg px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em]",
@@ -49,7 +49,9 @@ export function ProductSelector({
                   </span>
                 )}
               </span>
-              <span className="mt-1 block text-xs text-muted-foreground">{v.sublabel}</span>
+              {v.sublabel && (
+                <span className="mt-1 block text-xs text-muted-foreground">{v.sublabel}</span>
+              )}
             </span>
 
             <span className="shrink-0 text-right">

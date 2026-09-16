@@ -11,9 +11,11 @@ export type Variant = {
   id: string;
   units: number;
   label: string;
-  sublabel: string;
+  sublabel?: string;
   badge?: string;
   unitPrice: number;
+  /** Preço total fixo da oferta (quando não é unitPrice * units). */
+  total?: number;
   installments: number;
   /** Valor fixo da parcela (quando o parcelamento tem juros). */
   installmentValue?: number;
@@ -58,13 +60,16 @@ export const variants: Variant[] = [
     externalId: null,
   },
   {
-    id: "5-un",
-    units: 5,
-    label: "Kit 5 unidades",
-    sublabel: "150 doses · 5 meses de ritual",
+    id: "3-un-brinde",
+    units: 3,
+    label: "3 potes + PataHelp de brinde",
     badge: "Maior economia",
-    unitPrice: 127,
+    unitPrice: 89.7,
+    total: 269,
     installments: 12,
+    note: "Frete grátis · economize R$ 277",
+    perPot: 89.7,
+    hideInstallments: true,
     externalId: null,
   },
 ];
@@ -93,7 +98,7 @@ export function addonsTotal(selectedIds: string[]) {
 }
 
 export function variantTotals(variant: Variant) {
-  const total = variant.unitPrice * variant.units;
+  const total = variant.total ?? variant.unitPrice * variant.units;
   const installmentValue = variant.installmentValue ?? total / variant.installments;
   return { total, installmentValue };
 }
