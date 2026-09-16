@@ -62,7 +62,8 @@ export const variants: Variant[] = [
   {
     id: "3-un-brinde",
     units: 3,
-    label: "3 potes + PataHelp de brinde",
+    label: "3 potes",
+    sublabel: "+ PataHelp de brinde",
     badge: "Maior economia",
     unitPrice: 89.7,
     total: 269,
