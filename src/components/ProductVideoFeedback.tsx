@@ -137,7 +137,7 @@ function DetailsAccordion({
               variant="ghost"
               aria-expanded={isOpen}
               onClick={() => setOpenDetail(isOpen ? null : index)}
-              className="h-auto w-full justify-between rounded-none px-1 py-5 text-left text-lg font-semibold text-ink hover:bg-transparent hover:text-primary"
+              className="h-auto w-full justify-between rounded-none px-1 py-4 text-left text-base font-semibold text-ink hover:bg-transparent hover:text-primary"
             >
               <span className="whitespace-normal">{detail.title}</span>
               <ChevronDown
