@@ -1,13 +1,10 @@
 import { motion } from "motion/react";
 
 const items = [
-  "ENERGIA",
-  "FOCO",
-  "DISPOSIÇÃO",
-  "BEM-ESTAR",
-  "NUTRIÇÃO",
-  "EQUILÍBRIO",
-  "ROTINA",
+  "Frete grátis a partir de 2 potes",
+  "Garantia de 60 dias",
+  "Produto registrado no MAPA",
+  "+150 mil pets atendidos",
 ];
 
 export function MarqueeStrip() {
