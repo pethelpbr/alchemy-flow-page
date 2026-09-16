@@ -66,9 +66,17 @@ export function PricingCard({
         {selected.units === 1 && selected.shipping != null && (
           <p className="mt-2 text-base text-muted-foreground">+ frete {brl(selected.shipping)}</p>
         )}
-        <p className="mt-1 text-base text-muted-foreground">
-          ou {selected.installments}x de {brl(installment)} sem juros
-        </p>
+        {selected.note && (
+          <p className="mt-2 text-base text-muted-foreground">{selected.note}</p>
+        )}
+        {selected.perPot != null && (
+          <p className="mt-1 text-base text-muted-foreground">{brl(selected.perPot)} por pote</p>
+        )}
+        {!selected.hideInstallments && (
+          <p className="mt-1 text-base text-muted-foreground">
+            ou {selected.installments}x de {brl(installment)} sem juros
+          </p>
+        )}
 
         {extra > 0 && (
           <p className="mt-3 flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-base">
