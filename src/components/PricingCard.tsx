@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Truck, RefreshCw, Lock } from "lucide-react";
-import { brl, variantTotals, addonsTotal, addonsFullTotal, type Variant } from "@/lib/product";
+import { brl, variantTotals, addonsTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { KitBooster } from "@/components/KitBooster";
@@ -27,11 +27,10 @@ export function PricingCard({
   addonIds: string[];
   onToggleAddon: (id: string) => void;
 }) {
-  const { total, oldTotal, savings, discount, installmentValue } = variantTotals(selected);
+  const { total, installmentValue } = variantTotals(selected);
   const toggleAddon = onToggleAddon;
 
   const extra = addonsTotal(addonIds);
-  const extraFull = addonsFullTotal(addonIds);
   const grandTotal = total + extra;
   const installment =
     selected.installmentValue != null
@@ -61,11 +60,7 @@ export function PricingCard({
           transition={{ duration: 0.35 }}
           className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1"
         >
-          <span className="text-base text-muted-foreground line-through">{brl(oldTotal + extraFull)}</span>
           <span className="font-display text-3xl leading-none text-ink">{brl(grandTotal)}</span>
-          <span className="rounded-lg bg-primary/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-primary">
-            {discount}% off
-          </span>
         </motion.div>
 
         {selected.units === 1 && selected.shipping != null && (
@@ -73,9 +68,6 @@ export function PricingCard({
         )}
         <p className="mt-1 text-base text-muted-foreground">
           ou {selected.installments}x de {brl(installment)} sem juros
-        </p>
-        <p className="mt-1 text-base text-primary">
-          Você economiza {brl(savings)} nesta oferta.
         </p>
 
         {extra > 0 && (
@@ -108,7 +100,6 @@ export function PricingCard({
           <ProductVideoFeedback
             productName={selected.units === 1 ? "Daily Greens" : selected.label}
             currentPrice={grandTotal}
-            oldPrice={oldTotal + extraFull}
             onBuy={onBuy}
           />
         </div>

@@ -79,9 +79,6 @@ export function KitBooster({
 
               <div className="mt-1 flex items-center gap-1 sm:gap-2">
                 <div className="flex min-w-0 flex-col leading-tight">
-                  <span className="text-[9px] text-muted-foreground line-through lg:text-[14px]">
-                    {brl(a.fullPrice)}
-                  </span>
                   <span className="text-[11px] font-semibold text-ink lg:text-base">{brl(a.price)}</span>
                 </div>
                 <div className="flex flex-1 justify-center">

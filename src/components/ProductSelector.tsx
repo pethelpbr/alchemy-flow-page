@@ -12,7 +12,7 @@ export function ProductSelector({
   return (
     <div className="flex flex-col gap-3">
       {variants.map((v) => {
-        const { total, discount } = variantTotals(v);
+        const { total } = variantTotals(v);
         const isActive = v.id === selected.id;
         return (
           <button
@@ -54,7 +54,6 @@ export function ProductSelector({
 
             <span className="shrink-0 text-right">
               <span className={cn("block text-base font-medium", isActive ? "text-primary" : "text-ink")}>{brl(total)}</span>
-              <span className="block text-[11px] text-muted-foreground">-{discount}%</span>
             </span>
           </button>
         );

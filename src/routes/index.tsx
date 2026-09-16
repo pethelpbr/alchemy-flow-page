@@ -21,7 +21,7 @@ import { useCart } from "@/lib/use-cart";
 
 const title = "Nutraflow Daily Greens | Suplemento diário premium";
 const description =
-  "Fórmula premium de dose única: energia e equilíbrio em um ritual de 30 segundos. Kits com até 48% off, 30 dias de garantia e envio rápido.";
+  "Fórmula premium de dose única: energia e equilíbrio em um ritual de 30 segundos. 30 dias de garantia, envio rápido e entrega para todo o Brasil.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
