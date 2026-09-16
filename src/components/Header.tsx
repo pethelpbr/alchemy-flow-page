@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { BuyButton } from "@/components/ui/BuyButton";
+import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { cn } from "@/lib/utils";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
@@ -37,6 +38,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
           : "border-b border-transparent bg-transparent",
       )}
     >
+      <MarqueeStrip />
       <div className="container-x grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 lg:grid-cols-[1fr_auto_1fr]">
         <button
           aria-label="Abrir menu"
