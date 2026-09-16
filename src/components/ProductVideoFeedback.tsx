@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AccordionBlock } from "@/components/ui/AccordionBlock";
 import {
   Dialog,
   DialogContent,
@@ -116,56 +116,6 @@ function IngredientsButton() {
   );
 }
 
-function DetailsAccordion({
-  openDetail,
-  setOpenDetail,
-}: {
-  openDetail: number | null;
-  setOpenDetail: (i: number | null) => void;
-}) {
-  return (
-    <div className="border-y border-border">
-      {details.map((detail, index) => {
-        const isOpen = openDetail === index;
-        return (
-          <div
-            key={detail.title}
-            className="border-b border-border last:border-b-0"
-          >
-            <Button
-              type="button"
-              variant="ghost"
-              aria-expanded={isOpen}
-              onClick={() => setOpenDetail(isOpen ? null : index)}
-              className="h-auto w-full justify-between rounded-none px-1 py-4 text-left text-base font-semibold text-ink hover:bg-transparent hover:text-primary"
-            >
-              <span className="whitespace-normal">{detail.title}</span>
-              <ChevronDown
-                className={cn("transition-transform duration-300", isOpen && "rotate-180")}
-              />
-            </Button>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="overflow-hidden"
-                >
-                  <p className="px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    {detail.content}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [openDetail, setOpenDetail] = useState<number | null>(0);
@@ -197,7 +147,11 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
       </div>
 
       <div className="mt-7 pt-2">
-        <DetailsAccordion openDetail={openDetail} setOpenDetail={setOpenDetail} />
+        <AccordionBlock
+          items={details}
+          openIndex={openDetail}
+          onOpenChange={setOpenDetail}
+        />
       </div>
 
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
