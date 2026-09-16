@@ -29,8 +29,8 @@ const benefits = [
   },
   {
     icon: Sparkles,
-    title: "Ritual prazeroso",
-    text: "Sabor leve de menta e matcha que se dissolve por completo na água.",
+    title: "Sacode a cabeça e a orelha tem cheiro",
+    text: "Você limpa, melhora uns dias, e duas semanas depois aquele cheiro está de volta.",
   },
 ];
 
