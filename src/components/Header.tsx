@@ -41,15 +41,19 @@ export function Header({ onBuy }: { onBuy: () => void }) {
   };
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <MarqueeStrip />
+    <>
+      <div ref={marqueeRef}>
+        <MarqueeStrip />
+      </div>
+      <header
+        style={{ top: Math.max(0, marqueeH - scrollY) }}
+        className={cn(
+          "fixed inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
+          scrolled
+            ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent",
+        )}
+      >
       <div className="container-x grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 lg:grid-cols-[1fr_auto_1fr]">
         <button
           aria-label="Abrir menu"
