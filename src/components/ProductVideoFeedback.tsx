@@ -49,11 +49,11 @@ function VideoTags({
 }) {
   return (
     <span className={cn("pointer-events-none absolute inset-0", className)}>
-      <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1 rounded-full bg-card py-[3px] pl-1.5 pr-2 text-[7px] font-semibold leading-none text-ink shadow-card md:text-[10px]">
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+      <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1.5 rounded-full bg-card py-1.5 pl-2 pr-2.5 text-[10px] font-semibold leading-none text-ink shadow-card md:text-[13px]">
+        <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
         <span className="truncate">{problem}</span>
       </span>
-      <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-1.5 py-[3px] text-[7px] font-bold leading-none text-primary-foreground tabular-nums md:text-[10px]">
+      <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-2 py-1.5 text-[10px] font-bold leading-none text-primary-foreground tabular-nums md:text-[13px]">
         {duration}
       </span>
     </span>
