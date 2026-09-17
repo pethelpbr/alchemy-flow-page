@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { cn } from "@/lib/utils";
@@ -86,32 +86,15 @@ export function Header({ onBuy }: { onBuy: () => void }) {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center justify-end gap-2">
-          <BuyButton size="sm" onClick={onBuy} className="hidden lg:inline-flex">
-            Comprar agora
-          </BuyButton>
+        <BuyButton
+          size="sm"
+          onClick={onBuy}
+          className="hidden justify-self-end lg:inline-flex"
+        >
+          Comprar agora
+        </BuyButton>
 
-          <div className="flex items-center gap-0.5 lg:hidden">
-            <button
-              aria-label="Buscar"
-              className="grid h-10 w-10 place-items-center text-ink"
-            >
-              <Search size={20} strokeWidth={1.5} />
-            </button>
-            <button
-              aria-label="Conta"
-              className="grid h-10 w-10 place-items-center text-ink"
-            >
-              <User size={20} strokeWidth={1.5} />
-            </button>
-            <button
-              aria-label="Sacola"
-              className="grid h-10 w-10 place-items-center text-ink"
-            >
-              <ShoppingBag size={20} strokeWidth={1.5} />
-            </button>
-          </div>
-        </div>
+        <span aria-hidden className="h-10 w-10 shrink-0 lg:hidden" />
       </div>
 
       <AnimatePresence>
