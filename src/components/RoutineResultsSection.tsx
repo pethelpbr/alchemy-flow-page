@@ -1,5 +1,8 @@
+import { useState } from "react";
+import { ChevronsLeftRight } from "lucide-react";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import lifestyle from "@/assets/lifestyle-1.jpg";
+import afterLifestyle from "@/assets/gallery-drink.jpg";
 
 const timeline = [
   {
@@ -49,15 +52,51 @@ function StepItem({ item }: { item: Step }) {
 }
 
 function Images() {
+  const [position, setPosition] = useState(50);
+
   return (
     <div className="relative mx-auto w-full max-w-2xl">
-      {/* Troque a imagem quando tiver a foto real */}
-      <div className="relative overflow-hidden rounded-2xl bg-muted shadow-soft">
+      <div className="relative aspect-[4/5] touch-none select-none overflow-hidden rounded-2xl bg-muted shadow-soft">
+        <img
+          src={afterLifestyle}
+          alt="Pet depois do uso contínuo do NutraHelp"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
         <img
           src={lifestyle}
-          alt="Pet na rotina usando o NutraHelp"
+          alt="Pet antes de usar o NutraHelp"
           loading="lazy"
-          className="aspect-[4/5] h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+        />
+
+        <span className="eyebrow absolute top-4 left-4 rounded-md bg-card/85 px-2.5 py-1 text-ink shadow-card">
+          Antes
+        </span>
+        <span className="eyebrow absolute top-4 right-4 rounded-md bg-card/85 px-2.5 py-1 text-ink shadow-card">
+          Depois
+        </span>
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 z-10 w-0.5 -translate-x-1/2 bg-card shadow-card"
+          style={{ left: `${position}%` }}
+        >
+          <span className="absolute top-1/2 left-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-card bg-primary text-primary-foreground shadow-soft">
+            <ChevronsLeftRight className="h-5 w-5" aria-hidden="true" />
+          </span>
+        </div>
+
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={position}
+          onChange={(event) => setPosition(Number(event.target.value))}
+          aria-label="Comparar imagens antes e depois"
+          className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
         />
       </div>
 
