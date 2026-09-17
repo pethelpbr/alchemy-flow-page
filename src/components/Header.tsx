@@ -43,7 +43,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
   return (
     <>
       <div ref={marqueeRef}>
-        <MarqueeStrip tone="gift" />
+        <MarqueeStrip tone="gift" size="slim" />
       </div>
       <header
         style={{ top: Math.max(0, marqueeH - scrollY) }}
