@@ -40,7 +40,6 @@ function BenefitCard({ b }: { b: Benefit }) {
   );
 }
 
-
 function StickyBenefits() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: progress } = useScroll({
