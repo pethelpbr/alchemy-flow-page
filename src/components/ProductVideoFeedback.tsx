@@ -81,8 +81,7 @@ const details = [
   },
   {
     title: "Benefícios",
-    content:
-      "Uma forma simples de incluir ativos selecionados no dia a dia, com preparo rápido, sabor leve e doses transparentes.",
+    content: <BenefitList />,
   },
   {
     title: "Como usar",
