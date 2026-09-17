@@ -31,6 +31,7 @@ export function PricingCard({
 
   const extra = addonsTotal(addonIds);
   const grandTotal = total + (selected.shipping ?? 0) + extra;
+  const originalTotal = (selected.compareAt ?? total + (selected.shipping ?? 0)) + extra;
   return (
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
       <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
@@ -45,34 +46,34 @@ export function PricingCard({
 
         <ProductSelector selected={selected} onSelect={onSelect} />
 
-        <KitBooster selectedIds={addonIds} onToggle={toggleAddon} />
-
         <motion.div
           key={`${selected.id}-${addonIds.join()}`}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="mt-7 flex items-end justify-between gap-4 border-t border-border pt-6"
+          className="mt-7 border-t border-border pt-6"
         >
-          <span>
-            <span className="block text-sm text-muted-foreground">Total do pedido</span>
-            <span className="font-display text-3xl leading-none text-ink">{brl(grandTotal)}</span>
-          </span>
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="text-sm font-semibold text-ink sm:text-base">Preço total:</span>
+            <span className="flex min-w-0 items-baseline justify-end gap-2">
+              {originalTotal > grandTotal && (
+                <span className="text-sm text-muted-foreground line-through sm:text-base">
+                  {brl(originalTotal)}
+                </span>
+              )}
+              <span className="text-2xl font-bold leading-none text-ink sm:text-3xl">
+                {brl(grandTotal)}
+              </span>
+            </span>
+          </div>
           <BuyButton
             size="md"
-            className="shrink-0 px-7 normal-case tracking-normal sm:px-10 sm:text-base"
+            className="mt-5 w-full px-5 text-sm uppercase tracking-normal sm:text-base"
             onClick={onBuy}
           >
-            Continuar
+            Quero meu NutraHelp
           </BuyButton>
         </motion.div>
-
-        {extra > 0 && (
-          <p className="mt-3 flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-base">
-            <span className="text-muted-foreground">Preço total com adicionais</span>
-            <span className="font-semibold text-ink">{brl(grandTotal)}</span>
-          </p>
-        )}
 
         <div className="mt-5 flex flex-nowrap items-center justify-center gap-x-3 sm:gap-x-6">
           {seals.map((s) => (
@@ -85,6 +86,8 @@ export function PricingCard({
             </span>
           ))}
         </div>
+
+        <KitBooster selectedIds={addonIds} onToggle={toggleAddon} />
 
       </div>
 
