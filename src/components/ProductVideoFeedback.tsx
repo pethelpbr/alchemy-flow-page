@@ -51,7 +51,7 @@ const details = [
   {
     title: "Para quem é?",
     content:
-      "Para adultos que buscam praticidade e querem complementar uma rotina equilibrada. Gestantes, lactantes e pessoas em tratamento devem consultar um profissional.",
+      "Para pets com coceira frequente, lambedura de patas, pele vermelha ou irritada, falhas na pelagem, queda excessiva de pelo, pelo opaco ou quebradiço, orelhas que incomodam de repetição e sensibilidades de pele. Também para pets em período de troca de pelos. Cães e gatos, todas as raças e portes, a partir de 3 meses.",
   },
   {
     title: "Benefícios",
