@@ -141,7 +141,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   return (
     <div>
       <div>
-        <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>
+        <h3 className="text-base font-semibold text-ink">Relatos de tutores que já passaram por isso</h3>
         <Thumbnails className="mt-4 grid-cols-4" onSelect={selectFeedback} />
         <IngredientsButton />
       </div>
@@ -160,7 +160,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
             <>
               <div className="px-2 pb-3 pt-2">
                 <DialogTitle className="pr-10 font-display text-xl font-bold text-ink">
-                  Tutores que já passaram por isso
+                  Relatos de tutores que já passaram por isso
                 </DialogTitle>
                 <DialogDescription className="sr-only">
                   Relatos em vídeo de clientes Nutraflow
