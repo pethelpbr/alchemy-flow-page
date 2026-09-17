@@ -178,6 +178,7 @@ function Thumbnails({
               src={feedback.image}
               alt={`Relato de ${feedback.name}`}
               loading="lazy"
+              draggable={false}
               className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/25" />
