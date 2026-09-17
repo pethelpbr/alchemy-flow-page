@@ -38,7 +38,7 @@ export type Variant = {
 export const BRAND = "Nutraflow";
 export const PRODUCT_NAME = "Daily Greens";
 
-export const variants: Variant[] = [
+export const variants: [Variant, ...Variant[]] = [
   {
     id: "1-un",
     units: 1,

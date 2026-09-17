@@ -52,7 +52,7 @@ export function ProductSelector({
                   </span>
                 )}
                 {hasGift && (
-                  <span className="rounded-full bg-[#FDDB7A] px-2.5 py-1 text-[10px] font-bold uppercase text-[#5B3D0C] sm:text-xs">
+                  <span className="rounded-full bg-gift px-2.5 py-1 text-[10px] font-bold uppercase text-gift-foreground sm:text-xs">
                     Brinde
                   </span>
                 )}
