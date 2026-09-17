@@ -40,7 +40,7 @@ export function HeroSection({
     <section
       ref={sectionRef}
       id="topo"
-      className="relative overflow-x-clip pt-20 pb-14 md:pt-24 md:pb-24"
+      className="relative overflow-x-clip pt-[88px] pb-14 md:pt-[52px] md:pb-24"
     >
       <div
         aria-hidden
