@@ -99,10 +99,6 @@ function Images() {
           className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
         />
       </div>
-
-      <p className="mt-4 text-center text-xs text-muted-foreground sm:text-base">
-        Resultados individuais podem variar de acordo com a rotina e alimentação.
-      </p>
     </div>
   );
 }
