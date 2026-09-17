@@ -70,6 +70,8 @@
   --color-gold: var(--gold);
   --color-ink: var(--ink);
   --color-terracotta: var(--terracotta);
+  --color-gift: var(--gift);
+  --color-gift-foreground: var(--gift-foreground);
 }
 
 :root {
@@ -99,6 +101,8 @@
   --gold: oklch(0.498 0.138 45.4); /* terracota premium */
   --ink: oklch(0.37 0.03 70); /* #504333 */
   --terracotta: oklch(0.498 0.138 45.4); /* #B43F02 */
+  --gift: oklch(0.89 0.12 86); /* #FDDB7A */
+  --gift-foreground: oklch(0.36 0.08 73); /* #5B3D0C */
 
   --shadow-soft: 0 24px 60px -30px oklch(0.5 0.1 60 / 0.28);
   --shadow-card: 0 2px 30px -18px oklch(0.5 0.1 60 / 0.35);
