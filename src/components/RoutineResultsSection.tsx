@@ -90,7 +90,7 @@ function Images() {
 export function RoutineResultsSection() {
   return (
     <>
-      <section className="section overflow-hidden bg-card">
+      <section className="section bg-card">
         <div className="container-x grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-primary">Resultado na rotina</p>
