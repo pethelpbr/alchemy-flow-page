@@ -51,13 +51,13 @@ export function PricingCard({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="mt-7 border-t border-border pt-6"
+          className="mt-6 border-t border-border pt-5"
         >
           <div className="flex items-baseline justify-between gap-3">
             <span className="text-sm font-semibold text-ink sm:text-base">Preço total:</span>
             <span className="flex min-w-0 items-baseline justify-end gap-2">
               {originalTotal > grandTotal && (
-                <span className="whitespace-nowrap text-sm text-muted-foreground sm:text-base">
+                <span className="whitespace-nowrap text-[13px] text-muted-foreground sm:text-sm">
                   De <span className="line-through">{brl(originalTotal)}</span>
                 </span>
               )}
@@ -68,7 +68,7 @@ export function PricingCard({
           </div>
           <BuyButton
             size="md"
-            className="mt-5 w-full px-5 text-sm uppercase tracking-normal sm:text-base"
+            className="mt-4 w-full px-5 text-sm uppercase tracking-normal sm:text-base"
             onClick={onBuy}
           >
             Quero meu NutraHelp
