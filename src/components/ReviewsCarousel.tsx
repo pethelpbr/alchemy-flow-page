@@ -181,7 +181,7 @@ export function ReviewsCarousel() {
         setApi={setApi}
         opts={{ loop: true, align: "start", dragFree: true }}
         aria-label="Avaliações de clientes"
-        className="mt-12 cursor-grab select-none active:cursor-grabbing"
+        className="mt-6 cursor-grab select-none active:cursor-grabbing"
       >
         <CarouselContent className="touch-pan-y">
           {reviews.map((r) => (
