@@ -52,7 +52,7 @@ export function ProductSelector({
                     "rounded-lg px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em]",
                     "bg-primary text-primary-foreground",
                   )}>
-                    {isBestValue ? "Frete Grátis nos Combos" : v.badge}
+                    {isBestValue ? "Frete grátis" : v.badge}
                   </span>
                 )}
               </span>
