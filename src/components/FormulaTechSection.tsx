@@ -45,7 +45,7 @@ export function FormulaTechSection() {
               ))}
             </ul>
 
-            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground lg:max-w-xl">
               Registrado no MAPA &middot; Sem corticoide &middot; Para c&atilde;es e gatos &middot; A
               partir de 3 meses
             </p>
