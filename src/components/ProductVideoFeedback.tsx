@@ -44,7 +44,7 @@ const feedbacks = [
 
 const details = [
   {
-    title: "O que é o Daily Greens?",
+    title: "O que é o NutraHelp?",
     content:
       "Um suplemento alimentar em pó para cães e gatos, com 44 nutrientes em uma fórmula 8 em 1. Reúne probióticos, prebióticos, ômega 3, vitaminas, minerais e aminoácidos para apoiar a saúde da pele, da pelagem e do intestino. Sabor carne, misturado na ração uma vez por dia.",
   },
