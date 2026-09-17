@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type AccordionEntry = {
   title: string;
-  content: string;
+  content: ReactNode;
 };
 
 /**
@@ -53,9 +54,9 @@ export function AccordionBlock({
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="max-w-2xl px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <div className="max-w-2xl px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
                     {item.content}
-                  </p>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
