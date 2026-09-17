@@ -6,7 +6,6 @@ const items = [
   { name: "Aminoácidos", amount: "7" },
   { name: "Probióticos", amount: "5" },
   { name: "Prebióticos", amount: "2" },
-  { name: "+ Ômega 3, Condroitina, Yucca e Proteína", amount: "" },
 ];
 
 export function FormulaTechSection() {
