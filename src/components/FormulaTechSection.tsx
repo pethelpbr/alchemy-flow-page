@@ -35,11 +35,13 @@ export function FormulaTechSection() {
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-baseline justify-between gap-4 border-b border-border py-4 first:border-t"
+                  className="flex items-center justify-between gap-6 border-b border-border py-4 first:border-t"
                 >
-                  <span className="text-[15px] font-medium text-ink">{item.name}</span>
+                  <span className="text-[16px] font-semibold text-ink">{item.name}</span>
                   {item.amount ? (
-                    <span className="text-[15px] font-medium text-primary">{item.amount}</span>
+                    <span className="min-w-8 text-right font-display text-[22px] font-bold leading-none text-primary">
+                      {item.amount}
+                    </span>
                   ) : null}
                 </li>
               ))}
