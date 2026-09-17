@@ -4,24 +4,29 @@ import galleryDrink from "@/assets/gallery-drink.jpg";
 
 const timeline = [
   {
-    badge: "1ª semana",
-    label: "A rotina começa",
-    text: "Uma dose todos os dias, com ou sem treino. O primeiro passo é criar o hábito.",
+    badge: "Dias 1 a 7",
+    label: "O começo é silencioso",
+    text: "Você mistura na ração e ele come normal. Por fora, nada mudou ainda. Por dentro, os probióticos começam a ocupar espaço e os nutrientes começam a chegar na pele.",
   },
   {
-    badge: "4ª semana",
-    label: "A rotina se consolida",
-    text: "Com o uso diário, a fórmula passa a acompanhar naturalmente o seu dia.",
+    badge: "Dias 8 a 15",
+    label: "Os primeiros sinais",
+    text: "Menos pata batendo no chão de madrugada. Menos lambida na mesma pata. É pequeno, mas é o primeiro sinal de que está funcionando.",
   },
   {
-    badge: "8ª semana",
-    label: "Mais ritmo na rotina",
-    text: "Com o ritual incorporado ao dia a dia, fica mais fácil manter a regularidade.",
+    badge: "Dias 16 a 30",
+    label: "A pele começa a mudar",
+    text: "A vermelhidão diminui, as feridinhas de unha param de abrir de novo, o cheiro forte cede e a queda de pelo começa a reduzir. É aqui que a maioria decide continuar ou parar.",
   },
   {
-    badge: "12ª semana",
-    label: "Constância que acompanha a evolução",
-    text: "Rotina, alimentação e cuidado trabalhando juntos, dia após dia, de forma consistente.",
+    badge: "Dias 31 a 60",
+    label: "O pelo volta",
+    text: "O pelo novo nasce e começa a cobrir as falhas, mais forte e com mais brilho. Nenhum suplemento faz isso em um mês, porque a raiz do pelo não trabalha nessa velocidade.",
+  },
+  {
+    badge: "A partir de 60 dias",
+    label: "O normal dele",
+    text: "Pelo parelho e pele tranquila, inclusive na virada de estação.",
   },
 ];
 
