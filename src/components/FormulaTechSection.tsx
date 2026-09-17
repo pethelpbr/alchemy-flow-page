@@ -35,11 +35,11 @@ export function FormulaTechSection() {
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-center justify-between gap-6 border-b border-border py-4 first:border-t"
+                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-border py-4 first:border-t"
                 >
                   <span className="text-[16px] font-semibold text-ink">{item.name}</span>
                   {item.amount ? (
-                    <span className="min-w-8 text-right font-display text-[22px] font-bold leading-none text-primary">
+                    <span className="font-display text-[22px] font-bold leading-none text-primary">
                       {item.amount}
                     </span>
                   ) : null}
