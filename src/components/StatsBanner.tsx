@@ -7,7 +7,7 @@ const stats = [
   },
   {
     value: "97%",
-    text: "perceberam aumento real de força e resistência durante os treinos e nas atividades do dia a dia",
+    text: "relataram menos lambedura de patas e noites mais tranquilas",
   },
   {
     value: "96%",
