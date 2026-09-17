@@ -71,6 +71,21 @@ export function HeroSection({
             Sabor carne, misturado na ração, uma vez por dia.
           </p>
 
+          <ul className="mt-5 max-w-md space-y-2.5">
+            {heroBullets.map((text) => (
+              <li key={text} className="flex items-start gap-2.5 text-[15px] leading-snug text-ink">
+                <Check
+                  size={18}
+                  strokeWidth={3}
+                  className="mt-0.5 shrink-0 text-primary"
+                  aria-hidden
+                />
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+
+
           <div className="mt-8">
             <PricingCard
               selected={selected}
