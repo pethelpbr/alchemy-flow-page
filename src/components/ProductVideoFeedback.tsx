@@ -246,7 +246,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                 <VideoTags
                   problem={selectedVideo.problem}
                   duration={selectedVideo.duration}
-                  className="md:[&>span:first-child]:left-3 md:[&>span:first-child]:top-3 md:[&>span:last-child]:bottom-3 md:[&>span:last-child]:right-3"
+                  className="md:inset-1.5"
                 />
                 <Button
                   type="button"
