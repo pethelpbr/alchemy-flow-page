@@ -21,7 +21,6 @@ const feedbacks = [
     caption: "Virou parte da minha manhã",
     problem: "Coceira noturna",
     duration: "0:47",
-    legend: "Coceira noturna · Tutora da Mel",
   },
   {
     image: customer2,
