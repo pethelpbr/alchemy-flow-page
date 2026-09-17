@@ -185,33 +185,6 @@ export function ReviewsCarousel() {
       </Carousel>
 
       <div className="container-x">
-        <div className="mt-8 flex items-center justify-end gap-4">
-          <p className="text-xs text-muted-foreground" aria-live="polite">
-            {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
-          </p>
-          <div className="flex gap-3">
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            onClick={() => api?.scrollPrev()}
-            aria-label="Anterior"
-            className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Button>
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            onClick={() => api?.scrollNext()}
-            aria-label="Próximo"
-            className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </Button>
-          </div>
-        </div>
 
 
 
