@@ -1,9 +1,17 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { Check } from "lucide-react";
 import type { Variant } from "@/lib/product";
 import { ProductGallery } from "@/components/ProductGallery";
 import { PricingCard } from "@/components/PricingCard";
 import { Stars } from "@/components/ui/Stars";
+
+const heroBullets = [
+  "Reduz coceiras e lambeduras excessivas",
+  "Ajuda a acelerar a cicatrização de irritações e feridinhas",
+  "Diminui a queda de pelo e ajuda as falhas a fecharem",
+];
+
 
 export function HeroSection({
   selected,
@@ -70,6 +78,21 @@ export function HeroSection({
             probióticos e prebióticos por dentro, ômega 3, zinco e biotina para a pele e o pelo.
             Sabor carne, misturado na ração, uma vez por dia.
           </p>
+
+          <ul className="mt-5 max-w-md space-y-2.5">
+            {heroBullets.map((text) => (
+              <li key={text} className="flex items-start gap-2.5 text-[15px] leading-snug text-ink">
+                <Check
+                  size={18}
+                  strokeWidth={3}
+                  className="mt-0.5 shrink-0 text-primary"
+                  aria-hidden
+                />
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+
 
           <div className="mt-8">
             <PricingCard
