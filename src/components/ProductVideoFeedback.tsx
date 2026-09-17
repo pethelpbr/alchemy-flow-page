@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AccordionBlock } from "@/components/ui/AccordionBlock";
@@ -118,10 +118,50 @@ function Thumbnails({
   className?: string;
   onSelect: (f: (typeof feedbacks)[number]) => void;
 }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = trackRef.current;
+    if (!el) return;
+    drag.current = { active: true, startX: e.clientX, scrollLeft: el.scrollLeft, moved: false };
+    el.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = trackRef.current;
+    if (!el || !drag.current.active) return;
+    const dx = e.clientX - drag.current.startX;
+    if (Math.abs(dx) > 6) drag.current.moved = true;
+    if (drag.current.moved) {
+      e.preventDefault();
+      el.scrollLeft = drag.current.scrollLeft - dx;
+    }
+  };
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    drag.current.active = false;
+    if (trackRef.current?.hasPointerCapture(e.pointerId)) {
+      trackRef.current.releasePointerCapture(e.pointerId);
+    }
+  };
+
   return (
     <div
+      ref={trackRef}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onClickCapture={(e) => {
+        if (drag.current.moved) {
+          e.preventDefault();
+          e.stopPropagation();
+          drag.current.moved = false;
+        }
+      }}
       className={cn(
-        "-mx-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0",
+        "-mx-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-4 pb-1 [touch-action:pan-y] select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0",
         className,
       )}
     >
@@ -138,6 +178,7 @@ function Thumbnails({
               src={feedback.image}
               alt={`Relato de ${feedback.name}`}
               loading="lazy"
+              draggable={false}
               className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/25" />
