@@ -37,7 +37,7 @@ export function ProductSelector({
               {(hasFreeShipping || hasGift) && (
                 <span className="mb-2 flex flex-wrap items-center gap-2">
                   {hasFreeShipping && (
-                    <span className="rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-primary-foreground">
+                    <span className="rounded-full bg-shipping px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-shipping-foreground">
                       Frete grátis
                     </span>
                   )}
@@ -116,7 +116,7 @@ export function ProductSelector({
                 <span className="flex flex-wrap items-center gap-2">
                   <span className="text-lg font-bold leading-snug text-ink">{v.label}</span>
                   {hasFreeShipping && (
-                    <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold uppercase text-primary-foreground">
+                    <span className="rounded-full bg-shipping px-2 py-0.5 text-[10px] font-bold uppercase text-shipping-foreground">
                       Frete grátis
                     </span>
                   )}
