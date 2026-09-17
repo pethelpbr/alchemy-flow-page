@@ -140,7 +140,7 @@ export function ReviewsCarousel() {
           <div>
             <p className="eyebrow">Avaliações</p>
             <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-              Quem já tornou isso um hábito
+              Experiências reais de quem já usa
             </h2>
             <RatingBreakdown />
           </div>
