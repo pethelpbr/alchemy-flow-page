@@ -73,6 +73,11 @@ export function ProductSelector({
                       + PataHelp de brinde
                     </span>
                   )}
+                  {v.savings != null && (
+                    <span className="mt-0.5 block text-[13px] font-semibold text-terracotta">
+                      Economize {brl(v.savings).replace(",00", "")}
+                    </span>
+                  )}
                 </span>
 
                 <span className="shrink-0 text-right">
@@ -89,20 +94,9 @@ export function ProductSelector({
                   >
                     {brl(displayedTotal)}
                   </span>
-                </span>
-              </span>
-
-              <span
-                className={cn(
-                  "mt-2.5 flex items-center justify-between gap-2 border-t pt-2",
-                  isActive ? "border-primary/25" : "border-border",
-                )}
-              >
-                <span className="text-[13px] font-semibold text-terracotta">
-                  {v.savings != null ? `Economize ${brl(v.savings).replace(",00", "")}` : ""}
-                </span>
-                <span className="text-[12px] text-muted-foreground">
-                  ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
+                  <span className="mt-0.5 block text-[11px] text-muted-foreground">
+                    ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
+                  </span>
                 </span>
               </span>
             </span>
