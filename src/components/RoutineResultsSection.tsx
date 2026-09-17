@@ -70,6 +70,9 @@ function Images() {
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     const isMouse = event.pointerType === "mouse";
+    if (isMouse) {
+      event.preventDefault();
+    }
     dragRef.current = {
       startX: event.clientX,
       startY: event.clientY,
@@ -125,6 +128,7 @@ function Images() {
           src={afterPhoto.url}
           alt="Pet depois do uso contínuo do NutraHelp"
           loading="lazy"
+          draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
         />
 
@@ -132,6 +136,7 @@ function Images() {
           src={beforePhoto.url}
           alt="Pet antes de usar o NutraHelp"
           loading="lazy"
+          draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         />
