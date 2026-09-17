@@ -6,7 +6,7 @@ import { addonsTotal, buildCheckoutUrl, variants, type Variant } from "./product
  * integração com Shopify/Yampi aconteça em um único lugar.
  */
 export function useCart() {
-  const [selected, setSelected] = useState<Variant>(variants[1]!);
+  const [selected, setSelected] = useState<Variant>(() => variants[2] ?? variants[0]);
   const [addonIds, setAddonIds] = useState<string[]>([]);
 
   const toggleAddon = useCallback((id: string) => {

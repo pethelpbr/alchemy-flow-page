@@ -19,6 +19,10 @@ export type Variant = {
   installments: number;
   /** Valor fixo da parcela (quando o parcelamento tem juros). */
   installmentValue?: number;
+  /** Preço anterior exibido riscado na oferta. */
+  compareAt?: number;
+  /** Economia exibida no card da oferta. */
+  savings?: number;
   /** Frete exibido junto ao preço (ex.: pote único). */
   shipping?: number;
   /** Linha de destaque abaixo do preço (ex.: frete grátis e economia). */
@@ -53,10 +57,13 @@ export const variants: Variant[] = [
     sublabel: "2 meses de cuidado",
     badge: "Maior economia",
     unitPrice: 99.5,
-    installments: 12,
+    total: 199,
+    installments: 6,
+    installmentValue: 33.17,
+    compareAt: 297.8,
+    savings: 98,
     note: "Frete grátis · economize R$ 98",
     perPot: 99.5,
-    hideInstallments: true,
     externalId: null,
   },
   {
@@ -67,10 +74,12 @@ export const variants: Variant[] = [
     badge: "Mais vendido",
     unitPrice: 89.7,
     total: 269,
-    installments: 12,
+    installments: 10,
+    installmentValue: 26.9,
+    compareAt: 546.5,
+    savings: 277,
     note: "Frete grátis · economize R$ 277",
-    perPot: 89.7,
-    hideInstallments: true,
+    perPot: 89.66,
     externalId: null,
   },
 ];

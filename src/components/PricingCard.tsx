@@ -30,7 +30,7 @@ export function PricingCard({
   const toggleAddon = onToggleAddon;
 
   const extra = addonsTotal(addonIds);
-  const grandTotal = total + extra;
+  const grandTotal = total + (selected.shipping ?? 0) + extra;
   const installment =
     selected.installmentValue != null
       ? selected.installmentValue + extra / selected.installments
@@ -57,25 +57,20 @@ export function PricingCard({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1"
+          className="mt-7 flex items-end justify-between gap-4 border-t border-border pt-6"
         >
-          <span className="font-display text-3xl leading-none text-ink">{brl(grandTotal)}</span>
+          <span>
+            <span className="block text-sm text-muted-foreground">Total do pedido</span>
+            <span className="font-display text-3xl leading-none text-ink">{brl(grandTotal)}</span>
+          </span>
+          <BuyButton
+            size="md"
+            className="shrink-0 px-7 normal-case tracking-normal sm:px-10 sm:text-base"
+            onClick={onBuy}
+          >
+            Continuar
+          </BuyButton>
         </motion.div>
-
-        {selected.units === 1 && selected.shipping != null && (
-          <p className="mt-2 text-base text-muted-foreground">+ frete {brl(selected.shipping)}</p>
-        )}
-        {selected.note && (
-          <p className="mt-2 text-base text-muted-foreground">{selected.note}</p>
-        )}
-        {selected.perPot != null && (
-          <p className="mt-1 text-base text-muted-foreground">{brl(selected.perPot)} por pote</p>
-        )}
-        {!selected.hideInstallments && (
-          <p className="mt-1 text-base text-muted-foreground">
-            ou {selected.installments}x de {brl(installment)} sem juros
-          </p>
-        )}
 
         {extra > 0 && (
           <p className="mt-3 flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 text-base">
@@ -83,14 +78,6 @@ export function PricingCard({
             <span className="font-semibold text-ink">{brl(grandTotal)}</span>
           </p>
         )}
-
-        <BuyButton
-          size="lg"
-          className="mt-6 px-4 normal-case tracking-normal text-lg sm:px-8"
-          onClick={onBuy}
-        >
-          Quero cuidar da pele do meu pet
-        </BuyButton>
 
         <div className="mt-5 flex flex-nowrap items-center justify-center gap-x-3 sm:gap-x-6">
           {seals.map((s) => (
