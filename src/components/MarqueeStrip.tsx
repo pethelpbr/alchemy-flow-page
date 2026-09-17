@@ -23,8 +23,15 @@ const tones: Record<Tone, { strip: string; text: string; dot: string }> = {
   },
 };
 
-export function MarqueeStrip({ tone = "primary" }: { tone?: Tone }) {
+export function MarqueeStrip({
+  tone = "primary",
+  size = "default",
+}: {
+  tone?: Tone;
+  size?: "default" | "slim";
+}) {
   const colors = tones[tone];
+  const slim = size === "slim";
 
   const content = (
     <>
@@ -32,14 +39,19 @@ export function MarqueeStrip({ tone = "primary" }: { tone?: Tone }) {
         <span key={word} className="flex items-center gap-3 sm:gap-8">
           <span
             className={cn(
-              "whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.18em] sm:text-base",
+              "whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.18em]",
+              slim ? "sm:text-[13px] sm:tracking-[0.16em]" : "sm:text-base",
               colors.text,
             )}
           >
             {word}
           </span>
           <span
-            className={cn("h-1 w-1 rounded-full sm:h-1.5 sm:w-1.5", colors.dot)}
+            className={cn(
+              "h-1 w-1 rounded-full",
+              slim ? "sm:h-1 sm:w-1" : "sm:h-1.5 sm:w-1.5",
+              colors.dot,
+            )}
           />
         </span>
       ))}
@@ -48,7 +60,11 @@ export function MarqueeStrip({ tone = "primary" }: { tone?: Tone }) {
 
   return (
     <div
-      className={cn("relative overflow-hidden py-3 sm:py-4", colors.strip)}
+      className={cn(
+        "relative overflow-hidden py-3",
+        slim ? "sm:py-2" : "sm:py-4",
+        colors.strip,
+      )}
     >
       <motion.div
         className="flex w-max items-center gap-3 sm:gap-8"
