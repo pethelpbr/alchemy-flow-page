@@ -1,10 +1,12 @@
 import formulaIngredients from "@/assets/formula-ingredients.jpg";
 
 const items = [
-  { name: "Cúrcuma longa", amount: "500mg" },
-  { name: "Matcha cerimonial", amount: "250mg" },
-  { name: "Blend de minerais", amount: "300mg" },
-  { name: "Vitamina C", amount: "45mg" },
+  { name: "vitaminas", amount: "13" },
+  { name: "minerais", amount: "13" },
+  { name: "aminoácidos", amount: "7" },
+  { name: "probióticos", amount: "5" },
+  { name: "prebióticos", amount: "2" },
+  { name: "+ ômega 3, condroitina, yucca e proteína", amount: "" },
 ];
 
 export function FormulaTechSection() {
