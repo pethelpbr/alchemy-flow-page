@@ -105,7 +105,7 @@
   --terracotta: oklch(0.498 0.138 45.4); /* #B43F02 */
   --gift: oklch(0.89 0.12 86); /* #FDDB7A */
   --gift-foreground: oklch(0.36 0.08 73); /* #5B3D0C */
-  --shipping: oklch(0.705 0.3217 183.9); /* #22BBBB */
+  --shipping: #2eb5b7; /* teal */
   --shipping-foreground: oklch(1 0 0); /* #FFFFFF */
 
   --shadow-soft: 0 24px 60px -30px oklch(0.5 0.1 60 / 0.28);
