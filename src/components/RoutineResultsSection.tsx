@@ -186,13 +186,20 @@ export function RoutineResultsSection() {
             </h2>
 
             <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
-              {timeline.map((item) => (
-                <StepItem key={item.label} item={item} />
+              {timeline.map((item, index) => (
+                <Fragment key={item.label}>
+                  <StepItem item={item} />
+                  {index === 2 && (
+                    <li className="mb-12 -ml-8 lg:hidden">
+                      <Images />
+                    </li>
+                  )}
+                </Fragment>
               ))}
             </ol>
           </div>
 
-          <div className="lg:sticky lg:top-28">
+          <div className="hidden lg:sticky lg:top-28 lg:block">
             <Images />
           </div>
         </div>
