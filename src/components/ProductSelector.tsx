@@ -26,61 +26,85 @@ export function ProductSelector({
             onClick={() => onSelect(v)}
             aria-pressed={isActive}
             className={cn(
-              "relative grid grid-cols-[1.25rem_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5 rounded-xl border px-3.5 py-3 text-left transition-all duration-300 sm:grid-cols-[1.5rem_minmax(0,1fr)_auto] sm:gap-x-4 sm:px-5 sm:py-3",
+              "relative flex flex-col rounded-xl border px-3.5 py-3 text-left transition-all duration-300 sm:px-5",
               isActive
                 ? "border-primary bg-primary/[0.07] shadow-card"
                 : "border-border bg-card hover:border-primary/40",
             )}
           >
-            <span
-              className={cn(
-                "row-span-2 grid h-5 w-5 shrink-0 place-items-center rounded-full border transition-colors sm:row-span-1 sm:h-6 sm:w-6",
-                isActive
-                  ? "border-primary bg-primary"
-                  : "border-clay bg-card",
-              )}
-            >
-              {isActive && <Check size={12} strokeWidth={3.5} className="text-primary-foreground" />}
-            </span>
-
-            <span className="min-w-0">
-              <span className="flex flex-wrap items-center gap-2">
-                <span className="text-base font-bold leading-snug text-ink sm:text-lg">{v.label}</span>
+            {(hasFreeShipping || hasGift) && (
+              <span className="mb-2 flex flex-wrap items-center gap-2">
                 {hasFreeShipping && (
-                  <span className="rounded-full bg-primary px-2 py-0.5 text-[9px] font-bold uppercase text-primary-foreground sm:text-[10px]">
+                  <span className="rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-primary-foreground">
                     Frete grátis
                   </span>
                 )}
                 {hasGift && (
-                  <span className="rounded-full bg-gift px-2 py-0.5 text-[9px] font-bold uppercase text-gift-foreground sm:text-[10px]">
+                  <span className="rounded-full bg-gift px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gift-foreground">
                     Brinde
                   </span>
                 )}
               </span>
-              <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
-                {v.units === 1
-                  ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
-                  : `${brl(v.perPot ?? v.unitPrice)} por pote${hasGift ? " · PataHelp de brinde" : ""}`}
+            )}
+
+            <span className="flex items-center gap-3">
+              <span
+                className={cn(
+                  "grid h-6 w-6 shrink-0 place-items-center rounded-full border transition-colors",
+                  isActive ? "border-primary bg-primary" : "border-clay bg-card",
+                )}
+              >
+                {isActive && <Check size={13} strokeWidth={3.5} className="text-primary-foreground" />}
               </span>
-              {v.savings != null && (
-                <span className="mt-0.5 block text-[13px] font-semibold text-terracotta">
-                  Economize {brl(v.savings).replace(",00", "")}
+
+              <span className="min-w-0 flex-1">
+                <span className="block text-base font-bold leading-snug text-ink sm:text-lg">
+                  {v.label}
                 </span>
-              )}
+                <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
+                  {v.units === 1
+                    ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
+                    : `${brl(v.perPot ?? v.unitPrice)} por pote`}
+                </span>
+                {hasGift && (
+                  <span className="block text-[13px] leading-snug text-muted-foreground">
+                    + PataHelp de brinde
+                  </span>
+                )}
+              </span>
+
+              <span className="shrink-0 text-right">
+                {v.compareAt != null && (
+                  <span className="mb-0.5 block text-[11px] text-muted-foreground line-through sm:text-xs">
+                    {brl(v.compareAt)}
+                  </span>
+                )}
+                <span
+                  className={cn(
+                    "block text-xl font-bold leading-none sm:text-2xl",
+                    isActive ? "text-primary" : "text-ink",
+                  )}
+                >
+                  {brl(displayedTotal)}
+                </span>
+              </span>
             </span>
 
-            <span className="col-start-2 shrink-0 text-left sm:col-start-auto sm:text-right">
-              {v.compareAt != null && (
-                <span className="mb-0.5 block text-[11px] text-muted-foreground line-through sm:text-xs">
-                  {brl(v.compareAt)}
-                </span>
+            <span
+              className={cn(
+                "mt-2.5 flex items-center justify-between gap-2 border-t pt-2",
+                isActive ? "border-primary/25" : "border-border",
               )}
-              <span className={cn("block text-xl font-bold leading-none sm:text-2xl", isActive ? "text-primary" : "text-ink")}>{brl(displayedTotal)}</span>
-              <span className="mt-0.5 block text-[11px] text-muted-foreground sm:text-xs">
+            >
+              <span className="text-[13px] font-semibold text-terracotta">
+                {v.savings != null ? `Economize ${brl(v.savings).replace(",00", "")}` : ""}
+              </span>
+              <span className="text-[12px] text-muted-foreground sm:text-xs">
                 ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
               </span>
             </span>
           </button>
+
         );
       })}
     </div>
