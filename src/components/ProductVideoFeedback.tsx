@@ -288,7 +288,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                       aria-pressed={selectedIndex === index}
                       onClick={() => setSelectedIndex(index)}
                       className={cn(
-                        "h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90",
+                        "h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90",
                         selectedIndex === index ? "border-primary" : "border-transparent",
                       )}
                     >
