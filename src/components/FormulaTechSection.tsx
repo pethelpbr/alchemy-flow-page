@@ -1,10 +1,12 @@
 import formulaIngredients from "@/assets/formula-ingredients.jpg";
 
 const items = [
-  { name: "Cúrcuma longa", amount: "500mg" },
-  { name: "Matcha cerimonial", amount: "250mg" },
-  { name: "Blend de minerais", amount: "300mg" },
-  { name: "Vitamina C", amount: "45mg" },
+  { name: "vitaminas", amount: "13" },
+  { name: "minerais", amount: "13" },
+  { name: "aminoácidos", amount: "7" },
+  { name: "probióticos", amount: "5" },
+  { name: "prebióticos", amount: "2" },
+  { name: "+ ômega 3, condroitina, yucca e proteína", amount: "" },
 ];
 
 export function FormulaTechSection() {
@@ -33,10 +35,12 @@ export function FormulaTechSection() {
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-baseline justify-between border-b border-border py-4 first:border-t"
+                  className="flex items-baseline justify-between gap-4 border-b border-border py-4 first:border-t"
                 >
                   <span className="text-[15px] font-medium text-ink">{item.name}</span>
-                  <span className="text-[15px] font-medium text-primary">{item.amount}</span>
+                  {item.amount ? (
+                    <span className="text-[15px] font-medium text-primary">{item.amount}</span>
+                  ) : null}
                 </li>
               ))}
             </ul>
