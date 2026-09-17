@@ -105,7 +105,9 @@ export function RoutineResultsSection() {
             </ol>
           </div>
 
-          <Images />
+          <div className="lg:sticky lg:top-28">
+            <Images />
+          </div>
         </div>
       </section>
       <MarqueeStrip />
