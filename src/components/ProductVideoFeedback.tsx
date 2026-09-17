@@ -200,9 +200,6 @@ function Thumbnails({
               <Play className="ml-0.5 h-4 w-4 fill-current" />
             </span>
           </Button>
-          <p className="mt-1.5 truncate text-xs font-semibold text-ink md:hidden">
-            {feedback.legend.split(" ").pop()}
-          </p>
         </div>
       ))}
     </div>
