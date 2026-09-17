@@ -13,7 +13,6 @@ import { BuyButton } from "@/components/ui/BuyButton";
 import customer1 from "@/assets/customer-1.jpg";
 import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
-import lifestyle from "@/assets/lifestyle-1.jpg";
 
 const feedbacks = [
   {
@@ -33,12 +32,6 @@ const feedbacks = [
     name: "Júlia",
     caption: "Leve e fácil de preparar",
     legend: "Falhas no pelo · Tutora da Nina",
-  },
-  {
-    image: lifestyle,
-    name: "Camila",
-    caption: "Meu novo ritual diário",
-    legend: "Orelha e cheiro · Tutora do Bento",
   },
 ];
 
@@ -167,7 +160,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
     <div>
       <div>
         <h3 className="text-base font-semibold text-ink">Relatos de tutores que já passaram por isso</h3>
-        <Thumbnails className="mt-4 grid-cols-4" onSelect={selectFeedback} />
+        <Thumbnails className="mt-4 grid-cols-3" onSelect={selectFeedback} />
         <IngredientsButton />
       </div>
 
