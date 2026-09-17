@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
-import lifestyle from "@/assets/lifestyle-1.jpg";
-import afterLifestyle from "@/assets/gallery-drink.jpg";
+import beforePhoto from "@/assets/cachorro-ruim.png.asset.json";
+import afterPhoto from "@/assets/cachorro-top.png.asset.json";
 
 const timeline = [
   {
