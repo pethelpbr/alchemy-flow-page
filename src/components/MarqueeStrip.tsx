@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 const items = [
-  "Frete grátis a partir de 2 potes",
+  "Frete Grátis nos Combos",
   "Garantia de 60 dias",
   "Registrado no MAPA",
   "+150 mil pets atendidos",
