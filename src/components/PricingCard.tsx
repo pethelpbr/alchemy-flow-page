@@ -61,7 +61,7 @@ export function PricingCard({
                   De <span className="line-through">{brl(originalTotal)}</span>
                 </span>
               )}
-              <span className="text-2xl font-bold leading-none text-ink sm:text-3xl">
+              <span className="text-xl font-bold leading-none text-ink sm:text-2xl">
                 {brl(grandTotal)}
               </span>
             </span>
