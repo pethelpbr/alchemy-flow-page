@@ -54,7 +54,12 @@ function StepItem({ item }: { item: Step }) {
 function Images() {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef<{ startX: number; startY: number; active: boolean } | null>(null);
+  const dragRef = useRef<{
+    startX: number;
+    startY: number;
+    active: boolean;
+    pointerType: string;
+  } | null>(null);
 
   const updateFromClientX = (clientX: number) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -64,12 +69,27 @@ function Images() {
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    dragRef.current = { startX: event.clientX, startY: event.clientY, active: false };
+    const isMouse = event.pointerType === "mouse";
+    dragRef.current = {
+      startX: event.clientX,
+      startY: event.clientY,
+      active: isMouse,
+      pointerType: event.pointerType,
+    };
+
+    if (isMouse) {
+      event.currentTarget.setPointerCapture(event.pointerId);
+      updateFromClientX(event.clientX);
+    }
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     const drag = dragRef.current;
     if (!drag) return;
+    if (drag.pointerType === "mouse") {
+      updateFromClientX(event.clientX);
+      return;
+    }
     if (!drag.active) {
       const dx = event.clientX - drag.startX;
       const dy = event.clientY - drag.startY;
@@ -84,7 +104,7 @@ function Images() {
   };
 
   const endDrag = () => {
-    if (dragRef.current && !dragRef.current.active) {
+    if (dragRef.current && dragRef.current.pointerType !== "mouse" && !dragRef.current.active) {
       // simples toque: posiciona onde tocou
       updateFromClientX(dragRef.current.startX);
     }
