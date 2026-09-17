@@ -43,13 +43,13 @@ export function FormulaTechSection() {
                 </li>
               ))}
 
-              <li className="border-b border-border py-4">
+              <li className="border-b border-border py-4 text-center">
                 <span className="text-[16px] font-bold text-ink">
                   + Ômega 3, Condroitina, Yucca e Proteína
                 </span>
               </li>
 
-              <li className="py-4">
+              <li className="py-4 text-center">
                 <span className="text-[13px] leading-relaxed text-muted-foreground">
                   Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
                 </span>
