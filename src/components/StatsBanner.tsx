@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const stats = [
   {
     value: "98%",
-    text: "relataram mais disposição e energia logo na primeira semana de uso diário",
+    text: "notaram o pet se coçando menos",
   },
   {
     value: "97%",
