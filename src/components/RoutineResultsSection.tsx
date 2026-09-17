@@ -1,6 +1,5 @@
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import lifestyle from "@/assets/lifestyle-1.jpg";
-import galleryDrink from "@/assets/gallery-drink.jpg";
 
 const timeline = [
   {
@@ -52,32 +51,14 @@ function StepItem({ item }: { item: Step }) {
 function Images() {
   return (
     <div className="relative mx-auto w-full max-w-2xl">
-      <div className="grid grid-cols-2 gap-3 sm:gap-4">
-        {/* Antes — troque a imagem quando tiver a foto real */}
-        <div className="relative overflow-hidden rounded-xl bg-muted shadow-soft">
-          <span className="absolute top-3 left-3 z-10 rounded-lg bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
-            Antes
-          </span>
-          <img
-            src={lifestyle}
-            alt="Foto de antes do uso do produto"
-            loading="lazy"
-            className="aspect-[3/4] h-full w-full object-cover"
-          />
-        </div>
-
-        {/* Depois — troque a imagem quando tiver a foto real */}
-        <div className="relative overflow-hidden rounded-xl bg-muted shadow-soft">
-          <span className="absolute top-3 left-3 z-10 rounded-lg bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
-            Depois
-          </span>
-          <img
-            src={galleryDrink}
-            alt="Foto de depois do uso do produto"
-            loading="lazy"
-            className="aspect-[3/4] h-full w-full object-cover"
-          />
-        </div>
+      {/* Troque a imagem quando tiver a foto real */}
+      <div className="relative overflow-hidden rounded-2xl bg-muted shadow-soft">
+        <img
+          src={lifestyle}
+          alt="Pet na rotina usando o NutraHelp"
+          loading="lazy"
+          className="aspect-[4/5] h-full w-full object-cover"
+        />
       </div>
 
       <p className="mt-4 text-center text-xs text-muted-foreground sm:text-base">
