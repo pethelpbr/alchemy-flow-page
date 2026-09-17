@@ -133,15 +133,17 @@ function Images() {
           </span>
         </div>
 
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={position}
-          onChange={(event) => setPosition(Number(event.target.value))}
-          aria-label="Comparar imagens antes e depois"
-          className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
-        />
+        <div className="absolute right-4 bottom-4 z-20 w-32 opacity-100 sm:w-40">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={position}
+            onChange={(event) => setPosition(Number(event.target.value))}
+            aria-label="Comparar imagens antes e depois"
+            className="h-1.5 w-full cursor-ew-resize appearance-none rounded-full bg-card/70 accent-primary"
+          />
+        </div>
       </div>
     </div>
   );
