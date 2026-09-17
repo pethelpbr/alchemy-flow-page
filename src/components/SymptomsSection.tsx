@@ -74,7 +74,7 @@ export function SymptomsSection() {
                 />
               </div>
               <div className="flex flex-1 flex-col gap-1.5 p-4">
-                <h3 className="text-[15px] font-bold leading-snug text-primary">{s.title}</h3>
+                <h3 className="text-[17px] font-bold leading-snug text-primary">{s.title}</h3>
                 <p className="text-[13px] leading-relaxed text-muted-foreground">{s.text}</p>
               </div>
             </article>
