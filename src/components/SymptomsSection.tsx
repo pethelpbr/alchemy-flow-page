@@ -85,7 +85,7 @@ export function SymptomsSection() {
           <AlertTriangle size={18} className="mt-0.5 shrink-0 text-gift-foreground sm:mt-0" />
           <p className="text-[14px] font-medium leading-snug text-gift-foreground">
             <span className="font-bold">Atenção!</span> Se você reconheceu o seu cachorro em algum
-            desses sintomas, continue lendo esta página.
+            desses sinais, continue lendo esta página.
           </p>
         </div>
 
