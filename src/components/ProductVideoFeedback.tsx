@@ -134,14 +134,18 @@ function Thumbnails({
     drag.current.startX = e.clientX;
     drag.current.scrollLeft = el.scrollLeft;
     drag.current.moved = false;
-    el.setPointerCapture(e.pointerId);
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = trackRef.current;
     if (!el || !drag.current.active) return;
     const dx = e.clientX - drag.current.startX;
-    if (Math.abs(dx) > 6) drag.current.moved = true;
+    if (!drag.current.moved && Math.abs(dx) > 6) {
+      drag.current.moved = true;
+      // Só captura o ponteiro quando vira arrasto de verdade,
+      // para não "engolir" o clique simples que abre o vídeo.
+      el.setPointerCapture(e.pointerId);
+    }
     if (drag.current.moved) {
       e.preventDefault();
       el.scrollLeft = drag.current.scrollLeft - dx;
