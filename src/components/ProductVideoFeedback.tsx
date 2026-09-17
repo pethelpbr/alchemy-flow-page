@@ -19,21 +19,49 @@ const feedbacks = [
     image: customer1,
     name: "Marina",
     caption: "Virou parte da minha manhã",
+    problem: "Coceira noturna",
+    duration: "0:47",
     legend: "Coceira noturna · Tutora da Mel",
   },
   {
     image: customer2,
     name: "Rodrigo",
     caption: "Prático para todos os dias",
-    legend: "Lambedura de pata · Tutor do Thor",
+    problem: "Lambedura na pata",
+    duration: "0:38",
+    legend: "Lambedura na pata · Tutor do Thor",
   },
   {
     image: customer3,
     name: "Júlia",
     caption: "Leve e fácil de preparar",
-    legend: "Falhas no pelo · Tutora da Nina",
+    problem: "Queda de pelos",
+    duration: "1:02",
+    legend: "Queda de pelos · Tutora da Nina",
   },
 ];
+
+function VideoTags({
+  problem,
+  duration,
+  className,
+}: {
+  problem: string;
+  duration: string;
+  className?: string;
+}) {
+  return (
+    <span className={cn("pointer-events-none absolute inset-0", className)}>
+      <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1 rounded-full bg-card py-[3px] pl-1.5 pr-2 text-[7px] font-semibold leading-none text-ink shadow-card md:text-[10px]">
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+        <span className="truncate">{problem}</span>
+      </span>
+      <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-1.5 py-[3px] text-[7px] font-bold leading-none text-primary-foreground tabular-nums md:text-[10px]">
+        {duration}
+      </span>
+    </span>
+  );
+}
 
 const benefitPoints = [
   "Reduz coceiras e lambeduras excessivas",
@@ -108,6 +136,7 @@ function Thumbnails({
             className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/25" />
+          <VideoTags problem={feedback.problem} duration={feedback.duration} />
           <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm">
             <Play className="ml-0.5 h-4 w-4 fill-current" />
           </span>
@@ -214,6 +243,11 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   className="h-[min(58dvh,570px)] w-full object-cover"
                 />
                 <span className="absolute inset-0 bg-ink/10" />
+                <VideoTags
+                  problem={selectedVideo.problem}
+                  duration={selectedVideo.duration}
+                  className="md:inset-1.5"
+                />
                 <Button
                   type="button"
                   variant="ghost"
