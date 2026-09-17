@@ -1,6 +1,5 @@
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import lifestyle from "@/assets/lifestyle-1.jpg";
-import galleryDrink from "@/assets/gallery-drink.jpg";
 
 const timeline = [
   {
