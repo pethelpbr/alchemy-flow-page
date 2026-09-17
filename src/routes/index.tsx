@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { SymptomsSection } from "@/components/SymptomsSection";
 import { TriedVsMissingSection } from "@/components/TriedVsMissingSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
@@ -56,6 +57,7 @@ function Index() {
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
         />
+        <SymptomsSection />
         <TriedVsMissingSection />
         <BenefitsSection />
         <RoutineResultsSection />
