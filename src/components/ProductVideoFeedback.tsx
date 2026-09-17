@@ -19,21 +19,49 @@ const feedbacks = [
     image: customer1,
     name: "Marina",
     caption: "Virou parte da minha manhã",
+    problem: "Coceira noturna",
+    duration: "0:47",
     legend: "Coceira noturna · Tutora da Mel",
   },
   {
     image: customer2,
     name: "Rodrigo",
     caption: "Prático para todos os dias",
-    legend: "Lambedura de pata · Tutor do Thor",
+    problem: "Lambedura na pata",
+    duration: "0:38",
+    legend: "Lambedura na pata · Tutor do Thor",
   },
   {
     image: customer3,
     name: "Júlia",
     caption: "Leve e fácil de preparar",
-    legend: "Falhas no pelo · Tutora da Nina",
+    problem: "Queda de pelos",
+    duration: "1:02",
+    legend: "Queda de pelos · Tutora da Nina",
   },
 ];
+
+function VideoTags({
+  problem,
+  duration,
+  className,
+}: {
+  problem: string;
+  duration: string;
+  className?: string;
+}) {
+  return (
+    <span className={cn("pointer-events-none absolute inset-0", className)}>
+      <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1 rounded-full bg-card py-[3px] pl-1.5 pr-2 text-[7px] font-semibold leading-none text-ink shadow-card md:text-[10px]">
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+        <span className="truncate">{problem}</span>
+      </span>
+      <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-1.5 py-[3px] text-[7px] font-bold leading-none text-primary-foreground tabular-nums md:text-[10px]">
+        {duration}
+      </span>
+    </span>
+  );
+}
 
 const benefitPoints = [
   "Reduz coceiras e lambeduras excessivas",
