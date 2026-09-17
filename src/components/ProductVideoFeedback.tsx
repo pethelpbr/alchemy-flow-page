@@ -119,12 +119,30 @@ function Thumbnails({
   onSelect: (f: (typeof feedbacks)[number]) => void;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
+  const drag = useRef({
+    active: false,
+    startX: 0,
+    scrollLeft: 0,
+    moved: false,
+    lastX: 0,
+    lastT: 0,
+    velocity: 0,
+    raf: 0,
+  });
+
+  const stopMomentum = () => cancelAnimationFrame(drag.current.raf);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = trackRef.current;
     if (!el) return;
-    drag.current = { active: true, startX: e.clientX, scrollLeft: el.scrollLeft, moved: false };
+    stopMomentum();
+    drag.current.active = true;
+    drag.current.startX = e.clientX;
+    drag.current.scrollLeft = el.scrollLeft;
+    drag.current.moved = false;
+    drag.current.lastX = e.clientX;
+    drag.current.lastT = performance.now();
+    drag.current.velocity = 0;
     el.setPointerCapture(e.pointerId);
   };
 
@@ -136,14 +154,34 @@ function Thumbnails({
     if (drag.current.moved) {
       e.preventDefault();
       el.scrollLeft = drag.current.scrollLeft - dx;
+      const now = performance.now();
+      const dt = now - drag.current.lastT;
+      if (dt > 0) {
+        drag.current.velocity = (drag.current.lastX - e.clientX) / dt;
+        drag.current.lastX = e.clientX;
+        drag.current.lastT = now;
+      }
     }
   };
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = trackRef.current;
+    const wasActive = drag.current.active;
     drag.current.active = false;
-    if (trackRef.current?.hasPointerCapture(e.pointerId)) {
-      trackRef.current.releasePointerCapture(e.pointerId);
+    if (el?.hasPointerCapture(e.pointerId)) {
+      el.releasePointerCapture(e.pointerId);
     }
+    if (!el || !wasActive || !drag.current.moved) return;
+    // Inércia: continua deslizando suavemente após soltar
+    let v = drag.current.velocity * 16; // px por frame (~60fps)
+    const friction = 0.94;
+    const step = () => {
+      if (Math.abs(v) < 0.4) return;
+      el.scrollLeft += v;
+      v *= friction;
+      drag.current.raf = requestAnimationFrame(step);
+    };
+    drag.current.raf = requestAnimationFrame(step);
   };
 
   return (
