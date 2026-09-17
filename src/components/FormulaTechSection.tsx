@@ -42,8 +42,7 @@ export function FormulaTechSection() {
             </ul>
 
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              Cada ativo entra por um motivo. Doses transparentes, rastreabilidade de origem e
-              laudo de pureza por lote.
+              Registrado no MAPA · sem corticoide · para cães e gatos · a partir de 3 meses
             </p>
           </div>
 
