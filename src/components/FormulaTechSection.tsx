@@ -40,7 +40,7 @@ export function FormulaTechSection() {
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="relative flex items-baseline justify-center gap-5 py-4"
+                  className="relative flex items-baseline justify-center gap-10 py-4"
                 >
                   <span className="text-[16px] font-bold text-ink">{item.name}</span>
                   <span className="font-display text-[28px] font-bold leading-none text-primary">
