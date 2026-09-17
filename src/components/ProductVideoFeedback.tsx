@@ -124,25 +124,16 @@ function Thumbnails({
     startX: 0,
     scrollLeft: 0,
     moved: false,
-    lastX: 0,
-    lastT: 0,
-    velocity: 0,
-    raf: 0,
   });
 
-  const stopMomentum = () => cancelAnimationFrame(drag.current.raf);
-
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
     const el = trackRef.current;
     if (!el) return;
-    stopMomentum();
     drag.current.active = true;
     drag.current.startX = e.clientX;
     drag.current.scrollLeft = el.scrollLeft;
     drag.current.moved = false;
-    drag.current.lastX = e.clientX;
-    drag.current.lastT = performance.now();
-    drag.current.velocity = 0;
     el.setPointerCapture(e.pointerId);
   };
 
@@ -154,13 +145,6 @@ function Thumbnails({
     if (drag.current.moved) {
       e.preventDefault();
       el.scrollLeft = drag.current.scrollLeft - dx;
-      const now = performance.now();
-      const dt = now - drag.current.lastT;
-      if (dt > 0) {
-        drag.current.velocity = (drag.current.lastX - e.clientX) / dt;
-        drag.current.lastX = e.clientX;
-        drag.current.lastT = now;
-      }
     }
   };
 
@@ -171,17 +155,7 @@ function Thumbnails({
     if (el?.hasPointerCapture(e.pointerId)) {
       el.releasePointerCapture(e.pointerId);
     }
-    if (!el || !wasActive || !drag.current.moved) return;
-    // Inércia: continua deslizando suavemente após soltar
-    let v = drag.current.velocity * 16; // px por frame (~60fps)
-    const friction = 0.94;
-    const step = () => {
-      if (Math.abs(v) < 0.4) return;
-      el.scrollLeft += v;
-      v *= friction;
-      drag.current.raf = requestAnimationFrame(step);
-    };
-    drag.current.raf = requestAnimationFrame(step);
+    if (!el || !wasActive) return;
   };
 
   return (
@@ -199,12 +173,12 @@ function Thumbnails({
         }
       }}
       className={cn(
-        "-mx-4 flex snap-x snap-proximity gap-2.5 overflow-x-auto px-4 pb-1 [touch-action:pan-y] select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0",
+        "-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0",
         className,
       )}
     >
       {feedbacks.map((feedback) => (
-        <div key={feedback.name} className="w-[62%] shrink-0 snap-start md:w-auto md:shrink">
+        <div key={feedback.name} className="w-[62%] shrink-0 md:w-auto md:shrink">
           <Button
             type="button"
             variant="ghost"
