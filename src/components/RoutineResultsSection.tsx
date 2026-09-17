@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
-import lifestyle from "@/assets/lifestyle-1.jpg";
-import afterLifestyle from "@/assets/gallery-drink.jpg";
+import beforePhoto from "@/assets/cachorro-ruim.png.asset.json";
+import afterPhoto from "@/assets/cachorro-top.png.asset.json";
 
 const timeline = [
   {
@@ -58,14 +58,14 @@ function Images() {
     <div className="relative mx-auto w-full max-w-2xl">
       <div className="relative aspect-[4/5] touch-none select-none overflow-hidden rounded-2xl bg-muted shadow-soft">
         <img
-          src={afterLifestyle}
+          src={afterPhoto.url}
           alt="Pet depois do uso contínuo do NutraHelp"
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
 
         <img
-          src={lifestyle}
+          src={beforePhoto.url}
           alt="Pet antes de usar o NutraHelp"
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
