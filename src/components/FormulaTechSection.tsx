@@ -1,12 +1,12 @@
 import formulaIngredients from "@/assets/formula-ingredients.jpg";
 
 const items = [
-  { name: "vitaminas", amount: "13" },
-  { name: "minerais", amount: "13" },
-  { name: "aminoácidos", amount: "7" },
-  { name: "probióticos", amount: "5" },
-  { name: "prebióticos", amount: "2" },
-  { name: "+ ômega 3, condroitina, yucca e proteína", amount: "" },
+  { name: "Vitaminas", amount: "13" },
+  { name: "Minerais", amount: "13" },
+  { name: "Aminoácidos", amount: "7" },
+  { name: "Probióticos", amount: "5" },
+  { name: "Prebióticos", amount: "2" },
+  { name: "+ Ômega 3, Condroitina, Yucca e Proteína", amount: "" },
 ];
 
 export function FormulaTechSection() {
