@@ -54,7 +54,7 @@ export function TriedVsMissingSection() {
   return (
     <section className="bg-[#F9F7F2] py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4 md:px-6">
-        <p className="font-body text-[11px] font-bold uppercase tracking-[0.18em] text-[#504333]">
+        <p className="font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-[#504333]">
           Headline
         </p>
         <h2 className="mt-2 font-display text-2xl font-bold text-[#353534] md:text-4xl">
@@ -68,7 +68,7 @@ export function TriedVsMissingSection() {
                 {columns.map((col) => (
                   <th
                     key={col}
-                    className="border-b border-[#e5ddd0] px-3 py-3 font-body text-[11px] font-bold uppercase tracking-[0.08em] text-[#8a7c66]"
+                    className="border-b border-[#e5ddd0] px-3 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.08em] text-[#8a7c66]"
                   >
                     {col}
                   </th>
@@ -78,39 +78,39 @@ export function TriedVsMissingSection() {
             <tbody>
               {rows.map((row) => (
                 <tr key={row.name}>
-                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-body text-sm text-[#353534]">
+                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-sans text-sm text-[#353534]">
                     {row.name}
                   </td>
-                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-body text-sm text-[#353534]">
+                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-sans text-sm text-[#353534]">
                     {row.where}
                   </td>
-                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-body text-sm text-[#353534]">
+                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-sans text-sm text-[#353534]">
                     {row.duration}
                   </td>
-                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-body text-sm text-[#353534]">
+                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-sans text-sm text-[#353534]">
                     {row.daily}
                   </td>
-                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-body text-sm text-[#353534]">
+                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-sans text-sm text-[#353534]">
                     {row.flora}
                   </td>
-                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-body text-sm text-[#353534]">
+                  <td className="border-b border-[#e5ddd0] px-3 py-4 font-sans text-sm text-[#353534]">
                     {row.barrier}
                   </td>
                 </tr>
               ))}
               <tr className="bg-[#FBE3C8]">
-                <td className="rounded-l-xl bg-[#FBE3C8] px-3 py-4 font-body text-sm font-bold text-[#353534]">
+                <td className="rounded-l-xl bg-[#FBE3C8] px-3 py-4 font-sans text-sm font-bold text-[#353534]">
                   NutraHelp
                 </td>
-                <td className="bg-[#FBE3C8] px-3 py-4 font-body text-sm text-[#353534]">
+                <td className="bg-[#FBE3C8] px-3 py-4 font-sans text-sm text-[#353534]">
                   Flora, pele e pelo
                 </td>
-                <td className="bg-[#FBE3C8] px-3 py-4 font-body text-sm text-[#353534]">
+                <td className="bg-[#FBE3C8] px-3 py-4 font-sans text-sm text-[#353534]">
                   Uso contínuo
                 </td>
-                <td className="bg-[#FBE3C8] px-3 py-4 font-body text-sm text-[#353534]">Sim</td>
-                <td className="bg-[#FBE3C8] px-3 py-4 font-body text-sm text-[#353534]">Sim</td>
-                <td className="rounded-r-xl bg-[#FBE3C8] px-3 py-4 font-body text-sm text-[#353534]">
+                <td className="bg-[#FBE3C8] px-3 py-4 font-sans text-sm text-[#353534]">Sim</td>
+                <td className="bg-[#FBE3C8] px-3 py-4 font-sans text-sm text-[#353534]">Sim</td>
+                <td className="rounded-r-xl bg-[#FBE3C8] px-3 py-4 font-sans text-sm text-[#353534]">
                   Sim
                 </td>
               </tr>
