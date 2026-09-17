@@ -12,17 +12,17 @@ export function MarqueeStrip() {
     <>
       {items.map((word) => (
         <span key={word} className="flex items-center gap-3 sm:gap-8">
-          <span className="whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.18em] text-primary-foreground sm:text-base">
+          <span className="whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.18em] text-gift-foreground sm:text-base">
             {word}
           </span>
-          <span className="h-1 w-1 rounded-full bg-primary-foreground/80 sm:h-1.5 sm:w-1.5" />
+          <span className="h-1 w-1 rounded-full bg-gift-foreground/70 sm:h-1.5 sm:w-1.5" />
         </span>
       ))}
     </>
   );
 
   return (
-    <div className="relative overflow-hidden bg-primary py-3 sm:py-4">
+    <div className="relative overflow-hidden bg-gift py-3 sm:py-4">
       <motion.div
         className="flex w-max items-center gap-3 sm:gap-8"
         animate={{ x: [0, "-50%"] }}
