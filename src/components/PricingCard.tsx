@@ -36,8 +36,8 @@ export function PricingCard({
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
       <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
         {!compact && (
-          <p className="mb-4 flex items-center gap-2 text-base font-medium text-ink">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
+          <p className="mb-4 flex items-center gap-2 text-lg font-semibold text-ink">
+            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
               1
             </span>
             Escolha seu ritual
