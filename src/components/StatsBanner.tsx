@@ -11,7 +11,7 @@ const stats = [
   },
   {
     value: "96%",
-    text: "afirmaram sentir maior clareza mental, foco e produtividade nas primeiras semanas",
+    text: "observaram a pelagem mais forte e com menos falhas",
   },
 ];
 
