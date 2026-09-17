@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import beforePhoto from "@/assets/cachorro-ruim.png.asset.json";
@@ -53,10 +53,54 @@ function StepItem({ item }: { item: Step }) {
 
 function Images() {
   const [position, setPosition] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ startX: number; startY: number; active: boolean } | null>(null);
+
+  const updateFromClientX = (clientX: number) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect || rect.width === 0) return;
+    const next = ((clientX - rect.left) / rect.width) * 100;
+    setPosition(Math.min(100, Math.max(0, next)));
+  };
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    dragRef.current = { startX: event.clientX, startY: event.clientY, active: false };
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    if (!drag.active) {
+      const dx = event.clientX - drag.startX;
+      const dy = event.clientY - drag.startY;
+      if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+      if (Math.abs(dy) > Math.abs(dx)) {
+        dragRef.current = null;
+        return;
+      }
+      drag.active = true;
+    }
+    updateFromClientX(event.clientX);
+  };
+
+  const endDrag = () => {
+    if (dragRef.current && !dragRef.current.active) {
+      // simples toque: posiciona onde tocou
+      updateFromClientX(dragRef.current.startX);
+    }
+    dragRef.current = null;
+  };
 
   return (
     <div className="relative mx-auto w-full max-w-2xl">
-      <div className="relative aspect-[4/5] touch-none select-none overflow-hidden rounded-2xl bg-muted shadow-soft">
+      <div
+        ref={containerRef}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        className="relative aspect-[4/5] cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-2xl bg-muted shadow-soft"
+      >
         <img
           src={afterPhoto.url}
           alt="Pet depois do uso contínuo do NutraHelp"
@@ -89,15 +133,17 @@ function Images() {
           </span>
         </div>
 
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={position}
-          onChange={(event) => setPosition(Number(event.target.value))}
-          aria-label="Comparar imagens antes e depois"
-          className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
-        />
+        <div className="absolute right-4 bottom-4 z-20 w-32 opacity-100 sm:w-40">
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={position}
+            onChange={(event) => setPosition(Number(event.target.value))}
+            aria-label="Comparar imagens antes e depois"
+            className="h-1.5 w-full cursor-ew-resize appearance-none rounded-full bg-card/70 accent-primary"
+          />
+        </div>
       </div>
     </div>
   );
