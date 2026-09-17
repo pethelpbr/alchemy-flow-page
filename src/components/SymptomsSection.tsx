@@ -60,7 +60,7 @@ export function SymptomsSection() {
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {symptoms.map((s, i) => (
+          {symptoms.map((s) => (
             <article
               key={s.title}
               className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
@@ -74,9 +74,6 @@ export function SymptomsSection() {
                   height={704}
                   className="aspect-4/3 w-full object-cover"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-                  Sintoma {i + 1}
-                </span>
               </div>
               <div className="flex flex-1 flex-col gap-1.5 p-4">
                 <h3 className="text-[15px] font-bold leading-snug text-primary">{s.title}</h3>
