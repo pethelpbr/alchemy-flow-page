@@ -243,6 +243,11 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   className="h-[min(58dvh,570px)] w-full object-cover"
                 />
                 <span className="absolute inset-0 bg-ink/10" />
+                <VideoTags
+                  problem={selectedVideo.problem}
+                  duration={selectedVideo.duration}
+                  className="md:[&>span:first-child]:left-3 md:[&>span:first-child]:top-3 md:[&>span:last-child]:bottom-3 md:[&>span:last-child]:right-3"
+                />
                 <Button
                   type="button"
                   variant="ghost"
