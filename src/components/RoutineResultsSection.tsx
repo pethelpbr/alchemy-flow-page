@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import beforePhoto from "@/assets/cachorro-ruim.png.asset.json";
