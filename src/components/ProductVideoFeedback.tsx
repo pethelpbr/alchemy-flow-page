@@ -28,7 +28,6 @@ const feedbacks = [
     caption: "Prático para todos os dias",
     problem: "Lambedura na pata",
     duration: "0:38",
-    legend: "Lambedura na pata · Tutor do Thor",
   },
   {
     image: customer3,
@@ -36,7 +35,6 @@ const feedbacks = [
     caption: "Leve e fácil de preparar",
     problem: "Queda de pelos",
     duration: "1:02",
-    legend: "Queda de pelos · Tutora da Nina",
   },
 ];
 
