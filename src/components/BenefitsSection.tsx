@@ -1,11 +1,5 @@
 import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { Zap, HeartPulse, Brain, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -36,13 +30,6 @@ const benefits = [
 
 type Benefit = (typeof benefits)[number];
 
-const ranges: [number, number][] = [
-  [0.06, 0.3],
-  [0.22, 0.46],
-  [0.38, 0.62],
-  [0.54, 0.78],
-];
-
 function BenefitCard({ b }: { b: Benefit }) {
   return (
     <article className="h-full rounded-xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:bg-card/15 md:p-7">
@@ -53,31 +40,6 @@ function BenefitCard({ b }: { b: Benefit }) {
   );
 }
 
-function ScrollCard({
-  b,
-  progress,
-  range,
-}: {
-  b: Benefit;
-  progress: MotionValue<number>;
-  range: [number, number];
-}) {
-  const [start, end] = range;
-  const eased = (v: number) => {
-    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
-    return 1 - Math.pow(1 - t, 3);
-  };
-
-  const opacity = useTransform(progress, (v) => eased(v));
-  const y = useTransform(progress, (v) => 12 * (1 - eased(v)));
-  const scale = useTransform(progress, (v) => 0.98 + 0.02 * eased(v));
-
-  return (
-    <motion.div style={{ opacity, y, scale }}>
-      <BenefitCard b={b} />
-    </motion.div>
-  );
-}
 
 function StickyBenefits() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -115,8 +77,8 @@ function StickyBenefits() {
           </Reveal>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((b, i) => (
-              <ScrollCard key={b.title} b={b} progress={progress} range={ranges[i]!} />
+            {benefits.map((b) => (
+              <BenefitCard key={b.title} b={b} />
             ))}
           </div>
         </div>
@@ -147,10 +109,8 @@ function StaticBenefits() {
         </Reveal>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b, i) => (
-            <Reveal key={b.title} delay={i * 0.08}>
-              <BenefitCard b={b} />
-            </Reveal>
+          {benefits.map((b) => (
+            <BenefitCard key={b.title} b={b} />
           ))}
         </div>
       </div>
