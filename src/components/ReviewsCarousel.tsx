@@ -71,7 +71,7 @@ const maxCount = Math.max(...breakdown.map((row) => row.count));
 
 function RatingBreakdown() {
   return (
-    <div className="mt-8 grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start">
+    <div className="mt-12 grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start sm:mt-16">
       <div className="flex items-start gap-4">
         <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,9</span>
         <div className="pt-1">
@@ -142,7 +142,6 @@ export function ReviewsCarousel() {
             <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
               Experiências reais de quem já usa
             </h2>
-            <RatingBreakdown />
           </div>
         </Reveal>
       </div>
@@ -213,6 +212,10 @@ export function ReviewsCarousel() {
           </Button>
           </div>
         </div>
+
+        <Reveal>
+          <RatingBreakdown />
+        </Reveal>
       </div>
     </section>
   );
