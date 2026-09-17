@@ -57,8 +57,8 @@ export function PricingCard({
             <span className="text-sm font-semibold text-ink sm:text-base">Preço total:</span>
             <span className="flex min-w-0 items-baseline justify-end gap-2">
               {originalTotal > grandTotal && (
-                <span className="text-sm text-muted-foreground line-through sm:text-base">
-                  {brl(originalTotal)}
+                <span className="whitespace-nowrap text-sm text-muted-foreground sm:text-base">
+                  De <span className="line-through">{brl(originalTotal)}</span>
                 </span>
               )}
               <span className="text-2xl font-bold leading-none text-ink sm:text-3xl">
