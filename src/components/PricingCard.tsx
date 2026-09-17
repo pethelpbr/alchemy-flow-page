@@ -98,7 +98,7 @@ export function PricingCard({
               key={s.label}
               className="inline-flex min-w-0 items-center gap-1 whitespace-nowrap text-[9px] uppercase tracking-[0.06em] text-muted-foreground sm:gap-2 sm:text-[11px] sm:tracking-[0.12em]"
             >
-              <s.icon size={12} strokeWidth={1.4} className="shrink-0 text-primary sm:size-[14]" />
+              <s.icon size={14} strokeWidth={1.4} className="size-3 shrink-0 text-primary sm:size-[14px]" />
               {s.label}
             </span>
           ))}
