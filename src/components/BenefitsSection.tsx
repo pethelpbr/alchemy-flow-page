@@ -49,7 +49,7 @@ export function BenefitsSection() {
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.18_0.02_60/0.92)_0%,oklch(0.18_0.02_60/0.55)_45%,oklch(0.18_0.02_60/0.35)_100%)]" />
 
-      <div className="container-x relative flex min-h-[42rem] flex-col justify-between gap-16 py-20 md:min-h-[46rem] md:py-28">
+      <div className="container-x relative flex min-h-[42rem] flex-col justify-between gap-16 pb-20 pt-10 md:min-h-[46rem] md:pb-24 md:pt-14">
         <div className="max-w-xl">
           <p className="eyebrow text-primary">Benefícios</p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-card sm:text-5xl lg:text-6xl">
