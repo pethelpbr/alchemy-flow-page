@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AccordionBlock } from "@/components/ui/AccordionBlock";
 import {
@@ -42,6 +42,32 @@ const feedbacks = [
   },
 ];
 
+const benefitPoints = [
+  "Reduz coceiras e lambeduras excessivas",
+  "Ajuda a acelerar a cicatrização de lesões e irritações",
+  "Diminui a queda de pelo e contribui para o crescimento de fios mais fortes",
+  "Reforça as defesas naturais",
+  "Auxilia o equilíbrio da flora intestinal",
+];
+
+function BenefitList() {
+  return (
+    <ul className="space-y-2">
+      {benefitPoints.map((text) => (
+        <li key={text} className="flex items-start gap-2.5">
+          <Check
+            size={16}
+            strokeWidth={3}
+            className="mt-1 shrink-0 text-primary"
+            aria-hidden
+          />
+          <span>{text}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 const details = [
   {
     title: "O que é o NutraHelp?",
@@ -55,8 +81,7 @@ const details = [
   },
   {
     title: "Benefícios",
-    content:
-      "Uma forma simples de incluir ativos selecionados no dia a dia, com preparo rápido, sabor leve e doses transparentes.",
+    content: <BenefitList />,
   },
   {
     title: "Como usar",
