@@ -119,28 +119,37 @@ function Thumbnails({
   onSelect: (f: (typeof feedbacks)[number]) => void;
 }) {
   return (
-    <div className={cn("grid gap-2.5", className)}>
+    <div
+      className={cn(
+        "-mx-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0",
+        className,
+      )}
+    >
       {feedbacks.map((feedback) => (
-        <Button
-          key={feedback.name}
-          type="button"
-          variant="ghost"
-          aria-label={`Assistir ao relato de ${feedback.name}`}
-          onClick={() => onSelect(feedback)}
-          className="group relative h-auto overflow-hidden rounded-lg p-0 shadow-none"
-        >
-          <img
-            src={feedback.image}
-            alt={`Relato de ${feedback.name}`}
-            loading="lazy"
-            className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/25" />
-          <VideoTags problem={feedback.problem} duration={feedback.duration} />
-          <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm">
-            <Play className="ml-0.5 h-4 w-4 fill-current" />
-          </span>
-        </Button>
+        <div key={feedback.name} className="w-[62%] shrink-0 snap-start md:w-auto md:shrink">
+          <Button
+            type="button"
+            variant="ghost"
+            aria-label={`Assistir ao relato de ${feedback.name}`}
+            onClick={() => onSelect(feedback)}
+            className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none"
+          >
+            <img
+              src={feedback.image}
+              alt={`Relato de ${feedback.name}`}
+              loading="lazy"
+              className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/25" />
+            <VideoTags problem={feedback.problem} duration={feedback.duration} />
+            <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm">
+              <Play className="ml-0.5 h-4 w-4 fill-current" />
+            </span>
+          </Button>
+          <p className="mt-1.5 truncate text-xs font-semibold text-ink md:hidden">
+            {feedback.legend.split("·")[1]?.trim() ?? feedback.name}
+          </p>
+        </div>
       ))}
     </div>
   );
