@@ -86,7 +86,7 @@ const details = [
   {
     title: "Como usar",
     content:
-      "Dissolva um dosador raso em 200 ml de água gelada, misture por 10 segundos e consuma uma vez ao dia.",
+      "Misture na ração ou na comida úmida, uma vez por dia, na dose indicada para o peso do seu pet. Todo dia, inclusive nos dias em que ele parece bem — o resultado vem do uso contínuo.",
   },
 ];
 
