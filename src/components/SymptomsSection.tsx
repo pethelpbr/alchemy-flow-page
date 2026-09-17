@@ -53,11 +53,8 @@ export function SymptomsSection() {
           <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
             Você vê o seu pet <span className="text-primary">sofrendo</span> com algum dos sintomas abaixo?
           </h2>
-          <p className="mt-4 text-[14px] leading-relaxed text-muted-foreground">
-            A coceira não pega o corpo todo de uma vez. Ela escolhe um cantinho e volta sempre no mesmo lugar.
-            Veja se o seu cachorro faz algum desses:
-          </p>
         </div>
+
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {symptoms.map((s) => (
