@@ -185,7 +185,7 @@ export function ReviewsCarousel() {
       </Carousel>
 
       <div className="container-x">
-        <div className="mt-8 flex items-center justify-between gap-4">
+        <div className="mt-8 flex items-center justify-end gap-4">
           <p className="text-xs text-muted-foreground" aria-live="polite">
             {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
           </p>
@@ -212,6 +212,8 @@ export function ReviewsCarousel() {
           </Button>
           </div>
         </div>
+
+
 
         <Reveal>
           <RatingBreakdown />
