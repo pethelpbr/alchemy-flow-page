@@ -42,7 +42,9 @@ export function FormulaTechSection() {
             </ul>
 
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              Registrado no MAPA · sem corticoide · para cães e gatos · a partir de 3 meses
+              Registrado no MAPA &middot; Sem corticoide
+              <br />
+              Para c&atilde;es e gatos &middot; A partir de 3 meses
             </p>
           </div>
 
