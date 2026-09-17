@@ -34,10 +34,10 @@ export function FormulaTechSection() {
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-baseline justify-between gap-4 border-b border-border py-4 first:border-t"
+                  className="flex items-baseline gap-2.5 border-b border-border py-4 first:border-t"
                 >
                   <span className="text-[16px] font-bold text-ink">{item.name}</span>
-                  <span className="text-[22px] font-bold leading-none text-primary">
+                  <span className="font-display text-[28px] font-bold leading-none text-primary">
                     {item.amount}
                   </span>
                 </li>
