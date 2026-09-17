@@ -212,7 +212,7 @@ export function ReviewsCarousel() {
           </Button>
           </div>
         </div>
-      </div>
+
 
 
         <Reveal>
