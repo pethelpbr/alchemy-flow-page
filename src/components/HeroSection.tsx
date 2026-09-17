@@ -1,9 +1,17 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { Check } from "lucide-react";
 import type { Variant } from "@/lib/product";
 import { ProductGallery } from "@/components/ProductGallery";
 import { PricingCard } from "@/components/PricingCard";
 import { Stars } from "@/components/ui/Stars";
+
+const heroBullets = [
+  "Reduz coceiras e lambeduras excessivas",
+  "Ajuda a acelerar a cicatrização de irritações e feridinhas",
+  "Diminui a queda de pelo e ajuda as falhas a fecharem",
+];
+
 
 export function HeroSection({
   selected,
