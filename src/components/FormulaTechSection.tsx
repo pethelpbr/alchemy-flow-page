@@ -6,7 +6,6 @@ const items = [
   { name: "Aminoácidos", amount: "7" },
   { name: "Probióticos", amount: "5" },
   { name: "Prebióticos", amount: "2" },
-  { name: "+ Ômega 3, Condroitina, Yucca e Proteína", amount: "" },
 ];
 
 export function FormulaTechSection() {
@@ -31,25 +30,31 @@ export function FormulaTechSection() {
               />
             </div>
 
-            <ul className="mt-8">
+            <ul className="mt-8 max-w-md lg:max-w-xl">
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-border py-4 first:border-t"
+                  className="flex items-baseline justify-between gap-4 border-b border-border py-4 first:border-t"
                 >
-                  <span className="text-[16px] font-semibold text-ink">{item.name}</span>
-                  {item.amount ? (
-                    <span className="font-display text-[22px] font-bold leading-none text-primary">
-                      {item.amount}
-                    </span>
-                  ) : null}
+                  <span className="text-[16px] font-bold text-ink">{item.name}</span>
+                  <span className="text-[22px] font-bold leading-none text-primary">
+                    {item.amount}
+                  </span>
                 </li>
               ))}
-            </ul>
 
-            <p className="mt-6 max-w-md text-[13px] leading-relaxed text-muted-foreground lg:max-w-xl">
-              Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
-            </p>
+              <li className="border-b border-border py-4">
+                <span className="text-[16px] font-bold text-ink">
+                  + Ômega 3, Condroitina, Yucca e Proteína
+                </span>
+              </li>
+
+              <li className="py-4">
+                <span className="text-[13px] leading-relaxed text-muted-foreground">
+                  Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
+                </span>
+              </li>
+            </ul>
           </div>
 
           <div className="hidden h-full min-h-0 lg:block">
