@@ -147,7 +147,7 @@ function Thumbnails({
             </span>
           </Button>
           <p className="mt-1.5 truncate text-xs font-semibold text-ink md:hidden">
-            {feedback.legend.split("·")[1]?.trim() ?? feedback.name}
+            {feedback.legend.split(" ").pop()}
           </p>
         </div>
       ))}
