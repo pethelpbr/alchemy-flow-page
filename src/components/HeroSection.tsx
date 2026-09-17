@@ -57,7 +57,7 @@ export function HeroSection({
           <p className="eyebrow">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</p>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
             <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
-              NutraHelp — para o pet que se coça, lambe a pata e o pelo não volta
+              NutraHelp — para o pet que se coça, lambe a pata e está perdendo pelo
             </h1>
             <div className="inline-flex shrink-0 items-center gap-2">
               <Stars size={16} />
