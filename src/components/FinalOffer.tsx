@@ -1,4 +1,3 @@
-import { RefreshCw } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { PricingCard } from "@/components/PricingCard";
 import type { Variant } from "@/lib/product";
@@ -39,9 +38,6 @@ export function FinalOffer({
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             Quanto maior o kit, menor o valor por pote — e menos vezes você precisa se lembrar de
             repor.
-          </p>
-          <p className="mt-6 inline-flex items-center gap-2 rounded-lg border border-primary/25 px-4 py-2 text-xs uppercase tracking-[0.14em] text-primary">
-            <RefreshCw size={13} strokeWidth={1.5} /> 30 dias de garantia total
           </p>
 
           <div className="mt-8">
