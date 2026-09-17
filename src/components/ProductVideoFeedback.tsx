@@ -199,7 +199,7 @@ function Thumbnails({
         }
       }}
       className={cn(
-        "-mx-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-4 pb-1 [touch-action:pan-y] select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0",
+        "-mx-4 flex snap-x snap-proximity gap-2.5 overflow-x-auto px-4 pb-1 [touch-action:pan-y] select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:overflow-visible md:px-0 md:pb-0",
         className,
       )}
     >
