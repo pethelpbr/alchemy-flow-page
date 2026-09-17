@@ -88,15 +88,6 @@ export function SymptomsSection() {
             desses sinais, continue lendo esta página.
           </p>
         </div>
-
-        <div className="mt-6 flex justify-center">
-          <a
-            href="#comprar"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-card transition-colors hover:bg-terracotta"
-          >
-            Comprar agora
-          </a>
-        </div>
       </div>
     </section>
   );
