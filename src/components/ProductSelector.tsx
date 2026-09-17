@@ -26,7 +26,7 @@ export function ProductSelector({
             onClick={() => onSelect(v)}
             aria-pressed={isActive}
             className={cn(
-              "relative grid grid-cols-[1.25rem_minmax(0,1fr)] items-center gap-x-3 gap-y-2 rounded-xl border px-3.5 py-3 text-left transition-all duration-300 sm:grid-cols-[1.5rem_minmax(0,1fr)_auto] sm:gap-x-4 sm:px-5 sm:py-3.5",
+              "relative grid grid-cols-[1.25rem_minmax(0,1fr)] items-center gap-x-3 gap-y-1.5 rounded-xl border px-3.5 py-3 text-left transition-all duration-300 sm:grid-cols-[1.5rem_minmax(0,1fr)_auto] sm:gap-x-4 sm:px-5 sm:py-3",
               isActive
                 ? "border-primary bg-primary/[0.07] shadow-card"
                 : "border-border bg-card hover:border-primary/40",
@@ -71,12 +71,12 @@ export function ProductSelector({
 
             <span className="col-start-2 shrink-0 text-left sm:col-start-auto sm:text-right">
               {v.compareAt != null && (
-                <span className="mb-1 block text-[11px] text-muted-foreground line-through sm:text-xs">
+                <span className="mb-0.5 block text-[11px] text-muted-foreground line-through sm:text-xs">
                   {brl(v.compareAt)}
                 </span>
               )}
               <span className={cn("block text-xl font-bold leading-none sm:text-2xl", isActive ? "text-primary" : "text-ink")}>{brl(displayedTotal)}</span>
-              <span className="mt-1 block text-[11px] text-muted-foreground sm:text-xs">
+              <span className="mt-0.5 block text-[11px] text-muted-foreground sm:text-xs">
                 ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
               </span>
             </span>
