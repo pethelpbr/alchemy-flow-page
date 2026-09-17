@@ -31,22 +31,36 @@ export function FormulaTechSection() {
             </div>
 
             <ul className="mx-auto mt-8 max-w-md lg:max-w-xl">
+              <li className="relative py-1">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-8 top-0 h-px bg-border"
+                />
+              </li>
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-baseline justify-center gap-2.5 border-b border-border py-4 first:border-t"
+                  className="relative flex items-baseline justify-center gap-5 py-4"
                 >
                   <span className="text-[16px] font-bold text-ink">{item.name}</span>
                   <span className="font-display text-[28px] font-bold leading-none text-primary">
                     {item.amount}
                   </span>
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-border"
+                  />
                 </li>
               ))}
 
-              <li className="border-b border-border py-4 text-center">
+              <li className="relative py-4 text-center">
                 <span className="text-[16px] font-bold text-ink">
                   + Ômega 3, Condroitina, Yucca e Proteína
                 </span>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-border"
+                />
               </li>
 
               <li className="py-4 text-center">
