@@ -92,13 +92,13 @@ export function PricingCard({
           Quero cuidar da pele do meu pet
         </BuyButton>
 
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        <div className="mt-5 flex flex-nowrap items-center justify-center gap-x-3 sm:gap-x-6">
           {seals.map((s) => (
             <span
               key={s.label}
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.12em] text-muted-foreground"
+              className="inline-flex min-w-0 items-center gap-1 whitespace-nowrap text-[9px] uppercase tracking-[0.06em] text-muted-foreground sm:gap-2 sm:text-[11px] sm:tracking-[0.12em]"
             >
-              <s.icon size={14} strokeWidth={1.4} className="shrink-0 text-primary" />
+              <s.icon size={12} strokeWidth={1.4} className="shrink-0 text-primary sm:size-[14]" />
               {s.label}
             </span>
           ))}
