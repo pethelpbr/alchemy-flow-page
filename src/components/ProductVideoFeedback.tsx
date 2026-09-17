@@ -21,7 +21,6 @@ const feedbacks = [
     caption: "Virou parte da minha manhã",
     problem: "Coceira noturna",
     duration: "0:47",
-    legend: "Coceira noturna · Tutora da Mel",
   },
   {
     image: customer2,
@@ -29,7 +28,6 @@ const feedbacks = [
     caption: "Prático para todos os dias",
     problem: "Lambedura na pata",
     duration: "0:38",
-    legend: "Lambedura na pata · Tutor do Thor",
   },
   {
     image: customer3,
@@ -37,7 +35,6 @@ const feedbacks = [
     caption: "Leve e fácil de preparar",
     problem: "Queda de pelos",
     duration: "1:02",
-    legend: "Queda de pelos · Tutora da Nina",
   },
 ];
 
@@ -203,9 +200,6 @@ function Thumbnails({
               <Play className="ml-0.5 h-4 w-4 fill-current" />
             </span>
           </Button>
-          <p className="mt-1.5 truncate text-xs font-semibold text-ink md:hidden">
-            {feedback.legend.split(" ").pop()}
-          </p>
         </div>
       ))}
     </div>
@@ -288,7 +282,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                       aria-pressed={selectedIndex === index}
                       onClick={() => setSelectedIndex(index)}
                       className={cn(
-                        "h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90",
+                        "h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90",
                         selectedIndex === index ? "border-primary" : "border-transparent",
                       )}
                     >
@@ -339,7 +333,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
 
               <div className="flex items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
                 <p className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">
-                  {selectedVideo.legend}
+                  {selectedVideo.problem}
                 </p>
                 <BuyButton
                   size="sm"
