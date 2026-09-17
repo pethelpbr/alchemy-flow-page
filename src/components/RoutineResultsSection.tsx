@@ -91,7 +91,7 @@ export function RoutineResultsSection() {
   return (
     <>
       <section className="section overflow-hidden bg-card">
-        <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+        <div className="container-x grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-primary">Resultado na rotina</p>
             <h2 className="mt-4 max-w-lg font-display text-4xl leading-tight text-ink sm:text-5xl">
