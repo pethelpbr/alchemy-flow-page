@@ -65,9 +65,10 @@ export function HeroSection({
             </div>
           </div>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            A coceira que vai e volta raramente começa na pele. O NutraHelp é um suplemento diário
-            que cuida da flora intestinal e repõe os nutrientes que a pele usa para se manter firme —
-            de dentro para fora. Sabor carne, misturado na ração, uma vez por dia.
+            A coceira que vai e volta tem dois pontos de origem: o desequilíbrio da flora intestinal
+            e a barreira da pele enfraquecida. O NutraHelp cuida dos dois na mesma dose —
+            probióticos e prebióticos por dentro, ômega 3, zinco e biotina para a pele e o pelo.
+            Sabor carne, misturado na ração, uma vez por dia.
           </p>
 
           <div className="mt-8">
