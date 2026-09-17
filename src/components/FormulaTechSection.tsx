@@ -30,11 +30,11 @@ export function FormulaTechSection() {
               />
             </div>
 
-            <ul className="mt-8 max-w-md lg:max-w-xl">
+            <ul className="mx-auto mt-8 max-w-md lg:max-w-xl">
               {items.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-baseline gap-2.5 border-b border-border py-4 first:border-t"
+                  className="flex items-baseline justify-center gap-2.5 border-b border-border py-4 first:border-t"
                 >
                   <span className="text-[16px] font-bold text-ink">{item.name}</span>
                   <span className="font-display text-[28px] font-bold leading-none text-primary">
@@ -43,13 +43,13 @@ export function FormulaTechSection() {
                 </li>
               ))}
 
-              <li className="border-b border-border py-4">
+              <li className="border-b border-border py-4 text-center">
                 <span className="text-[16px] font-bold text-ink">
                   + Ômega 3, Condroitina, Yucca e Proteína
                 </span>
               </li>
 
-              <li className="py-4">
+              <li className="py-4 text-center">
                 <span className="text-[13px] leading-relaxed text-muted-foreground">
                   Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
                 </span>
