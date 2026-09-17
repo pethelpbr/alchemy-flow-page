@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Truck, RefreshCw, Lock } from "lucide-react";
+import { RefreshCw, Lock } from "lucide-react";
 import { brl, variantTotals, addonsTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
@@ -9,7 +9,6 @@ import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
 const seals = [
   { icon: Lock, label: "Compra segura" },
   { icon: RefreshCw, label: "Garantia de 60 dias" },
-  { icon: Truck, label: "Envio para todo o Brasil" },
 ];
 
 export function PricingCard({
