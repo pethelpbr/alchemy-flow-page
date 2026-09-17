@@ -137,51 +137,50 @@ export function ReviewsCarousel() {
     <section id="avaliacoes" className="section scroll-mt-20 bg-sand/60">
       <div className="container-x">
         <Reveal>
-          <div>
-            <p className="eyebrow">Avaliações</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-              Experiências reais de quem já usa
-            </h2>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="eyebrow">Avaliações</p>
+              <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+                Experiências reais de quem já usa
+              </h2>
+            </div>
+
+            <div className="flex items-center gap-4 pb-1">
+              <p className="text-xs text-muted-foreground" aria-live="polite">
+                {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
+              </p>
+              <div className="flex gap-3">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => api?.scrollPrev()}
+                  aria-label="Anterior"
+                  className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => api?.scrollNext()}
+                  aria-label="Próximo"
+                  className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>
-
-      <div className="container-x">
-        <div className="mt-8 flex items-center justify-end gap-4">
-          <p className="text-xs text-muted-foreground" aria-live="polite">
-            {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
-          </p>
-          <div className="flex gap-3">
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={() => api?.scrollPrev()}
-              aria-label="Anterior"
-              className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={() => api?.scrollNext()}
-              aria-label="Próximo"
-              className="h-11 w-11 rounded-full border border-border text-ink hover:bg-ink/5"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </div>
-
 
       <Carousel
         setApi={setApi}
         opts={{ loop: true, align: "start", dragFree: true }}
         aria-label="Avaliações de clientes"
-        className="mt-6 cursor-grab select-none active:cursor-grabbing"
+        className="mt-8 cursor-grab select-none active:cursor-grabbing"
       >
         <CarouselContent className="touch-pan-y">
           {reviews.map((r) => (
