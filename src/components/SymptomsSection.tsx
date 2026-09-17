@@ -60,7 +60,7 @@ export function SymptomsSection() {
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {symptoms.map((s, i) => (
+          {symptoms.map((s) => (
             <article
               key={s.title}
               className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
