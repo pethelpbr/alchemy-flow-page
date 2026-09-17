@@ -1,14 +1,4 @@
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "motion/react";
-import { Reveal } from "@/components/ui/Reveal";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
-import { useIsMobile } from "@/hooks/use-mobile";
 import lifestyle from "@/assets/lifestyle-1.jpg";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
@@ -37,22 +27,9 @@ const timeline = [
 
 type Step = (typeof timeline)[number];
 
-// Cada item entra suavemente em uma faixa do scroll, fica visível,
-// e sai da mesma forma quando o usuário rola para cima.
-const RANGES: [number, number][] = [
-  [0.0, 0.13],
-  [0.1, 0.23],
-  [0.2, 0.33],
-  [0.3, 0.43],
-];
-
-function smoothstep(t: number) {
-  return t * t * (3 - 2 * t);
-}
-
 function StepItem({ item }: { item: Step }) {
   return (
-    <li className="relative pb-32 last:pb-0 sm:pb-40">
+    <li className="relative pb-12 last:pb-0 sm:pb-14">
       <span className="absolute top-1 left-[calc(-2rem+0.375rem)] h-3 w-3 rounded-full bg-primary sm:left-[calc(-2.5rem+0.375rem)]" />
       <span className="eyebrow inline-block rounded-lg bg-primary/12 px-3 py-1 text-primary">
         {item.badge}
@@ -67,40 +44,12 @@ function StepItem({ item }: { item: Step }) {
   );
 }
 
-function ScrollStep({
-  item,
-  progress,
-  range,
-}: {
-  item: Step;
-  progress: MotionValue<number>;
-  range: [number, number];
-}) {
-  const [start, end] = range;
-
-  const opacity = useTransform(progress, (v) => {
-    const t = Math.max(0, Math.min(1, (v - start) / (end - start)));
-    return smoothstep(t);
-  });
-  const y = useTransform(opacity, (o) => 10 * (1 - o));
-  const scale = useTransform(opacity, (o) => 1 - 0.015 * (1 - o));
-
-  return (
-    <motion.div style={{ opacity, y, scale }}>
-      <StepItem item={item} />
-    </motion.div>
-  );
-}
-
-function Images({ scale }: { scale?: MotionValue<number> }) {
+function Images() {
   return (
     <div className="relative mx-auto w-full max-w-2xl">
-      <motion.div
-        {...(scale ? { style: { scale } } : {})}
-        className="grid grid-cols-2 gap-3 sm:gap-4"
-      >
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {/* Antes — troque a imagem quando tiver a foto real */}
-        <div className="group relative overflow-hidden rounded-xl bg-muted shadow-soft">
+        <div className="relative overflow-hidden rounded-xl bg-muted shadow-soft">
           <span className="absolute top-3 left-3 z-10 rounded-lg bg-card/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
             Antes
           </span>
@@ -108,12 +57,12 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
             src={lifestyle}
             alt="Foto de antes do uso do produto"
             loading="lazy"
-            className="aspect-[3/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            className="aspect-[3/4] h-full w-full object-cover"
           />
         </div>
 
         {/* Depois — troque a imagem quando tiver a foto real */}
-        <div className="group relative overflow-hidden rounded-xl bg-muted shadow-soft">
+        <div className="relative overflow-hidden rounded-xl bg-muted shadow-soft">
           <span className="absolute top-3 left-3 z-10 rounded-lg bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground backdrop-blur-sm sm:top-4 sm:left-4 sm:px-4 sm:py-1.5 sm:text-base">
             Depois
           </span>
@@ -121,10 +70,10 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
             src={galleryDrink}
             alt="Foto de depois do uso do produto"
             loading="lazy"
-            className="aspect-[3/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            className="aspect-[3/4] h-full w-full object-cover"
           />
         </div>
-      </motion.div>
+      </div>
 
       <p className="mt-4 text-center text-xs text-muted-foreground sm:text-base">
         Resultados individuais podem variar de acordo com a rotina e alimentação.
@@ -133,82 +82,27 @@ function Images({ scale }: { scale?: MotionValue<number> }) {
   );
 }
 
-function StickyResults() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: progress } = useScroll({
-    target: wrapperRef,
-    offset: ["start start", "end end"],
-  });
-
-  const imageScale = useTransform(progress, [0, 1], [1, 1.05]);
-
+export function RoutineResultsSection() {
   return (
-    <div ref={wrapperRef} className="relative h-[150vh] bg-card">
-      <div className="sticky top-0 flex min-h-screen items-center overflow-hidden py-20">
-        <div className="container-x grid w-full items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <>
+      <section className="section overflow-hidden bg-card">
+        <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <Reveal>
-              <p className="eyebrow text-primary">Resultado na rotina</p>
-              <h2 className="mt-4 max-w-lg font-display text-4xl leading-tight text-ink sm:text-5xl">
-                O que muda ao longo das semanas
-              </h2>
-            </Reveal>
-
-            <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
-              {timeline.map((item, index) => (
-                <ScrollStep
-                  key={item.label}
-                  item={item}
-                  progress={progress}
-                  range={RANGES[index]!}
-                />
-              ))}
-            </ol>
-          </div>
-
-          <Images scale={imageScale} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function StaticResults() {
-  return (
-    <section className="section overflow-hidden bg-card">
-      <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-        <div>
-          <Reveal>
             <p className="eyebrow text-primary">Resultado na rotina</p>
             <h2 className="mt-4 max-w-lg font-display text-4xl leading-tight text-ink sm:text-5xl">
               O que muda ao longo das semanas
             </h2>
-          </Reveal>
 
-          <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
-            {timeline.map((item, index) => (
-              <Reveal key={item.label} delay={index * 0.08}>
-                <StepItem item={item} />
-              </Reveal>
-            ))}
-          </ol>
-        </div>
+            <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
+              {timeline.map((item) => (
+                <StepItem key={item.label} item={item} />
+              ))}
+            </ol>
+          </div>
 
-        <Reveal>
           <Images />
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-export function RoutineResultsSection() {
-  const isMobile = useIsMobile();
-  const reduced = useReducedMotion();
-
-  return (
-    <>
-      {isMobile || reduced ? <StaticResults /> : <StickyResults />}
+        </div>
+      </section>
       <MarqueeStrip />
     </>
   );
