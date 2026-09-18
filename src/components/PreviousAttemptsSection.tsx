@@ -61,7 +61,7 @@ export function PreviousAttemptsSection() {
           <h3 className="font-display text-2xl leading-snug text-ink md:text-3xl">
             E vamos ser sinceras: não é só ele que sofre com isso.
           </h3>
-          <p className="mx-auto mt-5 max-w-4xl text-base leading-relaxed text-foreground md:text-lg">
+          <p className="mx-auto mt-5 max-w-5xl text-base leading-relaxed text-foreground md:text-lg">
             É você que acorda às três da manhã com o barulho da coceira. É o sofá molhado de
             lambida. É a sua própria pele que começou a coçar junto. É a sensação horrível de
             estar fazendo tudo e nada funcionar — e de se sentir a pior mãe do mundo por já não
