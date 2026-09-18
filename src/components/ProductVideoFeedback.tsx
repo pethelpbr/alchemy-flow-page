@@ -315,9 +315,6 @@ function GuaranteeTableDialog({
                 {qualitativeComposition}
               </p>
             </div>
-            <p className="border-t border-border bg-muted/40 px-4 py-3 text-[13px] font-bold uppercase leading-snug tracking-wide text-primary">
-              Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
-            </p>
           </div>
         </div>
       </DialogContent>
