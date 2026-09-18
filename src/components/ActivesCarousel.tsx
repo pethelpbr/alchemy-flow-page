@@ -151,7 +151,15 @@ export function ActivesCarousel() {
             onClick={() => api?.scrollPrev()}
             aria-label="Anterior"
             className="h-11 w-11 rounded-full border border-primary-foreground/30 text-primary-foreground transition-colors hover:bg-primary-foreground/30 hover:text-primary-foreground"
-...
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            onClick={() => api?.scrollNext()}
+            aria-label="Próximo"
             className="h-11 w-11 rounded-full border border-primary-foreground/30 text-primary-foreground transition-colors hover:bg-primary-foreground/30 hover:text-primary-foreground"
           >
             <ChevronRight className="h-5 w-5" />
