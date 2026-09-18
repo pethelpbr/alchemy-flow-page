@@ -389,7 +389,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                 <DialogDescription className="sr-only">
                   Relatos em vídeo de clientes Nutraflow
                 </DialogDescription>
-                <div className="mt-1.5 flex gap-2.5">
+                <div className="mt-2.5 flex gap-2.5">
                   {feedbacks.map((feedback, index) => (
                     <Button
                       key={feedback.name}
