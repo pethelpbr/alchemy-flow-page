@@ -215,7 +215,7 @@ const guaranteeLevels: [string, string][] = [
   ["Ferro (mín.)", "600,0000 mg/kg"],
   ["Manganês (mín.)", "520,0000 mg/kg"],
   ["Selênio (mín.)", "135,0000 mg/kg"],
-  ["Cálcio (mín./máx.)", "188,6000 / 209,5000 g/kg"],
+  ["Cálcio (mín./máx.)", "186,0000 / 207,0000 g/kg"],
   ["Enxofre (mín.)", "9.900,0000 mg/kg"],
   ["Fósforo (mín.)", "1.850,0000 mg/kg"],
   ["Ômega 3 (mín.)", "750,0000 mg/kg"],
