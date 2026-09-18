@@ -2,31 +2,6 @@ import { Check } from "lucide-react";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
-import productHero from "@/assets/product-hero.jpg";
-
-function ProductStack({ units }: { units: number }) {
-  return (
-    <div className="relative mx-auto h-28 w-full max-w-48 sm:h-32">
-      {Array.from({ length: units }).map((_, index) => {
-        const centeredIndex = index - (units - 1) / 2;
-        return (
-          <img
-            key={index}
-            src={productHero}
-            alt={index === 0 ? `${units} pote${units > 1 ? "s" : ""} de NutraHelp` : ""}
-            aria-hidden={index > 0}
-            loading="lazy"
-            className="absolute bottom-0 left-1/2 h-24 w-[76px] rounded-md object-cover shadow-card sm:h-28 sm:w-[88px]"
-            style={{
-              transform: `translateX(calc(-50% + ${centeredIndex * 42}px))`,
-              zIndex: units - Math.abs(centeredIndex),
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
 
 export function FinalOffer({
   selected,
@@ -40,103 +15,113 @@ export function FinalOffer({
   onToggleAddon: (id: string) => void;
 }) {
   const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
+  const { total } = variantTotals(selected);
+  const orderTotal = total + (selected.shipping ?? 0);
 
   return (
     <section className="section bg-sand/60">
       <div id="comprar" className="container-x scroll-mt-28">
-        <div className="mx-auto max-w-6xl text-center">
-          <p className="eyebrow text-primary">Oferta final</p>
-          <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Escolha o cuidado ideal para seu pet
-          </h2>
-        </div>
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+          <div className="p-5 sm:p-7 md:p-10">
+            <h2 className="flex items-center gap-3 font-sans text-2xl font-bold text-ink sm:text-3xl">
+              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary text-xl font-bold text-primary-foreground sm:size-11">
+                1
+              </span>
+              Escolha seu ritual
+            </h2>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3 md:items-stretch">
-          {orderedVariants.map((variant) => {
-            const isActive = selected.id === variant.id;
-            const isBestChoice = variant.id === "3-un-brinde";
-            const hasFreeShipping = variant.units > 1;
-            const { total } = variantTotals(variant);
-            const displayedTotal = total + (variant.shipping ?? 0);
+            <div className="mt-7 space-y-4">
+              {orderedVariants.map((variant) => {
+                const isActive = selected.id === variant.id;
+                const isBestChoice = variant.id === "3-un-brinde";
+                const hasFreeShipping = variant.units > 1;
+                const variantTotal = variantTotals(variant).total + (variant.shipping ?? 0);
 
-            return (
-              <article
-                key={variant.id}
-                onClick={() => onSelect(variant)}
-                className={cn(
-                  "relative flex cursor-pointer flex-col rounded-2xl border bg-card px-4 pb-4 pt-7 text-center shadow-card transition-colors sm:px-5 sm:pb-5",
-                  isActive || isBestChoice ? "border-primary" : "border-border",
-                  isBestChoice && "md:order-first",
-                )}
-              >
-                {isBestChoice && (
-                  <span className="absolute -top-px left-1/2 -translate-x-1/2 -translate-y-full rounded-t-xl bg-primary px-6 py-2 text-xs font-bold uppercase text-primary-foreground">
-                    Melhor escolha
-                  </span>
-                )}
+                return (
+                  <label
+                    key={variant.id}
+                    className={cn(
+                      "relative grid cursor-pointer grid-cols-[3rem_1fr_auto] items-center gap-x-3 rounded-2xl border px-4 py-5 sm:grid-cols-[3.25rem_1fr_auto] sm:px-6 md:min-h-36 md:gap-x-5 md:py-6",
+                      isActive ? "border-primary bg-accent" : "border-border bg-card",
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="final-offer"
+                      value={variant.id}
+                      checked={isActive}
+                      onChange={() => onSelect(variant)}
+                      className="sr-only"
+                    />
 
-                <span
-                  className={cn(
-                    "absolute right-4 top-4 grid size-6 place-items-center rounded-full border",
-                    isActive ? "border-primary bg-primary" : "border-border bg-card",
-                  )}
-                >
-                  {isActive && <Check className="size-3.5 text-primary-foreground" strokeWidth={3} />}
-                </span>
-
-                <ProductStack units={variant.units} />
-
-                <div className="mt-3 flex min-h-7 flex-wrap items-center justify-center gap-2">
-                  {hasFreeShipping ? (
-                    <span className="rounded-full bg-shipping px-3 py-1 text-[11px] font-bold uppercase text-shipping-foreground">
-                      Frete grátis
+                    <span
+                      className={cn(
+                        "row-start-2 grid size-11 place-items-center rounded-full border-2 sm:row-start-1 sm:size-12",
+                        isActive ? "border-primary bg-primary" : "border-border bg-card",
+                      )}
+                    >
+                      {isActive && <Check className="size-6 text-primary-foreground" strokeWidth={3} />}
                     </span>
-                  ) : (
-                    <span className="rounded-full bg-ink px-3 py-1 text-[11px] font-bold uppercase text-card">
-                      Frete fixo
-                    </span>
-                  )}
-                  {isBestChoice && (
-                    <span className="rounded-full bg-gift px-3 py-1 text-[11px] font-bold uppercase text-gift-foreground">
-                      Brinde
-                    </span>
-                  )}
-                </div>
 
-                <h3 className="mt-3 text-2xl font-bold text-ink">{variant.label}</h3>
-                <p className="mt-0.5 min-h-10 text-sm leading-snug text-muted-foreground">
-                  {variant.units === 1
-                    ? `${brl(variant.unitPrice)} + ${brl(variant.shipping ?? 0)} de frete`
-                    : `${brl(variant.perPot ?? variant.unitPrice)} por pote${isBestChoice ? " + PataHelp" : ""}`}
-                </p>
+                    <div className="col-span-3 mb-4 flex flex-wrap gap-2 sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:mb-0">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="text-2xl font-bold leading-none text-ink">{variant.label}</h3>
+                          {hasFreeShipping && (
+                            <span className="rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase text-primary-foreground sm:text-sm">
+                              Frete grátis
+                            </span>
+                          )}
+                          {isBestChoice && (
+                            <span className="rounded-full bg-gift px-3 py-1 text-xs font-bold uppercase text-gift-foreground sm:text-sm">
+                              Brinde
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-2 text-base leading-snug text-muted-foreground sm:text-lg">
+                          {variant.units === 1
+                            ? `${brl(variant.unitPrice)} + ${brl(variant.shipping ?? 0)} de frete`
+                            : `${brl(variant.perPot ?? variant.unitPrice)} por pote${isBestChoice ? " · PataHelp de brinde" : ""}`}
+                        </p>
+                        {variant.savings && (
+                          <p className="mt-1 text-base font-bold text-terracotta sm:text-lg">
+                            Economize {brl(variant.savings).replace(",00", "")}
+                          </p>
+                        )}
+                      </div>
+                    </div>
 
-                <div className="mt-3 min-h-5 text-sm text-muted-foreground line-through">
-                  {variant.compareAt ? brl(variant.compareAt) : null}
-                </div>
-                <p className="mt-1 text-3xl font-bold leading-none text-primary sm:text-[34px]">
-                  {brl(displayedTotal)}
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  ou {variant.installments}x de {brl(variant.installmentValue ?? displayedTotal / variant.installments)}
-                </p>
-                <p className="mt-4 min-h-5 text-sm font-semibold text-terracotta">
-                  {variant.savings ? `Economize ${brl(variant.savings).replace(",00", "")}` : null}
-                </p>
+                    <div className="row-start-2 text-right sm:row-start-1">
+                      {variant.compareAt && (
+                        <p className="text-sm text-muted-foreground line-through sm:text-base">{brl(variant.compareAt)}</p>
+                      )}
+                      <p className={cn("text-2xl font-bold leading-none sm:text-4xl", isActive ? "text-primary" : "text-ink")}>{brl(variantTotal)}</p>
+                      <p className="mt-1 whitespace-nowrap text-sm text-muted-foreground sm:text-base">
+                        ou {variant.installments}x de {brl(variant.installmentValue ?? variantTotal / variant.installments)}
+                      </p>
+                    </div>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
 
-                <BuyButton
-                  size="md"
-                  className="mt-5 w-full rounded-full px-4 text-sm font-bold tracking-normal"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    onSelect(variant);
-                    onBuy(variant);
-                  }}
-                >
-                  Quero este!
-                </BuyButton>
-              </article>
-            );
-          })}
+          <div className="border-t border-border bg-muted px-5 py-6 sm:px-7 md:flex md:items-center md:justify-between md:px-10">
+            <div className="flex items-baseline justify-between gap-3 md:block">
+              <p className="text-base text-muted-foreground sm:text-lg">Total do pedido</p>
+              <div className="mt-1 flex items-baseline justify-end gap-3">
+                {selected.compareAt && <span className="text-base text-muted-foreground line-through sm:text-lg">{brl(selected.compareAt)}</span>}
+                <strong className="text-3xl leading-none text-ink sm:text-4xl">{brl(orderTotal)}</strong>
+              </div>
+            </div>
+            <BuyButton
+              size="md"
+              className="mt-5 w-full rounded-xl px-9 text-base font-bold uppercase tracking-normal md:mt-0 md:w-auto md:min-w-64"
+              onClick={() => onBuy(selected)}
+            >
+              Quero meu NutraHelp
+            </BuyButton>
+          </div>
         </div>
       </div>
     </section>
