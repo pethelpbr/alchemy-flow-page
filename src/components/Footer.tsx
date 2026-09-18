@@ -62,8 +62,8 @@ export function Footer() {
             uma alimentação equilibrada.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-ink">Política de privacidade</a>
-            <a href="#" className="hover:text-ink">Termos de uso</a>
+            <a href="#" className="transition-colors hover:text-primary">Política de privacidade</a>
+            <a href="#" className="transition-colors hover:text-primary">Termos de uso</a>
             <span className="inline-flex items-center gap-1.5">
               <Lock size={12} strokeWidth={1.5} /> Site seguro
             </span>
