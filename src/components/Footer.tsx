@@ -32,7 +32,7 @@ export function Footer() {
                   key={i}
                   href="#"
                   aria-label="Rede social"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:bg-primary/15 hover:text-primary"
                 >
                   <Icon size={16} strokeWidth={1.4} />
                 </a>
@@ -46,7 +46,7 @@ export function Footer() {
               <ul className="mt-5 flex flex-col gap-3">
                 {c.links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-base text-muted-foreground hover:text-ink">
+                    <a href="#" className="text-base text-muted-foreground transition-colors hover:text-primary">
                       {l}
                     </a>
                   </li>
@@ -62,8 +62,8 @@ export function Footer() {
             uma alimentação equilibrada.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-ink">Política de privacidade</a>
-            <a href="#" className="hover:text-ink">Termos de uso</a>
+            <a href="#" className="transition-colors hover:text-primary">Política de privacidade</a>
+            <a href="#" className="transition-colors hover:text-primary">Termos de uso</a>
             <span className="inline-flex items-center gap-1.5">
               <Lock size={12} strokeWidth={1.5} /> Site seguro
             </span>
