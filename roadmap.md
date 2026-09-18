@@ -12,3 +12,4 @@
 - [x] Vídeos: aproximar o título dos cards de vídeo na página, acompanhando o modal
 - [x] Vídeos: aumentar o texto do problema no rodapé do modal (14px → 16px)
 - [x] Modal: aumentar o botão "Comprar agora" e o texto dele (12px → 15px, altura 50px)
+- [x] Criar seção de tentativas anteriores logo abaixo de Benefícios, com imagem contextual e bloco emocional
