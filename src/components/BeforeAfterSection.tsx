@@ -128,7 +128,7 @@ export function BeforeAfterSection() {
                     </div>
                   </div>
                 </div>
-                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-foreground px-3 py-1 text-[11px] font-bold text-background">
+                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
                   {c.weeks}
                 </span>
               </div>
