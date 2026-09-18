@@ -89,7 +89,7 @@ export function KitBooster({
                       "whitespace-nowrap rounded-lg px-2 py-1.5 text-center text-[9px] font-semibold uppercase tracking-wider transition-colors lg:px-3 lg:py-2 lg:text-[13px]",
                       isActive
                         ? "bg-primary text-primary-foreground"
-                        : "bg-primary/10 text-primary hover:bg-primary/20",
+                        : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
                     )}
                   >
                     {isActive ? "ADICIONADO" : "ADICIONAR"}
