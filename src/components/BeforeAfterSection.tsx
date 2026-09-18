@@ -91,10 +91,12 @@ function Tag({ children }: { children: string }) {
 export function BeforeAfterSection() {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [snaps, setSnaps] = useState<number[]>(() => cases.map((_, i) => i));
 
   const updateSelected = useCallback((carouselApi: CarouselApi) => {
     if (!carouselApi) return;
     setSelectedIndex(carouselApi.selectedScrollSnap());
+    setSnaps(carouselApi.scrollSnapList());
   }, []);
 
   useEffect(() => {
