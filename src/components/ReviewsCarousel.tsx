@@ -91,7 +91,7 @@ function RatingBreakdown() {
                     key={i}
                     size={26}
                     strokeWidth={0}
-                    className={i < row.stars ? "fill-gift" : "fill-border"}
+                    className={i < row.stars ? "fill-primary" : "fill-border"}
                   />
                 ))}
               </div>
