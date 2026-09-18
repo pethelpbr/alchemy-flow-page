@@ -1,3 +1,8 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import antesMel from "@/assets/sintoma-2.jpg";
 import depoisMel from "@/assets/depois-1.jpg";
 import antesThor from "@/assets/sintoma-1.jpg";
