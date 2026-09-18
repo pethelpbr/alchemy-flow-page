@@ -117,6 +117,7 @@ export function BeforeAfterSection() {
                       src={c.before}
                       alt={`${c.name} antes do NutraHelp`}
                       loading="lazy"
+                      draggable={false}
                       width={736}
                       height={912}
                       className="aspect-[3/4] h-full w-full object-cover"
@@ -130,6 +131,7 @@ export function BeforeAfterSection() {
                       src={c.after}
                       alt={`${c.name} depois do NutraHelp`}
                       loading="lazy"
+                      draggable={false}
                       width={736}
                       height={912}
                       className="aspect-[3/4] h-full w-full object-cover"
