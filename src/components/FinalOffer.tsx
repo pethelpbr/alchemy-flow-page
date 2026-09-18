@@ -1,8 +1,8 @@
 import { BuyButton } from "@/components/ui/BuyButton";
 import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
-import nutraHelpPot from "@/assets/nutrahelp-pot.png";
-import pataHelpGift from "@/assets/patahelp-gift.png";
+import nutraHelpPot from "@/assets/nutrahelp-pot-v2.png";
+import pataHelpGift from "@/assets/patahelp-gift-v2.png";
 
 function ProductKit({ units, withGift }: { units: number; withGift: boolean }) {
   const spacing = units === 3 ? 33 : 30;
