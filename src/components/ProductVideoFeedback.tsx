@@ -453,9 +453,9 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   {selectedVideo.problem}
                 </p>
                 <BuyButton
-                  size="sm"
+                  size="md"
                   onClick={onBuy}
-                  className="shrink-0 normal-case tracking-normal"
+                  className="shrink-0 normal-case tracking-normal text-[15px]"
                 >
                   Comprar agora
                 </BuyButton>
