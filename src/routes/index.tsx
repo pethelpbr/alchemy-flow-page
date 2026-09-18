@@ -70,7 +70,6 @@ function Index() {
         <HowToUse />
         <ActivesCarousel />
         <ReviewsCarousel />
-        <TrustBadgesStrip />
         <FinalOffer
           selected={selected}
           onSelect={setSelected}
@@ -78,6 +77,7 @@ function Index() {
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
         />
+        <TrustBadgesStrip />
         <FAQAccordion />
       </main>
       <Footer />
