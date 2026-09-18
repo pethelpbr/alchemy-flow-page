@@ -35,7 +35,7 @@ export function FinalOffer({
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
-  onBuy: () => void;
+  onBuy: (variant?: Variant) => void;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
 }) {
@@ -129,7 +129,7 @@ export function FinalOffer({
                   onClick={(event) => {
                     event.stopPropagation();
                     onSelect(variant);
-                    onBuy();
+                    onBuy(variant);
                   }}
                 >
                   Quero este!
