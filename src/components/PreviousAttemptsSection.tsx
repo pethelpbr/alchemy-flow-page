@@ -61,11 +61,13 @@ export function PreviousAttemptsSection() {
           <h3 className="font-display text-2xl leading-snug text-ink md:text-3xl">
             E vamos ser sinceras: não é só ele que sofre com isso.
           </h3>
-          <p className="mx-auto mt-5 max-w-5xl text-base leading-relaxed text-foreground md:text-lg">
-            É você que acorda às três da manhã com o barulho da coceira. É o sofá molhado de
-            lambida. É a sua própria pele que começou a coçar junto. É a sensação horrível de
-            estar fazendo tudo e nada funcionar — e de se sentir a pior mãe do mundo por já não
-            aguentar mais.
+          <p
+            className="mx-auto mt-5 w-full max-w-6xl leading-relaxed text-foreground"
+            style={{ fontSize: "clamp(15px, (min(78rem, 100vw) - 5rem) / 62, 18px)" }}
+          >
+            É você que acorda às três da manhã com o barulho da coceira. É o sofá molhado de lambida. É a sua própria pele que começou a coçar junto.
+            <br />
+            É a sensação horrível de estar fazendo tudo e nada funcionar — e de se sentir a pior mãe do mundo por já não aguentar mais.
           </p>
           <p className="mt-5 text-lg font-bold leading-snug text-primary md:text-xl">
             Isso não te faz egoísta. Te faz humana, e cansada.
