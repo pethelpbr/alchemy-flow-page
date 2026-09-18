@@ -366,7 +366,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
     <div>
       <div>
         <h3 className="text-base font-semibold text-ink">Relatos de tutores que já passaram por isso</h3>
-        <Thumbnails className="mt-4 grid-cols-3" onSelect={selectFeedback} />
+        <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} />
         <IngredientsButton />
       </div>
 
@@ -389,7 +389,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                 <DialogDescription className="sr-only">
                   Relatos em vídeo de clientes Nutraflow
                 </DialogDescription>
-                <div className="mt-4 flex gap-2.5">
+                <div className="mt-2.5 flex gap-2.5">
                   {feedbacks.map((feedback, index) => (
                     <Button
                       key={feedback.name}
