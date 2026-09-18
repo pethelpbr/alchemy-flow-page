@@ -34,7 +34,10 @@ export function AccordionBlock({
               type="button"
               aria-expanded={isOpen}
               onClick={() => onOpenChange(isOpen ? null : index)}
-              className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-transparent px-1 py-4 text-left text-ink transition-colors hover:border-primary"
+              className={cn(
+                "grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border px-1 py-4 text-left text-ink transition-colors hover:border-primary",
+                isOpen ? "border-primary" : "border-transparent",
+              )}
             >
               <span className="min-w-0 text-base font-semibold">{item.title}</span>
               <ChevronDown
