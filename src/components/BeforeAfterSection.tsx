@@ -73,8 +73,7 @@ const cases: Case[] = [
 
 function Tag({ children }: { children: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-card/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-foreground shadow-sm">
-      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+    <span className="inline-flex items-center rounded-full bg-card/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-foreground shadow-sm">
       {children}
     </span>
   );
