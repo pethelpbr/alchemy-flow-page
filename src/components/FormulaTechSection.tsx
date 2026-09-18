@@ -10,7 +10,7 @@ const items = [
 
 export function FormulaTechSection() {
   return (
-    <section id="tecnologia" className="scroll-mt-20 pt-10 pb-20 md:pt-12 md:pb-[7.5rem]">
+    <section id="tecnologia" className="scroll-mt-20 py-10 md:py-12">
       <div className="container-x">
         <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
