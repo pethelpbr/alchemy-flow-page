@@ -61,10 +61,7 @@ export function PreviousAttemptsSection() {
           <h3 className="font-display text-2xl leading-snug text-ink md:text-3xl">
             E vamos ser sinceras: não é só ele que sofre com isso.
           </h3>
-          <p
-            className="mx-auto mt-5 w-full max-w-6xl leading-relaxed text-foreground"
-            style={{ fontSize: "clamp(14px, (min(78rem, 100vw) - 8rem) / 64, 18px)" }}
-          >
+          <p className="text-lead-fluid mx-auto mt-5 w-full max-w-6xl leading-relaxed text-foreground">
             É você que acorda às três da manhã com o barulho da coceira. É o sofá molhado de lambida. É a sua própria pele que começou a coçar junto.
             <br />
             É a sensação horrível de estar fazendo tudo e nada funcionar — e de se sentir a pior mãe do mundo por já não aguentar mais.
