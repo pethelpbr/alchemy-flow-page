@@ -254,6 +254,9 @@ const guaranteeLevels: [string, string][] = [
   ["Enterococcus faecium (mín.)", "1,0000 x 10E09 ufc/kg"],
 ];
 
+const qualitativeComposition =
+  "Biotina, Inositol, Cloreto de Colina, Vitamina A, Vitamina D3, Vitamina E, Vitamina B1, Vitamina B2, Vitamina B3, Vitamina B6, Vitamina B12, Vitamina C, Vitamina K3, Iodato de Cálcio, Sulfato de Cobalto Heptahidratado, Cromo Aminoácido Quelato, Sulfato de Condroitina, L-Treonina, L-Glutamina, L-Ácido Glutâmico, Sulfato de Zinco Monohidratado, Flor de Enxofre, Óxido de Magnésio, Aroma de Carne de Panela, Sulfato de Ferro, Sulfato de Manganês, Selenito de Sódio, L-Lisina, DL-Metionina, Triptofano, Fosfato Bicálcico, Taurina, Sulfato de Cobre Pentahidratado, Ômega 3, Extrato de Yucca, Levedura de Cana de Açúcar Inativada e Desidratada, Aditivo Prebiótico e Aditivo Probiótico.";
+
 function GuaranteeTableDialog({
   open,
   onOpenChange,
