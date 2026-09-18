@@ -101,9 +101,15 @@ export function BeforeAfterSection() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Carousel
+          opts={{ align: "start", dragFree: true }}
+          aria-label="Resultados antes e depois"
+          className="mt-8 cursor-grab select-none active:cursor-grabbing"
+        >
+          <CarouselContent className="-ml-5 touch-pan-y">
           {cases.map((c) => (
-            <article key={c.name} className="flex flex-col">
+            <CarouselItem key={c.name} className="basis-[82%] pl-5 sm:basis-[48%] lg:basis-[33.5%]">
+            <article className="flex h-full flex-col">
               <div className="relative overflow-hidden rounded-xl border border-border">
                 <div className="grid grid-cols-2">
                   <div className="relative">
