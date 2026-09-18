@@ -168,25 +168,7 @@ export function BeforeAfterSection() {
           </CarouselContent>
         </Carousel>
 
-        <div className="mt-8 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2" aria-label="Selecionar resultado">
-            {snaps.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => api?.scrollTo(index)}
-                aria-label={`Ver resultado ${index + 1}`}
-                aria-current={selectedIndex === index}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  selectedIndex === index
-                    ? "w-6 bg-primary"
-                    : "w-2.5 bg-border hover:bg-primary/50"
-                }`}
-              />
-            ))}
-          </div>
-
-          <div className="flex gap-3">
+        <div className="mt-8 flex items-center justify-center gap-3">
             <Button
               type="button"
               variant="ghost"
