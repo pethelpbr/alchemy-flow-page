@@ -15,7 +15,7 @@ export function HowToUse() {
       <div className="container-x">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Como usar</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+          <h2 className="mt-4 text-center font-display text-4xl leading-tight text-ink sm:text-5xl md:text-left">
             Três passos, todos os dias
           </h2>
         </Reveal>
