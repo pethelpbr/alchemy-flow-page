@@ -47,7 +47,7 @@ const symptoms = [
 
 export function SymptomsSection() {
   return (
-    <section className="bg-background pt-10 pb-10 md:pt-12 md:pb-12">
+    <section className="bg-background py-10 md:py-12">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
