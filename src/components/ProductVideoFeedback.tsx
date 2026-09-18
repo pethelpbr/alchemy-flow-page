@@ -310,7 +310,7 @@ function GuaranteeTableDialog({
                 Composição qualitativa
               </p>
             </div>
-            <div className="px-4 py-4">
+            <div className="px-4 pb-4 pt-2.5">
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {qualitativeComposition}
               </p>
