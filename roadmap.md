@@ -8,3 +8,5 @@
 - [x] Modal: remover a linha "Registrado no MAPA · Sem corticoide · A partir de 3 meses" da composição qualitativa
 - [x] Modal: centralizar o título "Composição qualitativa" na mesma posição do cabeçalho da tabela
 - [x] Modal: remover os dois pontos do título "Composição qualitativa"
+- [x] Vídeos: reduzir o espaço entre o título e as fotos redondas no modal
+- [x] Vídeos: aproximar o título dos cards de vídeo na página, acompanhando o modal
