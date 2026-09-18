@@ -17,7 +17,7 @@ const stats = [
 
 export function StatsBanner() {
   return (
-    <section className="bg-primary py-10 sm:py-12 lg:py-14">
+    <section className="bg-primary py-10 md:py-12">
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

@@ -82,7 +82,7 @@ export function ActivesCarousel() {
   }, [api, updateSelected]);
 
   return (
-    <section className="relative isolate overflow-hidden bg-foreground py-12 sm:py-16">
+    <section className="relative isolate overflow-hidden bg-foreground py-10 md:py-12">
       <img
         src={activesBackground}
         alt=""
