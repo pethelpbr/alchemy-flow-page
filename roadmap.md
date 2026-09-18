@@ -15,3 +15,5 @@
 - [x] Criar seção de tentativas anteriores logo abaixo de Benefícios, com imagem contextual e bloco emocional
 - [x] Seção tentativas anteriores: alinhar o topo da foto com o topo do título ajustando apenas a imagem (texto volta a ficar centralizado)
 - PreviousAttemptsSection: bordas laterais do bloco final reduzidas (px-4/5/6) e texto ampliado (max-w-5xl), aproximando as letras das bordas.
+- [x] Seção antes/depois: adicionar setas de navegação ao carrossel
+- [x] Seção antes/depois: remover as bolinhas indicadoras, mantendo as setas

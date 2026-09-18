@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 import antesMel from "@/assets/sintoma-2.jpg";
 import depoisMel from "@/assets/depois-1.jpg";
 import antesThor from "@/assets/sintoma-1.jpg";
@@ -85,6 +89,10 @@ function Tag({ children }: { children: string }) {
 }
 
 export function BeforeAfterSection() {
+  const [api, setApi] = useState<CarouselApi>();
+
+
+
   return (
     <section className="bg-background py-10 md:py-12" aria-labelledby="before-after-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -102,59 +110,86 @@ export function BeforeAfterSection() {
         </div>
 
         <Carousel
+          setApi={setApi}
           opts={{ align: "start", dragFree: true }}
           aria-label="Resultados antes e depois"
           className="mt-8 cursor-grab select-none active:cursor-grabbing"
         >
           <CarouselContent className="-ml-5 touch-pan-y">
-          {cases.map((c) => (
-            <CarouselItem key={c.name} className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]">
-            <article className="flex h-full flex-col">
-              <div className="relative overflow-hidden rounded-xl border border-border">
-                <div className="grid grid-cols-2">
-                  <div className="relative">
-                    <img
-                      src={c.before}
-                      alt={`${c.name} antes do NutraHelp`}
-                      loading="lazy"
-                      draggable={false}
-                      width={736}
-                      height={912}
-                      className="aspect-[3/4] h-full w-full object-cover"
-                    />
-                    <div className="absolute left-2.5 top-2.5">
-                      <Tag>Antes</Tag>
+            {cases.map((c) => (
+              <CarouselItem
+                key={c.name}
+                className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]"
+              >
+                <article className="flex h-full flex-col">
+                  <div className="relative overflow-hidden rounded-xl border border-border">
+                    <div className="grid grid-cols-2">
+                      <div className="relative">
+                        <img
+                          src={c.before}
+                          alt={`${c.name} antes do NutraHelp`}
+                          loading="lazy"
+                          draggable={false}
+                          width={736}
+                          height={912}
+                          className="aspect-[3/4] h-full w-full object-cover"
+                        />
+                        <div className="absolute left-2.5 top-2.5">
+                          <Tag>Antes</Tag>
+                        </div>
+                      </div>
+                      <div className="relative border-l-2 border-card">
+                        <img
+                          src={c.after}
+                          alt={`${c.name} depois do NutraHelp`}
+                          loading="lazy"
+                          draggable={false}
+                          width={736}
+                          height={912}
+                          className="aspect-[3/4] h-full w-full object-cover"
+                        />
+                        <div className="absolute left-2.5 top-2.5">
+                          <Tag>Depois</Tag>
+                        </div>
+                      </div>
                     </div>
+                    <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
+                      {c.weeks}
+                    </span>
                   </div>
-                  <div className="relative border-l-2 border-card">
-                    <img
-                      src={c.after}
-                      alt={`${c.name} depois do NutraHelp`}
-                      loading="lazy"
-                      draggable={false}
-                      width={736}
-                      height={912}
-                      className="aspect-[3/4] h-full w-full object-cover"
-                    />
-                    <div className="absolute left-2.5 top-2.5">
-                      <Tag>Depois</Tag>
-                    </div>
-                  </div>
-                </div>
-                <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
-                  {c.weeks}
-                </span>
-              </div>
-              <p className="mt-3 text-sm text-foreground">
-                <span className="font-bold">{c.name}</span>{" "}
-                <span className="text-muted-foreground">{c.breed}</span>
-              </p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>
-            </article>
-            </CarouselItem>
-          ))}
+                  <p className="mt-3 text-sm text-foreground">
+                    <span className="font-bold">{c.name}</span>{" "}
+                    <span className="text-muted-foreground">{c.breed}</span>
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>
+                </article>
+              </CarouselItem>
+            ))}
           </CarouselContent>
         </Carousel>
+
+        <div className="mt-8 flex items-center justify-center gap-3">
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => api?.scrollPrev()}
+              aria-label="Resultado anterior"
+              className="h-11 w-11 rounded-full border border-border text-foreground transition-colors hover:border-primary"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => api?.scrollNext()}
+              aria-label="Próximo resultado"
+              className="h-11 w-11 rounded-full border border-border text-foreground transition-colors hover:border-primary"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+        </div>
       </div>
     </section>
   );
