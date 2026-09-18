@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { CarouselApi } from "@/components/ui/carousel";
 import {
@@ -90,26 +90,8 @@ function Tag({ children }: { children: string }) {
 
 export function BeforeAfterSection() {
   const [api, setApi] = useState<CarouselApi>();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [snaps, setSnaps] = useState<number[]>(() => cases.map((_, i) => i));
 
-  const updateSelected = useCallback((carouselApi: CarouselApi) => {
-    if (!carouselApi) return;
-    setSelectedIndex(carouselApi.selectedScrollSnap());
-    setSnaps(carouselApi.scrollSnapList());
-  }, []);
 
-  useEffect(() => {
-    if (!api) return;
-    updateSelected(api);
-    api.on("select", updateSelected);
-    api.on("reInit", updateSelected);
-
-    return () => {
-      api.off("select", updateSelected);
-      api.off("reInit", updateSelected);
-    };
-  }, [api, updateSelected]);
 
   return (
     <section className="bg-background py-10 md:py-12" aria-labelledby="before-after-title">
