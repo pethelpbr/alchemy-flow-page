@@ -287,7 +287,10 @@ function GuaranteeTableDialog({
                   className={cn(
                     "flex items-baseline justify-between gap-4 border-border px-4 py-2 text-sm",
                     index % 2 === 0 && "bg-muted/40",
-                    "border-b sm:[&:nth-last-child(-n+1)]:border-b-0",
+                    Math.floor(index / 2) % 2 === 0
+                      ? "md:bg-muted/40"
+                      : "md:bg-transparent",
+                    "border-b sm:[&:nth-last-child(-n+2)]:border-b-0",
                   )}
                 >
                   <span className="font-semibold text-ink">{name}</span>
