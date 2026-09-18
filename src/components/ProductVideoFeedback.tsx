@@ -313,7 +313,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   variant="ghost"
                   aria-label="Relato anterior"
                   onClick={showPrevious}
-                  className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-card/90 p-0 text-ink shadow-card transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </Button>
@@ -325,7 +325,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   variant="ghost"
                   aria-label="Próximo relato"
                   onClick={showNext}
-                  className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-card/90 p-0 text-ink shadow-card transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </Button>
