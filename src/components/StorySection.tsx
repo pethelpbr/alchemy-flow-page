@@ -9,7 +9,7 @@ const points = [
 
 export function StorySection() {
   return (
-    <section className="bg-sand/60 pt-10 pb-20 md:pt-12 md:pb-[7.5rem]">
+    <section className="bg-sand/60 py-10 md:py-12">
       <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
         <Reveal>
           <img

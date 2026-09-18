@@ -149,9 +149,9 @@
 }
 
 @utility section {
-  padding-block: 5rem;
+  padding-block: 3rem;
   @media (min-width: 768px) {
-    padding-block: 7.5rem;
+    padding-block: 4rem;
   }
 }
 
