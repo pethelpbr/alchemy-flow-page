@@ -63,7 +63,7 @@ export function PreviousAttemptsSection() {
           </h3>
           <p
             className="mx-auto mt-5 w-full max-w-6xl leading-relaxed text-foreground"
-            style={{ fontSize: "clamp(15px, (min(78rem, 100vw) - 5rem) / 62, 18px)" }}
+            style={{ fontSize: "clamp(14px, (min(78rem, 100vw) - 8rem) / 64, 18px)" }}
           >
             É você que acorda às três da manhã com o barulho da coceira. É o sofá molhado de lambida. É a sua própria pele que começou a coçar junto.
             <br />
