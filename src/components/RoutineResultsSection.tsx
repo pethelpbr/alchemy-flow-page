@@ -177,7 +177,7 @@ function Images() {
 export function RoutineResultsSection() {
   return (
     <>
-      <section className="section bg-card">
+      <section className="bg-card pt-10 pb-20 md:pt-12 md:pb-[7.5rem]">
         <div className="container-x grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-primary">Resultado na rotina</p>
