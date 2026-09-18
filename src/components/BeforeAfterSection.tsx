@@ -1,3 +1,8 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import antesMel from "@/assets/sintoma-2.jpg";
 import depoisMel from "@/assets/depois-1.jpg";
 import antesThor from "@/assets/sintoma-1.jpg";
@@ -96,9 +101,15 @@ export function BeforeAfterSection() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Carousel
+          opts={{ align: "start", dragFree: true }}
+          aria-label="Resultados antes e depois"
+          className="mt-8 cursor-grab select-none active:cursor-grabbing"
+        >
+          <CarouselContent className="-ml-5 touch-pan-y">
           {cases.map((c) => (
-            <article key={c.name} className="flex flex-col">
+            <CarouselItem key={c.name} className="basis-[82%] pl-5 sm:basis-[48%] lg:basis-[33.5%]">
+            <article className="flex h-full flex-col">
               <div className="relative overflow-hidden rounded-xl border border-border">
                 <div className="grid grid-cols-2">
                   <div className="relative">
@@ -106,6 +117,7 @@ export function BeforeAfterSection() {
                       src={c.before}
                       alt={`${c.name} antes do NutraHelp`}
                       loading="lazy"
+                      draggable={false}
                       width={736}
                       height={912}
                       className="aspect-[3/4] h-full w-full object-cover"
@@ -119,6 +131,7 @@ export function BeforeAfterSection() {
                       src={c.after}
                       alt={`${c.name} depois do NutraHelp`}
                       loading="lazy"
+                      draggable={false}
                       width={736}
                       height={912}
                       className="aspect-[3/4] h-full w-full object-cover"
@@ -138,8 +151,10 @@ export function BeforeAfterSection() {
               </p>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>
             </article>
+            </CarouselItem>
           ))}
-        </div>
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
