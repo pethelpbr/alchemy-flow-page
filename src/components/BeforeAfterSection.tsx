@@ -87,7 +87,7 @@ function Tag({ children }: { children: string }) {
 export function BeforeAfterSection() {
   return (
     <section className="bg-background py-10 md:py-12" aria-labelledby="before-after-title">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="before-after-title"
