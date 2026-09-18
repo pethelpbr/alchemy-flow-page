@@ -66,7 +66,7 @@ export function PreviousAttemptsSection() {
             <br />
             É a sensação horrível de estar fazendo tudo e nada funcionar — e de se sentir a pior mãe do mundo por já não aguentar mais.
           </p>
-          <p className="mt-5 text-lg font-bold leading-snug text-primary md:text-xl">
+          <p className="mt-4 text-lg font-bold leading-snug text-primary md:text-xl">
             Isso não te faz egoísta. Te faz humana, e cansada.
           </p>
         </div>
