@@ -449,7 +449,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
               </div>
 
               <div className="flex items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
-                <p className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">
+                <p className="min-w-0 flex-1 truncate text-base font-semibold text-ink">
                   {selectedVideo.problem}
                 </p>
                 <BuyButton
