@@ -45,7 +45,7 @@ export function PreviousAttemptsSection() {
             </ul>
           </div>
 
-          <figure className="min-h-72 overflow-hidden rounded-xl sm:min-h-96 lg:min-h-[27rem]">
+          <figure className="min-h-72 overflow-hidden rounded-xl sm:min-h-96 lg:min-h-[27rem] lg:mt-3">
             <img
               src={failedTreatments}
               alt="Cone de recuperação, shampoo, pomada e comprimidos usados nos cuidados de um cachorro"
