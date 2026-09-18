@@ -141,22 +141,24 @@ function Images() {
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         />
 
-        <span
-          aria-hidden={position <= 1}
-          className={`eyebrow absolute top-4 left-4 rounded-md bg-card/85 px-2.5 py-1 text-ink shadow-card transition-opacity duration-150 ${
-            position <= 1 ? "opacity-0" : "opacity-100"
-          }`}
+        <div
+          aria-hidden={position <= 0}
+          className="pointer-events-none absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          Antes
-        </span>
-        <span
-          aria-hidden={position >= 99}
-          className={`eyebrow absolute top-4 right-4 rounded-md bg-card/85 px-2.5 py-1 text-ink shadow-card transition-opacity duration-150 ${
-            position >= 99 ? "opacity-0" : "opacity-100"
-          }`}
+          <span className="eyebrow absolute top-4 left-4 rounded-md bg-card/85 px-2.5 py-1 text-ink shadow-card">
+            Antes
+          </span>
+        </div>
+        <div
+          aria-hidden={position >= 100}
+          className="pointer-events-none absolute inset-0"
+          style={{ clipPath: `inset(0 0 0 ${position}%)` }}
         >
-          Depois
-        </span>
+          <span className="eyebrow absolute top-4 right-4 rounded-md bg-card/85 px-2.5 py-1 text-ink shadow-card">
+            Depois
+          </span>
+        </div>
 
         <div
           aria-hidden="true"
