@@ -37,7 +37,7 @@ export function FAQAccordion() {
       <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-20">
         <Reveal>
           <p className="eyebrow">Dúvidas</p>
-          <h2 className="mt-4 text-center font-display text-4xl leading-tight text-ink lg:text-left">
+          <h2 className="mt-4 text-center font-display text-4xl leading-tight text-ink md:text-left">
             Perguntas frequentes
           </h2>
         </Reveal>

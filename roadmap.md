@@ -17,3 +17,4 @@
 - PreviousAttemptsSection: bordas laterais do bloco final reduzidas (px-4/5/6) e texto ampliado (max-w-5xl), aproximando as letras das bordas.
 - [x] Seção antes/depois: adicionar setas de navegação ao carrossel
 - [x] Seção antes/depois: remover as bolinhas indicadoras, mantendo as setas
+- [x] Titulos das secoes: centralizar somente no mobile (abaixo de 768px); desktop volta a ficar alinhado a esquerda

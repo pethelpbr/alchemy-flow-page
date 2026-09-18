@@ -138,7 +138,7 @@ export function ReviewsCarousel() {
       <div className="container-x">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <div className="w-full text-center sm:w-auto sm:text-left">
+            <div className="w-full text-center md:w-auto md:text-left">
               <p className="eyebrow">Avaliações</p>
               <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
                 Experiências reais de quem já usa
