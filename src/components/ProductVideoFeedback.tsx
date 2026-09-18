@@ -206,20 +206,121 @@ function Thumbnails({
   );
 }
 
+const guaranteeLevels: [string, string][] = [
+  ["Cromo (mín.)", "10,0000 mg/kg"],
+  ["Iodo (mín.)", "62,0000 mg/kg"],
+  ["Magnésio (mín.)", "41,4000 g/kg"],
+  ["Cobalto (mín.)", "200,0000 mg/kg"],
+  ["Zinco (mín.)", "700,0000 mg/kg"],
+  ["Ferro (mín.)", "600,0000 mg/kg"],
+  ["Manganês (mín.)", "520,0000 mg/kg"],
+  ["Selênio (mín.)", "135,0000 mg/kg"],
+  ["Cálcio (mín./máx.)", "188,6000 / 209,5000 g/kg"],
+  ["Enxofre (mín.)", "9.900,0000 mg/kg"],
+  ["Fósforo (mín.)", "1.850,0000 mg/kg"],
+  ["Ômega 3 (mín.)", "750,0000 mg/kg"],
+  ["Extrato de Yucca (mín.)", "2.000,0000 mg/kg"],
+  ["Sulfato de Condroitina (mín.)", "4.900,0000 mg/kg"],
+  ["Taurina (mín.)", "10,8000 g/kg"],
+  ["Cobre (mín.)", "500,0000 mg/kg"],
+  ["L-Treonina (mín.)", "98,5000 mg/kg"],
+  ["L-Glutamina (mín.)", "20,0000 mg/kg"],
+  ["L-Ácido Glutâmico (mín.)", "20,0000 mg/kg"],
+  ["Flúor (máx.)", "18,5000 mg/kg"],
+  ["Vitamina A (mín.)", "100.000,0000 UI/kg"],
+  ["Vitamina B1 (mín.)", "980,0000 mg/kg"],
+  ["Vitamina B2 (mín.)", "800,0000 mg/kg"],
+  ["Vitamina B3 (mín.)", "990,0000 mg/kg"],
+  ["Vitamina B6 (mín.)", "980,0000 mg/kg"],
+  ["Vitamina B12 (mín.)", "100,0000 µg/kg"],
+  ["Vitamina C (mín.)", "891,0000 mg/kg"],
+  ["Vitamina D3 (mín.)", "100.000,0000 UI/kg"],
+  ["Vitamina E (mín.)", "100,0000 UI/kg"],
+  ["Vitamina K3 (mín.)", "200,4000 mg/kg"],
+  ["Biotina (mín.)", "20,0000 mg/kg"],
+  ["Inositol (mín.)", "980,0000 mg/kg"],
+  ["Colina (mín.)", "652,0000 mg/kg"],
+  ["Lisina (mín.)", "3.900,0000 mg/kg"],
+  ["Metionina (mín.)", "3.960,0000 mg/kg"],
+  ["Triptofano (mín.)", "1.534,5000 mg/kg"],
+  ["Proteína Bruta (mín.)", "30,0000 g/kg"],
+  ["Aroma de Carne de Panela (mín.)", "2.000,0000 mg/kg"],
+  ["Beta Glucanas (mín.)", "3.000,0000 mg/kg"],
+  ["Mananoligossacarídeo (mín.)", "1.700,0000 mg/kg"],
+  ["Saccharomyces cerevisiae (mín.)", "1,0000 x 10E09 ufc/kg"],
+  ["Bacillus subtilis (mín.)", "2,0000 x 10E09 ufc/kg"],
+  ["Bacillus cereus (mín.)", "2,0000 x 10E09 ufc/kg"],
+  ["Lactobacillus acidophilus (mín.)", "1,0000 x 10E09 ufc/kg"],
+  ["Enterococcus faecium (mín.)", "1,0000 x 10E09 ufc/kg"],
+];
+
+function GuaranteeTableDialog({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="flex max-h-[92dvh] w-[calc(100%_-_1.25rem)] max-w-[720px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-0 shadow-soft [&>button]:right-4 [&>button]:top-4 [&>button]:text-ink [&>button]:opacity-100">
+        <div className="border-b border-border px-6 py-5">
+          <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">
+            Informação nutricional
+          </DialogTitle>
+          <DialogDescription className="mt-1 text-sm text-muted-foreground">
+            Níveis de garantia por kg do produto
+          </DialogDescription>
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
+          <div className="overflow-hidden rounded-xl border border-border">
+            <div className="border-b border-border bg-muted px-4 py-3 text-center">
+              <p className="text-sm font-bold uppercase tracking-wide text-ink">
+                Níveis de garantia por kg do produto
+              </p>
+            </div>
+            <ul className="grid sm:grid-cols-2">
+              {guaranteeLevels.map(([name, value], index) => (
+                <li
+                  key={name}
+                  className={cn(
+                    "flex items-baseline justify-between gap-4 border-border px-4 py-2 text-sm",
+                    index % 2 === 0 && "bg-muted/40",
+                    "border-b sm:[&:nth-last-child(-n+1)]:border-b-0",
+                  )}
+                >
+                  <span className="font-semibold text-ink">{name}</span>
+                  <span className="shrink-0 tabular-nums text-muted-foreground">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="mt-4 text-center text-[13px] leading-relaxed text-muted-foreground">
+            Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function IngredientsButton() {
-  const scrollToIngredients = () => {
-    document.querySelector("#ingredientes")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <Button
-      type="button"
-      variant="outline"
-      onClick={scrollToIngredients}
-      className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-card hover:text-ink"
-    >
-      Ver tabela completa e ingredientes
-    </Button>
+    <>
+      <Button
+        type="button"
+        variant="outline"
+        onClick={() => setOpen(true)}
+        className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-card hover:text-ink"
+      >
+        Ver tabela completa e ingredientes
+      </Button>
+      <GuaranteeTableDialog open={open} onOpenChange={setOpen} />
+    </>
   );
 }
 
