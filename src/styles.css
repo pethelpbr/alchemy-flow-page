@@ -171,9 +171,9 @@
   width: 100%;
   max-width: 42rem;
   @media (min-width: 1024px) {
-    width: calc((100vh - 11rem) * 0.8);
-    max-width: 28rem;
-    min-width: 12rem;
+    /* Grows with the column on big screens, shrinks to fit the viewport
+       height on short screens so the image is always fully visible. */
+    width: min(100%, calc((100vh - 11rem) * 0.8));
   }
 }
 
