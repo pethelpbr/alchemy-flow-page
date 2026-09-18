@@ -71,7 +71,7 @@ export function FinalOffer({
                 onClick={() => onSelect(variant)}
                 aria-selected={isActive}
                 className={cn(
-                  "relative mx-auto flex w-full max-w-[330px] cursor-pointer flex-col rounded-xl border px-4 pb-4 pt-7 text-center transition-all duration-300 md:max-w-none md:px-5 md:pb-5",
+                  "relative mx-auto flex w-full max-w-[330px] cursor-pointer flex-col rounded-xl border px-4 pb-4 pt-7 text-center transition-all duration-300 sm:max-w-none sm:px-5 sm:pb-5",
                   isActive
                     ? "border-primary bg-[color-mix(in_oklab,var(--primary)_7%,var(--card))] shadow-card"
                     : "border-border bg-card hover:border-primary",
