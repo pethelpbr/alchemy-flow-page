@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { SymptomsSection } from "@/components/SymptomsSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
+import { VideoTestimonialsSection } from "@/components/VideoTestimonialsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { StorySection } from "@/components/StorySection";
 import { FormulaTechSection } from "@/components/FormulaTechSection";
@@ -58,6 +59,7 @@ function Index() {
         />
         <SymptomsSection />
         <BenefitsSection />
+        <VideoTestimonialsSection onBuy={checkout} />
         <RoutineResultsSection />
         <StorySection />
         <FormulaTechSection />
