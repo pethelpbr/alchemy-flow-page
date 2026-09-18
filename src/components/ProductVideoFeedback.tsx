@@ -216,7 +216,7 @@ function IngredientsButton() {
       type="button"
       variant="outline"
       onClick={scrollToIngredients}
-      className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary"
+      className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-card hover:text-ink"
     >
       Ver tabela completa e ingredientes
     </Button>
