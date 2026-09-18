@@ -193,7 +193,7 @@ export function RoutineResultsSection() {
         <div className="container-x grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-primary">Resultado na rotina</p>
-            <h2 className="mx-auto mt-4 max-w-lg text-center font-display text-4xl leading-tight text-ink sm:text-5xl lg:mx-0 lg:text-left">
+            <h2 className="mx-auto mt-4 max-w-lg text-center font-display text-4xl leading-tight text-ink sm:text-5xl md:mx-0 md:text-left">
               O que muda ao longo das semanas
             </h2>
 

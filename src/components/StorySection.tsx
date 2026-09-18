@@ -25,7 +25,7 @@ export function StorySection() {
         <div>
           <Reveal>
             <p className="eyebrow">A rotina real</p>
-            <h2 className="mt-4 text-center font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-left">
+            <h2 className="mt-4 text-center font-display text-4xl leading-tight text-ink sm:text-5xl md:text-left">
               Nem sempre conseguimos manter uma rotina perfeita.
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted-foreground">
