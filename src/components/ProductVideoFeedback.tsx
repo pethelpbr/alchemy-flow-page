@@ -305,9 +305,9 @@ function GuaranteeTableDialog({
           </div>
 
           <div className="mt-5 overflow-hidden rounded-xl border border-border bg-card">
-            <div className="border-b border-border bg-muted px-4 py-3">
+            <div className="border-b border-border bg-muted px-4 py-3 text-center">
               <p className="text-sm font-bold uppercase tracking-wide text-ink">
-                Composição qualitativa:
+                Composição qualitativa
               </p>
             </div>
             <div className="px-4 py-4">
