@@ -194,7 +194,7 @@ function Thumbnails({
               draggable={false}
               className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/25" />
+            <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/40" />
             <VideoTags problem={feedback.problem} duration={feedback.duration} />
             <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm">
               <Play className="ml-0.5 h-4 w-4 fill-current" />

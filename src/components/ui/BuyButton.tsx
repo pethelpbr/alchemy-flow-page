@@ -23,7 +23,7 @@ export function BuyButton({
         variant === "solid" &&
           "bg-primary text-primary-foreground shadow-card hover:bg-terracotta hover:shadow-soft",
         variant === "outline" &&
-          "border border-primary/30 text-primary hover:border-primary hover:bg-primary/5",
+          "border border-primary/30 text-primary hover:border-primary hover:bg-primary/15",
         variant === "ghost" && "text-primary hover:opacity-70",
         className,
       )}

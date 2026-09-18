@@ -46,7 +46,7 @@ export function Footer() {
               <ul className="mt-5 flex flex-col gap-3">
                 {c.links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-base text-muted-foreground hover:text-ink">
+                    <a href="#" className="text-base text-muted-foreground transition-colors hover:text-primary">
                       {l}
                     </a>
                   </li>

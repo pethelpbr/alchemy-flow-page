@@ -40,7 +40,7 @@ export function KitBooster({
                 "relative flex flex-col rounded-xl border bg-card p-2.5 text-left transition-all duration-300",
                 isActive
                   ? "border-primary/70 shadow-card"
-                  : "border-border hover:border-primary/30",
+                  : "border-border hover:border-primary hover:bg-primary/10 hover:shadow-card",
               )}
             >
               <span

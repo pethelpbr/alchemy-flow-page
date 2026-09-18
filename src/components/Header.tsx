@@ -79,7 +79,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
             <button
               key={l.href}
               onClick={() => go(l.href)}
-              className="text-[13px] text-muted-foreground transition-colors hover:text-ink"
+              className="text-[13px] text-muted-foreground transition-colors hover:text-primary"
             >
               {l.label}
             </button>
