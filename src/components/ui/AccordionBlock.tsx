@@ -31,7 +31,7 @@ export function AccordionBlock({
         return (
           <div
             key={item.title}
-            className="rounded-lg border border-transparent border-b-border transition-colors hover:border-primary last:border-b-transparent last:hover:border-primary"
+            className="rounded-lg border border-transparent border-b-border last:border-b-transparent"
           >
             <button
               type="button"
