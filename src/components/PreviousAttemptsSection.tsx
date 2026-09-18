@@ -20,7 +20,7 @@ export function PreviousAttemptsSection() {
           <div className="flex flex-col justify-center">
             <h2
               id="previous-attempts-title"
-              className="font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl"
+              className="text-center font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-left lg:text-6xl"
             >
               Você já tentou.
               <br />

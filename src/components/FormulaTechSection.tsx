@@ -15,7 +15,7 @@ export function FormulaTechSection() {
         <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-primary">O que tem dentro de cada dose</p>
-            <h2 className="mt-3 max-w-md font-display text-4xl leading-tight text-ink sm:text-5xl">
+            <h2 className="mx-auto mt-3 max-w-md text-center font-display text-4xl leading-tight text-ink sm:text-5xl lg:mx-0 lg:text-left">
               Tecnologia por trás da fórmula
             </h2>
 
