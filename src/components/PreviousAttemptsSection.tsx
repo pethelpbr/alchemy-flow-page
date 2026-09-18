@@ -16,8 +16,8 @@ export function PreviousAttemptsSection() {
   return (
     <section className="bg-background py-10 md:py-12" aria-labelledby="previous-attempts-title">
       <div className="container-x">
-        <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(26rem,1.05fr)] lg:gap-12">
-          <div className="flex flex-col justify-center">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(26rem,1.05fr)] lg:gap-12">
+          <div className="flex flex-col">
             <h2
               id="previous-attempts-title"
               className="font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl"
@@ -45,7 +45,7 @@ export function PreviousAttemptsSection() {
             </ul>
           </div>
 
-          <figure className="min-h-72 overflow-hidden rounded-xl sm:min-h-96 lg:min-h-[27rem]">
+          <figure className="min-h-72 overflow-hidden rounded-xl sm:min-h-96 lg:min-h-[27rem] lg:mt-3">
             <img
               src={failedTreatments}
               alt="Cone de recuperação, shampoo, pomada e comprimidos usados nos cuidados de um cachorro"
