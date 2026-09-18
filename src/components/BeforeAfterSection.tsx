@@ -87,7 +87,7 @@ function Tag({ children }: { children: string }) {
 export function BeforeAfterSection() {
   return (
     <section className="bg-background py-10 md:py-12" aria-labelledby="before-after-title">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="before-after-title"
@@ -108,7 +108,7 @@ export function BeforeAfterSection() {
         >
           <CarouselContent className="-ml-5 touch-pan-y">
           {cases.map((c) => (
-            <CarouselItem key={c.name} className="basis-[82%] pl-5 sm:basis-[48%] lg:basis-[33.5%]">
+            <CarouselItem key={c.name} className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]">
             <article className="flex h-full flex-col">
               <div className="relative overflow-hidden rounded-xl border border-border">
                 <div className="grid grid-cols-2">
