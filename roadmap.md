@@ -10,3 +10,4 @@
 - [x] Modal: remover os dois pontos do título "Composição qualitativa"
 - [x] Vídeos: reduzir o espaço entre o título e as fotos redondas no modal
 - [x] Vídeos: aproximar o título dos cards de vídeo na página, acompanhando o modal
+- [x] Vídeos: aumentar o texto do problema no rodapé do modal (14px → 16px)
