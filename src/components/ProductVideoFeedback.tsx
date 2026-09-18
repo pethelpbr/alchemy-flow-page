@@ -263,7 +263,10 @@ function GuaranteeTableDialog({
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-h-[92dvh] w-[calc(100%_-_1.25rem)] max-w-[720px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-0 shadow-soft [&>button]:right-4 [&>button]:top-4 [&>button]:text-ink [&>button]:opacity-100">
+      <DialogContent
+        onOpenAutoFocus={(event) => event.preventDefault()}
+        className="flex max-h-[92dvh] w-[calc(100%_-_1.25rem)] max-w-[720px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-0 shadow-soft [&>button]:right-4 [&>button]:top-4 [&>button]:text-ink [&>button]:opacity-100"
+      >
         <div className="border-b border-border px-6 py-5">
           <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">
             Informação nutricional
