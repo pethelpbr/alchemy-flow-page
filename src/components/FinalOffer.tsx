@@ -58,7 +58,7 @@ export function FinalOffer({
   return (
     <section className="section bg-background">
       <div id="comprar" className="container-x scroll-mt-28">
-        <div className="mx-auto grid max-w-6xl gap-4 pt-8 md:grid-cols-3 md:items-stretch">
+        <div className="mx-auto grid max-w-5xl gap-4 pt-8 md:grid-cols-3 md:items-stretch">
           {orderedVariants.map((variant) => {
             const isActive = selected.id === variant.id;
             const isBestChoice = variant.id === "3-un-brinde";
@@ -71,9 +71,9 @@ export function FinalOffer({
                 onClick={() => onSelect(variant)}
                 aria-selected={isActive}
                 className={cn(
-                  "relative flex cursor-pointer flex-col rounded-lg border px-4 pb-4 pt-7 text-center shadow-card transition-colors duration-300 sm:px-5 sm:pb-5",
+                  "relative flex cursor-pointer flex-col rounded-xl border px-4 pb-4 pt-7 text-center transition-all duration-300 sm:px-5 sm:pb-5",
                   isActive
-                    ? "border-primary bg-primary/[0.07]"
+                    ? "border-primary bg-primary/[0.07] shadow-card"
                     : "border-border bg-card hover:border-primary",
                 )}
               >
@@ -116,7 +116,7 @@ export function FinalOffer({
                 <p
                   className={cn(
                     "mt-1 text-3xl font-bold leading-none transition-colors duration-300 sm:text-4xl",
-                    isActive ? "text-primary" : "text-muted-foreground",
+                    isActive ? "text-primary" : "text-ink",
                   )}
                 >
                   {brl(displayedTotal)}
@@ -131,7 +131,7 @@ export function FinalOffer({
 
                 <BuyButton
                   size="md"
-                  className="mt-auto w-full rounded-full px-4 text-sm font-bold uppercase tracking-normal"
+                  className="mx-auto mt-auto w-full max-w-52 rounded-full px-4 text-sm font-bold uppercase tracking-normal"
                   onClick={(event) => {
                     event.stopPropagation();
                     onSelect(variant);
