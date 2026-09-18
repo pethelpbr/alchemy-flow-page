@@ -17,7 +17,7 @@ export function PreviousAttemptsSection() {
     <section className="bg-background py-10 md:py-12" aria-labelledby="previous-attempts-title">
       <div className="container-x">
         <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(26rem,1.05fr)] lg:gap-12">
-          <div className="flex flex-col justify-center lg:min-h-[27rem]">
+          <div className="flex flex-col justify-center">
             <h2
               id="previous-attempts-title"
               className="font-display text-4xl leading-tight text-ink sm:text-5xl lg:text-6xl"
