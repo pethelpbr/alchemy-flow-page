@@ -32,7 +32,7 @@ export function Footer() {
                   key={i}
                   href="#"
                   aria-label="Rede social"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:bg-primary/15 hover:text-primary"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary"
                 >
                   <Icon size={16} strokeWidth={1.4} />
                 </a>

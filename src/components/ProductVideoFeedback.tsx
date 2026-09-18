@@ -192,9 +192,9 @@ function Thumbnails({
               alt={`Relato de ${feedback.name}`}
               loading="lazy"
               draggable={false}
-              className="aspect-[9/14] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="aspect-[9/14] w-full object-cover"
             />
-            <span className="absolute inset-0 bg-ink/15 transition-colors group-hover:bg-ink/40" />
+            <span className="absolute inset-0 rounded-xl border border-transparent bg-ink/15 transition-colors group-hover:border-primary" />
             <VideoTags problem={feedback.problem} duration={feedback.duration} />
             <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm">
               <Play className="ml-0.5 h-4 w-4 fill-current" />
@@ -216,7 +216,7 @@ function IngredientsButton() {
       type="button"
       variant="outline"
       onClick={scrollToIngredients}
-      className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-primary/15"
+      className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary"
     >
       Ver tabela completa e ingredientes
     </Button>
@@ -313,7 +313,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   variant="ghost"
                   aria-label="Relato anterior"
                   onClick={showPrevious}
-                  className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-card/90 p-0 text-ink shadow-card transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </Button>
@@ -325,7 +325,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   variant="ghost"
                   aria-label="Próximo relato"
                   onClick={showNext}
-                  className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-card/90 p-0 text-ink shadow-card transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </Button>

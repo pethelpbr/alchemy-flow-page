@@ -29,7 +29,7 @@ export function ProductSelector({
               "relative rounded-xl border px-3.5 py-3 text-left transition-all duration-300 sm:px-5",
               isActive
                 ? "border-primary bg-primary/[0.07] shadow-card"
-                : "border-border bg-card hover:border-primary hover:bg-primary/10 hover:shadow-card",
+                : "border-border bg-card hover:border-primary",
             )}
           >
             {/* ===== Mobile layout ===== */}

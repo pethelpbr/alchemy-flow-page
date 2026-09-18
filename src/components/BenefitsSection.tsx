@@ -28,7 +28,7 @@ type Benefit = (typeof benefits)[number];
 
 function BenefitCard({ b }: { b: Benefit }) {
   return (
-    <article className="h-full rounded-xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:border-primary/40 hover:bg-card/30 md:p-7">
+    <article className="h-full rounded-xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:border-primary/40 md:p-7">
       <b.icon strokeWidth={1.4} className="h-5 w-5 text-primary md:h-6 md:w-6" />
       <h3 className="mt-5 text-base tracking-[0.14em] text-card uppercase md:mt-5 md:text-[22px] md:tracking-[0.1em]">{b.title}</h3>
       <p className="mt-3 text-base leading-relaxed text-card/75 md:mt-4 md:text-[18px] md:leading-relaxed">{b.text}</p>
