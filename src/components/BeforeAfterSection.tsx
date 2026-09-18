@@ -188,12 +188,12 @@ export function BeforeAfterSection() {
 
         <div className="mt-8 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2" aria-label="Selecionar resultado">
-            {cases.map((c, index) => (
+            {snaps.map((_, index) => (
               <button
-                key={c.name}
+                key={index}
                 type="button"
                 onClick={() => api?.scrollTo(index)}
-                aria-label={`Ver resultado de ${c.name}`}
+                aria-label={`Ver resultado ${index + 1}`}
                 aria-current={selectedIndex === index}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   selectedIndex === index
