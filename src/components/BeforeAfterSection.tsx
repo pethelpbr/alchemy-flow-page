@@ -108,7 +108,7 @@ export function BeforeAfterSection() {
         >
           <CarouselContent className="-ml-5 touch-pan-y">
           {cases.map((c) => (
-            <CarouselItem key={c.name} className="basis-[88%] pl-5 sm:basis-[54%] lg:basis-[37%]">
+            <CarouselItem key={c.name} className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]">
             <article className="flex h-full flex-col">
               <div className="relative overflow-hidden rounded-xl border border-border">
                 <div className="grid grid-cols-2">
