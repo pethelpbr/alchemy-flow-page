@@ -22,7 +22,7 @@ const symptoms = [
   {
     img: sintoma3,
     alt: "Golden retriever com falhas de pelo deitado no tapete",
-    title: "Está ficando careca em pedaços",
+    title: "Está ficando com falhas no pelo",
     text: "Começa com uma falha pequena e vira um buraco no pelo. Toda semana parece um pouco maior.",
   },
   {
