@@ -290,6 +290,7 @@ function GuaranteeTableDialog({
                     Math.floor(index / 2) % 2 === 0
                       ? "md:bg-muted/40"
                       : "md:bg-transparent",
+                    index % 2 === 1 && "sm:border-l sm:border-border",
                     "border-b sm:[&:nth-last-child(-n+2)]:border-b-0",
                   )}
                 >
