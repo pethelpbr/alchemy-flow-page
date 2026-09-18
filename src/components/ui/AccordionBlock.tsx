@@ -29,13 +29,16 @@ export function AccordionBlock({
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.title} className="border-b border-border last:border-b-0">
+          <div
+            key={item.title}
+            className="group border-b border-border last:border-b-0"
+          >
             <button
               type="button"
               aria-expanded={isOpen}
               onClick={() => onOpenChange(isOpen ? null : index)}
               className={cn(
-                "grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border px-1 py-4 text-left text-ink transition-colors hover:border-primary",
+                "grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border px-1 py-4 text-left text-ink transition-colors group-hover:border-primary",
                 isOpen ? "border-primary" : "border-transparent",
               )}
             >
@@ -57,7 +60,7 @@ export function AccordionBlock({
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="max-w-2xl px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <div className="max-w-2xl px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-ink sm:text-base">
                     {item.content}
                   </div>
                 </motion.div>
