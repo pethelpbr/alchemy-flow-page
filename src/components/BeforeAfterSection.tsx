@@ -168,7 +168,7 @@ export function BeforeAfterSection() {
           </CarouselContent>
         </Carousel>
 
-        <div className="mt-8 flex items-center justify-center gap-3">
+        <div className="mt-3 md:mt-8 flex items-center justify-center gap-3">
             <Button
               type="button"
               variant="ghost"
