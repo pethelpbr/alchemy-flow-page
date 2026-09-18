@@ -304,18 +304,17 @@ function GuaranteeTableDialog({
             </ul>
           </div>
 
-          <div className="mt-4 overflow-hidden rounded-xl bg-primary px-5 py-6 text-primary-foreground">
-            <p className="text-center text-sm font-bold uppercase tracking-wide">
-              Composição qualitativa
+          <div className="mt-5 overflow-hidden rounded-xl bg-primary px-5 py-6 text-primary-foreground">
+            <p className="text-sm font-bold uppercase tracking-wide">
+              Composição qualitativa:
             </p>
-            <p className="mx-auto mt-3 max-w-[52ch] text-center text-[13px] font-semibold leading-relaxed">
+            <p className="mt-3 text-[13px] font-semibold leading-relaxed">
               {qualitativeComposition}
             </p>
+            <p className="mt-4 text-[13px] font-bold uppercase leading-snug tracking-wide">
+              Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
+            </p>
           </div>
-
-          <p className="mt-4 text-center text-[13px] leading-relaxed text-muted-foreground">
-            Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
-          </p>
         </div>
       </DialogContent>
     </Dialog>
