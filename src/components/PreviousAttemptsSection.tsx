@@ -45,14 +45,14 @@ export function PreviousAttemptsSection() {
             </ul>
           </div>
 
-          <figure className="min-h-72 overflow-hidden rounded-xl sm:min-h-96 lg:min-h-0 lg:mt-[3.25rem]">
+          <figure className="relative min-h-72 overflow-hidden rounded-xl sm:min-h-96 lg:min-h-0">
             <img
               src={failedTreatments}
               alt="Cone de recuperação, shampoo, pomada e comprimidos usados nos cuidados de um cachorro"
               loading="lazy"
               width={1200}
               height={960}
-              className="h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </figure>
         </div>
