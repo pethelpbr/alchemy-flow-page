@@ -6,6 +6,7 @@ import { SymptomsSection } from "@/components/SymptomsSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { PreviousAttemptsSection } from "@/components/PreviousAttemptsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
+import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { StorySection } from "@/components/StorySection";
 import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { StatsBanner } from "@/components/StatsBanner";
@@ -61,6 +62,7 @@ function Index() {
         <BenefitsSection />
         <PreviousAttemptsSection />
         <RoutineResultsSection />
+        <BeforeAfterSection />
         <StorySection />
         <FormulaTechSection />
         <StatsBanner />
