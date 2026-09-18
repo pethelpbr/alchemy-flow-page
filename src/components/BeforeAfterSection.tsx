@@ -189,7 +189,6 @@ export function BeforeAfterSection() {
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
-          </div>
         </div>
       </div>
     </section>
