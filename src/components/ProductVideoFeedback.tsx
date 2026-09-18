@@ -209,7 +209,7 @@ function Thumbnails({
 const guaranteeLevels: [string, string][] = [
   ["Cromo (mín.)", "10,0000 mg/kg"],
   ["Iodo (mín.)", "62,0000 mg/kg"],
-  ["Magnésio (mín.)", "41,4000 g/kg"],
+  ["Magnésio (mín.)", "41,9000 g/kg"],
   ["Cobalto (mín.)", "200,0000 mg/kg"],
   ["Zinco (mín.)", "700,0000 mg/kg"],
   ["Ferro (mín.)", "600,0000 mg/kg"],
