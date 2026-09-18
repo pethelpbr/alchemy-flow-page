@@ -255,7 +255,7 @@ const guaranteeLevels: [string, string][] = [
 ];
 
 const qualitativeComposition =
-  "Biotina, Inositol, Cloreto de Colina, Vitamina A, Vitamina D3, Vitamina E, Vitamina B1, Vitamina B2, Vitamina B3, Vitamina B6, Vitamina B12, Vitamina C, Vitamina K3, Iodato de Cálcio, Sulfato de Cobalto Heptahidratado, Cromo Aminoácido Quelato, Sulfato de Condroitina, L-Treonina, L-Glutamina, L-Ácido Glutâmico, Sulfato de Zinco Monohidratado, Flor de Enxofre, Óxido de Magnésio, Aroma de Carne de Panela, Sulfato de Ferro, Sulfato de Manganês, Selenito de Sódio, L-Lisina, DL-Metionina, Triptofano, Fosfato Bicálcico, Taurina, Sulfato de Cobre Pentahidratado, Ômega 3, Extrato de Yucca, Levedura de Cana de Açúcar Inativada e Desidratada, Aditivo Prebiótico e Aditivo Probiótico.";
+  "Levedura de Cana de Açúcar Inativada e Desidratada, Ômega 3 (0,5%), Sulfato de Condroitina (0,5%), Calcário Magnesiano, Flor de Enxofre, Fosfato Bicálcico, Óxido de Magnésio, Cromo Aminoácido Quelato, Iodato de Cálcio, Selenito de Sódio, Sulfato de Cobalto, Sulfato de Cobre, Sulfato de Ferro, Sulfato de Manganês, Sulfato de Zinco Monohidratado, Vitamina A, Vitamina B1, Vitamina B2, Vitamina B6, Vitamina B12, Vitamina C, Vitamina D3, Vitamina E, Vitamina K3, Niacina, Biotina, Inositol, Cloreto de Colina, L-Lisina, DL-Metionina, L-Glutamina, L-Ácido Glutâmico, Taurina, Treonina, Triptofano, Extrato de Yucca, Aroma de Carne de Panela, Aditivo Prebiótico (1%) e Aditivo Probiótico (0,5%).";
 
 function GuaranteeTableDialog({
   open,
