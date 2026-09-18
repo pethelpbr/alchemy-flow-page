@@ -156,7 +156,7 @@ export function ReviewsCarousel() {
                   size="icon"
                   onClick={() => api?.scrollPrev()}
                   aria-label="Anterior"
-                  className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary hover:bg-primary/15 hover:text-primary"
+                  className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </Button>
@@ -166,7 +166,7 @@ export function ReviewsCarousel() {
                   size="icon"
                   onClick={() => api?.scrollNext()}
                   aria-label="Próximo"
-                  className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary hover:bg-primary/15 hover:text-primary"
+                  className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </Button>

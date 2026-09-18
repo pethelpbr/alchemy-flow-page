@@ -40,7 +40,7 @@ export function KitBooster({
                 "relative flex flex-col rounded-xl border bg-card p-2.5 text-left transition-all duration-300",
                 isActive
                   ? "border-primary/70 shadow-card"
-                  : "border-border hover:border-primary hover:bg-primary/10 hover:shadow-card",
+                  : "border-border hover:border-primary",
               )}
             >
               <span
@@ -86,10 +86,10 @@ export function KitBooster({
                     type="button"
                     onClick={() => onToggle(a.id)}
                     className={cn(
-                      "whitespace-nowrap rounded-lg px-2 py-1.5 text-center text-[9px] font-semibold uppercase tracking-wider transition-colors lg:px-3 lg:py-2 lg:text-[13px]",
+                      "whitespace-nowrap rounded-lg border border-transparent px-2 py-1.5 text-center text-[9px] font-semibold uppercase tracking-wider transition-colors lg:px-3 lg:py-2 lg:text-[13px]",
                       isActive
                         ? "bg-primary text-primary-foreground"
-                        : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground",
+                        : "bg-primary/10 text-primary hover:border-primary",
                     )}
                   >
                     {isActive ? "ADICIONADO" : "ADICIONAR"}
