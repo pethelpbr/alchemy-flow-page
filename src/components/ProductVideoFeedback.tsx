@@ -304,14 +304,18 @@ function GuaranteeTableDialog({
             </ul>
           </div>
 
-          <div className="mt-5 overflow-hidden rounded-xl bg-primary px-5 py-6 text-primary-foreground">
-            <p className="text-sm font-bold uppercase tracking-wide">
-              Composição qualitativa:
-            </p>
-            <p className="mt-3 text-[13px] font-semibold leading-relaxed">
-              {qualitativeComposition}
-            </p>
-            <p className="mt-4 text-[13px] font-bold uppercase leading-snug tracking-wide">
+          <div className="mt-5 overflow-hidden rounded-xl border border-border bg-card">
+            <div className="border-b border-border bg-muted px-4 py-3">
+              <p className="text-sm font-bold uppercase tracking-wide text-ink">
+                Composição qualitativa:
+              </p>
+            </div>
+            <div className="px-4 py-4">
+              <p className="text-[13px] leading-relaxed text-muted-foreground">
+                {qualitativeComposition}
+              </p>
+            </div>
+            <p className="border-t border-border bg-muted/40 px-4 py-3 text-[13px] font-bold uppercase leading-snug tracking-wide text-primary">
               Registrado no MAPA &middot; Sem corticoide &middot; A partir de 3 meses
             </p>
           </div>
