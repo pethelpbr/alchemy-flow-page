@@ -115,7 +115,7 @@ function Images() {
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-2xl lg:max-w-md">
+    <div className="compare-shell relative mx-auto">
       <div
         ref={containerRef}
         onPointerDown={handlePointerDown}

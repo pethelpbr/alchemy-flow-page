@@ -165,6 +165,18 @@
   }
 }
 
+/* Before/after comparator on desktop: sized from the viewport height so the
+   whole 4:5 image is visible at once instead of needing a scroll. */
+@utility compare-shell {
+  width: 100%;
+  max-width: 42rem;
+  @media (min-width: 1024px) {
+    width: calc((100vh - 11rem) * 0.8);
+    max-width: 28rem;
+    min-width: 12rem;
+  }
+}
+
 /* Fluid lead text: 16px on phones, scales down on narrow desktops so the two
    forced lines keep fitting on a single line each. */
 @utility text-lead-fluid {
