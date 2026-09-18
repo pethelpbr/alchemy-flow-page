@@ -149,8 +149,10 @@ export function BeforeAfterSection() {
               </p>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>
             </article>
+            </CarouselItem>
           ))}
-        </div>
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
