@@ -69,13 +69,16 @@ export function FinalOffer({
               <article
                 key={variant.id}
                 onClick={() => onSelect(variant)}
+                aria-selected={isActive}
                 className={cn(
-                  "relative flex cursor-pointer flex-col rounded-lg border bg-card px-4 pb-4 pt-7 text-center shadow-card sm:px-5 sm:pb-5",
-                  isActive ? "border-primary" : "border-border",
+                  "relative flex cursor-pointer flex-col rounded-lg border px-4 pb-4 pt-7 text-center shadow-card transition-colors duration-300 sm:px-5 sm:pb-5",
+                  isActive
+                    ? "border-primary bg-primary/[0.07]"
+                    : "border-border bg-card hover:border-primary",
                 )}
               >
                 {isBestChoice && (
-                  <span className="absolute left-12 top-0 -translate-y-full rounded-t-lg bg-primary px-6 py-2.5 text-xs font-bold uppercase text-primary-foreground sm:text-sm">
+                  <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-t-lg bg-primary px-6 py-2.5 text-xs font-bold uppercase text-primary-foreground sm:text-sm">
                     Melhor escolha
                   </span>
                 )}
@@ -110,7 +113,14 @@ export function FinalOffer({
                 <div className="mt-4 min-h-5 text-sm text-muted-foreground line-through">
                   {variant.compareAt ? brl(variant.compareAt) : null}
                 </div>
-                <p className="mt-1 text-3xl font-bold leading-none text-primary sm:text-4xl">{brl(displayedTotal)}</p>
+                <p
+                  className={cn(
+                    "mt-1 text-3xl font-bold leading-none transition-colors duration-300 sm:text-4xl",
+                    isActive ? "text-primary" : "text-muted-foreground",
+                  )}
+                >
+                  {brl(displayedTotal)}
+                </p>
                 <p className="mt-1 text-sm text-muted-foreground">
                   ou {variant.installments}x de {brl(variant.installmentValue ?? displayedTotal / variant.installments)}
                 </p>
