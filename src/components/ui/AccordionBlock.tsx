@@ -29,12 +29,15 @@ export function AccordionBlock({
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.title} className="border-b border-border last:border-b-0">
+          <div
+            key={item.title}
+            className="rounded-lg border border-transparent border-b-border transition-colors hover:border-primary last:border-b-transparent last:hover:border-primary"
+          >
             <button
               type="button"
               aria-expanded={isOpen}
               onClick={() => onOpenChange(isOpen ? null : index)}
-              className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-lg border border-transparent px-1 py-4 text-left text-ink transition-colors hover:border-primary"
+              className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-1 py-4 text-left text-ink"
             >
               <span className="min-w-0 text-base font-semibold">{item.title}</span>
               <ChevronDown
