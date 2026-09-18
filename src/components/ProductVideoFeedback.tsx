@@ -268,9 +268,6 @@ function GuaranteeTableDialog({
           <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">
             Informação nutricional
           </DialogTitle>
-          <DialogDescription className="mt-1 text-sm text-muted-foreground">
-            Níveis de garantia por kg do produto
-          </DialogDescription>
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
