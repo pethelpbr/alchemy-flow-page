@@ -73,7 +73,7 @@ export function FinalOffer({
                 className={cn(
                   "relative flex cursor-pointer flex-col rounded-xl border px-4 pb-4 pt-7 text-center transition-all duration-300 sm:px-5 sm:pb-5",
                   isActive
-                    ? "border-primary bg-primary/[0.07] shadow-card"
+                    ? "border-primary bg-[color-mix(in_oklab,var(--primary)_7%,var(--card))] shadow-card"
                     : "border-border bg-card hover:border-primary",
                 )}
               >
@@ -131,7 +131,7 @@ export function FinalOffer({
 
                 <BuyButton
                   size="md"
-                  className="mx-auto mt-auto w-full max-w-52 rounded-full px-4 text-sm font-bold uppercase tracking-normal"
+                  className="mx-auto mt-auto w-full max-w-64 rounded-full px-6 text-sm font-bold uppercase tracking-normal"
                   onClick={(event) => {
                     event.stopPropagation();
                     onSelect(variant);
