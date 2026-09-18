@@ -366,7 +366,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
     <div>
       <div>
         <h3 className="text-base font-semibold text-ink">Relatos de tutores que já passaram por isso</h3>
-        <Thumbnails className="mt-4 grid-cols-3" onSelect={selectFeedback} />
+        <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} />
         <IngredientsButton />
       </div>
 
