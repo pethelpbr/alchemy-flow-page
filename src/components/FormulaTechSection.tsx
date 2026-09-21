@@ -43,7 +43,7 @@ export function FormulaTechSection() {
                   className="relative flex items-baseline justify-center gap-14 md:gap-24 py-4"
                 >
                   <span className="text-[16px] font-bold text-ink">{item.name}</span>
-                  <span className="font-display text-[28px] font-bold leading-none text-primary">
+                  <span className="w-10 shrink-0 text-center font-display text-[28px] font-bold leading-none text-primary">
                     {item.amount}
                   </span>
                   <span
