@@ -64,8 +64,8 @@ function Index() {
         <RoutineResultsSection />
         <BeforeAfterSection />
         <StatsBanner />
-        <StorySection />
         <FormulaTechSection />
+        <StorySection />
         <ComparisonSection />
         <HowToUse />
         <ActivesCarousel />
