@@ -49,7 +49,7 @@ export function SymptomsSection() {
   return (
     <section className="bg-background py-10 md:py-12">
       <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center md:mx-0 md:text-left">
+        <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
             Você vê o seu pet <span>sofrendo</span> com algum dos sintomas abaixo?
           </h2>
