@@ -73,10 +73,10 @@ function RatingBreakdown() {
   return (
     <div className="mt-12 grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start sm:mt-16">
       <div className="flex items-start gap-4">
-        <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,9</span>
+        <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,8</span>
         <div className="pt-1">
           <Stars size={24} />
-          <p className="mt-1 text-base text-muted-foreground">{totalReviews.toLocaleString("pt-BR")} avaliações</p>
+          <p className="mt-1 text-base text-muted-foreground">+743 avaliações</p>
         </div>
       </div>
 
