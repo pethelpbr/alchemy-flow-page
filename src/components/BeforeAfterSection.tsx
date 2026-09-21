@@ -96,14 +96,14 @@ export function BeforeAfterSection() {
   return (
     <section className="bg-background py-10 md:py-12" aria-labelledby="before-after-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="w-full text-center">
           <h2
             id="before-after-title"
             className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl"
           >
             A pele do seu pet pode voltar a ser pele
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg md:mx-0">
+          <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
             Fotos que os próprios tutores mandaram. A etiqueta escura no meio mostra quanto tempo
             passou entre uma e outra.
           </p>
