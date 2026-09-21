@@ -29,7 +29,7 @@ export function ComparisonSection() {
 
       <div className="container-x relative section">
         <Reveal>
-          <h2 className="mx-auto max-w-2xl text-center font-display text-4xl leading-tight text-background sm:text-5xl md:mx-0 md:text-left">
+          <h2 className="mx-auto max-w-2xl text-center font-display text-4xl leading-tight text-background sm:text-5xl">
             Mais completa que uma fórmula comum
           </h2>
         </Reveal>
