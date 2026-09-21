@@ -42,8 +42,8 @@ export function FormulaTechSection() {
                   key={item.name}
                   className="relative grid grid-cols-[1fr_40px_1fr] items-center gap-0 py-4"
                 >
-                  <span className="translate-x-8 justify-self-center text-center text-[16px] font-bold text-ink">{item.name}</span>
-                  <span className="w-10 shrink-0 translate-x-8 text-center font-display text-[28px] font-bold leading-none text-primary">
+                  <span className="translate-x-16 justify-self-center text-center text-[16px] font-bold text-ink">{item.name}</span>
+                  <span className="w-10 shrink-0 translate-x-16 text-center font-display text-[28px] font-bold leading-none text-primary">
                     {item.amount}
                   </span>
                   <span
