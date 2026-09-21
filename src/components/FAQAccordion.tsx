@@ -4,28 +4,56 @@ import { AccordionBlock } from "@/components/ui/AccordionBlock";
 
 const faqs = [
   {
-    q: "Como usar?",
-    a: "Dissolva um dosador raso em 200 ml de água gelada, misture por 10 segundos e consuma. Pode ser tomado com o estômago vazio ou junto do café da manhã.",
+    q: "Meu pet já faz tratamento com remédio. Posso dar o NutraHelp junto?",
+    a: "Sim. O NutraHelp é um suplemento alimentar e entra no cuidado diário junto com o que o veterinário indicou. Se o seu pet tem alguma condição específica, converse com o veterinário que acompanha o caso.",
   },
   {
-    q: "Qual quantidade devo tomar?",
-    a: "Uma dose por dia é suficiente. O dosador vem dentro do pote e já corresponde à porção diária indicada no rótulo.",
+    q: "Serve para gatos?",
+    a: "Sim. É indicado para cães e gatos, de todas as raças e portes, a partir de 3 meses de idade.",
+  },
+  {
+    q: "Em quanto tempo eu vejo resultado?",
+    a: "Os primeiros sinais costumam aparecer entre a segunda e a terceira semana, com menos coceira e menos lambedura. A pele muda mais visivelmente ao longo do primeiro mês, e o pelo volta a preencher as falhas a partir do segundo. Cada pet responde no seu tempo.",
+  },
+  {
+    q: "Serve só para coceira ou também para queda de pelo?",
+    a: "Para os dois. A queda de pelo e as falhas normalmente andam junto com a irritação da pele, e as duas frentes da fórmula trabalham nisso — a flora intestinal e os nutrientes que formam o fio.",
+  },
+  {
+    q: "E se ele não gostar do sabor?",
+    a: "O sabor é de carne e a maioria aceita de primeira, misturado na ração. Se o seu pet for muito seletivo, comece com meia dose por alguns dias e aumente aos poucos. Se ainda assim não aceitar, a garantia de 60 dias cobre.",
+  },
+  {
+    q: "Tem corticoide?",
+    a: "Não. É um suplemento alimentar, sem corticoide e sem princípio ativo medicamentoso.",
+  },
+  {
+    q: "Tem efeito colateral?",
+    a: "Não há contraindicações conhecidas. Por ser um suplemento alimentar, pode ser usado de forma contínua. Em caso de condição específica, consulte o veterinário.",
+  },
+  {
+    q: "Pode dar todo dia, sem parar?",
+    a: "Sim, e é assim que funciona melhor. Pele saudável não é cuidado pontual — é cuidado diário.",
+  },
+  {
+    q: "Posso dar para filhote? E para cadela gestante?",
+    a: "Sim, a partir de 3 meses. Cadelas gestantes e lactantes também podem, preferencialmente com acompanhamento veterinário.",
+  },
+  {
+    q: "Engorda?",
+    a: "Não. A dose diária é pequena e entra junto da alimentação normal do seu pet.",
+  },
+  {
+    q: "O produto tem registro?",
+    a: "Sim. É produzido em estabelecimento registrado no MAPA, seguindo boas práticas de fabricação.",
   },
   {
     q: "Quanto tempo dura um pote?",
-    a: "Cada pote tem 360 g, o equivalente a 30 doses — um mês de ritual com uso diário.",
+    a: "Depende do peso do seu pet, porque a dose é proporcional. Na dúvida, fale com a gente no WhatsApp que calculamos para o seu caso.",
   },
   {
-    q: "Quem pode consumir?",
-    a: "Adultos saudáveis. Gestantes, lactantes e pessoas em tratamento médico devem consultar um profissional de saúde antes de iniciar o uso.",
-  },
-  {
-    q: "Como funciona a entrega?",
-    a: "Enviamos em até 1 dia útil após a confirmação do pagamento. O prazo médio é de 2 a 5 dias úteis nas capitais e até 9 dias para demais regiões, com código de rastreio.",
-  },
-  {
-    q: "Existe garantia?",
-    a: "Sim. Você tem 30 dias para testar. Se não fizer sentido para a sua rotina, devolvemos o valor integral da compra.",
+    q: "Como funciona a garantia?",
+    a: "Você tem 60 dias de uso contínuo, na dose indicada para o peso. Se não notar diferença, fala com a gente no WhatsApp e devolvemos o valor.",
   },
 ];
 
