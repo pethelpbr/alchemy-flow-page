@@ -52,7 +52,7 @@ export function VeterinaryAuthoritySection() {
             </CarouselContent>
           </Carousel>
 
-          <div className="mt-3 flex items-center justify-between gap-3 md:mt-8 md:justify-center">
+          <div className="mt-3 flex items-center justify-between gap-3 md:mt-8">
             <span className="text-[13px] font-medium tracking-[0.08em] text-foreground">{String(current).padStart(2, '0')} / 03</span>
             <div className="flex gap-3">
               <Button size="icon" variant="ghost" onClick={() => api?.scrollPrev()} className="h-11 w-11 rounded-full border"><ChevronLeft /></Button>
