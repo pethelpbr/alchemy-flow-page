@@ -29,9 +29,9 @@ export function VeterinaryAuthoritySection() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible">
           {cards.map((card, index) => (
-            <article key={index} className="overflow-hidden rounded-2xl border border-border bg-white">
+            <article key={index} className="w-[85vw] shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-white md:w-auto">
               <div className="flex h-52 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-foreground">
                 Foto de acompanhamento veterinário
               </div>
