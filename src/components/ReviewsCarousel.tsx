@@ -137,43 +137,14 @@ export function ReviewsCarousel() {
     <section id="avaliacoes" className="section scroll-mt-20 bg-sand/60">
       <div className="container-x">
         <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div className="w-full text-center md:w-auto md:text-left">
-              <p className="eyebrow">Avaliações</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                Experiências reais de quem já usa
-              </h2>
-            </div>
-
-            <div className="flex w-full items-center justify-between gap-4 pb-1 md:w-auto md:justify-end">
-              <p className="text-xs text-muted-foreground" aria-live="polite">
-                {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
-              </p>
-              <div className="flex gap-3">
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => api?.scrollPrev()}
-                  aria-label="Anterior"
-                  className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => api?.scrollNext()}
-                  aria-label="Próximo"
-                  className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
+          <div className="text-center md:text-left">
+            <p className="eyebrow">Avaliações</p>
+            <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+              Experiências reais de quem já usa
+            </h2>
           </div>
         </Reveal>
+
       </div>
 
       <Carousel
@@ -215,13 +186,39 @@ export function ReviewsCarousel() {
       </Carousel>
 
       <div className="container-x">
-
-
+        <div className="mt-6 flex items-center justify-between gap-4 md:mt-8">
+          <p className="text-xs text-muted-foreground" aria-live="polite">
+            {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
+          </p>
+          <div className="flex gap-3">
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => api?.scrollPrev()}
+              aria-label="Anterior"
+              className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => api?.scrollNext()}
+              aria-label="Próximo"
+              className="h-11 w-11 rounded-full border border-border text-ink transition-colors hover:border-primary"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
+        </div>
 
         <Reveal>
           <RatingBreakdown />
         </Reveal>
       </div>
+
     </section>
   );
 }
