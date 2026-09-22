@@ -19,7 +19,9 @@ export function VeterinaryAuthoritySection() {
     const update = () => setCurrent(api.selectedScrollSnap() + 1);
     update();
     api.on("select", update);
-    return () => api.off("select", update);
+    return () => {
+      api.off("select", update);
+    };
   }, [api]);
 
   const Card = ({ quote }: { quote: string }) => (
@@ -33,7 +35,7 @@ export function VeterinaryAuthoritySection() {
   return (
     <section className="bg-background px-6 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center font-display text-3xl leading-tight text-foreground sm:text-4xl">Desenvolvido com quem entende de saúde pet</h2>
+        <h2 className="mx-auto max-w-2xl text-center font-display text-4xl leading-tight text-foreground sm:text-5xl">Desenvolvido com quem entende de saúde pet</h2>
         <div className="mt-10 hidden gap-5 lg:grid lg:grid-cols-3">
           {cards.map((quote,index)=><Card key={index} quote={quote}/>) }
         </div>
