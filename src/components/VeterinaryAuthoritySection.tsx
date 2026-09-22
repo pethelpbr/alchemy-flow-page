@@ -23,9 +23,9 @@ export function VeterinaryAuthoritySection() {
   }, [api]);
 
   const Card = ({ quote }: { quote: string }) => (
-    <article className="h-[510px] rounded-2xl border border-border bg-white p-6">
-      <div className="h-52 rounded-xl bg-secondary flex items-center justify-center text-sm text-muted-text">Foto de acompanhamento veterinário</div>
-      <p className="mt-6 font-display text-xl">“{quote}”</p>
+    <article className="h-full min-h-[510px] rounded-2xl border border-border bg-white p-6 flex flex-col">
+      <div className="h-52 shrink-0 rounded-xl bg-secondary flex items-center justify-center text-sm text-muted-text">Foto de acompanhamento veterinário</div>
+      <p className="mt-6 flex-1 font-display text-xl">“{quote}”</p>
       <div className="mt-6 border-t pt-4">Dr(a). [Nome]<br />CRMV-[UF] [número]</div>
     </article>
   );
