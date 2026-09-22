@@ -13,23 +13,6 @@ export function ProductSelector({
 
   return (
   <div className="flex flex-col gap-2.5">
-
-    <div className="mb-8 text-center">
-      <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary">
-        ESCOLHA O SEU KIT
-      </p>
-
-      <h2 className="mt-3 font-display text-4xl leading-tight text-ink">
-        Hoje à noite ele vai se coçar de novo.
-        <br />
-        Ou não.
-      </h2>
-
-      <p className="mt-3 text-sm text-muted-foreground">
-        A diferença entre uma noite e outra são trinta segundos por dia.
-      </p>
-    </div>
-
     {orderedVariants.map((v) => {
         const { total } = variantTotals(v);
         const isActive = v.id === selected.id;
