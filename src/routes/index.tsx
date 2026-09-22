@@ -10,11 +10,11 @@ import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { StorySection } from "@/components/StorySection";
 import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { StatsBanner } from "@/components/StatsBanner";
-
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
+import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
 import { FinalOffer } from "@/components/FinalOffer";
 import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
@@ -23,41 +23,22 @@ import { Footer } from "@/components/Footer";
 import { useCart } from "@/lib/use-cart";
 
 const title = "Nutraflow Daily Greens | Suplemento diário premium";
-const description =
-  "Fórmula premium de dose única: energia e equilíbrio em um ritual de 30 segundos. 30 dias de garantia, envio rápido e entrega para todo o Brasil.";
+const description = "Fórmula premium de dose única: energia e equilíbrio em um ritual de 30 segundos. 30 dias de garantia, envio rápido e entrega para todo o Brasil.";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "product" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => ({ meta: [{ title }, { name: "description", content: description }] }),
   component: Index,
 });
 
 function Index() {
   const { selected, setSelected, checkout, addonIds, toggleAddon, addonsExtra } = useCart();
-
-  const goToOffer = () => {
-    document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+  const goToOffer = () => document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   return (
     <div className="min-h-screen bg-background">
       <Header onBuy={goToOffer} />
       <main>
-        <HeroSection
-          selected={selected}
-          onSelect={setSelected}
-          onBuy={checkout}
-          addonIds={addonIds}
-          onToggleAddon={toggleAddon}
-        />
+        <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <SymptomsSection />
         <BenefitsSection />
         <PreviousAttemptsSection />
@@ -69,14 +50,9 @@ function Index() {
         <ComparisonSection />
         <HowToUse />
         <ActivesCarousel />
+        <VeterinaryAuthoritySection />
         <ReviewsCarousel />
-        <FinalOffer
-          selected={selected}
-          onSelect={setSelected}
-          onBuy={checkout}
-          addonIds={addonIds}
-          onToggleAddon={toggleAddon}
-        />
+        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <TrustBadgesStrip />
         <FAQAccordion />
       </main>
