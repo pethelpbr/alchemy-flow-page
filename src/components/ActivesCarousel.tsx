@@ -94,7 +94,7 @@ export function ActivesCarousel() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-foreground/75" />
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
-        <div className="mx-auto max-w-2xl px-4 text-center sm:px-8 md:mx-0 md:text-left">
+        <div className="mx-auto max-w-2xl text-center md:mx-0 md:text-left">
           <h2 className="font-display text-4xl leading-tight text-primary-foreground sm:text-5xl">
             ATIVOS QUE VIRAM CUIDADO
           </h2>
