@@ -19,7 +19,9 @@ export function VeterinaryAuthoritySection() {
     const update = () => setCurrent(api.selectedScrollSnap() + 1);
     update();
     api.on("select", update);
-    return () => api.off("select", update);
+    return () => {
+      api.off("select", update);
+    };
   }, [api]);
 
   const Card = ({ quote }: { quote: string }) => (
