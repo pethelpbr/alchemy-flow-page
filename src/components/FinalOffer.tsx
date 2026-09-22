@@ -58,6 +58,17 @@ export function FinalOffer({
   return (
     <section className="section bg-background">
       <div id="comprar" className="container-x scroll-mt-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase text-primary">Escolha o seu kit</p>
+          <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+            Hoje à noite ele vai se coçar de novo.
+            <br />
+            Ou não.
+          </h2>
+          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+            A diferença entre uma noite e outra são trinta segundos por dia.
+          </p>
+        </div>
         <div className="mx-auto grid max-w-5xl gap-4 pt-8 md:grid-cols-3 md:items-stretch">
           {orderedVariants.map((variant) => {
             const isActive = selected.id === variant.id;
