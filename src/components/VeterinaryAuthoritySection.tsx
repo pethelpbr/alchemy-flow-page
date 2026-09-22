@@ -25,7 +25,7 @@ export function VeterinaryAuthoritySection() {
   return (
     <section className="bg-background px-6 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">Desenvolvido com quem entende de saúde pet</h2>
+        <h2 className="font-display text-3xl leading-tight text-foreground sm:text-4xl">Desenvolvido com quem entende de saúde pet</h2>
         <Carousel setApi={setApi} opts={{ align: "start", dragFree: true }} className="mt-10 cursor-grab select-none active:cursor-grabbing">
           <CarouselContent>
             {cards.map((quote, index) => (
