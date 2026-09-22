@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { CarouselApi } from "@/components/ui/carousel";
 import {
@@ -90,6 +90,25 @@ function Tag({ children }: { children: string }) {
 
 export function BeforeAfterSection() {
   const [api, setApi] = useState<CarouselApi>();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const updateSelected = useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setSelectedIndex(carouselApi.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+    updateSelected(api);
+    api.on("select", updateSelected);
+    api.on("reInit", updateSelected);
+
+    return () => {
+      api.off("select", updateSelected);
+      api.off("reInit", updateSelected);
+    };
+  }, [api, updateSelected]);
+
 
 
 
@@ -168,28 +187,34 @@ export function BeforeAfterSection() {
           </CarouselContent>
         </Carousel>
 
-        <div className="mt-3 md:mt-8 flex items-center justify-center gap-3">
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={() => api?.scrollPrev()}
-              aria-label="Resultado anterior"
-              className="h-11 w-11 rounded-full border border-border text-foreground transition-colors hover:border-primary"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={() => api?.scrollNext()}
-              aria-label="Próximo resultado"
-              className="h-11 w-11 rounded-full border border-border text-foreground transition-colors hover:border-primary"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
+        <div className="mt-3 md:mt-8 flex items-center justify-between gap-3">
+            <p className="text-[13px] font-medium tracking-[0.08em] text-foreground" aria-live="polite">
+              {String(selectedIndex + 1).padStart(2, "0")} / {String(cases.length).padStart(2, "0")}
+            </p>
+            <div className="flex gap-3">
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => api?.scrollPrev()}
+                aria-label="Resultado anterior"
+                className="h-11 w-11 rounded-full border border-border text-foreground transition-colors hover:border-primary"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={() => api?.scrollNext()}
+                aria-label="Próximo resultado"
+                className="h-11 w-11 rounded-full border border-border text-foreground transition-colors hover:border-primary"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            </div>
         </div>
+
       </div>
     </section>
   );

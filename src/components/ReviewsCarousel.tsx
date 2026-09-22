@@ -145,7 +145,7 @@ export function ReviewsCarousel() {
               </h2>
             </div>
 
-            <div className="flex items-center gap-4 pb-1">
+            <div className="flex w-full items-center justify-between gap-4 pb-1 md:w-auto md:justify-end">
               <p className="text-xs text-muted-foreground" aria-live="polite">
                 {String(selectedIndex + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
               </p>
