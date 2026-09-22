@@ -31,7 +31,7 @@ export function VeterinaryAuthoritySection() {
             {cards.map((quote, index) => (
               <CarouselItem key={index} className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]">
                 <article className="rounded-2xl border border-border bg-white p-6">
-                  <div className="h-52 rounded-xl bg-secondary flex items-center justify-center text-sm text-muted-foreground">Foto de acompanhamento veterinário</div>
+                  <div className="h-52 rounded-xl bg-secondary flex items-center justify-center text-sm text-muted-text">Foto de acompanhamento veterinário</div>
                   <p className="mt-6 font-display text-xl">“{quote}”</p>
                   <div className="mt-6 border-t pt-4">Dr(a). [Nome]<br />CRMV-[UF] [número]</div>
                 </article>
@@ -41,7 +41,7 @@ export function VeterinaryAuthoritySection() {
         </Carousel>
 
         <div className="mt-3 flex items-center justify-between gap-3 md:mt-8 md:justify-center">
-          <span className="text-base font-semibold tracking-tight text-foreground">{current}/3</span>
+          <span className="text-[13px] font-medium tracking-[0.08em] text-foreground">{String(current).padStart(2, '0')} / 03</span>
           <div className="flex gap-3">
             <Button size="icon" variant="ghost" onClick={() => api?.scrollPrev()} className="h-11 w-11 rounded-full border"><ChevronLeft /></Button>
             <Button size="icon" variant="ghost" onClick={() => api?.scrollNext()} className="h-11 w-11 rounded-full border"><ChevronRight /></Button>
