@@ -43,7 +43,7 @@ export function VeterinaryAuthoritySection() {
           <Carousel setApi={setApi} opts={{ align:"start", dragFree:true }} className="mt-10 cursor-grab select-none active:cursor-grabbing">
             <CarouselContent>
               {cards.map((quote,index)=>(
-                <CarouselItem key={index} className="basis-[92%] pl-5 sm:basis-[54%]"><Card quote={quote}/></CarouselItem>
+                <CarouselItem key={index} className="basis-[78%] pl-5 sm:basis-[54%]"><Card quote={quote}/></CarouselItem>
               ))}
             </CarouselContent>
           </Carousel>
