@@ -58,7 +58,7 @@ export function FinalOffer({
   return (
     <section className="section bg-background">
       <div id="comprar" className="container-x scroll-mt-28">
-        <div className="mx-auto max-w-3xl text-center md:max-w-5xl">
+        <div className="mx-auto max-w-3xl pb-2 text-center md:max-w-5xl">
           <p className="text-xs font-bold uppercase text-primary">Escolha o seu kit</p>
           <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-foreground lg:text-5xl">
             <span className="md:whitespace-nowrap">Hoje à noite ele vai se coçar de novo.</span>
@@ -69,7 +69,7 @@ export function FinalOffer({
             A diferença entre uma noite e outra são trinta segundos por dia.
           </p>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-4 pt-8 md:grid-cols-3 md:items-stretch">
+        <div className="mx-auto grid max-w-5xl gap-4 pt-12 md:grid-cols-3 md:items-stretch">
           {orderedVariants.map((variant) => {
             const isActive = selected.id === variant.id;
             const isBestChoice = variant.id === "3-un-brinde";
