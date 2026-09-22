@@ -1,3 +1,9 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+
 export function VeterinaryAuthoritySection() {
   const cards = [
     {
@@ -29,24 +35,35 @@ export function VeterinaryAuthoritySection() {
           </p>
         </div>
 
-        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible">
-          {cards.map((card, index) => (
-            <article key={index} className="w-[85vw] shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-white md:w-auto">
-              <div className="flex h-52 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-foreground">
-                Foto de acompanhamento veterinário
-              </div>
-              <div className="p-6">
-                <p className="font-display text-xl leading-relaxed text-foreground">
-                  “{card.quote}”
-                </p>
-                <div className="mt-6 border-t border-border pt-4">
-                  <p className="font-semibold text-foreground">Dr(a). [Nome]</p>
-                  <p className="text-sm text-muted-foreground">CRMV-[UF] [número]</p>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        <Carousel
+          opts={{ align: "start", dragFree: true }}
+          aria-label="Profissionais que acompanham a fórmula"
+          className="mt-10 cursor-grab select-none active:cursor-grabbing"
+        >
+          <CarouselContent className="-ml-5 touch-pan-y">
+            {cards.map((card, index) => (
+              <CarouselItem
+                key={index}
+                className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]"
+              >
+                <article className="overflow-hidden rounded-2xl border border-border bg-white">
+                  <div className="flex h-52 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-foreground">
+                    Foto de acompanhamento veterinário
+                  </div>
+                  <div className="p-6">
+                    <p className="font-display text-xl leading-relaxed text-foreground">
+                      “{card.quote}”
+                    </p>
+                    <div className="mt-6 border-t border-border pt-4">
+                      <p className="font-semibold text-foreground">Dr(a). [Nome]</p>
+                      <p className="text-sm text-muted-foreground">CRMV-[UF] [número]</p>
+                    </div>
+                  </div>
+                </article>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
 
         <p className="mt-8 border-t border-border pt-6 text-sm text-muted-foreground">
           NutraHelp é um suplemento alimentar produzido em estabelecimento registrado no MAPA.
