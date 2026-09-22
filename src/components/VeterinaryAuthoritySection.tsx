@@ -33,7 +33,7 @@ export function VeterinaryAuthoritySection() {
   return (
     <section className="bg-background px-6 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-display text-3xl leading-tight text-foreground sm:text-4xl">Desenvolvido com quem entende de saúde pet</h2>
+        <h2 className="text-center font-display text-3xl leading-tight text-foreground sm:text-4xl">Desenvolvido com quem entende de saúde pet</h2>
         <div className="mt-10 hidden gap-5 lg:grid lg:grid-cols-3">
           {cards.map((quote,index)=><Card key={index} quote={quote}/>) }
         </div>
