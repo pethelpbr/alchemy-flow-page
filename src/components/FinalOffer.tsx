@@ -58,10 +58,10 @@ export function FinalOffer({
   return (
     <section className="section bg-background">
       <div id="comprar" className="container-x scroll-mt-28">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center md:max-w-5xl">
           <p className="text-xs font-bold uppercase text-primary">Escolha o seu kit</p>
-          <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl">
-            Hoje à noite ele vai se coçar de novo.
+          <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-foreground lg:text-5xl">
+            <span className="md:whitespace-nowrap">Hoje à noite ele vai se coçar de novo.</span>
             <br />
             Ou não.
           </h2>
