@@ -17,33 +17,31 @@ const stats = [
 
 export function StatsBanner() {
   return (
-    <section className="bg-primary py-4 md:py-5">
+    <section className="bg-background px-4 py-4 md:px-8 md:py-5">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full px-8 py-3 md:px-12 md:py-4"
+        className="mx-auto w-full max-w-7xl rounded-2xl bg-primary px-6 py-6 md:px-9 md:py-7"
       >
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3 md:gap-0">
-          {stats.map((stat, index) => (
+        <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+          {stats.map((stat) => (
             <div
               key={stat.value}
-              className={`flex items-center justify-center gap-4 px-2 md:px-10 ${
-                index < stats.length - 1 ? "md:border-r md:border-primary-foreground/20" : ""
-              }`}
+              className="px-2 md:px-0"
             >
-              <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">
+              <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground md:text-6xl">
                 {stat.value}
               </span>
-              <p className="max-w-[220px] text-base leading-snug text-primary-foreground/90">
+              <p className="mt-1 max-w-sm text-base leading-snug text-primary-foreground/90">
                 {stat.text}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="mx-auto mt-6 max-w-5xl text-center text-xs leading-relaxed text-primary-foreground/80">
+        <p className="mt-5 text-xs leading-relaxed text-primary-foreground/80">
           Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
         </p>
       </motion.div>
