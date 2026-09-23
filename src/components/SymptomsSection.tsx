@@ -22,8 +22,8 @@ const symptoms = [
   {
     img: sintoma3,
     alt: "Golden retriever com falhas de pelo deitado no tapete",
-    title: "Está ficando com falhas no pelo",
-    text: "Começa com uma falha pequena e vira um buraco. Toda semana parece um pouco maior.",
+    title: "Está com queda de pelos",
+    text: "A escova enche em um minuto. O pelo fica opaco, quebradiço e ralo até abrir falha.",
   },
   {
     img: sintoma4,
