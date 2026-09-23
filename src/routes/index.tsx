@@ -4,7 +4,6 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { SymptomsSection } from "@/components/SymptomsSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
-import { HealthBenefitsSection } from "@/components/HealthBenefitsSection";
 import { PreviousAttemptsSection } from "@/components/PreviousAttemptsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
@@ -12,6 +11,7 @@ import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
+import { HealthBenefitsSection } from "@/components/HealthBenefitsSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
@@ -41,7 +41,6 @@ function Index() {
         <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <SymptomsSection />
         <BenefitsSection />
-        <HealthBenefitsSection />
         <PreviousAttemptsSection />
         <RoutineResultsSection />
         <BeforeAfterSection />
@@ -49,6 +48,7 @@ function Index() {
         <FormulaTechSection />
         <HowToUse />
         <ActivesCarousel />
+        <HealthBenefitsSection />
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
         <ReviewsCarousel />
