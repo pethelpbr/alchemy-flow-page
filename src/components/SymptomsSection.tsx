@@ -34,8 +34,8 @@ const symptoms = [
   {
     img: sintoma5,
     alt: "Golden retriever coçando a barriga vermelha",
-    title: "A barriga vive vermelha",
-    text: "A pele da barriga e da virilha fica rosada e quente, às vezes com pontinhos escuros.",
+    title: "Sofre com irritações na pele",
+    text: "Especialmente na barriga, na virilha e entre os dedos: a pele fica vermelha e quente.",
   },
   {
     img: sintoma6,
