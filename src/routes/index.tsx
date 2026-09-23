@@ -9,7 +9,6 @@ import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { StatsBanner } from "@/components/StatsBanner";
-import { ComparisonSection } from "@/components/ComparisonSection";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
@@ -45,7 +44,6 @@ function Index() {
         <BeforeAfterSection />
         <StatsBanner />
         <FormulaTechSection />
-        <ComparisonSection />
         <HowToUse />
         <ActivesCarousel />
         <VeterinaryAuthoritySection />
