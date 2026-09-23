@@ -21,7 +21,7 @@ export function StatsBanner() {
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 0, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="rounded-3xl bg-primary px-8 py-8 md:px-10 md:py-10"
