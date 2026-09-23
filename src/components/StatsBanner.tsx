@@ -43,11 +43,9 @@ export function StatsBanner() {
           ))}
         </div>
 
-        <div className="mx-auto mt-8 max-w-7xl border-t border-primary-foreground/20 pt-4">
-          <p className="text-xs leading-relaxed text-primary-foreground/80">
-            Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
-          </p>
-        </div>
+        <p className="mx-auto mt-6 max-w-7xl text-xs leading-relaxed text-primary-foreground/80">
+          Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
+        </p>
       </motion.div>
     </section>
   );
