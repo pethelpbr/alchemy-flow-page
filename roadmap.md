@@ -20,3 +20,4 @@
 - [x] Titulos das secoes: centralizar somente no mobile (abaixo de 768px); desktop volta a ficar alinhado a esquerda
 - [x] Resultado na rotina: título vira "O que esperar" / "Em quanto tempo vou ver os resultados?"
 - [x] Resultado na rotina: primeiro bloco vira "Primeiras semanas" / "O alívio começa" com o novo texto
+- [x] Resultado na rotina: segundo bloco vira "Depois do 1º mês" / "A pele se acalma" com o novo texto

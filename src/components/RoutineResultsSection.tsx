@@ -11,9 +11,9 @@ const timeline = [
     text: "Ele se coça e se lambe menos, e as orelhas ficam menos irritadas. São os primeiros sinais de que o organismo está se equilibrando.",
   },
   {
-    badge: "Dias 8 a 15",
-    label: "Os primeiros sinais",
-    text: "Menos pata batendo no chão de madrugada. Menos lambida na mesma pata. É pequeno, mas é o primeiro sinal de que está funcionando.",
+    badge: "Depois do 1º mês",
+    label: "A pele se acalma",
+    text: "A vermelhidão da pele diminui, as feridas começam a cicatrizar e o cheiro forte do corpo vai sumindo.",
   },
   {
     badge: "Dias 16 a 30",
