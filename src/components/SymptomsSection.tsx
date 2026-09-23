@@ -40,8 +40,8 @@ const symptoms = [
   {
     img: sintoma6,
     alt: "Shih tzu se esfregando no sofá",
-    title: "Se esfrega no sofá e no tapete",
-    text: "Esfrega o corpo, o focinho e o bumbum em tudo que aparece pela frente para aliviar.",
+    title: "Vive se esfregando",
+    text: "Esfrega o corpo, o focinho ou o bumbum em qualquer coisa que apareça pela frente para aliviar.",
   },
 ];
 
