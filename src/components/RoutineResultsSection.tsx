@@ -6,9 +6,9 @@ import afterPhoto from "@/assets/cachorro-top.png.asset.json";
 
 const timeline = [
   {
-    badge: "Dias 1 a 7",
-    label: "O começo é silencioso",
-    text: "Você mistura na ração e ele come normal. Por fora, nada mudou ainda. Por dentro, os probióticos começam a ocupar espaço e os nutrientes começam a chegar na pele.",
+    badge: "Primeiras semanas",
+    label: "O alívio começa",
+    text: "Ele se coça e se lambe menos, e as orelhas ficam menos irritadas. São os primeiros sinais de que o organismo está se equilibrando.",
   },
   {
     badge: "Dias 8 a 15",
