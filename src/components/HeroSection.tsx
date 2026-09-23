@@ -51,7 +51,7 @@ export function HeroSection({
             </div>
           </div>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            A coceira que vai e volta tem dois pontos de origem: o desequilíbrio da flora intestinal e a barreira da pele enfraquecida. O NutraHelp cuida dos dois na mesma dose — probióticos e prebióticos por dentro, ômega 3, zinco e biotina para a pele e o pelo. Sabor carne, misturado na ração, uma vez por dia.
+            A coceira que vai e volta tem duas origens: a flora intestinal desequilibrada e a barreira da pele enfraquecida. O NutraHelp cuida das duas na mesma dose — pré e probióticos para a flora, e zinco, biotina e ômega 3 para a barreira. Basta misturar na ração, uma vez por dia.
           </p>
           <ul className="mt-5 max-w-md space-y-2.5">
             {heroBullets.map((text) => (
