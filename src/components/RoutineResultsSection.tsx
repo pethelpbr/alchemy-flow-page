@@ -16,9 +16,9 @@ const timeline = [
     text: "A vermelhidão da pele diminui, as feridas começam a cicatrizar e o cheiro forte do corpo vai sumindo.",
   },
   {
-    badge: "Dias 16 a 30",
-    label: "A pele começa a mudar",
-    text: "A vermelhidão diminui, as feridinhas de unha param de abrir de novo, o cheiro forte cede e a queda de pelo começa a reduzir. É aqui que a maioria decide continuar ou parar.",
+    badge: "Entre o 2º e o 3º mês",
+    label: "Menos queda de pelo",
+    text: "Sem tufos espalhados pela casa. Pelos novos crescendo e preenchendo as falhas. Os sinais de alergia se tornam raros.",
   },
   {
     badge: "Dias 31 a 60",
