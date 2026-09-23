@@ -25,11 +25,6 @@ const timeline = [
     label: "Pelagem saudável de novo",
     text: "A pele está cicatrizada. O pelo forte, macio e brilhoso. Agora é só manter o uso contínuo — para evitar que as crises voltem.",
   },
-  {
-    badge: "A partir de 60 dias",
-    label: "O normal dele",
-    text: "Pelo parelho e pele tranquila, inclusive na virada de estação.",
-  },
 ];
 
 type Step = (typeof timeline)[number];
