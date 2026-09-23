@@ -1,4 +1,3 @@
-import { AlertTriangle } from "lucide-react";
 import sintoma1 from "@/assets/sintoma-1.jpg";
 import sintoma2 from "@/assets/sintoma-2.jpg";
 import sintoma3 from "@/assets/sintoma-3.jpg";
