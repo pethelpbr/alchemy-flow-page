@@ -25,11 +25,11 @@ export function StatsBanner() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mx-auto w-full max-w-7xl px-6 py-6 md:px-9 md:py-7"
       >
-        <div className="grid gap-6 px-2 md:grid-cols-3 md:gap-8">
+        <div className="grid gap-6 px-2 text-center md:grid-cols-3 md:gap-8">
           {stats.map((stat) => (
             <div
               key={stat.value}
-              className="text-left"
+              className="flex flex-col items-center"
             >
               <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground md:text-6xl">
                 {stat.value}
@@ -41,7 +41,7 @@ export function StatsBanner() {
           ))}
         </div>
 
-        <p className="mt-5 px-2 text-left text-xs leading-relaxed text-primary-foreground/80">
+        <p className="mt-5 px-2 text-center text-xs leading-relaxed text-primary-foreground/80">
           Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
         </p>
       </motion.div>
