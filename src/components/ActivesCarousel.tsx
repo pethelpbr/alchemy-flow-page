@@ -103,7 +103,7 @@ export function ActivesCarousel() {
           </h2>
         </div>
 
-        <div className="mt-6 rounded-2xl bg-ink px-6 py-6 text-primary-foreground">
+        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-6 py-6 text-primary-foreground">
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:items-center">
             {nutrients.map(([amount, label]) => (
               <div key={label} className="text-center">
