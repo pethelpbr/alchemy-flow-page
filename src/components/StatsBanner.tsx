@@ -17,13 +17,13 @@ const stats = [
 
 export function StatsBanner() {
   return (
-    <section className="bg-primary py-6 md:py-8">
+    <section className="bg-primary py-4 md:py-5">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full px-8 py-5 md:px-12 md:py-6"
+        className="w-full px-8 py-3 md:px-12 md:py-4"
       >
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3 md:gap-0">
           {stats.map((stat, index) => (
