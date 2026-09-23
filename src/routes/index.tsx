@@ -11,8 +11,8 @@ import { FormulaTechSection } from "@/components/FormulaTechSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
 import { HowToUse } from "@/components/HowToUse";
-import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
+import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
 import { FinalOffer } from "@/components/FinalOffer";
 import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
@@ -48,8 +48,8 @@ function Index() {
         <HowToUse />
         <ActivesCarousel />
         <VeterinaryAuthoritySection />
-        <ReviewsCarousel />
         <GuaranteeSection />
+        <ReviewsCarousel />
         <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <TrustBadgesStrip />
         <FAQAccordion />
