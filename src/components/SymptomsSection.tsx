@@ -17,7 +17,7 @@ const symptoms = [
     img: sintoma2,
     alt: "Shih tzu lambendo a pata no sofá",
     title: "Lambe a pata sem parar",
-    text: "Sempre a mesma pata, até o pelo ali ficar avermelhado. De noite você escuta o barulhinho da lambida.",
+    text: "De madrugada você escuta o barulho da lambida. O pelo das patas vai ficando escuro e úmido.",
   },
   {
     img: sintoma3,
