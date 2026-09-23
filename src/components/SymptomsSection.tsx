@@ -11,7 +11,7 @@ const symptoms = [
     img: sintoma1,
     alt: "Cachorro golden retriever se coçando com a pele vermelha",
     title: "Se coça o dia inteiro",
-    text: "E se coça com força, até a pele ficar vermelha e quente. Você já mandou parar mil vezes. Ele volta.",
+    text: "Se coça com força, até a pele ficar ferida. Você já mandou parar mil vezes e ele volta.",
   },
   {
     img: sintoma2,
