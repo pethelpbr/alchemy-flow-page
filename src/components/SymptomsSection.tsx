@@ -1,4 +1,3 @@
-import { AlertTriangle } from "lucide-react";
 import sintoma1 from "@/assets/sintoma-1.jpg";
 import sintoma2 from "@/assets/sintoma-2.jpg";
 import sintoma3 from "@/assets/sintoma-3.jpg";
@@ -82,13 +81,6 @@ export function SymptomsSection() {
           ))}
         </div>
 
-        <div className="mt-8 flex items-start justify-center gap-2.5 rounded-xl bg-gift px-5 py-4 text-center sm:items-center">
-          <AlertTriangle size={18} className="mt-0.5 shrink-0 text-gift-foreground sm:mt-0" />
-          <p className="text-[14px] font-medium leading-snug text-gift-foreground">
-            <span className="font-bold">Atenção!</span> Se você reconheceu o seu cachorro em algum
-            desses sinais, continue lendo esta página.
-          </p>
-        </div>
       </div>
     </section>
   );
