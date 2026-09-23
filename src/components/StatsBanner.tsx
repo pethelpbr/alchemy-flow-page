@@ -43,7 +43,7 @@ export function StatsBanner() {
           ))}
         </div>
 
-        <p className="mx-auto mt-6 max-w-7xl text-xs leading-relaxed text-primary-foreground/80">
+        <p className="mx-auto mt-6 max-w-5xl text-center text-xs leading-relaxed text-primary-foreground/80">
           Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
         </p>
       </motion.div>
