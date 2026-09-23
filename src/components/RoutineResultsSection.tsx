@@ -6,14 +6,14 @@ import afterPhoto from "@/assets/cachorro-top.png.asset.json";
 
 const timeline = [
   {
-    badge: "Dias 1 a 7",
-    label: "O começo é silencioso",
-    text: "Você mistura na ração e ele come normal. Por fora, nada mudou ainda. Por dentro, os probióticos começam a ocupar espaço e os nutrientes começam a chegar na pele.",
+    badge: "Primeiras semanas",
+    label: "O alívio começa",
+    text: "Ele se coça e se lambe menos, e as orelhas ficam menos irritadas. São os primeiros sinais de que o organismo está se equilibrando.",
   },
   {
-    badge: "Dias 8 a 15",
-    label: "Os primeiros sinais",
-    text: "Menos pata batendo no chão de madrugada. Menos lambida na mesma pata. É pequeno, mas é o primeiro sinal de que está funcionando.",
+    badge: "Depois do 1º mês",
+    label: "A pele se acalma",
+    text: "A vermelhidão da pele diminui, as feridas começam a cicatrizar e o cheiro forte do corpo vai sumindo.",
   },
   {
     badge: "Dias 16 a 30",
@@ -192,9 +192,9 @@ export function RoutineResultsSection() {
       <section className="bg-card py-10 md:py-12">
         <div className="container-x grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-primary">Resultado na rotina</p>
+            <p className="eyebrow text-primary">O que esperar</p>
             <h2 className="mx-auto mt-4 max-w-lg text-center font-display text-4xl leading-tight text-ink sm:text-5xl md:mx-0 md:text-left">
-              O que muda ao longo das semanas
+              Em quanto tempo vou ver os resultados?
             </h2>
 
             <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
