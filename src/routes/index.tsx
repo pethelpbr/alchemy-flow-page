@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { SymptomsSection } from "@/components/SymptomsSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
+import { HealthBenefitsSection } from "@/components/HealthBenefitsSection";
 import { PreviousAttemptsSection } from "@/components/PreviousAttemptsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
@@ -40,6 +41,7 @@ function Index() {
         <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <SymptomsSection />
         <BenefitsSection />
+        <HealthBenefitsSection />
         <PreviousAttemptsSection />
         <RoutineResultsSection />
         <BeforeAfterSection />
