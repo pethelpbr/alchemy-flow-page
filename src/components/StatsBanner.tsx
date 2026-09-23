@@ -26,7 +26,7 @@ export function StatsBanner() {
         className="mx-auto w-full max-w-7xl rounded-2xl bg-primary px-6 py-6 md:px-9 md:py-7"
       >
         <div className="grid gap-6 md:grid-cols-3 md:gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div
               key={stat.value}
               className="px-2 md:px-0"
