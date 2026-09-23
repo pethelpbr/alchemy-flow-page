@@ -49,6 +49,7 @@ function Index() {
         <FormulaTechSection />
         <HowToUse />
         <ActivesCarousel />
+        <HealthBenefitsSection />
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
         <ReviewsCarousel />
