@@ -342,7 +342,7 @@ function IngredientsButton() {
 
 export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [openDetail, setOpenDetail] = useState<number | null>(0);
+  const [openDetail, setOpenDetail] = useState<number | null>(null);
   const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
 
   const selectFeedback = (feedback: (typeof feedbacks)[number]) => {
