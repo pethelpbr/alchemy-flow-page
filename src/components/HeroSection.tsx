@@ -8,8 +8,8 @@ import { Stars } from "@/components/ui/Stars";
 
 const heroBullets = [
   "Reduz coceiras e lambeduras excessivas",
-  "Ajuda a acelerar a cicatrização de irritações e feridinhas",
-  "Diminui a queda de pelo e ajuda as falhas a fecharem",
+  "Acelerar a cicatrização de irritações e feridinhas",
+  "Diminui a queda de pelo",
 ];
 
 export function HeroSection({
