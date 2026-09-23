@@ -21,9 +21,9 @@ const timeline = [
     text: "Sem tufos espalhados pela casa. Pelos novos crescendo e preenchendo as falhas. Os sinais de alergia se tornam raros.",
   },
   {
-    badge: "Dias 31 a 60",
-    label: "O pelo volta",
-    text: "O pelo novo nasce e começa a cobrir as falhas, mais forte e com mais brilho. Nenhum suplemento faz isso em um mês, porque a raiz do pelo não trabalha nessa velocidade.",
+    badge: "A partir do 4º mês",
+    label: "Pelagem saudável de novo",
+    text: "A pele está cicatrizada. O pelo forte, macio e brilhoso. Agora é só manter o uso contínuo — para evitar que as crises voltem.",
   },
   {
     badge: "A partir de 60 dias",
