@@ -192,9 +192,9 @@ export function RoutineResultsSection() {
       <section className="bg-card py-10 md:py-12">
         <div className="container-x grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-primary">Resultado na rotina</p>
+            <p className="eyebrow text-primary">O que esperar</p>
             <h2 className="mx-auto mt-4 max-w-lg text-center font-display text-4xl leading-tight text-ink sm:text-5xl md:mx-0 md:text-left">
-              O que muda ao longo das semanas
+              Em quanto tempo vou ver os resultados?
             </h2>
 
             <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
