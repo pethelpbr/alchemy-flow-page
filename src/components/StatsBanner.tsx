@@ -21,24 +21,24 @@ export function StatsBanner() {
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 0, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="grid gap-0 sm:grid-cols-3"
+          className="grid gap-8 sm:grid-cols-3 sm:gap-0"
         >
           {stats.map((stat, index) => (
             <div
               key={stat.value}
-              className={`flex items-center justify-center gap-4 px-5 py-5 sm:px-8 lg:px-10 ${
+              className={`flex items-center justify-center gap-4 px-4 sm:px-6 lg:px-10 ${
                 index < stats.length - 1
-                  ? "border-b border-primary-foreground/20 sm:border-b-0 sm:border-r"
+                  ? "border-b border-primary-foreground/20 pb-8 sm:border-b-0 sm:border-r sm:pb-0"
                   : ""
               }`}
             >
-              <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground sm:text-6xl">
+              <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
                 {stat.value}
               </span>
-              <p className="max-w-[180px] text-sm leading-snug text-primary-foreground/90 sm:text-base">
+              <p className="max-w-[220px] text-base leading-snug text-primary-foreground/90 sm:text-base">
                 {stat.text}
               </p>
             </div>
