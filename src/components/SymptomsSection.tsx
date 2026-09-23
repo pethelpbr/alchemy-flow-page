@@ -28,8 +28,8 @@ const symptoms = [
   {
     img: sintoma4,
     alt: "Pastor alemão sacudindo a cabeça no sofá",
-    title: "Sacode a cabeça e a orelha fede",
-    text: "Você limpa, melhora uns dias, e duas semanas depois aquele cheiro está de volta.",
+    title: "Sacode a cabeça",
+    text: "A orelha fica com cheiro forte. Você limpa, melhora uns dias, e logo volta.",
   },
   {
     img: sintoma5,
