@@ -17,38 +17,36 @@ const stats = [
 
 export function StatsBanner() {
   return (
-    <section className="bg-background py-10 md:py-12">
-      <div className="container-x">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="rounded-3xl bg-primary px-8 py-8 md:px-10 md:py-10"
-        >
-          <div className="grid gap-8 md:grid-cols-3 md:gap-0">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.value}
-                className={`px-2 md:px-8 ${
-                  index < stats.length - 1 ? "md:border-r md:border-primary-foreground/20" : ""
-                }`}
-              >
-                <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground md:text-6xl">
-                  {stat.value}
-                </span>
-                <p className="mt-3 max-w-[260px] text-base leading-snug text-primary-foreground/90">
-                  {stat.text}
-                </p>
-              </div>
-            ))}
-          </div>
+    <section className="bg-primary py-10 md:py-12">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full px-8 py-8 md:px-12 md:py-10"
+      >
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3 md:gap-0">
+          {stats.map((stat, index) => (
+            <div
+              key={stat.value}
+              className={`flex items-center justify-center gap-4 px-2 md:px-10 ${
+                index < stats.length - 1 ? "md:border-r md:border-primary-foreground/20" : ""
+              }`}
+            >
+              <span className="font-display text-5xl font-semibold leading-none tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">
+                {stat.value}
+              </span>
+              <p className="max-w-[220px] text-base leading-snug text-primary-foreground/90">
+                {stat.text}
+              </p>
+            </div>
+          ))}
+        </div>
 
-          <p className="mt-8 text-xs leading-relaxed text-primary-foreground/80">
-            Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
-          </p>
-        </motion.div>
-      </div>
+        <p className="mx-auto mt-8 max-w-7xl text-xs leading-relaxed text-primary-foreground/80">
+          Percepção relatada por tutores após 30 dias ou mais de uso contínuo do NutraHelp. Pesquisa interna com [N] respondentes, [mês/ano]. Os resultados podem variar de acordo com cada pet.
+        </p>
+      </motion.div>
     </section>
   );
 }
