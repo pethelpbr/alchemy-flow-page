@@ -6,7 +6,7 @@ export function HealthBenefitsSection() {
     { title: "Articulações e ossos", text: "Condroitina, enxofre e manganês: articulação lubrificada para subir escada e pular no sofá." },
     { title: "Coração", text: "Taurina, o aminoácido que fortalece o músculo cardíaco." },
     { title: "Cérebro", text: "Vitaminas do complexo B, ligadas à memória, à atenção e ao aprendizado." },
-    { title: "Comportamento", text: "Triptofano e nutrientes para uma rotina mais tranquila." },
+    { title: "Comportamento", text: "Triptofano, precursor da serotonina: pet menos estressado, menos ansioso e com sono melhor." },
     { title: "Energia", text: "Ferro e nutrientes para mais disposição no dia a dia." },
   ];
 
