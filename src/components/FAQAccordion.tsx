@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "Pode dar todo dia, sem parar?",
-    a: "Sim, e é assim que funciona melhor. Pele saudável não é cuidado pontual — é cuidado diário.",
+    a: "Sim, e é assim que funciona melhor. Pele saudável não é cuidado pontual, é cuidado diário.",
   },
   {
     q: "Posso dar para filhote? E para cadela gestante?",
