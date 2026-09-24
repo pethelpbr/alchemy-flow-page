@@ -4,6 +4,10 @@ import { AccordionBlock } from "@/components/ui/AccordionBlock";
 
 const faqs = [
   {
+    q: "O que é o NutraHelp?",
+    a: "Um suplemento alimentar em pó com sabor de carne, para cães e gatos, que pode ser misturado em qualquer alimento. Cada dose reúne 44 nutrientes numa fórmula 8 em 1: vitaminas, minerais, aminoácidos, ômega 3, pré e probióticos. O foco principal é pele, pelos e intestino.",
+  },
+  {
     q: "Meu pet já faz tratamento com remédio. Posso dar o NutraHelp junto?",
     a: "Sim. O NutraHelp é um suplemento alimentar e entra no cuidado diário junto com o que o veterinário indicou. Se o seu pet tem alguma condição específica, converse com o veterinário que acompanha o caso.",
   },
@@ -62,7 +66,7 @@ export function FAQAccordion() {
 
   return (
     <section id="faq" className="section scroll-mt-20">
-      <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-20">
+      <div className="container-x grid gap-10 lg-grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-20">
         <Reveal>
           <p className="eyebrow">Dúvidas</p>
           <h2 className="mt-4 text-center font-display text-4xl leading-tight text-ink md:text-left">
