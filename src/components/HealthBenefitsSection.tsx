@@ -5,7 +5,7 @@ export function HealthBenefitsSection() {
     { title: "Imunidade", text: "Vitaminas A, C, D e E: sistema imunológico mais forte, para o pet ficar doente menos vezes." },
     { title: "Articulações e ossos", text: "Condroitina, enxofre e manganês: articulação lubrificada para subir escada e pular no sofá." },
     { title: "Coração", text: "Taurina, o aminoácido que fortalece o músculo cardíaco." },
-    { title: "Cérebro", text: "Vitaminas do complexo B e nutrientes para memória e atenção." },
+    { title: "Cérebro", text: "Vitaminas do complexo B, ligadas à memória, à atenção e ao aprendizado." },
     { title: "Comportamento", text: "Triptofano e nutrientes para uma rotina mais tranquila." },
     { title: "Energia", text: "Ferro e nutrientes para mais disposição no dia a dia." },
   ];
