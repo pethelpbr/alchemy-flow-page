@@ -40,10 +40,6 @@ const faqs = [
     a: "Não. A dose diária é pequena e entra junto da alimentação normal do seu pet.",
   },
   {
-    q: "O produto tem registro?",
-    a: "Sim. É produzido em estabelecimento registrado no MAPA, seguindo boas práticas de fabricação.",
-  },
-  {
     q: "Quanto tempo dura um pote?",
     a: "Depende do peso do pet, porque a dose é proporcional. Fale com a gente no WhatsApp que calculamos para o seu caso.",
   },
