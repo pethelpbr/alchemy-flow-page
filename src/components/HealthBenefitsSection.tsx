@@ -1,6 +1,6 @@
 export function HealthBenefitsSection() {
   const items = [
-    { title: "Pele e pelos", text: "Zinco, biotina e ômega 3 — o que te trouxe até aqui.", featured: true },
+    { title: "Pele e pelos", text: "Zinco, biotina e ômega 3, o que te trouxe até aqui.", featured: true },
     { title: "Intestino e digestão", text: "Pré e probióticos e extrato de yucca: cocô mais firme e com menos odor." },
     { title: "Imunidade", text: "Vitaminas A, C, D e E: sistema imunológico mais forte, para o pet ficar doente menos vezes." },
     { title: "Articulações e ossos", text: "Condroitina, enxofre e manganês: articulação lubrificada para subir escada e pular no sofá." },
