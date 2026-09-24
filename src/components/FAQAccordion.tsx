@@ -4,8 +4,8 @@ import { AccordionBlock } from "@/components/ui/AccordionBlock";
 
 const faqs = [
   {
-    q: "Meu pet já faz tratamento com remédio. Posso dar o NutraHelp junto?",
-    a: "Sim. O NutraHelp é um suplemento alimentar e entra no cuidado diário junto com o que o veterinário indicou. Se o seu pet tem alguma condição específica, converse com o veterinário que acompanha o caso.",
+    q: "Meu pet já faz tratamento com remédio. Posso dar junto?",
+    a: "Sim. É um suplemento alimentar e entra no cuidado diário junto com o que o veterinário indicou.",
   },
   {
     q: "Serve para gatos?",
