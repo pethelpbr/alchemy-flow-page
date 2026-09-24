@@ -1,4 +1,3 @@
-import { BRAND } from "@/lib/product";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 export function Footer() {
