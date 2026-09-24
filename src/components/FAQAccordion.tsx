@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Serve só para coceira ou também para queda de pelo?",
-    a: "Para os dois. A queda de pelo e as falhas normalmente andam junto com a irritação da pele, e as duas frentes da fórmula trabalham nisso — a flora intestinal e os nutrientes que formam o fio.",
+    a: "Sim. A queda e as falhas normalmente andam junto com a irritação da pele, e as duas frentes da fórmula trabalham nisso.",
   },
   {
     q: "E se ele não gostar do sabor?",
