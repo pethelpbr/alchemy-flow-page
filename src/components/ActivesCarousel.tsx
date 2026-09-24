@@ -18,27 +18,27 @@ import activesBackground from "@/assets/actives-background-clean.jpg";
 const actives = [
   {
     image: activeGreentea,
-    name: "Chá verde",
+    name: "Probióticos e prebióticos",
     description:
-      "Fonte de cafeína suave e de antioxidantes, acompanha o blend da manhã.",
+      "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
   },
   {
     image: activeCreatine,
-    name: "Creatina monohidratada (3 g)",
+    name: "Zinco",
     description:
-      "O suplemento mais estudado do esporte. Energia rápida para o músculo e apoio à massa magra.",
+      "Participa da formação da pele e da cicatrização. É o que mais costuma faltar quando o pet vive com a pele irritada.",
   },
   {
     image: activeOrange,
-    name: "Laranja moro",
+    name: "Biotina",
     description:
-      "Laranja sanguínea italiana, rica em antocianinas, que reforçam a ação antioxidante.",
+      "Entra na produção da queratina, que é o material do fio de pelo.",
   },
   {
     image: activeGreencoffee,
-    name: "Café verde",
+    name: "Ômega 3",
     description:
-      "Fonte natural de cafeína e de ácido clorogênico, para energia estável, sem pico.",
+      "O organismo não fabrica sozinho, só recebe pela comida. Ajuda na maciez e no brilho do pelo.",
   },
   {
     image: activeGinger,
