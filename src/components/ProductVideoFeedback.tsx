@@ -108,6 +108,42 @@ function WhoForList() {
   );
 }
 
+const doses = [
+  { weight: "Até 5 kg", grams: "1 g", scoop: "½ dosador" },
+  { weight: "6 a 10 kg", grams: "2 g", scoop: "1 dosador" },
+  { weight: "11 a 20 kg", grams: "4 g", scoop: "2 dosadores" },
+  { weight: "21 a 30 kg", grams: "6 g", scoop: "3 dosadores" },
+  { weight: "Acima de 30 kg", grams: "8 g", scoop: "4 dosadores" },
+];
+
+function HowToUse() {
+  return (
+    <div className="space-y-3">
+      <p className="leading-relaxed">
+        Misture o pó em qualquer alimento — ração seca, ração úmida ou comida
+        natural — uma vez por dia, na dose do peso do seu pet. Use todo dia,
+        inclusive nos dias em que ele parece bem. O uso é contínuo e não tem
+        tempo máximo.
+      </p>
+      <p className="text-sm opacity-80">
+        Acompanha dosador de 2 g — é só contar as medidas.
+      </p>
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+        {doses.map((d) => (
+          <div
+            key={d.weight}
+            className="rounded-xl bg-[#F1E6C8] px-2 py-3 text-center"
+          >
+            <p className="text-xs">{d.weight}</p>
+            <p className="text-lg font-bold text-foreground">{d.grams}</p>
+            <p className="text-xs">{d.scoop}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const details = [
   {
     title: "O que é o NutraHelp?",
