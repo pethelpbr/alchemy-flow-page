@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Play, Check } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AccordionBlock } from "@/components/ui/AccordionBlock";
 import {
@@ -60,29 +60,20 @@ function VideoTags({
   );
 }
 
-const benefitPoints = [
-  "Reduz coceiras e lambeduras excessivas",
-  "Ajuda a acelerar a cicatrização de lesões e irritações",
-  "Diminui a queda de pelo e contribui para o crescimento de fios mais fortes",
-  "Reforça as defesas naturais",
-  "Auxilia o equilíbrio da flora intestinal",
+const benefitTexts = [
+  "O NutraHelp age nas duas frentes que sustentam a coceira: equilibra a flora intestinal, de onde vem a maior parte da defesa do organismo, e repõe os nutrientes que a pele usa para se reconstruir. Com o uso contínuo, o pet se coça e se lambe menos, as irritações cicatrizam mais rápido e o pelo volta a preencher as falhas.",
+  "E como a fórmula tem 44 nutrientes, o cuidado não para na pele: ela também apoia a digestão, a imunidade, as articulações e a disposição do dia a dia.",
 ];
 
 function BenefitList() {
   return (
-    <ul className="space-y-2">
-      {benefitPoints.map((text) => (
-        <li key={text} className="flex items-start gap-2.5">
-          <Check
-            size={16}
-            strokeWidth={3}
-            className="mt-1 shrink-0 text-primary"
-            aria-hidden
-          />
-          <span>{text}</span>
-        </li>
+    <div className="space-y-3">
+      {benefitTexts.map((text) => (
+        <p key={text} className="leading-relaxed">
+          {text}
+        </p>
       ))}
-    </ul>
+    </div>
   );
 }
 
