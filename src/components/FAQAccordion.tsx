@@ -32,8 +32,8 @@ const faqs = [
     a: "Sim, e é assim que funciona melhor. Pele saudável não é cuidado pontual, é cuidado diário.",
   },
   {
-    q: "Posso dar para filhote? E para cadela gestante?",
-    a: "Sim, a partir de 3 meses. Cadelas gestantes e lactantes também podem, preferencialmente com acompanhamento veterinário.",
+    q: "Pode dar para filhote e para cadela gestante?",
+    a: "Sim, a partir de 3 meses. Gestantes e lactantes também podem, de preferência com acompanhamento veterinário.",
   },
   {
     q: "Engorda?",
