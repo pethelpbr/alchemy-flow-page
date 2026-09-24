@@ -1,72 +1,27 @@
-import { Instagram, Facebook, Youtube, Lock } from "lucide-react";
 import { BRAND } from "@/lib/product";
-
-const columns = [
-  {
-    title: "Produto",
-    links: ["Benefícios", "Ingredientes", "Como usar", "Avaliações"],
-  },
-  {
-    title: "Institucional",
-    links: ["Sobre a marca", "Ciência", "Contato", "Trabalhe conosco"],
-  },
-  {
-    title: "Ajuda",
-    links: ["Entrega e frete", "Trocas e devoluções", "Rastrear pedido", "FAQ"],
-  },
-];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-sand/60">
-      <div className="container-x py-16">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_repeat(3,minmax(0,1fr))]">
+    <footer className="bg-[#5A4936] text-white">
+      <div className="container-x py-14 md:py-16">
+        <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-start">
           <div>
-            <p className="font-display text-xl tracking-[0.32em] uppercase text-ink">{BRAND}</p>
-            <p className="mt-4 max-w-xs text-base leading-relaxed text-muted-foreground">
-              Suplementos de dose única para rituais diários simples.
+            <p className="font-display text-2xl font-semibold tracking-tight text-white">
+              {BRAND}
             </p>
-            <div className="mt-6 flex gap-3">
-              {[Instagram, Facebook, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label="Rede social"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary"
-                >
-                  <Icon size={16} strokeWidth={1.4} />
-                </a>
-              ))}
+            <div className="mt-5 space-y-1 text-sm leading-relaxed text-white/75">
+              <p>WhatsApp · telefone · e-mail</p>
+              <p>Segunda a sexta, 9h às 16h</p>
+              <p>Rastrear pedido</p>
             </div>
           </div>
 
-          {columns.map((c) => (
-            <nav key={c.title}>
-              <h3 className="eyebrow">{c.title}</h3>
-              <ul className="mt-5 flex flex-col gap-3">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-base text-muted-foreground transition-colors hover:text-primary">
-                      {l}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-        </div>
-
-        <div className="mt-14 grid gap-4 border-t border-border pt-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {BRAND}. Este produto não é medicamento e não substitui
-            uma alimentação equilibrada.
-          </p>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-primary">Política de privacidade</a>
-            <a href="#" className="transition-colors hover:text-primary">Termos de uso</a>
-            <span className="inline-flex items-center gap-1.5">
-              <Lock size={12} strokeWidth={1.5} /> Site seguro
-            </span>
+          <div className="max-w-md md:justify-self-end">
+            <p className="text-sm leading-relaxed text-white/70">
+              O NutraHelp é um suplemento alimentar para cães e gatos. Não é
+              medicamento e não substitui o tratamento indicado por médico
+              veterinário. Os resultados podem variar de acordo com cada pet.
+            </p>
           </div>
         </div>
       </div>
