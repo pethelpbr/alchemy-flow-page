@@ -90,7 +90,7 @@ const details = [
   {
     title: "O que é o NutraHelp?",
     content:
-      "Um suplemento alimentar em pó para cães e gatos, com 44 nutrientes em uma fórmula 8 em 1. Reúne probióticos, prebióticos, ômega 3, vitaminas, minerais e aminoácidos para apoiar a saúde da pele, da pelagem e do intestino. Sabor carne, misturado na ração uma vez por dia.",
+      "Um suplemento alimentar em pó com sabor de carne, para cães e gatos, que pode ser misturado em qualquer alimento. Cada dose reúne 44 nutrientes numa fórmula 8 em 1: vitaminas, minerais, aminoácidos, ômega 3, pré e probióticos. O foco principal é pele, pelos e intestino.",
   },
   {
     title: "Para quem é?",
