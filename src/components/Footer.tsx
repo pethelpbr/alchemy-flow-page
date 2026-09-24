@@ -1,4 +1,5 @@
 import { BRAND } from "@/lib/product";
+import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -6,9 +7,11 @@ export function Footer() {
       <div className="container-x py-14 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-start">
           <div>
-            <p className="font-display text-2xl font-semibold tracking-tight text-white">
-              {BRAND}
-            </p>
+            <img
+              src={petHelpLogo.url}
+              alt="PetHelp"
+              className="h-8 w-auto object-contain brightness-0 invert"
+            />
             <div className="mt-5 space-y-1 text-sm leading-relaxed text-white/75">
               <p>WhatsApp · telefone · e-mail</p>
               <p>Segunda a sexta, 9h às 16h</p>
