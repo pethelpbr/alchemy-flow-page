@@ -7,7 +7,7 @@ export function HealthBenefitsSection() {
     { title: "Coração", text: "Taurina, o aminoácido que fortalece o músculo cardíaco." },
     { title: "Cérebro", text: "Vitaminas do complexo B, ligadas à memória, à atenção e ao aprendizado." },
     { title: "Comportamento", text: "Triptofano, precursor da serotonina: pet menos estressado, menos ansioso e com sono melhor." },
-    { title: "Energia", text: "Ferro e nutrientes para mais disposição no dia a dia." },
+    { title: "Energia", text: "Ferro: oxigênio no corpo todo e comida virando energia. Mais disposição para brincar." },
   ];
 
   return (
