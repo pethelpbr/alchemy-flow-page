@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Em quanto tempo eu vejo resultado?",
-    a: "Os primeiros sinais costumam aparecer entre a segunda e a terceira semana, com menos coceira e menos lambedura. A pele muda mais visivelmente ao longo do primeiro mês, e o pelo volta a preencher as falhas a partir do segundo. Cada pet responde no seu tempo.",
+    a: "Os primeiros sinais costumam aparecer entre a segunda e a terceira semana. O pelo volta a preencher as falhas a partir do segundo mês.",
   },
   {
     q: "Serve só para coceira ou também para queda de pelo?",
