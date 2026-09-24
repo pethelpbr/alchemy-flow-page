@@ -24,12 +24,8 @@ const faqs = [
     a: "O sabor é de carne e a maioria aceita de primeira. Se o seu for muito seletivo, comece com meia dose e aumente aos poucos.",
   },
   {
-    q: "Tem corticoide?",
-    a: "Não. É um suplemento alimentar, sem corticoide e sem princípio ativo medicamentoso.",
-  },
-  {
-    q: "Tem efeito colateral?",
-    a: "Não há contraindicações conhecidas. Por ser um suplemento alimentar, pode ser usado de forma contínua. Em caso de condição específica, consulte o veterinário.",
+    q: "Tem corticoide ou efeito colateral?",
+    a: "Não tem corticoide nem princípio ativo medicamentoso, e não há contraindicações conhecidas. Pode ser usado de forma contínua.",
   },
   {
     q: "Pode dar todo dia, sem parar?",
