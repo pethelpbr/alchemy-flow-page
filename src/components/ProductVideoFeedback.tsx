@@ -126,7 +126,7 @@ function HowToUse() {
         tempo máximo.
       </p>
       <p className="text-sm opacity-80">
-        Acompanha dosador de 2 g — é só contar as medidas.
+        Acompanha dosador de 2 g
       </p>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
         {doses.map((d) => (
