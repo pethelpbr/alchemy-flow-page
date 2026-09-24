@@ -98,9 +98,9 @@ const details = [
       "– Cães e gatos de todas as raças e tamanhos.
 – Filhotes a partir de 3 meses, adultos ou idosos.
 – Fêmeas gestantes e lactantes.
-  
+
 Serve para o pet que precisa de suporte na pele e na pelagem e também para o pet saudável, como cuidado preventivo.
-  
+
 Se houver tem alguma condição especial de saúde, vale usar com acompanhamento do veterinário.",
   },
   {
