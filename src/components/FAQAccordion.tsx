@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Serve para gatos?",
-    a: "Sim. É indicado para cães e gatos, de todas as raças e portes, a partir de 3 meses de idade.",
+    a: "Sim, para cães e gatos, de todas as raças e portes, a partir de 3 meses.",
   },
   {
     q: "Em quanto tempo eu vejo resultado?",
