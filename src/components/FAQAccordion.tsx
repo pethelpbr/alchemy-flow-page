@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "E se ele não gostar do sabor?",
-    a: "O sabor é de carne e a maioria aceita de primeira, misturado na ração. Se o seu pet for muito seletivo, comece com meia dose por alguns dias e aumente aos poucos. Se ainda assim não aceitar, a garantia de 60 dias cobre.",
+    a: "O sabor é de carne e a maioria aceita de primeira. Se o seu for muito seletivo, comece com meia dose e aumente aos poucos.",
   },
   {
     q: "Tem corticoide?",
