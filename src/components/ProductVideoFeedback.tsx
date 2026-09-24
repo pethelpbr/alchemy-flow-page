@@ -77,6 +77,37 @@ function BenefitList() {
   );
 }
 
+const whoForBullets = [
+  "Cães e gatos de todas as raças e tamanhos.",
+  "Filhotes a partir de 3 meses, adultos ou idosos.",
+  "Fêmeas gestantes e lactantes.",
+];
+
+function WhoForList() {
+  return (
+    <div className="space-y-3">
+      <ul className="space-y-2">
+        {whoForBullets.map((text) => (
+          <li key={text} className="flex gap-2 leading-relaxed">
+            <span aria-hidden="true" className="shrink-0">
+              &ndash;
+            </span>
+            <span className="min-w-0">{text}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="leading-relaxed">
+        Serve para o pet que precisa de suporte na pele e na pelagem e também
+        para o pet saudável, como cuidado preventivo.
+      </p>
+      <p className="leading-relaxed">
+        Se houver alguma condição especial de saúde, vale usar com
+        acompanhamento do veterinário.
+      </p>
+    </div>
+  );
+}
+
 const details = [
   {
     title: "O que é o NutraHelp?",
@@ -85,8 +116,7 @@ const details = [
   },
   {
     title: "Para quem é?",
-    content:
-      "Para pets com coceira frequente, lambedura de patas, pele vermelha ou irritada, falhas na pelagem, queda excessiva de pelo, pelo opaco ou quebradiço, orelhas que incomodam de repetição e sensibilidades de pele. Também para pets em período de troca de pelos. Cães e gatos, todas as raças e portes, a partir de 3 meses.",
+    content: <WhoForList />,
   },
   {
     title: "Benefícios",
