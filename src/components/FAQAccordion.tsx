@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "Como funciona a garantia?",
-    a: "Você tem 60 dias de uso contínuo, na dose indicada para o peso. Se não notar diferença, fala com a gente no WhatsApp e devolvemos o valor.",
+    a: "São 60 dias de uso contínuo, na dose indicada para o peso. Se não notar diferença, devolvemos o valor.",
   },
 ];
 
