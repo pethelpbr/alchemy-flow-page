@@ -124,8 +124,7 @@ const details = [
   },
   {
     title: "Como usar",
-    content:
-      "Misture na ração ou na comida úmida, uma vez por dia, na dose indicada para o peso do seu pet. Todo dia, inclusive nos dias em que ele parece bem — o resultado vem do uso contínuo.",
+    content: <HowToUse />,
   },
 ];
 
