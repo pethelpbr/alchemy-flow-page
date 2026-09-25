@@ -37,7 +37,7 @@ export function StickyMobileBuy({
         >
           <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
             <img
-              src={productHero}
+              src={productHero.url}
               alt=""
               loading="lazy"
               className="h-12 w-12 shrink-0 rounded-lg object-cover"
