@@ -35,6 +35,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
     name: "Biotina",
     description:
       "Entra na produção da queratina, que é o material do fio de pelo.",
+    focus: "50% 80%",
   },
   {
     image: activeGreencoffee,
