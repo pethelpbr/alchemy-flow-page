@@ -11,7 +11,7 @@ import activeGreentea from "@/assets/active-greentea.jpg";
 import activePrebioticos from "@/assets/active-prebioticos.png.asset.json";
 import activeZinco from "@/assets/active-zinco.png.asset.json";
 import activeBiotina from "@/assets/active-biotina.png.asset.json";
-import activeGreencoffee from "@/assets/active-greencoffee.jpg";
+import activeOmega3 from "@/assets/active-omega3.png.asset.json";
 import activeGinger from "@/assets/active-ginger.jpg";
 import activeGuarana from "@/assets/active-guarana.jpg";
 import activesBackground from "@/assets/actives-background-clean.jpg";
@@ -38,7 +38,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
     focus: "50% 80%",
   },
   {
-    image: activeGreencoffee,
+    image: activeOmega3.url,
     name: "Ômega 3",
     description:
       "O organismo não fabrica sozinho, só recebe pela comida. Ajuda na maciez e no brilho do pelo.",
