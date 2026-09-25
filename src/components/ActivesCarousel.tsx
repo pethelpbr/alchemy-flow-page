@@ -22,7 +22,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
     name: "Probióticos e prebióticos",
     description:
       "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
-    focus: "50% 75%",
+    focus: "50% 95%",
   },
   {
     image: activeCreatine,
