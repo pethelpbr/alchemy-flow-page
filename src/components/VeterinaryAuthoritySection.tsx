@@ -1,18 +1,26 @@
+import vetPhoto from "@/assets/veterinaria-1.png.asset.json";
+
 export function VeterinaryAuthoritySection() {
   const cards = [
     {
       quote: "A maior parte dos casos de pele que eu atendo melhora quando a gente olha a alimentação e o intestino junto, e não só a pele.",
+      image: vetPhoto.url,
+      alt: "Veterinária de jaleco segurando o pote do NutraHelp",
     },
     {
       quote: "O resultado vem do uso contínuo. O que mais atrapalha no consultório é o tutor parar na terceira semana, quando a pele ainda está se recuperando.",
     },
   ];
 
-  const Card = ({ quote }: { quote: string }) => (
+  const Card = ({ quote, image, alt }: { quote: string; image?: string | undefined; alt?: string | undefined }) => (
     <article className="overflow-hidden rounded-2xl border border-border bg-white">
-      <div className="flex h-48 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-text">
-        FOTO: retrato em consultório real, jaleco, com um cão no colo ou na mesa. Olhando para a câmera, expressão acessível.
-      </div>
+      {image ? (
+        <img src={image} alt={alt} loading="lazy" className="h-48 w-full object-cover object-top" />
+      ) : (
+        <div className="flex h-48 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-text">
+          FOTO: retrato em consultório real, jaleco, com um cão no colo ou na mesa. Olhando para a câmera, expressão acessível.
+        </div>
+      )}
       <div className="p-6">
         <p className="font-display text-xl leading-relaxed text-ink">“{quote}”</p>
         <div className="mt-6 border-t pt-4 text-sm">
@@ -33,7 +41,7 @@ export function VeterinaryAuthoritySection() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {cards.map((card, index) => (
-            <Card key={index} quote={card.quote} />
+            <Card key={index} quote={card.quote} image={"image" in card ? card.image : undefined} alt={"alt" in card ? card.alt : undefined} />
           ))}
         </div>
       </div>
