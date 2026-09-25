@@ -15,7 +15,7 @@ export function VeterinaryAuthoritySection() {
   const Card = ({ quote, image, alt }: { quote: string; image?: string | undefined; alt?: string | undefined }) => (
     <article className="overflow-hidden rounded-2xl border border-border bg-white">
       {image ? (
-        <img src={image} alt={alt} loading="lazy" className="mx-auto max-h-80 w-full object-contain" />
+        <img src={image} alt={alt} loading="lazy" className="w-full object-cover" />
       ) : (
         <div className="flex h-48 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-text">
           FOTO: retrato em consultório real, jaleco, com um cão no colo ou na mesa. Olhando para a câmera, expressão acessível.
