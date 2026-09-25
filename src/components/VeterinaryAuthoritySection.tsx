@@ -12,7 +12,7 @@ export function VeterinaryAuthoritySection() {
     },
   ];
 
-  const Card = ({ quote, image, alt }: { quote: string; image?: string; alt?: string }) => (
+  const Card = ({ quote, image, alt }: { quote: string; image?: string | undefined; alt?: string | undefined }) => (
     <article className="overflow-hidden rounded-2xl border border-border bg-white">
       {image ? (
         <img src={image} alt={alt} loading="lazy" className="h-48 w-full object-cover object-top" />
