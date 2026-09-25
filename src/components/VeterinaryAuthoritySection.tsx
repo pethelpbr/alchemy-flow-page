@@ -1,4 +1,5 @@
 import vetPhoto from "@/assets/veterinaria-1.png.asset.json";
+import vetPhoto2 from "@/assets/veterinaria-2.png.asset.json";
 
 export function VeterinaryAuthoritySection() {
   const cards = [
@@ -9,6 +10,8 @@ export function VeterinaryAuthoritySection() {
     },
     {
       quote: "O resultado vem do uso contínuo. O que mais atrapalha no consultório é o tutor parar na terceira semana, quando a pele ainda está se recuperando.",
+      image: vetPhoto2.url,
+      alt: "Veterinário de jaleco preto de braços cruzados no consultório",
     },
   ];
 
