@@ -120,9 +120,6 @@ export function ActivesCarousel() {
           </div>
         </div>
 
-        <p className="mt-3 text-center text-xs leading-relaxed text-primary-foreground/75 md:text-left">
-          13 + 13 + 7 + 5 + 2 + 4 = <strong className="text-primary">44.</strong> Todos declarados na tabela de níveis de garantia, nenhum arredondado para fechar a conta.
-        </p>
       </div>
 
       <Carousel
