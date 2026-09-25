@@ -21,7 +21,7 @@ export function HealthBenefitsSection() {
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <article key={item.title} className={`rounded-xl border p-5 ${item.featured ? "bg-[#FDDB7A] text-[#51402F]" : "bg-white"}`}>
-              <h3 className="font-display text-lg font-semibold text-[#FF6A1B]">{item.title}</h3>
+              <h3 className={`font-display text-lg font-semibold ${item.featured ? "text-[#5B3D0C]" : "text-[#FF6A1B]"}`}>{item.title}</h3>
               <p className={`mt-2 text-sm leading-relaxed ${item.featured ? "text-[#51402F]/85" : "text-muted-text"}`}>{item.text}</p>
             </article>
           ))}
