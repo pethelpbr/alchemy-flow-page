@@ -7,7 +7,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import activeGreentea from "@/assets/active-greentea.jpg";
+import activeProbiotics from "@/assets/active-probiotics.jpg";
 import activeCreatine from "@/assets/active-creatine.jpg";
 import activeOrange from "@/assets/active-orange.jpg";
 import activeGreencoffee from "@/assets/active-greencoffee.jpg";
@@ -17,7 +17,7 @@ import activesBackground from "@/assets/actives-background-clean.jpg";
 
 const actives = [
   {
-    image: activeGreentea,
+    image: activeProbiotics,
     name: "Probióticos e prebióticos",
     description:
       "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
@@ -53,7 +53,7 @@ const actives = [
       "Estimula o estado de alerta, o foco e a disposição, com ação antioxidante.",
   },
   {
-    image: activeGreentea,
+    image: activeProbiotics,
     name: "Novo ativo",
     description:
       "Conteúdo provisório para o próximo ingrediente que fará parte da apresentação da fórmula.",
