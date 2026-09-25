@@ -1,11 +1,11 @@
 import { Check } from "lucide-react";
 import { brl, addonCatalog, type Addon } from "@/lib/product";
 import { cn } from "@/lib/utils";
-import addonCollagen from "@/assets/addon-collagen.jpg";
+import addonBocahelp from "@/assets/addon-bocahelp.png.asset.json";
 import addonVitc from "@/assets/addon-vitc.jpg";
 
 const images: Record<string, string> = {
-  collagen: addonCollagen,
+  collagen: addonBocahelp.url,
   vitc: addonVitc,
 };
 
