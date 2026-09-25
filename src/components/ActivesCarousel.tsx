@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import activeGreentea from "@/assets/active-greentea.jpg";
 import activePrebioticos from "@/assets/active-prebioticos.png.asset.json";
 import activeZinco from "@/assets/active-zinco.png.asset.json";
-import activeOrange from "@/assets/active-orange.jpg";
+import activeBiotina from "@/assets/active-biotina.png.asset.json";
 import activeGreencoffee from "@/assets/active-greencoffee.jpg";
 import activeGinger from "@/assets/active-ginger.jpg";
 import activeGuarana from "@/assets/active-guarana.jpg";
@@ -31,7 +31,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
       "Participa da formação da pele e da cicatrização. É o que mais costuma faltar quando o pet vive com a pele irritada.",
   },
   {
-    image: activeOrange,
+    image: activeBiotina.url,
     name: "Biotina",
     description:
       "Entra na produção da queratina, que é o material do fio de pelo.",
