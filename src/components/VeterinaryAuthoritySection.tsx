@@ -41,7 +41,7 @@ export function VeterinaryAuthoritySection() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {cards.map((card, index) => (
-            <Card key={index} quote={card.quote} />
+            <Card key={index} quote={card.quote} image={card.image} alt={card.alt} />
           ))}
         </div>
       </div>
