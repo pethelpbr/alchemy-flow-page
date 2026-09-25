@@ -21,11 +21,11 @@ export function VeterinaryAuthoritySection() {
           FOTO: retrato em consultório real, jaleco, com um cão no colo ou na mesa. Olhando para a câmera, expressão acessível.
         </div>
       )}
-      <div className="p-6">
-        <p className="font-display text-xl leading-relaxed text-ink">“{quote}”</p>
-        <div className="mt-6 border-t pt-4 text-sm">
+      <div className="p-5">
+        <p className="font-display text-xl leading-snug text-ink">“{quote}”</p>
+        <div className="mt-4 border-t pt-3 text-sm">
           <strong className="block">[NOME DA VETERINÁRIA]</strong>
-          <span className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs">CRMV-[UF] [número]</span>
+          <span className="mt-1.5 inline-block rounded-full bg-secondary px-3 py-1 text-xs">CRMV-[UF] [número]</span>
         </div>
       </div>
     </article>
