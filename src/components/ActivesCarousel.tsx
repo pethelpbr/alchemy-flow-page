@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import activeGreentea from "@/assets/active-greentea.jpg";
-import activePrebioticos from "@/assets/active-prebioticos.png.asset.json";
+import activePrebioticos from "@/assets/active-prebioticos-2.png.asset.json";
 import activeCreatine from "@/assets/active-creatine.jpg";
 import activeOrange from "@/assets/active-orange.jpg";
 import activeGreencoffee from "@/assets/active-greencoffee.jpg";
@@ -22,7 +22,6 @@ const actives: { image: string; name: string; description: string; focus?: strin
     name: "Probióticos e prebióticos",
     description:
       "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
-    focus: "50% 100%",
   },
   {
     image: activeCreatine,
