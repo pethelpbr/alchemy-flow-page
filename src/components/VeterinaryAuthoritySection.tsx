@@ -1,5 +1,4 @@
 import vetPhoto from "@/assets/veterinaria-1.png.asset.json";
-import vetPhoto2 from "@/assets/veterinaria-2.png.asset.json";
 
 export function VeterinaryAuthoritySection() {
   const cards = [
@@ -10,17 +9,15 @@ export function VeterinaryAuthoritySection() {
     },
     {
       quote: "O resultado vem do uso contínuo. O que mais atrapalha no consultório é o tutor parar na terceira semana, quando a pele ainda está se recuperando.",
-      image: vetPhoto2.url,
-      alt: "Veterinário de jaleco preto de braços cruzados no consultório",
     },
   ];
 
   const Card = ({ quote, image, alt }: { quote: string; image?: string | undefined; alt?: string | undefined }) => (
     <article className="overflow-hidden rounded-2xl border border-border bg-white">
       {image ? (
-        <img src={image} alt={alt} loading="lazy" className="aspect-[5/6] w-full object-cover object-top" />
+        <img src={image} alt={alt} loading="lazy" className="w-full object-cover" />
       ) : (
-        <div className="flex aspect-[5/6] items-center justify-center bg-secondary px-6 text-center text-sm text-muted-text">
+        <div className="flex h-48 items-center justify-center bg-secondary px-6 text-center text-sm text-muted-text">
           FOTO: retrato em consultório real, jaleco, com um cão no colo ou na mesa. Olhando para a câmera, expressão acessível.
         </div>
       )}
