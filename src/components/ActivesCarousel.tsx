@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import activeGreentea from "@/assets/active-greentea.jpg";
 import activePrebioticos from "@/assets/active-prebioticos.png.asset.json";
 import activeZinco from "@/assets/active-zinco.png.asset.json";
-import activeCreatine from "@/assets/active-creatine.jpg";
 import activeOrange from "@/assets/active-orange.jpg";
 import activeGreencoffee from "@/assets/active-greencoffee.jpg";
 import activeGinger from "@/assets/active-ginger.jpg";
