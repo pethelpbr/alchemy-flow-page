@@ -16,7 +16,7 @@ import activeGinger from "@/assets/active-ginger.jpg";
 import activeGuarana from "@/assets/active-guarana.jpg";
 import activesBackground from "@/assets/actives-background-clean.jpg";
 
-const actives = [
+const actives: { image: string; name: string; description: string; focus?: string }[] = [
   {
     image: activePrebioticos.url,
     name: "Probióticos e prebióticos",
@@ -142,6 +142,7 @@ export function ActivesCarousel() {
                   alt={active.name}
                   loading="lazy"
                   draggable={false}
+                  style={active.focus ? { objectPosition: active.focus } : undefined}
                   className="aspect-[3/4] w-full object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex h-[36%] flex-col justify-start gap-2 bg-primary-foreground/10 px-5 py-5 backdrop-blur-md lg:h-[36%]">
