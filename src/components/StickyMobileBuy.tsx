@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
-import productHero from "@/assets/product-hero.jpg";
+import productHero from "@/assets/product-hero.png.asset.json";
 
 export function StickyMobileBuy({
   selected,
@@ -37,7 +37,7 @@ export function StickyMobileBuy({
         >
           <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
             <img
-              src={productHero}
+              src={productHero.url}
               alt=""
               loading="lazy"
               className="h-12 w-12 shrink-0 rounded-lg object-cover"

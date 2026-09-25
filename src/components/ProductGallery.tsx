@@ -2,13 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import { motion, type MotionValue } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import productHero from "@/assets/product-hero.jpg";
+import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
 const shots = [
-  { src: productHero, alt: "Pote do suplemento Daily Greens sobre fundo bege" },
+  { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: galleryFlatlay, alt: "Pote, dosador dourado e copo de água sobre travertino" },
   { src: galleryHand, alt: "Mão segurando o pote do suplemento" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
