@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
-import productHero from "@/assets/product-hero.jpg";
+import productHero from "@/assets/product-hero.png.asset.json";
 
 export function StickyMobileBuy({
   selected,
