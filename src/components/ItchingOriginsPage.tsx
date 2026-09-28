@@ -53,7 +53,7 @@ export function ItchingOriginsPage() {
               <h3 className="font-display text-[24px] font-bold leading-[1.15] text-[#504333] sm:text-[26px]">O intestino</h3>
             </div>
             <p className="mb-[22px] text-[15.5px] leading-[1.58] text-[#3D3530] sm:text-[16.5px]">
-              É de lá que vem a maior parte da defesa do organismo. Quando a flora desequilibra, o corpo passa a reagir a coisas que não reagiria — e a pele é onde essa reação aparece.
+              É de lá que vem a maior parte da defesa do organismo. Quando a flora desequilibra, o corpo passa a reagir a coisas que não reagiria ,e a pele é onde essa reação aparece.
             </p>
             <p className="mb-2.5 text-[12px] font-bold uppercase tracking-[0.1em] text-[#8A6A3A]">O que você já tentou aqui</p>
             <div className="mb-[18px] flex flex-wrap gap-[7px]">
