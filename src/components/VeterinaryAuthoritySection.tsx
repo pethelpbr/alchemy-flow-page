@@ -1,5 +1,5 @@
 import vetPhoto from "@/assets/veterinaria-1.png.asset.json";
-import vetPhoto2 from "@/assets/veterinaria-2.png.asset.json";
+import vetPhoto2 from "@/assets/veterinaria-3.png.asset.json";
 
 export function VeterinaryAuthoritySection() {
   const cards = [
