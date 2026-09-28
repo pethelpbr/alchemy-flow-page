@@ -95,7 +95,7 @@ export function ItchingOriginsPage() {
                 <span className={darkPill}>Corticoide</span>
                 <span className={darkPill}>Antibiótico</span>
               </div>
-              <p className="text-[14px] leading-[1.5] text-[#E6DBCC] sm:text-[15px]">Desligam a reação enquanto você usa. Não mexem em nenhuma das duas origens — por isso a coceira volta quando o tratamento acaba.</p>
+              <p className="text-[14px] leading-[1.5] text-[#E6DBCC] sm:text-[15px]">Desligam a reação enquanto você usa. Não mexem em nenhuma das duas origens, por isso a coceira volta quando o tratamento acaba.</p>
             </div>
           </div>
         </div>
