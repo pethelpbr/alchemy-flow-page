@@ -1,4 +1,4 @@
-import vetPhoto from "@/assets/veterinaria-1.png.asset.json";
+import vetPhoto from "@/assets/veterinaria-1-nova.png.asset.json";
 import vetPhoto2 from "@/assets/veterinaria-3.png.asset.json";
 
 export function VeterinaryAuthoritySection() {
