@@ -83,7 +83,7 @@ export function ItchingOriginsPage() {
         </div>
 
         <div className="relative mb-[38px] h-[260px] overflow-hidden rounded-2xl bg-[#3A2F25] sm:h-[230px]">
-          <img src={failedTreatments.url} alt="Produtos e tentativas de cuidado para coceira" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={failedTreatments.url} alt="Produtos e tentativas de cuidado para coceira" className="absolute inset-0 h-full w-full object-cover md:object-cover" />
           <div className="absolute inset-0 bg-[rgba(45,37,29,0.42)]" />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(45,37,29,0.84)_0%,rgba(45,37,29,0.62)_32%,rgba(45,37,29,0.18)_58%,rgba(45,37,29,0)_80%)]" />
           <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-8">
