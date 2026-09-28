@@ -6,6 +6,7 @@ import { SymptomsSection } from "@/components/SymptomsSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { PreviousAttemptsSection } from "@/components/PreviousAttemptsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
+import { ItchingOriginsPage } from "@/components/ItchingOriginsPage";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
@@ -41,6 +42,7 @@ function Index() {
         <SymptomsSection />
         <BenefitsSection />
         <PreviousAttemptsSection />
+        <ItchingOriginsPage />
         <RoutineResultsSection />
         <BeforeAfterSection />
         <StatsBanner />
