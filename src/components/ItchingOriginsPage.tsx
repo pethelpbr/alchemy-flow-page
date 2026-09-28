@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import failedTreatmentsMobile from "@/assets/itching-origins-banner-mobile.png.asset.json";
 import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 
