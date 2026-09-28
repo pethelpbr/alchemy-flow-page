@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import failedTreatments from "@/assets/failed-treatments.jpg";
+import failedTreatments from "@/assets/itching-origins-banner.jpg";
 import galleryHand from "@/assets/gallery-hand.jpg";
 
 function IntestineIcon() {
