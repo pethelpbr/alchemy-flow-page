@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import previousAttemptsImage from "@/assets/failed-treatments.jpg";
 import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
+import skinBarrierIcon from "@/assets/icon-barreira-pele.png.asset.json";
 
 function IntestineIcon() {
   return (
@@ -15,13 +16,14 @@ function IntestineIcon() {
 
 function SkinBarrierIcon() {
   return (
-    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
-      <path d="M3 8h18" />
-      <path d="M3 13h18" />
-      <path d="M3 18h18" />
-      <path d="M9 8V4" />
-      <path d="M15 8V5" />
-    </svg>
+    <img
+      src={skinBarrierIcon.url}
+      alt=""
+      aria-hidden="true"
+      width={38}
+      height={38}
+      className="h-[38px] w-[38px] shrink-0 object-contain"
+    />
   );
 }
 
