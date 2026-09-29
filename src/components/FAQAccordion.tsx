@@ -70,11 +70,13 @@ export function FAQAccordion() {
             items={firstColumn.map((f) => ({ title: f.q, content: f.a }))}
             openIndex={open}
             onOpenChange={setOpen}
+            startIndex={0}
           />
           <AccordionBlock
             items={secondColumn.map((f) => ({ title: f.q, content: f.a }))}
             openIndex={open}
             onOpenChange={setOpen}
+            startIndex={firstColumn.length}
           />
         </div>
       </div>
