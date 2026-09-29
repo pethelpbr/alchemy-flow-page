@@ -11,9 +11,9 @@ function IntestineIcon() {
       src={intestineIcon.url}
       alt=""
       aria-hidden="true"
-      width={38}
-      height={38}
-      className="h-[38px] w-[38px] shrink-0 object-contain"
+      width={46}
+      height={46}
+      className="h-[46px] w-[46px] shrink-0 object-contain"
     />
   );
 }
@@ -24,9 +24,9 @@ function SkinBarrierIcon() {
       src={skinBarrierIcon.url}
       alt=""
       aria-hidden="true"
-      width={38}
-      height={38}
-      className="h-[38px] w-[38px] shrink-0 object-contain"
+      width={46}
+      height={46}
+      className="h-[46px] w-[46px] shrink-0 object-contain"
     />
   );
 }
