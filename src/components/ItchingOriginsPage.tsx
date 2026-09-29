@@ -3,14 +3,18 @@ import previousAttemptsImage from "@/assets/failed-treatments.jpg";
 import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import skinBarrierIcon from "@/assets/icon-barreira-pele.png.asset.json";
+import intestineIcon from "@/assets/icon-intestino.png.asset.json";
 
 function IntestineIcon() {
   return (
-    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
-      <path d="M7 3v5a3 3 0 0 0 3 3h1a3 3 0 0 1 3 3v2a3 3 0 0 0 3 3" />
-      <path d="M17 3v4a2 2 0 0 1-2 2h-1" />
-      <path d="M7 21v-3a2 2 0 0 1 2-2h1" />
-    </svg>
+    <img
+      src={intestineIcon.url}
+      alt=""
+      aria-hidden="true"
+      width={38}
+      height={38}
+      className="h-[38px] w-[38px] shrink-0 object-contain"
+    />
   );
 }
 
