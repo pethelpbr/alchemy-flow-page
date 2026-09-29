@@ -3,6 +3,7 @@ import previousAttemptsImage from "@/assets/failed-treatments.jpg";
 import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import skinBarrierIcon from "@/assets/icon-barreira-pele.png.asset.json";
+import intestineIcon from "@/assets/icon-intestino.png.asset.json";
 
 function IntestineIcon() {
   return (
