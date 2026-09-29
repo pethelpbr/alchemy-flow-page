@@ -26,10 +26,15 @@ export function AccordionBlock({
       {items.map((item, index) => {
         const itemIndex = startIndex + index;
         const isOpen = openIndex === itemIndex;
+        const isLast = index === items.length - 1;
+
         return (
           <div
             key={item.title}
-            className="border-0 border-b border-transparent border-b-border last:border-b-transparent"
+            className={cn(
+              "border-0 border-b border-transparent border-b-border",
+              isLast && !isOpen && "border-b-0",
+            )}
           >
             <button
               type="button"
