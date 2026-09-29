@@ -52,6 +52,9 @@ const faqs = [
 export function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
+  const firstColumn = faqs.slice(0, Math.ceil(faqs.length / 2));
+  const secondColumn = faqs.slice(Math.ceil(faqs.length / 2));
+
   return (
     <section id="faq" className="section scroll-mt-20">
       <div className="container-x grid gap-6 lg-grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-10">
@@ -62,11 +65,18 @@ export function FAQAccordion() {
           </h2>
         </Reveal>
 
-        <AccordionBlock
-          items={faqs.map((f) => ({ title: f.q, content: f.a }))}
-          openIndex={open}
-          onOpenChange={setOpen}
-        />
+        <div className="grid grid-cols-1 gap-x-10 lg:grid-cols-2">
+          <AccordionBlock
+            items={firstColumn.map((f) => ({ title: f.q, content: f.a }))}
+            openIndex={open}
+            onOpenChange={setOpen}
+          />
+          <AccordionBlock
+            items={secondColumn.map((f) => ({ title: f.q, content: f.a }))}
+            openIndex={open}
+            onOpenChange={setOpen}
+          />
+        </div>
       </div>
     </section>
   );
