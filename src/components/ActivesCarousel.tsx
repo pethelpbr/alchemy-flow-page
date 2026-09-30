@@ -19,7 +19,7 @@ import activesBackground from "@/assets/actives-background-clean.jpg";
 const actives: { image: string; name: string; description: string; focus?: string }[] = [
   {
     image: activePrebioticos.url,
-    name: "Probióticos e prebióticos",
+    name: "Pre e probióticos",
     description:
       "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
     focus: "50% 100%",
