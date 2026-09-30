@@ -13,7 +13,7 @@ import activeZinco from "@/assets/active-zinco.png.asset.json";
 import activeBiotina from "@/assets/active-biotina-2.png.asset.json";
 import activeOmega3 from "@/assets/active-omega3.png.asset.json";
 import activeVitaminaE from "@/assets/active-vitamina-e.png.asset.json";
-import activeGuarana from "@/assets/active-guarana.jpg";
+import activeVitaminaA from "@/assets/active-vitamina-a.png.asset.json";
 import activesBackground from "@/assets/actives-background-clean.jpg";
 
 const actives: { image: string; name: string; description: string; focus?: string }[] = [
@@ -50,7 +50,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
       "Protege as células da pele contra os danos do dia a dia. Contribui para uma pele mais saudável.",
   },
   {
-    image: activeGuarana,
+    image: activeVitaminaA.url,
     name: "Vitamina A",
     description:
       "Participa da renovação e ajuda a manter a barreira natural da pele.",
