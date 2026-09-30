@@ -22,3 +22,5 @@
 - [x] Resultado na rotina: primeiro bloco vira "Primeiras semanas" / "O alívio começa" com o novo texto
 - [x] Resultado na rotina: segundo bloco vira "Depois do 1º mês" / "A pele se acalma" com o novo texto
 - [x] Apagar a seção "Tecnologia por trás da fórmula" (FormulaTechSection) e a foto de ingredientes associada
+- [x] Remover a seção "Você já tentou. E gastou." (PreviousAttemptsSection) da página
+

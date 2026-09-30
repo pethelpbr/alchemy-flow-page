@@ -4,8 +4,8 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { SymptomsSection } from "@/components/SymptomsSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
-import { PreviousAttemptsSection } from "@/components/PreviousAttemptsSection";
 import { RoutineResultsSection } from "@/components/RoutineResultsSection";
+
 import { ItchingOriginsPage } from "@/components/ItchingOriginsPage";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { StatsBanner } from "@/components/StatsBanner";
@@ -41,8 +41,8 @@ function Index() {
         <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <SymptomsSection />
         <BenefitsSection />
-        <PreviousAttemptsSection />
         <ItchingOriginsPage />
+
         <RoutineResultsSection />
         <BeforeAfterSection />
         <StatsBanner />
