@@ -44,7 +44,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
       "O organismo não fabrica sozinho, só recebe pela comida. Ajuda na maciez e no brilho do pelo.",
   },
   {
-    image: activeGinger,
+    image: activeVitaminaE.url,
     name: "Vitamina E",
     description:
       "Protege as células da pele contra os danos do dia a dia. Contribui para uma pele mais saudável.",
