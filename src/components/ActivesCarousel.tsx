@@ -57,9 +57,9 @@ const actives: { image: string; name: string; description: string; focus?: strin
   },
   {
     image: activeGreentea,
-    name: "Novo ativo",
+    name: "Cobre",
     description:
-      "Conteúdo provisório para o próximo ingrediente que fará parte da apresentação da fórmula.",
+      "Auxilia na formação da melanina. Ajuda a manter a cor e a aparência da pelagem.",
   },
 ];
 
