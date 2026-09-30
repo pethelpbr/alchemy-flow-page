@@ -56,7 +56,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
       "Participa da renovação e ajuda a manter a barreira natural da pele.",
   },
   {
-    image: activeGreentea,
+    image: activeCobre.url,
     name: "Cobre",
     description:
       "Auxilia na formação da melanina. Ajuda a manter a cor e a aparência da pelagem.",
