@@ -1,65 +1,63 @@
-import { Zap, HeartPulse, Brain, Sparkles } from "lucide-react";
 import benefitsBg from "@/assets/benefits-bg.jpg";
 
 const benefits = [
   {
-    icon: Zap,
-    title: "Noites inteiras",
-    text: "Menos pata batendo no chão de madrugada, menos lambida na mesma pata. Ele dorme — e você também.",
+    title: "Ele dorme a noite toda",
+    text: "E você também. Sem o barulho da coceira e da lambida de madrugada.",
   },
   {
-    icon: HeartPulse,
-    title: "Pele mais calma",
-    text: "Menos vermelhidão e menos irritação. As feridinhas de unha param de abrir de novo no mesmo lugar.",
+    title: "Menos vermelhidão e irritação",
+    text: "A pele fica mais calma e as feridinhas param de abrir no mesmo lugar.",
   },
   {
-    icon: Brain,
-    title: "Pelo que volta",
-    text: "Menos queda, fio mais forte e as falhas começando a fechar. Menos pelo pela casa.",
+    title: "O pelo volta a crescer",
+    text: "Cai menos, o fio fica mais forte e as falhas começam a fechar.",
   },
   {
-    icon: Sparkles,
-    title: "O cão de antes",
-    text: "Mais disposição, mais brincadeira, menos tempo parado se coçando no canto.",
+    title: "Ele volta a brincar",
+    text: "Mais disposição e menos tempo parado se coçando num canto.",
   },
 ];
 
-type Benefit = (typeof benefits)[number];
-
-function BenefitCard({ b }: { b: Benefit }) {
-  return (
-    <article className="h-full rounded-xl border border-card/15 bg-card/10 p-6 backdrop-blur-md transition-colors duration-500 hover:border-primary/40 md:p-7">
-      <b.icon strokeWidth={1.4} className="h-5 w-5 text-primary md:h-6 md:w-6" />
-      <h3 className="mt-5 text-base tracking-[0.14em] text-card uppercase md:mt-5 md:text-[22px] md:tracking-[0.1em]">{b.title}</h3>
-      <p className="mt-3 text-base leading-relaxed text-card/75 md:mt-4 md:text-[18px] md:leading-relaxed">{b.text}</p>
-    </article>
-  );
-}
-
 export function BenefitsSection() {
   return (
-    <section id="beneficios" className="relative scroll-mt-20 overflow-hidden">
-      <img
-        src={benefitsBg}
-        alt="Nutraflow Daily Greens sobre mesa de madeira ao lado de uma bebida gelada"
-        loading="lazy"
-        width={1920}
-        height={1088}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.18_0.02_60/0.92)_0%,oklch(0.18_0.02_60/0.55)_45%,oklch(0.18_0.02_60/0.35)_100%)]" />
+    <section id="beneficios" className="scroll-mt-20 overflow-hidden">
+      <div className="relative h-[430px] overflow-hidden bg-[#2E251D]">
+        <img
+          src={benefitsBg}
+          alt="Tutor e pet durante a noite"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(1000px_560px_at_74%_34%,rgba(255,214,150,0.26)_0%,rgba(255,196,120,0.10)_36%,rgba(0,0,0,0)_70%),radial-gradient(1500px_900px_at_50%_110%,rgba(0,0,0,0.50)_0%,rgba(0,0,0,0)_72%),linear-gradient(180deg,rgba(28,22,17,0.90)_0%,rgba(34,27,21,0.86)_50%,rgba(28,22,17,0.92)_100%)]" />
 
-      <div className="container-x relative flex min-h-[42rem] flex-col justify-between gap-16 py-10 md:min-h-[46rem] md:py-12">
-        <div className="mx-auto max-w-xl text-center md:mx-0 md:text-left">
-          <p className="eyebrow text-primary">Benefícios</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-card sm:text-5xl lg:text-6xl">
-            Por que esse produto virou parte da rotina?
+        <div className="relative flex h-full flex-col items-center justify-center px-6 text-center md:px-16">
+          <h2 className="mb-5 font-display text-4xl font-bold leading-tight text-card md:text-5xl">
+            Você já tentou de tudo.
           </h2>
+          <p className="mb-4 max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">
+            Foi consulta atrás de consulta, foi remédio que só resolveu por um tempo, foi o cone que ele odeia.
+          </p>
+          <p className="max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">
+            <strong className="text-primary">E o preço não foi só o dinheiro.</strong> É acordar de madrugada com o barulho da coceira. É ver ele sofrendo e não poder fazer nada. É se sentir o pior tutor do mundo por já não aguentar mais. <strong className="font-display text-xl text-card">Nada disso é culpa sua!</strong>
+          </p>
         </div>
+      </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b) => (
-            <BenefitCard key={b.title} b={b} />
+      <div className="bg-[#EFE6C9] px-6 py-12 md:px-16">
+        <h2 className="mb-8 font-display text-3xl font-bold leading-tight text-ink md:text-4xl">
+          O que muda na sua casa quando a coceira diminui
+        </h2>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit, index) => (
+            <div
+              key={benefit.title}
+              className={index > 0 ? "border-border md:border-l md:pl-8" : ""}
+            >
+              <h3 className="mb-2 text-lg font-bold text-primary">{benefit.title}</h3>
+              <p className="text-sm leading-relaxed text-ink/80 md:text-base">{benefit.text}</p>
+            </div>
           ))}
         </div>
       </div>
