@@ -51,9 +51,9 @@ const actives: { image: string; name: string; description: string; focus?: strin
   },
   {
     image: activeGuarana,
-    name: "Guaraná",
+    name: "Vitamina A",
     description:
-      "Estimula o estado de alerta, o foco e a disposição, com ação antioxidante.",
+      "Participa da renovação e ajuda a manter a barreira natural da pele.",
   },
   {
     image: activeGreentea,
