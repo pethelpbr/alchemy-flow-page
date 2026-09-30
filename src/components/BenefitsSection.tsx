@@ -12,7 +12,8 @@ export function BenefitsSection() {
   return (
     <section id="beneficios" className="scroll-mt-20 overflow-hidden">
       <div className="relative h-[430px] overflow-hidden bg-[#2E251D]">
-        <img src={benefitsBg} alt="Tutor e pet durante a noite" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={benefitsBg} alt="Tutora sentada no chão da sala de madrugada, mão na testa, com o cachorro deitado exausto ao lado" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,19,13,0)_0%,rgba(26,19,13,0.04)_20%,rgba(26,19,13,0.26)_32%,rgba(26,19,13,0.56)_46%,rgba(26,19,13,0.58)_70%,rgba(26,19,13,0.22)_100%),rgba(26,19,13,0.14)]" />
         <div className="relative flex h-full flex-col items-center justify-center px-6 text-center md:px-16">
           <h2 className="mb-5 font-display text-4xl font-bold leading-tight text-card md:text-5xl">Você já tentou de tudo.</h2>
           <p className="mb-4 max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">Foi consulta atrás de consulta, foi remédio que só resolveu por um tempo, foi o cone que ele odeia.</p>
