@@ -45,9 +45,9 @@ const actives: { image: string; name: string; description: string; focus?: strin
   },
   {
     image: activeGinger,
-    name: "Gengibre",
+    name: "Vitamina E",
     description:
-      "Raiz de sabor marcante, tradicional na manhã, integra o blend de ativos naturais.",
+      "Protege as células da pele contra os danos do dia a dia. Contribui para uma pele mais saudável e uma pelagem bonita.",
   },
   {
     image: activeGuarana,
