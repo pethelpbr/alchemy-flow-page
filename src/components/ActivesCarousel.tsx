@@ -52,7 +52,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
   {
     image: activeGuarana,
     name: "Vitamina A",
-    ...
+    description:
       "Participa da renovação e ajuda a manter a barreira natural da pele.",
   },
   {
