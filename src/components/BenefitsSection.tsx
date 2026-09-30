@@ -30,32 +30,23 @@ export function BenefitsSection() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-[radial-gradient(1000px_560px_at_74%_34%,rgba(255,214,150,0.26)_0%,rgba(255,196,120,0.10)_36%,rgba(0,0,0,0)_70%),radial-gradient(1500px_900px_at_50%_110%,rgba(0,0,0,0.50)_0%,rgba(0,0,0,0)_72%),linear-gradient(180deg,rgba(28,22,17,0.90)_0%,rgba(34,27,21,0.86)_50%,rgba(28,22,17,0.92)_100%)]" />
-
         <div className="relative flex h-full flex-col items-center justify-center px-6 text-center md:px-16">
-          <h2 className="mb-5 font-display text-4xl font-bold leading-tight text-card md:text-5xl">
-            Você já tentou de tudo.
-          </h2>
-          <p className="mb-4 max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">
-            Foi consulta atrás de consulta, foi remédio que só resolveu por um tempo, foi o cone que ele odeia.
-          </p>
-          <p className="max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">
-            <strong className="text-primary">E o preço não foi só o dinheiro.</strong> É acordar de madrugada com o barulho da coceira. É ver ele sofrendo e não poder fazer nada. É se sentir o pior tutor do mundo por já não aguentar mais. <strong className="font-display text-xl text-card">Nada disso é culpa sua!</strong>
-          </p>
+          <h2 className="mb-5 font-display text-4xl font-bold leading-tight text-card md:text-5xl">Você já tentou de tudo.</h2>
+          <p className="mb-4 max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">Foi consulta atrás de consulta, foi remédio que só resolveu por um tempo, foi o cone que ele odeia.</p>
+          <p className="max-w-3xl text-base leading-relaxed text-card/85 md:text-lg"><strong className="text-primary">E o preço não foi só o dinheiro.</strong> É acordar de madrugada com o barulho da coceira. É ver ele sofrendo e não poder fazer nada. É se sentir o pior tutor do mundo por já não aguentar mais. <strong className="font-display text-xl text-card">Nada disso é culpa sua!</strong></p>
         </div>
       </div>
 
       <div className="bg-[#EFE6C9] px-6 py-12 md:px-16">
-        <h2 className="mb-8 font-display text-3xl font-bold leading-tight text-ink md:text-4xl">
-          O que muda na sua casa quando a coceira diminui
-        </h2>
+        <h2 className="mb-8 font-display text-3xl font-bold leading-tight text-ink md:text-4xl">O que muda na sua casa quando a coceira diminui</h2>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((benefit, index) => (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className={index > 0 ? "border-border md:border-l md:pl-8" : ""}
+              className="rounded-xl border border-border bg-card p-6 shadow-sm"
             >
-              <h3 className="mb-2 text-lg font-bold text-primary">{benefit.title}</h3>
+              <h3 className="mb-3 text-lg font-bold text-primary">{benefit.title}</h3>
               <p className="text-sm leading-relaxed text-ink/80 md:text-base">{benefit.text}</p>
             </div>
           ))}
