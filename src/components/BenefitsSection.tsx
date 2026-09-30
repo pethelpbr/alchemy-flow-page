@@ -1,4 +1,5 @@
-import benefitsBg from "@/assets/benefits-bg.jpg";
+import benefitsBgAsset from "@/assets/benefits-bg-new.png.asset.json";
+const benefitsBg = benefitsBgAsset.url;
 
 const benefits = [
   { title: "Ele dorme a noite toda", text: "E você também. Sem o barulho da coceira e da lambida de madrugada." },
