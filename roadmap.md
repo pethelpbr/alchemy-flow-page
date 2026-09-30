@@ -24,3 +24,4 @@
 - [x] Apagar a seção "Tecnologia por trás da fórmula" (FormulaTechSection) e a foto de ingredientes associada
 - [x] Remover a seção "Você já tentou. E gastou." (PreviousAttemptsSection) da página
 
+- [x] Remover a seção "Como usar" (HowToUse) da página

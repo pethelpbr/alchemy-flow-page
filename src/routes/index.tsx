@@ -10,7 +10,6 @@ import { ItchingOriginsPage } from "@/components/ItchingOriginsPage";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { ActivesCarousel } from "@/components/ActivesCarousel";
-import { HowToUse } from "@/components/HowToUse";
 import { HealthBenefitsSection } from "@/components/HealthBenefitsSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
@@ -46,7 +45,6 @@ function Index() {
         <RoutineResultsSection />
         <BeforeAfterSection />
         <StatsBanner />
-        <HowToUse />
         <ActivesCarousel />
         <HealthBenefitsSection />
         <VeterinaryAuthoritySection />
