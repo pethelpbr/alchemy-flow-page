@@ -47,7 +47,7 @@ const actives: { image: string; name: string; description: string; focus?: strin
     image: activeGinger,
     name: "Vitamina E",
     description:
-      "Protege as células da pele contra os danos do dia a dia. Contribui para uma pele mais saudável e uma pelagem bonita.",
+      "Protege as células da pele contra os danos do dia a dia. Contribui para uma pele mais saudável.",
   },
   {
     image: activeGuarana,
