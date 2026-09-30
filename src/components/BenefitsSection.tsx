@@ -1,4 +1,4 @@
-import benefitsBgAsset from "@/assets/benefits-bg-new.png.asset.json";
+import benefitsBgAsset from "@/assets/benefits-bg-2.png.asset.json";
 const benefitsBg = benefitsBgAsset.url;
 
 const benefits = [
@@ -13,7 +13,6 @@ export function BenefitsSection() {
     <section id="beneficios" className="scroll-mt-20 overflow-hidden">
       <div className="relative h-[430px] overflow-hidden bg-[#2E251D]">
         <img src={benefitsBg} alt="Tutor e pet durante a noite" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-[radial-gradient(1000px_560px_at_74%_34%,rgba(255,214,150,0.26)_0%,rgba(255,196,120,0.10)_36%,rgba(0,0,0,0)_70%),radial-gradient(1500px_900px_at_50%_110%,rgba(0,0,0,0.50)_0%,rgba(0,0,0,0)_72%),linear-gradient(180deg,rgba(28,22,17,0.90)_0%,rgba(34,27,21,0.86)_50%,rgba(28,22,17,0.92)_100%)]" />
         <div className="relative flex h-full flex-col items-center justify-center px-6 text-center md:px-16">
           <h2 className="mb-5 font-display text-4xl font-bold leading-tight text-card md:text-5xl">Você já tentou de tudo.</h2>
           <p className="mb-4 max-w-3xl text-base leading-relaxed text-card/85 md:text-lg">Foi consulta atrás de consulta, foi remédio que só resolveu por um tempo, foi o cone que ele odeia.</p>
