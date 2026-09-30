@@ -7,7 +7,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import activeGreentea from "@/assets/active-greentea.jpg";
+import activeCobre from "@/assets/active-cobre.png.asset.json";
 import activePrebioticos from "@/assets/active-prebioticos.png.asset.json";
 import activeZinco from "@/assets/active-zinco.png.asset.json";
 import activeBiotina from "@/assets/active-biotina-2.png.asset.json";
