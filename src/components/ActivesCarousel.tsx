@@ -12,7 +12,7 @@ import activePrebioticos from "@/assets/active-prebioticos.png.asset.json";
 import activeZinco from "@/assets/active-zinco.png.asset.json";
 import activeBiotina from "@/assets/active-biotina-2.png.asset.json";
 import activeOmega3 from "@/assets/active-omega3.png.asset.json";
-import activeGinger from "@/assets/active-ginger.jpg";
+import activeVitaminaE from "@/assets/active-vitamina-e.png.asset.json";
 import activeGuarana from "@/assets/active-guarana.jpg";
 import activesBackground from "@/assets/actives-background-clean.jpg";
 
