@@ -39,13 +39,13 @@ export function ItchingOriginsPage() {
   return (
     <section className="bg-[#F7F1E8] py-12 md:py-16">
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-[72px]">
-        <p className="mb-[13px] text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B]">
+        <p className="mb-[13px] text-center text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B] md:text-left">
           Por que sempre volta
         </p>
-        <h2 className="mb-3 max-w-[720px] font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px]">
+        <h2 className="mb-3 max-w-[720px] text-center font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px] md:text-left">
           A coceira tem dois lugares de origem
         </h2>
-        <p className="mb-[30px] max-w-[850px] text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
+        <p className="mb-[30px] max-w-[850px] text-center text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px] md:text-left">
           Tudo que você já tentou alcança no máximo uma delas. Por isso melhora e nunca resolve.
         </p>
 
