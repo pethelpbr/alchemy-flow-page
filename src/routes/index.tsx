@@ -50,7 +50,7 @@ function Index() {
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
         <ReviewsCarousel />
-        <FinalOffer selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
+        <FinalOffer selected={selected} onSelect={setSelected} addonIds={addonIds} onToggleAddon={toggleAddon} />
         <TrustBadgesStrip />
         <FAQAccordion />
       </main>
