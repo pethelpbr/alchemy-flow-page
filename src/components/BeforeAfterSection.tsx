@@ -118,7 +118,7 @@ export function BeforeAfterSection() {
         <div className="w-full text-center">
           <h2
             id="before-after-title"
-            className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl"
+            className="font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl"
           >
             A pele do seu pet pode voltar a ser pele
           </h2>
