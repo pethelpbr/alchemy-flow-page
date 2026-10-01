@@ -45,11 +45,9 @@ function ProductKit({ units, withGift }: { units: number; withGift: boolean }) {
 export function FinalOffer({
   selected,
   onSelect,
-  onBuy,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
-  onBuy: (variant?: Variant) => void;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
 }) {
