@@ -20,7 +20,7 @@ export function BenefitsSection() {
           <p className="mb-6 max-w-3xl text-base leading-relaxed text-[#E3D8C9] md:text-lg"><strong className="text-[#FFDF78]">E o preço não foi só o dinheiro.</strong> É acordar de madrugada com o barulho da coceira. É ver ele sofrendo e não poder fazer nada. É se sentir o pior tutor do mundo por já não aguentar mais. <strong className="font-display text-xl text-[#FDFAF7]">Nada disso é culpa sua!</strong></p>
         </div>
       </div>
-      <div className="bg-background-secondary px-6 py-12 md:px-16">
+      <div className="bg-background-secondary px-6 pt-10 pb-12 md:px-16">
         <h2 className="mb-8 text-center font-display text-3xl font-bold leading-tight text-ink md:text-4xl">O que muda na sua casa quando a coceira diminui</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit) => (
