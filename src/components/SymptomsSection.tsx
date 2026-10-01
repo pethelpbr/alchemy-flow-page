@@ -20,7 +20,7 @@ export function SymptomsSection() {
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-primary">Indicação</p>
-          <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-4xl">
+          <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
             Reconhece algum desses sinais?
           </h2>
         </div>
