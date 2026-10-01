@@ -42,10 +42,10 @@ export function ItchingOriginsPage() {
         <p className="mb-[13px] text-center text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B]">
           Por que sempre volta
         </p>
-        <h2 className="mb-3 max-w-[720px] text-center font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px]">
+        <h2 className="mx-auto mb-3 max-w-[720px] text-center font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px]">
           A coceira tem dois lugares de origem
         </h2>
-        <p className="mb-[30px] max-w-[850px] text-center text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
+        <p className="mx-auto mb-[30px] max-w-[850px] text-center text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
           Tudo que você já tentou alcança no máximo uma delas. Por isso melhora e nunca resolve.
         </p>
 
