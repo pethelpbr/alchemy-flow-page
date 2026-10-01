@@ -52,8 +52,8 @@ export function ProductGallery({
   }, [autoplay, next, active]);
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="relative overflow-hidden rounded-2xl bg-sand">
+    <div className="flex w-full flex-col gap-4 lg:max-h-[calc(100vh-118px)] lg:overflow-hidden">
+      <div className="relative aspect-[6/7] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
         <motion.img
           key={active}
           src={current.src}
@@ -64,7 +64,7 @@ export function ProductGallery({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{ ...(scale ? { scale } : {}) }}
-          className="aspect-[6/7] w-full object-cover"
+          className="h-full w-full object-cover"
         />
         <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
           <button
@@ -83,7 +83,7 @@ export function ProductGallery({
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid shrink-0 grid-cols-4 gap-3">
         {shots.map((s, i) => (
           <button
             key={s.src}
