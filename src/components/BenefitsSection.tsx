@@ -13,7 +13,7 @@ export function BenefitsSection() {
   return (
     <section id="beneficios" className="scroll-mt-20 overflow-hidden">
       <div className="relative w-full overflow-hidden bg-[#2E251D]">
-        <img src="/_blob/3afd79d316c97deb2444d11ac7a5304e" alt="Tutora sentada no chão da sala de madrugada, mão na testa, com o cachorro deitado exausto ao lado" className="block h-auto w-full object-contain object-center" />
+        <img src={benefitsBg} alt="Tutora sentada no chão da sala de madrugada, mão na testa, com o cachorro deitado exausto ao lado" className="block h-auto w-full object-contain object-center" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,19,13,0)_0%,rgba(26,19,13,0.04)_20%,rgba(26,19,13,0.26)_32%,rgba(26,19,13,0.56)_46%,rgba(26,19,13,0.58)_70%,rgba(26,19,13,0.22)_100%),rgba(26,19,13,0.14)]" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-[72px] text-center">
