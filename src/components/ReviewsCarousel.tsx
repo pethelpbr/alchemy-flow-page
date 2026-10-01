@@ -71,7 +71,7 @@ const maxCount = Math.max(...breakdown.map((row) => row.count));
 
 function RatingBreakdown() {
   return (
-    <div className="mt-12 grid gap-8 lg:grid-cols-[auto_1fr] lg:items-start sm:mt-16">
+    <div className="mt-12 grid gap-8 lg:grid-cols-[auto_1fr] lg:items-center sm:mt-16">
       <div className="flex items-start gap-4">
         <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,8</span>
         <div className="pt-1">
