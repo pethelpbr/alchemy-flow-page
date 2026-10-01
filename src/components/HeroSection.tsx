@@ -57,7 +57,7 @@ export function HeroSection({
             {heroBullets.map((text) => (
               <li key={text} className="flex items-start gap-2.5 text-[15px] leading-snug text-ink">
                 <Check size={18} strokeWidth={3} className="mt-0.5 shrink-0 text-primary" aria-hidden />
-                <span>{text}</span>
+                <span className="font-bold">{text}</span>
               </li>
             ))}
           </ul>
