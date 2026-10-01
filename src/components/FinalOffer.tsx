@@ -146,7 +146,7 @@ export function FinalOffer({
                   onClick={(event) => {
                     event.stopPropagation();
                     onSelect(variant);
-                    onBuy(variant);
+                    document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
                   Quero este!
