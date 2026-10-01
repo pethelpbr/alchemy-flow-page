@@ -39,15 +39,17 @@ export function ItchingOriginsPage() {
   return (
     <section className="bg-[#F7F1E8] py-12 md:py-16">
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-[72px]">
-        <p className="mb-[13px] text-center text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B]">
-          Por que sempre volta
-        </p>
-        <h2 className="mx-auto mb-3 max-w-[720px] text-center font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px]">
-          A coceira tem dois lugares de origem
-        </h2>
-        <p className="mx-auto mb-[30px] max-w-[850px] text-center text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
-          Tudo que você já tentou alcança no máximo uma delas. Por isso melhora e nunca resolve.
-        </p>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="mb-[13px] text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B]">
+            Por que sempre volta
+          </p>
+          <h2 className="mb-3 font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px]">
+            A coceira tem dois lugares de origem
+          </h2>
+          <p className="mb-[30px] text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
+            Tudo que você já tentou alcança no máximo uma delas. Por isso melhora e nunca resolve.
+          </p>
+        </div>
 
         <div className="mb-5 grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="flex flex-col rounded-2xl border border-[#E0D5C0] bg-white p-7 sm:p-[30px_32px]">
