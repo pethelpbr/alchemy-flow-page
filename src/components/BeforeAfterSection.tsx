@@ -120,7 +120,7 @@ export function BeforeAfterSection() {
             id="before-after-title"
             className="font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl"
           >
-            A pele do seu pet pode voltar a ser pele
+            Antes e depois de quem já usou
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
             Fotos que os próprios tutores mandaram. A etiqueta escura no meio mostra quanto tempo
