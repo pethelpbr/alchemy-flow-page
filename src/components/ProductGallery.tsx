@@ -64,7 +64,7 @@ export function ProductGallery({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{ ...(scale ? { scale } : {}) }}
-          className="aspect-[6/7] w-full object-contain"
+          className="h-auto w-full object-cover"
         />
         <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
           <button
@@ -98,7 +98,7 @@ export function ProductGallery({
               src={s.src}
               alt=""
               loading="lazy"
-              className="aspect-square w-full object-contain"
+              className="h-auto w-full object-cover"
             />
           </button>
         ))}
