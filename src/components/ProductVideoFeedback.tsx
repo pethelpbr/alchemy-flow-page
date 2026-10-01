@@ -120,10 +120,9 @@ function HowToUse() {
   return (
     <div className="space-y-3">
       <p className="leading-relaxed">
-        Misture o pó em qualquer alimento — ração seca, ração úmida ou comida
-        natural — uma vez por dia, na dose do peso do seu pet. Use todo dia,
-        inclusive nos dias em que ele parece bem. O uso é contínuo e não tem
-        tempo máximo.
+        Misture o pó em qualquer alimento, ração seca, ração úmida ou comida
+        natural, uma vez por dia, na dose do peso do seu pet. O uso é contínuo
+        e não tem tempo máximo.
       </p>
       <p className="text-sm opacity-80">
         Acompanha dosador de 2 g
@@ -195,8 +194,6 @@ function Thumbnails({
     const dx = e.clientX - drag.current.startX;
     if (!drag.current.moved && Math.abs(dx) > 6) {
       drag.current.moved = true;
-      // Só captura o ponteiro quando vira arrasto de verdade,
-      // para não "engolir" o clique simples que abre o vídeo.
       el.setPointerCapture(e.pointerId);
     }
     if (drag.current.moved) {
