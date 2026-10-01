@@ -75,7 +75,7 @@ export function ItchingOriginsPage() {
               <h3 className="font-display text-[24px] font-bold leading-[1.15] text-[#504333] sm:text-[26px]">A barreira da pele</h3>
             </div>
             <p className="mb-[22px] text-[15.5px] leading-[1.58] text-[#3D3530] sm:text-[16.5px]">
-              É a proteção natural que segura o que vem de fora. Quando ela enfraquece, poeira, pólen e ácaro passam a entrar e irritar.
+              É a proteção natural que ajuda a segurar e impedir a entrada do que vem de fora. Quando essa proteção enfraquece, poeira, pólen e ácaros conseguem passar com mais facilidade e podem entrar em contato com a pele, causando irritação.
             </p>
             <p className="mb-2.5 text-[12px] font-bold uppercase tracking-[0.1em] text-[#8A6A3A]">O que você já tentou aqui</p>
             <div className="mb-[18px] flex flex-wrap gap-[7px]">
