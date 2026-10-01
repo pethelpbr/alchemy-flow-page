@@ -99,7 +99,7 @@ export function ActivesCarousel() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-foreground/75" />
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
-        <div className="mx-auto max-w-2xl text-center md:mx-0 md:text-left">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-gift">O que tem dentro de cada dose</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-primary-foreground sm:text-5xl">
             44 nutrientes. Um pote.
