@@ -143,8 +143,8 @@ export function ActivesCarousel() {
                   style={active.focus ? { objectPosition: active.focus } : undefined}
                   className="aspect-[3/4] w-full object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 flex h-[35%] flex-col justify-end gap-0 bg-primary-foreground/10 px-5 py-3 backdrop-blur-md lg:h-[35%]">
-                  <h3 className="min-h-[2.5em] font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[18px]">
+                <div className="absolute inset-x-0 bottom-0 flex h-[35%] flex-col justify-end gap-[4px] bg-primary-foreground/10 px-5 py-3 backdrop-blur-md lg:h-[35%]">
+                  <h3 className="min-h-0 font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[18px]">
                     {active.name}
                   </h3>
                   <p className="min-h-[4.2em] text-[13px] leading-snug text-primary-foreground/90 line-clamp-3 lg:text-[16px] lg:leading-snug">
