@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { selected, setSelected, checkout, addonIds, toggleAddon, addonsExtra } = useCart();
-  const goToOffer = () => document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  const goToOffer = () => document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
     <div className="min-h-screen bg-background">
