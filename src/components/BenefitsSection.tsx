@@ -21,7 +21,7 @@ export function BenefitsSection() {
         </div>
       </div>
       <div className="bg-background-secondary px-6 py-12 md:px-16">
-        <h2 className="mb-8 text-center font-display text-3xl font-bold leading-tight text-ink md:text-left md:text-4xl">O que muda na sua casa quando a coceira diminui</h2>
+        <h2 className="mb-8 text-center font-display text-3xl font-bold leading-tight text-ink md:text-4xl">O que muda na sua casa quando a coceira diminui</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit) => (
             <div key={benefit.title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
