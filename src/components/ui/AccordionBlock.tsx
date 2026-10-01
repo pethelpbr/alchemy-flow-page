@@ -14,26 +14,28 @@ export function AccordionBlock({
   onOpenChange,
   className,
   startIndex = 0,
+  variant = "lines",
 }: {
   items: AccordionEntry[];
   openIndex: number | null;
   onOpenChange: (index: number | null) => void;
   className?: string;
   startIndex?: number;
+  variant?: "lines" | "cards";
 }) {
   return (
-    <div className={cn("border-t border-border", className)}>
+    <div className={cn(variant === "cards" ? "grid gap-3" : "border-t border-border", className)}>
       {items.map((item, index) => {
         const itemIndex = startIndex + index;
         const isOpen = openIndex === itemIndex;
 
         return (
-          <div key={item.title} className="border-b border-border">
+          <div key={item.title} className={cn(variant === "cards" ? "overflow-hidden rounded-2xl border border-border bg-card shadow-sm" : "border-b border-border")}>
             <button
               type="button"
               aria-expanded={isOpen}
               onClick={() => onOpenChange(isOpen ? null : itemIndex)}
-              className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-1 py-4 text-left text-ink"
+              className={cn("grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 text-left text-ink", variant === "cards" ? "px-5 py-4" : "px-1 py-4")}
             >
               <span className="min-w-0 text-base font-semibold">{item.title}</span>
               <ChevronDown
@@ -53,7 +55,7 @@ export function AccordionBlock({
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="max-w-2xl px-1 pb-4 pr-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <div className={cn("max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base", variant === "cards" ? "px-5 pb-5 pr-8" : "px-1 pb-4 pr-8")}>
                     {item.content}
                   </div>
                 </motion.div>
