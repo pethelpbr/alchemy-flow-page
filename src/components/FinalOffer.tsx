@@ -45,11 +45,9 @@ function ProductKit({ units, withGift }: { units: number; withGift: boolean }) {
 export function FinalOffer({
   selected,
   onSelect,
-  onBuy,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
-  onBuy: (variant?: Variant) => void;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
 }) {
@@ -146,7 +144,7 @@ export function FinalOffer({
                   onClick={(event) => {
                     event.stopPropagation();
                     onSelect(variant);
-                    onBuy(variant);
+                    document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
                   Quero este!
