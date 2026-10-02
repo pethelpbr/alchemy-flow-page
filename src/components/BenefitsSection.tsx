@@ -22,7 +22,7 @@ export function BenefitsSection() {
       </div>
       <div className="bg-background-secondary px-6 pt-10 pb-12">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-8 text-center font-display text-3xl font-bold leading-tight text-ink md:text-4xl">O que muda na sua casa quando a coceira diminui</h2>
+          <h2 className="mb-8 text-center font-display text-3xl font-bold leading-tight text-ink md:text-4xl">É isso que muda com o NutraHelp</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit) => (
               <div key={benefit.title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
