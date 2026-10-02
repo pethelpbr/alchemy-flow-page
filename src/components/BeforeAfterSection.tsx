@@ -113,8 +113,8 @@ export function BeforeAfterSection() {
 
 
   return (
-    <section className="bg-background py-10 md:py-12" aria-labelledby="before-after-title">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section className="bg-background px-6 py-10 md:py-12" aria-labelledby="before-after-title">
+      <div className="mx-auto max-w-6xl">
         <div className="w-full text-center">
           <h2
             id="before-after-title"
