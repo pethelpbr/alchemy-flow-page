@@ -18,7 +18,7 @@ const timeline = [
   {
     badge: "Entre o 2º e o 3º mês",
     label: "Menos queda de pelo",
-    text: "Sem tufos espalhados pela casa. Pelos novos crescendo e preenchendo as falhas. Os sinais de alergia se tornam raros.",
+    text: "O pelo para de cair aos tufos. Fios novos crescendo e preenchendo as falhas. Os sinais de alergia se tornam raros.",
   },
   {
     badge: "A partir do 4º mês",
