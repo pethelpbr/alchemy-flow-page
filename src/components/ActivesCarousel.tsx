@@ -141,7 +141,7 @@ export function ActivesCarousel() {
                   loading="lazy"
                   draggable={false}
                   style={active.focus ? { objectPosition: active.focus } : undefined}
-                  className="aspect-[3/4] w-full object-cover"
+                  className="aspect-[5/4] w-full object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex h-[28%] flex-col justify-end gap-[4px] bg-primary-foreground/10 px-5 py-3 backdrop-blur-md lg:h-[28%]">
                   <h3 className="min-h-0 font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[18px]">
