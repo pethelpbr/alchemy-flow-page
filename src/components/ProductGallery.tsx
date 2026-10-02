@@ -59,7 +59,7 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <div className="relative aspect-[5/6] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
+      <div className="relative aspect-[3/2] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
         <motion.img
           key={active}
           src={current.src}
@@ -89,14 +89,14 @@ export function ProductGallery({
           </button>
         </div>
       </div>
-      <div className="flex shrink-0 gap-3 overflow-x-auto pb-1 scrollbar-none">
+      <div className="grid shrink-0 grid-cols-10 gap-2">
         {shots.map((s, i) => (
           <button
             key={s.src}
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "aspect-[4/3] w-[96px] shrink-0 overflow-hidden rounded-xl border transition-all duration-300",
+              "aspect-square w-full min-w-0 overflow-hidden rounded-xl border transition-all duration-300",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
