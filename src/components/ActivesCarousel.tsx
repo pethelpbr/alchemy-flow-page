@@ -126,7 +126,7 @@ export function ActivesCarousel() {
         setApi={setApi}
         opts={{ loop: true, align: "start", dragFree: true }}
         aria-label="Ativos da fórmula"
-        className="mx-auto mt-10 max-w-[1400px] cursor-grab select-none px-6 active:cursor-grabbing"
+        className="mt-10 w-full cursor-grab select-none active:cursor-grabbing"
       >
         <CarouselContent className="touch-pan-y">
           {actives.map((active) => (
@@ -141,7 +141,7 @@ export function ActivesCarousel() {
                   loading="lazy"
                   draggable={false}
                   style={active.focus ? { objectPosition: active.focus } : undefined}
-                  className="aspect-[5/4] w-full object-cover"
+                  className="aspect-[6/5] w-full object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex min-h-[34%] flex-col justify-end gap-1.5 bg-primary-foreground/10 px-5 py-3 backdrop-blur-md">
                   <h3 className="min-h-0 font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[16px]">
