@@ -1,10 +1,10 @@
 import benefitsBg from "@/assets/benefits-bg-oct1.png";
 
 const benefits = [
-  { title: "Ele dorme a noite toda", text: "E você também. Sem o barulho da coceira e da lambida de madrugada." },
-  { title: "Menos vermelhidão e irritação", text: "A pele fica mais calma e as feridinhas param de abrir no mesmo lugar." },
-  { title: "O pelo volta a crescer", text: "Cai menos, o fio fica mais forte e as falhas começam a fechar." },
-  { title: "Ele volta a brincar", text: "Mais disposição e menos tempo parado se coçando num canto." },
+  { title: "Dorme a noite toda", text: "A coceira e as lambeduras param de interromper o descanso dele — e o seu." },
+  { title: "Fica mais calmo durante o dia", text: "Com a pele menos irritada e avermelhada, ele se livra daquela agonia." },
+  { title: "Menos pelos pela casa", text: "Sem pelo espalhado no sofá e na roupa, e a pelagem fica cada vez mais forte e bonita." },
+  { title: "Volta a brincar", text: "Mais disposto, ele volta a correr, brincar e ser como era antes das alergias." },
 ];
 
 export function BenefitsSection() {
