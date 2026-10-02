@@ -58,8 +58,8 @@ export function ProductGallery({
   }, [autoplay, next, active]);
 
   return (
-    <div className="flex w-full flex-col gap-4">
-      <div className="relative aspect-[6/7] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
+    <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
+      <div className="relative aspect-[6/7] w-full min-h-0 max-h-[calc(100vh-150px)] overflow-hidden rounded-2xl bg-sand">
         <motion.img
           key={active}
           src={current.src}
@@ -89,7 +89,7 @@ export function ProductGallery({
           </button>
         </div>
       </div>
-      <div className="grid shrink-0 grid-cols-10 gap-2">
+      <div className="grid shrink-0 grid-cols-10 gap-1.5">
         {shots.map((s, i) => (
           <button
             key={s.src}
