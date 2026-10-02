@@ -59,7 +59,7 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <div className="relative aspect-[3/2] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
+      <div className="relative aspect-[6/7] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
         <motion.img
           key={active}
           src={current.src}
