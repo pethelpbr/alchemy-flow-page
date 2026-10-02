@@ -106,7 +106,7 @@ export function ActivesCarousel() {
           </h2>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-6 py-6 text-primary-foreground">
+        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-5 py-4 text-primary-foreground">
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:items-center">
             {nutrients.map(([amount, label]) => (
               <div key={label} className="text-center">
@@ -141,7 +141,7 @@ export function ActivesCarousel() {
                   loading="lazy"
                   draggable={false}
                   style={active.focus ? { objectPosition: active.focus } : undefined}
-                  className="aspect-[5/4] w-full object-cover"
+                  className="aspect-[4/3] w-full object-cover"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex h-[28%] flex-col justify-end gap-1 bg-primary-foreground/10 px-5 py-2.5 backdrop-blur-md lg:h-[28%]">
                   <h3 className="min-h-0 font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[17px]">
