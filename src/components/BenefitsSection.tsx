@@ -2,7 +2,7 @@ import benefitsBg from "@/assets/benefits-bg-oct1.png";
 
 const benefits = [
   { title: "Dorme a noite toda", text: "A coceira e as lambeduras param de interromper o descanso dele — e o seu." },
-  { title: "Fica mais calmo durante o dia", text: "Com a pele menos irritada e avermelhada, ele se livra daquela agonia." },
+  { title: "Fica mais calmo no dia a dia", text: "Com a pele menos irritada e avermelhada, ele se livra daquela agonia." },
   { title: "Menos pelos pela casa", text: "Sem pelo espalhado no sofá e na roupa, e a pelagem fica cada vez mais forte e bonita." },
   { title: "Volta a brincar", text: "Mais disposto, ele volta a correr, brincar e ser como era antes das alergias." },
 ];
