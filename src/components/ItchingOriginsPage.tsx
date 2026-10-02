@@ -47,7 +47,7 @@ export function ItchingOriginsPage() {
             A coceira tem dois lugares de origem
           </h2>
           <p className="mb-[30px] text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
-            Tudo que você já tentou alcança no máximo uma delas. Por isso melhora e nunca resolve.
+            Tratar só uma delas não basta. Por isso melhora e nunca resolve.
           </p>
         </div>
 
