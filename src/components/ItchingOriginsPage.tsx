@@ -37,8 +37,8 @@ export function ItchingOriginsPage() {
   }, []);
 
   return (
-    <section className="bg-[#F7F1E8] pt-10 md:pt-14 pb-12 md:pb-16">
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-[72px]">
+    <section className="bg-[#F7F1E8] px-6 pt-10 md:pt-14 pb-12 md:pb-16">
+      <div className="mx-auto w-full max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-[13px] text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B]">
             Por que sempre volta
