@@ -106,7 +106,7 @@ export function ActivesCarousel() {
           </h2>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-5 py-4 text-primary-foreground">
+        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-5 py-3 text-primary-foreground">
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:items-center">
             {nutrients.map(([amount, label]) => (
               <div key={label} className="text-center">
@@ -126,13 +126,13 @@ export function ActivesCarousel() {
         setApi={setApi}
         opts={{ loop: true, align: "start", dragFree: true }}
         aria-label="Ativos da fórmula"
-        className="mt-12 cursor-grab select-none active:cursor-grabbing"
+        className="mx-auto mt-10 max-w-[1400px] cursor-grab select-none px-6 active:cursor-grabbing"
       >
         <CarouselContent className="touch-pan-y">
           {actives.map((active) => (
             <CarouselItem
               key={active.name}
-              className="basis-[76%] sm:basis-[46%] lg:basis-[28%] xl:basis-1/4"
+              className="basis-[82%] sm:basis-[48%] lg:basis-1/4"
             >
               <article className="relative overflow-hidden rounded-xl">
                 <img
@@ -143,11 +143,11 @@ export function ActivesCarousel() {
                   style={active.focus ? { objectPosition: active.focus } : undefined}
                   className="aspect-[4/3] w-full object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 flex h-[28%] flex-col justify-end gap-1 bg-primary-foreground/10 px-5 py-2.5 backdrop-blur-md lg:h-[28%]">
-                  <h3 className="min-h-0 font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[17px]">
+                <div className="absolute inset-x-0 bottom-0 flex min-h-[34%] flex-col justify-end gap-1.5 bg-primary-foreground/10 px-5 py-3 backdrop-blur-md">
+                  <h3 className="min-h-0 font-display text-[13px] leading-tight tracking-[0.12em] text-primary-foreground uppercase lg:text-[16px]">
                     {active.name}
                   </h3>
-                  <p className="min-h-0 text-[12px] leading-[1.25] text-primary-foreground/90 line-clamp-2 lg:text-[14px] lg:leading-[1.3]">
+                  <p className="min-h-0 text-[12px] leading-[1.3] text-primary-foreground/90 line-clamp-2 lg:text-[14px] lg:leading-[1.35]">
                     {active.description}
                   </p>
                 </div>
