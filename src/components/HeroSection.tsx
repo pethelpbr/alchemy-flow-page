@@ -30,7 +30,7 @@ export function HeroSection({
 
   const { scrollYProgress, scrollY } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.07]);
-  const galleryY = useTransform(scrollY, [0, 220], [0, -230]);
+  const galleryY = useTransform(scrollY, [0, 140], [0, -140]);
 
   return (
     <section ref={sectionRef} id="topo" className="relative overflow-x-clip pt-[70px] pb-10 md:pt-[72px] md:pb-12">
