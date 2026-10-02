@@ -52,8 +52,8 @@ export function ProductGallery({
   }, [autoplay, next, active]);
 
   return (
-    <div className="flex w-full flex-col gap-4 lg:max-h-[calc(100vh-118px)] lg:overflow-hidden">
-      <div className="relative aspect-[6/7] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
+    <div className="flex w-full flex-col gap-4">
+      <div className="relative aspect-[5/6] w-full min-h-0 overflow-hidden rounded-2xl bg-sand">
         <motion.img
           key={active}
           src={current.src}
@@ -90,7 +90,7 @@ export function ProductGallery({
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "mx-auto aspect-square w-full max-w-[140px] overflow-hidden rounded-xl border transition-all duration-300",
+              "mx-auto aspect-[4/3] w-full max-w-[96px] overflow-hidden rounded-xl border transition-all duration-300",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
