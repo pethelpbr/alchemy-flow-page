@@ -12,6 +12,12 @@ const shots = [
   { src: galleryFlatlay, alt: "Pote, dosador dourado e copo de água sobre travertino" },
   { src: galleryHand, alt: "Mão segurando o pote do suplemento" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
+  { src: productHero.url, alt: "Imagem 5 do produto" },
+  { src: galleryFlatlay, alt: "Imagem 6 do produto" },
+  { src: galleryHand, alt: "Imagem 7 do produto" },
+  { src: galleryDrink, alt: "Imagem 8 do produto" },
+  { src: productHero.url, alt: "Imagem 9 do produto" },
+  { src: galleryFlatlay, alt: "Imagem 10 do produto" },
 ];
 
 const AUTO_INTERVAL = 5000;
@@ -83,14 +89,14 @@ export function ProductGallery({
           </button>
         </div>
       </div>
-      <div className="grid shrink-0 grid-cols-4 gap-3">
+      <div className="flex shrink-0 gap-3 overflow-x-auto pb-1 scrollbar-none">
         {shots.map((s, i) => (
           <button
             key={s.src}
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "mx-auto aspect-[4/3] w-full max-w-[96px] overflow-hidden rounded-xl border transition-all duration-300",
+              "aspect-[4/3] w-[96px] shrink-0 overflow-hidden rounded-xl border transition-all duration-300",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
