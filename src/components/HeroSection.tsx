@@ -28,15 +28,14 @@ export function HeroSection({
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
 
-  const { scrollYProgress, scrollY } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.07]);
-  const galleryY = useTransform(scrollY, [0, 140], [0, -230]);
-
+  
   return (
     <section ref={sectionRef} id="topo" className="relative overflow-x-clip pt-[70px] pb-10 md:pt-[72px] md:pb-12">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-linear-to-b from-sand to-transparent" />
       <div className="container-x relative grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-14">
-        <motion.div className="self-start lg:sticky lg:top-24" style={{ y: galleryY }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+        <motion.div className="self-start lg:sticky lg:top-[72px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
           <ProductGallery autoplay={!reduced} scale={reduced ? undefined : scale} />
         </motion.div>
 
