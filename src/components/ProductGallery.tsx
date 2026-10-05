@@ -5,11 +5,12 @@ import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
+import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
 const shots = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
-  { src: galleryFlatlay, alt: "Pote, dosador dourado e copo de água sobre travertino" },
+  { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado" },
   { src: galleryHand, alt: "Mão segurando o pote do suplemento" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
