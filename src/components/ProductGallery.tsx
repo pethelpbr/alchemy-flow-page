@@ -5,11 +5,14 @@ import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
+import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
-const shots = [
+type Shot = { src: string; alt: string; ratio?: number };
+
+const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
-  { src: galleryFlatlay, alt: "Pote, dosador dourado e copo de água sobre travertino" },
+  { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado", ratio: 1 },
   { src: galleryHand, alt: "Mão segurando o pote do suplemento" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
@@ -59,7 +62,12 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
-      <div className="relative aspect-[6/7] w-full min-h-0 max-h-[calc(100vh-150px)] overflow-hidden rounded-2xl bg-sand">
+      <motion.div
+        initial={false}
+        animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full min-h-0 max-h-[calc(100vh-150px)] overflow-hidden rounded-2xl bg-sand"
+      >
         <motion.img
           key={active}
           src={current.src}
@@ -88,7 +96,7 @@ export function ProductGallery({
             <ArrowRight size={16} strokeWidth={1.4} />
           </button>
         </div>
-      </div>
+      </motion.div>
       <div className="grid shrink-0 grid-cols-10 gap-1.5">
         {shots.map((s, i) => (
           <button
