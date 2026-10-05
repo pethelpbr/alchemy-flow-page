@@ -8,11 +8,11 @@ import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
-type Shot = { src: string; alt: string; fit?: "cover" | "contain" };
+type Shot = { src: string; alt: string; fit?: "cover" | "contain"; pos?: string };
 
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
-  { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado", fit: "contain" },
+  { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado", fit: "cover", pos: "left center" },
   { src: galleryHand, alt: "Mão segurando o pote do suplemento" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
@@ -72,7 +72,7 @@ export function ProductGallery({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          style={{ ...(scale ? { scale } : {}) }}
+          style={{ ...(scale ? { scale } : {}), ...(current.pos ? { objectPosition: current.pos } : {}) }}
           className={cn("h-full w-full", current.fit === "contain" ? "object-contain" : "object-cover")}
         />
         <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
