@@ -6,6 +6,7 @@ import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
+import galleryBeneficios from "@/assets/gallery-beneficios.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -13,7 +14,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado", ratio: 1 },
-  { src: galleryHand, alt: "Mão segurando o pote do suplemento" },
+  { src: galleryBeneficios.url, alt: "Pote do NutraHelp ao lado de um cachorro sorrindo, com os quatro benefícios do suplemento listados em cartões", ratio: 1 },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
   { src: galleryFlatlay, alt: "Imagem 6 do produto" },
