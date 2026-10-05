@@ -8,3 +8,12 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+<!-- PROJECT:BEGIN -->
+> [!IMPORTANT]
+> In the product gallery, each shot may declare its own aspect ratio
+> (`Shot.ratio`) and the frame animates to it. Images that do not match the
+> default ratio must be shown complete this way — never cropped by
+> `object-cover` and never letterboxed with `object-contain` over a solid
+> backdrop, because both clip content or leave a visible seam.
+<!-- PROJECT:END -->
