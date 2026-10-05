@@ -62,7 +62,7 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
-      <div className="relative aspect-[6/7] w-full min-h-0 max-h-[calc(100vh-150px)] overflow-hidden rounded-2xl bg-sand">
+      <div className={cn("relative aspect-[6/7] w-full min-h-0 max-h-[calc(100vh-150px)] overflow-hidden rounded-2xl", current.fit === "contain" ? "bg-background" : "bg-sand")}>
         <motion.img
           key={active}
           src={current.src}
