@@ -15,9 +15,9 @@ type Shot = { src: string; alt: string; ratio?: number };
 
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
-  { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
   { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve, com os benefícios: menos coceiras, alergias e queda de pelo, pele mais saudável e pelo mais forte, intestino equilibrado e bem cuidado, mais imunidade, energia e vitalidade, pote do NutraHelp ao lado de um cachorro" },
   { src: galleryMisturar.url, alt: "É só misturar e pronto: tabela de dosagem por peso do pet, badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções" },
+  { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
   {
     src: galleryFormula.url,
     alt: "Fórmula completa com 44 nutrientes: cinco cartões em órbita ao redor de um dosador com pó — Ômega 3, biotina e zinco para pele e pelos; pré e probióticos para digestão; triptofano e magnésio para comportamento; vitaminas A, C, D e complexo B para energia e imunidade; condroitina e cálcio para ossos e articulações",
