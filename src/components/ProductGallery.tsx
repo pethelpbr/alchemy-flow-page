@@ -8,6 +8,7 @@ import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-3.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
+import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -15,7 +16,7 @@ const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
   { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve, com os benefícios: menos coceiras, alergias e queda de pelo, pele mais saudável e pelo mais forte, intestino equilibrado e bem cuidado, mais imunidade, energia e vitalidade, pote do NutraHelp ao lado de um cachorro" },
-  { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
+  { src: galleryMisturar.url, alt: "É só misturar e pronto: tabela de dosagem por peso do pet, badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
   { src: galleryFlatlay, alt: "Imagem 6 do produto" },
   { src: galleryHand, alt: "Imagem 7 do produto" },
