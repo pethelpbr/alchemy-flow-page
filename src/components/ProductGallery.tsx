@@ -6,7 +6,7 @@ import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
-import galleryBeneficios from "@/assets/gallery-beneficios.png.asset.json";
+import galleryBeneficios from "@/assets/gallery-beneficios-2.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -14,7 +14,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
-  { src: galleryBeneficios.url, alt: "Pote do NutraHelp ao lado de um cachorro, com os benefícios: menos coceiras, alergias e queda de pelo, fortalece a imunidade, regula o intestino e mais energia e articulações saudáveis" },
+  { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve tudo, com os benefícios: menos coceiras, alergias e queda de pelo, pele mais saudável e pelo mais forte, intestino equilibrado e bem cuidado, mais imunidade, energia e vitalidade, pote do NutraHelp ao lado de um cachorro" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
   { src: galleryFlatlay, alt: "Imagem 6 do produto" },
