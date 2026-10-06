@@ -24,6 +24,8 @@ const shots: Shot[] = [
   { src: galleryFlatlay, alt: "Imagem 10 do produto" },
 ];
 
+const visibleShots = shots.slice(0, 10);
+
 const AUTO_INTERVAL = 5000;
 
 export function ProductGallery({
@@ -39,7 +41,7 @@ export function ProductGallery({
 }) {
   const [internal, setInternal] = useState(0);
   const active = activeIndex ?? internal;
-  const current = shots[active]!;
+  const current = visibleShots[active]!;
 
   const handleSelect = useCallback(
     (i: number) => {
@@ -49,9 +51,9 @@ export function ProductGallery({
     [onSelect],
   );
 
-  const next = useCallback(() => handleSelect((active + 1) % shots.length), [active, handleSelect]);
+  const next = useCallback(() => handleSelect((active + 1) % visibleShots.length), [active, handleSelect]);
   const prev = useCallback(
-    () => handleSelect((active - 1 + shots.length) % shots.length),
+    () => handleSelect((active - 1 + visibleShots.length) % visibleShots.length),
     [active, handleSelect],
   );
 
@@ -99,9 +101,9 @@ export function ProductGallery({
         </div>
       </motion.div>
       <div className="grid shrink-0 grid-cols-10 gap-1.5">
-        {shots.map((s, i) => (
+        {visibleShots.map((s, i) => (
           <button
-            key={s.src}
+            key={`gallery-${i}-${s.src}`}
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
