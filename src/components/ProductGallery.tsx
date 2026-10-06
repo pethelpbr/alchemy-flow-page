@@ -10,7 +10,6 @@ import galleryBeneficios from "@/assets/gallery-beneficios-3.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
 import galleryFormula from "@/assets/gallery-formula-2.png.asset.json";
-import galleryRacao from "@/assets/gallery-racao.png.asset.json";
 import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
