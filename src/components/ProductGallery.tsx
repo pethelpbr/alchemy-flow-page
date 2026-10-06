@@ -13,8 +13,8 @@ type Shot = { src: string; alt: string; ratio?: number };
 
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
-  { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado", ratio: 1 },
-  { src: galleryBeneficios.url, alt: "Pote do NutraHelp ao lado de um cachorro sorrindo, com os quatro benefícios do suplemento listados em cartões", ratio: 1 },
+  { src: gallerySinais.url, alt: "Cartões com os seis sinais de que a pele do pet não está bem, cachorro deitado ao lado" },
+  { src: galleryBeneficios.url, alt: "Pote do NutraHelp ao lado de um cachorro sorrindo, com os quatro benefícios do suplemento listados em cartões" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
   { src: galleryFlatlay, alt: "Imagem 6 do produto" },
