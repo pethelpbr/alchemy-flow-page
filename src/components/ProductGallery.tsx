@@ -9,7 +9,7 @@ import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-3.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
-import galleryFormula from "@/assets/gallery-formula.png.asset.json";
+import galleryFormula from "@/assets/gallery-formula-2.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
