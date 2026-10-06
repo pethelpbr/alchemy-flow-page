@@ -14,7 +14,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
-  { src: galleryBeneficios.url, alt: "Pote do NutraHelp ao lado de um cachorro sorrindo, com os quatro benefícios do suplemento listados em cartões" },
+  { src: galleryBeneficios.url, alt: "Pote do NutraHelp ao lado de um cachorro, com os benefícios: pele mais forte e protegida, menos coceira e irritação, pelagem mais bonita e mais disposição e energia" },
   { src: galleryDrink, alt: "Copo com a bebida verde preparada" },
   { src: productHero.url, alt: "Imagem 5 do produto" },
   { src: galleryFlatlay, alt: "Imagem 6 do produto" },
