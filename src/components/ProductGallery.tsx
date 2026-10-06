@@ -10,7 +10,7 @@ import galleryBeneficios from "@/assets/gallery-beneficios-3.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
 import galleryFormula from "@/assets/gallery-formula-2.png.asset.json";
-import galleryRacao from "@/assets/gallery-racao.png.asset.json";
+import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -24,7 +24,7 @@ const shots: Shot[] = [
     alt: "Fórmula completa com 44 nutrientes: cinco cartões em órbita ao redor de um dosador com pó — Ômega 3, biotina e zinco para pele e pelos; pré e probióticos para digestão; triptofano e magnésio para comportamento; vitaminas A, C, D e complexo B para energia e imunidade; condroitina e cálcio para ossos e articulações",
     ratio: 1073 / 1466,
   },
-  { src: galleryRacao.url, alt: "A ração é a base, mas não é suficiente: comparativo entre só a ração e ração mais NutraHelp com 44 nutrientes, tigelas de ração com e sem o pó, colher dosadora e pote do produto" },
+  { src: galleryRacao2.url, alt: "A ração é a base, mas não é suficiente: comparativo entre só a ração, com nutrição limitada e lacunas nutricionais, e ração mais NutraHelp, com 44 nutrientes, pele, pelos e intestino, imunidade, energia e articulações; tigelas de ração com e sem o pó, colher dosadora e pote do produto" },
   { src: galleryHand, alt: "Imagem 7 do produto" },
   { src: galleryDrink, alt: "Imagem 8 do produto" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
