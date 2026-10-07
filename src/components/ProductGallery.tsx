@@ -130,6 +130,7 @@ export function ProductGallery({
           className="h-full w-full object-contain"
         />
       </motion.div>
+      </div>
 
       <div className="relative w-full min-w-0">
         <button
