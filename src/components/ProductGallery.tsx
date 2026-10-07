@@ -128,22 +128,6 @@ export function ProductGallery({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="h-full w-full object-contain"
         />
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
-          <button
-            onClick={prev}
-            aria-label="Imagem anterior"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
-          >
-            <ArrowLeft size={16} strokeWidth={1.4} />
-          </button>
-          <button
-            onClick={next}
-            aria-label="Próxima imagem"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
-          >
-            <ArrowRight size={16} strokeWidth={1.4} />
-          </button>
-        </div>
       </motion.div>
 
       <div
@@ -161,7 +145,7 @@ export function ProductGallery({
             onClick={(e) => handleThumbClick(e, i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "aspect-square w-24 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 @sm:w-[84px] @xl:w-[80px] @2xl:w-[68px]",
+              "aspect-square w-14 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 @xl:w-14 @2xl:w-[60px]",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
