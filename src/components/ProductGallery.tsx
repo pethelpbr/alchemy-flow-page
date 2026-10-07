@@ -9,6 +9,7 @@ import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-3.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
+import galleryFormula from "@/assets/gallery-formula-4.png.asset.json";
 import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -19,8 +20,9 @@ const shots: Shot[] = [
   { src: galleryMisturar.url, alt: "É só misturar e pronto: tabela de dosagem por peso do pet, badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções" },
   { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
   {
-    src: galleryMisturar.url,
-    alt: "É só misturar e pronto: tabela de dosagem por peso do pet — até 5 kg meia dose, 6 a 10 kg 1 dose, 11 a 20 kg 2 doses, 21 a 30 kg 3 doses, mais de 30 kg 4 doses — badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções",
+    src: galleryFormula.url,
+    alt: "Fórmula completa com 44 nutrientes: diferentes nutrientes trabalhando juntos para cuidar de dentro para fora; cinco cartões em órbita ao redor de um dosador com pó — Ômega 3, biotina e zinco para pele e pelos; pré e probióticos para digestão; triptofano e magnésio para comportamento; vitaminas A, C, D e complexo B para energia e imunidade; condroitina e cálcio para ossos e articulações",
+    ratio: 1073 / 1466,
   },
   { src: galleryRacao2.url, alt: "A ração é a base, mas não é suficiente: comparativo entre só a ração, com nutrição limitada e lacunas nutricionais, e ração mais NutraHelp, com 44 nutrientes, pele, pelos e intestino, imunidade, energia e articulações; tigelas de ração com e sem o pó, colher dosadora e pote do produto" },
   { src: galleryHand, alt: "Imagem 7 do produto" },
@@ -69,7 +71,7 @@ export function ProductGallery({
   }, [autoplay, next, active]);
 
   return (
-    <div className="gallery-shell flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
+    <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
       <div className="flex w-full items-start gap-3">
         <motion.div
           initial={false}

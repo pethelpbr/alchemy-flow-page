@@ -34,7 +34,7 @@ export function HeroSection({
   return (
     <section ref={sectionRef} id="topo" className="relative overflow-x-clip pt-[70px] pb-10 md:pt-[72px] md:pb-12">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-linear-to-b from-sand to-transparent" />
-      <div className="container-x-hero relative grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-start lg:gap-10 xl:grid-cols-[1.18fr_0.82fr]">
+      <div className="container-x relative grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-14">
         <motion.div className="self-start lg:sticky lg:top-[72px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
           <ProductGallery autoplay={!reduced} scale={reduced ? undefined : scale} />
         </motion.div>
