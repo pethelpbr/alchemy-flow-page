@@ -172,7 +172,6 @@ export function ProductGallery({
         >
           <ArrowRight size={15} strokeWidth={1.5} />
         </button>
-      </div>      </div>
       </div>
     </div>
   );
