@@ -108,14 +108,14 @@ export function ProductGallery({
           </div>
         </motion.div>
 
-        <div className="hidden w-[72px] shrink-0 flex-col gap-1.5 lg:flex">
+        <div className="hidden h-full w-[72px] shrink-0 flex-col gap-1.5 lg:flex">
           {visibleShots.map((s, i) => (
             <button
               key={`gallery-${i}-${s.src}`}
               onClick={() => handleSelect(i)}
               aria-label={`Ver imagem ${i + 1}`}
               className={cn(
-                "aspect-square w-full min-w-0 overflow-hidden rounded-xl border transition-all duration-300",
+                "min-h-0 flex-1 w-full overflow-hidden rounded-xl border transition-all duration-300",
                 i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
               )}
             >
