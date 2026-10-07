@@ -74,8 +74,8 @@ export function ProductGallery({
         initial={false}
         animate={{ aspectRatio: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto w-full max-w-[760px] overflow-hidden rounded-2xl bg-sand"
-        style={{ width: "min(100%, 760px, calc(100vh - 280px))" }}
+        className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-2xl bg-sand"
+        style={{ width: "min(100%, 720px, calc(100svh - 220px))" }}
       >
         <motion.img
           key={active}
@@ -106,14 +106,17 @@ export function ProductGallery({
         </div>
       </motion.div>
 
-      <div className="grid shrink-0 grid-cols-10 gap-1.5">
+      <div
+        className="flex w-full min-w-0 shrink-0 gap-2 overflow-x-auto pb-1"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
         {visibleShots.map((shot, i) => (
           <button
             key={`gallery-${i}-${shot.src}`}
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "aspect-square w-full min-w-0 overflow-hidden rounded-xl border transition-all duration-300",
+              "aspect-square w-14 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 sm:w-16",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
