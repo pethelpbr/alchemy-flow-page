@@ -110,11 +110,12 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-3">
+      <div className="mx-auto w-full max-w-[650px]">
       <motion.div
         initial={false}
         animate={{ aspectRatio: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto w-full max-w-[780px] overflow-hidden rounded-2xl bg-sand"
+        className="relative w-full overflow-hidden rounded-2xl bg-sand"
         style={{ width: "min(100%, 720px, calc(100svh - 190px))" }}
       >
         <motion.img
@@ -130,16 +131,48 @@ export function ProductGallery({
         />
       </motion.div>
 
-      <div className="relative mx-auto w-full max-w-[780px] min-w-0">
-        <button onClick={prev} aria-label="Imagem anterior" className="absolute left-0 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/55 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/75 hover:text-ink"><ArrowLeft size={16} strokeWidth={1.5} /></button>
-        <div ref={thumbsRef} onPointerDown={handleThumbPointerDown} onPointerMove={handleThumbPointerMove} onPointerUp={handleThumbPointerUp} onPointerCancel={handleThumbPointerUp} className="flex w-full min-w-0 cursor-grab gap-2 overflow-x-auto px-12 pb-1 touch-pan-x select-none active:cursor-grabbing" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+      <div className="relative w-full min-w-0">
+        <button
+          onClick={prev}
+          aria-label="Imagem anterior"
+          className="absolute left-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/55 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/75 hover:text-ink"
+        >
+          <ArrowLeft size={15} strokeWidth={1.5} />
+        </button>
+
+        <div
+          ref={thumbsRef}
+          onPointerDown={handleThumbPointerDown}
+          onPointerMove={handleThumbPointerMove}
+          onPointerUp={handleThumbPointerUp}
+          onPointerCancel={handleThumbPointerUp}
+          className="flex w-full min-w-0 cursor-grab gap-2 overflow-x-auto px-11 pb-1 touch-pan-x select-none active:cursor-grabbing"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {visibleShots.map((shot, i) => (
-            <button key={`gallery-${i}-${shot.src}`} onClick={(e) => handleThumbClick(e, i)} aria-label={`Ver imagem ${i + 1}`} className={cn("aspect-square w-[68px] shrink-0 overflow-hidden rounded-xl border transition-all duration-300 sm:w-[72px] xl:w-[76px]", i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60")}>
+            <button
+              key={`gallery-${i}-${shot.src}`}
+              onClick={(e) => handleThumbClick(e, i)}
+              aria-label={`Ver imagem ${i + 1}`}
+              className={cn(
+                "aspect-square shrink-0 overflow-hidden rounded-xl border transition-all duration-300 w-[calc((100%_-_48px)_/_7)] min-w-[54px] max-w-[72px]",
+                "sm:w-[calc((100%_-_48px)_/_7)]",
+                i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
+              )}
+            >
               <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
             </button>
           ))}
         </div>
-        <button onClick={next} aria-label="Próxima imagem" className="absolute right-0 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/55 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/75 hover:text-ink"><ArrowRight size={16} strokeWidth={1.5} /></button>
+
+        <button
+          onClick={next}
+          aria-label="Próxima imagem"
+          className="absolute right-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/55 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/75 hover:text-ink"
+        >
+          <ArrowRight size={15} strokeWidth={1.5} />
+        </button>
+      </div>      </div>
       </div>
     </div>
   );
