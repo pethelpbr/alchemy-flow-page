@@ -94,14 +94,14 @@ export function ProductGallery({
           <button
             onClick={prev}
             aria-label="Imagem anterior"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/70 text-ink/50 shadow-sm backdrop-blur-sm opacity-[0.45] transition-all duration-200 hover:opacity-100 hover:text-ink hover:border-primary"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/70 text-ink/50 shadow-sm backdrop-blur-sm opacity-50 transition-all duration-200 hover:opacity-100 hover:text-ink hover:border-primary"
           >
             <ArrowLeft size={16} strokeWidth={1.4} />
           </button>
           <button
             onClick={next}
             aria-label="Próxima imagem"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/70 text-ink/50 shadow-sm backdrop-blur-sm opacity-[0.45] transition-all duration-200 hover:opacity-100 hover:text-ink hover:border-primary"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/70 text-ink/50 shadow-sm backdrop-blur-sm opacity-50 transition-all duration-200 hover:opacity-100 hover:text-ink hover:border-primary"
           >
             <ArrowRight size={16} strokeWidth={1.4} />
           </button>
