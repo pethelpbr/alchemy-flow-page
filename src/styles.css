@@ -177,6 +177,16 @@
   }
 }
 
+/* Product carousel: on short screens the column narrows so the whole photo
+   still fits above the fold instead of being cut off while it sticks. */
+@utility gallery-shell {
+  width: 100%;
+  @media (min-width: 1024px) {
+    /* 0.857 = the carousel's 6/7 frame; 3.875rem = the thumbnail rail. */
+    max-width: calc((100vh - 5.5rem) * 0.857 + 3.875rem);
+  }
+}
+
 /* Before/after comparator on desktop: sized from the viewport height so the
    whole 4:5 image is visible at once instead of needing a scroll. */
 @utility compare-shell {
