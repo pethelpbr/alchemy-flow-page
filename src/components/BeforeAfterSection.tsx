@@ -122,10 +122,6 @@ export function BeforeAfterSection() {
           >
             Antes e depois de quem já usou
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Fotos que os próprios tutores mandaram. A etiqueta escura no meio mostra quanto tempo
-            passou entre uma e outra.
-          </p>
         </div>
 
         <Carousel
