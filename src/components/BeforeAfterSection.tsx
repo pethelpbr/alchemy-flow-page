@@ -22,7 +22,6 @@ import depoisZeca from "@/assets/depois-gato.jpg";
 
 type Case = {
   name: string;
-  breed: string;
   weeks: string;
   quote: string;
   before: string;
@@ -32,7 +31,6 @@ type Case = {
 const cases: Case[] = [
   {
     name: "Mel",
-    breed: "Shih Tzu",
     weeks: "8 semanas",
     quote: "O pelo voltou a crescer nas falhas da lombar.",
     before: antesMel,
@@ -40,7 +38,6 @@ const cases: Case[] = [
   },
   {
     name: "Thor",
-    breed: "Golden",
     weeks: "10 semanas",
     quote: "A pata parou de ficar úmida e o pelo escuro clareou.",
     before: antesThor,
@@ -48,7 +45,6 @@ const cases: Case[] = [
   },
   {
     name: "Nina",
-    breed: "Vira-lata",
     weeks: "12 semanas",
     quote: "A falha do flanco fechou por completo.",
     before: antesNina,
@@ -56,7 +52,6 @@ const cases: Case[] = [
   },
   {
     name: "Bento",
-    breed: "Cocker",
     weeks: "9 semanas",
     quote: "A orelha parou de incomodar e ele voltou a dormir a noite toda.",
     before: antesBento,
@@ -64,7 +59,6 @@ const cases: Case[] = [
   },
   {
     name: "Amora",
-    breed: "Lhasa",
     weeks: "8 semanas",
     quote: "A barriga desinflamou e o pelo do dorso ficou mais denso.",
     before: antesAmora,
@@ -72,7 +66,6 @@ const cases: Case[] = [
   },
   {
     name: "Zeca",
-    breed: "Gato SRD",
     weeks: "11 semanas",
     quote: "Parou de lamber a barriga e o pelo preencheu de novo.",
     before: antesZeca,
@@ -172,10 +165,7 @@ export function BeforeAfterSection() {
                       {c.weeks}
                     </span>
                   </div>
-                  <p className="mt-3 text-sm text-foreground">
-                    <span className="font-bold">{c.name}</span>{" "}
-                    <span className="text-muted-foreground">{c.breed}</span>
-                  </p>
+                  <p className="mt-3 text-sm font-bold text-foreground">{c.name}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>
                 </article>
               </CarouselItem>
