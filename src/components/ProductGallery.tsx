@@ -65,8 +65,11 @@ export function ProductGallery({
   useEffect(() => {
     if (!autoplay) return;
     const id = setInterval(next, AUTO_INTERVAL);
-    return (
-    <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
+    return () => clearInterval(id);
+  }, [autoplay, next]);
+
+  return (
+    <div className="flex w-full flex-col gap-3">
       <motion.div
         initial={false}
         animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
@@ -85,14 +88,23 @@ export function ProductGallery({
           className="h-full w-full object-contain"
         />
         <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
-          <button onClick={prev} aria-label="Imagem anterior" className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary">
+          <button
+            onClick={prev}
+            aria-label="Imagem anterior"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+          >
             <ArrowLeft size={16} strokeWidth={1.4} />
           </button>
-          <button onClick={next} aria-label="Próxima imagem" className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary">
+          <button
+            onClick={next}
+            aria-label="Próxima imagem"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+          >
             <ArrowRight size={16} strokeWidth={1.4} />
           </button>
         </div>
       </motion.div>
+
       <div className="grid shrink-0 grid-cols-10 gap-1.5">
         {visibleShots.map((shot, i) => (
           <button
@@ -110,5 +122,4 @@ export function ProductGallery({
       </div>
     </div>
   );
-
 }
