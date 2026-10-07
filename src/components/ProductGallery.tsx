@@ -101,7 +101,7 @@ export function ProductGallery({
           <button
             onClick={next}
             aria-label="Próxima imagem"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/30 bg-card/35 text-ink/35 shadow-sm backdrop-blur-sm opacity-50 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/70 text-ink/70 shadow-sm backdrop-blur-sm opacity-90 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
           >
             <ArrowRight size={16} strokeWidth={1.4} />
           </button>
