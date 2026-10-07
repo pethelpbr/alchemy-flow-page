@@ -65,18 +65,27 @@ export function ProductGallery({
   useEffect(() => {
     if (!autoplay) return;
     const id = setInterval(next, AUTO_INTERVAL);
-    return () => clearInterval(id);
-  }, [autoplay, next, active]);
-
-  return (
+    return (
     <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
-      <motion.div
-        initial={false}
-        animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full min-h-0 overflow-hidden rounded-2xl bg-sand"
-      >
-                  initial={false}
+      <div className="flex w-full items-stretch gap-3">
+        <div className="hidden w-[50px] shrink-0 flex-col gap-1.5 lg:flex">
+          {visibleShots.map((shot, i) => (
+            <button
+              key={`gallery-side-${i}-${shot.src}`}
+              onClick={() => handleSelect(i)}
+              aria-label={`Ver imagem ${i + 1}`}
+              className={cn(
+                "min-h-0 flex-1 w-full overflow-hidden rounded-xl border transition-all duration-300",
+                i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
+              )}
+            >
+              <img src={shot.src} alt="" loading="lazy" className="h-full w-full object-cover" />
+            </button>
+          ))}
+        </div>
+
+        <motion.div
+          initial={false}
           animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="relative min-w-0 flex-1 overflow-hidden rounded-2xl bg-sand"
@@ -92,7 +101,7 @@ export function ProductGallery({
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="h-full w-full object-contain"
           />
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3 group/controls">
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
             <button
               onClick={prev}
               aria-label="Imagem anterior"
@@ -109,28 +118,12 @@ export function ProductGallery({
             </button>
           </div>
         </motion.div>
-
-
-      </motion.div>
-      <div className="grid shrink-0 grid-cols-10 gap-1.5">
-        {visibleShots.map((s, i) => (
-          <button
-            key={`gallery-${i}-${s.src}`}
-            onClick={() => handleSelect(i)}
-            aria-label={`Ver imagem ${i + 1}`}
-            className={cn(
-              "aspect-square w-full min-w-0 overflow-hidden rounded-xl border transition-all duration-300",
-              i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
-            )}
-          >
-            <img src={s.src} alt="" loading="lazy" className="h-full w-full object-cover" />
-          </button>
-        ))}
       </div>
+
       <div className="grid shrink-0 grid-cols-10 gap-1.5 lg:hidden">
-        {visibleShots.map((s, i) => (
+        {visibleShots.map((shot, i) => (
           <button
-            key={`gallery-mobile-${i}-${s.src}`}
+            key={`gallery-mobile-${i}-${shot.src}`}
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
@@ -138,10 +131,11 @@ export function ProductGallery({
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
-            <img src={s.src} alt="" loading="lazy" className="h-full w-full object-cover" />
+            <img src={shot.src} alt="" loading="lazy" className="h-full w-full object-cover" />
           </button>
         ))}
       </div>
     </div>
   );
+
 }
