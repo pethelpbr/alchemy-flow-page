@@ -108,7 +108,7 @@ export function ProductGallery({
           </div>
         </motion.div>
 
-        <div className="hidden h-full w-[60px] shrink-0 flex-col gap-1.5 lg:flex">
+        <div className="hidden h-full w-[50px] shrink-0 flex-col gap-1.5 lg:flex">
           {visibleShots.map((s, i) => (
             <button
               key={`gallery-${i}-${s.src}`}
