@@ -116,7 +116,7 @@ export function ProductGallery({
         animate={{ aspectRatio: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="relative w-full overflow-hidden rounded-2xl bg-sand"
-        style={{ width: "min(100%, 720px, calc(100svh - 140px))" }}
+        style={{ width: "100%" }}
       >
         <motion.img
           key={active}
