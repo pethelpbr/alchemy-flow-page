@@ -27,14 +27,6 @@ function VideoTags({ problem, duration, className }: { problem: string; duration
   );
 }
 
-const benefitTexts = [
-  "O NutraHelp age nas duas frentes que sustentam a coceira: equilibra a flora intestinal, de onde vem a maior parte da defesa do organismo, e repõe os nutrientes que a pele usa para se reconstruir. Com o uso contínuo, o pet se coça e se lambe menos, as irritações cicatrizam mais rápido e o pelo volta a preencher as falhas.",
-  "E como a fórmula tem 44 nutrientes, o cuidado não para na pele: ela também apoia a digestão, a imunidade, as articulações e a disposição do dia a dia.",
-];
-
-function BenefitList() {
-  return <div className="space-y-3">{benefitTexts.map((text) => <p key={text} className="leading-relaxed">{text}</p>)}</div>;
-}
 
 const whoForBullets = [
   "Cães e gatos de todas as raças e tamanhos.",
@@ -85,7 +77,6 @@ function HowToUse() {
 const details = [
   { title: "O que é o NutraHelp?", content: "Um suplemento alimentar em pó com sabor de carne, para cães e gatos, que pode ser misturado em qualquer alimento. Cada dose reúne 44 nutrientes numa fórmula 8 em 1: vitaminas, minerais, aminoácidos, ômega 3, pré e probióticos. O foco principal é pele, pelos e intestino." },
   { title: "Para quem é?", content: <WhoForList /> },
-  { title: "Benefícios", content: <BenefitList /> },
   { title: "Como usar", content: <HowToUse /> },
 ];
 
