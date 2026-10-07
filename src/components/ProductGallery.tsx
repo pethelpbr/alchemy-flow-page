@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, type MotionValue } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -45,6 +45,8 @@ export function ProductGallery({
   autoplay?: boolean;
 }) {
   const [internal, setInternal] = useState(0);
+  const thumbsRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef({ active: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active]!;
 
@@ -57,6 +59,37 @@ export function ProductGallery({
   );
 
   const next = useCallback(() => handleSelect((active + 1) % visibleShots.length), [active, handleSelect]);
+
+  const handleThumbPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = thumbsRef.current;
+    if (!el) return;
+    dragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
+    el.setPointerCapture(e.pointerId);
+  }, []);
+
+  const handleThumbPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = thumbsRef.current;
+    const drag = dragRef.current;
+    if (!el || !drag.active) return;
+    const dx = e.clientX - drag.startX;
+    if (Math.abs(dx) > 4) drag.moved = true;
+    el.scrollLeft = drag.startScrollLeft - dx;
+  }, []);
+
+  const handleThumbPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = thumbsRef.current;
+    if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+    dragRef.current.active = false;
+  }, []);
+
+  const handleThumbClick = useCallback((e: React.MouseEvent<HTMLButtonElement>, i: number) => {
+    if (dragRef.current.moved) {
+      e.preventDefault();
+      dragRef.current.moved = false;
+      return;
+    }
+    handleSelect(i);
+  }, [handleSelect]);
   const prev = useCallback(
     () => handleSelect((active - 1 + visibleShots.length) % visibleShots.length),
     [active, handleSelect],
@@ -107,20 +140,25 @@ export function ProductGallery({
       </motion.div>
 
       <div
-        className="flex w-full min-w-0 shrink-0 gap-2 overflow-x-auto pb-1"
+        ref={thumbsRef}
+        onPointerDown={handleThumbPointerDown}
+        onPointerMove={handleThumbPointerMove}
+        onPointerUp={handleThumbPointerUp}
+        onPointerCancel={handleThumbPointerUp}
+        className="flex @container w-full min-w-0 shrink-0 cursor-grab gap-2 overflow-x-auto pb-1 touch-pan-x select-none active:cursor-grabbing"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {visibleShots.map((shot, i) => (
           <button
             key={`gallery-${i}-${shot.src}`}
-            onClick={() => handleSelect(i)}
+            onClick={(e) => handleThumbClick(e, i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
-              "aspect-square w-14 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 sm:w-16",
+              "aspect-square w-24 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 @sm:w-[84px] @xl:w-[80px] @2xl:w-[68px]",
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
-            <img src={shot.src} alt="" loading="lazy" className="h-full w-full object-cover" />
+            <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
           </button>
         ))}
       </div>
