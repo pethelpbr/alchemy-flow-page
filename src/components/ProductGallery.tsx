@@ -88,7 +88,7 @@ export function ProductGallery({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
         <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3 group/controls">
           <button
