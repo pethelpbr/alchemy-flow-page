@@ -16,4 +16,9 @@
 > default ratio must be shown complete this way — never cropped by
 > `object-cover` and never letterboxed with `object-contain` over a solid
 > backdrop, because both clip content or leave a visible seam.
+>
+> In drag-scrollable thumbnail strips, never call `setPointerCapture` on
+> pointer-down: it retargets the following click to the strip, so the thumbnail
+> buttons never fire. Start the capture only once the pointer has actually moved
+> past a small threshold, so a plain press-and-release still selects.
 <!-- PROJECT:END -->

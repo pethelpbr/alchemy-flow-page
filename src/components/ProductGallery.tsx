@@ -6,7 +6,7 @@ import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
-import galleryBeneficios from "@/assets/gallery-beneficios-3.png.asset.json";
+import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
 import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
@@ -15,7 +15,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
-  { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve, com os benefícios: menos coceiras, alergias e queda de pelo, pele mais saudável e pelo mais forte, intestino equilibrado e bem cuidado, mais imunidade, energia e vitalidade, pote do NutraHelp ao lado de um cachorro" },
+  { src: galleryBeneficios.url, alt: "Só tratar por fora não resolve, com os benefícios: menos coceiras, alergias e queda de pelo, fortalece a imunidade, regula o intestino, mais energia e articulações saudáveis; selo nova embalagem, mesma fórmula; pote do NutraHelp ao lado de um cachorro" },
   { src: galleryMisturar.url, alt: "É só misturar e pronto: tabela de dosagem por peso do pet, badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções" },
   { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
   {
@@ -46,7 +46,7 @@ export function ProductGallery({
 }) {
   const [internal, setInternal] = useState(0);
   const thumbsRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef({ active: false, startX: 0, startScrollLeft: 0, moved: false });
+  const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active]!;
 
@@ -63,8 +63,9 @@ export function ProductGallery({
   const handleThumbPointerDown = useCallback((e: PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     if (!el) return;
-    dragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
-    el.setPointerCapture(e.pointerId);
+    // Capture only once a drag really starts: capturing on press would retarget
+    // the click to the strip and the thumbnail buttons would never fire.
+    dragRef.current = { active: true, captured: false, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
   }, []);
 
   const handleThumbPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
@@ -72,8 +73,14 @@ export function ProductGallery({
     const drag = dragRef.current;
     if (!el || !drag.active) return;
     const dx = e.clientX - drag.startX;
-    if (Math.abs(dx) > 4) drag.moved = true;
-    el.scrollLeft = drag.startScrollLeft - dx;
+    if (Math.abs(dx) > 4) {
+      drag.moved = true;
+      if (!drag.captured) {
+        drag.captured = true;
+        el.setPointerCapture(e.pointerId);
+      }
+    }
+    if (drag.captured) el.scrollLeft = drag.startScrollLeft - dx;
   }, []);
 
   const handleThumbPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
