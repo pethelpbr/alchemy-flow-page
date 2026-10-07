@@ -68,7 +68,7 @@ export function ProductGallery({
     dragRef.current = { active: true, captured: false, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
   }, []);
 
-  const handleThumbPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+  const handleThumbPointerMove = useCallback((e: PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     const drag = dragRef.current;
     if (!el || !drag.active) return;
@@ -83,7 +83,7 @@ export function ProductGallery({
     if (drag.captured) el.scrollLeft = drag.startScrollLeft - dx;
   }, []);
 
-  const handleThumbPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+  const handleThumbPointerUp = useCallback((e: PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
     dragRef.current.active = false;
