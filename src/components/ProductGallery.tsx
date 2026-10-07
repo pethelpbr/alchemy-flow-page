@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
 import { motion, type MotionValue } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -60,7 +60,7 @@ export function ProductGallery({
 
   const next = useCallback(() => handleSelect((active + 1) % visibleShots.length), [active, handleSelect]);
 
-  const handleThumbPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+  const handleThumbPointerDown = useCallback((e: PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     if (!el) return;
     dragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
@@ -82,7 +82,7 @@ export function ProductGallery({
     dragRef.current.active = false;
   }, []);
 
-  const handleThumbClick = useCallback((e: React.MouseEvent<HTMLButtonElement>, i: number) => {
+  const handleThumbClick = useCallback((e: MouseEvent<HTMLButtonElement>, i: number) => {
     if (dragRef.current.moved) {
       e.preventDefault();
       dragRef.current.moved = false;
