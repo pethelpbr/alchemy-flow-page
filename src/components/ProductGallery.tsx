@@ -72,45 +72,68 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
-      <motion.div
-        initial={false}
-        animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full min-h-0 overflow-hidden rounded-2xl bg-sand"
-      >
-        <motion.img
-          key={active}
-          src={current.src}
-          alt={current.alt}
-          width={1200}
-          height={1400}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          
-          className="h-full w-full object-contain"
-        />
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3 group/controls">
-          <button
-            onClick={prev}
-            aria-label="Imagem anterior"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
-          >
-            <ArrowLeft size={16} strokeWidth={1.4} />
-          </button>
-          <button
-            onClick={next}
-            aria-label="Próxima imagem"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
-          >
-            <ArrowRight size={16} strokeWidth={1.4} />
-          </button>
+      <div className="flex w-full items-start gap-3">
+        <motion.div
+          initial={false}
+          animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="relative min-w-0 flex-1 overflow-hidden rounded-2xl bg-sand"
+        >
+          <motion.img
+            key={active}
+            src={current.src}
+            alt={current.alt}
+            width={1200}
+            height={1400}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="h-full w-full object-contain"
+          />
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3 group/controls">
+            <button
+              onClick={prev}
+              aria-label="Imagem anterior"
+              className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+            >
+              <ArrowLeft size={16} strokeWidth={1.4} />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Próxima imagem"
+              className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+            >
+              <ArrowRight size={16} strokeWidth={1.4} />
+            </button>
+          </div>
+        </motion.div>
+
+        <div className="hidden w-[72px] shrink-0 flex-col gap-1.5 lg:flex">
+          {visibleShots.map((s, i) => (
+            <button
+              key={`gallery-${i}-${s.src}`}
+              onClick={() => handleSelect(i)}
+              aria-label={`Ver imagem ${i + 1}`}
+              className={cn(
+                "aspect-square w-full min-w-0 overflow-hidden rounded-xl border transition-all duration-300",
+                i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
+              )}
+            >
+              <img
+                src={s.src}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </button>
+          ))}
         </div>
-      </motion.div>
-      <div className="grid shrink-0 grid-cols-10 gap-1.5">
+      </div>
+
+      <div className="grid shrink-0 grid-cols-10 gap-1.5 lg:hidden">
         {visibleShots.map((s, i) => (
           <button
-            key={`gallery-${i}-${s.src}`}
+            key={`gallery-mobile-${i}-${s.src}`}
             onClick={() => handleSelect(i)}
             aria-label={`Ver imagem ${i + 1}`}
             className={cn(
@@ -118,12 +141,7 @@ export function ProductGallery({
               i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
             )}
           >
-            <img
-              src={s.src}
-              alt=""
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+            <img src={s.src} alt="" loading="lazy" className="h-full w-full object-cover" />
           </button>
         ))}
       </div>
