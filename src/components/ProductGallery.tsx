@@ -70,9 +70,13 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
-      <div className="flex w-full items-start gap-3">
-        <motion.div
-          initial={false}
+      <motion.div
+        initial={false}
+        animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full min-h-0 overflow-hidden rounded-2xl bg-sand"
+      >
+                  initial={false}
           animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="relative min-w-0 flex-1 overflow-hidden rounded-2xl bg-sand"
@@ -106,28 +110,23 @@ export function ProductGallery({
           </div>
         </motion.div>
 
-        <div className="hidden h-full w-[50px] shrink-0 flex-col gap-1.5 lg:flex">
-          {visibleShots.map((s, i) => (
-            <button
-              key={`gallery-${i}-${s.src}`}
-              onClick={() => handleSelect(i)}
-              aria-label={`Ver imagem ${i + 1}`}
-              className={cn(
-                "min-h-0 flex-1 w-full overflow-hidden rounded-xl border transition-all duration-300",
-                i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
-              )}
-            >
-              <img
-                src={s.src}
-                alt=""
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-            </button>
-          ))}
-        </div>
-      </div>
 
+      </motion.div>
+      <div className="grid shrink-0 grid-cols-10 gap-1.5">
+        {visibleShots.map((s, i) => (
+          <button
+            key={`gallery-${i}-${s.src}`}
+            onClick={() => handleSelect(i)}
+            aria-label={`Ver imagem ${i + 1}`}
+            className={cn(
+              "aspect-square w-full min-w-0 overflow-hidden rounded-xl border transition-all duration-300",
+              i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
+            )}
+          >
+            <img src={s.src} alt="" loading="lazy" className="h-full w-full object-cover" />
+          </button>
+        ))}
+      </div>
       <div className="grid shrink-0 grid-cols-10 gap-1.5 lg:hidden">
         {visibleShots.map((s, i) => (
           <button
