@@ -46,7 +46,7 @@ export function ProductGallery({
 }) {
   const [internal, setInternal] = useState(0);
   const thumbsRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef({ active: false, startX: 0, startScrollLeft: 0, moved: false });
+  const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active]!;
 
@@ -63,8 +63,9 @@ export function ProductGallery({
   const handleThumbPointerDown = useCallback((e: PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     if (!el) return;
-    dragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
-    el.setPointerCapture(e.pointerId);
+    // Capture only once a drag really starts: capturing on press would retarget
+    // the click to the strip and the thumbnail buttons would never fire.
+    dragRef.current = { active: true, captured: false, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
   }, []);
 
   const handleThumbPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
@@ -72,8 +73,14 @@ export function ProductGallery({
     const drag = dragRef.current;
     if (!el || !drag.active) return;
     const dx = e.clientX - drag.startX;
-    if (Math.abs(dx) > 4) drag.moved = true;
-    el.scrollLeft = drag.startScrollLeft - dx;
+    if (Math.abs(dx) > 4) {
+      drag.moved = true;
+      if (!drag.captured) {
+        drag.captured = true;
+        el.setPointerCapture(e.pointerId);
+      }
+    }
+    if (drag.captured) el.scrollLeft = drag.startScrollLeft - dx;
   }, []);
 
   const handleThumbPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
