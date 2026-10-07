@@ -65,7 +65,10 @@ export function ProductGallery({
   useEffect(() => {
     if (!autoplay) return;
     const id = setInterval(next, AUTO_INTERVAL);
-    return (
+    return () => clearInterval(id);
+  }, [autoplay, next]);
+
+  return (
     <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
       <div className="flex w-full items-stretch gap-3">
         <div className="hidden w-[50px] shrink-0 flex-col gap-1.5 lg:flex">
