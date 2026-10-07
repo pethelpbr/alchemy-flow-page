@@ -69,7 +69,7 @@ export function ProductGallery({
   }, [autoplay, next, active]);
 
   return (
-    <div className="flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
+    <div className="gallery-shell flex w-full flex-col gap-3 lg:sticky lg:top-[72px]">
       <div className="flex w-full items-start gap-3">
         <motion.div
           initial={false}
