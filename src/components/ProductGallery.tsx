@@ -76,7 +76,7 @@ export function ProductGallery({
         initial={false}
         animate={{ aspectRatio: current.ratio ?? 6 / 7 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full min-h-0 max-h-[calc(100vh-150px)] overflow-hidden rounded-2xl bg-sand"
+        className="relative w-full min-h-0 overflow-hidden rounded-2xl bg-sand"
       >
         <motion.img
           key={active}
