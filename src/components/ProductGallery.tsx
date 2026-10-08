@@ -45,6 +45,7 @@ export function ProductGallery({
   autoplay?: boolean;
 }) {
   const [internal, setInternal] = useState(0);
+  const [scrolledLeft, setScrolledLeft] = useState(false);
   const thumbsRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
@@ -87,6 +88,10 @@ export function ProductGallery({
     const el = thumbsRef.current;
     if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
     dragRef.current.active = false;
+  }, []);
+
+  const handleThumbScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    setScrolledLeft(e.currentTarget.scrollLeft > 4);
   }, []);
 
   const handleThumbClick = useCallback((e: MouseEvent<HTMLButtonElement>, i: number) => {
