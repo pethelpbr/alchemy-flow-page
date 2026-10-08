@@ -133,6 +133,17 @@ export function ProductGallery({
     });
   }, [active]);
 
+  useEffect(() => {
+    const el = mobileGalleryRef.current;
+    if (!el || el.clientWidth === 0) return;
+    const targetLeft = active * el.clientWidth;
+    if (Math.abs(el.scrollLeft - targetLeft) < 2) return;
+    el.scrollTo({
+      left: targetLeft,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  }, [active]);
+
   return (
     <div className="flex w-full flex-col gap-3">
       <motion.div
