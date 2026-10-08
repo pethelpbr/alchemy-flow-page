@@ -9,7 +9,7 @@ import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.j
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
-import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
+import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -23,7 +23,7 @@ const shots: Shot[] = [
     src: galleryRacaoNaoSuficiente.url,
     alt: "A ração não é suficiente: de um lado, nutrição limitada que pode gerar desequilíbrios; do outro, pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade. Tigelas de ração com e sem o pó, colher dosadora e pote do NutraHelp ao lado de alimentos frescos",
   },
-  { src: galleryRacao2.url, alt: "A ração é a base, mas não é suficiente: comparativo entre só a ração, com nutrição limitada e lacunas nutricionais, e ração mais NutraHelp, com 44 nutrientes, pele, pelos e intestino, imunidade, energia e articulações; tigelas de ração com e sem o pó, colher dosadora e pote do produto" },
+  { src: galleryRacaoBase.url, alt: "A ração é a base, mas não é suficiente: de um lado, só a ração, com nutrição limitada e que pode gerar desequilíbrios; do outro, ração com NutraHelp, para pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade; tigelas de ração com e sem o pó, colher dosadora e pote do produto ao lado de alimentos frescos" },
   { src: galleryHand, alt: "Imagem 7 do produto" },
   { src: galleryDrink, alt: "Imagem 8 do produto" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
