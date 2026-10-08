@@ -164,6 +164,7 @@ export function ProductGallery({
 
         <div
           ref={thumbsRef}
+          onScroll={handleThumbScroll}
           onPointerDown={handleThumbPointerDown}
           onPointerMove={handleThumbPointerMove}
           onPointerUp={handleThumbPointerUp}
