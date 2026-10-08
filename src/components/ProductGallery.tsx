@@ -276,7 +276,7 @@ export function ProductGallery({
             mobileDragRef.current.active = false;
             settleMobileDrag();
           }}
-          className="flex w-full items-start gap-3 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-pan-x select-none"
+          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-pan-x select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {visibleShots.map((shot, i) => (
