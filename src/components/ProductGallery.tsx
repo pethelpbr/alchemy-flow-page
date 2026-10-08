@@ -228,7 +228,17 @@ export function ProductGallery({
         <div
           ref={mobileGalleryRef}
           onScroll={(e) => {
-            if (mobileAnimation.current || mobileDragRef.current.active) return;
+            if (mobileAnimation.current) return;
+            const el = e.currentTarget;
+            const first = el.children.item(0);
+            if (first instanceof HTMLElement && first.offsetWidth > 0) {
+              const index = Math.max(
+                0,
+                Math.min(visibleShots.length - 1, Math.round(el.scrollLeft / first.offsetWidth)),
+              );
+              if (index !== active) handleSelect(index);
+            }
+            if (mobileDragRef.current.active) return;
             clearTimeout(mobileScrollTimer.current);
             mobileScrollTimer.current = setTimeout(settleMobileDrag, 120);
           }}
