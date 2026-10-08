@@ -68,7 +68,7 @@ export function ProductGallery({
     dragRef.current = { active: true, captured: false, startX: e.clientX, startScrollLeft: el.scrollLeft, moved: false };
   }, []);
 
-  const handleThumbPointerMove = useCallback((e: PointerEvent<HTMLDivElement>) => {
+  const handleThumbPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     const drag = dragRef.current;
     if (!el || !drag.active) return;
@@ -83,7 +83,7 @@ export function ProductGallery({
     if (drag.captured) el.scrollLeft = drag.startScrollLeft - dx;
   }, []);
 
-  const handleThumbPointerUp = useCallback((e: PointerEvent<HTMLDivElement>) => {
+  const handleThumbPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const el = thumbsRef.current;
     if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
     dragRef.current.active = false;
@@ -110,13 +110,12 @@ export function ProductGallery({
 
   return (
     <div className="flex w-full flex-col gap-3">
-      <div className="mx-auto w-full max-w-[650px]">
       <motion.div
         initial={false}
         animate={{ aspectRatio: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full overflow-hidden rounded-2xl bg-sand"
-        style={{ width: "100%" }}
+        className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-2xl bg-sand"
+        style={{ width: "min(100%, 720px, calc(100svh - 220px))" }}
       >
         <motion.img
           key={active}
@@ -129,50 +128,46 @@ export function ProductGallery({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="h-full w-full object-contain"
         />
-      </motion.div>
-      </div>
-
-      <div className="relative w-full min-w-0">
-        <button
-          onClick={prev}
-          aria-label="Imagem anterior"
-          className="absolute left-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/55 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/75 hover:text-ink"
-        >
-          <ArrowLeft size={15} strokeWidth={1.5} />
-        </button>
-
-        <div
-          ref={thumbsRef}
-          onPointerDown={handleThumbPointerDown}
-          onPointerMove={handleThumbPointerMove}
-          onPointerUp={handleThumbPointerUp}
-          onPointerCancel={handleThumbPointerUp}
-          className="flex w-full min-w-0 cursor-grab gap-2 overflow-x-auto px-11 pb-1 touch-pan-x select-none active:cursor-grabbing"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {visibleShots.map((shot, i) => (
-            <button
-              key={`gallery-${i}-${shot.src}`}
-              onClick={(e) => handleThumbClick(e, i)}
-              aria-label={`Ver imagem ${i + 1}`}
-              className={cn(
-                "aspect-square shrink-0 overflow-hidden rounded-xl border transition-all duration-300 w-[calc((100%_-_48px)_/_7)] min-w-[54px] max-w-[72px]",
-                "sm:w-[calc((100%_-_48px)_/_7)]",
-                i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
-              )}
-            >
-              <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
-            </button>
-          ))}
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
+          <button
+            onClick={prev}
+            aria-label="Imagem anterior"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+          >
+            <ArrowLeft size={16} strokeWidth={1.4} />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Próxima imagem"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
+          >
+            <ArrowRight size={16} strokeWidth={1.4} />
+          </button>
         </div>
+      </motion.div>
 
-        <button
-          onClick={next}
-          aria-label="Próxima imagem"
-          className="absolute right-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/55 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-white/75 hover:text-ink"
-        >
-          <ArrowRight size={15} strokeWidth={1.5} />
-        </button>
+      <div
+        ref={thumbsRef}
+        onPointerDown={handleThumbPointerDown}
+        onPointerMove={handleThumbPointerMove}
+        onPointerUp={handleThumbPointerUp}
+        onPointerCancel={handleThumbPointerUp}
+        className="flex @container w-full min-w-0 shrink-0 cursor-grab gap-2 overflow-x-auto pb-1 touch-pan-x select-none active:cursor-grabbing"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
+        {visibleShots.map((shot, i) => (
+          <button
+            key={`gallery-${i}-${shot.src}`}
+            onClick={(e) => handleThumbClick(e, i)}
+            aria-label={`Ver imagem ${i + 1}`}
+            className={cn(
+              "aspect-square w-24 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 @sm:w-[84px] @xl:w-[80px] @2xl:w-[68px]",
+              i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
+            )}
+          >
+            <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
+          </button>
+        ))}
       </div>
     </div>
   );
