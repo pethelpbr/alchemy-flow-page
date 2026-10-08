@@ -45,6 +45,7 @@ export function ProductGallery({
   autoplay?: boolean;
 }) {
   const [internal, setInternal] = useState(0);
+  const [scrolledLeft, setScrolledLeft] = useState(false);
   const thumbsRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
@@ -87,6 +88,10 @@ export function ProductGallery({
     const el = thumbsRef.current;
     if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
     dragRef.current.active = false;
+  }, []);
+
+  const handleThumbScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    setScrolledLeft(e.currentTarget.scrollLeft > 4);
   }, []);
 
   const handleThumbClick = useCallback((e: MouseEvent<HTMLButtonElement>, i: number) => {
@@ -159,6 +164,7 @@ export function ProductGallery({
 
         <div
           ref={thumbsRef}
+          onScroll={handleThumbScroll}
           onPointerDown={handleThumbPointerDown}
           onPointerMove={handleThumbPointerMove}
           onPointerUp={handleThumbPointerUp}
@@ -181,6 +187,12 @@ export function ProductGallery({
           ))}
         </div>
 
+        <div
+          className={cn(
+            "pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-background via-background/80 to-transparent transition-opacity duration-300",
+            scrolledLeft ? "opacity-100" : "opacity-0",
+          )}
+        />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-background via-background/80 to-transparent" />
 
         <button
