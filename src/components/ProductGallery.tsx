@@ -128,27 +128,12 @@ export function ProductGallery({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="h-full w-full object-contain"
         />
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between px-3">
-          <button
-            onClick={prev}
-            aria-label="Imagem anterior"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
-          >
-            <ArrowLeft size={16} strokeWidth={1.4} />
-          </button>
-          <button
-            onClick={next}
-            aria-label="Próxima imagem"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/60 bg-card/60 text-ink/60 shadow-sm backdrop-blur-sm opacity-80 transition-all duration-200 hover:opacity-100 hover:bg-card/90 hover:text-ink hover:border-primary"
-          >
-            <ArrowRight size={16} strokeWidth={1.4} />
-          </button>
-        </div>
       </motion.div>
 
-      <div
-        ref={thumbsRef}
-        onPointerDown={handleThumbPointerDown}
+      <div className="relative w-full min-w-0">
+        <div
+          ref={thumbsRef}
+          onPointerDown={handleThumbPointerDown}
         onPointerMove={handleThumbPointerMove}
         onPointerUp={handleThumbPointerUp}
         onPointerCancel={handleThumbPointerUp}
@@ -168,6 +153,24 @@ export function ProductGallery({
             <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
           </button>
         ))}
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between">
+          <button
+            onClick={prev}
+            aria-label="Imagem anterior"
+            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/50 bg-card/65 text-ink/60 shadow-sm backdrop-blur-md opacity-90 transition-all duration-200 hover:bg-card/85 hover:text-ink"
+          >
+            <ArrowLeft size={16} strokeWidth={1.4} />
+          </button>
+          <div className="absolute right-0 top-0 h-full w-20 bg-linear-to-l from-background via-background/75 to-transparent" />
+          <button
+            onClick={next}
+            aria-label="Próxima imagem"
+            className="pointer-events-auto relative z-10 grid h-10 w-10 place-items-center rounded-full border border-border/50 bg-card/65 text-ink/60 shadow-sm backdrop-blur-md opacity-90 transition-all duration-200 hover:bg-card/85 hover:text-ink"
+          >
+            <ArrowRight size={16} strokeWidth={1.4} />
+          </button>
+        </div>
       </div>
     </div>
   );
