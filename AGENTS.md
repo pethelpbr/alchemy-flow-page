@@ -22,3 +22,5 @@
 > buttons never fire. Start the capture only once the pointer has actually moved
 > past a small threshold, so a plain press-and-release still selects.
 <!-- PROJECT:END -->
+
+- Mobile product gallery navigation uses a native scroll-snap track with a next-slide preview; calculate selection from slide offsets so spacing cannot desynchronize the active image.
