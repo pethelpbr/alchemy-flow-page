@@ -8,7 +8,6 @@ import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
-import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
 import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
 import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
