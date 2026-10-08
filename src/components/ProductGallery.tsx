@@ -23,7 +23,7 @@ const shots: Shot[] = [
     src: galleryRacaoNaoSuficiente.url,
     alt: "A ração não é suficiente: de um lado, nutrição limitada que pode gerar desequilíbrios; do outro, pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade. Tigelas de ração com e sem o pó, colher dosadora e pote do NutraHelp ao lado de alimentos frescos",
   },
-  { src: galleryRacaoBase.url, alt: "A ração é a base, mas não é suficiente: de um lado, só a ração, com nutrição limitada e que pode gerar desequilíbrios; do outro, ração com NutraHelp, para pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade; tigelas de ração com e sem o pó, colher dosadora e pote do produto ao lado de alimentos frescos" },
+  { src: galleryRacaoBase.url, alt: "A saúde do pet começa no intestino: a médica veterinária Dra. Ialy Andrade, CRMV 5655-PE, recomenda o NutraHelp, com potes do produto na prateleira ao fundo e selo recomendado por veterinários" },
   { src: galleryHand, alt: "Imagem 7 do produto" },
   { src: galleryDrink, alt: "Imagem 8 do produto" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
