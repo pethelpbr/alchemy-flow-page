@@ -3,7 +3,7 @@ import { animate, motion, type MotionValue } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
-import galleryHand from "@/assets/gallery-hand.jpg";
+import galleryAntesDepois30 from "@/assets/gallery-antes-depois-30-dias.png.asset.json";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
@@ -24,7 +24,7 @@ const shots: Shot[] = [
     alt: "A ração não é suficiente: de um lado, nutrição limitada que pode gerar desequilíbrios; do outro, pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade. Tigelas de ração com e sem o pó, colher dosadora e pote do NutraHelp ao lado de alimentos frescos",
   },
   { src: galleryRacaoBase.url, alt: "A saúde do pet começa no intestino: a médica veterinária Dra. Ialy Andrade, CRMV 5655-PE, recomenda o NutraHelp, com potes do produto na prateleira ao fundo e selo recomendado por veterinários" },
-  { src: galleryHand, alt: "Imagem 7 do produto" },
+  { src: galleryAntesDepois30.url, alt: "Antes e depois em 30 dias: de um lado, um cachorro caramelo com as orelhas vermelhas e se coçando; do outro, o mesmo cachorro com o pelo brilhante e sem coceira; embaixo, um gato malhado deitado; a marcação de 30 dias com os destaques pele calma, pelo forte e intestino regulado, e o pote do NutraHelp" },
   { src: galleryDrink, alt: "Imagem 8 do produto" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
   { src: galleryFlatlay, alt: "Imagem 10 do produto" },
