@@ -48,7 +48,7 @@ export function HeroSection({
             <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
               NutraHelp — para o pet que se coça, se lambe e está com queda de pelos
             </h1>
-            <p className="eyebrow">
+            <p className="eyebrow text-primary!">
               <span className="whitespace-nowrap text-[clamp(7px,2.25vw,9.5px)] md:hidden">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
               <span className="hidden md:inline">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
             </p>
