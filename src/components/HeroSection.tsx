@@ -41,7 +41,7 @@ export function HeroSection({
 
         <motion.div className="lg:pb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}>
           <p className="eyebrow">
-            <span className="md:hidden">cães e gatos · 44 nutrientes</span>
+            <span className="whitespace-nowrap text-[clamp(7px,2.25vw,9.5px)] md:hidden">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
             <span className="hidden md:inline">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
