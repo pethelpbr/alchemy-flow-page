@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
-import { motion, type MotionValue } from "motion/react";
+import { animate, motion, type MotionValue } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
@@ -49,6 +49,7 @@ export function ProductGallery({
   const thumbsRef = useRef<HTMLDivElement>(null);
   const mobileGalleryRef = useRef<HTMLDivElement>(null);
   const mobileScrollTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const mobileAnimation = useRef<{ stop: () => void } | undefined>(undefined);
   const mobileDragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 });
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
@@ -142,10 +143,28 @@ export function ProductGallery({
     if (!(slide instanceof HTMLElement) || !(first instanceof HTMLElement)) return;
     const targetLeft = slide.offsetLeft - first.offsetLeft;
     if (Math.abs(el.scrollLeft - targetLeft) < 2) return;
-    el.scrollTo({
-      left: targetLeft,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.scrollTo({ left: targetLeft, behavior: "instant" });
+      return;
+    }
+    clearTimeout(mobileScrollTimer.current);
+    el.style.scrollSnapType = "none";
+    const restoreSnap = () => {
+      mobileAnimation.current = undefined;
+      el.style.scrollSnapType = "";
+    };
+    const animation = animate(el.scrollLeft, targetLeft, {
+      duration: 0.85,
+      ease: [0.45, 0, 0.2, 1],
+      onUpdate: (left) => { el.scrollLeft = left; },
+      onComplete: restoreSnap,
     });
+    const stop = () => {
+      animation.stop();
+      restoreSnap();
+    };
+    mobileAnimation.current = { stop };
+    return stop;
   }, [active]);
 
   useEffect(() => () => clearTimeout(mobileScrollTimer.current), []);
@@ -179,6 +198,7 @@ export function ProductGallery({
           ref={mobileGalleryRef}
           onScroll={(e) => {
             const el = e.currentTarget;
+            if (mobileAnimation.current) return;
             clearTimeout(mobileScrollTimer.current);
             mobileScrollTimer.current = setTimeout(() => {
               const first = el.children.item(0);
@@ -191,6 +211,7 @@ export function ProductGallery({
             }, 120);
           }}
           onPointerDown={(e) => {
+            mobileAnimation.current?.stop();
             if (e.pointerType !== "mouse") return;
             const el = e.currentTarget;
             mobileDragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft };
