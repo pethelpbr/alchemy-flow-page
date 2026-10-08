@@ -23,4 +23,4 @@
 > past a small threshold, so a plain press-and-release still selects.
 <!-- PROJECT:END -->
 
-- Mobile product gallery navigation uses a native scroll-snap track with a next-slide preview; calculate selection from slide offsets so spacing cannot desynchronize the active image.
+- Mobile product gallery navigation uses a native scroll-snap track with a next-slide preview; calculate selection from slide offsets so spacing cannot desynchronize the active image. Temporarily suspend snapping during touch scrolling and animate the final alignment after release to avoid an abrupt native snap.
