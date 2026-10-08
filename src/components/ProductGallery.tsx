@@ -48,10 +48,11 @@ export function ProductGallery({
   const [scrolledLeft, setScrolledLeft] = useState(false);
   const thumbsRef = useRef<HTMLDivElement>(null);
   const mobileGalleryRef = useRef<HTMLDivElement>(null);
+  const mobileScrollTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const mobileDragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 });
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
-  const current = visibleShots[active]!;
+  const current = visibleShots[active] ?? visibleShots[0];
 
   const handleSelect = useCallback(
     (i: number) => {
@@ -136,13 +137,20 @@ export function ProductGallery({
   useEffect(() => {
     const el = mobileGalleryRef.current;
     if (!el || el.clientWidth === 0) return;
-    const targetLeft = active * el.clientWidth;
+    const slide = el.children.item(active);
+    const first = el.children.item(0);
+    if (!(slide instanceof HTMLElement) || !(first instanceof HTMLElement)) return;
+    const targetLeft = slide.offsetLeft - first.offsetLeft;
     if (Math.abs(el.scrollLeft - targetLeft) < 2) return;
     el.scrollTo({
       left: targetLeft,
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
     });
   }, [active]);
+
+  useEffect(() => () => clearTimeout(mobileScrollTimer.current), []);
+
+  if (!current) return null;
 
   return (
     <div className="flex w-full flex-col gap-3">
@@ -167,29 +175,23 @@ export function ProductGallery({
       </motion.div>
 
       <div className="relative -mx-4 block w-[calc(100%+2rem)] overflow-hidden md:hidden">
-        <button
-          onClick={prev}
-          aria-label="Imagem anterior"
-          className="absolute left-3 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-border/60 bg-card/80 text-ink/70 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-card hover:text-ink"
-        >
-          <ArrowLeft size={16} strokeWidth={1.4} />
-        </button>
-        <button
-          onClick={next}
-          aria-label="Próxima imagem"
-          className="absolute right-3 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-border/60 bg-card/80 text-ink/70 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-card hover:text-ink"
-        >
-          <ArrowRight size={16} strokeWidth={1.4} />
-        </button>
-
         <div
           ref={mobileGalleryRef}
           onScroll={(e) => {
             const el = e.currentTarget;
-            const index = Math.round(el.scrollLeft / el.clientWidth);
-            if (index !== active) handleSelect(index);
+            clearTimeout(mobileScrollTimer.current);
+            mobileScrollTimer.current = setTimeout(() => {
+              const first = el.children.item(0);
+              const second = el.children.item(1);
+              if (!(first instanceof HTMLElement) || !(second instanceof HTMLElement)) return;
+              const step = second.offsetLeft - first.offsetLeft;
+              if (step <= 0) return;
+              const index = Math.min(visibleShots.length - 1, Math.max(0, Math.round(el.scrollLeft / step)));
+              if (index !== active) handleSelect(index);
+            }, 120);
           }}
           onPointerDown={(e) => {
+            if (e.pointerType !== "mouse") return;
             const el = e.currentTarget;
             mobileDragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft };
           }}
@@ -210,14 +212,12 @@ export function ProductGallery({
             if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
             mobileDragRef.current.active = false;
           }}
-          className="flex w-full snap-x snap-mandatory overflow-x-auto touch-pan-x select-none"
+          className="flex w-full items-start gap-3 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-pan-x select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {visibleShots.map((shot, i) => (
-            <div key={`mobile-gallery-${i}-${shot.src}`} className="w-full shrink-0 snap-center">
-              <div className="aspect-square w-full overflow-hidden bg-sand">
-                <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="h-full w-full object-contain" />
-              </div>
+            <div key={`mobile-gallery-${i}-${shot.src}`} className="w-full shrink-0 snap-start">
+              <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="block h-auto w-full" />
             </div>
           ))}
         </div>
