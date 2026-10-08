@@ -11,6 +11,7 @@ import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
 import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
 import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
+import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -20,8 +21,8 @@ const shots: Shot[] = [
   { src: galleryMisturarNova.url, alt: "Basta misturar e pronto: na ração ou no alimento, seu pet já começa a receber os benefícios; tabela de dosagem por peso do pet — até 5kg meia dose, 6 a 10kg 1 dose, 11 a 20kg 2 doses, 21 a 30kg 3 doses, mais de 30kg 4 doses; acompanha dosador de 2g; uso diário e seguro, para todas as raças e idades, sabor aprovado pelos exigentes e rende até 150 porções; spitz alemão comendo ração com o suplemento" },
   { src: galleryFormula44.url, alt: "Fórmula completa com 44 nutrientes: colher dosadora com o pó de um lado e alimentos frescos do outro, ligada a ômega 3, biotina e zinco para pele e pelos, pré e probióticos para digestão, triptofano e magnésio para comportamento, vitaminas A, C, D e complexo B para energia e imunidade, e condroitina e cálcio para ossos e articulações" },
   {
-    src: galleryMisturar.url,
-    alt: "É só misturar e pronto: tabela de dosagem por peso do pet — até 5 kg meia dose, 6 a 10 kg 1 dose, 11 a 20 kg 2 doses, 21 a 30 kg 3 doses, mais de 30 kg 4 doses — badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções",
+    src: galleryRacaoNaoSuficiente.url,
+    alt: "A ração não é suficiente: de um lado, nutrição limitada que pode gerar desequilíbrios; do outro, pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade. Tigelas de ração com e sem o pó, colher dosadora e pote do NutraHelp ao lado de alimentos frescos",
   },
   { src: galleryRacao2.url, alt: "A ração é a base, mas não é suficiente: comparativo entre só a ração, com nutrição limitada e lacunas nutricionais, e ração mais NutraHelp, com 44 nutrientes, pele, pelos e intestino, imunidade, energia e articulações; tigelas de ração com e sem o pó, colher dosadora e pote do produto" },
   { src: galleryHand, alt: "Imagem 7 do produto" },
