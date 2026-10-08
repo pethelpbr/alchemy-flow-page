@@ -239,8 +239,16 @@ export function ProductGallery({
             e.currentTarget.style.scrollSnapType = "none";
           }}
           onTouchEnd={() => {
+            const el = mobileGalleryRef.current;
+            const drag = mobileDragRef.current;
             mobileDragRef.current.active = false;
             clearTimeout(mobileScrollTimer.current);
+
+            if (el && active === visibleShots.length - 1 && drag.startScrollLeft - el.scrollLeft > 24) {
+              animateMobileTo(0, 0.65);
+              return;
+            }
+
             mobileScrollTimer.current = setTimeout(settleMobileDrag, 120);
           }}
           onTouchCancel={() => {
