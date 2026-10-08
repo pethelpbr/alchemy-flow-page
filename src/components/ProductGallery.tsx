@@ -4,13 +4,13 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
 import galleryAntesDepois30 from "@/assets/gallery-antes-depois-30-dias.png.asset.json";
-import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
 import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
 import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
+import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -27,7 +27,7 @@ const shots: Shot[] = [
   { src: galleryAntesDepois30.url, alt: "Antes e depois em 30 dias: de um lado, um cachorro caramelo com as orelhas vermelhas e se coçando; do outro, o mesmo cachorro com o pelo brilhante e sem coceira; embaixo, um gato malhado deitado; a marcação de 30 dias com os destaques pele calma, pelo forte e intestino regulado, e o pote do NutraHelp" },
   { src: galleryResultadosSemanas.url, alt: "Resultados em poucas semanas: antes e depois de 50 dias de um cachorro, de um lado a pele irritada, vermelha e sem pelo, do outro a pele calma e o pelo recuperado; abaixo, o depoimento de Camila S., tutora do Bento, de Recife/PE, com cinco estrelas: meu cachorro se coçava 24h, sempre foi muito alérgico, melhorou demais, fiquei até surpresa" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
-  { src: galleryFlatlay, alt: "Imagem 10 do produto" },
+  { src: galleryRotinaDiaria.url, alt: "Seu pet está assim? seis sinais em cartões numerados: 01 se coça ou se lambe com frequência, 02 está com queda de pelo e pelagem opaca, 03 sofre com alergias e irritações na pele, 04 tem cocô mole e com cheiro forte, 05 fica sem energia pra brincar ou passear, 06 vive estressado ou ansioso; faixa laranja abaixo: se você respondeu sim para algum desses sinais, é hora de agir; um cachorro golden retriever sentado se coçando com a pata traseira" },
 ];
 
 const visibleShots = shots.slice(0, 10);
