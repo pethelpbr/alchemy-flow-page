@@ -48,6 +48,7 @@ export function ProductGallery({
   const [scrolledLeft, setScrolledLeft] = useState(false);
   const thumbsRef = useRef<HTMLDivElement>(null);
   const mobileGalleryRef = useRef<HTMLDivElement>(null);
+  const mobileDragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 });
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active]!;
@@ -161,6 +162,27 @@ export function ProductGallery({
             const el = e.currentTarget;
             const index = Math.round(el.scrollLeft / el.clientWidth);
             if (index !== active) handleSelect(index);
+          }}
+          onPointerDown={(e) => {
+            const el = e.currentTarget;
+            mobileDragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft };
+          }}
+          onPointerMove={(e) => {
+            const el = e.currentTarget;
+            if (!mobileDragRef.current.active) return;
+            const dx = e.clientX - mobileDragRef.current.startX;
+            if (Math.abs(dx) > 4 && !el.hasPointerCapture(e.pointerId)) el.setPointerCapture(e.pointerId);
+            if (el.hasPointerCapture(e.pointerId)) el.scrollLeft = mobileDragRef.current.startScrollLeft - dx;
+          }}
+          onPointerUp={(e) => {
+            const el = e.currentTarget;
+            if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+            mobileDragRef.current.active = false;
+          }}
+          onPointerCancel={(e) => {
+            const el = e.currentTarget;
+            if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+            mobileDragRef.current.active = false;
           }}
           className="flex w-full snap-x snap-mandatory overflow-x-auto touch-pan-x select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
