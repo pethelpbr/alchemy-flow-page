@@ -108,6 +108,24 @@ export function ProductGallery({
     return () => clearInterval(id);
   }, [autoplay, next]);
 
+  useEffect(() => {
+    const strip = thumbsRef.current;
+    const thumbnail = strip?.children.item(active);
+    if (!strip || !(thumbnail instanceof HTMLElement)) return;
+
+    const stripBounds = strip.getBoundingClientRect();
+    const thumbnailBounds = thumbnail.getBoundingClientRect();
+    // Keep the selected thumbnail away from the arrows and continuity fade.
+    const visibleLeft = stripBounds.left + 28;
+    const visibleRight = stripBounds.right - 80;
+    if (thumbnailBounds.left >= visibleLeft && thumbnailBounds.right <= visibleRight) return;
+
+    strip.scrollTo({
+      left: strip.scrollLeft + thumbnailBounds.left - stripBounds.left - (strip.clientWidth - thumbnailBounds.width) / 2,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  }, [active]);
+
   return (
     <div className="flex w-full flex-col gap-3">
       <motion.div
