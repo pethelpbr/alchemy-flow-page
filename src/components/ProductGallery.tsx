@@ -131,46 +131,47 @@ export function ProductGallery({
       </motion.div>
 
       <div className="relative w-full min-w-0">
+        <button
+          onClick={prev}
+          aria-label="Imagem anterior"
+          className="absolute left-0 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 -translate-x-1/2 place-items-center rounded-full border border-border/50 bg-card/70 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-card/90 hover:text-ink"
+        >
+          <ArrowLeft size={16} strokeWidth={1.4} />
+        </button>
+
         <div
           ref={thumbsRef}
           onPointerDown={handleThumbPointerDown}
-        onPointerMove={handleThumbPointerMove}
-        onPointerUp={handleThumbPointerUp}
-        onPointerCancel={handleThumbPointerUp}
-        className="flex @container w-full min-w-0 shrink-0 cursor-grab gap-2 overflow-x-auto pb-1 touch-pan-x select-none active:cursor-grabbing"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {visibleShots.map((shot, i) => (
-          <button
-            key={`gallery-${i}-${shot.src}`}
-            onClick={(e) => handleThumbClick(e, i)}
-            aria-label={`Ver imagem ${i + 1}`}
-            className={cn(
-              "aspect-square w-24 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 @sm:w-[84px] @xl:w-[80px] @2xl:w-[68px]",
-              i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
-            )}
-          >
-            <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
-          </button>
-        ))}
+          onPointerMove={handleThumbPointerMove}
+          onPointerUp={handleThumbPointerUp}
+          onPointerCancel={handleThumbPointerUp}
+          className="flex @container w-full min-w-0 shrink-0 cursor-grab gap-2 overflow-x-auto px-7 pb-1 touch-pan-x select-none active:cursor-grabbing"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {visibleShots.map((shot, i) => (
+            <button
+              key={`gallery-${i}-${shot.src}`}
+              onClick={(e) => handleThumbClick(e, i)}
+              aria-label={`Ver imagem ${i + 1}`}
+              className={cn(
+                "aspect-square w-[80px] shrink-0 overflow-hidden rounded-xl border transition-all duration-300",
+                i === active ? "border-primary/60 opacity-100" : "border-transparent opacity-60",
+              )}
+            >
+              <img src={shot.src} alt="" loading="lazy" draggable={false} className="h-full w-full object-cover" />
+            </button>
+          ))}
         </div>
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-1/2 items-center justify-between">
-          <button
-            onClick={prev}
-            aria-label="Imagem anterior"
-            className="pointer-events-auto grid h-10 w-10 place-items-center rounded-full border border-border/50 bg-card/65 text-ink/60 shadow-sm backdrop-blur-md opacity-90 transition-all duration-200 hover:bg-card/85 hover:text-ink"
-          >
-            <ArrowLeft size={16} strokeWidth={1.4} />
-          </button>
-          <div className="absolute right-0 top-0 h-full w-20 bg-linear-to-l from-background via-background/75 to-transparent" />
-          <button
-            onClick={next}
-            aria-label="Próxima imagem"
-            className="pointer-events-auto relative z-10 grid h-10 w-10 place-items-center rounded-full border border-border/50 bg-card/65 text-ink/60 shadow-sm backdrop-blur-md opacity-90 transition-all duration-200 hover:bg-card/85 hover:text-ink"
-          >
-            <ArrowRight size={16} strokeWidth={1.4} />
-          </button>
-        </div>
+
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-background via-background/80 to-transparent" />
+
+        <button
+          onClick={next}
+          aria-label="Próxima imagem"
+          className="absolute right-0 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 translate-x-1/2 place-items-center rounded-full border border-border/50 bg-card/70 text-ink/60 shadow-sm backdrop-blur-md transition-all duration-200 hover:bg-card/90 hover:text-ink"
+        >
+          <ArrowRight size={16} strokeWidth={1.4} />
+        </button>
       </div>
     </div>
   );
