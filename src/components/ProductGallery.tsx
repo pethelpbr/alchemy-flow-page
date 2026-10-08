@@ -7,10 +7,10 @@ import galleryAntesDepois30 from "@/assets/gallery-antes-depois-30-dias.png.asse
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
 import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
-import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
 import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
+import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -25,7 +25,7 @@ const shots: Shot[] = [
   },
   { src: galleryRacaoBase.url, alt: "A saúde do pet começa no intestino: a médica veterinária Dra. Ialy Andrade, CRMV 5655-PE, recomenda o NutraHelp, com potes do produto na prateleira ao fundo e selo recomendado por veterinários" },
   { src: galleryAntesDepois30.url, alt: "Antes e depois em 30 dias: de um lado, um cachorro caramelo com as orelhas vermelhas e se coçando; do outro, o mesmo cachorro com o pelo brilhante e sem coceira; embaixo, um gato malhado deitado; a marcação de 30 dias com os destaques pele calma, pelo forte e intestino regulado, e o pote do NutraHelp" },
-  { src: galleryDrink, alt: "Imagem 8 do produto" },
+  { src: galleryResultadosSemanas.url, alt: "Resultados em poucas semanas: antes e depois de 50 dias de um cachorro, de um lado a pele irritada, vermelha e sem pelo, do outro a pele calma e o pelo recuperado; abaixo, o depoimento de Camila S., tutora do Bento, de Recife/PE, com cinco estrelas: meu cachorro se coçava 24h, sempre foi muito alérgico, melhorou demais, fiquei até surpresa" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
   { src: galleryFlatlay, alt: "Imagem 10 do produto" },
 ];
