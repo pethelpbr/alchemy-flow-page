@@ -113,7 +113,9 @@ export function ProductGallery({
 
   useEffect(() => {
     if (!autoplay) return;
-    const id = setInterval(next, AUTO_INTERVAL);
+    const id = setInterval(() => {
+      if (!mobileDragRef.current.active && !mobileAnimation.current) next();
+    }, AUTO_INTERVAL);
     return () => clearInterval(id);
   }, [autoplay, next]);
 
@@ -135,39 +137,68 @@ export function ProductGallery({
     });
   }, [active]);
 
-  useEffect(() => {
+  const animateMobileTo = useCallback((index: number, duration = 0.85) => {
     const el = mobileGalleryRef.current;
     if (!el || el.clientWidth === 0) return;
-    const slide = el.children.item(active);
+    const slide = el.children.item(index);
     const first = el.children.item(0);
     if (!(slide instanceof HTMLElement) || !(first instanceof HTMLElement)) return;
     const targetLeft = slide.offsetLeft - first.offsetLeft;
-    if (Math.abs(el.scrollLeft - targetLeft) < 2) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    mobileAnimation.current?.stop();
+    clearTimeout(mobileScrollTimer.current);
+    if (Math.abs(el.scrollLeft - targetLeft) < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       el.scrollTo({ left: targetLeft, behavior: "instant" });
+      el.style.scrollSnapType = "";
+      handleSelect(index);
       return;
     }
-    clearTimeout(mobileScrollTimer.current);
     el.style.scrollSnapType = "none";
     const restoreSnap = () => {
       mobileAnimation.current = undefined;
       el.style.scrollSnapType = "";
     };
     const animation = animate(el.scrollLeft, targetLeft, {
-      duration: 0.85,
+      duration,
       ease: [0.45, 0, 0.2, 1],
       onUpdate: (left) => { el.scrollLeft = left; },
-      onComplete: restoreSnap,
+      onComplete: () => {
+        restoreSnap();
+        handleSelect(index);
+      },
     });
     const stop = () => {
       animation.stop();
       restoreSnap();
     };
     mobileAnimation.current = { stop };
-    return stop;
-  }, [active]);
+  }, [handleSelect]);
 
-  useEffect(() => () => clearTimeout(mobileScrollTimer.current), []);
+  const settleMobileDrag = useCallback(() => {
+    const el = mobileGalleryRef.current;
+    if (!el || mobileDragRef.current.active || mobileAnimation.current) return;
+    const first = el.children.item(0);
+    if (!(first instanceof HTMLElement)) return;
+    let nearest = 0;
+    let distance = Infinity;
+    Array.from(el.children).forEach((slide, index) => {
+      if (!(slide instanceof HTMLElement)) return;
+      const delta = Math.abs(el.scrollLeft - (slide.offsetLeft - first.offsetLeft));
+      if (delta < distance) {
+        distance = delta;
+        nearest = index;
+      }
+    });
+    animateMobileTo(nearest, 0.65);
+  }, [animateMobileTo]);
+
+  useEffect(() => {
+    if (!mobileDragRef.current.active) animateMobileTo(active);
+  }, [active, animateMobileTo]);
+
+  useEffect(() => () => {
+    clearTimeout(mobileScrollTimer.current);
+    mobileAnimation.current?.stop();
+  }, []);
 
   if (!current) return null;
 
@@ -197,23 +228,31 @@ export function ProductGallery({
         <div
           ref={mobileGalleryRef}
           onScroll={(e) => {
-            const el = e.currentTarget;
-            if (mobileAnimation.current) return;
+            if (mobileAnimation.current || mobileDragRef.current.active) return;
             clearTimeout(mobileScrollTimer.current);
-            mobileScrollTimer.current = setTimeout(() => {
-              const first = el.children.item(0);
-              const second = el.children.item(1);
-              if (!(first instanceof HTMLElement) || !(second instanceof HTMLElement)) return;
-              const step = second.offsetLeft - first.offsetLeft;
-              if (step <= 0) return;
-              const index = Math.min(visibleShots.length - 1, Math.max(0, Math.round(el.scrollLeft / step)));
-              if (index !== active) handleSelect(index);
-            }, 120);
+            mobileScrollTimer.current = setTimeout(settleMobileDrag, 120);
+          }}
+          onTouchStart={(e) => {
+            mobileAnimation.current?.stop();
+            clearTimeout(mobileScrollTimer.current);
+            mobileDragRef.current.active = true;
+            e.currentTarget.style.scrollSnapType = "none";
+          }}
+          onTouchEnd={() => {
+            mobileDragRef.current.active = false;
+            clearTimeout(mobileScrollTimer.current);
+            mobileScrollTimer.current = setTimeout(settleMobileDrag, 120);
+          }}
+          onTouchCancel={() => {
+            mobileDragRef.current.active = false;
+            settleMobileDrag();
           }}
           onPointerDown={(e) => {
             mobileAnimation.current?.stop();
             if (e.pointerType !== "mouse") return;
             const el = e.currentTarget;
+            clearTimeout(mobileScrollTimer.current);
+            el.style.scrollSnapType = "none";
             mobileDragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft };
           }}
           onPointerMove={(e) => {
@@ -224,14 +263,18 @@ export function ProductGallery({
             if (el.hasPointerCapture(e.pointerId)) el.scrollLeft = mobileDragRef.current.startScrollLeft - dx;
           }}
           onPointerUp={(e) => {
+            if (e.pointerType !== "mouse") return;
             const el = e.currentTarget;
             if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
             mobileDragRef.current.active = false;
+            settleMobileDrag();
           }}
           onPointerCancel={(e) => {
+            if (e.pointerType !== "mouse") return;
             const el = e.currentTarget;
             if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
             mobileDragRef.current.active = false;
+            settleMobileDrag();
           }}
           className="flex w-full items-start gap-3 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-pan-x select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
