@@ -47,6 +47,7 @@ export function ProductGallery({
   const [internal, setInternal] = useState(0);
   const [scrolledLeft, setScrolledLeft] = useState(false);
   const thumbsRef = useRef<HTMLDivElement>(null);
+  const mobileGalleryRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active]!;
@@ -137,7 +138,7 @@ export function ProductGallery({
         initial={false}
         animate={{ aspectRatio: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-2xl bg-sand"
+        className="relative mx-auto hidden w-full max-w-[720px] overflow-hidden rounded-2xl bg-sand md:block"
         style={{ width: "min(100%, 720px, calc(100svh - 220px))" }}
       >
         <motion.img
@@ -153,7 +154,34 @@ export function ProductGallery({
         />
       </motion.div>
 
-      <div className="relative w-full min-w-0">
+      <div className="relative -mx-4 block w-[calc(100%+2rem)] overflow-hidden md:hidden">
+        <div
+          ref={mobileGalleryRef}
+          onScroll={(e) => {
+            const el = e.currentTarget;
+            const index = Math.round(el.scrollLeft / el.clientWidth);
+            if (index !== active) handleSelect(index);
+          }}
+          className="flex w-full snap-x snap-mandatory overflow-x-auto touch-pan-x select-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {visibleShots.map((shot, i) => (
+            <div key={`mobile-gallery-${i}-${shot.src}`} className="w-full shrink-0 snap-center">
+              <div className="aspect-square w-full overflow-hidden bg-sand">
+                <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="h-full w-full object-contain" />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="h-1 w-full bg-muted">
+          <div
+            className="h-full bg-primary transition-[width] duration-300"
+            style={{ width: `${((active + 1) / visibleShots.length) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      <div className="relative hidden w-full min-w-0 md:block">
         <button
           onClick={prev}
           aria-label="Imagem anterior"
