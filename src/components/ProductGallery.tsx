@@ -9,6 +9,7 @@ import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
+import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
 import galleryRacao2 from "@/assets/gallery-racao-2.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -16,7 +17,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: galleryBeneficios.url, alt: "Só tratar por fora não resolve, com os benefícios: menos coceiras, alergias e queda de pelo, fortalece a imunidade, regula o intestino, mais energia e articulações saudáveis; selo nova embalagem, mesma fórmula; pote do NutraHelp ao lado de um cachorro" },
-  { src: galleryMisturar.url, alt: "É só misturar e pronto: tabela de dosagem por peso do pet, badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções" },
+  { src: galleryMisturarNova.url, alt: "Basta misturar e pronto: na ração ou no alimento, seu pet já começa a receber os benefícios; tabela de dosagem por peso do pet — até 5kg meia dose, 6 a 10kg 1 dose, 11 a 20kg 2 doses, 21 a 30kg 3 doses, mais de 30kg 4 doses; acompanha dosador de 2g; uso diário e seguro, para todas as raças e idades, sabor aprovado pelos exigentes e rende até 150 porções; spitz alemão comendo ração com o suplemento" },
   { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
   {
     src: galleryMisturar.url,
