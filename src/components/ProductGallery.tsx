@@ -187,6 +187,12 @@ export function ProductGallery({
           ))}
         </div>
 
+        <div
+          className={cn(
+            "pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-background via-background/80 to-transparent transition-opacity duration-300",
+            scrolledLeft ? "opacity-100" : "opacity-0",
+          )}
+        />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-background via-background/80 to-transparent" />
 
         <button
