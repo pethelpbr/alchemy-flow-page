@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import galleryFlatlay from "@/assets/gallery-flatlay.jpg";
-import gallerySinais from "@/assets/gallery-sinais.png.asset.json";
+import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-beneficios-4.png.asset.json";
 import galleryDrink from "@/assets/gallery-drink.jpg";
 import galleryMisturar from "@/assets/gallery-misturar.png.asset.json";
@@ -18,7 +18,7 @@ const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: galleryBeneficios.url, alt: "Só tratar por fora não resolve, com os benefícios: menos coceiras, alergias e queda de pelo, fortalece a imunidade, regula o intestino, mais energia e articulações saudáveis; selo nova embalagem, mesma fórmula; pote do NutraHelp ao lado de um cachorro" },
   { src: galleryMisturarNova.url, alt: "Basta misturar e pronto: na ração ou no alimento, seu pet já começa a receber os benefícios; tabela de dosagem por peso do pet — até 5kg meia dose, 6 a 10kg 1 dose, 11 a 20kg 2 doses, 21 a 30kg 3 doses, mais de 30kg 4 doses; acompanha dosador de 2g; uso diário e seguro, para todas as raças e idades, sabor aprovado pelos exigentes e rende até 150 porções; spitz alemão comendo ração com o suplemento" },
-  { src: gallerySinais.url, alt: "Seis sinais de que a pele do pet não está bem listados em cartões numerados, cachorro se coçando ao lado" },
+  { src: galleryFormula44.url, alt: "Fórmula completa com 44 nutrientes: colher dosadora com o pó de um lado e alimentos frescos do outro, ligada a ômega 3, biotina e zinco para pele e pelos, pré e probióticos para digestão, triptofano e magnésio para comportamento, vitaminas A, C, D e complexo B para energia e imunidade, e condroitina e cálcio para ossos e articulações" },
   {
     src: galleryMisturar.url,
     alt: "É só misturar e pronto: tabela de dosagem por peso do pet — até 5 kg meia dose, 6 a 10 kg 1 dose, 11 a 20 kg 2 doses, 21 a 30 kg 3 doses, mais de 30 kg 4 doses — badge acompanhada dosador de 2 g, cachorro comendo ração com o suplemento e os destaques uso diário, para cães e gatos a partir de 3 meses, sabor de carne e até 150 porções",
