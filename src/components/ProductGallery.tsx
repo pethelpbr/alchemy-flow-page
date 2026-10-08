@@ -163,7 +163,7 @@ export function ProductGallery({
           onPointerMove={handleThumbPointerMove}
           onPointerUp={handleThumbPointerUp}
           onPointerCancel={handleThumbPointerUp}
-          className="flex @container w-full min-w-0 shrink-0 cursor-grab gap-2 overflow-x-auto px-7 pb-1 touch-pan-x select-none active:cursor-grabbing"
+          className="flex @container w-full min-w-0 shrink-0 cursor-grab gap-2 overflow-x-auto pl-7 pr-20 pb-1 touch-pan-x select-none active:cursor-grabbing"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {visibleShots.map((shot, i) => (
