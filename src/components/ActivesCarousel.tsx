@@ -98,7 +98,7 @@ export function ActivesCarousel() {
       />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-foreground/75" />
 
-      <div className="mx-auto max-w-[1200px] px-6">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-gift">O que tem dentro de cada dose</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-primary-foreground sm:text-5xl">
@@ -106,15 +106,15 @@ export function ActivesCarousel() {
           </h2>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-3 py-3 text-primary-foreground sm:px-5">
-          <div className="grid grid-cols-5 gap-1 sm:gap-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:gap-5 lg:items-center">
+        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-1.5 py-3 text-primary-foreground sm:px-5">
+          <div className="flex flex-wrap items-start justify-between gap-x-0.5 sm:grid sm:grid-cols-5 sm:gap-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:gap-5 lg:items-center">
             {nutrients.map(([amount, label]) => (
-              <div key={label} className="min-w-0 text-center">
+              <div key={label} className="min-w-0 shrink-0 text-center">
                 <strong className="block font-display text-2xl leading-none text-gift sm:text-3xl lg:text-4xl">{amount}</strong>
-                <span className="text-[10px] leading-tight whitespace-nowrap sm:text-xs">{label}</span>
+                <span className="text-[clamp(10.5px,3.4vw,12px)] leading-tight whitespace-nowrap">{label}</span>
               </div>
             ))}
-            <div className="col-span-5 border-t border-primary-foreground/20 pt-4 text-center text-xs sm:col-span-5 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            <div className="col-span-5 w-full border-t border-primary-foreground/20 pt-4 text-center text-xs sm:w-auto lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               + Ômega 3, Condroitina, Yucca e Proteína
             </div>
           </div>
