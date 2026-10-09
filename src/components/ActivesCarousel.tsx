@@ -106,8 +106,8 @@ export function ActivesCarousel() {
           </h2>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-2 py-3 text-primary-foreground sm:px-5">
-          <div className="flex flex-wrap items-start justify-between gap-x-1 sm:grid sm:grid-cols-5 sm:gap-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:gap-5 lg:items-center">
+        <div className="mt-6 rounded-2xl border border-primary-foreground/15 bg-ink px-1.5 py-3 text-primary-foreground sm:px-5">
+          <div className="flex flex-wrap items-start justify-between gap-x-0.5 sm:grid sm:grid-cols-5 sm:gap-3 lg:grid-cols-[repeat(5,1fr)_1.4fr] lg:gap-5 lg:items-center">
             {nutrients.map(([amount, label]) => (
               <div key={label} className="min-w-0 shrink-0 text-center">
                 <strong className="block font-display text-2xl leading-none text-gift sm:text-3xl lg:text-4xl">{amount}</strong>
