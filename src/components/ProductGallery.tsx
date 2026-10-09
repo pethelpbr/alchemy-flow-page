@@ -117,7 +117,7 @@ export function ProductGallery({
   useEffect(() => {
     if (!autoplay) return;
     const id = setInterval(() => {
-      if (!mobileDragRef.current.active && !mobileAnimation.current) next();
+      if (!mobileDragRef.current.active && !mobileUserScrollRef.current) next();
     }, AUTO_INTERVAL);
     return () => clearInterval(id);
   }, [autoplay, next]);
