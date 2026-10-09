@@ -232,7 +232,7 @@ export function ProductGallery({
             src={galleryDragIcon}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute right-3 top-1/2 z-10 h-[78px] w-[78px] -translate-y-1/2"
+            className="pointer-events-none absolute right-4 top-[58%] z-10 h-[64px] w-[64px] -translate-y-1/2"
           />
         )}
         <div
