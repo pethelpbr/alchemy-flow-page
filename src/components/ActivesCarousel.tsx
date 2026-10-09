@@ -114,7 +114,7 @@ export function ActivesCarousel() {
                 <span className="text-[clamp(10.5px,3.4vw,12px)] leading-tight whitespace-nowrap">{label}</span>
               </div>
             ))}
-            <div className="col-span-5 w-full border-t border-primary-foreground/20 pt-4 text-center text-xs sm:w-auto lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+            <div className="col-span-5 mt-2 w-full border-t border-primary-foreground/20 pt-3 text-center text-xs sm:mt-0 sm:w-auto sm:pt-4 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
               + Ômega 3, Condroitina, Yucca e Proteína
             </div>
           </div>
