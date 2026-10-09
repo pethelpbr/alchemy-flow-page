@@ -111,7 +111,7 @@ export function ActivesCarousel() {
             {nutrients.map(([amount, label]) => (
               <div key={label} className="text-center">
                 <strong className="block font-display text-2xl leading-none text-gift sm:text-3xl lg:text-4xl">{amount}</strong>
-                <span className="text-[10px] leading-tight sm:text-xs">{label}</span>
+                <span className="text-xs leading-tight">{label}</span>
               </div>
             ))}
             <div className="col-span-5 border-t border-primary-foreground/20 pt-4 text-center text-xs sm:col-span-5 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
