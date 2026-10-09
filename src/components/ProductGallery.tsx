@@ -54,6 +54,7 @@ export function ProductGallery({
   const mobileAnimation = useRef<{ stop: () => void } | undefined>(undefined);
   const mobileDragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 });
   const mobileUserScrollRef = useRef(false);
+  const mobileAutoScrollRef = useRef(false);
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active] ?? visibleShots[0];
@@ -117,7 +118,28 @@ export function ProductGallery({
   useEffect(() => {
     if (!autoplay) return;
     const id = setInterval(() => {
-      if (!mobileDragRef.current.active && !mobileUserScrollRef.current) next();
+      if (mobileDragRef.current.active || mobileUserScrollRef.current || mobileAutoScrollRef.current) return;
+
+      const el = mobileGalleryRef.current;
+      if (!el) {
+        next();
+        return;
+      }
+
+      const nextIndex = (active + 1) % visibleShots.length;
+      const slide = el.children.item(nextIndex);
+      if (!(slide instanceof HTMLElement)) return;
+
+      mobileAutoScrollRef.current = true;
+      el.scrollTo({
+        left: slide.offsetLeft,
+        behavior: "smooth",
+      });
+
+      window.setTimeout(() => {
+        mobileAutoScrollRef.current = false;
+        handleSelect(nextIndex);
+      }, 700);
     }, AUTO_INTERVAL);
     return () => clearInterval(id);
   }, [autoplay, next]);
@@ -142,7 +164,7 @@ export function ProductGallery({
 
   useEffect(() => {
     const el = mobileGalleryRef.current;
-    if (!el || mobileUserScrollRef.current) return;
+    if (!el || mobileUserScrollRef.current || mobileAutoScrollRef.current) return;
 
     const slide = el.children.item(active);
     if (!(slide instanceof HTMLElement)) return;
@@ -199,7 +221,7 @@ export function ProductGallery({
               Math.min(visibleShots.length - 1, Math.round(el.scrollLeft / first.offsetWidth)),
             );
 
-            if (index !== active) handleSelect(index);
+            if (index !== active && !mobileAutoScrollRef.current) handleSelect(index);
           }}
           onTouchStart={() => {
             mobileUserScrollRef.current = true;
