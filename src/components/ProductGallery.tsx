@@ -225,9 +225,10 @@ export function ProductGallery({
               mobileUserScrollRef.current = false;
             }
           }}
-          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-pan-x select-none"
+          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto overscroll-x-contain pr-[10%] touch-pan-x select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                  {visibleShots.map((shot, i) => (
+        >
+          {visibleShots.map((shot, i) => (
             <div key={`mobile-gallery-${i}-${shot.src}`} className="relative w-full shrink-0 snap-start">
               <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="block h-auto w-full" />
               {i === 0 && (
