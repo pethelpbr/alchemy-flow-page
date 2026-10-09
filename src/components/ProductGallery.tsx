@@ -11,6 +11,7 @@ import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
 import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
+import galleryDragIcon from "@/assets/gallery-drag-icon.svg";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -223,6 +224,14 @@ export function ProductGallery({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="h-full w-full object-contain"
         />
+        {active === 0 && (
+          <img
+            src={galleryDragIcon}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 z-10 h-[112px] w-[112px] -translate-x-1/2 -translate-y-1/2"
+          />
+        )}
       </motion.div>
 
       <div className="relative -mx-4 block w-[calc(100%+2rem)] overflow-hidden md:hidden">
