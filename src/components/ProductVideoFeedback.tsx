@@ -153,7 +153,7 @@ function IngredientsButton() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Button type="button" variant="outline" onClick={() => setOpen(true)} className="mt-4 h-12 w-full rounded-2xl border-primary/30 bg-card text-base text-ink hover:border-primary hover:bg-card hover:text-ink">Ver tabela completa e ingredientes</Button>
+      <BuyButton type="button" onClick={() => setOpen(true)} className="mt-4 h-12 w-full text-base normal-case tracking-normal">Ver tabela completa e ingredientes</BuyButton>
       <GuaranteeTableDialog open={open} onOpenChange={setOpen} />
     </>
   );
