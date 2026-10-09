@@ -247,8 +247,8 @@ export function ProductGallery({
               mobileUserScrollRef.current = false;
             }
           }}
-          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto overscroll-x-contain pr-[10%] touch-pan-x select-none"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto overscroll-x-contain pr-[10%] select-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none", touchAction: "pan-x pan-y" }}
         >
           {visibleShots.map((shot, i) => (
             <div key={`mobile-gallery-${i}-${shot.src}`} className="relative w-full shrink-0 snap-start">
