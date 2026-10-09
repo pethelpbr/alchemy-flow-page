@@ -32,7 +32,7 @@ const shots: Shot[] = [
 
 const visibleShots = shots.slice(0, 10);
 
-const AUTO_INTERVAL = 8000;
+const AUTO_INTERVAL = 10000;
 
 export function ProductGallery({
   activeIndex,
