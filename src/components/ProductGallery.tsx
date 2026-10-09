@@ -55,6 +55,7 @@ export function ProductGallery({
   const mobileDragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 });
   const mobileUserScrollRef = useRef(false);
   const mobileAutoScrollRef = useRef(false);
+  const mobileTouchStartRef = useRef({ x: 0, scrollLeft: 0 });
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active] ?? visibleShots[0];
@@ -223,12 +224,35 @@ export function ProductGallery({
 
             if (index !== active && !mobileAutoScrollRef.current) handleSelect(index);
           }}
-          onTouchStart={() => {
+          onTouchStart={(e) => {
             mobileUserScrollRef.current = true;
+            mobileTouchStartRef.current = {
+              x: e.touches[0]?.clientX ?? 0,
+              scrollLeft: e.currentTarget.scrollLeft,
+            };
           }}
-          onTouchEnd={() => {
+          onTouchEnd={(e) => {
+            const el = e.currentTarget;
+            const start = mobileTouchStartRef.current;
+            const dx = (e.changedTouches[0]?.clientX ?? start.x) - start.x;
+            const first = el.children.item(0);
+
             mobileUserScrollRef.current = false;
-          }}
+
+            if (
+              first instanceof HTMLElement &&
+              active === visibleShots.length - 1 &&
+              start.scrollLeft >= el.scrollWidth - el.clientWidth - 4 &&
+              dx < -36
+            ) {
+              mobileAutoScrollRef.current = true;
+              el.scrollTo({ left: 0, behavior: "smooth" });
+              window.setTimeout(() => {
+                mobileAutoScrollRef.current = false;
+                handleSelect(0);
+              }, 700);
+            }
+          }
           onTouchCancel={() => {
             mobileUserScrollRef.current = false;
           }}
