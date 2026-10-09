@@ -227,14 +227,6 @@ export function ProductGallery({
       </motion.div>
 
       <div className="relative -mx-4 block w-[calc(100%+2rem)] overflow-hidden md:hidden">
-        {active === 0 && (
-          <img
-            src={galleryDragIcon}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none absolute right-4 top-[5%] z-10 h-[52px] w-[52px]"
-          />
-        )}
         <div
           ref={mobileGalleryRef}
           onScroll={(e) => {
@@ -308,8 +300,16 @@ export function ProductGallery({
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {visibleShots.map((shot, i) => (
-            <div key={`mobile-gallery-${i}-${shot.src}`} className="w-full shrink-0 snap-start">
+            <div key={`mobile-gallery-${i}-${shot.src}`} className="relative w-full shrink-0 snap-start">
               <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="block h-auto w-full" />
+              {i === 0 && (
+                <img
+                  src={galleryDragIcon}
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-8 top-[5%] z-10 h-[52px] w-[52px]"
+                />
+              )}
             </div>
           ))}
         </div>
