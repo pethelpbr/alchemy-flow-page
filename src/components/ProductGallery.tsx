@@ -53,6 +53,7 @@ export function ProductGallery({
   const mobileScrollTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const mobileAnimation = useRef<{ stop: () => void } | undefined>(undefined);
   const mobileDragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 });
+  const mobileUserScrollRef = useRef(false);
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active] ?? visibleShots[0];
@@ -139,63 +140,22 @@ export function ProductGallery({
     });
   }, [active]);
 
-  const animateMobileTo = useCallback((index: number, duration = 0.85) => {
-    const el = mobileGalleryRef.current;
-    if (!el || el.clientWidth === 0) return;
-    const slide = el.children.item(index);
-    const first = el.children.item(0);
-    if (!(slide instanceof HTMLElement) || !(first instanceof HTMLElement)) return;
-    const targetLeft = slide.offsetLeft - first.offsetLeft;
-    mobileAnimation.current?.stop();
-    clearTimeout(mobileScrollTimer.current);
-    if (Math.abs(el.scrollLeft - targetLeft) < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      el.scrollTo({ left: targetLeft, behavior: "instant" });
-      el.style.scrollSnapType = "";
-      handleSelect(index);
-      return;
-    }
-    el.style.scrollSnapType = "none";
-    const restoreSnap = () => {
-      mobileAnimation.current = undefined;
-      el.style.scrollSnapType = "";
-    };
-    const animation = animate(el.scrollLeft, targetLeft, {
-      duration,
-      ease: [0.45, 0, 0.2, 1],
-      onUpdate: (left) => { el.scrollLeft = left; },
-      onComplete: () => {
-        restoreSnap();
-        handleSelect(index);
-      },
-    });
-    const stop = () => {
-      animation.stop();
-      restoreSnap();
-    };
-    mobileAnimation.current = { stop };
-  }, [handleSelect]);
-
-  const settleMobileDrag = useCallback(() => {
-    const el = mobileGalleryRef.current;
-    if (!el || mobileDragRef.current.active || mobileAnimation.current) return;
-    const first = el.children.item(0);
-    if (!(first instanceof HTMLElement)) return;
-    let nearest = 0;
-    let distance = Infinity;
-    Array.from(el.children).forEach((slide, index) => {
-      if (!(slide instanceof HTMLElement)) return;
-      const delta = Math.abs(el.scrollLeft - (slide.offsetLeft - first.offsetLeft));
-      if (delta < distance) {
-        distance = delta;
-        nearest = index;
-      }
-    });
-    animateMobileTo(nearest, 0.65);
-  }, [animateMobileTo]);
-
   useEffect(() => {
-    if (!mobileDragRef.current.active) animateMobileTo(active);
-  }, [active, animateMobileTo]);
+    const el = mobileGalleryRef.current;
+    if (!el || mobileUserScrollRef.current) return;
+
+    const slide = el.children.item(active);
+    if (!(slide instanceof HTMLElement)) return;
+
+    const targetLeft = slide.offsetLeft;
+    if (Math.abs(el.scrollLeft - targetLeft) < 2) return;
+
+    el.scrollTo({
+      left: targetLeft,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  }, [active]);
+
 
   useEffect(() => () => {
     clearTimeout(mobileScrollTimer.current);
@@ -230,76 +190,44 @@ export function ProductGallery({
         <div
           ref={mobileGalleryRef}
           onScroll={(e) => {
-            if (mobileAnimation.current) return;
             const el = e.currentTarget;
             const first = el.children.item(0);
-            if (first instanceof HTMLElement && first.offsetWidth > 0) {
-              const index = Math.max(
-                0,
-                Math.min(visibleShots.length - 1, Math.round(el.scrollLeft / first.offsetWidth)),
-              );
-              if (index !== active) handleSelect(index);
-            }
-            if (mobileDragRef.current.active) return;
-            clearTimeout(mobileScrollTimer.current);
-            mobileScrollTimer.current = setTimeout(settleMobileDrag, 120);
+            if (!(first instanceof HTMLElement) || first.offsetWidth === 0) return;
+
+            const index = Math.max(
+              0,
+              Math.min(visibleShots.length - 1, Math.round(el.scrollLeft / first.offsetWidth)),
+            );
+
+            if (index !== active) handleSelect(index);
           }}
-          onTouchStart={(e) => {
-            mobileAnimation.current?.stop();
-            clearTimeout(mobileScrollTimer.current);
-            mobileDragRef.current.active = true;
-            e.currentTarget.style.scrollSnapType = "none";
+          onTouchStart={() => {
+            mobileUserScrollRef.current = true;
           }}
           onTouchEnd={() => {
-            const el = mobileGalleryRef.current;
-            const drag = mobileDragRef.current;
-            mobileDragRef.current.active = false;
-            clearTimeout(mobileScrollTimer.current);
-
-            if (el && active === visibleShots.length - 1 && drag.startScrollLeft - el.scrollLeft > 24) {
-              animateMobileTo(0, 0.65);
-              return;
-            }
-
-            mobileScrollTimer.current = setTimeout(settleMobileDrag, 120);
+            mobileUserScrollRef.current = false;
           }}
           onTouchCancel={() => {
-            mobileDragRef.current.active = false;
-            settleMobileDrag();
+            mobileUserScrollRef.current = false;
           }}
           onPointerDown={(e) => {
-            mobileAnimation.current?.stop();
-            if (e.pointerType !== "mouse") return;
-            const el = e.currentTarget;
-            clearTimeout(mobileScrollTimer.current);
-            el.style.scrollSnapType = "none";
-            mobileDragRef.current = { active: true, startX: e.clientX, startScrollLeft: el.scrollLeft };
-          }}
-          onPointerMove={(e) => {
-            const el = e.currentTarget;
-            if (!mobileDragRef.current.active) return;
-            const dx = e.clientX - mobileDragRef.current.startX;
-            if (Math.abs(dx) > 4 && !el.hasPointerCapture(e.pointerId)) el.setPointerCapture(e.pointerId);
-            if (el.hasPointerCapture(e.pointerId)) el.scrollLeft = mobileDragRef.current.startScrollLeft - dx;
+            if (e.pointerType === "mouse") {
+              mobileUserScrollRef.current = true;
+            }
           }}
           onPointerUp={(e) => {
-            if (e.pointerType !== "mouse") return;
-            const el = e.currentTarget;
-            if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
-            mobileDragRef.current.active = false;
-            settleMobileDrag();
+            if (e.pointerType === "mouse") {
+              mobileUserScrollRef.current = false;
+            }
           }}
           onPointerCancel={(e) => {
-            if (e.pointerType !== "mouse") return;
-            const el = e.currentTarget;
-            if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
-            mobileDragRef.current.active = false;
-            settleMobileDrag();
+            if (e.pointerType === "mouse") {
+              mobileUserScrollRef.current = false;
+            }
           }}
-          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-auto select-none"
+          className="flex w-full items-start gap-1 snap-x snap-mandatory overflow-x-auto pr-[10%] touch-pan-x select-none"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {visibleShots.map((shot, i) => (
+                  {visibleShots.map((shot, i) => (
             <div key={`mobile-gallery-${i}-${shot.src}`} className="relative w-full shrink-0 snap-start">
               <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="block h-auto w-full" />
               {i === 0 && (
