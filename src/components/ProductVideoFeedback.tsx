@@ -161,7 +161,7 @@ function IngredientsButton() {
 
 export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [openDetail, setOpenDetail] = useState<number | null>(null);
+  const [openDetail, setOpenDetail] = useState<number | null>(0);
   const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
   const selectFeedback = (feedback: (typeof feedbacks)[number]) => { const index = feedbacks.indexOf(feedback); setSelectedIndex(index >= 0 ? index : 0); };
   const showPrevious = () => { setSelectedIndex((current) => current === null ? 0 : (current - 1 + feedbacks.length) % feedbacks.length); };
