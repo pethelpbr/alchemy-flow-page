@@ -252,7 +252,7 @@ export function ProductGallery({
                 handleSelect(0);
               }, 700);
             }
-          }
+          }}
           onTouchCancel={() => {
             mobileUserScrollRef.current = false;
           }}
