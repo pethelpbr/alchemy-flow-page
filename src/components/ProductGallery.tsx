@@ -224,17 +224,17 @@ export function ProductGallery({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="h-full w-full object-contain"
         />
+      </motion.div>
+
+      <div className="relative -mx-4 block w-[calc(100%+2rem)] overflow-hidden md:hidden">
         {active === 0 && (
           <img
             src={galleryDragIcon}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-1/2 z-10 h-[112px] w-[112px] -translate-x-1/2 -translate-y-1/2"
+            className="pointer-events-none absolute right-3 top-1/2 z-10 h-[78px] w-[78px] -translate-y-1/2"
           />
         )}
-      </motion.div>
-
-      <div className="relative -mx-4 block w-[calc(100%+2rem)] overflow-hidden md:hidden">
         <div
           ref={mobileGalleryRef}
           onScroll={(e) => {
