@@ -196,7 +196,7 @@ export function RoutineResultsSection() {
               {timeline.map((item, index) => (
                 <Fragment key={item.label}>
                   <StepItem item={item} />
-                  {index === 2 && (
+                  {index === 1 && (
                     <li className="mb-12 -ml-8 lg:hidden">
                       <Images />
                     </li>
