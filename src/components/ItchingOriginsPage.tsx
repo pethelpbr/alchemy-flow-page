@@ -125,13 +125,52 @@ export function ItchingOriginsPage() {
           </article>
         </div>
 
-        <div className="flex flex-col gap-6 rounded-2xl bg-[#EFE6C9] p-5 sm:flex-row sm:items-center sm:gap-7 sm:p-6 sm:px-7">
-          <div className="h-[180px] w-full shrink-0 overflow-hidden rounded-[10px] bg-[#E0D3B4] sm:h-[140px] sm:w-[280px]">
-            <img src={galleryHand} alt="NutraHelp sendo misturado à alimentação" className="h-full w-full object-cover" />
-          </div>
-          <div className="flex-1">
-            <p className="mb-1.5 font-display text-[22px] font-bold leading-[1.25] text-[#504333] sm:text-[24px]">Os dois na mesma dose, uma vez por dia.</p>
-            <p className="text-[15.5px] leading-[1.5] text-[#3D3530] sm:text-[16.5px]">Misturado na ração, sabor carne. Sem comprimido para disfarçar e sem briga.</p>
+        <div className="bg-[#FDFAF7] px-6 py-10 sm:px-8 sm:py-12 md:px-[72px]">
+          <div className="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
+            <div className="flex h-[259px] w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#E0D3B4] p-[18px] text-center font-sans text-[11.5px] leading-[1.45] text-[#6F6458] md:w-[345px]">
+              <img src={galleryHand} alt="Tutor polvilhando o NutraHelp sobre a ração" className="h-full w-full rounded-[10px] object-cover" />
+            </div>
+
+            <div className="flex min-w-0 flex-1 flex-col justify-center">
+              <h2 className="mb-[14px] font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] md:text-[42px] md:whitespace-nowrap">
+                É só misturar na comida
+              </h2>
+
+              <p className="m-0 font-sans text-[16px] leading-[1.55] text-[#3D3530] md:text-[18px]">
+                O pozinho tem sabor de carne. Feito até para os pets mais exigentes.
+              </p>
+
+              <div className="mt-[26px] flex flex-wrap gap-x-[30px] gap-y-4">
+                <span className="flex items-center gap-[9px] font-sans text-[14px] font-semibold text-[#6B5E4E]">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B43F02" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                    <ellipse cx="12" cy="15.5" rx="4.6" ry="3.8" />
+                    <circle cx="6.3" cy="10.4" r="1.9" />
+                    <circle cx="10" cy="7.4" r="1.9" />
+                    <circle cx="14" cy="7.4" r="1.9" />
+                    <circle cx="17.7" cy="10.4" r="1.9" />
+                  </svg>
+                  Cães e gatos
+                </span>
+
+                <span className="flex items-center gap-[9px] font-sans text-[14px] font-semibold text-[#6B5E4E]">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B43F02" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                    <circle cx="5.2" cy="15.5" r="2.4" />
+                    <circle cx="12" cy="13.6" r="4.2" />
+                    <circle cx="19.4" cy="15.2" r="2.8" />
+                  </svg>
+                  Todas as raças e idades
+                </span>
+
+                <span className="flex items-center gap-[9px] font-sans text-[14px] font-semibold text-[#6B5E4E]">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B43F02" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
+                    <path d="M8 3v4M16 3v4M3.5 10h17" />
+                    <circle cx="12" cy="15" r="1.6" fill="#B43F02" stroke="none" />
+                  </svg>
+                  Uso diário
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
