@@ -140,33 +140,14 @@ export function ItchingOriginsPage() {
                 O pozinho tem sabor de carne. Feito até para os pets mais exigentes.
               </p>
 
-              <div className="mt-[26px] flex flex-wrap gap-x-[30px] gap-y-4">
-                <span className="flex items-center gap-[9px] font-sans text-[14px] font-semibold text-[#6B5E4E]">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B43F02" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
-                    <ellipse cx="12" cy="15.5" rx="4.6" ry="3.8" />
-                    <circle cx="6.3" cy="10.4" r="1.9" />
-                    <circle cx="10" cy="7.4" r="1.9" />
-                    <circle cx="14" cy="7.4" r="1.9" />
-                    <circle cx="17.7" cy="10.4" r="1.9" />
-                  </svg>
+              <div className="mt-[26px] flex flex-wrap gap-x-[30px] gap-y-3">
+                <span className="font-sans text-[14px] font-semibold text-[#B43F02]">
                   Cães e gatos
                 </span>
-
-                <span className="flex items-center gap-[9px] font-sans text-[14px] font-semibold text-[#6B5E4E]">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B43F02" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
-                    <circle cx="5.2" cy="15.5" r="2.4" />
-                    <circle cx="12" cy="13.6" r="4.2" />
-                    <circle cx="19.4" cy="15.2" r="2.8" />
-                  </svg>
+                <span className="font-sans text-[14px] font-semibold text-[#B43F02]">
                   Todas as raças e idades
                 </span>
-
-                <span className="flex items-center gap-[9px] font-sans text-[14px] font-semibold text-[#6B5E4E]">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B43F02" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
-                    <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
-                    <path d="M8 3v4M16 3v4M3.5 10h17" />
-                    <circle cx="12" cy="15" r="1.6" fill="#B43F02" stroke="none" />
-                  </svg>
+                <span className="font-sans text-[14px] font-semibold text-[#B43F02]">
                   Uso diário
                 </span>
               </div>
