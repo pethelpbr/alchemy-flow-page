@@ -213,6 +213,7 @@ export function ItchingOriginsSection() {
             </div>
           </div>
         </div>
+      </div>
     </section>
   );
 }
