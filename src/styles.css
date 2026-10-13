@@ -74,6 +74,7 @@
   --color-gift-foreground: var(--gift-foreground);
   --color-shipping: var(--shipping);
   --color-shipping-foreground: var(--shipping-foreground);
+  --color-dosage: var(--dosage);
 }
 
 :root {
@@ -107,6 +108,7 @@
   --gift-foreground: oklch(0.36 0.08 73); /* #5B3D0C */
   --shipping: oklch(0.71 0.11 194); /* teal */
   --shipping-foreground: oklch(1 0 0); /* #FFFFFF */
+  --dosage: #F1E6C8;
 
   --shadow-soft: 0 24px 60px -30px oklch(0.5 0.1 60 / 0.28);
   --shadow-card: 0 2px 30px -18px oklch(0.5 0.1 60 / 0.35);
