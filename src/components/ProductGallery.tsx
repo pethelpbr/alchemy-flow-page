@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
-import { animate, motion, type MotionValue } from "motion/react";
+import { animate, motion, useMotionValue, useTransform, type MotionValue } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
@@ -59,6 +59,8 @@ export function ProductGallery({
   const dragRef = useRef({ active: false, captured: false, startX: 0, startScrollLeft: 0, moved: false });
   const active = activeIndex ?? internal;
   const current = visibleShots[active] ?? visibleShots[0];
+  const mobileProgress = useMotionValue(((active + 1) / visibleShots.length) * 100);
+  const mobileProgressWidth = useTransform(mobileProgress, (value) => `${value}%`);
 
   const handleSelect = useCallback(
     (i: number) => {
@@ -217,6 +219,11 @@ export function ProductGallery({
             const first = el.children.item(0);
             if (!(first instanceof HTMLElement) || first.offsetWidth === 0) return;
 
+            const second = el.children.item(1);
+            const step = second instanceof HTMLElement ? second.offsetLeft - first.offsetLeft : first.offsetWidth;
+            const position = Math.max(0, Math.min(visibleShots.length - 1, el.scrollLeft / step));
+            mobileProgress.set(((position + 1) / visibleShots.length) * 100);
+
             const index = Math.max(
               0,
               Math.min(visibleShots.length - 1, Math.round(el.scrollLeft / first.offsetWidth)),
@@ -289,9 +296,9 @@ export function ProductGallery({
           ))}
         </div>
         <div className="h-1 w-full bg-muted">
-          <div
-            className="h-full bg-primary transition-[width] duration-300"
-            style={{ width: `${((active + 1) / visibleShots.length) * 100}%` }}
+          <motion.div
+            className="h-full bg-primary"
+            style={{ width: mobileProgressWidth }}
           />
         </div>
       </div>
