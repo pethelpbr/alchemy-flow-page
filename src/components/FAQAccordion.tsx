@@ -50,7 +50,7 @@ const faqs = [
 ];
 
 export function FAQAccordion() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   const firstColumn = faqs.slice(0, Math.ceil(faqs.length / 2));
   const secondColumn = faqs.slice(Math.ceil(faqs.length / 2));
