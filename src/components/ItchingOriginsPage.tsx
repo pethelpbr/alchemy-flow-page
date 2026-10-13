@@ -141,13 +141,13 @@ export function ItchingOriginsPage() {
               </p>
 
               <div className="mt-[26px] flex flex-wrap gap-x-[30px] gap-y-3">
-                <span className="font-sans text-[14px] font-semibold text-[#B43F02]">
+                <span className="font-sans text-[14px] font-semibold text-[#FF6A1B]">
                   Cães e gatos
                 </span>
-                <span className="font-sans text-[14px] font-semibold text-[#B43F02]">
+                <span className="font-sans text-[14px] font-semibold text-[#FF6A1B]">
                   Todas as raças e idades
                 </span>
-                <span className="font-sans text-[14px] font-semibold text-[#B43F02]">
+                <span className="font-sans text-[14px] font-semibold text-[#FF6A1B]">
                   Uso diário
                 </span>
               </div>
