@@ -288,9 +288,10 @@ export function ProductGallery({
                 <img
                   src={galleryDragIcon.url}
                   alt=""
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-2 top-[3%] z-10 h-[52px] w-[52px] opacity-60"
-                />
+                    aria-hidden="true"
+                    className="h-[42px] w-[42px]"
+                  />
+                </div>
               )}
             </div>
           ))}
