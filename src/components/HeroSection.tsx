@@ -53,7 +53,7 @@ export function HeroSection({
               <span className="hidden md:inline">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
             </p>
           </div>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground md:mt-5">
+          <p className="mt-2 max-w-md text-[15px] leading-relaxed text-muted-foreground md:mt-5">
             A coceira que vai e volta tem duas origens: a flora intestinal desequilibrada e a barreira da pele enfraquecida. O NutraHelp cuida das duas na mesma dose, pré e probióticos para a flora, e zinco, biotina e ômega 3 para a barreira. Basta misturar na ração, uma vez por dia.
           </p>
           <ul className="mt-5 max-w-md space-y-2.5">
