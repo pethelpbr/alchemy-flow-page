@@ -44,7 +44,7 @@ export function HeroSection({
             <Stars size={16} />
             <span className="text-sm text-muted-foreground">4,8 | +743 avaliações</span>
           </div>
-          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-3.5 md:gap-y-2">
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-4 md:gap-y-2">
             <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
               NutraHelp — para o pet que se coça, se lambe e está com queda de pelos
             </h1>
@@ -53,7 +53,7 @@ export function HeroSection({
               <span className="hidden md:inline">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
             </p>
           </div>
-          <p className="mt-3.5 max-w-md text-[15px] leading-relaxed text-muted-foreground md:mt-5">
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground md:mt-5">
             A coceira que vai e volta tem duas origens: a flora intestinal desequilibrada e a barreira da pele enfraquecida. O NutraHelp cuida das duas na mesma dose, pré e probióticos para a flora, e zinco, biotina e ômega 3 para a barreira. Basta misturar na ração, uma vez por dia.
           </p>
           <ul className="mt-5 max-w-md space-y-2.5">
