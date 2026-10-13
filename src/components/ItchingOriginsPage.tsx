@@ -4,9 +4,9 @@ import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
 import galleryHand from "@/assets/gallery-hand.jpg";
 import skinBarrierIcon from "@/assets/icon-barreira-pele.png.asset.json";
 import intestineIcon from "@/assets/icon-intestino.png.asset.json";
-import dogCatIcon from "@/assets/pethelp-dog-cat.svg";
-import pawIcon from "@/assets/pethelp-paw.svg";
-import calendarIcon from "@/assets/pethelp-calendar.svg";
+import dogCatIcon from "@/assets/icon-caes-gatos.png.asset.json";
+import pawIcon from "@/assets/icon-racas-idades.png.asset.json";
+import calendarIcon from "@/assets/icon-uso-diario.png.asset.json";
 
 function IntestineIcon() {
   return (
@@ -145,15 +145,15 @@ export function ItchingOriginsPage() {
 
               <div className="mt-[26px] flex flex-wrap items-center gap-x-[30px] gap-y-3">
                 <span className="flex items-center gap-2 font-sans text-[14px] font-semibold text-[#FF6A1B]">
-                  <img src={dogCatIcon} alt="" className="h-5 w-5 shrink-0 object-contain" />
+                  <img src={dogCatIcon.url} alt="" className="h-5 w-5 shrink-0 object-contain" />
                   Cães e gatos
                 </span>
                 <span className="flex items-center gap-2 font-sans text-[14px] font-semibold text-[#FF6A1B]">
-                  <img src={pawIcon} alt="" className="h-5 w-5 shrink-0 object-contain" />
+                  <img src={pawIcon.url} alt="" className="h-5 w-5 shrink-0 object-contain" />
                   Todas as raças e idades
                 </span>
                 <span className="flex items-center gap-2 font-sans text-[14px] font-semibold text-[#FF6A1B]">
-                  <img src={calendarIcon} alt="" className="h-5 w-5 shrink-0 object-contain" />
+                  <img src={calendarIcon.url} alt="" className="h-5 w-5 shrink-0 object-contain" />
                   Uso diário
                 </span>
               </div>
