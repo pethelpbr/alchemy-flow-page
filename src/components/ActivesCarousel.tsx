@@ -18,11 +18,11 @@ import activesBackground from "@/assets/actives-background-clean.jpg";
 
 const actives: { image: string; name: string; description: string; focus?: string }[] = [
   {
-    image: activePrebioticos.url,
-    name: "Pré e probióticos",
+    image: activeBiotina.url,
+    name: "Biotina",
     description:
-      "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
-    focus: "50% 100%",
+      "Entra na produção da queratina, que é o material do fio de pelo.",
+    focus: "50% 80%",
   },
   {
     image: activeZinco.url,
@@ -31,11 +31,11 @@ const actives: { image: string; name: string; description: string; focus?: strin
       "Participa da formação da pele e da cicatrização. É o que mais costuma faltar quando o pet vive com a pele irritada.",
   },
   {
-    image: activeBiotina.url,
-    name: "Biotina",
+    image: activePrebioticos.url,
+    name: "Pré e probióticos",
     description:
-      "Entra na produção da queratina, que é o material do fio de pelo.",
-    focus: "50% 80%",
+      "5 cepas boas mais o alimento delas. Sem o prebiótico, o probiótico chega e não se fixa.",
+    focus: "50% 100%",
   },
   {
     image: activeOmega3.url,
