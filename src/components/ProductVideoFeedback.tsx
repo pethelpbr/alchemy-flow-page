@@ -61,12 +61,12 @@ function HowToUse() {
     <div className="space-y-3">
       <p className="leading-relaxed">Misture o pó em qualquer alimento, ração seca, ração úmida ou comida natural, uma vez por dia, na dose do peso do seu pet. O uso é contínuo e não tem tempo máximo.</p>
       <p className="text-sm opacity-80">Acompanha dosador de 2 g</p>
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="overflow-hidden rounded-lg bg-dosage">
         {doses.map((d) => (
-          <div key={d.weight} className="rounded-xl bg-[#F1E6C8] px-2 py-3 text-center">
-            <p className="text-xs">{d.weight}</p>
-            <p className="text-lg font-bold text-foreground">{d.grams}</p>
-            <p className="text-xs">{d.scoop}</p>
+          <div key={d.weight} className="grid grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] items-center gap-2 border-b border-ink/10 px-3 py-2.5 last:border-b-0 sm:px-4">
+            <p className="whitespace-nowrap text-xs sm:text-sm">{d.weight}</p>
+            <p className="text-center text-lg font-bold leading-tight text-foreground">{d.grams}</p>
+            <p className="whitespace-nowrap text-right text-xs sm:text-sm">{d.scoop}</p>
           </div>
         ))}
       </div>
