@@ -43,7 +43,7 @@ export function ItchingOriginsPage() {
           <p className="mb-[13px] text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FF6A1B]">
             Por que sempre volta
           </p>
-          <h2 className="mb-3 font-display text-[34px] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333] sm:text-[42px]">
+          <h2 className="mb-3 whitespace-nowrap font-display text-[length:clamp(15px,calc((100vw_-_48px)/17.5),42px)] font-bold leading-[1.08] tracking-[-0.015em] text-[#504333]">
             A coceira tem dois lugares de origem
           </h2>
           <p className="mb-[30px] text-[16px] leading-[1.58] text-[#3D3530] sm:text-[17.5px]">
