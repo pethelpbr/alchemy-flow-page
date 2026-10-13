@@ -141,13 +141,31 @@ export function ItchingOriginsPage() {
               </p>
 
               <div className="mt-[26px] flex flex-wrap gap-x-[30px] gap-y-3">
-                <span className="font-sans text-[14px] font-semibold text-[#FF6A1B]">
+                <span className="flex items-center gap-2 font-sans text-[14px] font-semibold text-[#FF6A1B]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                    <path d="M7.1 12.2c-2.5-1.1-4.7-.2-5.2 1.8-.5 2 1.1 3.6 3.1 3.5 1.8-.1 3.3-1.4 4-2.8" />
+                    <path d="M16.9 12.2c2.5-1.1 4.7-.2 5.2 1.8.5 2-1.1 3.6-3.1 3.5-1.8-.1-3.3-1.4-4-2.8" />
+                    <path d="M9.2 8.7c-.9-2.3-2.6-4.1-4.2-3.4-1.5.7-1.1 2.8.2 4.1 1.1 1.1 2.6 1.3 4 .7" />
+                    <path d="M14.8 8.7c.9-2.3 2.6-4.1 4.2-3.4 1.5.7 1.1 2.8-.2 4.1-1.1 1.1-2.6 1.3-4 .7" />
+                    <path d="M12 9.3c-2.5 0-4.4 2-4.4 4.4 0 2.9 2 5 4.4 5s4.4-2.1 4.4-5c0-2.4-1.9-4.4-4.4-4.4Z" />
+                  </svg>
                   Cães e gatos
                 </span>
-                <span className="font-sans text-[14px] font-semibold text-[#FF6A1B]">
+                <span className="flex items-center gap-2 font-sans text-[14px] font-semibold text-[#FF6A1B]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                    <path d="M12 20.5c-3.7 0-6.5-2.4-6.5-5.7 0-2.8 1.8-4.7 4.1-5.5-.3-1.6.2-3.1 1.5-3.5 1.1-.3 2.1.5 2.5 1.7.6-.9 1.5-1.5 2.5-1.2 1.2.4 1.5 1.8 1.1 3.1 1.3.2 2.5 1.1 3 2.3.9 2.1-.3 4.6-2.5 6.2-1.3 1-3 1.5-5.7 1.5Z" />
+                    <circle cx="8.2" cy="6.2" r="1.7" />
+                    <circle cx="12" cy="4.4" r="1.7" />
+                    <circle cx="15.8" cy="6.2" r="1.7" />
+                  </svg>
                   Todas as raças e idades
                 </span>
-                <span className="font-sans text-[14px] font-semibold text-[#FF6A1B]">
+                <span className="flex items-center gap-2 font-sans text-[14px] font-semibold text-[#FF6A1B]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
+                    <path d="M8 3v4M16 3v4M3.5 10h17" />
+                    <path d="m9 15 2 2 4-4" />
+                  </svg>
                   Uso diário
                 </span>
               </div>
