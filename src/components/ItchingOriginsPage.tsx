@@ -66,7 +66,7 @@ export function ItchingOriginsPage() {
               <span className={lightPill}>Probiótico avulso</span>
               <span className={lightPill}>Comida natural</span>
             </div>
-            <p className="mt-auto text-[15px] font-bold leading-[1.5] text-[#B43F02] sm:text-[16px]">Mexe no intestino, mas não repõe o que falta na pele.</p>
+            <p className="mt-auto text-[15px] font-bold leading-[1.5] text-[#FF6A1B] sm:text-[16px]">Mexe no intestino, mas não repõe o que falta na pele.</p>
           </article>
 
           <article className="flex flex-col rounded-2xl border border-[#E0D5C0] bg-white p-7 sm:p-[30px_32px]">
@@ -83,7 +83,7 @@ export function ItchingOriginsPage() {
               <span className={lightPill}>Pomadas</span>
               <span className={lightPill}>Sprays</span>
             </div>
-            <p className="mt-auto text-[15px] font-bold leading-[1.5] text-[#B43F02] sm:text-[16px]">Age por fora, mas não reconstrói a pele por dentro.</p>
+            <p className="mt-auto text-[15px] font-bold leading-[1.5] text-[#FF6A1B] sm:text-[16px]">Age por fora, mas não reconstrói a pele por dentro.</p>
           </article>
         </div>
 
@@ -107,7 +107,7 @@ export function ItchingOriginsPage() {
 
         <div className="mb-[26px] flex items-center gap-5">
           <span className="h-px flex-1 bg-[#E0D5C0]" />
-          <span className="whitespace-nowrap text-center text-[11px] font-bold uppercase tracking-[0.12em] text-[#B43F02] sm:text-[13px]">O NutraHelp alcança os dois</span>
+          <span className="whitespace-nowrap text-center text-[11px] font-bold uppercase tracking-[0.12em] text-[#FF6A1B] sm:text-[13px]">O NutraHelp alcança os dois</span>
           <span className="h-px flex-1 bg-[#E0D5C0]" />
         </div>
 
