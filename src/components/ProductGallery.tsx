@@ -285,12 +285,12 @@ export function ProductGallery({
             <div key={`mobile-gallery-${i}-${shot.src}`} className="relative w-full shrink-0 snap-start">
               <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="block h-auto w-full" />
               {i === 0 && (
-                <div className="pointer-events-none absolute right-2 top-[3%] z-10 grid h-[60px] w-[60px] place-items-center rounded-full bg-card">
+                <div className="pointer-events-none absolute right-2 top-[3%] z-10 grid h-[48px] w-[48px] place-items-center rounded-full bg-card">
                   <img
                     src={galleryDragIcon.url}
                   alt=""
                     aria-hidden="true"
-                    className="h-[42px] w-[42px]"
+                    className="h-[34px] w-[34px]"
                   />
                 </div>
               )}
