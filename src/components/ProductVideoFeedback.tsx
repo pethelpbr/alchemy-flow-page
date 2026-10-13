@@ -63,7 +63,7 @@ function HowToUse() {
       <p className="text-sm opacity-80">Acompanha dosador de 2 g</p>
       <div className="overflow-hidden rounded-lg bg-dosage">
         {doses.map((d) => (
-          <div key={d.weight} className="grid grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] items-center gap-2 border-b border-ink/10 px-3 py-2.5 last:border-b-0 sm:px-4">
+          <div key={d.weight} className="grid grid-cols-[minmax(0,1.2fr)_2rem_minmax(0,1fr)] items-center gap-1.5 border-b border-ink/10 px-3 py-2.5 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1fr)] sm:gap-2 sm:px-4">
             <p className="whitespace-nowrap text-xs sm:text-sm">{d.weight}</p>
             <p className="text-center text-lg font-bold leading-tight text-foreground">{d.grams}</p>
             <p className="whitespace-nowrap text-right text-xs sm:text-sm">{d.scoop}</p>
