@@ -11,7 +11,7 @@ import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
 import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
-import galleryDragIcon from "@/assets/gallery-drag-icon.svg";
+import galleryDragIcon from "@/assets/gallery-drag-icon.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
@@ -286,7 +286,7 @@ export function ProductGallery({
               <img src={shot.src} alt={shot.alt} width={1200} height={1200} draggable={false} className="block h-auto w-full" />
               {i === 0 && (
                 <img
-                  src={galleryDragIcon}
+                  src={galleryDragIcon.url}
                   alt=""
                   aria-hidden="true"
                   className="pointer-events-none absolute right-2 top-[3%] z-10 h-[52px] w-[52px] opacity-60"
