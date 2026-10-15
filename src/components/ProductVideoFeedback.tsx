@@ -8,9 +8,10 @@ import { BuyButton } from "@/components/ui/BuyButton";
 import customer1 from "@/assets/customer-1.jpg";
 import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
+import amandaVideo from "@/assets/depoimento-amanda.mp4.asset.json";
 
-const feedbacks = [
-  { image: customer1, name: "Marina", caption: "Virou parte da minha manhã", problem: "Coceira noturna", duration: "0:47" },
+const feedbacks: { image: string; name: string; caption: string; problem: string; duration: string; video?: string }[] = [
+  { image: customer1, name: "Marina", caption: "Virou parte da minha manhã", problem: "Coceira noturna", duration: "0:46", video: amandaVideo.url },
   { image: customer2, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata", duration: "0:38" },
   { image: customer3, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos", duration: "1:02" },
 ];
@@ -193,11 +194,17 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                 </div>
               </div>
               <div className="relative mx-auto aspect-[9/16] w-full max-w-[calc((94dvh_-_200px)*0.5625)] shrink-0 overflow-hidden rounded-t-xl bg-muted">
-                  <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
-                  <span className="absolute inset-0 bg-ink/10" />
-                  <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
+                  {selectedVideo.video ? (
+                    <video key={selectedVideo.video} src={selectedVideo.video} poster={selectedVideo.image} controls autoPlay playsInline className="absolute inset-0 h-full w-full object-cover" />
+                  ) : (
+                    <>
+                      <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
+                      <span className="absolute inset-0 bg-ink/10" />
+                      <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
+                    </>
+                  )}
                   <Button type="button" variant="ghost" aria-label="Relato anterior" onClick={showPrevious} className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronLeft className="h-5 w-5" /></Button>
-                  <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>
+                  {!selectedVideo.video && <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>}
                   <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
                 </div>
               <div className="flex shrink-0 items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
