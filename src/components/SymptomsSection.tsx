@@ -1,7 +1,7 @@
 import sintoma1Asset from "@/assets/sintoma-1.jpg.asset.json";
 import sintoma2Asset from "@/assets/sintoma-2-lambendo.webp.asset.json";
 import sintoma3Asset from "@/assets/sintoma-3-sofa.jpg.asset.json";
-import sintoma4 from "@/assets/sintoma-4.jpg";
+import sintoma4Asset from "@/assets/sintoma-4-sacudindo.jpg.asset.json";
 import sintoma5 from "@/assets/sintoma-5.jpg";
 import sintoma6Asset from "@/assets/sintoma-6-scooting.jpg.asset.json";
 
@@ -9,7 +9,7 @@ const symptoms = [
   { img: sintoma1Asset.url, alt: "Cachorro de pelo branco se coçando na grama", title: "Se coça o dia inteiro", text: "Se coça com força, até a pele ficar ferida. Você já mandou parar mil vezes e ele volta." },
   { img: sintoma2Asset.url, alt: "Cachorro lambendo a pata", title: "Lambe a pata sem parar", text: "De madrugada você escuta o barulho da lambida. O pelo das patas vai ficando escuro e úmido." },
   { img: sintoma3Asset.url, alt: "Cachorro sentado no sofá cinza", title: "Está com queda de pelos", text: "A escova enche em um minuto. O pelo fica opaco, quebradiço e com falhas." },
-  { img: sintoma4, alt: "Pastor alemão sacudindo a cabeça no sofá", title: "Sacode a cabeça", text: "A orelha fica com cheiro forte. Você limpa, melhora uns dias, e logo volta." },
+  { img: sintoma4Asset.url, alt: "Cachorro sacudindo a cabeça no sol", title: "Sacode a cabeça", text: "A orelha fica com cheiro forte. Você limpa, melhora uns dias, e logo volta." },
   { img: sintoma5, alt: "Golden retriever coçando a barriga vermelha", title: "Sofre com feridas e irritações", text: "Especialmente na barriga, na virilha e entre os dedos: a pele fica vermelha e quente." },
   { img: sintoma6Asset.url, alt: "Cachorro se esfregando no chão", title: "Vive se esfregando", text: "Esfrega o corpo, o focinho ou o bumbum em qualquer coisa que apareça pela frente para aliviar." },
 ];
