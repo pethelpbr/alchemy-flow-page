@@ -91,14 +91,22 @@ export type Addon = {
   id: string;
   name: string;
   price: number;
+  /** Preço original exibido riscado no card do adicional. */
+  compareAt?: number;
   image: string;
 };
 
 /** Produtos complementares exibidos no bloco "Turbine seu kit". */
 export const addonCatalog: Omit<Addon, "image">[] = [
-  { id: "collagen", name: "Colágeno", price: 49.9 },
-  { id: "vitc", name: "Colágeno", price: 29.9 },
+  { id: "collagen", name: "Colágeno", price: 49.9, compareAt: 89.9 },
+  { id: "vitc", name: "Colágeno", price: 29.9, compareAt: 59.9 },
 ];
+
+/** Economia exibida no card do adicional. */
+export function addonSavings(addon: Addon) {
+  if (addon.compareAt == null) return 0;
+  return Math.round((addon.compareAt - addon.price) * 100) / 100;
+}
 
 /** Soma dos adicionais selecionados no bloco "Turbine seu kit". */
 export function addonsTotal(selectedIds: string[]) {
