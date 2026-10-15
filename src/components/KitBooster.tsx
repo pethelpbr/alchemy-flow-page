@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { brl, addonCatalog, type Addon } from "@/lib/product";
+import { brl, addonCatalog, addonSavings, type Addon } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import addonBocahelp from "@/assets/addon-bocahelp.png.asset.json";
 import addonPatahelp from "@/assets/addon-patahelp.png.asset.json";
@@ -101,6 +101,11 @@ export function KitBooster({
                   </button>
                 </div>
               </div>
+              {a.compareAt != null && (
+                <p className="mt-1 text-[10px] font-semibold text-terracotta lg:text-[13px]">
+                  Economize {brl(addonSavings(a)).replace(",00", "")}
+                </p>
+              )}
             </div>
           );
         })}
