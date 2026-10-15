@@ -3,7 +3,7 @@ import sintoma2 from "@/assets/sintoma-2.jpg";
 import sintoma3 from "@/assets/sintoma-3.jpg";
 import sintoma4 from "@/assets/sintoma-4.jpg";
 import sintoma5 from "@/assets/sintoma-5.jpg";
-import sintoma6 from "@/assets/sintoma-6.jpg";
+import sintoma6Asset from "@/assets/sintoma-6-scooting.jpg.asset.json";
 
 const symptoms = [
   { img: sintoma1, alt: "Cachorro golden retriever se coçando com a pele vermelha", title: "Se coça o dia inteiro", text: "Se coça com força, até a pele ficar ferida. Você já mandou parar mil vezes e ele volta." },
@@ -11,7 +11,7 @@ const symptoms = [
   { img: sintoma3, alt: "Golden retriever com falhas de pelo deitado no tapete", title: "Está com queda de pelos", text: "A escova enche em um minuto. O pelo fica opaco, quebradiço e com falhas." },
   { img: sintoma4, alt: "Pastor alemão sacudindo a cabeça no sofá", title: "Sacode a cabeça", text: "A orelha fica com cheiro forte. Você limpa, melhora uns dias, e logo volta." },
   { img: sintoma5, alt: "Golden retriever coçando a barriga vermelha", title: "Sofre com feridas e irritações", text: "Especialmente na barriga, na virilha e entre os dedos: a pele fica vermelha e quente." },
-  { img: sintoma6, alt: "Shih tzu se esfregando no sofá", title: "Vive se esfregando", text: "Esfrega o corpo, o focinho ou o bumbum em qualquer coisa que apareça pela frente para aliviar." },
+  { img: sintoma6Asset.url, alt: "Cachorro se esfregando no chão", title: "Vive se esfregando", text: "Esfrega o corpo, o focinho ou o bumbum em qualquer coisa que apareça pela frente para aliviar." },
 ];
 
 export function SymptomsSection() {
