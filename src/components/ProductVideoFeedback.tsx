@@ -192,8 +192,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   ))}
                 </div>
               </div>
-              <div className="grid min-h-0 flex-1 place-items-center">
-                <div className="relative aspect-[9/16] h-full w-auto max-w-full overflow-hidden rounded-t-xl bg-muted">
+              <div className="relative mx-auto aspect-[9/16] w-full max-w-[calc((94dvh_-_200px)*0.5625)] shrink-0 overflow-hidden rounded-t-xl bg-muted">
                   <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
                   <span className="absolute inset-0 bg-ink/10" />
                   <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
@@ -201,7 +200,6 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>
                   <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
                 </div>
-              </div>
               <div className="flex shrink-0 items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
                 <p className="min-w-0 flex-1 truncate text-base font-semibold text-ink">{selectedVideo.problem}</p>
                 <BuyButton size="md" onClick={onBuy} className="shrink-0 normal-case tracking-normal text-[15px]">Comprar agora</BuyButton>
