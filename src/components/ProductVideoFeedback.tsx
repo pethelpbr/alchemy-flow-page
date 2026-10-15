@@ -178,29 +178,29 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
         <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
       </div>
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
-        <DialogContent className="max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
+        <DialogContent className="flex max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (
             <>
-              <div className="px-2 pb-3 pt-2">
-                <DialogTitle className="pr-10 font-display text-xl font-bold text-ink">Relatos de tutores que já passaram por isso</DialogTitle>
+              <div className="shrink-0 px-2 pb-2 pt-1.5">
+                <DialogTitle className="whitespace-nowrap pr-10 font-display text-lg font-bold text-ink sm:text-xl">Tutores que já passaram por isso</DialogTitle>
                 <DialogDescription className="sr-only">Relatos em vídeo de clientes Nutraflow</DialogDescription>
-                <div className="mt-2.5 flex gap-2.5">
+                <div className="mt-2 flex gap-2">
                   {feedbacks.map((feedback, index) => (
-                    <Button key={feedback.name} type="button" variant="ghost" aria-label={`Ver relato de ${feedback.name}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={cn("h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90", selectedIndex === index ? "border-primary" : "border-transparent")}>
+                    <Button key={feedback.name} type="button" variant="ghost" aria-label={`Ver relato de ${feedback.name}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={cn("h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90", selectedIndex === index ? "border-primary" : "border-transparent")}>
                       <img src={feedback.image} alt="" className="h-full w-full object-cover" />
                     </Button>
                   ))}
                 </div>
               </div>
-              <div className="relative overflow-hidden rounded-t-xl bg-muted">
-                <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="h-[min(58dvh,570px)] w-full object-cover" />
-                <span className="absolute inset-0 bg-ink/10" />
-                <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
-                <Button type="button" variant="ghost" aria-label="Relato anterior" onClick={showPrevious} className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronLeft className="h-5 w-5" /></Button>
-                <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>
-                <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
-              </div>
-              <div className="flex items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
+              <div className="relative mx-auto aspect-[9/16] w-full max-w-[calc((94dvh_-_200px)*0.5625)] shrink-0 overflow-hidden rounded-t-xl bg-muted">
+                  <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
+                  <span className="absolute inset-0 bg-ink/10" />
+                  <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
+                  <Button type="button" variant="ghost" aria-label="Relato anterior" onClick={showPrevious} className="absolute left-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronLeft className="h-5 w-5" /></Button>
+                  <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>
+                  <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
+                </div>
+              <div className="flex shrink-0 items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
                 <p className="min-w-0 flex-1 truncate text-base font-semibold text-ink">{selectedVideo.problem}</p>
                 <BuyButton size="md" onClick={onBuy} className="shrink-0 normal-case tracking-normal text-[15px]">Comprar agora</BuyButton>
               </div>
