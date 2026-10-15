@@ -1,6 +1,5 @@
 import { Fragment, useRef, useState } from "react";
 import { ChevronsLeftRight } from "lucide-react";
-import { MarqueeStrip } from "@/components/MarqueeStrip";
 import beforePhoto from "@/assets/cachorro-ruim.png.asset.json";
 import afterPhoto from "@/assets/cachorro-top.png.asset.json";
 
@@ -211,7 +210,6 @@ export function RoutineResultsSection() {
           </div>
         </div>
       </section>
-      <MarqueeStrip />
     </>
   );
 }
