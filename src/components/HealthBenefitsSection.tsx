@@ -3,7 +3,7 @@ export function HealthBenefitsSection() {
     { title: "Pele e pelos", text: "Zinco, biotina e ômega 3, o que te trouxe até aqui.", featured: true },
     { title: "Intestino e digestão", text: "Pré e probióticos e extrato de yucca: cocô mais firme e com menos odor." },
     { title: "Imunidade", text: "Vitaminas A, C, D e E: sistema imunológico mais forte, do filhote ao idoso." },
-    { title: "Articulações e ossos", text: "Condroitina, enxofre e manganês: articulação lubrificada para subir escada e pular no sofá." },
+    { title: "Articulações e ossos", text: "Condroitina, enxofre e manganês: articulação lubrificada para subir escadas e pular no sofá." },
     { title: "Coração", text: "Taurina, o aminoácido que fortalece o músculo cardíaco." },
     { title: "Cérebro", text: "Vitaminas do complexo B, ligadas à memória, à atenção e ao aprendizado." },
     { title: "Comportamento", text: "Triptofano, precursor da serotonina: pet menos estressado, menos ansioso e com sono melhor." },
