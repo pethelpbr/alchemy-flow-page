@@ -25,3 +25,4 @@
 - [x] Remover a seção "Você já tentou. E gastou." (PreviousAttemptsSection) da página
 
 - [x] Remover a seção "Como usar" (HowToUse) da página
+- [x] Excluir a tarja laranja rolante do fim da seção "O que esperar" (MarqueeStrip em RoutineResultsSection)
