@@ -98,7 +98,7 @@ export type Addon = {
 
 /** Produtos complementares exibidos no bloco "Turbine seu kit". */
 export const addonCatalog: Omit<Addon, "image">[] = [
-  { id: "collagen", name: "Colágeno", price: 49.9, compareAt: 89.9 },
+  { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
   { id: "vitc", name: "Protege a pata, o focinho e a pele", price: 29.9, compareAt: 59.9 },
 ];
 
