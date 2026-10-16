@@ -5,6 +5,7 @@ import { AccordionBlock } from "@/components/ui/AccordionBlock";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { BuyButton } from "@/components/ui/BuyButton";
+import { brl, variants } from "@/lib/product";
 import amandaCover from "@/assets/depoimento-amanda-capa.jpg.asset.json";
 import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
@@ -160,6 +161,22 @@ function IngredientsButton() {
   );
 }
 
+function DialogVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const toggle = () => { const v = ref.current; if (!v) return; if (v.paused) void v.play(); else v.pause(); };
+  return (
+    <>
+      <video ref={ref} src={src} poster={poster} autoPlay playsInline onClick={toggle} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} className="absolute inset-0 h-full w-full cursor-pointer object-cover" />
+      {!playing && (
+        <button type="button" aria-label="Reproduzir vídeo" onClick={toggle} className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/40 text-primary-foreground backdrop-blur-sm">
+          <Play className="ml-0.5 h-6 w-6 fill-current" />
+        </button>
+      )}
+    </>
+  );
+}
+
 export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [openDetail, setOpenDetail] = useState<number | null>(0);
@@ -195,7 +212,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
               </div>
               <div className="relative aspect-[9/16] w-full shrink-0 overflow-hidden rounded-t-xl bg-muted">
                   {selectedVideo.video ? (
-                    <video key={selectedVideo.video} src={selectedVideo.video} poster={selectedVideo.image} controls autoPlay playsInline className="absolute inset-0 h-full w-full object-cover" />
+                    <DialogVideo key={selectedVideo.video} src={selectedVideo.video} poster={selectedVideo.image} />
                   ) : (
                     <>
                       <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
@@ -208,7 +225,13 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
                 </div>
               <div className="flex shrink-0 items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
-                <p className="min-w-0 flex-1 truncate text-base font-semibold text-ink">{selectedVideo.problem}</p>
+                <div className="min-w-0 flex-1 leading-tight">
+                  <p className="truncate text-base font-semibold text-ink">NutraHelp</p>
+                  <p className="mt-0.5 whitespace-nowrap text-sm">
+                    {variants[0].compareAt && <span className="mr-1.5 text-muted-foreground line-through">{brl(variants[0].compareAt)}</span>}
+                    <span className="font-bold text-ink">{brl(variants[0].unitPrice)}</span>
+                  </p>
+                </div>
                 <BuyButton size="md" onClick={onBuy} className="shrink-0 normal-case tracking-normal text-[15px]">Comprar agora</BuyButton>
               </div>
             </>
