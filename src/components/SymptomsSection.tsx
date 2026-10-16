@@ -1,4 +1,4 @@
-import sintoma1Asset from "@/assets/sintoma-1.jpg.asset.json";
+import sintoma1Asset from "@/assets/sintoma-1-nova.jpg.asset.json";
 import sintoma2Asset from "@/assets/sintoma-2-lambendo.webp.asset.json";
 import sintoma3Asset from "@/assets/sintoma-3-sofa.jpg.asset.json";
 import sintoma4Asset from "@/assets/sintoma-4-sacudindo.jpg.asset.json";
