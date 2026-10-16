@@ -196,11 +196,11 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
         <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
       </div>
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
-        <DialogContent className="flex max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[min(420px,calc((94dvh_-_200px)*0.5625_+_1.25rem))] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
+        <DialogContent className="flex max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[min(420px,calc((94dvh_-_220px)*0.5625_+_1.25rem))] sm:max-w-[min(420px,calc((94dvh_-_200px)*0.5625_+_1.25rem))] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-3.5 [&>button]:top-3.5 sm:[&>button]:right-5 sm:[&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (
             <>
-              <div className="shrink-0 px-2 pb-2 pt-1.5">
-                <DialogTitle className="whitespace-nowrap pr-10 font-display text-lg font-bold text-ink sm:text-xl">Tutores que já passaram por isso</DialogTitle>
+              <div className="shrink-0 px-2 pb-2 pt-2">
+                <DialogTitle className="whitespace-nowrap pr-8 font-display text-[15px] font-bold text-ink sm:pr-10 sm:text-xl">Tutores que já passaram por isso</DialogTitle>
                 <DialogDescription className="sr-only">Relatos em vídeo de clientes Nutraflow</DialogDescription>
                 <div className="mt-2 flex gap-2">
                   {feedbacks.map((feedback, index) => (
@@ -224,15 +224,15 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   {!selectedVideo.video && <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>}
                   <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
                 </div>
-              <div className="flex shrink-0 items-center gap-3 rounded-b-xl bg-muted px-3 py-3">
+              <div className="flex shrink-0 items-center gap-2.5 rounded-b-xl bg-muted px-3 py-2.5 sm:gap-3 sm:py-3">
                 <div className="min-w-0 flex-1 leading-tight">
-                  <p className="truncate text-base font-semibold text-ink">NutraHelp</p>
-                  <p className="mt-0.5 whitespace-nowrap text-sm">
+                  <p className="truncate text-sm font-semibold text-ink sm:text-base">NutraHelp</p>
+                  <p className="mt-0.5 whitespace-nowrap text-xs sm:text-sm">
                     {variants[0].compareAt && <span className="mr-1.5 text-muted-foreground line-through">{brl(variants[0].compareAt)}</span>}
                     <span className="font-bold text-ink">{brl(variants[0].unitPrice)}</span>
                   </p>
                 </div>
-                <BuyButton size="md" onClick={onBuy} className="shrink-0 normal-case tracking-normal text-[15px]">Comprar agora</BuyButton>
+                <BuyButton size="md" onClick={onBuy} className="shrink-0 whitespace-nowrap normal-case tracking-normal px-4 py-2.5 text-xs sm:px-7 sm:py-3.5 sm:text-[15px]">Comprar agora</BuyButton>
               </div>
             </>
           )}
