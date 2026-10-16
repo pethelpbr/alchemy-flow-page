@@ -179,7 +179,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
         <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
       </div>
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
-        <DialogContent className="flex max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[420px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
+        <DialogContent className="flex max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[min(420px,calc((94dvh_-_200px)*0.5625_+_1.25rem))] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-5 [&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (
             <>
               <div className="shrink-0 px-2 pb-2 pt-1.5">
@@ -193,7 +193,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
                   ))}
                 </div>
               </div>
-              <div className="relative mx-auto aspect-[9/16] w-full max-w-[calc((94dvh_-_200px)*0.5625)] shrink-0 overflow-hidden rounded-t-xl bg-muted">
+              <div className="relative aspect-[9/16] w-full shrink-0 overflow-hidden rounded-t-xl bg-muted">
                   {selectedVideo.video ? (
                     <video key={selectedVideo.video} src={selectedVideo.video} poster={selectedVideo.image} controls autoPlay playsInline className="absolute inset-0 h-full w-full object-cover" />
                   ) : (
