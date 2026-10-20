@@ -19,6 +19,9 @@ export function StickyMobileBuy({
   const grandTotal =
     total + addonsExtra + (selected.id === "1-un" ? (selected.shipping ?? 0) : 0);
   const singlePot = selected.id === "1-un";
+  const withGift = selected.id === "3-un-brinde";
+  const cardBar = singlePot || withGift;
+  const barLabel = withGift ? `${selected.label} + brinde` : selected.label;
 
   useEffect(() => {
     const onScroll = () => {
