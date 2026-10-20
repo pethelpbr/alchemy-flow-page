@@ -102,7 +102,7 @@ export function ActivesCarousel() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-gift">O que tem dentro de cada dose</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-primary-foreground sm:text-5xl">
-            44 nutrientes. Um pote.
+            44 nutrientes.{" "}<br className="sm:hidden" />Um pote.
           </h2>
         </div>
 
