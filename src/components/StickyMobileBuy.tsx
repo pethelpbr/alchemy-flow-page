@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import productHero from "@/assets/product-hero.png.asset.json";
+import kitTwoPots from "@/assets/sticky-kit-2-potes.png.asset.json";
 import kitThreePots from "@/assets/sticky-kit-3-potes.png.asset.json";
 
 export function StickyMobileBuy({
@@ -20,8 +21,9 @@ export function StickyMobileBuy({
   const grandTotal =
     total + addonsExtra + (selected.id === "1-un" ? (selected.shipping ?? 0) : 0);
   const singlePot = selected.id === "1-un";
+  const twoPots = selected.id === "2-un";
   const withGift = selected.id === "3-un-brinde";
-  const cardBar = singlePot || withGift;
+  const cardBar = singlePot || twoPots || withGift;
   const barLabel = withGift ? `${selected.label} + brinde` : selected.label;
 
   useEffect(() => {
@@ -57,7 +59,13 @@ export function StickyMobileBuy({
               <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
-                    src={withGift ? kitThreePots.url : productHero.url}
+                    src={
+                      withGift
+                        ? kitThreePots.url
+                        : twoPots
+                          ? kitTwoPots.url
+                          : productHero.url
+                    }
                     alt=""
                     loading="lazy"
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
@@ -87,6 +95,11 @@ export function StickyMobileBuy({
                 {withGift && (
                   <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
                     Frete grátis · Garantia de 60 dias · Troca sem custo
+                  </p>
+                )}
+                {twoPots && (
+                  <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
+                    Frete grátis
                   </p>
                 )}
               </div>
