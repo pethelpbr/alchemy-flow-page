@@ -31,7 +31,14 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { selected, setSelected, checkout, addonIds, toggleAddon, addonsExtra } = useCart();
-  const goToOffer = () => document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const goToOffer = () => {
+    const card = document.querySelector("#comprar");
+    if (!card) return;
+    // Interrompe o embalo do arraste antes de animar, senão a rolagem suave é cortada no celular.
+    window.scrollTo({ top: window.scrollY, behavior: "auto" });
+    const top = Math.max(0, window.scrollY + card.getBoundingClientRect().top - 112);
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-background">
