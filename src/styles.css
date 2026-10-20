@@ -188,11 +188,11 @@
   }
 }
 
-/* Section title "Você veio pela pele…": phones use the standard 36px section
-   title size and the text is allowed to wrap; from tablet up it stays a single
-   line that shrinks instead of breaking. */
+/* Section title "Você veio pela pele…": phones use 29px so the text breaks into
+   exactly two lines; from tablet up it stays a single line that shrinks instead
+   of breaking. */
 @utility title-section-fluid {
-  font-size: 2.25rem;
+  font-size: 1.8125rem;
   line-height: 1.15;
   @media (min-width: 640px) {
     white-space: nowrap;
