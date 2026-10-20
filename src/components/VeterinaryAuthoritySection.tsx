@@ -38,8 +38,8 @@ export function VeterinaryAuthoritySection() {
     <section className="bg-background px-6 pb-16 pt-10 sm:pb-20 sm:pt-12">
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">Aprovado por veterinários</p>
-        <h2 className="max-w-4xl font-display text-4xl leading-tight text-ink sm:text-5xl">
-          Desenvolvido por quem vê esses casos todo dia
+        <h2 className="max-w-4xl whitespace-nowrap font-display text-[clamp(20px,calc(7vw-1px),30px)] leading-tight text-ink sm:whitespace-normal sm:text-5xl">
+          Desenvolvido por quem vê<br className="sm:hidden" /> esses casos todo dia
         </h2>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
