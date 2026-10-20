@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import productHero from "@/assets/product-hero.png.asset.json";
+import kitThreePots from "@/assets/sticky-kit-3-potes.png.asset.json";
 
 export function StickyMobileBuy({
   selected,
@@ -56,7 +57,7 @@ export function StickyMobileBuy({
               <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
-                    src={productHero.url}
+                    src={withGift ? kitThreePots.url : productHero.url}
                     alt=""
                     loading="lazy"
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
