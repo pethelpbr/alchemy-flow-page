@@ -187,3 +187,16 @@
     font-size: clamp(14px, (min(78rem, 100vw) - 8rem) / 64, 18px);
   }
 }
+
+/* Section title "Você veio pela pele…": phones use the standard 36px section
+   title size and the text is allowed to wrap; from tablet up it stays a single
+   line that shrinks instead of breaking. */
+@utility title-section-fluid {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  @media (min-width: 640px) {
+    white-space: nowrap;
+    font-size: clamp(13px, calc(4.2vw - 2px), 44px);
+    line-height: 1.08;
+  }
+}

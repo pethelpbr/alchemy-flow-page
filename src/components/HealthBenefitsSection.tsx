@@ -15,8 +15,7 @@ export function HealthBenefitsSection() {
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">8 em 1, não só um suplemento de pele</p>
         <h2
-          className="max-w-5xl whitespace-nowrap font-display leading-[1.08] text-ink"
-          style={{ fontSize: "clamp(13px, calc(4.2vw - 2px), 44px)" }}
+          className="title-section-fluid max-w-5xl font-display text-ink"
         >
           Você veio pela pele. Ele cuida de mais sete coisas.
         </h2>
