@@ -21,7 +21,7 @@ export function StickyMobileBuy({
   useEffect(() => {
     const onScroll = () => {
       const faq = document.getElementById("faq");
-      setVisible(faq ? faq.getBoundingClientRect().bottom < 0 : false);
+      setVisible(faq ? faq.getBoundingClientRect().bottom < window.innerHeight : false);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
