@@ -17,7 +17,7 @@ export function HealthBenefitsSection() {
         <h2
           className="title-section-fluid max-w-5xl font-display text-ink"
         >
-          Você veio pela pele. Ele cuida de mais 7 coisas.
+          Você veio pela pele.<br className="sm:hidden" /> Ele cuida de mais 7 coisas.
         </h2>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
