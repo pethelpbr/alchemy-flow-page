@@ -19,10 +19,17 @@ export function StickyMobileBuy({
   const installmentValue = grandTotal / selected.installments;
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.9);
+    const onScroll = () => {
+      const faq = document.getElementById("faq");
+      setVisible(faq ? faq.getBoundingClientRect().bottom < window.innerHeight : false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
