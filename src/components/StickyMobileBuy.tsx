@@ -14,9 +14,11 @@ export function StickyMobileBuy({
   addonsExtra?: number;
 }) {
   const [visible, setVisible] = useState(false);
-  const { total } = variantTotals(selected);
-  const grandTotal = total + addonsExtra;
-  const installmentValue = grandTotal / selected.installments;
+  const { total, installmentValue } = variantTotals(selected);
+  // No layout do 1 pote, o preço da tarja inclui o frete, como no card de compra.
+  const grandTotal =
+    total + addonsExtra + (selected.id === "1-un" ? (selected.shipping ?? 0) : 0);
+  const singlePot = selected.id === "1-un";
 
   useEffect(() => {
     const onScroll = () => {
@@ -40,25 +42,62 @@ export function StickyMobileBuy({
           animate={{ y: 0 }}
           exit={{ y: 120 }}
           transition={{ type: "spring", damping: 26, stiffness: 240 }}
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl lg:hidden"
+          className={
+            singlePot
+              ? "fixed inset-x-0 bottom-0 z-40 lg:hidden"
+              : "fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl lg:hidden"
+          }
         >
-          <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
-            <img
-              src={productHero.url}
-              alt=""
-              loading="lazy"
-              className="h-12 w-12 shrink-0 rounded-lg object-cover"
-            />
-            <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-ink">{brl(grandTotal)}</p>
-              <p className="truncate text-[11px] text-muted-foreground">
-                {selected.installments}x de {brl(installmentValue)}
-              </p>
+          {singlePot ? (
+            <div className="px-3 pb-3">
+              <div className="flex items-center gap-3 rounded-2xl border border-border bg-background px-3 py-2.5 shadow-card">
+                <img
+                  src={productHero.url}
+                  alt=""
+                  loading="lazy"
+                  className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
+                />
+                <div className="min-w-0 flex-1">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-ink">
+                    {selected.label}
+                  </p>
+                  <p className="flex min-w-0 items-baseline gap-1.5">
+                    <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
+                      {brl(grandTotal)}
+                    </span>
+                    <span className="whitespace-nowrap text-[11px] text-muted-foreground">
+                      {selected.installments}x {brl(installmentValue)}
+                    </span>
+                  </p>
+                </div>
+                <BuyButton
+                  size="sm"
+                  onClick={onBuy}
+                  className="shrink-0 rounded-full px-5"
+                >
+                  Comprar
+                </BuyButton>
+              </div>
             </div>
-            <BuyButton size="sm" onClick={onBuy} className="shrink-0">
-              Comprar
-            </BuyButton>
-          </div>
+          ) : (
+            <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
+              <img
+                src={productHero.url}
+                alt=""
+                loading="lazy"
+                className="h-12 w-12 shrink-0 rounded-lg object-cover"
+              />
+              <div className="min-w-0">
+                <p className="truncate text-sm font-medium text-ink">{brl(grandTotal)}</p>
+                <p className="truncate text-[11px] text-muted-foreground">
+                  {selected.installments}x de {brl(installmentValue)}
+                </p>
+              </div>
+              <BuyButton size="sm" onClick={onBuy} className="shrink-0">
+                Comprar
+              </BuyButton>
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
