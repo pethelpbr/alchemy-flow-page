@@ -20,8 +20,8 @@ export function StickyMobileBuy({
 
   useEffect(() => {
     const onScroll = () => {
-      const faq = document.getElementById("faq");
-      setVisible(faq ? faq.getBoundingClientRect().bottom < window.innerHeight : false);
+      const anchor = document.getElementById("duvidas-compra");
+      setVisible(anchor ? anchor.getBoundingClientRect().bottom < window.innerHeight : false);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
