@@ -19,6 +19,9 @@ export function StickyMobileBuy({
   const grandTotal =
     total + addonsExtra + (selected.id === "1-un" ? (selected.shipping ?? 0) : 0);
   const singlePot = selected.id === "1-un";
+  const withGift = selected.id === "3-un-brinde";
+  const cardBar = singlePot || withGift;
+  const barLabel = withGift ? `${selected.label} + brinde` : selected.label;
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,40 +46,48 @@ export function StickyMobileBuy({
           exit={{ y: 120 }}
           transition={{ type: "spring", damping: 26, stiffness: 240 }}
           className={
-            singlePot
+            cardBar
               ? "fixed inset-x-0 bottom-0 z-40 lg:hidden"
               : "fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl lg:hidden"
           }
         >
-          {singlePot ? (
+          {cardBar ? (
             <div className="px-3 pb-3">
-              <div className="flex items-center gap-3 rounded-2xl border border-border bg-background px-3 py-2.5 shadow-card">
-                <img
-                  src={productHero.url}
-                  alt=""
-                  loading="lazy"
-                  className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
-                />
-                <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-ink">
-                    {selected.label}
-                  </p>
-                  <p className="flex min-w-0 items-baseline gap-1.5">
-                    <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
-                      {brl(grandTotal)}
-                    </span>
-                    <span className="whitespace-nowrap text-[11px] text-muted-foreground">
-                      {selected.installments}x {brl(installmentValue)}
-                    </span>
-                  </p>
+              <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+                <div className="flex items-center gap-3 px-3 py-2.5">
+                  <img
+                    src={productHero.url}
+                    alt=""
+                    loading="lazy"
+                    className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-ink">
+                      {barLabel}
+                    </p>
+                    <p className="flex min-w-0 items-baseline gap-1.5">
+                      <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
+                        {brl(grandTotal)}
+                      </span>
+                      <span className="whitespace-nowrap text-[11px] text-muted-foreground">
+                        {withGift ? "· " : ""}
+                        {selected.installments}x {brl(installmentValue)}
+                      </span>
+                    </p>
+                  </div>
+                  <BuyButton
+                    size="sm"
+                    onClick={onBuy}
+                    className="shrink-0 rounded-full px-5"
+                  >
+                    Comprar
+                  </BuyButton>
                 </div>
-                <BuyButton
-                  size="sm"
-                  onClick={onBuy}
-                  className="shrink-0 rounded-full px-5"
-                >
-                  Comprar
-                </BuyButton>
+                {withGift && (
+                  <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
+                    Frete grátis · Garantia de 60 dias · Troca sem custo
+                  </p>
+                )}
               </div>
             </div>
           ) : (
