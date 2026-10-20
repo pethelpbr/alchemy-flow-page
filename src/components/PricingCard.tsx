@@ -40,7 +40,7 @@ export function PricingCard({
             <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
               1
             </span>
-            Escolha seu ritual
+            Escolha seu kit
           </p>
         )}
 
