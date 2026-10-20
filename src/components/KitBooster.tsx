@@ -27,7 +27,7 @@ export function KitBooster({
         <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
           2
         </span>
-        Turbine seu kit
+        Complete o cuidado
       </p>
 
       <div className="mt-3 grid grid-cols-2 gap-2.5">
