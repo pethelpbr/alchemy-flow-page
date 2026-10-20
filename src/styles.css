@@ -188,11 +188,11 @@
   }
 }
 
-/* Section title "Você veio pela pele…": phones scale the type so the text always
-   breaks into exactly two lines; from tablet up it stays a single line that
-   shrinks instead of breaking. */
+/* Section title "Você veio pela pele…": phones break after the first sentence (the
+   <br> in the markup) and scale the type so the second line always fits; from
+   tablet up it stays a single line that shrinks instead of breaking. */
 @utility title-section-fluid {
-  font-size: clamp(21px, calc(9vw - 7px), 29px);
+  font-size: clamp(21px, calc(7.25vw - 1.4px), 30px);
   line-height: 1.15;
   @media (min-width: 640px) {
     white-space: nowrap;
