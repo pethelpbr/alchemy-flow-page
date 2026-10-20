@@ -192,7 +192,7 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
         <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} />
         <IngredientsButton />
       </div>
-      <div className="mt-7 pt-2">
+      <div id="duvidas-compra" className="mt-7 pt-2">
         <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
       </div>
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
