@@ -31,7 +31,9 @@ export function PricingCard({
 
   const extra = addonsTotal(addonIds);
   const grandTotal = total + (selected.shipping ?? 0) + extra;
-  const originalTotal = (selected.compareAt ?? total + (selected.shipping ?? 0)) + extra;
+  const originalTotal =
+    (selected.compareAt ?? total + (selected.shipping ?? 0)) +
+    addonsCompareAtTotal(addonIds);
   return (
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
       <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
