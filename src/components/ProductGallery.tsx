@@ -10,7 +10,7 @@ import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
 import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
-import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
+import gallerySinaisDiaADia from "@/assets/gallery-sinais-dia-a-dia.png.asset.json";
 import galleryDragIcon from "@/assets/gallery-drag-icon.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -28,7 +28,7 @@ const shots: Shot[] = [
   { src: galleryAntesDepois30.url, alt: "Antes e depois em 30 dias: de um lado, um cachorro caramelo com as orelhas vermelhas e se coçando; do outro, o mesmo cachorro com o pelo brilhante e sem coceira; embaixo, um gato malhado deitado; a marcação de 30 dias com os destaques pele calma, pelo forte e intestino regulado, e o pote do NutraHelp" },
   { src: galleryResultadosSemanas.url, alt: "Resultados em poucas semanas: antes e depois de 50 dias de um cachorro, de um lado a pele irritada, vermelha e sem pelo, do outro a pele calma e o pelo recuperado; abaixo, o depoimento de Camila S., tutora do Bento, de Recife/PE, com cinco estrelas: meu cachorro se coçava 24h, sempre foi muito alérgico, melhorou demais, fiquei até surpresa" },
   { src: productHero.url, alt: "Imagem 9 do produto" },
-  { src: galleryRotinaDiaria.url, alt: "Seu pet está assim? seis sinais em cartões numerados: 01 se coça ou se lambe com frequência, 02 está com queda de pelo e pelagem opaca, 03 sofre com alergias e irritações na pele, 04 tem cocô mole e com cheiro forte, 05 fica sem energia pra brincar ou passear, 06 vive estressado ou ansioso; faixa laranja abaixo: se você respondeu sim para algum desses sinais, é hora de agir; um cachorro golden retriever sentado se coçando com a pata traseira" },
+  { src: gallerySinaisDiaADia.url, alt: "Os sinais aparecem no dia a dia quando a pele do seu pet não está bem: seis cartões numerados — 01 a coceira e as lambidas interrompem o sono dele, 02 a pele fica cada vez mais sensível, vermelha e irritada, 03 ele se esfrega nos móveis para aliviar a irritação, 04 a queda de pelo deixa a pelagem espalhada pela casa, 05 ele fica menos disposto para brincar e passear, 06 mesmo depois de tantas tentativas os sinais continuam voltando; faixa laranja abaixo: se você reconheceu algum desses sinais, não ignore o que a pele está mostrando; golden retriever sentado se coçando com a pata traseira" },
 ];
 
 const visibleShots = shots.slice(0, 10);
