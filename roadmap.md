@@ -35,3 +35,4 @@
 - [x] Galeria: nova versão da arte "A saúde do pet começa no intestino" (Dr. Rivaldo Junior segurando o pote, consultório com plantas) no lugar da 5ª foto (a anterior era a versão com a mão estendida)
 - [x] Galeria: nova versão da arte "Resultados em poucas semanas" (ANTES x 60 DIAS, Camila S. / Bento, Recife/PE) no lugar da 4ª foto (a anterior era a versão do buldogue francês marcada 0 dias)
 - [x] Galeria: nova versão da arte "+150 mil pets transformados" (ANTES x 60 DIAS, Thiago M. / Amendoim, São Paulo/SP) no lugar da 8ª foto (a anterior era o close do pelo em tom escuro)
+- [x] StickyMobileBuy: remover a faixa branca de segurança no fundo da tela (padding pb-[env(safe-area-inset-bottom)]) — a tarja agora termina encostada no fundo, logo abaixo da faixa bege
