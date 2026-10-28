@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { RefreshCw, Lock } from "lucide-react";
-import { brl, variantTotals, addonsTotal, type Variant } from "@/lib/product";
+import { brl, variantTotals, addonsTotal, addonsCompareAtTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { KitBooster } from "@/components/KitBooster";
@@ -31,7 +31,9 @@ export function PricingCard({
 
   const extra = addonsTotal(addonIds);
   const grandTotal = total + (selected.shipping ?? 0) + extra;
-  const originalTotal = (selected.compareAt ?? total + (selected.shipping ?? 0)) + extra;
+  const originalTotal =
+    (selected.compareAt ?? total + (selected.shipping ?? 0)) +
+    addonsCompareAtTotal(addonIds);
   return (
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
       <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">

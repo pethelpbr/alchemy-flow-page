@@ -115,6 +115,13 @@ export function addonsTotal(selectedIds: string[]) {
     .reduce((sum, a) => sum + a.price, 0);
 }
 
+/** Soma dos preços originais (riscados) dos adicionais selecionados. */
+export function addonsCompareAtTotal(selectedIds: string[]) {
+  return addonCatalog
+    .filter((a) => selectedIds.includes(a.id))
+    .reduce((sum, a) => sum + (a.compareAt ?? a.price), 0);
+}
+
 export function variantTotals(variant: Variant) {
   const total = variant.total ?? variant.unitPrice * variant.units;
   const installmentValue = variant.installmentValue ?? total / variant.installments;
