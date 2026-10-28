@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import productHero from "@/assets/product-hero.png.asset.json";
 import galleryAntesDepois30 from "@/assets/gallery-antes-depois-30-dias.png.asset.json";
-import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
+import galleryResultados60Dias from "@/assets/gallery-resultados-60-dias.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-so-cuidar-por-fora.png.asset.json";
 import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
 import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
@@ -19,7 +19,7 @@ const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve: menos coceiras, alergias e queda de pelo; pele mais saudável e pelo mais forte; intestino equilibrado; mais imunidade, energia e vitalidade; golden retriever filhote ao lado do pote NutraHelp" },
   { src: gallerySinaisDiaADia.url, alt: "Os sinais aparecem no dia a dia quando a pele do seu pet não está bem: seis cartões numerados — 01 a coceira e as lambidas interrompem o sono dele, 02 a pele fica cada vez mais sensível, vermelha e irritada, 03 ele se esfrega nos móveis para aliviar a irritação, 04 a queda de pelo deixa a pelagem espalhada pela casa, 05 ele fica menos disposto para brincar e passear, 06 mesmo depois de tantas tentativas os sinais continuam voltando; faixa laranja abaixo: se você reconheceu algum desses sinais, não ignore o que a pele está mostrando; golden retriever sentado se coçando com a pata traseira" },
-  { src: galleryFormula44.url, alt: "Fórmula completa com 44 nutrientes: colher dosadora com o pó de um lado e alimentos frescos do outro, ligada a ômega 3, biotina e zinco para pele e pelos, pré e probióticos para digestão, triptofano e magnésio para comportamento, vitaminas A, C, D e complexo B para energia e imunidade, e condroitina e cálcio para ossos e articulações" },
+  { src: galleryResultados60Dias.url, alt: "Resultados em poucas semanas: antes e depois de 60 dias de um buldogue francês — de um lado, a pele do peito irritada, vermelha e com falhas de pelo, marcada 0 dias; do outro, a pele calma e o pelo recuperado, marcada 60 dias; abaixo, cinco estrelas e o depoimento de Camila S., tutora do Bento, de Recife/PE: meu cachorro se coçava 24h, sempre foi muito alérgico, melhorou demais, fiquei até surpresa" },
   {
     src: galleryRacaoNaoSuficiente.url,
     alt: "A ração não é suficiente: de um lado, nutrição limitada que pode gerar desequilíbrios; do outro, pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade. Tigelas de ração com e sem o pó, colher dosadora e pote do NutraHelp ao lado de alimentos frescos",
