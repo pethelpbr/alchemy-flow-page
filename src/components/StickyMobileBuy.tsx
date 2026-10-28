@@ -60,7 +60,14 @@ export function StickyMobileBuy({
           }
         >
           {cardBar ? (
-            <div className="border-t border-border bg-background">
+            <div
+              className="border-t border-border bg-background"
+              style={
+                twoPots || withGift
+                  ? undefined
+                  : { paddingBottom: `max(0.5rem, ${SAFE_BOTTOM})` }
+              }
+            >
               <div className="overflow-hidden">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
