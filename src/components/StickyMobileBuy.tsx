@@ -6,6 +6,11 @@ import productHero from "@/assets/product-hero.png.asset.json";
 import kitTwoPots from "@/assets/sticky-kit-2-potes.png.asset.json";
 import kitThreePots from "@/assets/sticky-kit-3-potes.png.asset.json";
 
+// A tarja encosta no fundo físico da tela; o respiro do texto vem do próprio
+// fundo da faixa (bege ou branco), nunca de uma faixa vazia embaixo dela.
+const SAFE_BOTTOM = "env(safe-area-inset-bottom, 0px)";
+const STRIP_BOTTOM = `max(0.75rem, calc(0.375rem + ${SAFE_BOTTOM}))`;
+
 export function StickyMobileBuy({
   selected,
   onBuy,
@@ -55,7 +60,14 @@ export function StickyMobileBuy({
           }
         >
           {cardBar ? (
-            <div className="border-t border-border bg-background">
+            <div
+              className="border-t border-border bg-background"
+              style={
+                twoPots || withGift
+                  ? undefined
+                  : { paddingBottom: `max(0.5rem, ${SAFE_BOTTOM})` }
+              }
+            >
               <div className="overflow-hidden">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
@@ -93,19 +105,28 @@ export function StickyMobileBuy({
                   </BuyButton>
                 </div>
                 {withGift && (
-                  <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
+                  <p
+                    className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink"
+                    style={{ paddingBottom: STRIP_BOTTOM }}
+                  >
                     Frete grátis · Garantia de 60 dias · Compra segura
                   </p>
                 )}
                 {twoPots && (
-                  <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
+                  <p
+                    className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink"
+                    style={{ paddingBottom: STRIP_BOTTOM }}
+                  >
                     Frete grátis · Compra segura
                   </p>
                 )}
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
+            <div
+              className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3"
+              style={{ paddingBottom: `max(0.75rem, calc(0.75rem + ${SAFE_BOTTOM}))` }}
+            >
               <img
                 src={productHero.url}
                 alt=""

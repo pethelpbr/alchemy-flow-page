@@ -37,3 +37,4 @@
 - [x] Galeria: nova versão da arte "+150 mil pets transformados" (ANTES x 60 DIAS, Thiago M. / Amendoim, São Paulo/SP) no lugar da 8ª foto (a anterior era o close do pelo em tom escuro)
 - [x] StickyMobileBuy: remover a faixa branca de segurança no fundo da tela (padding pb-[env(safe-area-inset-bottom)]) — a tarja agora termina encostada no fundo, logo abaixo da faixa bege
 - [x] __root.tsx: viewport ganhou viewport-fit=cover para a tarja descer até o limite físico da tela do celular; Header: faixa amarela do topo recebeu o padding da barra de status (pt-[env(safe-area-inset-top)]) para não subir sob o entalhe
+- [x] StickyMobileBuy: o texto da tarja ganhou respiro da borda de baixo — a própria faixa bege (12px) e o fundo do card do 1 pote (8px) carregam o espaço, somado à área segura do aparelho, sem criar faixa branca vazia
