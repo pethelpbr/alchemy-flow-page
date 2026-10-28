@@ -64,6 +64,7 @@ export function StickyMobileBuy({
           animate={{ y: 0 }}
           exit={{ y: 120 }}
           transition={{ type: "spring", damping: 26, stiffness: 240 }}
+          style={{ bottom: bottomOffset, WebkitTransform: "translateZ(0)", willChange: "transform" }}
           className={
             cardBar
               ? "fixed inset-x-0 bottom-0 z-40 lg:hidden"
