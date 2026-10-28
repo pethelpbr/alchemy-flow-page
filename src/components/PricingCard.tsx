@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { RefreshCw, Lock } from "lucide-react";
-import { brl, variantTotals, addonsTotal, type Variant } from "@/lib/product";
+import { brl, variantTotals, addonsTotal, addonsCompareAtTotal, type Variant } from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { KitBooster } from "@/components/KitBooster";
