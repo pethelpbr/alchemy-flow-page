@@ -33,3 +33,4 @@
 - [x] Galeria: nova arte "É só misturar e pronto" (tabela de dosagem) no lugar da 7ª foto (a 7ª era "Antes e depois em 30 dias")
 - [x] Galeria: nova arte "+150 mil pets transformados" (0 x 60 dias, Thiago M. / Amendoim) no lugar da 8ª foto (a 8ª era a versão antiga "Resultados em poucas semanas", de 50 dias)
 - [x] Galeria: nova versão da arte "A saúde do pet começa no intestino" (Dr. Rivaldo Junior segurando o pote, consultório com plantas) no lugar da 5ª foto (a anterior era a versão com a mão estendida)
+- [x] Galeria: nova versão da arte "Resultados em poucas semanas" (ANTES x 60 DIAS, Camila S. / Bento, Recife/PE) no lugar da 4ª foto (a anterior era a versão do buldogue francês marcada 0 dias)
