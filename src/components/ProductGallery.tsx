@@ -8,7 +8,7 @@ import galleryResultados60Dias from "@/assets/gallery-resultados-60-dias.png.ass
 import galleryBeneficios from "@/assets/gallery-so-cuidar-por-fora.png.asset.json";
 import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
 import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
-import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
+import gallerySaudeIntestinoVet from "@/assets/gallery-saude-intestino-vet.png.asset.json";
 import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
 import gallerySinaisDiaADia from "@/assets/gallery-sinais-dia-a-dia.png.asset.json";
 import galleryDragIcon from "@/assets/gallery-drag-icon.png.asset.json";
@@ -20,10 +20,7 @@ const shots: Shot[] = [
   { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve: menos coceiras, alergias e queda de pelo; pele mais saudável e pelo mais forte; intestino equilibrado; mais imunidade, energia e vitalidade; golden retriever filhote ao lado do pote NutraHelp" },
   { src: gallerySinaisDiaADia.url, alt: "Os sinais aparecem no dia a dia quando a pele do seu pet não está bem: seis cartões numerados — 01 a coceira e as lambidas interrompem o sono dele, 02 a pele fica cada vez mais sensível, vermelha e irritada, 03 ele se esfrega nos móveis para aliviar a irritação, 04 a queda de pelo deixa a pelagem espalhada pela casa, 05 ele fica menos disposto para brincar e passear, 06 mesmo depois de tantas tentativas os sinais continuam voltando; faixa laranja abaixo: se você reconheceu algum desses sinais, não ignore o que a pele está mostrando; golden retriever sentado se coçando com a pata traseira" },
   { src: galleryResultados60Dias.url, alt: "Resultados em poucas semanas: antes e depois de 60 dias de um buldogue francês — de um lado, a pele do peito irritada, vermelha e com falhas de pelo, marcada 0 dias; do outro, a pele calma e o pelo recuperado, marcada 60 dias; abaixo, cinco estrelas e o depoimento de Camila S., tutora do Bento, de Recife/PE: meu cachorro se coçava 24h, sempre foi muito alérgico, melhorou demais, fiquei até surpresa" },
-  {
-    src: galleryRacaoNaoSuficiente.url,
-    alt: "A ração não é suficiente: de um lado, nutrição limitada que pode gerar desequilíbrios; do outro, pele e pelos mais saudáveis, equilíbrio intestinal e mais imunidade. Tigelas de ração com e sem o pó, colher dosadora e pote do NutraHelp ao lado de alimentos frescos",
-  },
+  { src: gallerySaudeIntestinoVet.url, alt: "A saúde do pet começa no intestino: o médico veterinário Dr. Rivaldo Junior, CRMV-PE 0000, de jaleco branco e estetoscópio, estende a mão mostrando o pote do NutraHelp; ao lado, o texto quando a saúde digestiva está equilibrada, pele, imunidade e organismo respondem melhor, com a assinatura Dr. Rivaldo Junior, Médico Veterinário; prateleiras de consultório ao fundo" },
   { src: galleryRacaoBase.url, alt: "A saúde do pet começa no intestino: a médica veterinária Dra. Ialy Andrade, CRMV 5655-PE, recomenda o NutraHelp, com potes do produto na prateleira ao fundo e selo recomendado por veterinários" },
   { src: galleryAntesDepois30.url, alt: "Antes e depois em 30 dias: de um lado, um cachorro caramelo com as orelhas vermelhas e se coçando; do outro, o mesmo cachorro com o pelo brilhante e sem coceira; embaixo, um gato malhado deitado; a marcação de 30 dias com os destaques pele calma, pelo forte e intestino regulado, e o pote do NutraHelp" },
   { src: galleryResultadosSemanas.url, alt: "Resultados em poucas semanas: antes e depois de 50 dias de um cachorro, de um lado a pele irritada, vermelha e sem pelo, do outro a pele calma e o pelo recuperado; abaixo, o depoimento de Camila S., tutora do Bento, de Recife/PE, com cinco estrelas: meu cachorro se coçava 24h, sempre foi muito alérgico, melhorou demais, fiquei até surpresa" },
