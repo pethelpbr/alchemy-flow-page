@@ -36,3 +36,4 @@
 - [x] Galeria: nova versão da arte "Resultados em poucas semanas" (ANTES x 60 DIAS, Camila S. / Bento, Recife/PE) no lugar da 4ª foto (a anterior era a versão do buldogue francês marcada 0 dias)
 - [x] Galeria: nova versão da arte "+150 mil pets transformados" (ANTES x 60 DIAS, Thiago M. / Amendoim, São Paulo/SP) no lugar da 8ª foto (a anterior era o close do pelo em tom escuro)
 - [x] StickyMobileBuy: remover a faixa branca de segurança no fundo da tela (padding pb-[env(safe-area-inset-bottom)]) — a tarja agora termina encostada no fundo, logo abaixo da faixa bege
+- [x] __root.tsx: viewport ganhou viewport-fit=cover para a tarja descer até o limite físico da tela do celular; Header: faixa amarela do topo recebeu o padding da barra de status (pt-[env(safe-area-inset-top)]) para não subir sob o entalhe
