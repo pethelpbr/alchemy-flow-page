@@ -55,8 +55,8 @@ export function StickyMobileBuy({
           }
         >
           {cardBar ? (
-            <div className="px-3 pb-3">
-              <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-card">
+            <div className="border-t border-border bg-background pb-[env(safe-area-inset-bottom)]">
+              <div className="overflow-hidden">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
                     src={
