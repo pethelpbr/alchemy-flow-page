@@ -94,7 +94,7 @@ export function StickyMobileBuy({
                 </div>
                 {withGift && (
                   <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
-                    Frete grátis · Garantia de 60 dias · Troca sem custo
+                    Frete grátis · Garantia de 60 dias · Compra segura
                   </p>
                 )}
                 {twoPots && (
