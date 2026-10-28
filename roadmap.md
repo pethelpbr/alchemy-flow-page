@@ -29,3 +29,4 @@
 - [x] Galeria: nova arte "Os sinais aparecem no dia a dia" no lugar da 3ª foto (voltar a 3ª era "Basta misturar e pronto"); 10ª foto volta a ser "Seu pet está assim?"
 - [x] Galeria: nova arte "Resultados em poucas semanas" (0 x 60 dias, Bento) no lugar da 4ª foto (a 4ª era "Fórmula completa com 44 nutrientes")
 - [x] Galeria: nova arte "A saúde do pet começa no intestino" (Dr. Rivaldo Junior) no lugar da 5ª foto (a 5ª era "A ração não é suficiente")
+- [x] Galeria: nova arte "Fórmula completa com 44 nutrientes" (mesa com alimentos) no lugar da 6ª foto (a 6ª era a Dra. Ialy Andrade)
