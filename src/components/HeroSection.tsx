@@ -41,7 +41,7 @@ export function HeroSection({
 
         <motion.div className="lg:pb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}>
           <div className="inline-flex shrink-0 items-center gap-2">
-            <Stars size={16} rating={4.5} />
+            <Stars size={16} rating={4.8} />
             <span className="text-sm text-muted-foreground">4,8 (1522 avaliações)</span>
           </div>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
