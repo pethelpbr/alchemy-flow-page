@@ -26,3 +26,4 @@
 
 - [x] Remover a seção "Como usar" (HowToUse) da página
 - [x] Excluir a tarja laranja rolante do fim da seção "O que esperar" (MarqueeStrip em RoutineResultsSection)
+- [x] Galeria: nova arte "Os sinais aparecem no dia a dia" no lugar da 3ª foto (voltar a 3ª era "Basta misturar e pronto"); 10ª foto volta a ser "Seu pet está assim?"
