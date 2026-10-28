@@ -99,7 +99,7 @@ export function StickyMobileBuy({
                 )}
                 {twoPots && (
                   <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
-                    Frete grátis
+                    Frete grátis · Compra segura
                   </p>
                 )}
               </div>
