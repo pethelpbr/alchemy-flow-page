@@ -24,3 +24,5 @@
 <!-- PROJECT:END -->
 
 - Mobile product gallery navigation uses a native scroll-snap track with a next-slide preview; calculate selection from slide offsets so spacing cannot desynchronize the active image. Temporarily suspend snapping during touch scrolling and animate the final alignment after release to avoid an abrupt native snap.
+
+- Each pain-point landing page (/pele, /mobilidade, /intestino) is its own route wrapped in `LandingLayout` (shared Header, Footer, sticky mobile buy bar) with `useCart` and `scrollToOffer`; keeps every page on the same purchase base.
