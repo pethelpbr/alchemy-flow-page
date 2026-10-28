@@ -6,11 +6,11 @@ import productHero from "@/assets/product-hero.png.asset.json";
 import galleryAntesDepois30 from "@/assets/gallery-antes-depois-30-dias.png.asset.json";
 import galleryFormula44 from "@/assets/gallery-formula-44-nutrientes.png.asset.json";
 import galleryBeneficios from "@/assets/gallery-so-cuidar-por-fora.png.asset.json";
-import galleryMisturarNova from "@/assets/gallery-misturar-nova.png.asset.json";
+import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
 import galleryRacaoBase from "@/assets/gallery-racao-base.png.asset.json";
 import galleryRacaoNaoSuficiente from "@/assets/gallery-racao-nao-suficiente.png.asset.json";
 import galleryResultadosSemanas from "@/assets/gallery-resultados-semanas.png.asset.json";
-import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
+import gallerySinaisDiaADia from "@/assets/gallery-sinais-dia-a-dia.png.asset.json";
 import galleryDragIcon from "@/assets/gallery-drag-icon.png.asset.json";
 
 type Shot = { src: string; alt: string; ratio?: number };
@@ -18,7 +18,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 const shots: Shot[] = [
   { src: productHero.url, alt: "Pote do suplemento NutraHelp sobre fundo bege" },
   { src: galleryBeneficios.url, alt: "Só cuidar por fora não resolve: menos coceiras, alergias e queda de pelo; pele mais saudável e pelo mais forte; intestino equilibrado; mais imunidade, energia e vitalidade; golden retriever filhote ao lado do pote NutraHelp" },
-  { src: galleryMisturarNova.url, alt: "Basta misturar e pronto: na ração ou no alimento, seu pet já começa a receber os benefícios; tabela de dosagem por peso do pet — até 5kg meia dose, 6 a 10kg 1 dose, 11 a 20kg 2 doses, 21 a 30kg 3 doses, mais de 30kg 4 doses; acompanha dosador de 2g; uso diário e seguro, para todas as raças e idades, sabor aprovado pelos exigentes e rende até 150 porções; spitz alemão comendo ração com o suplemento" },
+  { src: gallerySinaisDiaADia.url, alt: "Os sinais aparecem no dia a dia quando a pele do seu pet não está bem: seis cartões numerados — 01 a coceira e as lambidas interrompem o sono dele, 02 a pele fica cada vez mais sensível, vermelha e irritada, 03 ele se esfrega nos móveis para aliviar a irritação, 04 a queda de pelo deixa a pelagem espalhada pela casa, 05 ele fica menos disposto para brincar e passear, 06 mesmo depois de tantas tentativas os sinais continuam voltando; faixa laranja abaixo: se você reconheceu algum desses sinais, não ignore o que a pele está mostrando; golden retriever sentado se coçando com a pata traseira" },
   { src: galleryFormula44.url, alt: "Fórmula completa com 44 nutrientes: colher dosadora com o pó de um lado e alimentos frescos do outro, ligada a ômega 3, biotina e zinco para pele e pelos, pré e probióticos para digestão, triptofano e magnésio para comportamento, vitaminas A, C, D e complexo B para energia e imunidade, e condroitina e cálcio para ossos e articulações" },
   {
     src: galleryRacaoNaoSuficiente.url,
