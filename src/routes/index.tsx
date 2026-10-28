@@ -1,68 +1,21 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
-import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
-import { SymptomsSection } from "@/components/SymptomsSection";
-import { BenefitsSection } from "@/components/BenefitsSection";
-import { RoutineResultsSection } from "@/components/RoutineResultsSection";
-
-import { ItchingOriginsPage } from "@/components/ItchingOriginsPage";
-import { BeforeAfterSection } from "@/components/BeforeAfterSection";
-import { StatsBanner } from "@/components/StatsBanner";
-import { ActivesCarousel } from "@/components/ActivesCarousel";
-import { HealthBenefitsSection } from "@/components/HealthBenefitsSection";
-import { GuaranteeSection } from "@/components/GuaranteeSection";
-import { ReviewsCarousel } from "@/components/ReviewsCarousel";
-import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
-import { FinalOffer } from "@/components/FinalOffer";
-import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
-import { FAQAccordion } from "@/components/FAQAccordion";
-import { StickyMobileBuy } from "@/components/StickyMobileBuy";
-import { Footer } from "@/components/Footer";
-import { useCart } from "@/lib/use-cart";
-
-const title = "NutraHelp | Suplemento para cães e gatos · PetHelp";
-const description = "Conheça NutraHelp da PetHelp: suplemento com 44 nutrientes para apoiar a pele, os pelos e o intestino de cães e gatos.";
+const title = "PetHelp | Suplementos para cães e gatos";
+const description = "PetHelp: cuidado completo para cães e gatos. Conheça o NutraHelp para a pele e os pelos do seu pet.";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
-  component: Index,
+  component: Home,
 });
 
-function Index() {
-  const { selected, setSelected, checkout, addonIds, toggleAddon, addonsExtra } = useCart();
-  const goToOffer = () => {
-    const card = document.querySelector("#comprar");
-    if (!card) return;
-    // Interrompe o embalo do arraste antes de animar, senão a rolagem suave é cortada no celular.
-    window.scrollTo({ top: window.scrollY, behavior: "auto" });
-    const top = Math.max(0, window.scrollY + card.getBoundingClientRect().top - 112);
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
+function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header onBuy={goToOffer} />
-      <main>
-        <HeroSection selected={selected} onSelect={setSelected} onBuy={checkout} addonIds={addonIds} onToggleAddon={toggleAddon} />
-        <SymptomsSection />
-        <BenefitsSection />
-        <ItchingOriginsPage />
-
-        <RoutineResultsSection />
-        <BeforeAfterSection />
-        <StatsBanner />
-        <ActivesCarousel />
-        <HealthBenefitsSection />
-        <VeterinaryAuthoritySection />
-        <GuaranteeSection />
-        <ReviewsCarousel />
-        <FinalOffer selected={selected} onSelect={setSelected} addonIds={addonIds} onToggleAddon={toggleAddon} />
-        <TrustBadgesStrip />
-        <FAQAccordion />
-      </main>
-      <Footer />
-      <StickyMobileBuy selected={selected} onBuy={goToOffer} addonsExtra={addonsExtra} />
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center gap-10 bg-background px-6 text-center">
+      <img src={petHelpLogo.url} alt="PetHelp" className="h-20 w-auto" />
+      <Link to="/pele" className="rounded-full bg-primary px-8 py-4 font-sans text-base font-bold uppercase tracking-wide text-primary-foreground transition-opacity hover:opacity-90">
+        Cuidar da pele do meu pet
+      </Link>
+    </main>
   );
 }
