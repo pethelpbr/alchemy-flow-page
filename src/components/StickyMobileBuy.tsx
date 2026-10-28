@@ -105,12 +105,18 @@ export function StickyMobileBuy({
                   </BuyButton>
                 </div>
                 {withGift && (
-                  <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
+                  <p
+                    className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink"
+                    style={{ paddingBottom: STRIP_BOTTOM }}
+                  >
                     Frete grátis · Garantia de 60 dias · Compra segura
                   </p>
                 )}
                 {twoPots && (
-                  <p className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink">
+                  <p
+                    className="bg-sand px-3 py-1.5 text-center text-[10px] font-bold text-ink"
+                    style={{ paddingBottom: STRIP_BOTTOM }}
+                  >
                     Frete grátis · Compra segura
                   </p>
                 )}
