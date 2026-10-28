@@ -31,17 +31,28 @@ export function StickyMobileBuy({
   const cardBar = singlePot || twoPots || withGift;
   const barLabel = withGift ? `${selected.label} + brinde` : selected.label;
 
+  // Distância entre o fundo do layout e o fundo realmente visível (barra do Safari no iPhone).
+  const [bottomOffset, setBottomOffset] = useState(0);
+
   useEffect(() => {
+    const vv = window.visualViewport;
     const onScroll = () => {
       const anchor = document.getElementById("duvidas-compra");
       setVisible(anchor ? anchor.getBoundingClientRect().bottom < window.innerHeight : false);
+      if (vv) {
+        setBottomOffset(Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop))));
+      }
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    vv?.addEventListener("resize", onScroll);
+    vv?.addEventListener("scroll", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      vv?.removeEventListener("resize", onScroll);
+      vv?.removeEventListener("scroll", onScroll);
     };
   }, []);
 
