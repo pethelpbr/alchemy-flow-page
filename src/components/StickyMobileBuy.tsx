@@ -123,7 +123,10 @@ export function StickyMobileBuy({
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
+            <div
+              className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3"
+              style={{ paddingBottom: `max(0.75rem, calc(0.75rem + ${SAFE_BOTTOM}))` }}
+            >
               <img
                 src={productHero.url}
                 alt=""
