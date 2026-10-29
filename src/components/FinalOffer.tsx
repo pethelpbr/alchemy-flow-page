@@ -2,47 +2,8 @@ import { BuyButton } from "@/components/ui/BuyButton";
 import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import nutraHelpPot from "@/assets/kit-1-pote.png.asset.json";
-import pataHelpGift from "@/assets/patahelp-gift-v2.png";
 import kit3PotesBrinde from "@/assets/kit-3-potes-brinde.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes.png.asset.json";
-
-function ProductKit({ units, withGift }: { units: number; withGift: boolean }) {
-  const spacing = units === 3 ? 33 : 30;
-
-  return (
-    <div className="relative mx-auto h-36 w-full max-w-56 sm:h-40">
-      {Array.from({ length: units }).map((_, index) => {
-        const centeredIndex = index - (units - 1) / 2;
-        return (
-          <img
-            key={index}
-            src={nutraHelpPot.url}
-            alt={index === 0 ? `${units} pote${units > 1 ? "s" : ""} de NutraHelp` : ""}
-            aria-hidden={index > 0}
-            loading="lazy"
-            width={602}
-            height={905}
-            className="absolute bottom-0 left-1/2 h-32 w-auto object-contain sm:h-36"
-            style={{
-              transform: `translateX(calc(-50% + ${centeredIndex * spacing}px))`,
-              zIndex: index + 1,
-            }}
-          />
-        );
-      })}
-      {withGift && (
-        <img
-          src={pataHelpGift}
-          alt="PataHelp de brinde"
-          loading="lazy"
-          width={490}
-          height={610}
-          className="absolute bottom-0 right-4 z-10 h-20 w-auto object-contain sm:right-3 sm:h-24"
-        />
-      )}
-    </div>
-  );
-}
 
 export function FinalOffer({
   selected,
