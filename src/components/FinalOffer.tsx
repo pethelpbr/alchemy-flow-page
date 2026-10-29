@@ -101,6 +101,13 @@ export function FinalOffer({
                     loading="lazy"
                     className="mx-auto h-60 w-full max-w-80 scale-[1.06] object-contain sm:h-64 sm:max-w-none"
                   />
+                ) : variant.units === 2 ? (
+                  <img
+                    src={kit2Potes.url}
+                    alt="2 potes de NutraHelp"
+                    loading="lazy"
+                    className="mx-auto h-48 w-full max-w-64 object-contain sm:h-56 sm:max-w-none"
+                  />
                 ) : (
                   <ProductKit units={variant.units} withGift={false} />
                 )}
