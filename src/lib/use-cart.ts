@@ -20,6 +20,7 @@ export function useCart() {
   const checkout = useCallback((variantOverride?: Variant) => {
     const v = variantOverride ?? selected;
     console.log("[checkout] variant:", v.id, "url:", buildCheckoutUrl(v));
+    const url = buildCheckoutUrl(v);
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
