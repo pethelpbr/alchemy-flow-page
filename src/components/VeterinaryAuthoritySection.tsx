@@ -7,13 +7,15 @@ export function VeterinaryAuthoritySection() {
       quote: "A maior parte dos casos de pele que eu atendo melhora quando a gente olha a alimentação e o intestino junto, e não só a pele.",
       image: vetPhoto.url,
       alt: "Veterinária de jaleco segurando o pote do NutraHelp",
+      name: "Dra. Ialy Raissa",
+      credential: "Médica Veterinária  •  CRMV-PE 5655",
     },
     {
       quote: "O resultado vem do uso contínuo. O que mais atrapalha no consultório é o tutor parar na terceira semana, quando a pele ainda está se recuperando.",
       image: vetPhoto2.url,
       alt: "Veterinário segurando o pote do NutraHelp em consultório",
       name: "Dr. Rivaldo Júnior",
-      credential: "Médico Veterinário  •  CRMV-PE 0000",
+      credential: "Médico Veterinário  •  CRMV-PE 5731",
     },
   ];
 
