@@ -51,8 +51,7 @@ export const variants: [Variant, ...Variant[]] = [
     installmentValue: 24.82,
     shipping: 9.9,
     externalId: null,
-    checkoutUrl:
-      "https://seguro.pethelpoficial.com.br/checkout?skipToCheckout=1&tokenReference=DFGJ3DQ0P9",
+    checkoutUrl: "https://seguro.pethelpoficial.com.br/r/DFGJ3DQ0P9",
   },
   {
     id: "2-un",
@@ -69,8 +68,7 @@ export const variants: [Variant, ...Variant[]] = [
     note: "Frete grátis · economize R$ 98",
     perPot: 99.5,
     externalId: null,
-    checkoutUrl:
-      "https://seguro.pethelpoficial.com.br/checkout?skipToCheckout=1&tokenReference=CZWG2GDYLT",
+    checkoutUrl: "https://seguro.pethelpoficial.com.br/r/CZWG2GDYLT",
   },
   {
     id: "3-un-brinde",
@@ -87,8 +85,7 @@ export const variants: [Variant, ...Variant[]] = [
     note: "Frete grátis · economize R$ 277",
     perPot: 89.66,
     externalId: null,
-    checkoutUrl:
-      "https://seguro.pethelpoficial.com.br/checkout?skipToCheckout=1&tokenReference=6HTGX082TZ",
+    checkoutUrl: "https://seguro.pethelpoficial.com.br/r/6HTGX082TZ",
   },
 ];
 
