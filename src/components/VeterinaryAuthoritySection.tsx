@@ -15,7 +15,7 @@ export function VeterinaryAuthoritySection() {
       image: vetPhoto2.url,
       alt: "Veterinário segurando o pote do NutraHelp em consultório",
       name: "Dr. Rivaldo Júnior",
-      credential: "Médico Veterinário  •  CRMV-PE 0000",
+      credential: "Médico Veterinário  •  CRMV-PE 5731",
     },
   ];
 
