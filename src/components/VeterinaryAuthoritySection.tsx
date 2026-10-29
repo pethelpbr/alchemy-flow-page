@@ -2,7 +2,7 @@ import vetPhoto from "@/assets/veterinaria-1-nova.png.asset.json";
 import vetPhoto2 from "@/assets/vet-rivaldo-nova.png.asset.json";
 
 export function VeterinaryAuthoritySection() {
-  const cards = [
+  const cards: { quote: string; image?: string | undefined; alt?: string | undefined; name?: string | undefined; credential?: string | undefined }[] = [
     {
       quote: "A maior parte dos casos de pele que eu atendo melhora quando a gente olha a alimentação e o intestino junto, e não só a pele.",
       image: vetPhoto.url,
