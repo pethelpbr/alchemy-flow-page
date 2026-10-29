@@ -30,7 +30,7 @@ export function VeterinaryAuthoritySection() {
         <p className="font-display text-xl leading-snug text-ink">“{quote}”</p>
         <div className="mt-4 border-t pt-3 text-sm">
           <strong className="block">{name ?? "[NOME DA VETERINÁRIA]"}</strong>
-          <span className="mt-1.5 inline-block rounded-full bg-secondary px-3 py-1 text-xs">{credential ?? "CRMV-[UF] [número]"}</span>
+          <span className="mt-1.5 inline-block text-xs">{credential ?? "CRMV-[UF] [número]"}</span>
         </div>
       </div>
     </article>
