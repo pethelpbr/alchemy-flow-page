@@ -87,6 +87,8 @@ export const variants: [Variant, ...Variant[]] = [
     note: "Frete grátis · economize R$ 277",
     perPot: 89.66,
     externalId: null,
+    checkoutUrl:
+      "https://seguro.pethelpoficial.com.br/checkout?skipToCheckout=1&tokenReference=6HTGX082TZ",
   },
 ];
 
