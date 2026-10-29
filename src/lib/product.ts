@@ -132,7 +132,8 @@ export function variantTotals(variant: Variant) {
   return { total, installmentValue };
 }
 
-/** Substituir pela URL de checkout da Shopify/Yampi na integração. */
+/** URL de checkout da variante (checkout pronto vence; substituir na integração). */
 export function buildCheckoutUrl(variant: Variant) {
+  if (variant.checkoutUrl) return variant.checkoutUrl;
   return variant.externalId ? `/checkout?variant=${variant.externalId}` : "#comprar";
 }
