@@ -51,6 +51,8 @@ export const variants: [Variant, ...Variant[]] = [
     installmentValue: 24.82,
     shipping: 9.9,
     externalId: null,
+    checkoutUrl:
+      "https://seguro.pethelpoficial.com.br/checkout?skipToCheckout=1&tokenReference=DFGJ3DQ0P9",
   },
   {
     id: "2-un",
