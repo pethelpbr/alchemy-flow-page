@@ -18,8 +18,8 @@ export function useCart() {
   const addonsExtra = addonsTotal(addonIds);
 
   const checkout = useCallback((variantOverride?: Variant) => {
-    const url = buildCheckoutUrl(variantOverride ?? selected);
-    console.log("[checkout] url:", url);
+    const v = variantOverride ?? selected;
+    console.log("[checkout] variant:", v.id, "url:", buildCheckoutUrl(v));
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
