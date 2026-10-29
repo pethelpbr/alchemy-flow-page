@@ -207,7 +207,7 @@ export function ProductGallery({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="h-full w-full object-contain"
+          className="h-full w-full scale-[1.06] object-contain"
         />
       </motion.div>
 
