@@ -18,8 +18,12 @@ export function useCart() {
   const addonsExtra = addonsTotal(addonIds);
 
   const checkout = useCallback((variantOverride?: Variant) => {
-    const v = variantOverride ?? selected;
-    console.log("[checkout] variant:", v.id, "url:", buildCheckoutUrl(v));
+    // Botões passam o evento de clique como primeiro argumento; ignora
+    // qualquer coisa que não seja de fato uma variante.
+    const v =
+      variantOverride && typeof variantOverride === "object" && "id" in variantOverride
+        ? variantOverride
+        : selected;
     const url = buildCheckoutUrl(v);
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth", block: "center" });
