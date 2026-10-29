@@ -9,7 +9,7 @@ import kitThreePots from "@/assets/sticky-kit-3-potes.png.asset.json";
 // A tarja encosta no fundo físico da tela; o respiro do texto vem do próprio
 // fundo da faixa (bege ou branco), nunca de uma faixa vazia embaixo dela.
 const SAFE_BOTTOM = "env(safe-area-inset-bottom, 0px)";
-const STRIP_BOTTOM = `max(0.75rem, calc(0.375rem + ${SAFE_BOTTOM}))`;
+const STRIP_BOTTOM = `max(0.5rem, calc(0.125rem + ${SAFE_BOTTOM}))`;
 
 export function StickyMobileBuy({
   selected,
@@ -118,7 +118,7 @@ export function StickyMobileBuy({
                 </div>
                 {withGift && (
                   <p
-                    className="bg-sand px-3 py-1.5 text-center text-[12px] font-bold text-ink"
+                    className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
                     style={{ paddingBottom: STRIP_BOTTOM }}
                   >
                     Frete grátis · Garantia de 60 dias · Compra segura
@@ -126,7 +126,7 @@ export function StickyMobileBuy({
                 )}
                 {twoPots && (
                   <p
-                    className="bg-sand px-3 py-1.5 text-center text-[12px] font-bold text-ink"
+                    className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
                     style={{ paddingBottom: STRIP_BOTTOM }}
                   >
                     Frete grátis · Compra segura
