@@ -93,7 +93,16 @@ export function FinalOffer({
                   </span>
                 )}
 
-                <ProductKit units={variant.units} withGift={isBestChoice} />
+                {isBestChoice ? (
+                  <img
+                    src={kit3PotesBrinde.url}
+                    alt="3 potes de NutraHelp + PataHelp de brinde"
+                    loading="lazy"
+                    className="mx-auto h-36 w-full max-w-56 object-contain sm:h-40"
+                  />
+                ) : (
+                  <ProductKit units={variant.units} withGift={false} />
+                )}
 
                 <div className="mt-2 flex min-h-8 flex-wrap items-center justify-center gap-2">
                   <span
