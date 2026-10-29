@@ -109,7 +109,12 @@ export function FinalOffer({
                     className="mx-auto h-56 w-full max-w-80 scale-[1.06] object-contain sm:h-60 sm:max-w-none"
                   />
                 ) : (
-                  <ProductKit units={variant.units} withGift={false} />
+                  <img
+                    src={nutraHelpPot.url}
+                    alt="1 pote de NutraHelp"
+                    loading="lazy"
+                    className="mx-auto h-56 w-full max-w-80 scale-[1.06] object-contain sm:h-60 sm:max-w-none"
+                  />
                 )}
 
                 <div className="mt-2 flex min-h-8 flex-wrap items-center justify-center gap-2">
