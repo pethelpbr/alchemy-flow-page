@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
+import guaranteeSeal from "@/assets/garantia-60-dias.png.asset.json";
 
 export function GuaranteeSection() {
   return (
@@ -6,10 +7,12 @@ export function GuaranteeSection() {
       <div className="container-x">
         <Reveal>
           <div className="flex flex-col items-center gap-8 md:flex-row md:gap-10">
-            <div className="flex h-28 w-28 shrink-0 flex-col items-center justify-center rounded-full bg-[#F7CF63] text-[#51402F] md:h-32 md:w-32">
-              <span className="font-display text-5xl leading-none md:text-6xl">60</span>
-              <span className="mt-1 text-[8px] font-bold uppercase tracking-[0.18em]">dias de garantia</span>
-            </div>
+            <img
+              src={guaranteeSeal.url}
+              alt="Selo de garantia de 60 dias — 100% dinheiro de volta"
+              className="h-32 w-32 shrink-0 object-contain md:h-36 md:w-36"
+            />
+
 
             <div className="max-w-3xl text-center text-white md:text-left">
               <h2 className="font-display text-3xl leading-tight md:text-4xl">
