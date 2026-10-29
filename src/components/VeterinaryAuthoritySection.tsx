@@ -17,7 +17,7 @@ export function VeterinaryAuthoritySection() {
     },
   ];
 
-  const Card = ({ quote, image, alt }: { quote: string; image?: string | undefined; alt?: string | undefined }) => (
+  const Card = ({ quote, image, alt, name, credential }: { quote: string; image?: string | undefined; alt?: string | undefined; name?: string | undefined; credential?: string | undefined }) => (
     <article className="overflow-hidden rounded-2xl border border-border bg-white">
       {image ? (
         <img src={image} alt={alt} loading="lazy" className="w-full object-cover" />
@@ -29,8 +29,8 @@ export function VeterinaryAuthoritySection() {
       <div className="p-5">
         <p className="font-display text-xl leading-snug text-ink">“{quote}”</p>
         <div className="mt-4 border-t pt-3 text-sm">
-          <strong className="block">[NOME DA VETERINÁRIA]</strong>
-          <span className="mt-1.5 inline-block rounded-full bg-secondary px-3 py-1 text-xs">CRMV-[UF] [número]</span>
+          <strong className="block">{name ?? "[NOME DA VETERINÁRIA]"}</strong>
+          <span className="mt-1.5 inline-block rounded-full bg-secondary px-3 py-1 text-xs">{credential ?? "CRMV-[UF] [número]"}</span>
         </div>
       </div>
     </article>
