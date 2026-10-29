@@ -128,6 +128,10 @@ export function FinalOffer({
                   onClick={(event) => {
                     event.stopPropagation();
                     onSelect(variant);
+                    if (variant.checkoutUrl) {
+                      window.location.href = variant.checkoutUrl;
+                      return;
+                    }
                     document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
