@@ -31,6 +31,8 @@ export type Variant = {
   perPot?: number;
   /** Oculta a linha de parcelamento abaixo do preço. */
   hideInstallments?: boolean;
+  /** URL de checkout externo para a variante (quando já existe link pronto). */
+  checkoutUrl?: string;
   /** ID da variante na Shopify/Yampi (preencher na integração). */
   externalId: string | null;
 };
@@ -49,6 +51,8 @@ export const variants: [Variant, ...Variant[]] = [
     installmentValue: 24.82,
     shipping: 9.9,
     externalId: null,
+    checkoutUrl:
+      "https://seguro.pethelpoficial.com.br/checkout?skipToCheckout=1&tokenReference=DFGJ3DQ0P9",
   },
   {
     id: "2-un",
@@ -128,7 +132,8 @@ export function variantTotals(variant: Variant) {
   return { total, installmentValue };
 }
 
-/** Substituir pela URL de checkout da Shopify/Yampi na integração. */
+/** URL de checkout da variante (checkout pronto vence; substituir na integração). */
 export function buildCheckoutUrl(variant: Variant) {
+  if (variant.checkoutUrl) return variant.checkoutUrl;
   return variant.externalId ? `/checkout?variant=${variant.externalId}` : "#comprar";
 }
