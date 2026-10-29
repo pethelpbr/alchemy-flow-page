@@ -1,7 +1,7 @@
 import { BuyButton } from "@/components/ui/BuyButton";
 import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
-import nutraHelpPot from "@/assets/nutrahelp-pot-v2.png";
+import nutraHelpPot from "@/assets/kit-1-pote.png.asset.json";
 import pataHelpGift from "@/assets/patahelp-gift-v2.png";
 import kit3PotesBrinde from "@/assets/kit-3-potes-brinde.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes.png.asset.json";
@@ -16,7 +16,7 @@ function ProductKit({ units, withGift }: { units: number; withGift: boolean }) {
         return (
           <img
             key={index}
-            src={nutraHelpPot}
+            src={nutraHelpPot.url}
             alt={index === 0 ? `${units} pote${units > 1 ? "s" : ""} de NutraHelp` : ""}
             aria-hidden={index > 0}
             loading="lazy"
