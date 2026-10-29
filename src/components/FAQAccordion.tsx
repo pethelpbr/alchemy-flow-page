@@ -65,7 +65,7 @@ export function FAQAccordion() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 items-start gap-x-10 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-start gap-x-10 gap-y-3 lg:grid-cols-2">
           <AccordionBlock
             items={firstColumn.map((f) => ({ title: f.q, content: f.a }))}
             openIndex={open}
