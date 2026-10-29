@@ -2,7 +2,7 @@ import { BuyButton } from "@/components/ui/BuyButton";
 import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import nutraHelpPot from "@/assets/kit-1-pote.png.asset.json";
-import kit3PotesBrinde from "@/assets/kit-3-potes-v3.png.asset.json";
+import kit3PotesBrinde from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes-v4.png.asset.json";
 
 export function FinalOffer({
