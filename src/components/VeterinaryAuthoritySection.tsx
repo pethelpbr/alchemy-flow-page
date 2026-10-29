@@ -2,7 +2,7 @@ import vetPhoto from "@/assets/veterinaria-1-nova.png.asset.json";
 import vetPhoto2 from "@/assets/vet-rivaldo-nova.png.asset.json";
 
 export function VeterinaryAuthoritySection() {
-  const cards = [
+  const cards: { quote: string; image?: string | undefined; alt?: string | undefined; name?: string | undefined; credential?: string | undefined }[] = [
     {
       quote: "A maior parte dos casos de pele que eu atendo melhora quando a gente olha a alimentação e o intestino junto, e não só a pele.",
       image: vetPhoto.url,
@@ -12,10 +12,12 @@ export function VeterinaryAuthoritySection() {
       quote: "O resultado vem do uso contínuo. O que mais atrapalha no consultório é o tutor parar na terceira semana, quando a pele ainda está se recuperando.",
       image: vetPhoto2.url,
       alt: "Veterinário segurando o pote do NutraHelp em consultório",
+      name: "Dr. Rivaldo Júnior",
+      credential: "Médico Veterinário  •  CRMV-PE 0000",
     },
   ];
 
-  const Card = ({ quote, image, alt }: { quote: string; image?: string | undefined; alt?: string | undefined }) => (
+  const Card = ({ quote, image, alt, name, credential }: { quote: string; image?: string | undefined; alt?: string | undefined; name?: string | undefined; credential?: string | undefined }) => (
     <article className="overflow-hidden rounded-2xl border border-border bg-white">
       {image ? (
         <img src={image} alt={alt} loading="lazy" className="w-full object-cover" />
@@ -27,8 +29,8 @@ export function VeterinaryAuthoritySection() {
       <div className="p-5">
         <p className="font-display text-xl leading-snug text-ink">“{quote}”</p>
         <div className="mt-4 border-t pt-3 text-sm">
-          <strong className="block">[NOME DA VETERINÁRIA]</strong>
-          <span className="mt-1.5 inline-block rounded-full bg-secondary px-3 py-1 text-xs">CRMV-[UF] [número]</span>
+          <strong className="block">{name ?? "[NOME DA VETERINÁRIA]"}</strong>
+          <span className="mt-1.5 inline-block rounded-full bg-secondary px-3 py-1 text-xs">{credential ?? "CRMV-[UF] [número]"}</span>
         </div>
       </div>
     </article>
@@ -44,7 +46,7 @@ export function VeterinaryAuthoritySection() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {cards.map((card, index) => (
-            <Card key={index} quote={card.quote} image={"image" in card ? card.image : undefined} alt={"alt" in card ? card.alt : undefined} />
+            <Card key={index} quote={card.quote} image={"image" in card ? card.image : undefined} alt={"alt" in card ? card.alt : undefined} name={card.name} credential={card.credential} />
           ))}
         </div>
       </div>
