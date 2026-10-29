@@ -98,7 +98,7 @@ export function FinalOffer({
                     src={kit3PotesBrinde.url}
                     alt="3 potes de NutraHelp + PataHelp de brinde"
                     loading="lazy"
-                    className="mx-auto h-36 w-full max-w-56 object-contain sm:h-40"
+                    className="mx-auto h-44 w-full max-w-64 object-contain sm:h-48 sm:max-w-none"
                   />
                 ) : (
                   <ProductKit units={variant.units} withGift={false} />
