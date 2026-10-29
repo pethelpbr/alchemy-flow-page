@@ -60,7 +60,7 @@ export function FinalOffer({
                     src={kit3PotesBrinde.url}
                     alt="3 potes de NutraHelp + PataHelp de brinde"
                     loading="lazy"
-                    className="mx-auto h-56 w-full max-w-72 object-contain sm:h-60 sm:max-w-none"
+                    className="mx-auto h-48 w-full max-w-64 object-contain sm:h-52 sm:max-w-none"
                   />
                 ) : variant.units === 2 ? (
                   <img
