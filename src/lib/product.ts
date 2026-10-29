@@ -31,6 +31,8 @@ export type Variant = {
   perPot?: number;
   /** Oculta a linha de parcelamento abaixo do preço. */
   hideInstallments?: boolean;
+  /** URL de checkout externo para a variante (quando já existe link pronto). */
+  checkoutUrl?: string;
   /** ID da variante na Shopify/Yampi (preencher na integração). */
   externalId: string | null;
 };
