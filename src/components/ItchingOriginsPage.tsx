@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import previousAttemptsImage from "@/assets/failed-treatments.jpg";
 import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
-import galleryHand from "@/assets/gallery-hand.jpg";
+import misturarPote from "@/assets/misturar-pote.png.asset.json";
 import skinBarrierIcon from "@/assets/icon-barreira-pele.png.asset.json";
 import intestineIcon from "@/assets/icon-intestino.png.asset.json";
 import dogCatIcon from "@/assets/icon-caes-gatos.png.asset.json";
@@ -131,7 +131,7 @@ export function ItchingOriginsPage() {
         <div className="bg-[#F7F1E8] px-6 py-10 sm:px-8 sm:py-12 md:px-[72px]">
           <div className="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
             <div className="flex h-[259px] w-full shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#E0D3B4] p-[18px] text-center font-sans text-[11.5px] leading-[1.45] text-[#6F6458] md:w-[345px]">
-              <img src={galleryHand} alt="Tutor polvilhando o NutraHelp sobre a ração" className="h-full w-full rounded-[10px] object-cover" />
+              <img src={misturarPote.url} alt="Pote do suplemento NutraHelp sobre fundo bege" className="h-full w-full rounded-[10px] object-cover" />
             </div>
 
             <div className="flex min-w-0 flex-1 flex-col justify-center">
