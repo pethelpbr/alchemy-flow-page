@@ -3,6 +3,7 @@ import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import nutraHelpPot from "@/assets/nutrahelp-pot-v2.png";
 import pataHelpGift from "@/assets/patahelp-gift-v2.png";
+import kit3PotesBrinde from "@/assets/kit-3-potes-brinde.png.asset.json";
 
 function ProductKit({ units, withGift }: { units: number; withGift: boolean }) {
   const spacing = units === 3 ? 33 : 30;
@@ -92,7 +93,16 @@ export function FinalOffer({
                   </span>
                 )}
 
-                <ProductKit units={variant.units} withGift={isBestChoice} />
+                {isBestChoice ? (
+                  <img
+                    src={kit3PotesBrinde.url}
+                    alt="3 potes de NutraHelp + PataHelp de brinde"
+                    loading="lazy"
+                    className="mx-auto h-36 w-full max-w-56 object-contain sm:h-40"
+                  />
+                ) : (
+                  <ProductKit units={variant.units} withGift={false} />
+                )}
 
                 <div className="mt-2 flex min-h-8 flex-wrap items-center justify-center gap-2">
                   <span
