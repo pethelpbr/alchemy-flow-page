@@ -9,7 +9,7 @@ import kitThreePots from "@/assets/sticky-kit-3-potes.png.asset.json";
 // A tarja encosta no fundo físico da tela; o respiro do texto vem do próprio
 // fundo da faixa (bege ou branco), nunca de uma faixa vazia embaixo dela.
 const SAFE_BOTTOM = "env(safe-area-inset-bottom, 0px)";
-const STRIP_BOTTOM = `max(0.375rem, calc(${SAFE_BOTTOM} - 0.25rem))`;
+const STRIP_BOTTOM = `max(0.25rem, calc(${SAFE_BOTTOM} - 0.625rem))`;
 
 export function StickyMobileBuy({
   selected,
