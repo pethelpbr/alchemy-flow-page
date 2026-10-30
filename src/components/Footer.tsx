@@ -15,6 +15,11 @@ export function Footer() {
               <p>WhatsApp · telefone · e-mail</p>
               <p>Segunda a sexta, 9h às 16h</p>
               <p>Rastrear pedido</p>
+              <p>
+                <a href="/privacidade" className="underline underline-offset-2 hover:text-white">
+                  Política de privacidade
+                </a>
+              </p>
             </div>
           </div>
 
