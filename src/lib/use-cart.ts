@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
-import { addonsTotal, buildCheckoutUrl, variants, type Variant } from "./product";
+import { addonsTotal, buildCheckoutUrl, variantTotals, variants, type Variant } from "./product";
+import { goToCheckout } from "./meta-pixel";
 
 /**
  * Estado de seleção de oferta. Concentra a ação de compra para que a
@@ -29,7 +30,7 @@ export function useCart() {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-    window.location.href = url;
+    void goToCheckout(url, { id: v.id, label: v.label, units: v.units, total: variantTotals(v).total });
   }, [selected]);
 
   return { selected, setSelected, checkout, addonIds, toggleAddon, addonsExtra };

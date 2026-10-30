@@ -1,6 +1,7 @@
 import { BuyButton } from "@/components/ui/BuyButton";
 import { brl, variantTotals, variants, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
+import { goToCheckout } from "@/lib/meta-pixel";
 import nutraHelpPot from "@/assets/kit-1-pote.png.asset.json";
 import kit3PotesBrinde from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes-v4.png.asset.json";
@@ -129,7 +130,12 @@ export function FinalOffer({
                     event.stopPropagation();
                     onSelect(variant);
                     if (variant.checkoutUrl) {
-                      window.location.href = variant.checkoutUrl;
+                      void goToCheckout(variant.checkoutUrl, {
+                        id: variant.id,
+                        label: variant.label,
+                        units: variant.units,
+                        total: variantTotals(variant).total,
+                      });
                       return;
                     }
                     document.querySelector("#comprar")?.scrollIntoView({ behavior: "smooth", block: "start" });
