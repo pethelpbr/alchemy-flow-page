@@ -18,31 +18,6 @@ function Slot({ label, className = "" }: { label: string; className?: string }) 
   );
 }
 
-const videos = [
-  { product: "NutraHelp", quote: "[frase curta da cliente sobre coceira]" },
-  { product: "PataHelp", quote: "[frase curta da cliente sobre a pata]" },
-  { product: "BocaHelp", quote: "[frase curta da cliente sobre o hálito]" },
-];
-
-export function KitVideosSection() {
-  return (
-    <section className="section bf-light">
-      <div className="container-x">
-        <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Tutores que já usaram</h2>
-        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3">
-          {videos.map((v) => (
-            <article key={v.product} className="flex flex-col gap-3">
-              <Slot label={`▶ Vídeo vertical · ${v.product}`} className="aspect-[9/16]" />
-              <Tag>{v.product}</Tag>
-              <p className="text-sm italic text-foreground">“{v.quote}”</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const stats = [
   { product: "NutraHelp", text: "notaram o pet se coçando menos" },
   { product: "PataHelp", text: "viram irritações e feridas cicatrizando mais rápido" },

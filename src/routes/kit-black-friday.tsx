@@ -14,7 +14,7 @@ import { useCart } from "@/lib/use-cart";
 import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
-import { KitVideosSection, KitStatsSection, KitVetSection, KitTestimonialsSection } from "@/components/kit-bf/PlaceholderSections";
+import { KitStatsSection, KitVetSection, KitTestimonialsSection } from "@/components/kit-bf/PlaceholderSections";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
 import kit2Potes from "@/assets/kit-bf-2-potes.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v2.png.asset.json";
@@ -223,7 +223,6 @@ function BlackFridayPage() {
             "Hálito fresco e menos tártaro com o BocaHelp",
           ]}
         />
-        <KitVideosSection />
         <SignsSection />
         <KitContents />
         <KitStatsSection />
