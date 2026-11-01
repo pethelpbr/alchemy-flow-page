@@ -49,14 +49,14 @@ const faqs = [
   },
 ];
 
-export function FAQAccordion({ items = faqs }: { items?: { q: string; a: string }[] } = {}) {
+export function FAQAccordion({ items = faqs, className }: { items?: { q: string; a: string }[]; className?: string } = {}) {
   const [open, setOpen] = useState<number | null>(null);
 
   const firstColumn = items.slice(0, Math.ceil(items.length / 2));
   const secondColumn = items.slice(Math.ceil(items.length / 2));
 
   return (
-    <section id="faq" className="section scroll-mt-20">
+    <section id="faq" className={`section scroll-mt-20 ${className ?? ""}`}>
       <div className="container-x grid gap-6 lg-grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-10">
         <Reveal>
           <p className="eyebrow">Dúvidas</p>

@@ -81,7 +81,7 @@ function Tag({ children }: { children: string }) {
   );
 }
 
-export function BeforeAfterSection() {
+export function BeforeAfterSection({ className }: { className?: string }) {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -106,7 +106,7 @@ export function BeforeAfterSection() {
 
 
   return (
-    <section className="bg-background px-6 py-10 md:py-12" aria-labelledby="before-after-title">
+    <section className={`bg-background px-6 py-10 md:py-12 ${className ?? ""}`} aria-labelledby="before-after-title">
       <div className="mx-auto max-w-6xl">
         <div className="w-full text-center">
           <h2

@@ -1,7 +1,7 @@
 import vetPhoto from "@/assets/veterinaria-1-nova.png.asset.json";
 import vetPhoto2 from "@/assets/vet-rivaldo-nova.png.asset.json";
 
-export function VeterinaryAuthoritySection() {
+export function VeterinaryAuthoritySection({ className }: { className?: string }) {
   const cards: { quote: string; image?: string | undefined; alt?: string | undefined; name?: string | undefined; credential?: string | undefined }[] = [
     {
       quote: "A maior parte dos casos de pele que eu atendo melhora quando a gente olha a alimentação e o intestino junto, e não só a pele.",
@@ -39,7 +39,7 @@ export function VeterinaryAuthoritySection() {
   );
 
   return (
-    <section className="bg-background px-6 pb-16 pt-10 sm:pb-20 sm:pt-12">
+    <section className={`bg-background px-6 pb-16 pt-10 sm:pb-20 sm:pt-12 ${className ?? ""}`}>
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary">Aprovado por veterinários</p>
         <h2 className="max-w-4xl whitespace-nowrap font-display text-[clamp(20px,calc(7vw-1px),30px)] leading-tight text-ink sm:whitespace-normal sm:text-5xl">

@@ -112,7 +112,7 @@ function RatingBreakdown() {
   );
 }
 
-export function ReviewsCarousel() {
+export function ReviewsCarousel({ className }: { className?: string }) {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -134,7 +134,7 @@ export function ReviewsCarousel() {
   }, [api, updateSelected]);
 
   return (
-    <section id="avaliacoes" className="section scroll-mt-20 bg-sand/60">
+    <section id="avaliacoes" className={`section scroll-mt-20 bg-sand/60 ${className ?? ""}`}>
       <div className="container-x">
         <Reveal>
           <div className="text-center md:text-left">

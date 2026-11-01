@@ -1,9 +1,10 @@
 import { Reveal } from "@/components/ui/Reveal";
 import guaranteeSeal from "@/assets/garantia-60-dias.png.asset.json";
 
-export function GuaranteeSection() {
+export function GuaranteeSection({ tone = "brown" }: { tone?: "brown" | "yellow" }) {
+  const yellow = tone === "yellow";
   return (
-    <section className="bg-[#51402F] py-10 md:py-14">
+    <section className={`py-10 md:py-14 ${yellow ? "bf-yellow" : "bg-[#51402F]"}`}>
       <div className="container-x">
         <Reveal>
           <div className="flex flex-col items-center gap-8 md:flex-row md:gap-10">
@@ -14,12 +15,12 @@ export function GuaranteeSection() {
             />
 
 
-            <div className="max-w-3xl text-center text-white md:text-left">
+            <div className={`max-w-3xl text-center md:text-left ${yellow ? "text-[#3A2E22]" : "text-white"}`}>
               <h2 className="font-display text-3xl leading-tight md:text-4xl">
                 Você tem 60 dias para ver resultado. Ou o seu dinheiro de volta.
               </h2>
 
-              <p className="mt-4 text-sm leading-relaxed text-white/85 md:text-base">
+              <p className={`mt-4 text-sm leading-relaxed md:text-base ${yellow ? "text-[#5A4C38]" : "text-white/85"}`}>
                 Use por dois meses, na dose certa para o peso do seu pet. Se não virar diferença,
                 você fala com a gente no WhatsApp e devolvemos 100% do valor.
               </p>

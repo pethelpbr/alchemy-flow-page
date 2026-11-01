@@ -105,7 +105,7 @@ const signs = [
 
 function SignsSection() {
   return (
-    <section className="section bg-background">
+    <section className="section bf-light">
       <div className="container-x">
         <h2 className="text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">
           Reconhece algum
@@ -153,7 +153,7 @@ const productDetails = [
 
 function KitContents() {
   return (
-    <section className="section bg-background">
+    <section className="section bf-beige">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase text-primary">Conheça os produtos</p>
@@ -227,22 +227,23 @@ function BlackFridayPage() {
         <KitContents />
         <KitStatsSection />
         <KitBeforeAfterSection />
-        <BeforeAfterSection />
+        <BeforeAfterSection className="bf-dark" />
         <KitVetSection />
-        <VeterinaryAuthoritySection />
-        <GuaranteeSection />
+        <VeterinaryAuthoritySection className="bf-light" />
+        <GuaranteeSection tone="yellow" />
         <KitTestimonialsSection />
-        <ReviewsCarousel />
+        <ReviewsCarousel className="bf-light" />
         <FinalOffer
           selected={selected}
           onSelect={setSelected}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
+          className="bf-dark"
           heading={<>Escolha seu kit</>}
           subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
         />
-        <TrustBadgesStrip />
-        <FAQAccordion items={kitFaqs} />
+        <TrustBadgesStrip className="bf-light" />
+        <FAQAccordion items={kitFaqs} className="bf-light" />
       </LandingLayout>
     </OfferProvider>
   );

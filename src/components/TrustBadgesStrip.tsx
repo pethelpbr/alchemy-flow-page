@@ -23,9 +23,9 @@ const badges = [
   },
 ];
 
-export function TrustBadgesStrip() {
+export function TrustBadgesStrip({ className }: { className?: string }) {
   return (
-    <section className="bg-background py-10 md:py-12">
+    <section className={`bg-background py-10 md:py-12 ${className ?? ""}`}>
       <div className="container-x">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {badges.map((badge) => (
