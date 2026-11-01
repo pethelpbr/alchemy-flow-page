@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
@@ -14,9 +14,10 @@ import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { LandingLayout } from "@/components/layout/LandingLayout";
 import { useCart } from "@/lib/use-cart";
-import { blackFridayVariants } from "@/lib/product";
+import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
+import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
