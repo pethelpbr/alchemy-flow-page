@@ -6,7 +6,7 @@ import productHero from "@/assets/product-hero.png.asset.json";
 import galleryMisturarDosagem from "@/assets/gallery-misturar-dosagem.png.asset.json";
 import galleryResultados60Dias from "@/assets/gallery-resultados-60-dias.png.asset.json";
 import galleryResultados60DiasV2 from "@/assets/gallery-resultados-60-dias-v2.png.asset.json";
-import galleryBeneficios from "@/assets/gallery-so-cuidar-por-fora.png.asset.json";
+import galleryBeneficios from "@/assets/gallery-so-cuidar-por-fora-v2.png.asset.json";
 import galleryRotinaDiaria from "@/assets/gallery-rotina-diaria.png.asset.json";
 import galleryFormula44Alimentos from "@/assets/gallery-formula-44-alimentos.png.asset.json";
 import gallerySaudeIntestinoVet from "@/assets/gallery-saude-intestino-vet.png.asset.json";
