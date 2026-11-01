@@ -65,11 +65,11 @@ export function FinalOffer({
                 )}
 
                 {bundleImages ? (
-                  <div className="relative mx-auto flex h-56 w-full max-w-80 items-end justify-center sm:h-60">
-                    <img src={variant.units === 3 ? kit3Plain.url : variant.units === 2 ? kit2Potes.url : nutraHelpPot.url} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full scale-[1.1] object-contain" />
-                    <div className="absolute bottom-0 right-0 flex items-end gap-1">
+                  <div className="relative mx-auto flex h-56 w-full max-w-80 items-end justify-center overflow-hidden rounded-xl bg-foreground p-2 sm:h-60 sm:max-w-none">
+                    <img src={variant.units === 3 ? kit3Plain.url : variant.units === 2 ? kit2Potes.url : nutraHelpPot.url} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full object-contain mix-blend-multiply" />
+                    <div className="absolute bottom-2 right-2 flex items-end gap-1">
                       {bundleImages.map((b) => (
-                        <img key={b.alt} src={b.src} alt={b.alt} loading="lazy" className="h-20 w-auto object-contain drop-shadow-lg sm:h-24" />
+                        <img key={b.alt} src={b.src} alt={b.alt} loading="lazy" className="h-20 w-auto object-contain mix-blend-multiply sm:h-24" />
                       ))}
                     </div>
                   </div>
