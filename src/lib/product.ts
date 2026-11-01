@@ -33,6 +33,12 @@ export type Variant = {
   hideInstallments?: boolean;
   /** URL de checkout externo para a variante (quando já existe link pronto). */
   checkoutUrl?: string;
+  /** Linha abaixo do nome (substitui o "por pote" padrão). */
+  detail?: string;
+  /** Etiqueta extra (substitui "Brinde"). */
+  tag?: string;
+  /** Força frete grátis (padrão: kits com mais de 1 pote). */
+  freeShipping?: boolean;
   /** ID da variante na Shopify/Yampi (preencher na integração). */
   externalId: string | null;
 };
@@ -138,3 +144,10 @@ export function buildCheckoutUrl(variant: Variant) {
   if (variant.checkoutUrl) return variant.checkoutUrl;
   return variant.externalId ? `/checkout?variant=${variant.externalId}` : "#comprar";
 }
+
+/** Kits da Black Friday: NutraHelp + PataHelp + BocaHelp. */
+export const blackFridayVariants: [Variant, ...Variant[]] = [
+  { id: "bf-1", units: 1, label: "Kit 1 NutraHelp", detail: "+ PataHelp + BocaHelp", tag: "Kit completo", freeShipping: true, unitPrice: 149.9, total: 149.9, installments: 1, hideInstallments: true, externalId: null },
+  { id: "bf-2", units: 2, label: "Kit 2 NutraHelp", detail: "+ PataHelp + BocaHelp", tag: "Kit completo", freeShipping: true, badge: "Maior economia", unitPrice: 98.5, total: 197, installments: 1, hideInstallments: true, externalId: null },
+  { id: "bf-3", units: 3, label: "Kit 3 NutraHelp", detail: "+ PataHelp + BocaHelp", tag: "Kit completo", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, installments: 1, hideInstallments: true, externalId: null },
+];

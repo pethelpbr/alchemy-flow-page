@@ -6,8 +6,8 @@ import { goToCheckout } from "./meta-pixel";
  * Estado de seleção de oferta. Concentra a ação de compra para que a
  * integração com Shopify/Yampi aconteça em um único lugar.
  */
-export function useCart() {
-  const [selected, setSelected] = useState<Variant>(() => variants[2] ?? variants[0]);
+export function useCart(list: Variant[] = variants) {
+  const [selected, setSelected] = useState<Variant>(() => list[2] ?? list[0]!);
   const [addonIds, setAddonIds] = useState<string[]>([]);
 
   const toggleAddon = useCallback((id: string) => {
