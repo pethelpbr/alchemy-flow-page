@@ -154,9 +154,9 @@ export function ProductSelector({
                 >
                   {brl(displayedTotal)}
                 </span>
-                <span className="mt-0.5 block text-xs text-muted-foreground">
+{!v.hideInstallments && (<span className="mt-0.5 block text-xs text-muted-foreground">
                   ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
-                </span>
+                </span>)}
               </span>
             </span>
           </button>

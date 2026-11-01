@@ -4,6 +4,7 @@ import { brl, variantTotals, addonsTotal, addonsCompareAtTotal, type Variant } f
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { KitBooster } from "@/components/KitBooster";
+import { useOffer } from "@/lib/offer-context";
 import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
 
 const seals = [
@@ -28,6 +29,7 @@ export function PricingCard({
 }) {
   const { total, installmentValue } = variantTotals(selected);
   const toggleAddon = onToggleAddon;
+  const { showAddons, buyLabel } = useOffer();
 
   const extra = addonsTotal(addonIds);
   const grandTotal = total + (selected.shipping ?? 0) + extra;
@@ -73,7 +75,7 @@ export function PricingCard({
             className="mt-4 w-full px-5 text-sm uppercase tracking-normal sm:text-base"
             onClick={onBuy}
           >
-            Quero meu NutraHelp
+            {buyLabel ?? "Quero meu NutraHelp"}
           </BuyButton>
         </motion.div>
 
@@ -89,7 +91,7 @@ export function PricingCard({
           ))}
         </div>
 
-        <KitBooster selectedIds={addonIds} onToggle={toggleAddon} />
+        {showAddons && <KitBooster selectedIds={addonIds} onToggle={toggleAddon} />}
 
       </div>
 

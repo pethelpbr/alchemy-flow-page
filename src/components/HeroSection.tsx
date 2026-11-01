@@ -1,3 +1,4 @@
+import type React from "react";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { Check } from "lucide-react";
@@ -18,7 +19,17 @@ export function HeroSection({
   onBuy,
   addonIds,
   onToggleAddon,
+  title,
+  eyebrow,
+  intro,
+  bullets = heroBullets,
+  gallery,
 }: {
+  title?: string;
+  eyebrow?: string;
+  intro?: string;
+  bullets?: string[];
+  gallery?: React.ReactNode;
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
@@ -36,7 +47,7 @@ export function HeroSection({
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-linear-to-b from-sand to-transparent" />
       <div className="container-x relative grid gap-5 md:gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-14">
         <motion.div className="self-start lg:sticky lg:top-[72px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-          <ProductGallery autoplay={!reduced} scale={reduced ? undefined : scale} />
+          {gallery ?? <ProductGallery autoplay={!reduced} scale={reduced ? undefined : scale} />}
         </motion.div>
 
         <motion.div className="lg:pb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}>
@@ -46,18 +57,18 @@ export function HeroSection({
           </div>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
             <h1 className="inline-block font-display text-[30px] leading-[1.05] text-ink sm:text-[40px]">
-              NutraHelp — para o pet que se coça, se lambe e está com queda de pelos
+              {title ?? "NutraHelp — para o pet que se coça, se lambe e está com queda de pelos"}
             </h1>
             <p className="eyebrow text-primary!">
-              <span className="whitespace-nowrap text-[clamp(7px,2.25vw,9.5px)] md:hidden">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
-              <span className="hidden md:inline">cães e gatos · Suplemento 8 em 1 · 44 nutrientes</span>
+              <span className="whitespace-nowrap text-[clamp(7px,2.25vw,9.5px)] md:hidden">{eyebrow ?? "cães e gatos · Suplemento 8 em 1 · 44 nutrientes"}</span>
+              <span className="hidden md:inline">{eyebrow ?? "cães e gatos · Suplemento 8 em 1 · 44 nutrientes"}</span>
             </p>
           </div>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            A coceira que vai e volta tem duas origens: a flora intestinal desequilibrada e a barreira da pele enfraquecida. O NutraHelp cuida das duas na mesma dose, pré e probióticos para a flora, e zinco, biotina e ômega 3 para a barreira. Basta misturar na ração, uma vez por dia.
+            {intro ?? "A coceira que vai e volta tem duas origens: a flora intestinal desequilibrada e a barreira da pele enfraquecida. O NutraHelp cuida das duas na mesma dose, pré e probióticos para a flora, e zinco, biotina e ômega 3 para a barreira. Basta misturar na ração, uma vez por dia."}
           </p>
           <ul className="mt-5 max-w-md space-y-2.5">
-            {heroBullets.map((text) => (
+            {bullets.map((text) => (
               <li key={text} className="flex items-start gap-2.5 text-[15px] leading-snug text-ink">
                 <Check size={18} strokeWidth={3} className="mt-0.5 shrink-0 text-primary" aria-hidden />
                 <span className="font-bold">{text}</span>

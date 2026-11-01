@@ -8,10 +8,10 @@ import { scrollToOffer } from "@/lib/scroll-to-offer";
 type Cart = ReturnType<typeof useCart>;
 
 /** Base compartilhada das landing pages por dor (/pele, /mobilidade, /intestino...). */
-export function LandingLayout({ cart, children }: { cart: Cart; children: ReactNode }) {
+export function LandingLayout({ cart, children, className }: { cart: Cart; children: ReactNode; className?: string }) {
   const goToOffer = () => scrollToOffer();
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background text-foreground ${className ?? ""}`}>
       <Header onBuy={goToOffer} />
       <main>{children}</main>
       <Footer />
