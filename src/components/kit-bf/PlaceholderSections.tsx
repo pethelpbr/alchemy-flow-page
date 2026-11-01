@@ -70,25 +70,6 @@ export function KitStatsSection() {
   );
 }
 
-export function KitBeforeAfterSection() {
-  const items = ["NutraHelp", "NutraHelp", "PataHelp", "PataHelp", "BocaHelp", "BocaHelp"];
-  return (
-    <section className="section bf-dark">
-      <div className="container-x">
-        <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Antes e depois de quem já usou</h2>
-        <p className="mt-3 text-center text-muted-foreground">Fotos enviadas por tutores, dois de cada produto.</p>
-        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-4 lg:grid-cols-3">
-          {items.map((p, i) => (
-            <article key={i} className="flex flex-col gap-2">
-              <Slot label={`Antes / depois ${(i % 2) + 1}`} className="aspect-square" />
-              <Tag>{p}</Tag>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export function KitVetSection() {
   return (
