@@ -201,27 +201,144 @@
   }
 }
 
-/* Tema Black Friday: fundo preto + laranja da marca. */
+/* Tema Black Friday: fundos copiados do código de referência
+   (#17120E base, #FDFAF7/#F7F1E8 claros, #1E1813 escuro, #FFDF78 garantia). */
 .theme-bf {
-  --background: oklch(0.14 0.005 60);
-  --foreground: oklch(0.97 0.005 85);
-  --card: oklch(0.2 0.006 60);
-  --card-foreground: oklch(0.95 0.005 85);
-  --popover: oklch(0.2 0.006 60);
-  --popover-foreground: oklch(0.95 0.005 85);
-  --muted: oklch(0.24 0.006 60);
-  --muted-foreground: oklch(0.78 0.01 80);
-  --accent: oklch(0.3 0.06 50);
-  --accent-foreground: oklch(0.85 0.12 60);
-  --border: oklch(0.32 0.008 60);
-  --input: oklch(0.32 0.008 60);
-  --sand: oklch(0.2 0.03 50);
-  --clay: oklch(0.45 0.01 60);
-  --ink: oklch(0.97 0.005 85);
-  --terracotta: oklch(0.78 0.16 55);
-  --gold: oklch(0.78 0.16 55);
-  --dosage: oklch(0.24 0.006 60);
+  --background: #17120E;
+  --foreground: #FDFAF7;
+  --card: #2A211A;
+  --card-foreground: #FDFAF7;
+  --popover: #2A211A;
+  --popover-foreground: #FDFAF7;
+  --muted: #342A20;
+  --muted-foreground: #B5A490;
+  --accent: #3D2E1F;
+  --accent-foreground: #FFDF78;
+  --border: #473A2D;
+  --input: #473A2D;
+  --sand: #342A20;
+  --clay: #453629;
+  --ink: #FDFAF7;
+  --terracotta: #FF8A3D;
+  --gold: #FFDF78;
+  --dosage: #342A20;
   background-color: var(--background);
   color: var(--foreground);
 }
 .theme-bf header img[alt="PetHelp"] { filter: brightness(0) invert(1); }
+
+/* Seção clara (#FDFAF7) — "Reconhece algum desses sinais?", depoimentos, FAQ. */
+.bf-light {
+  --background: #FDFAF7;
+  --foreground: #1E1813;
+  --card: #FFFFFF;
+  --card-foreground: #1E1813;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E1813;
+  --muted: #F7F1E8;
+  --muted-foreground: #8A7866;
+  --accent: #FFF6E6;
+  --accent-foreground: #7A2E02;
+  --border: #EFE7DC;
+  --input: #EFE7DC;
+  --sand: #F7F1E8;
+  --clay: #EFE7DC;
+  --ink: #1E1813;
+  --terracotta: #B43F02;
+  --gold: #B43F02;
+  --dosage: #FFF6E6;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Seção bege (#F7F1E8) — "Conheça os produtos". */
+.bf-beige {
+  --background: #F7F1E8;
+  --foreground: #1E1813;
+  --card: #FFFFFF;
+  --card-foreground: #1E1813;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E1813;
+  --muted: #EFE7DC;
+  --muted-foreground: #8A7866;
+  --accent: #FFF6E6;
+  --accent-foreground: #7A2E02;
+  --border: #EFE7DC;
+  --input: #EFE7DC;
+  --sand: #EFE7DC;
+  --clay: #E7DECF;
+  --ink: #1E1813;
+  --terracotta: #B43F02;
+  --gold: #B43F02;
+  --dosage: #FFF6E6;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Seção escura (#1E1813) — antes e depois e "Escolha seu kit". */
+.bf-dark {
+  --background: #1E1813;
+  --foreground: #FDFAF7;
+  --card: #2A211A;
+  --card-foreground: #FDFAF7;
+  --popover: #2A211A;
+  --popover-foreground: #FDFAF7;
+  --muted: #342A20;
+  --muted-foreground: #B5A490;
+  --accent: #3D2E1F;
+  --accent-foreground: #FFDF78;
+  --border: #473A2D;
+  --input: #473A2D;
+  --sand: #342A20;
+  --clay: #453629;
+  --ink: #FDFAF7;
+  --terracotta: #FF8A3D;
+  --gold: #FFDF78;
+  --dosage: #342A20;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Faixa amarela (#FFDF78) — garantia. */
+.bf-yellow {
+  --background: #FFDF78;
+  --foreground: #3A2E22;
+  --card: #FFF6E6;
+  --card-foreground: #3A2E22;
+  --popover: #FFF6E6;
+  --popover-foreground: #3A2E22;
+  --muted: rgb(58 46 34 / 0.08);
+  --muted-foreground: #5A4C38;
+  --accent: rgb(58 46 34 / 0.12);
+  --accent-foreground: #3A2E22;
+  --border: rgb(58 46 34 / 0.25);
+  --input: rgb(58 46 34 / 0.25);
+  --sand: #FFDF78;
+  --clay: rgb(58 46 34 / 0.2);
+  --ink: #3A2E22;
+  --terracotta: #7A2E02;
+  --gold: #7A2E02;
+  --dosage: rgb(58 46 34 / 0.08);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Cartão interno #EFE6C9 do bloco do veterinário. */
+.bf-card-tinted {
+  --card: #EFE6C9;
+}
+
+/* Rodapé do código de referência: bege #F7F1E8 com texto escuro. */
+.theme-bf footer {
+  background-color: #F7F1E8;
+  color: #3A2E22;
+}
+.theme-bf footer [class*="text-white"] {
+  color: #3A2E22;
+}
+.theme-bf footer a:hover {
+  color: #B43F02;
+}
+.theme-bf footer img {
+  filter: brightness(0);
+}
