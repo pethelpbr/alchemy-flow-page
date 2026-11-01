@@ -61,22 +61,26 @@ const products = [
 ];
 
 function KitGallery({ selected }: { selected: Variant }) {
-  const shots = [kitCompleto.url, kit2Potes.url, kit3Potes.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
-  const [i, setI] = useState(0);
+  const kitImage = {
+    "bf-1": kitCompleto.url,
+    "bf-2": kit2Potes.url,
+    "bf-3": kit3Potes.url,
+  }[selected.id];
+  const shots = [nutraFoto.url, pataFoto.url, bocaFoto.url];
+  const [i, setI] = useState<number | null>(null);
   useEffect(() => {
-    if (selected.id === "bf-1") setI(0);
-    if (selected.id === "bf-2") setI(1);
-    if (selected.id === "bf-3") setI(2);
+    setI(null);
   }, [selected.id]);
+  const activeSrc = i === null && kitImage ? kitImage : shots[i ?? 0];
   return (
     <div>
       <div className="relative overflow-hidden rounded-2xl">
-        <img src={shots[i]} alt="Produto do kit Black Friday" className="aspect-square w-full object-cover" />
+        <img src={activeSrc} alt="Produto do kit Black Friday" className="aspect-square w-full object-cover" />
         <span className="absolute left-4 top-4 rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase text-primary-foreground">
           Black Friday
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-6 gap-3">
+      <div className="mt-3 grid grid-cols-3 gap-3">
         {shots.map((s, idx) => (
           <button
             key={s}
