@@ -220,7 +220,7 @@ function BlackFridaySelector({
                   {v.detail}
                 </span>
                 {v.freeShipping && (
-                  <span className="mt-2 inline-block rounded-md bg-shipping px-2 py-1 text-[9px] font-bold uppercase tracking-wide text-shipping-foreground">
+                  <span className="mt-2 inline-block rounded-full bg-[rgba(34,187,187,0.17)] px-[7px] py-1 text-[9px] font-extrabold uppercase tracking-[0.06em] text-[#63D8D8]">
                     Frete grátis
                   </span>
                 )}
