@@ -26,7 +26,7 @@ const videos = [
 
 export function KitVideosSection() {
   return (
-    <section className="section bg-background">
+    <section className="section bf-light">
       <div className="container-x">
         <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Tutores que já usaram</h2>
         <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3">
@@ -51,7 +51,7 @@ const stats = [
 
 export function KitStatsSection() {
   return (
-    <section className="section bg-background">
+    <section className="section bf-light">
       <div className="container-x">
         <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
           {stats.map((s) => (
@@ -73,7 +73,7 @@ export function KitStatsSection() {
 export function KitBeforeAfterSection() {
   const items = ["NutraHelp", "NutraHelp", "PataHelp", "PataHelp", "BocaHelp", "BocaHelp"];
   return (
-    <section className="section bg-background">
+    <section className="section bf-dark">
       <div className="container-x">
         <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Antes e depois de quem já usou</h2>
         <p className="mt-3 text-center text-muted-foreground">Fotos enviadas por tutores, dois de cada produto.</p>
@@ -92,13 +92,13 @@ export function KitBeforeAfterSection() {
 
 export function KitVetSection() {
   return (
-    <section className="section bg-background">
+    <section className="section bf-light">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-foreground lg:text-5xl">Desenvolvido com quem vê esses casos todo dia</h2>
           <p className="mt-3 text-muted-foreground">A linha foi formulada com acompanhamento veterinário.</p>
         </div>
-        <div className="mx-auto mt-10 grid max-w-4xl items-center gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[240px_1fr]">
+        <div className="bf-card-tinted mx-auto mt-10 grid max-w-4xl items-center gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[240px_1fr]">
           <Slot label="Foto ou vídeo do veterinário" className="aspect-square" />
           <div>
             <p className="text-lg italic text-foreground">
@@ -115,7 +115,7 @@ export function KitVetSection() {
 
 export function KitTestimonialsSection() {
   return (
-    <section className="section bg-background">
+    <section className="section bf-light">
       <div className="container-x">
         <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Experiências reais de quem já usa</h2>
         <p className="mt-3 text-center text-sm text-muted-foreground">
