@@ -17,6 +17,7 @@ export function PricingCard({
   onSelect,
   onBuy,
   compact = false,
+  showDetails = true,
   addonIds,
   onToggleAddon,
 }: {
@@ -24,6 +25,7 @@ export function PricingCard({
   onSelect: (v: Variant) => void;
   onBuy: () => void;
   compact?: boolean;
+  showDetails?: boolean;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
 }) {
@@ -97,7 +99,7 @@ export function PricingCard({
 
       {!compact && (
         <div className="px-5 sm:px-7">
-          <ProductVideoFeedback onBuy={onBuy} />
+          <ProductVideoFeedback onBuy={onBuy} showDetails={showDetails} />
         </div>
       )}
     </div>

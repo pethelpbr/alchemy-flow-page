@@ -212,6 +212,7 @@ function BlackFridayPage() {
           onBuy={checkout}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
+          showDetails={false}
           gallery={<KitGallery selected={selected} />}
           title="Cuide do seu pet por dentro, da boca e das patas"
           eyebrow="Black Friday · 3 produtos · cães e gatos"
