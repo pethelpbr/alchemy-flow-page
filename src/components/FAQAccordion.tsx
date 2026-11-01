@@ -49,11 +49,11 @@ const faqs = [
   },
 ];
 
-export function FAQAccordion() {
+export function FAQAccordion({ items = faqs }: { items?: { q: string; a: string }[] } = {}) {
   const [open, setOpen] = useState<number | null>(null);
 
-  const firstColumn = faqs.slice(0, Math.ceil(faqs.length / 2));
-  const secondColumn = faqs.slice(Math.ceil(faqs.length / 2));
+  const firstColumn = items.slice(0, Math.ceil(items.length / 2));
+  const secondColumn = items.slice(Math.ceil(items.length / 2));
 
   return (
     <section id="faq" className="section scroll-mt-20">

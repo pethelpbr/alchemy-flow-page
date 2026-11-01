@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
-import { StatsBanner } from "@/components/StatsBanner";
-import { ActivesCarousel } from "@/components/ActivesCarousel";
-import { HealthBenefitsSection } from "@/components/HealthBenefitsSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
@@ -96,25 +93,94 @@ function KitGallery({ selected }: { selected: Variant }) {
   );
 }
 
+const signs = [
+  { product: "NutraHelp", title: "Coceira frequente", text: "Coça, morde e se esfrega nos móveis, e piora de noite." },
+  { product: "NutraHelp", title: "Queda de pelos", text: "Pelo espalhado pela casa e falhas aparecendo na pelagem." },
+  { product: "PataHelp", title: "Lambe a pata", text: "De madrugada você escuta o barulho. O pelo da pata fica escuro e úmido." },
+  { product: "PataHelp", title: "Patas ou focinho ressecados", text: "A pata fica áspera, com rachaduras, e o focinho ressecado." },
+  { product: "BocaHelp", title: "Mau hálito", text: "Dá para sentir de longe, e vai piorando com o tempo." },
+  { product: "BocaHelp", title: "Tártaro nos dentes", text: "Aquela crosta amarelada na base do dente, junto da gengiva." },
+];
+
+function SignsSection() {
+  return (
+    <section className="section bg-background">
+      <div className="container-x">
+        <h2 className="text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">
+          Reconhece algum
+          <br className="sm:hidden" /> desses sinais?
+        </h2>
+        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {signs.map((s) => (
+            <article key={s.title} className="rounded-2xl border border-border bg-card p-5">
+              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary">
+                {s.product}
+              </span>
+              <h3 className="mt-3 font-display text-xl text-foreground">{s.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const productDetails = [
+  {
+    ...products[0],
+    what: "Suplemento multifuncional em pó 8 em 1, com 44 nutrientes.",
+    ingredients: "Ômega 3, biotina, pré e probióticos",
+    change: "Se coça e se lambe menos, e o pelo volta a crescer nas falhas.",
+    use: "misture na comida, uma vez por dia. Tem sabor de carne.",
+  },
+  {
+    ...products[1],
+    what: "Balm natural para patas, focinho e áreas ressecadas.",
+    ingredients: "Manteiga de karité, cera de abelha e óleos vegetais",
+    change: "A pata ressecada de tanto lamber volta a ficar macia e as rachaduras fecham.",
+    use: "passe direto na região, quantas vezes precisar. É lambível e atóxico.",
+  },
+  {
+    ...products[2],
+    what: "Solução para higiene bucal de quem não consegue escovar os dentes do pet.",
+    ingredients: "Clorexidina, extrato de menta e aloe vera",
+    change: "O hálito melhora e a formação de tártaro desacelera.",
+    use: "10 ml para cada litro de água. Não tem gosto, o pet nem percebe.",
+  },
+];
+
 function KitContents() {
   return (
     <section className="section bg-background">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase text-primary">O que vem no kit</p>
+          <p className="text-xs font-bold uppercase text-primary">Conheça os produtos</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-foreground lg:text-5xl">
-            Cuidado completo,
-            <br className="sm:hidden" /> por dentro e por fora.
+            Cada um cuida de uma parte.
+            <br /> Juntos, cobrem o pet inteiro.
           </h2>
         </div>
         <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
-          {products.map((p) => (
-            <article key={p.name} className="overflow-hidden rounded-2xl border border-border bg-card">
+          {productDetails.map((p) => (
+            <article key={p.name} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
               <img src={p.img} alt={p.name} loading="lazy" className="aspect-square w-full object-cover" />
-              <div className="p-5">
-                <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
-                <p className="mt-1 text-sm font-bold text-primary">{p.what}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{p.detail}</p>
+              <div className="flex flex-1 flex-col gap-4 p-5">
+                <div>
+                  <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{p.what}</p>
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-primary">Ingredientes principais</p>
+                  <p className="mt-1 text-sm text-foreground">{p.ingredients}</p>
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-primary">O que muda</p>
+                  <p className="mt-1 text-sm text-foreground">{p.change}</p>
+                </div>
+                <p className="mt-auto rounded-xl bg-muted p-3 text-sm text-foreground">
+                  <strong>Como usar:</strong> {p.use}
+                </p>
               </div>
             </article>
           ))}
@@ -123,6 +189,13 @@ function KitContents() {
     </section>
   );
 }
+
+const kitFaqs = [
+  { q: "Serve para o meu pet?", a: "Cães e gatos, de todas as raças e tamanhos, a partir de 3 meses de idade." },
+  { q: "Dá para usar os três ao mesmo tempo?", a: "Dá. O NutraHelp vai na comida, o BocaHelp na água e o PataHelp passa direto na pata. Podem ser usados no mesmo dia, sem problema." },
+  { q: "Meu pet não tem todos esses sinais. Vale levar o kit?", a: "Vale. Os três produtos são de uso diário e também servem para prevenir, em pet saudável. E no kit cada um sai por uma fração do preço avulso." },
+  { q: "E se eu não gostar?", a: "Você tem 60 dias de garantia. Devolvemos o valor integral." },
+];
 
 function BlackFridayPage() {
   const cart = useCart(blackFridayVariants);
@@ -138,20 +211,18 @@ function BlackFridayPage() {
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
           gallery={<KitGallery selected={selected} />}
-          title="Kit Black Friday — NutraHelp + PataHelp + BocaHelp"
+          title="Cuide do seu pet por dentro, da boca e das patas"
           eyebrow="Black Friday · 3 produtos · cães e gatos"
-          intro="O cuidado completo do seu pet num kit só: o NutraHelp cuida de dentro para fora com 44 nutrientes, o PataHelp protege patas, focinho e pele, e o BocaHelp combate o mau hálito e o tártaro."
+          intro="Os três produtos da PetHelp em um kit só, pelo menor preço do ano."
           bullets={[
-            "Pele, pelos e intestino com o NutraHelp",
-            "Patas, focinho e pele protegidos com o PataHelp",
+            "Menos coceira, menos lambedura e menos queda de pelo com o NutraHelp",
+            "Patas e focinho hidratados e protegidos com o PataHelp",
             "Hálito fresco e menos tártaro com o BocaHelp",
           ]}
         />
+        <SignsSection />
         <KitContents />
-        <StatsBanner />
         <BeforeAfterSection />
-        <ActivesCarousel />
-        <HealthBenefitsSection />
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
         <ReviewsCarousel />
@@ -160,11 +231,11 @@ function BlackFridayPage() {
           onSelect={setSelected}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
-          heading={<>Black Friday PetHelp.<br />Só enquanto durar.</>}
-          subheading="NutraHelp, PataHelp e BocaHelp no mesmo kit, com frete grátis."
+          heading={<>Escolha seu kit</>}
+          subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
         />
         <TrustBadgesStrip />
-        <FAQAccordion />
+        <FAQAccordion items={kitFaqs} />
       </LandingLayout>
     </OfferProvider>
   );
