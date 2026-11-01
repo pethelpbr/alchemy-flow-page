@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
@@ -14,9 +14,10 @@ import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { LandingLayout } from "@/components/layout/LandingLayout";
 import { useCart } from "@/lib/use-cart";
-import { blackFridayVariants } from "@/lib/product";
+import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
+import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
@@ -57,9 +58,12 @@ const products = [
   { name: "BocaHelp", what: "Higiene bucal 3 em 1 · 250ml", detail: "Contra mau hálito e tártaro, sem precisar escovar.", img: bocaFoto.url },
 ];
 
-function KitGallery() {
-  const shots = [nutraFoto.url, pataFoto.url, bocaFoto.url];
+function KitGallery({ selected }: { selected: Variant }) {
+  const shots = [kitCompleto.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
   const [i, setI] = useState(0);
+  useEffect(() => {
+    if (selected.id === "bf-1") setI(0);
+  }, [selected.id]);
   return (
     <div>
       <div className="relative overflow-hidden rounded-2xl">
@@ -68,7 +72,7 @@ function KitGallery() {
           Black Friday
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-3">
+      <div className="mt-3 grid grid-cols-4 gap-3">
         {shots.map((s, idx) => (
           <button
             key={s}
@@ -125,7 +129,7 @@ function BlackFridayPage() {
           onBuy={checkout}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
-          gallery={<KitGallery />}
+          gallery={<KitGallery selected={selected} />}
           title="Kit Black Friday — NutraHelp + PataHelp + BocaHelp"
           eyebrow="Black Friday · 3 produtos · cães e gatos"
           intro="O cuidado completo do seu pet num kit só: o NutraHelp cuida de dentro para fora com 44 nutrientes, o PataHelp protege patas, focinho e pele, e o BocaHelp combate o mau hálito e o tártaro."
