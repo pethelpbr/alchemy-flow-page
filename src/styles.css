@@ -200,3 +200,27 @@
     line-height: 1.08;
   }
 }
+
+/* Tema Black Friday: fundo preto + laranja da marca. */
+.theme-bf {
+  --background: oklch(0.14 0.005 60);
+  --foreground: oklch(0.97 0.005 85);
+  --card: oklch(0.2 0.006 60);
+  --card-foreground: oklch(0.95 0.005 85);
+  --popover: oklch(0.2 0.006 60);
+  --popover-foreground: oklch(0.95 0.005 85);
+  --muted: oklch(0.24 0.006 60);
+  --muted-foreground: oklch(0.78 0.01 80);
+  --accent: oklch(0.3 0.06 50);
+  --accent-foreground: oklch(0.85 0.12 60);
+  --border: oklch(0.32 0.008 60);
+  --input: oklch(0.32 0.008 60);
+  --sand: oklch(0.2 0.03 50);
+  --clay: oklch(0.45 0.01 60);
+  --ink: oklch(0.97 0.005 85);
+  --terracotta: oklch(0.78 0.16 55);
+  --gold: oklch(0.78 0.16 55);
+  --dosage: oklch(0.24 0.006 60);
+  background-color: var(--background);
+  color: var(--foreground);
+}
