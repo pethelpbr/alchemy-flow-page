@@ -14,6 +14,7 @@ export function FinalOffer({
   onSelect,
   heading,
   subheading,
+  className,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
@@ -21,12 +22,13 @@ export function FinalOffer({
   subheading?: string;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
+  className?: string;
 }) {
   const { variants, bundleImages } = useOffer();
   const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
 
   return (
-    <section className="section bg-background">
+    <section className={`section bg-background ${className ?? ""}`}>
       <div id="comprar" className="container-x scroll-mt-28">
         <div className="mx-auto max-w-3xl pb-2 text-center md:max-w-5xl">
           <p className="text-xs font-bold uppercase text-primary">Escolha o seu kit</p>
