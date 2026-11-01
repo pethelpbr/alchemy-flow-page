@@ -5,7 +5,6 @@ import { HeroSection } from "@/components/HeroSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
-import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
 import { FinalOffer } from "@/components/FinalOffer";
 import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
@@ -233,7 +232,6 @@ function BlackFridayPage() {
         <KitStatsSection />
         <BeforeAfterSection className="bf-dark" />
         <KitVetSection />
-        <VeterinaryAuthoritySection className="bf-light" />
         <GuaranteeSection tone="yellow" />
         <ReviewsCarousel className="bf-light" />
         <FinalOffer
