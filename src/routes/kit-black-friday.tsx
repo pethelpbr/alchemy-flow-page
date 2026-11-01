@@ -18,6 +18,7 @@ import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
+import kit2Potes from "@/assets/kit-bf-2-potes.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
@@ -59,10 +60,11 @@ const products = [
 ];
 
 function KitGallery({ selected }: { selected: Variant }) {
-  const shots = [kitCompleto.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
+  const shots = [kitCompleto.url, kit2Potes.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
   const [i, setI] = useState(0);
   useEffect(() => {
     if (selected.id === "bf-1") setI(0);
+    if (selected.id === "bf-2") setI(1);
   }, [selected.id]);
   return (
     <div>
@@ -72,7 +74,7 @@ function KitGallery({ selected }: { selected: Variant }) {
           Black Friday
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-4 gap-3">
+      <div className="mt-3 grid grid-cols-5 gap-3">
         {shots.map((s, idx) => (
           <button
             key={s}
