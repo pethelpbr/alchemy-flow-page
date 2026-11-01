@@ -177,7 +177,7 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
   );
 }
 
-export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
+export function ProductVideoFeedback({ onBuy, showDetails = true }: { onBuy: () => void; showDetails?: boolean }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [openDetail, setOpenDetail] = useState<number | null>(0);
   const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
@@ -192,9 +192,11 @@ export function ProductVideoFeedback({ onBuy }: { onBuy: () => void }) {
         <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} />
         <IngredientsButton />
       </div>
-      <div id="duvidas-compra" className="mt-7 pt-2">
-        <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
-      </div>
+      {showDetails && (
+        <div id="duvidas-compra" className="mt-7 pt-2">
+          <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
+        </div>
+      )}
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
         <DialogContent className="flex max-h-[94dvh] w-[calc(100%_-_1.25rem)] max-w-[min(420px,calc((94dvh_-_220px)*0.5625_+_1.25rem))] sm:max-w-[min(420px,calc((94dvh_-_200px)*0.5625_+_1.25rem))] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-2.5 shadow-soft sm:rounded-2xl [&>button]:right-3.5 [&>button]:top-3.5 sm:[&>button]:right-5 sm:[&>button]:top-5 [&>button]:z-20 [&>button]:text-ink [&>button]:opacity-100">
           {selectedVideo && (

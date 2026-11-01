@@ -24,12 +24,14 @@ export function HeroSection({
   intro,
   bullets = heroBullets,
   gallery,
+  showDetails = true,
 }: {
   title?: string;
   eyebrow?: string;
   intro?: string;
   bullets?: string[];
   gallery?: React.ReactNode;
+  showDetails?: boolean;
   selected: Variant;
   onSelect: (v: Variant) => void;
   onBuy: () => void;
@@ -76,7 +78,7 @@ export function HeroSection({
             ))}
           </ul>
           <div className="mt-8">
-            <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} addonIds={addonIds} onToggleAddon={onToggleAddon} />
+            <PricingCard selected={selected} onSelect={onSelect} onBuy={onBuy} addonIds={addonIds} onToggleAddon={onToggleAddon} showDetails={showDetails} />
           </div>
         </motion.div>
       </div>
