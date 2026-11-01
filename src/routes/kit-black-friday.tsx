@@ -18,6 +18,7 @@ import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
+import kit2Potes from "@/assets/kit-bf-2-potes.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
