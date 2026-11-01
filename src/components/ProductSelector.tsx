@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
-import { brl, variantTotals, variants, type Variant } from "@/lib/product";
+import { brl, variantTotals, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
+import { useOffer } from "@/lib/offer-context";
 
 export function ProductSelector({
   selected,
@@ -9,6 +10,7 @@ export function ProductSelector({
   selected: Variant;
   onSelect: (v: Variant) => void;
 }) {
+  const { variants } = useOffer();
   const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
 
   return (
@@ -16,8 +18,8 @@ export function ProductSelector({
     {orderedVariants.map((v) => {
         const { total } = variantTotals(v);
         const isActive = v.id === selected.id;
-        const hasFreeShipping = v.units > 1;
-        const hasGift = v.id === "3-un-brinde";
+        const hasFreeShipping = v.freeShipping ?? v.units > 1;
+        const hasGift = v.id === "3-un-brinde" || !!v.tag;
         const displayedTotal = total + (v.shipping ?? 0);
         return (
           <button
@@ -43,7 +45,7 @@ export function ProductSelector({
                   )}
                   {hasGift && (
                     <span className="rounded-full bg-gift px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gift-foreground">
-                      Brinde
+                      {v.tag ?? "Brinde"}
                     </span>
                   )}
                 </span>
@@ -64,11 +66,11 @@ export function ProductSelector({
                     {v.label}
                   </span>
                   <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
-                    {v.units === 1
+                    {v.detail ?? (v.units === 1
                       ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
-                      : `${brl(v.perPot ?? v.unitPrice)} por pote`}
+                      : `${brl(v.perPot ?? v.unitPrice)} por pote`)}
                   </span>
-                  {hasGift && (
+                  {hasGift && !v.tag && (
                     <span className="block text-[13px] leading-snug text-muted-foreground">
                       + PataHelp de brinde
                     </span>
@@ -94,9 +96,9 @@ export function ProductSelector({
                   >
                     {brl(displayedTotal)}
                   </span>
-                  <span className="mt-0.5 block text-[11px] text-muted-foreground">
+                  {!v.hideInstallments && (<span className="mt-0.5 block text-[11px] text-muted-foreground">
                     ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
-                  </span>
+                  </span>)}
                 </span>
               </span>
             </span>
@@ -122,14 +124,14 @@ export function ProductSelector({
                   )}
                   {hasGift && (
                     <span className="rounded-full bg-gift px-2 py-0.5 text-[10px] font-bold uppercase text-gift-foreground">
-                      Brinde
+                      {v.tag ?? "Brinde"}
                     </span>
                   )}
                 </span>
                 <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
-                  {v.units === 1
+                  {v.detail ?? (v.units === 1
                     ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
-                    : `${brl(v.perPot ?? v.unitPrice)} por pote${hasGift ? " · PataHelp de brinde" : ""}`}
+                    : `${brl(v.perPot ?? v.unitPrice)} por pote${hasGift ? " · PataHelp de brinde" : ""}`)}
                 </span>
                 {v.savings != null && (
                   <span className="mt-0.5 block text-[13px] font-semibold text-terracotta">
@@ -152,9 +154,9 @@ export function ProductSelector({
                 >
                   {brl(displayedTotal)}
                 </span>
-                <span className="mt-0.5 block text-xs text-muted-foreground">
+{!v.hideInstallments && (<span className="mt-0.5 block text-xs text-muted-foreground">
                   ou {v.installments}x de {brl(v.installmentValue ?? displayedTotal / v.installments)}
-                </span>
+                </span>)}
               </span>
             </span>
           </button>

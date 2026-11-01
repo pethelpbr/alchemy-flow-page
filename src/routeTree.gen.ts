@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KitBlackFridayRouteImport } from './routes/kit-black-friday'
 import { Route as PeleRouteImport } from './routes/pele'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KitBlackFridayRoute = KitBlackFridayRouteImport.update({
+  id: '/kit-black-friday',
+  path: '/kit-black-friday',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PeleRoute = PeleRouteImport.update({
@@ -31,30 +37,34 @@ const PrivacidadeRoute = PrivacidadeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kit-black-friday': typeof KitBlackFridayRoute
   '/pele': typeof PeleRoute
   '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kit-black-friday': typeof KitBlackFridayRoute
   '/pele': typeof PeleRoute
   '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kit-black-friday': typeof KitBlackFridayRoute
   '/pele': typeof PeleRoute
   '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pele' | '/privacidade'
+  fullPaths: '/' | '/kit-black-friday' | '/pele' | '/privacidade'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pele' | '/privacidade'
-  id: '__root__' | '/' | '/pele' | '/privacidade'
+  to: '/' | '/kit-black-friday' | '/pele' | '/privacidade'
+  id: '__root__' | '/' | '/kit-black-friday' | '/pele' | '/privacidade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KitBlackFridayRoute: typeof KitBlackFridayRoute
   PeleRoute: typeof PeleRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kit-black-friday': {
+      id: '/kit-black-friday'
+      path: '/kit-black-friday'
+      fullPath: '/kit-black-friday'
+      preLoaderRoute: typeof KitBlackFridayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pele': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KitBlackFridayRoute: KitBlackFridayRoute,
   PeleRoute: PeleRoute,
   PrivacidadeRoute: PrivacidadeRoute,
 }

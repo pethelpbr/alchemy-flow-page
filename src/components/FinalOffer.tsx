@@ -1,20 +1,28 @@
+import type React from "react";
 import { BuyButton } from "@/components/ui/BuyButton";
-import { brl, variantTotals, variants, type Variant } from "@/lib/product";
+import { brl, variantTotals, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
+import { useOffer } from "@/lib/offer-context";
 import { goToCheckout } from "@/lib/meta-pixel";
 import nutraHelpPot from "@/assets/kit-1-pote.png.asset.json";
 import kit3PotesBrinde from "@/assets/kit-3-potes-v4.png.asset.json";
+import kit3Plain from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes-v4.png.asset.json";
 
 export function FinalOffer({
   selected,
   onSelect,
+  heading,
+  subheading,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
+  heading?: React.ReactNode;
+  subheading?: string;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
 }) {
+  const { variants, bundleImages } = useOffer();
   const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
 
   return (
@@ -23,19 +31,19 @@ export function FinalOffer({
         <div className="mx-auto max-w-3xl pb-2 text-center md:max-w-5xl">
           <p className="text-xs font-bold uppercase text-primary">Escolha o seu kit</p>
           <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-foreground lg:text-5xl">
-            <span className="md:whitespace-nowrap">Hoje à noite ele vai se coçar de novo.</span>
+            {heading ?? (<><span className="md:whitespace-nowrap">Hoje à noite ele vai se coçar de novo.</span>
             <br />
-            Ou não.
+            Ou não.</>)}
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            A diferença entre uma noite e outra são trinta segundos por dia.
+            {subheading ?? "A diferença entre uma noite e outra são trinta segundos por dia."}
           </p>
         </div>
         <div className="mx-auto grid max-w-5xl gap-4 pt-12 md:grid-cols-3 md:items-stretch">
           {orderedVariants.map((variant) => {
             const isActive = selected.id === variant.id;
-            const isBestChoice = variant.id === "3-un-brinde";
-            const hasFreeShipping = variant.units > 1;
+            const isBestChoice = variant.id === "3-un-brinde" || variant.badge === "Mais vendido";
+            const hasFreeShipping = variant.freeShipping ?? variant.units > 1;
             const displayedTotal = variantTotals(variant).total + (variant.shipping ?? 0);
 
             return (
@@ -56,7 +64,16 @@ export function FinalOffer({
                   </span>
                 )}
 
-                {isBestChoice ? (
+                {bundleImages ? (
+                  <div className="relative mx-auto flex h-56 w-full max-w-80 items-end justify-center overflow-hidden rounded-xl bg-foreground p-2 sm:h-60 sm:max-w-none">
+                    <img src={variant.units === 3 ? kit3Plain.url : variant.units === 2 ? kit2Potes.url : nutraHelpPot.url} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full object-contain mix-blend-multiply" />
+                    <div className="absolute bottom-2 right-2 flex items-end gap-1">
+                      {bundleImages.map((b) => (
+                        <img key={b.alt} src={b.src} alt={b.alt} loading="lazy" className="h-20 w-auto object-contain mix-blend-multiply sm:h-24" />
+                      ))}
+                    </div>
+                  </div>
+                ) : isBestChoice ? (
                   <img
                     src={kit3PotesBrinde.url}
                     alt="3 potes de NutraHelp + PataHelp de brinde"
@@ -90,18 +107,18 @@ export function FinalOffer({
                   >
                     {hasFreeShipping ? "Frete grátis" : "Frete fixo"}
                   </span>
-                  {isBestChoice && (
+                  {(isBestChoice || variant.tag) && (
                     <span className="rounded-full bg-gift px-3 py-1.5 text-xs font-bold uppercase text-gift-foreground">
-                      Brinde
+                      {variant.tag ?? "Brinde"}
                     </span>
                   )}
                 </div>
 
                 <h2 className="mt-3 font-sans text-2xl font-bold leading-none text-foreground">{variant.label}</h2>
                 <p className="mt-1 min-h-6 text-sm text-muted-foreground">
-                  {variant.units === 1
+                  {variant.detail ?? (variant.units === 1
                     ? `${brl(variant.unitPrice)} + ${brl(variant.shipping ?? 0)} de frete`
-                    : `${brl(variant.perPot ?? variant.unitPrice)} por pote${isBestChoice ? " + PataHelp" : ""}`}
+                    : `${brl(variant.perPot ?? variant.unitPrice)} por pote${isBestChoice ? " + PataHelp" : ""}`)}
                 </p>
 
                 <div className="mt-4 min-h-5 text-sm text-muted-foreground line-through">
@@ -115,7 +132,7 @@ export function FinalOffer({
                 >
                   {brl(displayedTotal)}
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className={cn("mt-1 text-sm text-muted-foreground", variant.hideInstallments && "invisible")}>
                   ou {variant.installments}x de {brl(variant.installmentValue ?? displayedTotal / variant.installments)}
                 </p>
 
