@@ -1,0 +1,136 @@
+// Seções do kit Black Friday com conteúdo provisório ([PREENCHER]) para editar depois.
+
+function Tag({ children }: { children: string }) {
+  return (
+    <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary">
+      {children}
+    </span>
+  );
+}
+
+function Slot({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <div
+      className={`flex items-center justify-center rounded-xl border-2 border-dashed border-border bg-muted p-4 text-center text-xs font-bold uppercase text-muted-foreground ${className}`}
+    >
+      {label}
+    </div>
+  );
+}
+
+const videos = [
+  { product: "NutraHelp", quote: "[frase curta da cliente sobre coceira]" },
+  { product: "PataHelp", quote: "[frase curta da cliente sobre a pata]" },
+  { product: "BocaHelp", quote: "[frase curta da cliente sobre o hálito]" },
+];
+
+export function KitVideosSection() {
+  return (
+    <section className="section bg-background">
+      <div className="container-x">
+        <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Tutores que já usaram</h2>
+        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3">
+          {videos.map((v) => (
+            <article key={v.product} className="flex flex-col gap-3">
+              <Slot label={`▶ Vídeo vertical · ${v.product}`} className="aspect-[9/16]" />
+              <Tag>{v.product}</Tag>
+              <p className="text-sm italic text-foreground">“{v.quote}”</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const stats = [
+  { product: "NutraHelp", text: "notaram o pet se coçando menos" },
+  { product: "PataHelp", text: "viram irritações e feridas cicatrizando mais rápido" },
+  { product: "BocaHelp", text: "notaram o hálito mais fresco" },
+];
+
+export function KitStatsSection() {
+  return (
+    <section className="section bg-background">
+      <div className="container-x">
+        <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
+          {stats.map((s) => (
+            <article key={s.product} className="rounded-2xl border border-border bg-card p-6 text-center">
+              <p className="font-display text-5xl text-primary">[__%]</p>
+              <p className="mt-2 text-sm text-foreground">{s.text}</p>
+              <div className="mt-3"><Tag>{s.product}</Tag></div>
+            </article>
+          ))}
+        </div>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-muted-foreground">
+          [PREENCHER com os dados reais da pesquisa: número de respondentes, período e metodologia.]
+        </p>
+      </div>
+    </section>
+  );
+}
+
+export function KitBeforeAfterSection() {
+  const items = ["NutraHelp", "NutraHelp", "PataHelp", "PataHelp", "BocaHelp", "BocaHelp"];
+  return (
+    <section className="section bg-background">
+      <div className="container-x">
+        <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Antes e depois de quem já usou</h2>
+        <p className="mt-3 text-center text-muted-foreground">Fotos enviadas por tutores, dois de cada produto.</p>
+        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-4 lg:grid-cols-3">
+          {items.map((p, i) => (
+            <article key={i} className="flex flex-col gap-2">
+              <Slot label={`Antes / depois ${(i % 2) + 1}`} className="aspect-square" />
+              <Tag>{p}</Tag>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function KitVetSection() {
+  return (
+    <section className="section bg-background">
+      <div className="container-x">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-4xl text-foreground lg:text-5xl">Desenvolvido com quem vê esses casos todo dia</h2>
+          <p className="mt-3 text-muted-foreground">A linha foi formulada com acompanhamento veterinário.</p>
+        </div>
+        <div className="mx-auto mt-10 grid max-w-4xl items-center gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[240px_1fr]">
+          <Slot label="Foto ou vídeo do veterinário" className="aspect-square" />
+          <div>
+            <p className="text-lg italic text-foreground">
+              “[DEPOIMENTO DO VETERINÁRIO — uma fala curta cobrindo os três produtos, sem prometer cura e sem citar doença.]”
+            </p>
+            <p className="mt-4 font-bold text-foreground">[NOME DO VETERINÁRIO]</p>
+            <p className="text-sm text-muted-foreground">CRMV [NÚMERO] · [ESTADO]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function KitTestimonialsSection() {
+  return (
+    <section className="section bg-background">
+      <div className="container-x">
+        <h2 className="text-center font-display text-4xl text-foreground lg:text-5xl">Experiências reais de quem já usa</h2>
+        <p className="mt-3 text-center text-sm text-muted-foreground">
+          <strong className="text-foreground">[4,8]</strong> <span className="text-primary">★★★★★</span> · [Nº] avaliações — preencher com o número real
+        </p>
+        <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
+          {[1, 2, 3].map((i) => (
+            <article key={i} className="rounded-2xl border border-border bg-card p-5">
+              <p className="text-primary">★★★★★</p>
+              <p className="mt-2 text-sm italic text-foreground">“[DEPOIMENTO REAL DE CLIENTE — copiar da avaliação, sem editar.]”</p>
+              <p className="mt-3 text-sm font-bold text-foreground">[NOME]</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

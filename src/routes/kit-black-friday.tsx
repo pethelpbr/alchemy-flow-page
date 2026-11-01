@@ -14,6 +14,7 @@ import { useCart } from "@/lib/use-cart";
 import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
+import { KitVideosSection, KitStatsSection, KitBeforeAfterSection, KitVetSection, KitTestimonialsSection } from "@/components/kit-bf/PlaceholderSections";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
 import kit2Potes from "@/assets/kit-bf-2-potes.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v2.png.asset.json";
@@ -195,6 +196,7 @@ const kitFaqs = [
   { q: "Dá para usar os três ao mesmo tempo?", a: "Dá. O NutraHelp vai na comida, o BocaHelp na água e o PataHelp passa direto na pata. Podem ser usados no mesmo dia, sem problema." },
   { q: "Meu pet não tem todos esses sinais. Vale levar o kit?", a: "Vale. Os três produtos são de uso diário e também servem para prevenir, em pet saudável. E no kit cada um sai por uma fração do preço avulso." },
   { q: "E se eu não gostar?", a: "Você tem 60 dias de garantia. Devolvemos o valor integral." },
+  { q: "Em quanto tempo chega?", a: "[PRAZO REAL POR REGIÃO — PREENCHER]" },
 ];
 
 function BlackFridayPage() {
@@ -220,11 +222,16 @@ function BlackFridayPage() {
             "Hálito fresco e menos tártaro com o BocaHelp",
           ]}
         />
+        <KitVideosSection />
         <SignsSection />
         <KitContents />
+        <KitStatsSection />
+        <KitBeforeAfterSection />
         <BeforeAfterSection />
+        <KitVetSection />
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
+        <KitTestimonialsSection />
         <ReviewsCarousel />
         <FinalOffer
           selected={selected}
