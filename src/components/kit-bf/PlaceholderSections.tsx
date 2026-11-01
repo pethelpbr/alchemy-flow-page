@@ -26,18 +26,18 @@ const stats = [
 
 export function KitStatsSection() {
   return (
-    <section className="section bf-light">
-      <div className="container-x">
-        <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
+    <section className="bg-primary">
+      <div className="container-x py-10 md:py-12">
+        <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/25">
           {stats.map((s) => (
-            <article key={s.product} className="rounded-2xl border border-border bg-card p-6 text-center">
-              <p className="font-display text-5xl text-primary">[__%]</p>
-              <p className="mt-2 text-sm text-foreground">{s.text}</p>
-              <div className="mt-3"><Tag>{s.product}</Tag></div>
-            </article>
+            <div key={s.product} className="text-center">
+              <p className="font-display text-5xl leading-none text-white">[__%]</p>
+              <p className="mx-auto mt-2 max-w-[230px] text-sm text-[#FFEBD9]">{s.text}</p>
+              <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.1em] text-[#7A2E02]">{s.product}</p>
+            </div>
           ))}
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-muted-foreground">
+        <p className="mx-auto mt-7 max-w-2xl text-center text-xs text-[#FFD9BC]">
           [PREENCHER com os dados reais da pesquisa: número de respondentes, período e metodologia.]
         </p>
       </div>
