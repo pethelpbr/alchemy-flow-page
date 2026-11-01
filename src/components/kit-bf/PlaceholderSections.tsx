@@ -1,3 +1,5 @@
+import vetRivaldo from "@/assets/vet-rivaldo-nova.png.asset.json";
+
 // Seções do kit Black Friday com conteúdo provisório ([PREENCHER]) para editar depois.
 
 function Tag({ children }: { children: string }) {
@@ -55,7 +57,11 @@ export function KitVetSection() {
           <p className="mt-3 text-muted-foreground">A linha foi formulada com acompanhamento veterinário.</p>
         </div>
         <div className="bf-card-tinted mx-auto mt-10 grid max-w-4xl items-center gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[240px_1fr]">
-          <Slot label="Foto ou vídeo do veterinário" className="aspect-square" />
+          <img
+            src={vetRivaldo.url}
+            alt="Dr. Rivaldo Júnior, médico veterinário"
+            className="aspect-square w-full rounded-xl object-cover"
+          />
           <div>
             <p className="text-lg italic text-foreground">
               “[DEPOIMENTO DO VETERINÁRIO — uma fala curta cobrindo os três produtos, sem prometer cura e sem citar doença.]”
