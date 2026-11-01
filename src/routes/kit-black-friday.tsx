@@ -129,7 +129,7 @@ function BlackFridayPage() {
           onBuy={checkout}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
-          gallery={<KitGallery />}
+          gallery={<KitGallery selected={selected} />}
           title="Kit Black Friday — NutraHelp + PataHelp + BocaHelp"
           eyebrow="Black Friday · 3 produtos · cães e gatos"
           intro="O cuidado completo do seu pet num kit só: o NutraHelp cuida de dentro para fora com 44 nutrientes, o PataHelp protege patas, focinho e pele, e o BocaHelp combate o mau hálito e o tártaro."
