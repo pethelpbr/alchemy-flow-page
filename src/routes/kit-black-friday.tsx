@@ -61,11 +61,12 @@ const products = [
 ];
 
 function KitGallery({ selected }: { selected: Variant }) {
-  const shots = [kitCompleto.url, kit2Potes.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
+  const shots = [kitCompleto.url, kit2Potes.url, kit3Potes.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
   const [i, setI] = useState(0);
   useEffect(() => {
     if (selected.id === "bf-1") setI(0);
     if (selected.id === "bf-2") setI(1);
+    if (selected.id === "bf-3") setI(2);
   }, [selected.id]);
   return (
     <div>
@@ -75,7 +76,7 @@ function KitGallery({ selected }: { selected: Variant }) {
           Black Friday
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-5 gap-3">
+      <div className="mt-3 grid grid-cols-6 gap-3">
         {shots.map((s, idx) => (
           <button
             key={s}
