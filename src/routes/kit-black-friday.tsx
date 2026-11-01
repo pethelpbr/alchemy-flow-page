@@ -58,9 +58,12 @@ const products = [
   { name: "BocaHelp", what: "Higiene bucal 3 em 1 · 250ml", detail: "Contra mau hálito e tártaro, sem precisar escovar.", img: bocaFoto.url },
 ];
 
-function KitGallery() {
-  const shots = [nutraFoto.url, pataFoto.url, bocaFoto.url];
+function KitGallery({ selected }: { selected: Variant }) {
+  const shots = [kitCompleto.url, nutraFoto.url, pataFoto.url, bocaFoto.url];
   const [i, setI] = useState(0);
+  useEffect(() => {
+    if (selected.id === "bf-1") setI(0);
+  }, [selected.id]);
   return (
     <div>
       <div className="relative overflow-hidden rounded-2xl">
@@ -69,7 +72,7 @@ function KitGallery() {
           Black Friday
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-3">
+      <div className="mt-3 grid grid-cols-4 gap-3">
         {shots.map((s, idx) => (
           <button
             key={s}
