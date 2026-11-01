@@ -169,3 +169,89 @@ export function ProductSelector({
     </div>
   );
 }
+
+function BlackFridaySelector({
+  variants,
+  selected,
+  onSelect,
+}: {
+  variants: Variant[];
+  selected: Variant;
+  onSelect: (v: Variant) => void;
+}) {
+  return (
+    <div className="flex flex-col gap-2.5">
+      {variants.map((v) => {
+        const { total } = variantTotals(v);
+        const isActive = v.id === selected.id;
+        const off = v.compareAt ? Math.round((1 - total / v.compareAt) * 100) : null;
+        return (
+          <button
+            type="button"
+            key={v.id}
+            onClick={() => onSelect(v)}
+            aria-pressed={isActive}
+            className={cn(
+              "overflow-hidden rounded-xl text-left transition-all duration-300",
+              isActive
+                ? "border-2 border-primary bg-accent/60 ring-4 ring-primary/15"
+                : "border border-border bg-muted hover:border-primary",
+            )}
+          >
+            {v.badge && (
+              <span className="block bg-gift py-1.5 text-center text-[10px] font-bold uppercase tracking-[0.13em] text-gift-foreground">
+                {v.badge}
+              </span>
+            )}
+            <span className="flex items-start gap-3 px-3.5 pb-3 pt-3.5 sm:px-4">
+              <span
+                className={cn(
+                  "mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border-2 transition-colors",
+                  isActive ? "border-primary bg-primary" : "border-clay",
+                )}
+              >
+                {isActive && <Check size={11} strokeWidth={3.5} className="text-primary-foreground" />}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className={cn("block font-display leading-tight text-ink", isActive ? "text-xl" : "text-lg")}>
+                  {v.label}
+                </span>
+                <span className="mt-1 block whitespace-pre-line text-xs leading-snug text-muted-foreground">
+                  {v.detail}
+                </span>
+                {v.freeShipping && (
+                  <span className="mt-2 inline-block rounded-md bg-shipping px-2 py-1 text-[9px] font-bold uppercase tracking-wide text-shipping-foreground">
+                    Frete grátis
+                  </span>
+                )}
+              </span>
+              <span className="shrink-0 text-right tabular-nums">
+                {v.compareAt != null && (
+                  <span className="block text-[11px] text-muted-foreground line-through">{brl(v.compareAt)}</span>
+                )}
+                <span
+                  className={cn(
+                    "block font-bold leading-tight tracking-tight",
+                    isActive ? "text-2xl text-terracotta" : "text-xl text-ink",
+                  )}
+                >
+                  {brl(total)}
+                </span>
+              </span>
+            </span>
+            {off != null && (
+              <span className="flex flex-wrap items-center gap-2 border-t border-gift/15 bg-gift/10 px-3.5 py-2 sm:px-4">
+                <span className="rounded-md bg-primary px-2 py-0.5 text-[11px] font-bold text-primary-foreground">
+                  {off}% OFF
+                </span>
+                {v.savings != null && (
+                  <span className="text-xs font-bold text-gift">Economize {brl(v.savings)}</span>
+                )}
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
