@@ -13,6 +13,10 @@ export function ProductSelector({
   const { variants } = useOffer();
   const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
 
+  if (orderedVariants[0]?.id.startsWith("bf-")) {
+    return <BlackFridaySelector variants={orderedVariants} selected={selected} onSelect={onSelect} />;
+  }
+
   return (
   <div className="flex flex-col gap-2.5">
     {orderedVariants.map((v) => {
