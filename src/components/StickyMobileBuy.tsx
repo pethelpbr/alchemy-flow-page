@@ -141,6 +141,14 @@ export function StickyMobileBuy({
                     Frete grátis · Compra segura
                   </p>
                 )}
+                {bfStrip && (
+                  <p
+                    className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
+                    style={{ paddingBottom: STRIP_BOTTOM }}
+                  >
+                    Frete grátis
+                  </p>
+                )}
               </div>
             </div>
           ) : (
