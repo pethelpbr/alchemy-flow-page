@@ -104,11 +104,11 @@ export function StickyMobileBuy({
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-ink">
+                    <p className={cn("text-[10px] font-bold uppercase tracking-[0.08em]", bfKit ? "text-[#17120E]" : "text-ink")}>
                       {barLabel}
                     </p>
                     <p className="flex min-w-0 items-baseline gap-1.5">
-                      <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
+                      <span className={cn("whitespace-nowrap text-lg font-bold leading-none", bfKit ? "text-[#17120E]" : "text-ink")}>
                         {brl(grandTotal)}
                       </span>
                       {!selected.hideInstallments && (
