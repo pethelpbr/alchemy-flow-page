@@ -240,6 +240,8 @@ function BlackFridayPage() {
             "Hálito fresco e menos tártaro com o BocaHelp",
           ]}
         />
+        {/* Âncora: a tarja fixa do celular aparece depois do hero (cartão de compra). */}
+        <div id="duvidas-compra" />
         <SignsSection />
         <KitContents />
         <KitStatsSection />
@@ -257,8 +259,6 @@ function BlackFridayPage() {
           heading={<>Escolha seu kit</>}
           subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
         />
-        {/* Âncora: a tarja fixa do celular aparece quando o usuário passa da oferta. */}
-        <div id="duvidas-compra" />
         <TrustBadgesStrip className="bf-light" />
         <FAQAccordion items={kitFaqs} className="bf-light" />
       </LandingLayout>
