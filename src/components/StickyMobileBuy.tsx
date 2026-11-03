@@ -125,7 +125,7 @@ export function StickyMobileBuy({
                     Comprar
                   </BuyButton>
                 </div>
-                {withGift && (
+                {fullStrip && (
                   <p
                     className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
                     style={{ paddingBottom: STRIP_BOTTOM }}
@@ -133,7 +133,7 @@ export function StickyMobileBuy({
                     Frete grátis · Garantia de 60 dias · Compra segura
                   </p>
                 )}
-                {twoPots && (
+                {shortStrip && (
                   <p
                     className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
                     style={{ paddingBottom: STRIP_BOTTOM }}
