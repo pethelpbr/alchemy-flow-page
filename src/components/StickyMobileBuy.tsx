@@ -86,7 +86,9 @@ export function StickyMobileBuy({
         >
           {cardBar ? (
             <div
-              className="border-t border-border bg-background"
+              className={
+                bfKit ? "border-t border-border bg-primary" : "border-t border-border bg-background"
+              }
               style={
                 shortStrip || fullStrip || bfStrip
                   ? undefined
