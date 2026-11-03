@@ -107,6 +107,11 @@ export function StickyMobileBuy({
                   <div className="min-w-0 flex-1">
                     <p className={cn("text-[10px] font-bold uppercase tracking-[0.08em]", bfKit ? "text-[#17120E]" : "text-ink")}>
                       {barLabel}
+                      {bfKit && selected.detail && (
+                        <span className="block text-[9px] font-semibold normal-case tracking-normal text-[#17120E]/80">
+                          {selected.detail.replace(/\n/g, " · ")}
+                        </span>
+                      )}
                     </p>
                     <p className="flex min-w-0 items-baseline gap-1.5">
                       <span className={cn("whitespace-nowrap text-lg font-bold leading-none", bfKit ? "text-[#17120E]" : "text-ink")}>
