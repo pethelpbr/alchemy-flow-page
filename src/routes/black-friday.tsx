@@ -99,7 +99,7 @@ function KitGallery({ selected }: { selected: Variant }) {
 
 const signs: { product: string; title: string; text: string; img?: string }[] = [
   { product: "NutraHelp", title: "Coceira frequente", text: "Coça, morde e se esfrega nos móveis, e piora de noite.", img: sinalCoceira.url },
-  { product: "NutraHelp", title: "Queda de pelos", text: "Pelo espalhado pela casa e falhas aparecendo na pelagem." },
+  { product: "NutraHelp", title: "Queda de pelos", text: "Pelo espalhado pela casa e falhas aparecendo na pelagem.", img: sinalQueda.url },
   { product: "PataHelp", title: "Lambe a pata", text: "De madrugada você escuta o barulho. O pelo da pata fica escuro e úmido." },
   { product: "PataHelp", title: "Patas ou focinho ressecados", text: "A pata fica áspera, com rachaduras, e o focinho ressecado." },
   { product: "BocaHelp", title: "Mau hálito", text: "Dá para sentir de longe, e vai piorando com o tempo." },
