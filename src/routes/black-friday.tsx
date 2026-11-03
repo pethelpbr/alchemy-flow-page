@@ -116,9 +116,13 @@ function SignsSection() {
         <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((s) => (
             <article key={s.title} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="flex aspect-[4/3] items-center justify-center border-b border-border bg-muted p-4 text-center text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
-                Foto · {s.title}
-              </div>
+              {s.img ? (
+                <img src={s.img} alt={s.title} loading="lazy" className="aspect-[4/3] w-full border-b border-border object-cover" />
+              ) : (
+                <div className="flex aspect-[4/3] items-center justify-center border-b border-border bg-muted p-4 text-center text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
+                  Foto · {s.title}
+                </div>
+              )}
               <div className="p-5">
                 <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary">
                   {s.product}
