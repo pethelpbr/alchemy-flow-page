@@ -77,7 +77,8 @@ export function FinalOffer({
                       alt={`${variant.units} NutraHelp`}
                       loading="lazy"
                       className="mx-auto h-56 w-full object-contain sm:h-60"
-                      style={{ transform: `scale(${variant.units === 1 ? 0.94 : variant.units === 2 ? 1.3 : 1.36})` }}
+                      // Normalize against the PataHelp tin, not the overall kit width.
+                      style={{ transform: `scale(${variant.units === 1 ? 1.2 : variant.units === 2 ? 1.25 : 1.36})` }}
                     />
                   </div>
                 ) : bundleImages ? (
