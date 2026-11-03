@@ -13,7 +13,7 @@ const links = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export function Header({ onBuy, marqueeItems }: { onBuy: () => void; marqueeItems?: MarqueeItem[] | undefined }) {
+export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; marqueeItems?: MarqueeItem[] | undefined; topStrip?: ReactNode }) {
   const [scrollY, setScrollY] = useState(0);
   const [open, setOpen] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -42,8 +42,8 @@ export function Header({ onBuy, marqueeItems }: { onBuy: () => void; marqueeItem
 
   return (
     <>
-      <div ref={marqueeRef} className="bg-gift pt-[env(safe-area-inset-top)]">
-        <MarqueeStrip tone="gift" size="slim" items={marqueeItems} />
+      <div ref={marqueeRef} className={cn("pt-[env(safe-area-inset-top)]", !topStrip && "bg-gift")}>
+        {topStrip ?? <MarqueeStrip tone="gift" size="slim" items={marqueeItems} />}
       </div>
       <header
         style={{ top: Math.max(0, marqueeH - scrollY) }}

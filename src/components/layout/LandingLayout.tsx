@@ -9,11 +9,11 @@ import { scrollToOffer } from "@/lib/scroll-to-offer";
 type Cart = ReturnType<typeof useCart>;
 
 /** Base compartilhada das landing pages por dor (/pele, /mobilidade, /intestino...). */
-export function LandingLayout({ cart, children, className, marqueeItems }: { cart: Cart; children: ReactNode; className?: string; marqueeItems?: MarqueeItem[] | undefined }) {
+export function LandingLayout({ cart, children, className, marqueeItems, topStrip }: { cart: Cart; children: ReactNode; className?: string; marqueeItems?: MarqueeItem[] | undefined; topStrip?: ReactNode }) {
   const goToOffer = () => scrollToOffer();
   return (
     <div className={`min-h-screen bg-background text-foreground ${className ?? ""}`}>
-      <Header onBuy={goToOffer} marqueeItems={marqueeItems} />
+      <Header onBuy={goToOffer} marqueeItems={marqueeItems} topStrip={topStrip} />
       <main>{children}</main>
       <Footer />
       <StickyMobileBuy selected={cart.selected} onBuy={goToOffer} addonsExtra={cart.addonsExtra} />
