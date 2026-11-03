@@ -76,7 +76,8 @@ export function FinalOffer({
                       src={variant.image ?? kit3PotesBrinde.url}
                       alt={`${variant.units} NutraHelp`}
                       loading="lazy"
-                      className="mx-auto h-56 w-full scale-[1.14] object-contain sm:h-60"
+                      className="mx-auto h-56 w-full object-contain sm:h-60"
+                      style={{ transform: `scale(${variant.units === 1 ? 0.94 : variant.units === 2 ? 1.38 : 1.36})` }}
                     />
                   </div>
                 ) : bundleImages ? (
