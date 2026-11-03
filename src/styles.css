@@ -348,10 +348,9 @@
 .bf-top {
   isolation: isolate;
   color: #EEE5DC;
-  background: #17120E;
+  background: #17120E !important;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 -1.5px #FF6B1A73, inset 0 1px #FFD6BA14;
 }
 .bf-top__luz {
   z-index: 1;
