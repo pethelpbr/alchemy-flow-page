@@ -21,6 +21,7 @@ import kit3Potes from "@/assets/kit-bf-3-potes-v2.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaGif from "@/assets/gif-boca-v2.gif.asset.json";
+import nutraGif from "@/assets/gif-nutra.gif.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
@@ -144,6 +145,7 @@ function SignsSection() {
 const productDetails = [
   {
     ...products[0],
+    img: nutraGif.url,
     what: "Suplemento multifuncional em pó 8 em 1, com 44 nutrientes.",
     ingredients: "Ômega 3, biotina, pré e probióticos",
     change: "Se coça e se lambe menos, e o pelo volta a crescer nas falhas.",
