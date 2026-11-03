@@ -24,6 +24,7 @@ import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
 import sinalCoceira from "@/assets/sinal-cocira.png.asset.json";
+import sinalQueda from "@/assets/sinal-queda-pelos.png.asset.json";
 
 
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
