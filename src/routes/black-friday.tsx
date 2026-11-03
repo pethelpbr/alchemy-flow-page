@@ -23,6 +23,22 @@ import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
 
+const bolt = (
+  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" className="inline-block">
+    <path fill="currentColor" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+  </svg>
+);
+const bfMarquee = [
+  {
+    key: "bf",
+    node: (
+      <span className="inline-flex items-center gap-2">
+        {bolt} Black Friday PetHelp <span aria-hidden>·</span> até <b>67%</b> de desconto {bolt}
+      </span>
+    ),
+  },
+];
+
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
 const description =
   "Black Friday PetHelp: kit com NutraHelp, PataHelp e BocaHelp a partir de R$ 149,90. Cuidado completo por dentro e por fora para cães e gatos.";
@@ -209,7 +225,7 @@ function BlackFridayPage() {
 
   return (
     <OfferProvider offer={offer}>
-      <LandingLayout cart={cart} className="theme-bf">
+      <LandingLayout cart={cart} className="theme-bf" marqueeItems={bfMarquee}>
         <HeroSection
           selected={selected}
           onSelect={setSelected}

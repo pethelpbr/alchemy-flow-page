@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { BuyButton } from "@/components/ui/BuyButton";
-import { MarqueeStrip } from "@/components/MarqueeStrip";
+import { MarqueeStrip, type MarqueeItem } from "@/components/MarqueeStrip";
 import { cn } from "@/lib/utils";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
@@ -13,7 +13,7 @@ const links = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export function Header({ onBuy }: { onBuy: () => void }) {
+export function Header({ onBuy, marqueeItems }: { onBuy: () => void; marqueeItems?: MarqueeItem[] }) {
   const [scrollY, setScrollY] = useState(0);
   const [open, setOpen] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -43,7 +43,7 @@ export function Header({ onBuy }: { onBuy: () => void }) {
   return (
     <>
       <div ref={marqueeRef} className="bg-gift pt-[env(safe-area-inset-top)]">
-        <MarqueeStrip tone="gift" size="slim" />
+        <MarqueeStrip tone="gift" size="slim" items={marqueeItems} />
       </div>
       <header
         style={{ top: Math.max(0, marqueeH - scrollY) }}

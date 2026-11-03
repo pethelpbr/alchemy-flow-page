@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
+import type React from "react";
 import { cn } from "@/lib/utils";
 
-const items = [
+export type MarqueeItem = string | { key: string; node: React.ReactNode };
+
+const defaultItems: MarqueeItem[] = [
   "Frete Grátis nos Combos",
   "Garantia de 60 dias",
   "Registrado no MAPA",
@@ -26,7 +29,9 @@ const tones: Record<Tone, { strip: string; text: string; dot: string }> = {
 export function MarqueeStrip({
   tone = "primary",
   size = "default",
+  items = defaultItems,
 }: {
+  items?: MarqueeItem[];
   tone?: Tone;
   size?: "default" | "slim";
 }) {
@@ -36,7 +41,7 @@ export function MarqueeStrip({
   const content = (
     <>
       {items.map((word) => (
-        <span key={word} className="flex items-center gap-3 sm:gap-8">
+        <span key={typeof word === "string" ? word : word.key} className="flex items-center gap-3 sm:gap-8">
           <span
             className={cn(
               "whitespace-nowrap font-display text-sm font-bold uppercase tracking-[0.18em]",
@@ -44,7 +49,7 @@ export function MarqueeStrip({
               colors.text,
             )}
           >
-            {word}
+            {typeof word === "string" ? word : word.node}
           </span>
           <span
             className={cn(
