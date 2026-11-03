@@ -7,7 +7,9 @@
  * ao carrinho da loja). Nenhum componente de UI precisa mudar.
  */
 
-import kitBf3PotesV3 from "@/assets/kit-bf-3-potes-v3.png.asset.json";
+import kitBf1 from "@/assets/kit-bf-1-sem-fundo.png.asset.json";
+import kitBf2 from "@/assets/kit-bf-2-sem-fundo.png.asset.json";
+import kitBf3 from "@/assets/kit-bf-3-sem-fundo.png.asset.json";
 
 export type Variant = {
   id: string;
@@ -151,7 +153,7 @@ export function buildCheckoutUrl(variant: Variant) {
 
 /** Kits da Black Friday: NutraHelp + PataHelp + BocaHelp. */
 export const blackFridayVariants: [Variant, ...Variant[]] = [
-  { id: "bf-1", units: 1, label: "1 NutraHelp", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 149.9, total: 149.9, compareAt: 348.5, savings: 198.6, installments: 1, hideInstallments: true, externalId: null },
-  { id: "bf-2", units: 2, label: "2 NutraHelps", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 1, hideInstallments: true, externalId: null },
-  { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 BocaHelps\n+ 1 PataHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 1, hideInstallments: true, externalId: null, image: kitBf3PotesV3.url },
+  { id: "bf-1", units: 1, label: "1 NutraHelp", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 149.9, total: 149.9, compareAt: 348.5, savings: 198.6, installments: 1, hideInstallments: true, externalId: null, image: kitBf1.url },
+  { id: "bf-2", units: 2, label: "2 NutraHelps", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 1, hideInstallments: true, externalId: null, image: kitBf2.url },
+  { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 BocaHelps\n+ 1 PataHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 1, hideInstallments: true, externalId: null, image: kitBf3.url },
 ];

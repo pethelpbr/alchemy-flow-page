@@ -248,7 +248,8 @@ function BlackFridayPage() {
           onSelect={setSelected}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
-          className="bf-dark"
+          className="bf-brown"
+          unboxed
           heading={<>Escolha seu kit</>}
           subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
         />
