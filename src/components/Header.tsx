@@ -104,11 +104,15 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
         <span aria-hidden className="h-10 w-10 shrink-0 lg:hidden" />
       </div>
 
+      </header>
+
+      {/* O menu fica fora do <header>: o backdrop-blur do header cria um
+          containing block e quebra o position:fixed do menu ao rolar. */}
       <AnimatePresence>
         {open && (
           <>
             <motion.div
-              className="fixed inset-0 bg-ink/25 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-ink/25 backdrop-blur-sm lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -156,7 +160,6 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
           </>
         )}
       </AnimatePresence>
-      </header>
     </>
   );
 }
