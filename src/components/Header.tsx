@@ -29,8 +29,14 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
   useEffect(() => {
     const measure = () => setMarqueeH(marqueeRef.current?.offsetHeight ?? 0);
     measure();
+    // Re-medir sempre que a tarja mudar de altura (ex.: CSS chegando depois da medição).
+    const ro = new ResizeObserver(measure);
+    if (marqueeRef.current) ro.observe(marqueeRef.current);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   const scrolled = scrollY > 24;
