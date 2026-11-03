@@ -118,12 +118,21 @@ export function StickyMobileBuy({
                         {brl(grandTotal)}
                       </span>
                       {!selected.hideInstallments && (
-                        <span className="whitespace-nowrap text-[11px] text-muted-foreground">
+                        <span className={cn("whitespace-nowrap text-[11px]", bfKit ? "text-[#17120E]/80" : "text-muted-foreground")}>
                           {withGift ? "· " : ""}
                           {selected.installments}x {brl(installmentValue)}
                         </span>
                       )}
                     </p>
+                    {bfKit && selected.savings != null && (
+                      <p className="text-[10px] font-bold leading-tight text-[#17120E]">
+                        Economize {brl(selected.savings)}
+                        {selected.compareAt != null &&
+                          selected.compareAt > 0 &&
+                          selected.total != null &&
+                          ` · ${Math.round((1 - selected.total / selected.compareAt) * 100)}% OFF`}
+                      </p>
+                    )}
                   </div>
                   <BuyButton
                     size="sm"
