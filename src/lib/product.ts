@@ -7,6 +7,8 @@
  * ao carrinho da loja). Nenhum componente de UI precisa mudar.
  */
 
+import kitBf3PotesV3 from "@/assets/kit-bf-3-potes-v3.png.asset.json";
+
 export type Variant = {
   id: string;
   units: number;
