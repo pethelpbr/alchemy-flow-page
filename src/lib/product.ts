@@ -39,6 +39,8 @@ export type Variant = {
   tag?: string;
   /** Força frete grátis (padrão: kits com mais de 1 pote). */
   freeShipping?: boolean;
+  /** Foto completa do kit para o card da oferta final (quando a variante tem composição própria). */
+  image?: string;
   /** ID da variante na Shopify/Yampi (preencher na integração). */
   externalId: string | null;
 };
@@ -149,5 +151,5 @@ export function buildCheckoutUrl(variant: Variant) {
 export const blackFridayVariants: [Variant, ...Variant[]] = [
   { id: "bf-1", units: 1, label: "1 NutraHelp", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 149.9, total: 149.9, compareAt: 348.5, savings: 198.6, installments: 1, hideInstallments: true, externalId: null },
   { id: "bf-2", units: 2, label: "2 NutraHelps", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 1, hideInstallments: true, externalId: null },
-  { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 BocaHelps\n+ 1 PataHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 1, hideInstallments: true, externalId: null },
+  { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 BocaHelps\n+ 1 PataHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 1, hideInstallments: true, externalId: null, image: kitBf3PotesV3.url },
 ];
