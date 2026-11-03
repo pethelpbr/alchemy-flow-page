@@ -68,12 +68,18 @@ export function FinalOffer({
 
                 {bundleImages ? (
                   <div className="relative mx-auto flex h-56 w-full max-w-80 items-end justify-center overflow-hidden rounded-xl bg-foreground p-2 sm:h-60 sm:max-w-none">
-                    <img src={variant.units === 3 ? kit3Plain.url : variant.units === 2 ? kit2Potes.url : nutraHelpPot.url} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full object-contain mix-blend-multiply" />
-                    <div className="absolute bottom-2 right-2 flex items-end gap-1">
-                      {bundleImages.map((b) => (
-                        <img key={b.alt} src={b.src} alt={b.alt} loading="lazy" className="h-20 w-auto object-contain mix-blend-multiply sm:h-24" />
-                      ))}
-                    </div>
+                    {variant.image ? (
+                      <img src={variant.image} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full rounded-lg object-cover" />
+                    ) : (
+                      <>
+                        <img src={variant.units === 3 ? kit3Plain.url : variant.units === 2 ? kit2Potes.url : nutraHelpPot.url} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full object-contain mix-blend-multiply" />
+                        <div className="absolute bottom-2 right-2 flex items-end gap-1">
+                          {bundleImages.map((b) => (
+                            <img key={b.alt} src={b.src} alt={b.alt} loading="lazy" className="h-20 w-auto object-contain mix-blend-multiply sm:h-24" />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
                 ) : isBestChoice ? (
                   <img
