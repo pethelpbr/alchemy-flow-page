@@ -109,10 +109,12 @@ export function StickyMobileBuy({
                       <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
                         {brl(grandTotal)}
                       </span>
-                      <span className="whitespace-nowrap text-[11px] text-muted-foreground">
-                        {withGift ? "· " : ""}
-                        {selected.installments}x {brl(installmentValue)}
-                      </span>
+                      {!selected.hideInstallments && (
+                        <span className="whitespace-nowrap text-[11px] text-muted-foreground">
+                          {withGift ? "· " : ""}
+                          {selected.installments}x {brl(installmentValue)}
+                        </span>
+                      )}
                     </p>
                   </div>
                   <BuyButton
