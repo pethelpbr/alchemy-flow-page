@@ -23,6 +23,7 @@ import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
+import sinalCoceira from "@/assets/sinal-cocira.png.asset.json";
 
 
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
@@ -95,8 +96,8 @@ function KitGallery({ selected }: { selected: Variant }) {
   );
 }
 
-const signs = [
-  { product: "NutraHelp", title: "Coceira frequente", text: "Coça, morde e se esfrega nos móveis, e piora de noite." },
+const signs: { product: string; title: string; text: string; img?: string }[] = [
+  { product: "NutraHelp", title: "Coceira frequente", text: "Coça, morde e se esfrega nos móveis, e piora de noite.", img: sinalCoceira.url },
   { product: "NutraHelp", title: "Queda de pelos", text: "Pelo espalhado pela casa e falhas aparecendo na pelagem." },
   { product: "PataHelp", title: "Lambe a pata", text: "De madrugada você escuta o barulho. O pelo da pata fica escuro e úmido." },
   { product: "PataHelp", title: "Patas ou focinho ressecados", text: "A pata fica áspera, com rachaduras, e o focinho ressecado." },
@@ -115,9 +116,13 @@ function SignsSection() {
         <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((s) => (
             <article key={s.title} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="flex aspect-[4/3] items-center justify-center border-b border-border bg-muted p-4 text-center text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
-                Foto · {s.title}
-              </div>
+              {s.img ? (
+                <img src={s.img} alt={s.title} loading="lazy" className="aspect-[4/3] w-full border-b border-border object-cover" />
+              ) : (
+                <div className="flex aspect-[4/3] items-center justify-center border-b border-border bg-muted p-4 text-center text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
+                  Foto · {s.title}
+                </div>
+              )}
               <div className="p-5">
                 <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary">
                   {s.product}
