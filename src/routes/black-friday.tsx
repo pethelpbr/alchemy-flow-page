@@ -257,6 +257,8 @@ function BlackFridayPage() {
           heading={<>Escolha seu kit</>}
           subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
         />
+        {/* Âncora: a tarja fixa do celular aparece quando o usuário passa da oferta. */}
+        <div id="duvidas-compra" />
         <TrustBadgesStrip className="bf-light" />
         <FAQAccordion items={kitFaqs} className="bf-light" />
       </LandingLayout>
