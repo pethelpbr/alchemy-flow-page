@@ -275,6 +275,31 @@
   color: var(--foreground);
 }
 
+/* Seção marrom muito escuro (#2D2925) — "Escolha seu kit" da Black Friday,
+   com produtos soltos sobre o fundo. */
+.bf-brown {
+  --background: #2D2925;
+  --foreground: #FDFAF7;
+  --card: #363029;
+  --card-foreground: #FDFAF7;
+  --popover: #363029;
+  --popover-foreground: #FDFAF7;
+  --muted: #3A342D;
+  --muted-foreground: #B5A490;
+  --accent: #3D362E;
+  --accent-foreground: #FFDF78;
+  --border: #453E36;
+  --input: #453E36;
+  --sand: #3A342D;
+  --clay: #453E36;
+  --ink: #FDFAF7;
+  --terracotta: #FF8A3D;
+  --gold: #FFDF78;
+  --dosage: #3A342D;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 /* Seção escura (#1E1813) — antes e depois e "Escolha seu kit". */
 .bf-dark {
   --background: #1E1813;
