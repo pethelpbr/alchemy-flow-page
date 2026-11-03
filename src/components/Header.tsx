@@ -52,9 +52,10 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
         {topStrip ?? <MarqueeStrip tone="gift" size="slim" items={marqueeItems} />}
       </div>
       <header
-        style={{ top: Math.max(0, marqueeH - scrollY) }}
+        style={{ top: marqueeH ? Math.max(0, marqueeH - scrollY) : undefined }}
         className={cn(
           "fixed inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
+          topStrip && "header-strip-offset",
           scrolled
             ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
             : "border-b border-transparent bg-transparent",
