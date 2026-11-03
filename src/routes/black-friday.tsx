@@ -240,6 +240,8 @@ function BlackFridayPage() {
             "Hálito fresco e menos tártaro com o BocaHelp",
           ]}
         />
+        {/* Âncora: a tarja fixa do celular aparece depois do hero (cartão de compra). */}
+        <div id="duvidas-compra" />
         <SignsSection />
         <KitContents />
         <KitStatsSection />
