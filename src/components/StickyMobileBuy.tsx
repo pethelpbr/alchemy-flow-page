@@ -28,7 +28,20 @@ export function StickyMobileBuy({
   const singlePot = selected.id === "1-un";
   const twoPots = selected.id === "2-un";
   const withGift = selected.id === "3-un-brinde";
-  const cardBar = singlePot || twoPots || withGift;
+  // Kits Black Friday seguem os mesmos princípios, com a foto e os dados do kit.
+  const bfKit = selected.id.startsWith("bf-");
+  const bfShortStrip = selected.id === "bf-2";
+  const bfFullStrip = selected.id === "bf-3";
+  const shortStrip = twoPots || bfShortStrip;
+  const fullStrip = withGift || bfFullStrip;
+  const cardBar = singlePot || twoPots || withGift || bfKit;
+  const barImage = withGift
+    ? kitThreePots.url
+    : twoPots
+      ? kitTwoPots.url
+      : singlePot
+        ? productHero.url
+        : (selected.image ?? productHero.url);
   const barLabel = withGift ? `${selected.label} + brinde` : selected.label;
 
   // Distância entre o fundo do layout e o fundo realmente visível (barra do Safari no iPhone).
@@ -75,7 +88,7 @@ export function StickyMobileBuy({
             <div
               className="border-t border-border bg-background"
               style={
-                twoPots || withGift
+                shortStrip || fullStrip
                   ? undefined
                   : { paddingBottom: `max(0.5rem, ${SAFE_BOTTOM})` }
               }
@@ -83,13 +96,7 @@ export function StickyMobileBuy({
               <div className="overflow-hidden">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
-                    src={
-                      withGift
-                        ? kitThreePots.url
-                        : twoPots
-                          ? kitTwoPots.url
-                          : productHero.url
-                    }
+                    src={barImage}
                     alt=""
                     loading="lazy"
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
@@ -102,10 +109,12 @@ export function StickyMobileBuy({
                       <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
                         {brl(grandTotal)}
                       </span>
-                      <span className="whitespace-nowrap text-[11px] text-muted-foreground">
-                        {withGift ? "· " : ""}
-                        {selected.installments}x {brl(installmentValue)}
-                      </span>
+                      {!selected.hideInstallments && (
+                        <span className="whitespace-nowrap text-[11px] text-muted-foreground">
+                          {withGift ? "· " : ""}
+                          {selected.installments}x {brl(installmentValue)}
+                        </span>
+                      )}
                     </p>
                   </div>
                   <BuyButton
@@ -116,7 +125,7 @@ export function StickyMobileBuy({
                     Comprar
                   </BuyButton>
                 </div>
-                {withGift && (
+                {fullStrip && (
                   <p
                     className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
                     style={{ paddingBottom: STRIP_BOTTOM }}
@@ -124,7 +133,7 @@ export function StickyMobileBuy({
                     Frete grátis · Garantia de 60 dias · Compra segura
                   </p>
                 )}
-                {twoPots && (
+                {shortStrip && (
                   <p
                     className="bg-sand px-3 py-1.5 text-center text-[13px] font-bold text-ink"
                     style={{ paddingBottom: STRIP_BOTTOM }}
