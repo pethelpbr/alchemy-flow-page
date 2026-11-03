@@ -237,6 +237,9 @@ function BlackFridaySelector({
                 >
                   {brl(total)}
                 </span>
+                <span className="mt-0.5 block text-[10.5px] text-muted-foreground">
+                  {v.installments}x de {brl(v.installmentValue ?? total / v.installments)}
+                </span>
               </span>
             </span>
             {off != null && (
