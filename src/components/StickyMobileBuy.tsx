@@ -105,7 +105,7 @@ export function StickyMobileBuy({
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className={cn("text-[10px] font-bold uppercase tracking-[0.08em]", bfKit ? "text-[#17120E]" : "text-ink")}>
+                    <p className={cn("font-bold uppercase tracking-[0.08em]", bfKit ? "text-[13px] text-[#17120E]" : "text-[10px] text-ink")}>
                       {barLabel}
                       {bfKit && selected.detail && (
                         <span className="block text-[9px] font-semibold normal-case tracking-normal text-[#17120E]/80">
