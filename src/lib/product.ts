@@ -7,7 +7,7 @@
  * ao carrinho da loja). Nenhum componente de UI precisa mudar.
  */
 
-import kitBf1 from "@/assets/kit-bf-1-sem-fundo.png.asset.json";
+import kitBf1 from "@/assets/kit-bf-1-sem-fundo-v2.png.asset.json";
 import kitBf2 from "@/assets/kit-bf-2-sem-fundo-v2.png.asset.json";
 import kitBf3 from "@/assets/kit-bf-3-sem-fundo-v2.png.asset.json";
 
