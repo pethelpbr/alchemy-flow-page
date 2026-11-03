@@ -57,10 +57,15 @@ export function FinalOffer({
                 onClick={() => onSelect(variant)}
                 aria-selected={isActive}
                 className={cn(
-                  "relative mx-auto flex w-full max-w-[330px] cursor-pointer flex-col rounded-xl border px-4 pb-4 pt-7 text-center transition-all duration-300 sm:max-w-none sm:px-5 sm:pb-5",
-                  isActive
-                    ? "border-primary bg-[color-mix(in_oklab,var(--primary)_7%,var(--card))] shadow-card"
-                    : "border-border bg-card hover:border-primary",
+                  "relative mx-auto flex w-full max-w-[330px] cursor-pointer flex-col text-center transition-all duration-300 sm:max-w-none",
+                  unboxed
+                    ? "pt-7 pb-2"
+                    : cn(
+                        "rounded-xl border px-4 pb-4 pt-7 sm:px-5 sm:pb-5",
+                        isActive
+                          ? "border-primary bg-[color-mix(in_oklab,var(--primary)_7%,var(--card))] shadow-card"
+                          : "border-border bg-card hover:border-primary",
+                      ),
                 )}
               >
                 {isBestChoice && (
@@ -69,7 +74,14 @@ export function FinalOffer({
                   </span>
                 )}
 
-                {bundleImages ? (
+                {unboxed ? (
+                  <img
+                    src={variant.image ?? kit3PotesBrinde.url}
+                    alt={`${variant.units} NutraHelp`}
+                    loading="lazy"
+                    className="mx-auto h-56 w-full max-w-80 object-contain sm:h-60 sm:max-w-none"
+                  />
+                ) : bundleImages ? (
                   <div className="relative mx-auto flex h-56 w-full max-w-80 items-end justify-center overflow-hidden rounded-xl bg-foreground p-2 sm:h-60 sm:max-w-none">
                     {variant.image ? (
                       <img src={variant.image} alt={`${variant.units} NutraHelp`} loading="lazy" className="h-full w-full rounded-lg object-cover" />
