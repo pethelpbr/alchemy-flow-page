@@ -124,15 +124,6 @@ export function StickyMobileBuy({
                         </span>
                       )}
                     </p>
-                    {bfKit && selected.savings != null && (
-                      <p className="text-[10px] font-bold leading-tight text-[#17120E]">
-                        Economize {brl(selected.savings)}
-                        {selected.compareAt != null &&
-                          selected.compareAt > 0 &&
-                          selected.total != null &&
-                          ` · ${Math.round((1 - selected.total / selected.compareAt) * 100)}% OFF`}
-                      </p>
-                    )}
                   </div>
                   <BuyButton
                     size="sm"
