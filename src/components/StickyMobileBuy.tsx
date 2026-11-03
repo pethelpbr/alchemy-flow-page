@@ -28,7 +28,20 @@ export function StickyMobileBuy({
   const singlePot = selected.id === "1-un";
   const twoPots = selected.id === "2-un";
   const withGift = selected.id === "3-un-brinde";
-  const cardBar = singlePot || twoPots || withGift;
+  // Kits Black Friday seguem os mesmos princípios, com a foto e os dados do kit.
+  const bfKit = selected.id.startsWith("bf-");
+  const bfShortStrip = selected.id === "bf-2";
+  const bfFullStrip = selected.id === "bf-3";
+  const shortStrip = twoPots || bfShortStrip;
+  const fullStrip = withGift || bfFullStrip;
+  const cardBar = singlePot || twoPots || withGift || bfKit;
+  const barImage = withGift
+    ? kitThreePots.url
+    : twoPots
+      ? kitTwoPots.url
+      : singlePot
+        ? productHero.url
+        : (selected.image ?? productHero.url);
   const barLabel = withGift ? `${selected.label} + brinde` : selected.label;
 
   // Distância entre o fundo do layout e o fundo realmente visível (barra do Safari no iPhone).
