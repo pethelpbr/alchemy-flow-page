@@ -58,14 +58,10 @@ export function FinalOffer({
                 aria-selected={isActive}
                 className={cn(
                   "relative mx-auto flex w-full max-w-[330px] cursor-pointer flex-col text-center transition-all duration-300 sm:max-w-none",
-                  unboxed
-                    ? "pt-7 pb-2"
-                    : cn(
-                        "rounded-xl border px-4 pb-4 pt-7 sm:px-5 sm:pb-5",
-                        isActive
-                          ? "border-primary bg-[color-mix(in_oklab,var(--primary)_7%,var(--card))] shadow-card"
-                          : "border-border bg-card hover:border-primary",
-                      ),
+                  "rounded-xl border px-4 pb-4 pt-7 sm:px-5 sm:pb-5",
+                  isActive
+                    ? "border-primary bg-[color-mix(in_oklab,var(--primary)_7%,var(--card))] shadow-card"
+                    : "border-border bg-card hover:border-primary",
                 )}
               >
                 {isBestChoice && (
@@ -75,7 +71,7 @@ export function FinalOffer({
                 )}
 
                 {unboxed ? (
-                  <div className="rounded-2xl border border-white/15 py-2">
+                  <div>
                     <img
                       src={variant.image ?? kit3PotesBrinde.url}
                       alt={`${variant.units} NutraHelp`}
