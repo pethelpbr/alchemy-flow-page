@@ -442,8 +442,8 @@
 }
 @media (max-width: 640px) {
   .bf-top__container { height: 56px; }
-  .bf-top__frase { letter-spacing: 0.1em; gap: 6px; font-size: 10px; }
-  .bf-top__frase b { font-size: 18px; }
+  .bf-top__frase { letter-spacing: 0.02em; gap: 4px; font-size: 8px; }
+  .bf-top__frase b { font-size: 14px; }
   .bf-top__frase svg:first-child { display: none; }
 }
 @keyframes bf-respira {
