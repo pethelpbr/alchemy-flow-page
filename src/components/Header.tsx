@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 const links = [
-  { label: "Benefícios", href: "#beneficios" },
-  { label: "Como funciona", href: "#como-usar" },
+  { label: "Produtos", href: "#produtos" },
+  { label: "Resultados", href: "#resultados" },
   { label: "Avaliações", href: "#avaliacoes" },
   { label: "FAQ", href: "#faq" },
 ];
