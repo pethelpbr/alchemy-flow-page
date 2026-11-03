@@ -20,6 +20,7 @@ import kit2Potes from "@/assets/kit-bf-2-potes.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v2.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
+import bocaGif from "@/assets/gif-boca.gif.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
@@ -157,6 +158,7 @@ const productDetails = [
   },
   {
     ...products[2],
+    img: bocaGif.url,
     what: "Solução para higiene bucal de quem não consegue escovar os dentes do pet.",
     ingredients: "Clorexidina, extrato de menta e aloe vera",
     change: "O hálito melhora e a formação de tártaro desacelera.",
