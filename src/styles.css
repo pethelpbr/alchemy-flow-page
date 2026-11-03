@@ -479,3 +479,14 @@
   0%, 100% { opacity: 0.55; transform: scale(0.9); }
   50% { opacity: 1; filter: drop-shadow(0 0 6px #FF8A3DE6); transform: scale(1.12); }
 }
+
+/* Posição inicial do header abaixo da tarja Black Friday (60px no desktop,
+   56px no celular) — evita o header cobrir a tarja antes da medição em JS. */
+.header-strip-offset {
+  top: 60px;
+}
+@media (max-width: 640px) {
+  .header-strip-offset {
+    top: 56px;
+  }
+}

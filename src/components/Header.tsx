@@ -29,8 +29,14 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
   useEffect(() => {
     const measure = () => setMarqueeH(marqueeRef.current?.offsetHeight ?? 0);
     measure();
+    // Re-medir sempre que a tarja mudar de altura (ex.: CSS chegando depois da medição).
+    const ro = new ResizeObserver(measure);
+    if (marqueeRef.current) ro.observe(marqueeRef.current);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   const scrolled = scrollY > 24;
@@ -46,9 +52,10 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
         {topStrip ?? <MarqueeStrip tone="gift" size="slim" items={marqueeItems} />}
       </div>
       <header
-        style={{ top: Math.max(0, marqueeH - scrollY) }}
+        style={{ top: marqueeH ? Math.max(0, marqueeH - scrollY) : undefined }}
         className={cn(
           "fixed inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
+          topStrip && "header-strip-offset",
           scrolled
             ? "border-b border-border/70 bg-background/95 backdrop-blur-xl"
             : "border-b border-transparent bg-transparent",
