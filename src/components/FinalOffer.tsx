@@ -79,7 +79,7 @@ export function FinalOffer({
                     src={variant.image ?? kit3PotesBrinde.url}
                     alt={`${variant.units} NutraHelp`}
                     loading="lazy"
-                    className="mx-auto h-56 w-full max-w-80 object-contain sm:h-60 sm:max-w-none"
+                    className="mx-auto h-56 w-full max-w-80 scale-[1.14] object-contain sm:h-60 sm:max-w-none"
                   />
                 ) : bundleImages ? (
                   <div className="relative mx-auto flex h-56 w-full max-w-80 items-end justify-center overflow-hidden rounded-xl bg-foreground p-2 sm:h-60 sm:max-w-none">
