@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import productHero from "@/assets/product-hero.png.asset.json";
