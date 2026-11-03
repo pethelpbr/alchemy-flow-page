@@ -88,7 +88,7 @@ export function StickyMobileBuy({
             <div
               className="border-t border-border bg-background"
               style={
-                twoPots || withGift
+                shortStrip || fullStrip
                   ? undefined
                   : { paddingBottom: `max(0.5rem, ${SAFE_BOTTOM})` }
               }
