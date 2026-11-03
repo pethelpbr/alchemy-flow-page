@@ -122,7 +122,10 @@ export function StickyMobileBuy({
                   <BuyButton
                     size="sm"
                     onClick={onBuy}
-                    className="shrink-0 rounded-full px-5"
+                    className={cn(
+                      "shrink-0 rounded-full px-5",
+                      bfKit && "bg-[#17120E] text-[#FDFAF7] hover:bg-[#17120E]",
+                    )}
                   >
                     Comprar
                   </BuyButton>
