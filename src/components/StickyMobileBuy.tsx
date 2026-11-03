@@ -96,13 +96,7 @@ export function StickyMobileBuy({
               <div className="overflow-hidden">
                 <div className="flex items-center gap-3 px-3 py-2.5">
                   <img
-                    src={
-                      withGift
-                        ? kitThreePots.url
-                        : twoPots
-                          ? kitTwoPots.url
-                          : productHero.url
-                    }
+                    src={barImage}
                     alt=""
                     loading="lazy"
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
