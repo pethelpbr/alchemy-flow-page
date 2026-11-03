@@ -15,6 +15,7 @@ export function FinalOffer({
   heading,
   subheading,
   className,
+  unboxed = false,
 }: {
   selected: Variant;
   onSelect: (v: Variant) => void;
@@ -23,6 +24,8 @@ export function FinalOffer({
   addonIds: string[];
   onToggleAddon: (id: string) => void;
   className?: string;
+  /** Produtos soltos sobre o fundo da seção, sem card/caixa atrás. */
+  unboxed?: boolean;
 }) {
   const { variants, bundleImages } = useOffer();
   const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
