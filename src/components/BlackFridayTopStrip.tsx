@@ -15,7 +15,8 @@ export function BlackFridayTopStrip() {
       <span className="bf-top__reflexo" aria-hidden="true" />
       <div className="bf-top__container">
         <span className="bf-top__frase">
-          {bolt} Black Friday PetHelp <i aria-hidden="true">·</i> até <b>67%</b> de desconto {bolt}
+          {bolt} Black Friday PetHelp <i aria-hidden="true">·</i> até <b>67%</b> de desconto{" "}
+          <i aria-hidden="true">·</i> Frete grátis <i aria-hidden="true">·</i> 60 dias de garantia {bolt}
         </span>
       </div>
     </div>
