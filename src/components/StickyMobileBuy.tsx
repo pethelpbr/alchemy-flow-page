@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
 import { brl, variantTotals, type Variant } from "@/lib/product";
 import { BuyButton } from "@/components/ui/BuyButton";
 import productHero from "@/assets/product-hero.png.asset.json";
@@ -86,7 +87,9 @@ export function StickyMobileBuy({
         >
           {cardBar ? (
             <div
-              className="border-t border-border bg-background"
+              className={
+                bfKit ? "border-t border-border bg-primary" : "border-t border-border bg-background"
+              }
               style={
                 shortStrip || fullStrip || bfStrip
                   ? undefined
@@ -102,11 +105,11 @@ export function StickyMobileBuy({
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-ink">
+                    <p className={cn("text-[10px] font-bold uppercase tracking-[0.08em]", bfKit ? "text-[#17120E]" : "text-ink")}>
                       {barLabel}
                     </p>
                     <p className="flex min-w-0 items-baseline gap-1.5">
-                      <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
+                      <span className={cn("whitespace-nowrap text-lg font-bold leading-none", bfKit ? "text-[#17120E]" : "text-ink")}>
                         {brl(grandTotal)}
                       </span>
                       {!selected.hideInstallments && (
@@ -120,7 +123,10 @@ export function StickyMobileBuy({
                   <BuyButton
                     size="sm"
                     onClick={onBuy}
-                    className="shrink-0 rounded-full px-5"
+                    className={cn(
+                      "shrink-0 rounded-full px-5",
+                      bfKit && "bg-[#17120E] text-[#FDFAF7] hover:bg-[#17120E]",
+                    )}
                   >
                     Comprar
                   </BuyButton>
