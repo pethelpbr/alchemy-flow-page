@@ -129,6 +129,7 @@ export function StickyMobileBuy({
                         Economize {brl(selected.savings)}
                         {selected.compareAt != null &&
                           selected.compareAt > 0 &&
+                          selected.total != null &&
                           ` · ${Math.round((1 - selected.total / selected.compareAt) * 100)}% OFF`}
                       </p>
                     )}
