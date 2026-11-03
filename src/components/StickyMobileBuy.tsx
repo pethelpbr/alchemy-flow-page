@@ -29,11 +29,11 @@ export function StickyMobileBuy({
   const twoPots = selected.id === "2-un";
   const withGift = selected.id === "3-un-brinde";
   // Kits Black Friday seguem os mesmos princípios, com a foto e os dados do kit.
+  // Todos têm frete grátis, então a faixa da tarja é a mesma para os três.
   const bfKit = selected.id.startsWith("bf-");
-  const bfShortStrip = selected.id === "bf-2";
-  const bfFullStrip = selected.id === "bf-3";
-  const shortStrip = twoPots || bfShortStrip;
-  const fullStrip = withGift || bfFullStrip;
+  const shortStrip = twoPots;
+  const fullStrip = withGift;
+  const bfStrip = bfKit;
   const cardBar = singlePot || twoPots || withGift || bfKit;
   const barImage = withGift
     ? kitThreePots.url
