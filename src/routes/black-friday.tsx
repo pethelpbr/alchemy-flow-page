@@ -158,6 +158,7 @@ const productDetails = [
   },
   {
     ...products[2],
+    img: bocaGif.url,
     what: "Solução para higiene bucal de quem não consegue escovar os dentes do pet.",
     ingredients: "Clorexidina, extrato de menta e aloe vera",
     change: "O hálito melhora e a formação de tártaro desacelera.",
