@@ -166,7 +166,7 @@ const productDetails = [
 
 function KitContents() {
   return (
-    <section id="produtos" className="section bf-beige scroll-mt-24">
+    <section id="produtos" className="section bf-beige scroll-mt-16">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase text-primary">Conheça os produtos</p>
