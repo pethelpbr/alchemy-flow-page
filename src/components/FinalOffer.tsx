@@ -75,16 +75,12 @@ export function FinalOffer({
                 )}
 
                 {unboxed ? (
-                  <div className="relative">
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute left-1/2 top-[52%] h-44 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-2xl sm:h-52 sm:w-96"
-                    />
+                  <div className="rounded-2xl border border-white/15 py-2">
                     <img
                       src={variant.image ?? kit3PotesBrinde.url}
                       alt={`${variant.units} NutraHelp`}
                       loading="lazy"
-                      className="relative mx-auto h-56 w-full max-w-80 scale-[1.14] object-contain sm:h-60 sm:max-w-none"
+                      className="mx-auto h-56 w-full scale-[1.14] object-contain sm:h-60"
                     />
                   </div>
                 ) : bundleImages ? (
