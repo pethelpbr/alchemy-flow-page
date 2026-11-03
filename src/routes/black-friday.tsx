@@ -8,6 +8,7 @@ import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
 import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { BlackFridayTopStrip } from "@/components/BlackFridayTopStrip";
 import { LandingLayout } from "@/components/layout/LandingLayout";
 import { useCart } from "@/lib/use-cart";
 import { blackFridayVariants, type Variant } from "@/lib/product";
