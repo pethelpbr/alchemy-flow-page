@@ -8,6 +8,7 @@ import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
 import { TrustBadgesStrip } from "@/components/TrustBadgesStrip";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { BlackFridayTopStrip } from "@/components/BlackFridayTopStrip";
 import { LandingLayout } from "@/components/layout/LandingLayout";
 import { useCart } from "@/lib/use-cart";
 import { blackFridayVariants, type Variant } from "@/lib/product";
@@ -23,21 +24,6 @@ import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
 
-const bolt = (
-  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" className="inline-block">
-    <path fill="currentColor" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
-  </svg>
-);
-const bfMarquee = [
-  {
-    key: "bf",
-    node: (
-      <span className="inline-flex items-center gap-2">
-        {bolt} Black Friday PetHelp <span aria-hidden>·</span> até <b>67%</b> de desconto {bolt}
-      </span>
-    ),
-  },
-];
 
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
 const description =
@@ -225,7 +211,7 @@ function BlackFridayPage() {
 
   return (
     <OfferProvider offer={offer}>
-      <LandingLayout cart={cart} className="theme-bf" marqueeItems={bfMarquee}>
+      <LandingLayout cart={cart} className="theme-bf" topStrip={<BlackFridayTopStrip />}>
         <HeroSection
           selected={selected}
           onSelect={setSelected}
