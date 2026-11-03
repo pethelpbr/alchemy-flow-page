@@ -27,7 +27,7 @@ const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
 const description =
   "Black Friday PetHelp: kit com NutraHelp, PataHelp e BocaHelp a partir de R$ 149,90. Cuidado completo por dentro e por fora para cães e gatos.";
 
-export const Route = createFileRoute("/kit-black-friday")({
+export const Route = createFileRoute("/black-friday")({
   head: () => ({
     meta: [
       { title },
