@@ -13,7 +13,7 @@ const links = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export function Header({ onBuy, marqueeItems }: { onBuy: () => void; marqueeItems?: MarqueeItem[] }) {
+export function Header({ onBuy, marqueeItems }: { onBuy: () => void; marqueeItems?: MarqueeItem[] | undefined }) {
   const [scrollY, setScrollY] = useState(0);
   const [open, setOpen] = useState(false);
   const marqueeRef = useRef<HTMLDivElement>(null);

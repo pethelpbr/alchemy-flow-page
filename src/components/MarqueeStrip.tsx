@@ -29,12 +29,13 @@ const tones: Record<Tone, { strip: string; text: string; dot: string }> = {
 export function MarqueeStrip({
   tone = "primary",
   size = "default",
-  items = defaultItems,
+  items: itemsProp,
 }: {
-  items?: MarqueeItem[];
+  items?: MarqueeItem[] | undefined;
   tone?: Tone;
   size?: "default" | "slim";
 }) {
+  const items = itemsProp ?? defaultItems;
   const colors = tones[tone];
   const slim = size === "slim";
 

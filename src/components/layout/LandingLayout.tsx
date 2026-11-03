@@ -9,7 +9,7 @@ import { scrollToOffer } from "@/lib/scroll-to-offer";
 type Cart = ReturnType<typeof useCart>;
 
 /** Base compartilhada das landing pages por dor (/pele, /mobilidade, /intestino...). */
-export function LandingLayout({ cart, children, className, marqueeItems }: { cart: Cart; children: ReactNode; className?: string; marqueeItems?: MarqueeItem[] }) {
+export function LandingLayout({ cart, children, className, marqueeItems }: { cart: Cart; children: ReactNode; className?: string; marqueeItems?: MarqueeItem[] | undefined }) {
   const goToOffer = () => scrollToOffer();
   return (
     <div className={`min-h-screen bg-background text-foreground ${className ?? ""}`}>
