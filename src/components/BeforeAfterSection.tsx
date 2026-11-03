@@ -106,7 +106,7 @@ export function BeforeAfterSection({ className }: { className?: string }) {
 
 
   return (
-    <section id="resultados" className={`scroll-mt-24 bg-background px-6 py-10 md:py-12 ${className ?? ""}`} aria-labelledby="before-after-title">
+    <section id="resultados" className={`scroll-mt-16 bg-background px-6 py-10 md:py-12 ${className ?? ""}`} aria-labelledby="before-after-title">
       <div className="mx-auto max-w-6xl">
         <div className="w-full text-center">
           <h2
