@@ -22,6 +22,7 @@ import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaGif from "@/assets/gif-boca-v2.gif.asset.json";
 import nutraGif from "@/assets/gif-nutra.gif.asset.json";
+import pataGif from "@/assets/gif-pata.gif.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
@@ -153,6 +154,7 @@ const productDetails = [
   },
   {
     ...products[1],
+    img: pataGif.url,
     what: "Balm natural para patas, focinho e áreas ressecadas.",
     ingredients: "Manteiga de karité, cera de abelha e óleos vegetais",
     change: "A pata ressecada de tanto lamber volta a ficar macia e as rachaduras fecham.",
