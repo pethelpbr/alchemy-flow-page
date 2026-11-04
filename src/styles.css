@@ -353,21 +353,6 @@
   --card: #EFE6C9;
 }
 
-/* Rodapé do código de referência: bege #F7F1E8 com texto escuro. */
-.theme-bf footer {
-  background-color: #F7F1E8;
-  color: #3A2E22;
-}
-.theme-bf footer [class*="text-white"] {
-  color: #3A2E22;
-}
-.theme-bf footer a:hover {
-  color: #B43F02;
-}
-.theme-bf footer img {
-  filter: brightness(0);
-}
-
 /* Tarja do topo Black Friday — cópia do código de referência (Renova Be),
    com as cores/fontes do site: laranja #FF6B1A, Fields no número, Gabarito no texto. */
 .bf-top {
