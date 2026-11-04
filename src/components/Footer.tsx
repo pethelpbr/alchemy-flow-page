@@ -2,7 +2,7 @@ import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 export function Footer() {
   return (
-    <footer className="bg-[#353534] text-white">
+    <footer className="bg-[#000000] text-white">
       <div className="container-x py-14 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-start">
           <div>
