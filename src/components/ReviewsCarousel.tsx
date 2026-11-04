@@ -59,11 +59,11 @@ const reviews = [
 ];
 
 const breakdown = [
-  { stars: 5, count: 2045 },
-  { stars: 4, count: 242 },
-  { stars: 3, count: 73 },
-  { stars: 2, count: 36 },
-  { stars: 1, count: 22 },
+  { stars: 5, count: 1288 },
+  { stars: 4, count: 152 },
+  { stars: 3, count: 46 },
+  { stars: 2, count: 23 },
+  { stars: 1, count: 13 },
 ];
 
 const totalReviews = breakdown.reduce((sum, row) => sum + row.count, 0);
