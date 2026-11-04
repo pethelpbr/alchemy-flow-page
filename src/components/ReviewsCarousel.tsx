@@ -76,7 +76,7 @@ function RatingBreakdown() {
         <span className="font-display text-6xl leading-none text-ink sm:text-7xl">4,8</span>
         <div className="pt-1">
           <Stars size={24} rating={4.78} />
-          <p className="mt-1 text-base text-muted-foreground">+743 avaliações</p>
+          <p className="mt-1 text-base text-muted-foreground">1.522 avaliações</p>
         </div>
       </div>
 
