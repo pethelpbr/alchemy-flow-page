@@ -130,7 +130,7 @@ export function FinalOffer({
                   >
                     {hasFreeShipping ? "Frete grátis" : "Frete fixo"}
                   </span>
-                  {(isBestChoice || variant.tag) && (
+                  {(variant.tag || (isBestChoice && !variant.id.startsWith("bf-"))) && (
                     <span className="rounded-full bg-gift px-3 py-1.5 text-xs font-bold uppercase text-gift-foreground">
                       {variant.tag ?? "Brinde"}
                     </span>
