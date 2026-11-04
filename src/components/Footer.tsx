@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-[#5A4936] text-white">
       <div className="container-x py-14 md:py-16">
-        <div className="grid grid-cols-1 gap-10 border-b border-white/15 pb-11 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-12">
+        <div className="grid grid-cols-1 gap-10 border-b border-white/15 pb-11 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr] lg:gap-12">
           <div>
             <a href="/" aria-label="PetHelp">
               <img
@@ -19,15 +19,6 @@ export function Footer() {
             <p className="mt-[22px] max-w-[16ch] font-display text-[clamp(1.5rem,2.8vw,2.125rem)] leading-[1.2] text-white">
               Cuidar do seu pet, por dentro e por fora.
             </p>
-          </div>
-
-          <div>
-            <h4 className={titleCls}>Empresa</h4>
-            <ul className="mt-4 flex flex-col gap-2.5">
-              <li><a href="/" className={linkCls}>Nossa história</a></li>
-              <li><a href="/pele" className={linkCls}>NutraHelp</a></li>
-              <li><a href="/black-friday" className={linkCls}>Black Friday</a></li>
-            </ul>
           </div>
 
           <div>
