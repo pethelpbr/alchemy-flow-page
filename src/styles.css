@@ -278,11 +278,11 @@
 /* Seção marrom muito escuro (#2D2925) — "Escolha seu kit" da Black Friday,
    com produtos soltos sobre o fundo. */
 .bf-brown {
-  --background: #2D2925;
+  --background: #17120E;
   --foreground: #FDFAF7;
-  --card: #363029;
+  --card: #241C16;
   --card-foreground: #FDFAF7;
-  --popover: #363029;
+  --popover: #241C16;
   --popover-foreground: #FDFAF7;
   --muted: #3A342D;
   --muted-foreground: #B5A490;
@@ -302,11 +302,11 @@
 
 /* Seção escura (#1E1813) — antes e depois e "Escolha seu kit". */
 .bf-dark {
-  --background: #1E1813;
+  --background: #17120E;
   --foreground: #FDFAF7;
-  --card: #2A211A;
+  --card: #241C16;
   --card-foreground: #FDFAF7;
-  --popover: #2A211A;
+  --popover: #241C16;
   --popover-foreground: #FDFAF7;
   --muted: #342A20;
   --muted-foreground: #B5A490;
