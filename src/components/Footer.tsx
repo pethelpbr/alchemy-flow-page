@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-[#17120E] text-white">
       <div className="container-x py-14 md:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.25fr_1fr]">
           <div>
             <img
               src={petHelpLogo.url}
@@ -63,12 +63,13 @@ export function Footer() {
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
-            <p className="mt-5 text-sm text-white/60">Segunda a sexta, 9h às 16h</p>
+            <p className="mt-5 max-w-[260px] text-sm leading-relaxed text-white/60">Cuidado completo para o seu pet, por dentro e por fora.</p>
           </div>
 
           <div>
             <p className={titleCls}>Atendimento</p>
             <ul className="mt-4 space-y-3 text-sm">
+              <li className="text-white/60">Segunda a sexta, 9h às 16h</li>
               <li>
                 <span className="block text-white/50">Central de Atendimento</span>
                 <a
@@ -116,7 +117,7 @@ export function Footer() {
 
           <div>
             <p className={titleCls}>Formas de Pagamento</p>
-            <div className="mt-4 flex max-w-[260px] flex-wrap gap-2">
+            <div className="mt-4 grid w-fit grid-cols-4 gap-2 lg:grid-cols-3 xl:grid-cols-4">
               {[
                 { name: "Visa", el: <span className="text-[13px] font-black italic tracking-tight text-[#1A1F71]">VISA</span> },
                 { name: "Mastercard", el: (
@@ -146,15 +147,18 @@ export function Footer() {
                 </span>
               ))}
             </div>
-            <p className={`${titleCls} mt-6`}>Loja Segura</p>
+          </div>
+
+          <div>
+            <p className={titleCls}>Loja Segura</p>
             <a
               href="https://transparencyreport.google.com/safe-browsing/search?url=https:%2F%2Fpethelpoficial.com.br&hl=pt_BR"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Site 100% seguro - Site verificado Google"
-              className="mt-3 inline-block"
+              className="mt-4 inline-block rounded-md transition-opacity hover:opacity-90"
             >
-              <img src={seloSeguro.url} alt="Site 100% seguro - Site verificado Google" className="h-auto w-[200px]" loading="lazy" />
+              <img src={seloSeguro.url} alt="Site 100% seguro - Site verificado Google" className="h-auto w-[180px]" loading="lazy" />
             </a>
           </div>
         </div>
@@ -165,6 +169,7 @@ export function Footer() {
             medicamento e não substitui o tratamento indicado por médico
             veterinário. Os resultados podem variar de acordo com cada pet.
           </p>
+          <p className="mt-3 text-xs text-white/40">© {new Date().getFullYear()} PetHelp. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
