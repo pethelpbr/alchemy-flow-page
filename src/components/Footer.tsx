@@ -117,7 +117,7 @@ export function Footer() {
 
           <div>
             <p className={titleCls}>Formas de Pagamento</p>
-            <div className="mt-4 grid w-fit grid-cols-4 gap-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mt-4 grid w-fit grid-cols-[repeat(4,56px)] gap-1.5">
               {[
                 { name: "Visa", el: <span className="text-[13px] font-black italic tracking-tight text-[#1A1F71]">VISA</span> },
                 { name: "Mastercard", el: (
@@ -142,7 +142,7 @@ export function Footer() {
                   </span>
                 ) },
               ].map((m) => (
-                <span key={m.name} title={m.name} aria-label={m.name} className="flex h-8 w-[62px] items-center justify-center rounded-md bg-white">
+                <span key={m.name} title={m.name} aria-label={m.name} className="flex h-8 w-[56px] items-center justify-center rounded-md bg-white">
                   {m.el}
                 </span>
               ))}
