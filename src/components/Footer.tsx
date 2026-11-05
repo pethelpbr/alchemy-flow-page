@@ -117,7 +117,7 @@ export function Footer() {
 
           <div>
             <p className={titleCls}>Formas de Pagamento</p>
-            <div className="mt-4 grid w-fit grid-cols-[repeat(4,56px)] gap-1.5">
+            <div className="mt-4 flex max-w-[244px] flex-wrap gap-1.5">
               {[
                 { name: "Visa", el: <span className="text-[13px] font-black italic tracking-tight text-[#1A1F71]">VISA</span> },
                 { name: "Mastercard", el: (
