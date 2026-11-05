@@ -87,9 +87,7 @@ export function StickyMobileBuy({
         >
           {cardBar ? (
             <div
-              className={
-                bfKit ? "border-t border-border bg-primary" : "border-t border-border bg-background"
-              }
+              className="border-t border-border bg-background"
               style={
                 shortStrip || fullStrip || bfStrip
                   ? undefined
@@ -105,20 +103,20 @@ export function StickyMobileBuy({
                     className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className={cn("font-bold uppercase tracking-[0.08em]", bfKit ? "text-[13px] text-[#17120E]" : "text-[10px] text-ink")}>
+                    <p className={cn("font-bold uppercase tracking-[0.08em]", bfKit ? "text-[13px] text-ink" : "text-[10px] text-ink")}>
                       {barLabel}
                       {bfKit && selected.detail && (
-                        <span className="block text-[9px] font-semibold normal-case tracking-normal text-[#17120E]/80">
+                        <span className="block text-[9px] font-semibold normal-case tracking-normal text-muted-foreground">
                           {selected.detail.replace(/\n/g, " · ")}
                         </span>
                       )}
                     </p>
                     <p className="flex min-w-0 items-baseline gap-1.5">
-                      <span className={cn("whitespace-nowrap text-lg font-bold leading-none", bfKit ? "text-[#17120E]" : "text-ink")}>
+                      <span className={cn("whitespace-nowrap text-lg font-bold leading-none", "text-ink")}>
                         {brl(grandTotal)}
                       </span>
                       {!selected.hideInstallments && (
-                        <span className={cn("whitespace-nowrap text-[11px]", bfKit ? "text-[#17120E]/80" : "text-muted-foreground")}>
+                        <span className={cn("whitespace-nowrap text-[11px]", "text-muted-foreground")}>
                           {withGift ? "· " : ""}
                           {selected.installments}x {brl(installmentValue)}
                         </span>
@@ -128,10 +126,7 @@ export function StickyMobileBuy({
                   <BuyButton
                     size="sm"
                     onClick={onBuy}
-                    className={cn(
-                      "shrink-0 rounded-full px-5",
-                      bfKit && "bg-[#17120E] text-[#FDFAF7] hover:bg-[#17120E]",
-                    )}
+                    className={cn("shrink-0 rounded-full px-5")}
                   >
                     Comprar
                   </BuyButton>
