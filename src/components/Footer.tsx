@@ -1,5 +1,6 @@
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
-import { Facebook, Instagram, Lock, ShieldCheck } from "lucide-react";
+import seloSeguro from "@/assets/selo-site-seguro-google.png.asset.json";
+import { Facebook, Instagram, Mail, Youtube } from "lucide-react";
 
 const linkCls = "text-white/75 transition-colors hover:text-white";
 const titleCls = "font-display text-base text-white";
@@ -34,19 +35,40 @@ export function Footer() {
               >
                 <Facebook className="h-5 w-5" />
               </a>
+              <a
+                href="mailto:contato@pethelp.com.br"
+                aria-label="E-mail da PetHelp"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-primary hover:text-primary"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok da PetHelp"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-primary hover:text-primary"
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.77.12V9.77a5.7 5.7 0 1 0 4.91 5.63V9.13a7.33 7.33 0 0 0 4.29 1.38V7.42a4.28 4.28 0 0 1-3.23-1.6z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube da PetHelp"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-primary hover:text-primary"
+              >
+                <Youtube className="h-5 w-5" />
+              </a>
             </div>
             <p className="mt-5 text-sm text-white/60">Segunda a sexta, 9h às 16h</p>
           </div>
 
           <div>
-            <p className={titleCls}>Dúvidas?</p>
+            <p className={titleCls}>Atendimento</p>
             <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <span className="block text-white/50">E-mail</span>
-                <a href="mailto:contato@pethelp.com.br" className={linkCls}>
-                  contato@pethelp.com.br
-                </a>
-              </li>
               <li>
                 <span className="block text-white/50">Central de Atendimento</span>
                 <a
@@ -129,11 +151,10 @@ export function Footer() {
               href="https://transparencyreport.google.com/safe-browsing/search?url=https:%2F%2Fpethelpoficial.com.br&hl=pt_BR"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-2 text-xs text-white/80 hover:text-white"
+              aria-label="Site 100% seguro - Site verificado Google"
+              className="mt-3 inline-block"
             >
-              <ShieldCheck className="h-4 w-4 text-primary" />
-              Google Safe Browsing
-              <Lock className="h-3.5 w-3.5" />
+              <img src={seloSeguro.url} alt="Site 100% seguro - Site verificado Google" className="h-auto w-[200px]" loading="lazy" />
             </a>
           </div>
         </div>
