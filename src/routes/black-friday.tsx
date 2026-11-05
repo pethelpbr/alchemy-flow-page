@@ -168,12 +168,9 @@ function StatsBand() {
             "radial-gradient(760px 300px at 50% 50%, rgba(20,15,11,0.88) 0%, rgba(20,15,11,0.74) 48%, rgba(20,15,11,0.60) 100%)",
         }}
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 px-4 text-center">
-        <p className="font-display text-5xl font-bold leading-none tracking-tight text-[#FDFAF7] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl">
-          +<span className="text-[#FFB06B]">150 mil</span> pets
-        </p>
-        <p className="text-sm font-semibold tracking-wide text-[#E8DBCA] sm:text-base">
-          já cuidados com a PetHelp
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+        <p className="font-display text-4xl font-bold leading-none tracking-tight text-[#FDFAF7] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl">
+          +<span className="text-[#FFB06B]">150 mil</span> Pets transformados
         </p>
       </div>
     </section>
