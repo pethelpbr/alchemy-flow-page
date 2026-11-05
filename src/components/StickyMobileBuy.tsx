@@ -112,11 +112,11 @@ export function StickyMobileBuy({
                       )}
                     </p>
                     <p className="flex min-w-0 items-baseline gap-1.5">
-                      <span className={cn("whitespace-nowrap text-lg font-bold leading-none", "text-ink")}>
+                      <span className="whitespace-nowrap text-lg font-bold leading-none text-ink">
                         {brl(grandTotal)}
                       </span>
                       {!selected.hideInstallments && (
-                        <span className={cn("whitespace-nowrap text-[11px]", "text-muted-foreground")}>
+                        <span className="whitespace-nowrap text-[11px] text-muted-foreground">
                           {withGift ? "· " : ""}
                           {selected.installments}x {brl(installmentValue)}
                         </span>
@@ -126,7 +126,7 @@ export function StickyMobileBuy({
                   <BuyButton
                     size="sm"
                     onClick={onBuy}
-                    className={cn("shrink-0 rounded-full px-5")}
+                    className="shrink-0 rounded-full px-5"
                   >
                     Comprar
                   </BuyButton>
