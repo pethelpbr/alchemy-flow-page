@@ -488,3 +488,8 @@
     top: 56px;
   }
 }
+
+/* Black Friday: sem degradê no início do topo. */
+.theme-bf .hero-fade {
+  display: none;
+}
