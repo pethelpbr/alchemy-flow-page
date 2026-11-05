@@ -32,6 +32,7 @@ import sinalLambePata from "@/assets/sinal-lambe-pata.png.asset.json";
 import sinalPatasRessecadas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
 import mosaicoPets from "@/assets/mosaico-pets-clientes.png.asset.json";
 import mosaicoPetsMobile from "@/assets/mosaico-pets-clientes-mobile-v2.png.asset.json";
+import mosaicoPetsMobileV3 from "@/assets/mosaico-pets-clientes-mobile-v3.png.asset.json";
 
 
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
@@ -163,7 +164,7 @@ function StatsBand() {
         className="absolute inset-0 hidden h-full w-full object-cover object-center sm:block lg:hidden"
       />
       <img
-        src={mosaicoPetsMobile.url}
+        src={mosaicoPetsMobileV3.url}
         alt=""
         aria-hidden="true"
         loading="lazy"
