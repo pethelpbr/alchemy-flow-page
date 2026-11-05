@@ -33,7 +33,7 @@ import sinalPatasRessecadas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.
 import mosaicoPets from "@/assets/mosaico-pets-clientes.png.asset.json";
 import mosaicoPetsMobile from "@/assets/mosaico-pets-clientes-mobile-v2.png.asset.json";
 import mosaicoPetsMobileV3 from "@/assets/mosaico-pets-clientes-mobile-v3.png.asset.json";
-import sinalTartaro from "@/assets/sinal-tartaro-dentes.jpg.asset.json";
+import sinalTartaro from "@/assets/sinal-tartaro-dentes-v2.jpg.asset.json";
 
 
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
