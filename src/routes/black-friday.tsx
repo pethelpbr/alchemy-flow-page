@@ -169,7 +169,10 @@ function StatsBand() {
         }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-        <p className="font-display text-[clamp(36px,11vw,50px)] font-bold leading-none tracking-tight text-[#FDFAF7] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl">
+        <p
+          className="font-display font-bold leading-none tracking-tight text-[#FDFAF7] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]"
+          style={{ fontSize: "clamp(28px, 4.5vw, 60px)" }}
+        >
           +<span className="text-primary">150 mil</span> Pets transformados
         </p>
       </div>
