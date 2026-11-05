@@ -34,6 +34,7 @@ import mosaicoPets from "@/assets/mosaico-pets-clientes.png.asset.json";
 import mosaicoPetsMobile from "@/assets/mosaico-pets-clientes-mobile-v2.png.asset.json";
 import mosaicoPetsMobileV3 from "@/assets/mosaico-pets-clientes-mobile-v3.png.asset.json";
 import sinalTartaro from "@/assets/sinal-tartaro-dentes-v3.jpg.asset.json";
+import sinalMauHalito from "@/assets/sinal-mau-halito.jpg.asset.json";
 
 
 const title = "Kit Black Friday PetHelp | NutraHelp + PataHelp + BocaHelp";
@@ -111,7 +112,7 @@ const signs: { product: string; title: string; text: string; img?: string }[] = 
   { product: "NutraHelp", title: "Queda de pelos", text: "Pelo espalhado pela casa e falhas aparecendo na pelagem.", img: sinalQueda.url },
   { product: "PataHelp", title: "Lambe a pata", text: "De madrugada você escuta o barulho. O pelo da pata fica escuro e úmido.", img: sinalLambePata.url },
   { product: "PataHelp", title: "Patas ou focinho ressecados", text: "A pata fica áspera, com rachaduras, e o focinho ressecado.", img: sinalPatasRessecadas.url },
-  { product: "BocaHelp", title: "Mau hálito", text: "Dá para sentir de longe, e vai piorando com o tempo." },
+  { product: "BocaHelp", title: "Mau hálito", text: "Dá para sentir de longe, e vai piorando com o tempo.", img: sinalMauHalito.url },
   { product: "BocaHelp", title: "Tártaro nos dentes", text: "Aquela crosta amarelada na base do dente, junto da gengiva.", img: sinalTartaro.url },
 ];
 
