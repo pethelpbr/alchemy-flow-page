@@ -147,7 +147,7 @@ function SignsSection() {
 
 function StatsBand() {
   return (
-    <section className="relative h-[190px] overflow-hidden bg-[#1E1813] sm:h-[240px] lg:h-[300px]">
+    <section className="relative overflow-hidden bg-[#1E1813] sm:h-[240px] lg:h-[300px]">
       <img
         src={mosaicoPets.url}
         alt="Mosaico de fotos de pets de clientes"
@@ -159,7 +159,14 @@ function StatsBand() {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover object-center lg:hidden"
+        className="absolute inset-0 hidden h-full w-full object-cover object-center sm:block lg:hidden"
+      />
+      <img
+        src={mosaicoPetsMobile.url}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="block h-auto w-full sm:hidden"
       />
       <div
         className="absolute inset-0"
