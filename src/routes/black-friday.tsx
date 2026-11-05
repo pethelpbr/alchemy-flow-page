@@ -150,27 +150,17 @@ function SignsSection() {
 
 function StatsBand() {
   return (
-    <section className="relative overflow-hidden bg-[#1E1813]">
-      <img
-        src={mosaicoPets.url}
-        alt="Mosaico de fotos de pets de clientes"
-        loading="lazy"
-        className="hidden h-auto w-full lg:block"
-      />
-      <img
-        src={mosaicoPetsMobile.url}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="hidden h-auto w-full sm:block lg:hidden"
-      />
-      <img
-        src={mosaicoPetsMobileV3.url}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="block h-auto w-full sm:hidden"
-      />
+    <section className="relative aspect-[4/3] max-h-[390px] overflow-hidden bg-[#1E1813] md:aspect-[1/1] md:max-h-none lg:aspect-[4/1] lg:min-h-[180px] lg:max-h-[340px]">
+      <picture>
+        <source media="(max-width: 767px)" srcSet={mosaicoPetsMobileV3.url} />
+        <source media="(max-width: 1023px)" srcSet={mosaicoPetsMobile.url} />
+        <img
+          src={mosaicoPets.url}
+          alt="Mosaico de fotos de pets de clientes"
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+      </picture>
       <div
         className="absolute inset-0"
         style={{
@@ -179,7 +169,10 @@ function StatsBand() {
         }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-        <p className="font-display text-[clamp(36px,11vw,50px)] font-bold leading-none tracking-tight text-[#FDFAF7] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)] sm:text-6xl lg:text-7xl">
+        <p
+          className="font-display font-bold leading-none tracking-tight text-[#FDFAF7] [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]"
+          style={{ fontSize: "clamp(28px, 4.5vw, 60px)" }}
+        >
           +<span className="text-primary">150 mil</span> Pets transformados
         </p>
       </div>
