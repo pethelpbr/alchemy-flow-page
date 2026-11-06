@@ -71,16 +71,6 @@ export function Footer() {
                 <span className="block text-white/50">WhatsApp</span>
                 <a href="https://api.whatsapp.com/send?phone=5581999132620" target="_blank" rel="noopener noreferrer" className={linkCls}>(81) 99913-2620</a>
               </li>
-              <li>
-                <a
-                  href="https://api.whatsapp.com/send?phone=5581983109180&text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20compra%20em%20atacado."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-primary hover:underline"
-                >
-                  Seja Revendedor
-                </a>
-              </li>
             </ul>
           </div>
 
