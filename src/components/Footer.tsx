@@ -1,5 +1,4 @@
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
-import seloSeguro from "@/assets/selo-site-seguro-google-fddb7a.png.asset.json";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const linkCls = "text-white/75 transition-colors hover:text-white";
@@ -132,7 +131,28 @@ export function Footer() {
               aria-label="Site 100% seguro - Site verificado Google"
               className="mt-4 inline-block rounded-md transition-opacity hover:opacity-90"
             >
-              <img src={seloSeguro.url} alt="Site 100% seguro - Site verificado Google" className="h-auto w-[180px]" loading="lazy" />
+              <span className="flex w-[180px] flex-col items-start gap-1 text-[#17120E]">
+                <span className="flex w-full items-center gap-2 rounded-sm bg-gift px-2 py-1.5">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="10" width="13" height="11" rx="2" />
+                    <path d="M6 10V7a3.5 3.5 0 0 1 7 0v3" />
+                    <circle cx="17.5" cy="17.5" r="4.5" fill="var(--gift)" />
+                    <path d="M15.6 17.6l1.3 1.3 2.4-2.6" />
+                  </svg>
+                  <span className="whitespace-nowrap text-[13px] font-semibold tracking-tight">SITE 100% SEGURO</span>
+                </span>
+                <span className="flex items-center gap-1.5 rounded-sm bg-gift px-2 py-1">
+                  <svg viewBox="0 0 24 24" className="h-6 w-5 shrink-0" aria-hidden="true">
+                    <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z" fill="currentColor" />
+                    <path d="M12 2l8 3v6c0 5-3.4 9.4-8 11z" fill="#B7B7B7" />
+                    <path d="M8.5 12l2.3 2.3 4.7-4.8" fill="none" stroke="var(--gift)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="flex flex-col leading-none">
+                    <span className="text-[7px] font-medium">Site Verificado</span>
+                    <span className="text-[20px] font-semibold tracking-tight">Google</span>
+                  </span>
+                </span>
+              </span>
             </a>
           </div>
         </div>
