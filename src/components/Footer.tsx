@@ -36,7 +36,7 @@ export function Footer() {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@usepethelp?lang=pt-BR"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok da PetHelp"
