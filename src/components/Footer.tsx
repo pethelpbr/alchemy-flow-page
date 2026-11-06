@@ -117,7 +117,7 @@ export function Footer() {
 
           <div>
             <p className={titleCls}>Formas de Pagamento</p>
-            <div className="mt-4 flex max-w-[244px] flex-wrap gap-1.5">
+            <div className="mt-4 grid w-fit grid-cols-3 gap-1.5">
               {[
                 { name: "Visa", el: <span className="text-[13px] font-black italic tracking-tight text-[#1A1F71]">VISA</span> },
                 { name: "Mastercard", el: (
@@ -133,12 +133,6 @@ export function Footer() {
                   <span className="flex items-center gap-1 text-[12px] font-bold text-[#32BCAD]">
                     <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" aria-hidden="true"><path fill="#32BCAD" d="M8 0l3.2 3.2-3.2 3.2-3.2-3.2zM8 9.6l3.2 3.2L8 16l-3.2-3.2zM0 8l3.2-3.2L6.4 8 3.2 11.2zM9.6 8l3.2-3.2L16 8l-3.2 3.2z"/></svg>
                     pix
-                  </span>
-                ) },
-                { name: "Boleto", el: (
-                  <span className="flex items-center gap-1 text-[10px] font-bold text-[#333]">
-                    <svg viewBox="0 0 16 12" className="h-3 w-4" aria-hidden="true"><path fill="#333" d="M0 0h1v12H0zM2 0h2v12H2zM5 0h1v12H5zM7 0h2v12H7zM10 0h1v12h-1zM12 0h1v12h-1zM14 0h2v12h-2z"/></svg>
-                    Boleto
                   </span>
                 ) },
               ].map((m) => (
