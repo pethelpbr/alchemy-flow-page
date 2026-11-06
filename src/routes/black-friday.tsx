@@ -30,8 +30,6 @@ import sinalCoceira from "@/assets/sinal-cocira.png.asset.json";
 import sinalQueda from "@/assets/sinal-queda-pelos.png.asset.json";
 import sinalLambePata from "@/assets/sinal-lambe-pata.png.asset.json";
 import sinalPatasRessecadas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
-import mosaicoPets from "@/assets/mosaico-pets-clientes.png.asset.json";
-import mosaicoPetsMobile from "@/assets/mosaico-pets-clientes-mobile-v2.png.asset.json";
 import mosaicoPetsMobileV3 from "@/assets/mosaico-pets-mobile-v4.png.asset.json";
 import mosaicoPetsDesktop from "@/assets/mosaico-pets-desktop-v2.png.asset.json";
 import sinalTartaro from "@/assets/sinal-tartaro-dentes-v3.jpg.asset.json";
