@@ -47,7 +47,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@pethelpoficial"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube da PetHelp"
@@ -81,17 +81,6 @@ export function Footer() {
             <p className={titleCls}>Atendimento</p>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="text-white/60">Segunda a sexta, 9h às 16h</li>
-              <li>
-                <span className="block text-white/50">Central de Atendimento</span>
-                <a
-                  href="https://api.whatsapp.com/send?phone=5581999132620"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkCls}
-                >
-                  Clique aqui
-                </a>
-              </li>
               <li>
                 <a
                   href="https://api.whatsapp.com/send?phone=5581983109180&text=Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20compra%20em%20atacado."
