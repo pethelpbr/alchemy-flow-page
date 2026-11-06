@@ -30,9 +30,8 @@ import sinalCoceira from "@/assets/sinal-cocira.png.asset.json";
 import sinalQueda from "@/assets/sinal-queda-pelos.png.asset.json";
 import sinalLambePata from "@/assets/sinal-lambe-pata.png.asset.json";
 import sinalPatasRessecadas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
-import mosaicoPets from "@/assets/mosaico-pets-clientes.png.asset.json";
-import mosaicoPetsMobile from "@/assets/mosaico-pets-clientes-mobile-v2.png.asset.json";
-import mosaicoPetsMobileV3 from "@/assets/mosaico-pets-clientes-mobile-v3.png.asset.json";
+import mosaicoPetsMobileV3 from "@/assets/mosaico-pets-mobile-v4.png.asset.json";
+import mosaicoPetsDesktop from "@/assets/mosaico-pets-desktop-v2.png.asset.json";
 import sinalTartaro from "@/assets/sinal-tartaro-dentes-v3.jpg.asset.json";
 import sinalMauHalito from "@/assets/sinal-mau-halito-v3.png.asset.json";
 
@@ -151,15 +150,14 @@ function SignsSection() {
 
 function StatsBand() {
   return (
-    <section className="relative aspect-[4/3] max-h-[390px] overflow-hidden bg-[#1E1813] md:aspect-[1/1] md:max-h-none lg:aspect-[4/1] lg:min-h-[180px] lg:max-h-[340px]">
+    <section className="relative overflow-hidden bg-[#1E1813]">
       <picture>
         <source media="(max-width: 767px)" srcSet={mosaicoPetsMobileV3.url} />
-        <source media="(max-width: 1023px)" srcSet={mosaicoPetsMobile.url} />
         <img
-          src={mosaicoPets.url}
+          src={mosaicoPetsDesktop.url}
           alt="Mosaico de fotos de pets de clientes"
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="block h-auto w-full"
         />
       </picture>
       <div
