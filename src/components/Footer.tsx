@@ -158,7 +158,15 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6">
-          <p className="text-xs text-white/40">© {new Date().getFullYear()} PetHelp. Todos os direitos reservados.</p>
+          <div className="flex flex-col gap-1.5 text-center text-xs leading-relaxed text-white/50 md:flex-row md:items-center md:justify-between md:text-left">
+            <p>
+              © 2026 <span className="font-semibold text-white/70">PETHELP COMERCIO LTDA</span>
+              <span className="mx-2 hidden md:inline">·</span>
+              <br className="md:hidden" />
+              CNPJ: 33.562.236/0001-70
+            </p>
+            <p>Av. Eng. Domingos Ferreira, 2050, Sala 06 – Boa Viagem, Recife – PE, 51111-020</p>
+          </div>
         </div>
       </div>
     </footer>
