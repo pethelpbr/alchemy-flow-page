@@ -1,4 +1,4 @@
-import vetRivaldo from "@/assets/vet-rivaldo-kit-bf-final.png.asset.json";
+import vetRivaldo from "@/assets/vet-rivaldo-kit-bf-final-v2.png.asset.json";
 
 // Seções do kit Black Friday com conteúdo provisório ([PREENCHER]) para editar depois.
 
