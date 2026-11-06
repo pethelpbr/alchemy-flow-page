@@ -158,12 +158,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6">
-          <p className="max-w-3xl text-xs leading-relaxed text-white/55">
-            O NutraHelp é um suplemento alimentar para cães e gatos. Não é
-            medicamento e não substitui o tratamento indicado por médico
-            veterinário. Os resultados podem variar de acordo com cada pet.
-          </p>
-          <p className="mt-3 text-xs text-white/40">© {new Date().getFullYear()} PetHelp. Todos os direitos reservados.</p>
+          <p className="text-xs text-white/40">© {new Date().getFullYear()} PetHelp. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
