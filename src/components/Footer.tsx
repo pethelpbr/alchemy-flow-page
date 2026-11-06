@@ -1,5 +1,5 @@
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
-import seloSeguro from "@/assets/selo-site-seguro-google-amarelo.png.asset.json";
+import seloSeguro from "@/assets/selo-site-seguro-google-fddb7a.png.asset.json";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const linkCls = "text-white/75 transition-colors hover:text-white";
