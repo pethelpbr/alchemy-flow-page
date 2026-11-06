@@ -116,13 +116,13 @@ export function ItchingOriginsPage() {
 
         <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="rounded-2xl bg-[#504333] p-6 sm:p-[26px_28px]">
-            <span className="inline-block rounded-full bg-[#FFDF78] px-[11px] py-1.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#504333]">No intestino</span>
+            <span className="inline-block rounded-full bg-[#FDDB7A] px-[11px] py-1.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#504333]">No intestino</span>
             <h3 className="mb-[9px] mt-[14px] font-display text-[24px] font-bold leading-[1.15] text-[#FDFAF7] sm:text-[26px]">Equilibra a flora</h3>
             <p className="text-[15.5px] leading-[1.55] text-[#E0D5C6] sm:text-[16.5px]">5 probióticos e 2 prebióticos ocupam o lugar das bactérias ruins. Com o intestino reequilibrado, a pele reage menos.</p>
           </article>
 
           <article className="rounded-2xl bg-[#504333] p-6 sm:p-[26px_28px]">
-            <span className="inline-block rounded-full bg-[#FFDF78] px-[11px] py-1.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#504333]">Na pele</span>
+            <span className="inline-block rounded-full bg-[#FDDB7A] px-[11px] py-1.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#504333]">Na pele</span>
             <h3 className="mb-[9px] mt-[14px] font-display text-[24px] font-bold leading-[1.15] text-[#FDFAF7] sm:text-[26px]">Reconstrói a barreira</h3>
             <p className="text-[15.5px] leading-[1.55] text-[#E0D5C6] sm:text-[16.5px]">Ômega 3, zinco, biotina e aminoácidos são o material que a pele usa para refazer a camada de proteção e produzir novos pelos.</p>
           </article>

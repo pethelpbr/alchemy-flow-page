@@ -202,7 +202,7 @@
 }
 
 /* Tema Black Friday: fundos copiados do código de referência
-   (#17120E base, #FDFAF7/#F7F1E8 claros, #1E1813 escuro, #FFDF78 garantia). */
+   (#17120E base, #FDFAF7/#F7F1E8 claros, #1E1813 escuro, #FDDB7A garantia). */
 .theme-bf {
   --background: #17120E;
   --foreground: #FDFAF7;
@@ -213,14 +213,14 @@
   --muted: #342A20;
   --muted-foreground: #B5A490;
   --accent: #3D2E1F;
-  --accent-foreground: #FFDF78;
+  --accent-foreground: #FDDB7A;
   --border: #473A2D;
   --input: #473A2D;
   --sand: #342A20;
   --clay: #453629;
   --ink: #FDFAF7;
   --terracotta: #FF8A3D;
-  --gold: #FFDF78;
+  --gold: #FDDB7A;
   --dosage: #342A20;
   background-color: var(--background);
   color: var(--foreground);
@@ -287,14 +287,14 @@
   --muted: #3A342D;
   --muted-foreground: #B5A490;
   --accent: #3D362E;
-  --accent-foreground: #FFDF78;
+  --accent-foreground: #FDDB7A;
   --border: #453E36;
   --input: #453E36;
   --sand: #3A342D;
   --clay: #453E36;
   --ink: #FDFAF7;
   --terracotta: #FF8A3D;
-  --gold: #FFDF78;
+  --gold: #FDDB7A;
   --dosage: #3A342D;
   background-color: var(--background);
   color: var(--foreground);
@@ -311,22 +311,22 @@
   --muted: #342A20;
   --muted-foreground: #B5A490;
   --accent: #3D2E1F;
-  --accent-foreground: #FFDF78;
+  --accent-foreground: #FDDB7A;
   --border: #473A2D;
   --input: #473A2D;
   --sand: #342A20;
   --clay: #453629;
   --ink: #FDFAF7;
   --terracotta: #FF8A3D;
-  --gold: #FFDF78;
+  --gold: #FDDB7A;
   --dosage: #342A20;
   background-color: var(--background);
   color: var(--foreground);
 }
 
-/* Faixa amarela (#FFDF78) — garantia. */
+/* Faixa amarela (#FDDB7A) — garantia. */
 .bf-yellow {
-  --background: #FFDF78;
+  --background: #FDDB7A;
   --foreground: #3A2E22;
   --card: #FFF6E6;
   --card-foreground: #3A2E22;
@@ -338,7 +338,7 @@
   --accent-foreground: #3A2E22;
   --border: rgb(58 46 34 / 0.25);
   --input: rgb(58 46 34 / 0.25);
-  --sand: #FFDF78;
+  --sand: #FDDB7A;
   --clay: rgb(58 46 34 / 0.2);
   --ink: #3A2E22;
   --terracotta: #7A2E02;
