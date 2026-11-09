@@ -232,7 +232,7 @@ function KitContents() {
         <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
           {productDetails.map((p) => (
             <article key={p.name} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
-              <LazyLoopVideo {...p.video} label={p.name} className="aspect-square w-full object-cover" />
+              <LazyLoopVideo {...p.video} label={p.name ?? ""} className="aspect-square w-full object-cover" />
               <div className="flex flex-1 flex-col gap-4 p-5">
                 <div>
                   <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
