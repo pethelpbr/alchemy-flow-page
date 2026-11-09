@@ -4,5 +4,5 @@
 - [ ] Links de checkout dos 3 kits Black Friday (aguardando links)
 - [x] Aumentar o texto "+150 mil Pets transformados" na faixa (celular)
 - [x] Ajustar a copy do topo da /black-friday (título, frase, bullets e tarja) conforme a captura enviada
-- [ ] Igualar o estilo do carrossel mobile da Black Friday ao da /pele, com arraste e progresso
-- [ ] Trocar o título dos produtos por “Cuida por dentro / Protege por fora” em duas linhas
+- [x] Igualar o estilo do carrossel mobile da Black Friday ao da /pele, com arraste e progresso
+- [x] Trocar o título dos produtos por “Cuida por dentro / Protege por fora” em duas linhas
