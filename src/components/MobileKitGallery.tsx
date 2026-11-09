@@ -125,7 +125,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         }}
       >
         {shots.map((shot, i) => (
-          <div key={shot.src} className="relative w-full shrink-0 snap-start" aria-label={`Foto ${i + 1} de ${shots.length}`} aria-current={active === i ? "true" : undefined}>
+          <div key={shot.src} className={`relative shrink-0 snap-start ${i === 1 ? "w-[104%]" : "w-full"}`} aria-label={`Foto ${i + 1} de ${shots.length}`} aria-current={active === i ? "true" : undefined}>
             <img src={shot.src} alt={shot.alt} draggable={false} className="block h-auto w-full" />
             {i === 0 && (
               <div className="pointer-events-none absolute right-2 top-[3%] grid h-12 w-12 place-items-center rounded-full bg-card">
