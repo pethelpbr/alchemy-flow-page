@@ -21,9 +21,9 @@ function Slot({ label, className = "" }: { label: string; className?: string }) 
 }
 
 const stats = [
-  { product: "NutraHelp", text: "notaram o pet se coçando menos" },
-  { product: "PataHelp", text: "viram irritações e feridas cicatrizando mais rápido" },
-  { product: "BocaHelp", text: "notaram o hálito mais fresco" },
+  { product: "NutraHelp", percentage: 96, text: "notaram o pet se coçando e se lambendo menos" },
+  { product: "PataHelp", percentage: 97, text: "viram irritações e feridas cicatrizando mais rápido" },
+  { product: "BocaHelp", percentage: 98, text: "notaram o hálito mais fresco" },
 ];
 
 export function KitStatsSection() {
@@ -33,15 +33,12 @@ export function KitStatsSection() {
         <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/25">
           {stats.map((s) => (
             <div key={s.product} className="text-center">
-              <p className="font-display text-5xl leading-none text-white">[__%]</p>
+              <p className="font-display text-5xl leading-none text-white">{s.percentage}%</p>
               <p className="mx-auto mt-2 max-w-[230px] text-sm text-[#FFEBD9]">{s.text}</p>
               <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.1em] text-[#7A2E02]">{s.product}</p>
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-7 max-w-2xl text-center text-xs text-[#FFD9BC]">
-          [PREENCHER com os dados reais da pesquisa: número de respondentes, período e metodologia.]
-        </p>
       </div>
     </section>
   );
