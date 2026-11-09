@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
+import { MobileKitGallery } from "@/components/MobileKitGallery";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
@@ -84,13 +85,17 @@ function KitGallery({ selected }: { selected: Variant }) {
   const activeSrc = i === null && kitImage ? kitImage : shots[i ?? 0];
   return (
     <div>
-      <div className="relative overflow-hidden rounded-2xl">
+      <MobileKitGallery key={selected.id} shots={[
+        { src: kitImage ?? kitCompleto.url, alt: `Kit Black Friday ${selected.label}` },
+        ...products.map((product) => ({ src: product.img, alt: product.name })),
+      ]} />
+      <div className="relative hidden overflow-hidden rounded-2xl md:block">
         <img src={activeSrc} alt="Produto do kit Black Friday" className="aspect-square w-full object-cover" />
         <span className="absolute left-4 top-4 rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase text-primary-foreground">
           Black Friday
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-3">
+      <div className="mt-3 hidden grid-cols-3 gap-3 md:grid">
         {shots.map((s, idx) => (
           <button
             key={s}
@@ -213,8 +218,8 @@ function KitContents() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase text-primary">Conheça os produtos</p>
           <h2 className="mt-3 font-display text-4xl leading-tight text-foreground lg:text-5xl">
-            Cada um cuida de uma parte.
-            <br /> Juntos, cobrem o pet inteiro.
+            Cuida por dentro
+            <br /> Protege por fora
           </h2>
         </div>
         <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
