@@ -269,12 +269,12 @@ function BlackFridayPage() {
           onToggleAddon={toggleAddon}
           showDetails={false}
           gallery={<KitGallery selected={selected} />}
-          title="Cuide do seu pet por dentro, da boca e das patas"
+          title="Saúde completa para o pet que se coça, se lambe e tem mau hálito"
           eyebrow="Black Friday · 3 produtos · cães e gatos"
-          intro="Os três produtos da PetHelp em um kit só, pelo menor preço do ano."
+          intro="Tudo que ele precisa, pelo menor preço do ano."
           bullets={[
-            "Menos coceira, menos lambedura e menos queda de pelo com o NutraHelp",
-            "Patas e focinho hidratados e protegidos com o PataHelp",
+            "Reduz alergias, irritações e queda de pelo com o NutraHelp",
+            "Alívio na pata lambida e no focinho ressecado com o PataHelp",
             "Hálito fresco e menos tártaro com o BocaHelp",
           ]}
         />
