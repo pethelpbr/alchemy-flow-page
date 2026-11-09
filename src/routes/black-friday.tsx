@@ -21,9 +21,16 @@ import kit2Potes from "@/assets/kit-bf-2-potes-v2.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v5.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
-import bocaGif from "@/assets/gif-boca-v2.gif.asset.json";
-import nutraGif from "@/assets/gif-nutra.gif.asset.json";
-import pataGif from "@/assets/gif-pata.gif.asset.json";
+import { LazyLoopVideo } from "@/components/LazyLoopVideo";
+import bocaMp4 from "@/assets/produto-boca-v2.mp4.asset.json";
+import bocaWebm from "@/assets/produto-boca-v2.webm.asset.json";
+import bocaPoster from "@/assets/produto-boca-v2-poster.jpg.asset.json";
+import nutraMp4 from "@/assets/produto-nutra.mp4.asset.json";
+import nutraWebm from "@/assets/produto-nutra.webm.asset.json";
+import nutraPoster from "@/assets/produto-nutra-poster.jpg.asset.json";
+import pataMp4 from "@/assets/produto-pata.mp4.asset.json";
+import pataWebm from "@/assets/produto-pata.webm.asset.json";
+import pataPoster from "@/assets/produto-pata-poster.jpg.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import bocaFrasco from "@/assets/bocahelp-frasco.jpg.asset.json";
@@ -187,7 +194,7 @@ function StatsBand() {
 const productDetails = [
   {
     ...products[0],
-    img: nutraGif.url,
+    video: { mp4: nutraMp4.url, webm: nutraWebm.url, poster: nutraPoster.url },
     what: "Suplemento multifuncional em pó 8 em 1, com 44 nutrientes.",
     ingredients: "Ômega 3, biotina, pré e probióticos",
     change: "Se coça e se lambe menos, e o pelo volta a crescer nas falhas.",
@@ -195,7 +202,7 @@ const productDetails = [
   },
   {
     ...products[1],
-    img: pataGif.url,
+    video: { mp4: pataMp4.url, webm: pataWebm.url, poster: pataPoster.url },
     what: "Balm natural para patas, focinho e áreas ressecadas.",
     ingredients: "Manteiga de karité, cera de abelha e óleos vegetais",
     change: "A pata ressecada de tanto lamber volta a ficar macia e as rachaduras fecham.",
@@ -203,7 +210,7 @@ const productDetails = [
   },
   {
     ...products[2],
-    img: bocaGif.url,
+    video: { mp4: bocaMp4.url, webm: bocaWebm.url, poster: bocaPoster.url },
     what: "Solução para higiene bucal de quem não consegue escovar os dentes do pet.",
     ingredients: "Clorexidina, extrato de menta e aloe vera",
     change: "O hálito melhora e a formação de tártaro desacelera.",
@@ -225,7 +232,7 @@ function KitContents() {
         <div className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3">
           {productDetails.map((p) => (
             <article key={p.name} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
-              <img src={p.img} alt={p.name} loading="lazy" className="aspect-square w-full object-cover" />
+              <LazyLoopVideo {...p.video} label={p.name} className="aspect-square w-full object-cover" />
               <div className="flex flex-1 flex-col gap-4 p-5">
                 <div>
                   <h3 className="font-display text-2xl text-foreground">{p.name}</h3>
