@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import previousAttemptsImage from "@/assets/failed-treatments.jpg";
 import failedTreatments from "@/assets/itching-origins-banner.png.asset.json";
-import misturarPote from "@/assets/misturar-pote.png.asset.json";
+import nutraMp4 from "@/assets/produto-nutra.mp4.asset.json";
+import nutraWebm from "@/assets/produto-nutra.webm.asset.json";
+import nutraPoster from "@/assets/produto-nutra-poster.jpg.asset.json";
+import { LazyLoopVideo } from "@/components/LazyLoopVideo";
 import skinBarrierIcon from "@/assets/icon-barreira-pele.png.asset.json";
 import intestineIcon from "@/assets/icon-intestino.png.asset.json";
 import dogCatIcon from "@/assets/icon-caes-gatos.png.asset.json";
@@ -131,7 +134,13 @@ export function ItchingOriginsPage() {
         <div className="bg-[#F7F1E8] px-6 py-10 sm:px-8 sm:py-12 md:px-[72px]">
           <div className="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
             <div className="relative h-[259px] w-full shrink-0 overflow-hidden rounded-2xl bg-[#E0D3B4] md:w-[345px]">
-              <img src={misturarPote.url} alt="Pote do suplemento NutraHelp sobre fundo bege" className="absolute inset-0 h-full w-full object-cover" />
+              <LazyLoopVideo
+                mp4={nutraMp4.url}
+                webm={nutraWebm.url}
+                poster={nutraPoster.url}
+                label="Pote do suplemento NutraHelp"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
 
             <div className="flex min-w-0 flex-1 flex-col justify-center">
