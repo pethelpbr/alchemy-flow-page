@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-type Props = { mp4: string; webm: string; poster: string; label: string; className?: string };
+type Props = { mp4?: string; webm?: string; poster?: string; label: string; className?: string };
 
 /** Silent looping video that behaves like a GIF; downloads only when near the viewport. */
 export function LazyLoopVideo({ mp4, webm, poster, label, className }: Props) {
@@ -11,7 +11,9 @@ export function LazyLoopVideo({ mp4, webm, poster, label, className }: Props) {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
-      ([entry]) => {
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
         if (entry.isIntersecting) {
           setLoad(true);
           el.play().catch(() => {});
