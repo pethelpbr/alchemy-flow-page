@@ -132,8 +132,8 @@ export function ItchingOriginsPage() {
         </div>
 
         <div className="bg-[#F7F1E8] px-6 py-10 sm:px-8 sm:py-12 md:px-[72px]">
-          <div className="flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
-            <div className="relative h-[259px] w-full shrink-0 overflow-hidden rounded-2xl bg-[#E0D3B4] md:w-[345px]">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
+            <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl bg-[#E0D3B4] md:w-[345px]">
               <LazyLoopVideo
                 mp4={nutraMp4.url}
                 webm={nutraWebm.url}
