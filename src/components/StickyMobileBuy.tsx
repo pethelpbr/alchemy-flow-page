@@ -100,7 +100,12 @@ export function StickyMobileBuy({
                     src={barImage}
                     alt=""
                     loading="lazy"
-                    className="h-11 w-11 shrink-0 rounded-xl bg-muted object-cover"
+                    className={cn(
+                      "h-11 w-11 shrink-0 rounded-xl object-cover",
+                      // Na Black Friday a foto é recortada e fica solta na tarja,
+                      // sem o disco de fundo que aparece atrás dela.
+                      !bfKit && "bg-muted",
+                    )}
                   />
                   <div className="min-w-0 flex-1">
                     <p className={cn("font-bold uppercase tracking-[0.08em]", bfKit ? "text-[13px] text-ink" : "text-[10px] text-ink")}>
