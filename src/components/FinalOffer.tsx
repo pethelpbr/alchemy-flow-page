@@ -86,7 +86,7 @@ export function FinalOffer({
                       loading="lazy"
                       className="mx-auto h-56 w-full object-contain sm:h-60"
                       // Normalize against the PataHelp tin, not the overall kit width.
-                      style={{ transform: `scale(${variant.units === 1 ? 1.34 : variant.units === 2 ? 1.33 : 1.24})` }}
+                      style={{ transform: `scale(${variant.units === 1 ? 1.34 : variant.units === 2 ? 1.26 : 1.24})` }}
                     />
                   </div>
                 ) : bundleImages ? (
