@@ -8,6 +8,12 @@ import nutraHelpPot from "@/assets/kit-1-pote.png.asset.json";
 import kit3PotesBrinde from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit3Plain from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes-v4.png.asset.json";
+import kitBf3Card from "@/assets/kit-bf-3-card.png.asset.json";
+
+/** Fotos usadas só nos cards da seção de oferta (modo unboxed), por id de kit. */
+const unboxedCardImages: Record<string, string> = {
+  "bf-3": kitBf3Card.url,
+};
 
 export function FinalOffer({
   selected,
@@ -73,7 +79,7 @@ export function FinalOffer({
                 {unboxed ? (
                   <div>
                     <img
-                      src={variant.image ?? kit3PotesBrinde.url}
+                      src={unboxedCardImages[variant.id] ?? variant.image ?? kit3PotesBrinde.url}
                       alt={`${variant.units} NutraHelp`}
                       loading="lazy"
                       className="mx-auto h-56 w-full object-contain sm:h-60"
