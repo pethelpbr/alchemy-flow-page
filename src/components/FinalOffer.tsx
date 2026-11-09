@@ -15,12 +15,6 @@ const unboxedCardImages: Record<string, string> = {
   "bf-3": kitBf3Card.url,
 };
 
-/** Deslocamento vertical (px) para alinhar a base dos produtos entre os cards. */
-const unboxedCardOffset: Record<string, number> = {
-  "bf-2": -24,
-  "bf-3": -23,
-};
-
 export function FinalOffer({
   selected,
   onSelect,
@@ -90,7 +84,7 @@ export function FinalOffer({
                       loading="lazy"
                       className="mx-auto h-56 w-full object-contain sm:h-60"
                       // Normalize against the PataHelp tin, not the overall kit width.
-                      style={{ transform: `translateY(${unboxedCardOffset[variant.id] ?? 0}px) scale(${variant.units === 1 ? 1.26 : variant.units === 2 ? 1.25 : 1.18})` }}
+                      style={{ transform: `scale(${variant.units === 1 ? 1.26 : variant.units === 2 ? 1.25 : 1.18})` }}
                     />
                   </div>
                 ) : bundleImages ? (
