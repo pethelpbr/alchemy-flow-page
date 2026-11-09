@@ -9,9 +9,11 @@ import kit3PotesBrinde from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit3Plain from "@/assets/kit-3-potes-v4.png.asset.json";
 import kit2Potes from "@/assets/kit-2-potes-v4.png.asset.json";
 import kitBf3Card from "@/assets/kit-bf-3-card.png.asset.json";
+import kitBf2Card from "@/assets/kit-bf-2-card.png.asset.json";
 
 /** Fotos usadas só nos cards da seção de oferta (modo unboxed), por id de kit. */
 const unboxedCardImages: Record<string, string> = {
+  "bf-2": kitBf2Card.url,
   "bf-3": kitBf3Card.url,
 };
 
