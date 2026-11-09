@@ -155,5 +155,5 @@ export function buildCheckoutUrl(variant: Variant) {
 export const blackFridayVariants: [Variant, ...Variant[]] = [
   { id: "bf-1", units: 1, label: "1 NutraHelp", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 159.9, total: 159.9, compareAt: 348.5, savings: 188.6, installments: 10, externalId: null, image: kitBf1.url },
   { id: "bf-2", units: 2, label: "2 NutraHelps", detail: "+ 1 BocaHelp\n+ 1 PataHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 10, externalId: null, image: kitBf2.url },
-  { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 BocaHelps\n+ 1 PataHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 10, externalId: null, image: kitBf3.url },
+  { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 PataHelp\n+ 1 BocaHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 10, externalId: null, image: kitBf3.url },
 ];
