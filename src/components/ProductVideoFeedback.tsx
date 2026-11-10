@@ -179,7 +179,6 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
       <DialogContent onOpenAutoFocus={(event) => event.preventDefault()} className="flex max-h-[92dvh] w-[calc(100%_-_1.25rem)] max-w-[720px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-0 shadow-soft [&>button]:right-4 [&>button]:top-4 [&>button]:text-ink [&>button]:opacity-100">
         <div className="border-b border-border px-6 py-5">
           <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">Informação nutricional e ingredientes</DialogTitle>
-          <p className="mt-1 text-xs text-muted-foreground sm:text-sm">Cada tabela abaixo é de um produto diferente.</p>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
           <div className="space-y-6">
