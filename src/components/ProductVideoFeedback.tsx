@@ -233,7 +233,7 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
   );
 }
 
-export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { onBuy: () => void; showDetails?: boolean; kitCta?: string }) {
+export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const goingToKits = useRef(false);
