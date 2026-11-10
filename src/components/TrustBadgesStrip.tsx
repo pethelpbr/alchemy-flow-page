@@ -18,8 +18,8 @@ const badges = [
   },
   {
     icon: Clock,
-    title: "DESPACHOVEM 24H",
-    description: "Para pedidos na região de São Paulo.",
+    title: "DESPACHO EM 24H",
+    description: "Seu pedido sai de São Paulo no dia seguinte à compra.",
   },
 ];
 
