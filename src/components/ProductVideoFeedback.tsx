@@ -125,6 +125,49 @@ const guaranteeLevels: [string, string][] = [
 
 const qualitativeComposition = "Levedura de Cana de Açúcar Inativada e Desidratada, Ômega 3 (0,5%), Sulfato de Condroitina (0,5%), Calcário Magnesiano, Flor de Enxofre, Fosfato Bicálcico, Óxido de Magnésio, Cromo Aminoácido Quelato, Iodato de Cálcio, Selenito de Sódio, Sulfato de Cobalto, Sulfato de Cobre, Sulfato de Ferro, Sulfato de Manganês, Sulfato de Zinco Monohidratado, Vitamina A, Vitamina B1, Vitamina B2, Vitamina B6, Vitamina B12, Vitamina C, Vitamina D3, Vitamina E, Vitamina K3, Niacina, Biotina, Inositol, Cloreto de Colina, L-Lisina, DL-Metionina, L-Glutamina, L-Ácido Glutâmico, Taurina, Treonina, Triptofano, Extrato de Yucca, Aroma de Carne de Panela, Aditivo Prebiótico (1%) e Aditivo Probiótico (0,5%).";
 
+const pataComposition = "Manteiga de Karité, Cera de Abelha, Óleo de Coco, Óleo de Girassol, Óleo de Calêndula, Óleo de Oliva, Óleo de Jojoba, Óleo de Melaleuca e Vitamina E.";
+
+const bocaComposition = "Água purificada, Glicerina, Sorbitol, Eritriol, Extrato de Aloe Vera, Extrato de Menta, Gluconato de Clorexidina, Polisorbato 20, EDTA Dissódico, Benzoato de Sódio, Sorbato de Potássio e Corante Azul Brilhante.";
+
+const productAccents = {
+  nutra: { bar: "bg-primary", text: "text-primary", soft: "bg-[color-mix(in_oklab,var(--primary)_8%,var(--card))]" },
+  pata: { bar: "bg-pata", text: "text-pata", soft: "bg-[color-mix(in_oklab,var(--pata)_9%,var(--card))]" },
+  boca: { bar: "bg-boca", text: "text-boca", soft: "bg-[color-mix(in_oklab,var(--boca)_10%,var(--card))]" },
+};
+
+function ProductSection({ name, kind, accent, children }: { name: string; kind: string; accent: keyof typeof productAccents; children: React.ReactNode }) {
+  const a = productAccents[accent];
+  return (
+    <section className="overflow-hidden rounded-xl border border-border">
+      <div className={cn("flex items-center gap-2.5 border-b border-border px-4 py-3", a.soft)}>
+        <span aria-hidden="true" className={cn("h-8 w-1.5 shrink-0 rounded-full", a.bar)} />
+        <div className="min-w-0">
+          <p className={cn("font-display text-[15px] font-bold uppercase tracking-wide sm:text-base", a.text)}>{name}</p>
+          <p className="text-[11px] leading-tight text-muted-foreground sm:text-xs">{kind}</p>
+        </div>
+      </div>
+      <div className="p-3 sm:p-4">{children}</div>
+    </section>
+  );
+}
+
+function TableTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="border-b border-border bg-muted px-4 py-2.5 text-center">
+      <p className="text-xs font-bold uppercase tracking-wide text-ink sm:text-sm">{children}</p>
+    </div>
+  );
+}
+
+function CompositionList({ text }: { text: string }) {
+  return (
+    <div className="overflow-hidden rounded-lg border border-border bg-card">
+      <TableTitle>Composição</TableTitle>
+      <div className="px-4 pb-3 pt-1.5"><p className="text-sm leading-relaxed text-muted-foreground">{text}</p></div>
+    </div>
+  );
+}
+
 function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
