@@ -180,7 +180,7 @@ function BlackFridaySelector({
   onSelect: (v: Variant) => void;
 }) {
   return (
-    <div className="flex flex-col gap-2.5">
+    <div data-kit-selector className="flex flex-col gap-2.5">
       {variants.map((v) => {
         const { total } = variantTotals(v);
         const isActive = v.id === selected.id;
