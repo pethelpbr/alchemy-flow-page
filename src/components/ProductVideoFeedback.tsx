@@ -12,8 +12,8 @@ import depo1Video from "@/assets/depoimento-1.mp4.asset.json";
 import depo2Video from "@/assets/depoimento-2.mp4.asset.json";
 
 const feedbacks: { image: string; name: string; caption: string; problem: string; video?: string }[] = [
-  { image: depo2Cover.url, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata", video: depo2Video.url },
   { image: customer3, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos" },
+  { image: depo2Cover.url, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata", video: depo2Video.url },
   { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
 ];
 
