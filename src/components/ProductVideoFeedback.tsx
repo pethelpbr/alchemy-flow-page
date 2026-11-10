@@ -135,7 +135,7 @@ const productAccents = {
   boca: { bar: "bg-boca", text: "text-boca", soft: "bg-[color-mix(in_oklab,var(--boca)_10%,var(--card))]" },
 };
 
-function ProductSection({ name, kind, accent, children }: { name: string; kind: string; accent: keyof typeof productAccents; children: React.ReactNode }) {
+function ProductSection({ name, accent, children }: { name: string; accent: keyof typeof productAccents; children: React.ReactNode }) {
   const a = productAccents[accent];
   return (
     <section className="overflow-hidden rounded-xl border border-border">
@@ -143,7 +143,6 @@ function ProductSection({ name, kind, accent, children }: { name: string; kind: 
         <span aria-hidden="true" className={cn("h-11 w-2.5 shrink-0 rounded-full sm:h-12 sm:w-3", a.bar)} />
         <div className="min-w-0">
           <p className={cn("font-display text-lg font-bold uppercase tracking-wide sm:text-xl", a.text)}>{name}</p>
-          <p className="mt-0.5 text-xs leading-snug text-muted-foreground sm:text-[13px]">{kind}</p>
         </div>
       </div>
       <div className="p-3 sm:p-4">{children}</div>
@@ -178,7 +177,7 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
           <div className="space-y-6">
-            <ProductSection name="NutraHelp" kind="Suplemento em pó para cães e gatos" accent="nutra">
+            <ProductSection name="NutraHelp" accent="nutra">
               <div className="overflow-hidden rounded-lg border border-border">
                 <TableTitle>Níveis de garantia por kg do produto</TableTitle>
                 <ul className="grid sm:grid-cols-2">
@@ -195,11 +194,11 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
               </div>
             </ProductSection>
 
-            <ProductSection name="PataHelp" kind="Balm em pote para patas, focinho e áreas ressecadas" accent="pata">
+            <ProductSection name="PataHelp" accent="pata">
               <CompositionList text={pataComposition} />
             </ProductSection>
 
-            <ProductSection name="BocaHelp" kind="Solução oral para higiene dental de cães e gatos" accent="boca">
+            <ProductSection name="BocaHelp" accent="boca">
               <CompositionList text={bocaComposition} />
             </ProductSection>
           </div>
