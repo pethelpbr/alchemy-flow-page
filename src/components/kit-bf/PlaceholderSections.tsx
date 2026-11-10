@@ -63,8 +63,8 @@ export function KitVetSection() {
             <p className="text-lg italic text-foreground">
               “[DEPOIMENTO DO VETERINÁRIO — uma fala curta cobrindo os três produtos, sem prometer cura e sem citar doença.]”
             </p>
-            <p className="mt-4 font-bold text-foreground">[NOME DO VETERINÁRIO]</p>
-            <p className="text-sm text-muted-foreground">CRMV [NÚMERO] · [ESTADO]</p>
+            <p className="mt-4 font-bold text-foreground">Dr. Rivaldo Jr</p>
+            <p className="text-sm text-muted-foreground">CRMV 5731-PE</p>
           </div>
         </div>
       </div>
