@@ -61,7 +61,8 @@ export function KitVetSection() {
           />
           <div>
             <p className="text-lg italic text-foreground">
-              “[DEPOIMENTO DO VETERINÁRIO — uma fala curta cobrindo os três produtos, sem prometer cura e sem citar doença.]”
+              “As maiores queixas que chegam no meu consultório são coceira, lambedura excessiva e mau
+              hálito. Por isso eu indico os produtos da PetHelp. É o que eu vejo funcionar na prática.”
             </p>
             <p className="mt-4 font-bold text-foreground">Dr. Rivaldo Jr</p>
             <p className="text-sm text-muted-foreground">CRMV 5731-PE</p>
