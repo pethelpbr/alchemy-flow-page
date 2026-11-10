@@ -10,20 +10,19 @@ import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
 import depo1Video from "@/assets/depoimento-1.mp4.asset.json";
 
-const feedbacks: { image: string; name: string; caption: string; problem: string; duration: string; video?: string }[] = [
-  { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Coceira noturna", duration: "0:37", video: depo1Video.url },
-  { image: customer2, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata", duration: "0:38" },
-  { image: customer3, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos", duration: "1:02" },
+const feedbacks: { image: string; name: string; caption: string; problem: string; video?: string }[] = [
+  { image: customer2, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata" },
+  { image: customer3, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos" },
+  { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
 ];
 
-function VideoTags({ problem, duration, className }: { problem: string; duration: string; className?: string }) {
+function VideoTags({ problem, className }: { problem: string; className?: string }) {
   return (
     <span className={cn("pointer-events-none absolute inset-0", className)}>
       <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1.5 rounded-[10px] bg-card py-1.5 pl-2 pr-2.5 text-[10px] font-semibold leading-none text-ink shadow-card md:text-[13px]">
         <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
         <span className="whitespace-normal leading-tight">{problem}</span>
       </span>
-      <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-2 py-1.5 text-[10px] font-bold leading-none text-primary-foreground tabular-nums md:text-[13px]">{duration}</span>
     </span>
   );
 }
@@ -116,7 +115,7 @@ function Thumbnails({ className, onSelect, paused = false }: { className?: strin
               <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className="aspect-[9/14] w-full object-cover" />
             )}
             <span className="absolute inset-0 rounded-xl border border-transparent bg-ink/15 transition-colors group-hover:border-primary" />
-            <VideoTags problem={feedback.problem} duration={feedback.duration} />
+            <VideoTags problem={feedback.problem} />
             <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm"><Play className="ml-0.5 h-4 w-4 fill-current" /></span>
           </Button>
         </div>
@@ -317,7 +316,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { on
                 ) : (
                   <>
                     <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
-                    <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
+                    <VideoTags problem={selectedVideo.problem} className="md:inset-1.5" />
                   </>
                 )}
                 <Button type="button" variant="ghost" aria-label="Relato anterior" onClick={showPrevious} className="absolute left-3 top-1/2 z-20 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronLeft className="h-5 w-5" /></Button>
