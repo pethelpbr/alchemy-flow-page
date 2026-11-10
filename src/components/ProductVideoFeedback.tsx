@@ -139,11 +139,11 @@ function ProductSection({ name, kind, accent, children }: { name: string; kind: 
   const a = productAccents[accent];
   return (
     <section className="overflow-hidden rounded-xl border border-border">
-      <div className={cn("flex items-center gap-2.5 border-b border-border px-4 py-3", a.soft)}>
-        <span aria-hidden="true" className={cn("h-8 w-1.5 shrink-0 rounded-full", a.bar)} />
+      <div className={cn("flex items-center gap-3 border-b border-border px-4 py-4 sm:px-5", a.soft)}>
+        <span aria-hidden="true" className={cn("h-11 w-2.5 shrink-0 rounded-full sm:h-12 sm:w-3", a.bar)} />
         <div className="min-w-0">
-          <p className={cn("font-display text-[15px] font-bold uppercase tracking-wide sm:text-base", a.text)}>{name}</p>
-          <p className="text-[11px] leading-tight text-muted-foreground sm:text-xs">{kind}</p>
+          <p className={cn("font-display text-lg font-bold uppercase tracking-wide sm:text-xl", a.text)}>{name}</p>
+          <p className="mt-0.5 text-xs leading-snug text-muted-foreground sm:text-[13px]">{kind}</p>
         </div>
       </div>
       <div className="p-3 sm:p-4">{children}</div>
@@ -177,7 +177,7 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
           <p className="mt-1 text-xs text-muted-foreground sm:text-sm">Cada tabela abaixo é de um produto diferente.</p>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
-          <div className="space-y-5">
+          <div className="space-y-6">
             <ProductSection name="NutraHelp" kind="Suplemento em pó para cães e gatos" accent="nutra">
               <div className="overflow-hidden rounded-lg border border-border">
                 <TableTitle>Níveis de garantia por kg do produto</TableTitle>
