@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AccordionBlock } from "@/components/ui/AccordionBlock";
@@ -19,9 +19,9 @@ const feedbacks: { image: string; name: string; caption: string; problem: string
 function VideoTags({ problem, duration, className }: { problem: string; duration: string; className?: string }) {
   return (
     <span className={cn("pointer-events-none absolute inset-0", className)}>
-      <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1.5 rounded-full bg-card py-1.5 pl-2 pr-2.5 text-[10px] font-semibold leading-none text-ink shadow-card md:text-[13px]">
+      <span className="absolute left-1.5 top-1.5 inline-flex max-w-[calc(100%-0.75rem)] items-center gap-1.5 rounded-[10px] bg-card py-1.5 pl-2 pr-2.5 text-[10px] font-semibold leading-none text-ink shadow-card md:text-[13px]">
         <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
-        <span className="truncate">{problem}</span>
+        <span className="whitespace-normal leading-tight">{problem}</span>
       </span>
       <span className="absolute bottom-1.5 right-1.5 rounded-full bg-ink/85 px-2 py-1.5 text-[10px] font-bold leading-none text-primary-foreground tabular-nums md:text-[13px]">{duration}</span>
     </span>
@@ -81,8 +81,11 @@ const details = [
   { title: "Como usar", content: <HowToUse /> },
 ];
 
-function Thumbnails({ className, onSelect }: { className?: string; onSelect: (f: (typeof feedbacks)[number]) => void }) {
+function Thumbnails({ className, onSelect, paused = false }: { className?: string; onSelect: (f: (typeof feedbacks)[number]) => void; paused?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    trackRef.current?.querySelectorAll("video").forEach((v) => { if (paused) v.pause(); else { v.muted = true; void v.play().catch(() => {}); } });
+  }, [paused]);
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== "mouse") return;
@@ -107,7 +110,11 @@ function Thumbnails({ className, onSelect }: { className?: string; onSelect: (f:
       {feedbacks.map((feedback) => (
         <div key={feedback.name} className="w-[62%] shrink-0 md:w-auto md:shrink">
           <Button type="button" variant="ghost" aria-label={`Assistir ao relato de ${feedback.name}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
-            <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className="aspect-[9/14] w-full object-cover" />
+            {feedback.video ? (
+              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato de ${feedback.name}`} className="aspect-[9/14] w-full object-cover" />
+            ) : (
+              <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className="aspect-[9/14] w-full object-cover" />
+            )}
             <span className="absolute inset-0 rounded-xl border border-transparent bg-ink/15 transition-colors group-hover:border-primary" />
             <VideoTags problem={feedback.problem} duration={feedback.duration} />
             <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-card/70 bg-card/80 text-primary shadow-card backdrop-blur-sm"><Play className="ml-0.5 h-4 w-4 fill-current" /></span>
@@ -221,9 +228,14 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const toggle = () => { const v = ref.current; if (!v) return; if (v.paused) void v.play(); else v.pause(); };
+  useEffect(() => {
+    const v = ref.current; if (!v) return;
+    v.currentTime = 0; v.muted = false;
+    void v.play().catch(() => { v.muted = true; void v.play().catch(() => {}); });
+  }, [src]);
   return (
     <>
-      <video ref={ref} src={src} poster={poster} autoPlay playsInline onClick={toggle} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} className="absolute inset-0 h-full w-full cursor-pointer object-cover" />
+      <video ref={ref} src={src} poster={poster} playsInline onClick={toggle} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} className="absolute inset-0 h-full w-full cursor-pointer object-cover" />
       {!playing && (
         <button type="button" aria-label="Reproduzir vídeo" onClick={toggle} className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/40 text-primary-foreground backdrop-blur-sm">
           <Play className="ml-0.5 h-6 w-6 fill-current" />
@@ -276,7 +288,125 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { on
     <div>
       <div>
         <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>
-        <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} />
+        <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} paused={selectedVideo !== null} />
+        <IngredientsButton />
+      </div>
+      {showDetails && (
+        <div id="duvidas-compra" className="mt-7 pt-2">
+          <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
+        </div>
+      )}
+      <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && closeDialog()}>
+        <DialogContent ref={contentRef} onCloseAutoFocus={afterClose} className="flex h-[100dvh] max-h-[100dvh] w-full max-w-none flex-col justify-center gap-0 overflow-hidden rounded-none border-0 bg-card p-4 shadow-soft sm:h-auto sm:max-h-[96dvh] sm:w-[92vw] sm:max-w-[min(420px,calc((96dvh_-_130px)*0.5625_+_32px))] sm:rounded-[16px] sm:border sm:border-border [&>button]:right-4 [&>button]:top-4 [&>button]:z-40 [&>button]:text-ink [&>button]:opacity-100">
+          {selectedVideo && (
+            <>
+              <div className="mx-auto w-full max-w-[calc((100dvh_-_130px)*0.5625)] shrink-0 pb-3">
+                <DialogTitle className="pr-10 font-display text-lg font-bold text-ink sm:text-xl">{kitCta ? "Feedbacks" : "Tutores que já passaram por isso"}</DialogTitle>
+                <DialogDescription className="sr-only">Relatos em vídeo de clientes PetHelp</DialogDescription>
+                <div className="mt-2 flex gap-2">
+                  {feedbacks.map((feedback, index) => (
+                    <Button key={feedback.name} type="button" variant="ghost" aria-label={`Ver relato de ${feedback.name}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={cn("h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90", selectedIndex === index ? "border-primary" : "border-transparent")}>
+                      <img src={feedback.image} alt="" className="h-full w-full object-cover" />
+                    </Button>
+                  ))}
+                </div>
+              </div>
+              <div className="relative mx-auto aspect-[9/16] w-full max-w-[calc((100dvh_-_130px)*0.5625)] shrink-0 overflow-hidden rounded-[12px] bg-muted">
+                {selectedVideo.video ? (
+                  <DialogVideo key={selectedVideo.video} src={selectedVideo.video} poster={selectedVideo.image} />
+                ) : (
+                  <>
+                    <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
+                    <VideoTags problem={selectedVideo.problem} duration={selectedVideo.duration} className="md:inset-1.5" />
+                  </>
+                )}
+                <Button type="button" variant="ghost" aria-label="Relato anterior" onClick={showPrevious} className="absolute left-3 top-1/2 z-20 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronLeft className="h-5 w-5" /></Button>
+                {!selectedVideo.video && <span className="pointer-events-none absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/85 text-primary-foreground shadow-card"><Play className="ml-0.5 h-5 w-5 fill-current" /></span>}
+                <Button type="button" variant="ghost" aria-label="Próximo relato" onClick={showNext} className="absolute right-3 top-1/2 z-20 h-10 w-10 -translate-y-1/2 rounded-full border border-transparent bg-card/90 p-0 text-ink shadow-card transition-colors hover:border-primary"><ChevronRight className="h-5 w-5" /></Button>
+                <button type="button" onClick={kitCta ? goToKits : () => { closeDialog(); onBuy(); }} className="absolute bottom-4 right-4 z-30 rounded-full bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_6px_18px_rgba(0,0,0,0.35)] transition-transform hover:scale-[1.03] active:scale-95">Comprar agora</button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+    </Dialog>
+  );
+}
+
+function IngredientsButton() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <BuyButton type="button" onClick={() => setOpen(true)} className="mt-4 h-12 w-full text-base normal-case tracking-normal">Ver tabela completa e ingredientes</BuyButton>
+      <GuaranteeTableDialog open={open} onOpenChange={setOpen} />
+    </>
+  );
+}
+
+function DialogVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const toggle = () => { const v = ref.current; if (!v) return; if (v.paused) void v.play(); else v.pause(); };
+  useEffect(() => {
+    const v = ref.current; if (!v) return;
+    v.currentTime = 0; v.muted = false;
+    void v.play().catch(() => { v.muted = true; void v.play().catch(() => {}); });
+  }, [src]);
+  return (
+    <>
+      <video ref={ref} src={src} poster={poster} playsInline onClick={toggle} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} className="absolute inset-0 h-full w-full cursor-pointer object-cover" />
+      {!playing && (
+        <button type="button" aria-label="Reproduzir vídeo" onClick={toggle} className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-ink/40 text-primary-foreground backdrop-blur-sm">
+          <Play className="ml-0.5 h-6 w-6 fill-current" />
+        </button>
+      )}
+    </>
+  );
+}
+
+export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined }) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const goingToKits = useRef(false);
+  const pauseVideos = () => contentRef.current?.querySelectorAll("video").forEach((v) => v.pause());
+  const closeDialog = () => { pauseVideos(); setSelectedIndex(null); };
+  const goToKits = () => {
+    goingToKits.current = true;
+    closeDialog();
+  };
+  const afterClose = (event: Event) => {
+    if (!goingToKits.current) return;
+    event.preventDefault();
+    goingToKits.current = false;
+    // Espera o modal sair do DOM e o scroll do body ser destravado.
+    window.setTimeout(() => {
+      const target = document.querySelector<HTMLElement>("[data-kit-selector]");
+      if (!target) return;
+      const header = document.querySelector("header > div");
+      const top = Math.max(0, window.scrollY + target.getBoundingClientRect().top - ((header?.getBoundingClientRect().height ?? 64) + 16));
+      window.scrollTo({ top, behavior: "smooth" });
+      let done = false;
+      const highlight = () => {
+        if (done) return; done = true;
+        const card = target.querySelector<HTMLElement>('button[aria-pressed="true"]');
+        if (!card) return;
+        card.classList.remove("kit-highlight"); void card.offsetWidth; card.classList.add("kit-highlight");
+        window.setTimeout(() => card.classList.remove("kit-highlight"), 1000);
+      };
+      window.addEventListener("scrollend", highlight, { once: true });
+      window.setTimeout(highlight, 1200);
+    }, 50);
+  };
+  const [openDetail, setOpenDetail] = useState<number | null>(0);
+  const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
+  const selectFeedback = (feedback: (typeof feedbacks)[number]) => { const index = feedbacks.indexOf(feedback); setSelectedIndex(index >= 0 ? index : 0); };
+  const showPrevious = () => { setSelectedIndex((current) => current === null ? 0 : (current - 1 + feedbacks.length) % feedbacks.length); };
+  const showNext = () => { setSelectedIndex((current) => current === null ? 0 : (current + 1) % feedbacks.length); };
+
+  return (
+    <div>
+      <div>
+        <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>
+        <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} paused={selectedVideo !== null} />
         <IngredientsButton />
       </div>
       {showDetails && (
