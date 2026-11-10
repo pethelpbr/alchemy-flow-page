@@ -75,6 +75,10 @@
   --color-shipping: var(--shipping);
   --color-shipping-foreground: var(--shipping-foreground);
   --color-dosage: var(--dosage);
+  --color-pata: var(--pata);
+  --color-pata-foreground: var(--pata-foreground);
+  --color-boca: var(--boca);
+  --color-boca-foreground: var(--boca-foreground);
 }
 
 :root {
@@ -109,6 +113,10 @@
   --shipping: oklch(0.71 0.11 194); /* teal */
   --shipping-foreground: oklch(1 0 0); /* #FFFFFF */
   --dosage: #F1E6C8;
+  --pata: #F0396B; /* rosa da lata PataHelp */
+  --pata-foreground: #FFFFFF;
+  --boca: #3FA9BE; /* azul da garrafa BocaHelp */
+  --boca-foreground: #FFFFFF;
 
   --shadow-soft: 0 24px 60px -30px oklch(0.5 0.1 60 / 0.28);
   --shadow-card: 0 2px 30px -18px oklch(0.5 0.1 60 / 0.35);
