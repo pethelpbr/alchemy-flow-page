@@ -18,7 +18,7 @@ const badges = [
   },
   {
     icon: Clock,
-    title: "ENVIO EM 24H",
+    title: "DESPACHOVEM 24H",
     description: "Para pedidos na região de São Paulo.",
   },
 ];
