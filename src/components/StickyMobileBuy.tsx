@@ -101,10 +101,11 @@ export function StickyMobileBuy({
                     alt=""
                     loading="lazy"
                     className={cn(
-                      "h-11 w-11 shrink-0 rounded-xl object-cover",
-                      // Na Black Friday a foto é recortada e fica solta na tarja,
-                      // sem o disco de fundo que aparece atrás dela.
-                      !bfKit && "bg-muted",
+                      "h-11 w-11 shrink-0 object-cover",
+                      // Na Black Friday a foto é recortada e fica solta na tarja:
+                      // sem o disco de fundo e sem o recorte redondo que a
+                      // borda arredondada fazia num quadro de 44px.
+                      !bfKit && "rounded-xl bg-muted",
                     )}
                   />
                   <div className="min-w-0 flex-1">
