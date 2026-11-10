@@ -5,7 +5,6 @@ import { AccordionBlock } from "@/components/ui/AccordionBlock";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { BuyButton } from "@/components/ui/BuyButton";
-import { brl, variants } from "@/lib/product";
 import depo1Cover from "@/assets/depoimento-1-capa.jpg.asset.json";
 import customer2 from "@/assets/customer-2.jpg";
 import customer3 from "@/assets/customer-3.jpg";
