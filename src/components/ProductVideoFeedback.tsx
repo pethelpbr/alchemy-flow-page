@@ -6,12 +6,13 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { cn } from "@/lib/utils";
 import { BuyButton } from "@/components/ui/BuyButton";
 import depo1Cover from "@/assets/depoimento-1-capa.jpg.asset.json";
-import customer2 from "@/assets/customer-2.jpg";
+import depo2Cover from "@/assets/depoimento-2-capa.jpg.asset.json";
 import customer3 from "@/assets/customer-3.jpg";
 import depo1Video from "@/assets/depoimento-1.mp4.asset.json";
+import depo2Video from "@/assets/depoimento-2.mp4.asset.json";
 
 const feedbacks: { image: string; name: string; caption: string; problem: string; video?: string }[] = [
-  { image: customer2, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata" },
+  { image: depo2Cover.url, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Lambedura na pata", video: depo2Video.url },
   { image: customer3, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos" },
   { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
 ];
