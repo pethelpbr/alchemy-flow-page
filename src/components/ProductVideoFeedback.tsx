@@ -172,21 +172,36 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent onOpenAutoFocus={(event) => event.preventDefault()} className="flex max-h-[92dvh] w-[calc(100%_-_1.25rem)] max-w-[720px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-0 shadow-soft [&>button]:right-4 [&>button]:top-4 [&>button]:text-ink [&>button]:opacity-100">
-        <div className="border-b border-border px-6 py-5"><DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">Informação nutricional</DialogTitle></div>
+        <div className="border-b border-border px-6 py-5">
+          <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">Informação nutricional e ingredientes</DialogTitle>
+          <p className="mt-1 text-xs text-muted-foreground sm:text-sm">Cada tabela abaixo é de um produto diferente.</p>
+        </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="border-b border-border bg-muted px-4 py-3 text-center"><p className="text-sm font-bold uppercase tracking-wide text-ink">Níveis de garantia por kg do produto</p></div>
-            <ul className="grid sm:grid-cols-2">
-              {guaranteeLevels.map(([name, value], index) => (
-                <li key={name} className={cn("flex items-baseline justify-between gap-4 border-border px-4 py-2 text-sm", index % 2 === 0 && "bg-muted/40", Math.floor(index / 2) % 2 === 0 ? "md:bg-muted/40" : "md:bg-transparent", index % 2 === 1 && "sm:border-l sm:border-border", "border-b sm:[&:nth-last-child(-n+2)]:border-b-0")}>
-                  <span className="font-semibold text-ink">{name}</span><span className="shrink-0 tabular-nums text-muted-foreground">{value}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mt-5 overflow-hidden rounded-xl border border-border bg-card">
-            <div className="border-b border-border bg-muted px-4 py-3 text-center"><p className="text-sm font-bold uppercase tracking-wide text-ink">Composição qualitativa</p></div>
-            <div className="px-4 pb-3 pt-1.5"><p className="text-sm leading-relaxed text-muted-foreground">{qualitativeComposition}</p></div>
+          <div className="space-y-5">
+            <ProductSection name="NutraHelp" kind="Suplemento em pó para cães e gatos" accent="nutra">
+              <div className="overflow-hidden rounded-lg border border-border">
+                <TableTitle>Níveis de garantia por kg do produto</TableTitle>
+                <ul className="grid sm:grid-cols-2">
+                  {guaranteeLevels.map(([name, value], index) => (
+                    <li key={name} className={cn("flex items-baseline justify-between gap-4 border-border px-4 py-2 text-sm", index % 2 === 0 && "bg-muted/40", Math.floor(index / 2) % 2 === 0 ? "md:bg-muted/40" : "md:bg-transparent", index % 2 === 1 && "sm:border-l sm:border-border", "border-b sm:[&:nth-last-child(-n+2)]:border-b-0")}>
+                      <span className="font-semibold text-ink">{name}</span><span className="shrink-0 tabular-nums text-muted-foreground">{value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-4 overflow-hidden rounded-lg border border-border bg-card">
+                <TableTitle>Composição qualitativa</TableTitle>
+                <div className="px-4 pb-3 pt-1.5"><p className="text-sm leading-relaxed text-muted-foreground">{qualitativeComposition}</p></div>
+              </div>
+            </ProductSection>
+
+            <ProductSection name="PataHelp" kind="Balm em pote para patas, focinho e áreas ressecadas" accent="pata">
+              <CompositionList text={pataComposition} />
+            </ProductSection>
+
+            <ProductSection name="BocaHelp" kind="Solução oral para higiene dental de cães e gatos" accent="boca">
+              <CompositionList text={bocaComposition} />
+            </ProductSection>
           </div>
         </div>
       </DialogContent>
