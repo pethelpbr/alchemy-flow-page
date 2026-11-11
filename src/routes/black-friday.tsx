@@ -100,15 +100,15 @@ function KitGallery({ selected }: { selected: Variant }) {
   }[selected.id];
   const shots = [
     { src: kitImage ?? kitCompleto.url, alt: `Kit Black Friday ${selected.label}` },
+    { src: gallerySinais.url, alt: "Seu pet está assim? Sinais de que precisa de cuidado" },
     { src: galleryNutra.url, alt: "NutraHelp: só cuidar por fora não resolve" },
     { src: galleryPata.url, alt: "PataHelp: mais que hidratação" },
-    { src: galleryVet.url, alt: "PetHelp recomendado por veterinários: Dr. Rivaldo Junior" },
     { src: galleryBoca.url, alt: "BocaHelp: sem escova, sem briga" },
+    { src: galleryVet.url, alt: "PetHelp recomendado por veterinários: Dr. Rivaldo Junior" },
     { src: galleryFormulas.url, alt: "Fórmulas do NutraHelp, PataHelp e BocaHelp" },
-    { src: gallerySinais.url, alt: "Seu pet está assim? Sinais de que precisa de cuidado" },
+    { src: galleryUsoNutra.url, alt: "Como usar NutraHelp: misture na comida" },
     { src: galleryUsoPata.url, alt: "Como usar PataHelp: massageie na pele" },
     { src: galleryUsoBoca.url, alt: "Como usar BocaHelp: dilua na água", ratio: 1261 / 1260 },
-    { src: galleryUsoNutra.url, alt: "Como usar NutraHelp: misture na comida" },
     { src: galleryResultadosNutra.url, alt: "Resultados do NutraHelp: antes e depois do Amendoim" },
     { src: galleryResultadosPata.url, alt: "Resultados do PataHelp: antes e depois da Amora" },
     { src: galleryResultadosBoca.url, alt: "Resultados do BocaHelp: antes e depois do Spike" },
