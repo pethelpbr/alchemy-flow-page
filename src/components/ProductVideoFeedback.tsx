@@ -12,10 +12,21 @@ import depo2Video from "@/assets/depoimento-2.mp4.asset.json";
 
 import depo3Video from "@/assets/depoimento-3.mp4.asset.json";
 import depo3Cover from "@/assets/depoimento-3-capa.jpg.asset.json";
-const feedbacks: { image: string; name: string; caption: string; problem: string; video?: string }[] = [
+import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
+import amoraCover from "@/assets/depoimento-amora-capa.jpg.asset.json";
+
+type Feedback = { image: string; name: string; caption: string; problem: string; video?: string };
+
+const feedbacks: Feedback[] = [
   { image: depo3Cover.url, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos", video: depo3Video.url },
   { image: depo2Cover.url, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Dermatite", video: depo2Video.url },
   { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
+];
+
+// O relato da Amora entra só na página /pele. A Black Friday continua com os três originais.
+const peleFeedbacks: Feedback[] = [
+  ...feedbacks,
+  { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
 ];
 
 function VideoTags({ problem, className }: { problem: string; className?: string }) {
