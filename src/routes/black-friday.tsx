@@ -17,6 +17,7 @@ import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
 import { KitStatsSection, KitVetSection } from "@/components/kit-bf/PlaceholderSections";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
+import badgeBlackFriday from "@/assets/badge-black-friday.png.asset.json";
 import kit2Potes from "@/assets/kit-bf-2-potes-v2.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v5.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
@@ -98,9 +99,11 @@ function KitGallery({ selected }: { selected: Variant }) {
       ]} />
       <div className="relative hidden overflow-hidden rounded-2xl md:block">
         <img src={activeSrc} alt="Produto do kit Black Friday" className="aspect-square w-full object-cover" />
-        <span className="absolute left-4 top-4 rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase text-primary-foreground">
-          Black Friday
-        </span>
+        <img
+          src={badgeBlackFriday.url}
+          alt="Black Friday"
+          className="absolute left-4 top-4 h-8 w-auto"
+        />
       </div>
       <div className="mt-3 hidden grid-cols-3 gap-3 md:grid">
         {shots.map((s, idx) => (
