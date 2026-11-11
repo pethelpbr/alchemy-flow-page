@@ -311,7 +311,7 @@ function BlackFridayPage() {
           className="bf-brown"
           unboxed
           heading={<>Só enquanto durar o estoque</>}
-          subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
+          subheading={null}
         />
         <TrustBadgesStrip className="bf-light" />
         <FAQAccordion items={kitFaqs} className="bf-light" />
