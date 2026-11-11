@@ -17,6 +17,8 @@ import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra-v2.png.
 import galleryResultadosPata from "@/assets/bf-gallery-resultados-pata-v2.png.asset.json";
 import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca-v2.png.asset.json";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
+import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
+import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
@@ -300,7 +302,7 @@ function BlackFridayPage() {
         <SignsSection />
         <KitContents />
         <KitStatsSection />
-        <BeforeAfterSection className="bf-dark" title="Veja os resultados" />
+        <BeforeAfterSection className="bf-dark" title="Veja os resultados" firstCase={{ name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, product: { name: "PataHelp", image: pataLata.url } }} />
         <KitVetSection />
         <GuaranteeSection tone="yellow" />
         <ReviewsCarousel className="bf-light" />

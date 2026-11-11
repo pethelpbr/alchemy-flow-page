@@ -20,15 +20,17 @@ import depoisAmora from "@/assets/depois-5.jpg";
 import antesZeca from "@/assets/antes-gato.jpg";
 import depoisZeca from "@/assets/depois-gato.jpg";
 
-type Case = {
+export type BeforeAfterCase = {
   name: string;
-  weeks: string;
-  quote: string;
+  weeks?: string;
+  quote?: string;
   before: string;
   after: string;
+  fullImages?: boolean;
+  product?: { name: string; image: string };
 };
 
-const cases: Case[] = [
+const cases: BeforeAfterCase[] = [
   {
     name: "Mel",
     weeks: "8 semanas",
@@ -81,7 +83,8 @@ function Tag({ children }: { children: string }) {
   );
 }
 
-export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou" }: { className?: string; title?: string }) {
+export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", firstCase }: { className?: string; title?: string; firstCase?: BeforeAfterCase }) {
+  const displayedCases = firstCase ? [firstCase, ...cases.slice(1)] : cases;
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -124,10 +127,10 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
           className="mt-8 cursor-grab select-none active:cursor-grabbing"
         >
           <CarouselContent className="-ml-5 touch-pan-y">
-            {cases.map((c) => (
+            {displayedCases.map((c) => (
               <CarouselItem
                 key={c.name}
-                className="basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]"
+                className={c.fullImages ? "basis-[78%] pl-5 sm:basis-[38%] lg:basis-[28%]" : "basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]"}
               >
                 <article className="flex h-full flex-col">
                   <div className="relative overflow-hidden rounded-xl border border-border">
@@ -135,12 +138,12 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                       <div className="relative">
                         <img
                           src={c.before}
-                          alt={`${c.name} antes do NutraHelp`}
+                          alt={`${c.name} antes do ${c.product?.name ?? "NutraHelp"}`}
                           loading="lazy"
                           draggable={false}
-                          width={736}
-                          height={912}
-                          className="aspect-[3/4] h-full w-full object-cover"
+                          width={c.fullImages ? 883 : 736}
+                          height={c.fullImages ? 1782 : 912}
+                          className={c.fullImages ? "block h-auto w-full" : "aspect-[3/4] h-full w-full object-cover"}
                         />
                         <div className="absolute left-2.5 top-2.5">
                           <Tag>Antes</Tag>
@@ -149,24 +152,27 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                       <div className="relative border-l-2 border-card">
                         <img
                           src={c.after}
-                          alt={`${c.name} depois do NutraHelp`}
+                          alt={`${c.name} depois do ${c.product?.name ?? "NutraHelp"}`}
                           loading="lazy"
                           draggable={false}
-                          width={736}
-                          height={912}
-                          className="aspect-[3/4] h-full w-full object-cover"
+                          width={c.fullImages ? 882 : 736}
+                          height={c.fullImages ? 1784 : 912}
+                          className={c.fullImages ? "block h-auto w-full" : "aspect-[3/4] h-full w-full object-cover"}
                         />
                         <div className="absolute left-2.5 top-2.5">
                           <Tag>Depois</Tag>
                         </div>
                       </div>
                     </div>
-                    <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
+                    {c.product && (
+                      <img src={c.product.image} alt={c.product.name} loading="lazy" draggable={false} className="absolute bottom-2 left-1/2 h-auto w-20 -translate-x-1/2" />
+                    )}
+                    {c.weeks && <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
                       {c.weeks}
-                    </span>
+                    </span>}
                   </div>
                   <p className="mt-3 text-sm font-bold text-foreground">{c.name}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>
+                  {c.quote && <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>}
                 </article>
               </CarouselItem>
             ))}
@@ -175,7 +181,7 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
 
         <div className="mt-3 md:mt-8 flex items-center justify-between gap-3">
             <p className="text-[13px] font-medium tracking-[0.08em] text-foreground" aria-live="polite">
-              {String(selectedIndex + 1).padStart(2, "0")} / {String(cases.length).padStart(2, "0")}
+              {String(selectedIndex + 1).padStart(2, "0")} / {String(displayedCases.length).padStart(2, "0")}
             </p>
             <div className="flex gap-3">
               <Button
