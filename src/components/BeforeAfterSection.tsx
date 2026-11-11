@@ -27,6 +27,8 @@ export type BeforeAfterCase = {
   before: string;
   after: string;
   fullImages?: boolean;
+  afterLabel?: string;
+  productPosition?: "center" | "bottom";
   product?: { name: string; image: string };
 };
 
@@ -134,7 +136,7 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
               >
                 <article className="flex h-full flex-col">
                   <div className="relative overflow-hidden rounded-xl border border-border">
-                    <div className="grid grid-cols-2">
+                    <div className={c.fullImages ? "grid aspect-square grid-cols-2" : "grid grid-cols-2"}>
                       <div className="relative">
                         <img
                           src={c.before}
@@ -143,13 +145,13 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                           draggable={false}
                           width={c.fullImages ? 883 : 736}
                           height={c.fullImages ? 1782 : 912}
-                          className={c.fullImages ? "block h-auto w-full" : "aspect-[3/4] h-full w-full object-cover"}
+                          className={c.fullImages ? "absolute inset-0 block h-full w-full" : "aspect-[3/4] h-full w-full object-cover"}
                         />
                         <div className="absolute left-2.5 top-2.5">
                           <Tag>Antes</Tag>
                         </div>
                       </div>
-                      <div className="relative border-l-2 border-card">
+                      <div className={c.fullImages ? "relative" : "relative border-l-2 border-card"}>
                         <img
                           src={c.after}
                           alt={`${c.name} depois do ${c.product?.name ?? "NutraHelp"}`}
@@ -157,15 +159,15 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                           draggable={false}
                           width={c.fullImages ? 882 : 736}
                           height={c.fullImages ? 1784 : 912}
-                          className={c.fullImages ? "block h-auto w-full" : "aspect-[3/4] h-full w-full object-cover"}
+                          className={c.fullImages ? "absolute inset-0 block h-full w-full" : "aspect-[3/4] h-full w-full object-cover"}
                         />
                         <div className="absolute left-2.5 top-2.5">
-                          <Tag>Depois</Tag>
+                          <Tag>{c.afterLabel ?? "Depois"}</Tag>
                         </div>
                       </div>
                     </div>
                     {c.product && (
-                      <img src={c.product.image} alt={c.product.name} loading="lazy" draggable={false} className="absolute bottom-2 left-1/2 h-auto w-20 -translate-x-1/2" />
+                      <img src={c.product.image} alt={c.product.name} loading="lazy" draggable={false} className={c.productPosition === "center" ? "absolute left-1/2 top-1/2 h-auto w-16 -translate-x-1/2 -translate-y-1/2" : "absolute bottom-2 left-1/2 h-auto w-20 -translate-x-1/2"} />
                     )}
                     {c.weeks && <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
                       {c.weeks}

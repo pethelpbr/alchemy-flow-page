@@ -29,4 +29,4 @@
 - Each pain-point landing page (/pele, /mobilidade, /intestino) is its own route wrapped in `LandingLayout` (shared Header, Footer, sticky mobile buy bar) with `useCart` and `scrollToOffer`; keeps every page on the same purchase base.
 
 - The root viewport meta keeps `viewport-fit=cover` and the sticky mobile buy bar has no bottom safe-area padding, so the bar reaches the physical bottom of the screen instead of leaving an empty band; the yellow top strip carries the matching top safe-area padding because with cover the document extends under the status bar.
-- BeforeAfterSection accepts a page-specific first case with optional uncropped photos and a product overlay; keep default cases unchanged for other pages.
+- BeforeAfterSection accepts a page-specific first case with optional full photos in equal square halves, an after label and product overlay position; keep default cases unchanged for other pages.
