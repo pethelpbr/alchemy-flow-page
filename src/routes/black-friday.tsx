@@ -10,6 +10,12 @@ import galleryVet from "@/assets/bf-gallery-veterinario.png.asset.json";
 import galleryBoca from "@/assets/bf-gallery-boca.png.asset.json";
 import galleryFormulas from "@/assets/bf-gallery-formulas.png.asset.json";
 import gallerySinais from "@/assets/bf-gallery-sinais.png.asset.json";
+import galleryUsoPata from "@/assets/bf-gallery-uso-pata.png.asset.json";
+import galleryUsoBoca from "@/assets/bf-gallery-uso-boca.png.asset.json";
+import galleryUsoNutra from "@/assets/bf-gallery-uso-nutra.png.asset.json";
+import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra.png.asset.json";
+import galleryResultadosPata from "@/assets/bf-gallery-resultados-pata.png.asset.json";
+import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca.png.asset.json";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
@@ -100,6 +106,12 @@ function KitGallery({ selected }: { selected: Variant }) {
     { src: galleryBoca.url, alt: "BocaHelp: sem escova, sem briga" },
     { src: galleryFormulas.url, alt: "Fórmulas do NutraHelp, PataHelp e BocaHelp" },
     { src: gallerySinais.url, alt: "Seu pet está assim? Sinais de que precisa de cuidado" },
+    { src: galleryUsoPata.url, alt: "Como usar PataHelp: massageie na pele" },
+    { src: galleryUsoBoca.url, alt: "Como usar BocaHelp: dilua na água", ratio: 1261 / 1260 },
+    { src: galleryUsoNutra.url, alt: "Como usar NutraHelp: misture na comida" },
+    { src: galleryResultadosNutra.url, alt: "Resultados do NutraHelp: antes e depois do Amendoim" },
+    { src: galleryResultadosPata.url, alt: "Resultados do PataHelp: antes e depois da Amora" },
+    { src: galleryResultadosBoca.url, alt: "Resultados do BocaHelp: antes e depois do Spike" },
   ];
   return (
     <div>

@@ -7,4 +7,4 @@
 - [x] Igualar o estilo do carrossel mobile da Black Friday ao da /pele, com arraste e progresso
 - [x] Trocar o título dos produtos por “Cuida por dentro / Protege por fora” em duas linhas
 - [x] Carrossel Black Friday no estilo desktop da /pele, com foto inicial por kit e seis fotos compartilhadas
-- [ ] Acrescentar as próximas seis fotos ao carrossel Black Friday (aguardando envio)
+- [x] Acrescentar as próximas seis fotos ao carrossel Black Friday
