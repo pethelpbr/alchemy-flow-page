@@ -4,15 +4,15 @@ import { useState } from "react";
 import { HeroSection } from "@/components/HeroSection";
 import { MobileKitGallery } from "@/components/MobileKitGallery";
 import { DesktopKitGallery } from "@/components/DesktopKitGallery";
-import galleryNutra from "@/assets/bf-gallery-nutra.png.asset.json";
-import galleryPata from "@/assets/bf-gallery-pata.png.asset.json";
-import galleryVet from "@/assets/bf-gallery-veterinario.png.asset.json";
-import galleryBoca from "@/assets/bf-gallery-boca.png.asset.json";
-import galleryFormulas from "@/assets/bf-gallery-formulas.png.asset.json";
-import gallerySinais from "@/assets/bf-gallery-sinais.png.asset.json";
-import galleryUsoPata from "@/assets/bf-gallery-uso-pata.png.asset.json";
-import galleryUsoBoca from "@/assets/bf-gallery-uso-boca.png.asset.json";
-import galleryUsoNutra from "@/assets/bf-gallery-uso-nutra.png.asset.json";
+import cardSinais from "@/assets/bf-card-01-sinais.png.asset.json";
+import cardNutra from "@/assets/bf-card-02-nutra.webp.asset.json";
+import cardPata from "@/assets/bf-card-04-pata.webp.asset.json";
+import cardBoca from "@/assets/bf-card-06-boca.webp.asset.json";
+import cardVet from "@/assets/bf-card-08-veterinario.webp.asset.json";
+import cardFormulas from "@/assets/bf-card-09-formulas.webp.asset.json";
+import cardUsoNutra from "@/assets/bf-card-10-uso-nutra.png.asset.json";
+import cardUsoPata from "@/assets/bf-card-11-uso-pata.webp.asset.json";
+import cardUsoBoca from "@/assets/bf-card-12-uso-boca.png.asset.json";
 import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra.png.asset.json";
 import galleryResultadosPata from "@/assets/bf-gallery-resultados-pata.png.asset.json";
 import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca.png.asset.json";
@@ -100,18 +100,18 @@ function KitGallery({ selected }: { selected: Variant }) {
   }[selected.id];
   const shots = [
     { src: kitImage ?? kitCompleto.url, alt: `Kit Black Friday ${selected.label}` },
-    { src: gallerySinais.url, alt: "Seu pet está assim? Sinais de que precisa de cuidado" },
-    { src: galleryNutra.url, alt: "NutraHelp: só cuidar por fora não resolve" },
-    { src: galleryPata.url, alt: "PataHelp: mais que hidratação" },
-    { src: galleryBoca.url, alt: "BocaHelp: sem escova, sem briga" },
-    { src: galleryVet.url, alt: "PetHelp recomendado por veterinários: Dr. Rivaldo Junior" },
-    { src: galleryFormulas.url, alt: "Fórmulas do NutraHelp, PataHelp e BocaHelp" },
-    { src: galleryUsoNutra.url, alt: "Como usar NutraHelp: misture na comida" },
-    { src: galleryUsoPata.url, alt: "Como usar PataHelp: massageie na pele" },
-    { src: galleryUsoBoca.url, alt: "Como usar BocaHelp: dilua na água", ratio: 1261 / 1260 },
-    { src: galleryResultadosNutra.url, alt: "Resultados do NutraHelp: antes e depois do Amendoim" },
-    { src: galleryResultadosPata.url, alt: "Resultados do PataHelp: antes e depois da Amora" },
-    { src: galleryResultadosBoca.url, alt: "Resultados do BocaHelp: antes e depois do Spike" },
+    { src: cardSinais.url, alt: "Seu pet está assim? Sinais de que precisa de cuidado" },
+    { src: cardNutra.url, alt: "NutraHelp: só cuidar por fora não resolve" },
+    { src: galleryResultadosNutra.url, alt: "Antes e depois do NutraHelp: o que muda em 60 dias" },
+    { src: cardPata.url, alt: "PataHelp: mais que hidratação" },
+    { src: galleryResultadosPata.url, alt: "Antes e depois do PataHelp: não é promessa, é resultado" },
+    { src: cardBoca.url, alt: "BocaHelp: sem escova, sem briga" },
+    { src: galleryResultadosBoca.url, alt: "Antes e depois do BocaHelp: o próximo pode ser o seu" },
+    { src: cardVet.url, alt: "PetHelp recomendado por veterinários: Dr. Rivaldo Junior" },
+    { src: cardFormulas.url, alt: "Fórmulas do NutraHelp, PataHelp e BocaHelp" },
+    { src: cardUsoNutra.url, alt: "Como usar NutraHelp: misture na comida" },
+    { src: cardUsoPata.url, alt: "Como usar PataHelp: massageie na pele" },
+    { src: cardUsoBoca.url, alt: "Como usar BocaHelp: dilua na água", ratio: 1261 / 1260 },
   ];
   return (
     <div>
