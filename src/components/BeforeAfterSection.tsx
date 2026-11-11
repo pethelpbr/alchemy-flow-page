@@ -85,8 +85,8 @@ function Tag({ children, result = false }: { children: string; result?: boolean 
   );
 }
 
-export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", firstCase, resultStyle = false }: { className?: string; title?: string; firstCase?: BeforeAfterCase; resultStyle?: boolean }) {
-  const displayedCases = firstCase ? [firstCase, ...cases.slice(1)] : cases;
+export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", extraCases, resultStyle = false }: { className?: string; title?: string; extraCases?: BeforeAfterCase[]; resultStyle?: boolean }) {
+  const displayedCases = extraCases ? [...extraCases, ...cases.slice(1)] : cases;
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
