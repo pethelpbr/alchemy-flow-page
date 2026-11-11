@@ -30,6 +30,7 @@ export type BeforeAfterCase = {
   afterLabel?: string;
   productPosition?: "center" | "bottom";
   product?: { name: string; image: string };
+  productHeight?: number;
 };
 
 const cases: BeforeAfterCase[] = [
@@ -168,7 +169,7 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                     </div>
                     {resultStyle && <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-background" />}
                     {c.product && (
-                      <img src={c.product.image} alt={c.product.name} loading="lazy" draggable={false} className={c.productPosition === "center" ? "absolute left-1/2 top-1/2 h-auto w-16 -translate-x-1/2 -translate-y-1/2" : "absolute bottom-2 left-1/2 h-auto w-20 -translate-x-1/2"} />
+                      <img src={c.product.image} alt={c.product.name} loading="lazy" draggable={false} style={{ height: c.productHeight ?? 42 }} className={c.productPosition === "center" ? "absolute left-1/2 top-1/2 w-auto -translate-x-1/2 -translate-y-1/2" : "absolute bottom-2 left-1/2 w-auto -translate-x-1/2"} />
                     )}
                     {c.weeks && !resultStyle && <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
                       {c.weeks}
