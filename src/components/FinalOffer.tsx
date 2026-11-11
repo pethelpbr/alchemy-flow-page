@@ -28,7 +28,7 @@ export function FinalOffer({
   selected: Variant;
   onSelect: (v: Variant) => void;
   heading?: React.ReactNode;
-  subheading?: string;
+  subheading?: string | null;
   addonIds: string[];
   onToggleAddon: (id: string) => void;
   className?: string;
@@ -48,9 +48,11 @@ export function FinalOffer({
             <br />
             Ou não.</>)}
           </h2>
-          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            {subheading ?? "A diferença entre uma noite e outra são trinta segundos por dia."}
-          </p>
+          {subheading !== null && (
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              {subheading ?? "A diferença entre uma noite e outra são trinta segundos por dia."}
+            </p>
+          )}
         </div>
         <div className="mx-auto grid max-w-5xl gap-4 pt-12 md:grid-cols-3 md:items-stretch">
           {orderedVariants.map((variant) => {
