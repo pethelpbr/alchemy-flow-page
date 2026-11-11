@@ -1,8 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { MobileKitGallery } from "@/components/MobileKitGallery";
+import { DesktopKitGallery } from "@/components/DesktopKitGallery";
+import galleryNutra from "@/assets/bf-gallery-nutra.png.asset.json";
+import galleryPata from "@/assets/bf-gallery-pata.png.asset.json";
+import galleryVet from "@/assets/bf-gallery-veterinario.png.asset.json";
+import galleryBoca from "@/assets/bf-gallery-boca.png.asset.json";
+import galleryFormulas from "@/assets/bf-gallery-formulas.png.asset.json";
+import gallerySinais from "@/assets/bf-gallery-sinais.png.asset.json";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
@@ -85,38 +92,19 @@ function KitGallery({ selected }: { selected: Variant }) {
     "bf-2": kit2Potes.url,
     "bf-3": kit3Potes.url,
   }[selected.id];
-  const shots = [nutraFoto.url, pataFoto.url, bocaFoto.url];
-  const [i, setI] = useState<number | null>(null);
-  useEffect(() => {
-    setI(null);
-  }, [selected.id]);
-  const activeSrc = i === null && kitImage ? kitImage : shots[i ?? 0];
+  const shots = [
+    { src: kitImage ?? kitCompleto.url, alt: `Kit Black Friday ${selected.label}` },
+    { src: galleryNutra.url, alt: "NutraHelp: só cuidar por fora não resolve" },
+    { src: galleryPata.url, alt: "PataHelp: mais que hidratação" },
+    { src: galleryVet.url, alt: "PetHelp recomendado por veterinários: Dr. Rivaldo Junior" },
+    { src: galleryBoca.url, alt: "BocaHelp: sem escova, sem briga" },
+    { src: galleryFormulas.url, alt: "Fórmulas do NutraHelp, PataHelp e BocaHelp" },
+    { src: gallerySinais.url, alt: "Seu pet está assim? Sinais de que precisa de cuidado" },
+  ];
   return (
     <div>
-      <MobileKitGallery key={selected.id} shots={[
-        { src: kitImage ?? kitCompleto.url, alt: `Kit Black Friday ${selected.label}` },
-        ...products.map((product) => ({ src: product.img, alt: product.name })),
-      ]} />
-      <div className="relative hidden overflow-hidden rounded-2xl md:block">
-        <img src={activeSrc} alt="Produto do kit Black Friday" className="aspect-square w-full object-cover" />
-        <img
-          src={badgeBlackFriday.url}
-          alt="Black Friday"
-          className="absolute left-4 top-4 h-8 w-auto"
-        />
-      </div>
-      <div className="mt-3 hidden grid-cols-3 gap-3 md:grid">
-        {shots.map((s, idx) => (
-          <button
-            key={s}
-            type="button"
-            onClick={() => setI(idx)}
-            className={cn("overflow-hidden rounded-xl border-2 transition-colors", idx === i ? "border-primary" : "border-transparent")}
-          >
-            <img src={s} alt="" className="aspect-square w-full object-cover" />
-          </button>
-        ))}
-      </div>
+      <MobileKitGallery key={`mobile-${selected.id}`} shots={shots} />
+      <DesktopKitGallery key={`desktop-${selected.id}`} shots={shots} badge={badgeBlackFriday.url} />
     </div>
   );
 }
