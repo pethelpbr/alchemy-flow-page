@@ -17,7 +17,7 @@ export function GuaranteeSection({ tone = "brown" }: { tone?: "brown" | "yellow"
 
             <div className={`max-w-3xl text-center md:text-left ${yellow ? "text-[#3A2E22]" : "text-white"}`}>
               <h2 className="font-display text-3xl leading-tight md:text-4xl">
-                Se não funcionar, seu dinheiro volta
+                Se não funcionar, seu dinheiro de volta
               </h2>
 
               <p className={`mt-4 text-sm leading-relaxed md:text-base ${yellow ? "text-[#5A4C38]" : "text-white/85"}`}>
