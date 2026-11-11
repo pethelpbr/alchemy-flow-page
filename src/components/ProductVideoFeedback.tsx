@@ -23,10 +23,11 @@ const feedbacks: Feedback[] = [
   { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
 ];
 
-// O relato da Amora entra só na página /pele. A Black Friday continua com os três originais.
+// O relato da Amora entra só na página /pele, no lugar do primeiro card.
+// A Black Friday continua com os três originais.
 const peleFeedbacks: Feedback[] = [
-  ...feedbacks,
   { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
+  ...feedbacks.slice(1),
 ];
 
 function VideoTags({ problem, className }: { problem: string; className?: string }) {
