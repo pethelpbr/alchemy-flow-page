@@ -310,7 +310,7 @@ function BlackFridayPage() {
           onToggleAddon={toggleAddon}
           className="bf-brown"
           unboxed
-          heading={<>Escolha seu kit</>}
+          heading={<>Só enquanto durar o estoque</>}
           subheading="Quanto mais NutraHelp, maior o desconto. Frete grátis em todos."
         />
         <TrustBadgesStrip className="bf-light" />
