@@ -51,7 +51,6 @@ export function KitVetSection() {
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-4xl text-foreground lg:text-5xl">Desenvolvido com quem vê esses casos todo dia</h2>
-          <p className="mt-3 text-muted-foreground">A linha foi formulada com acompanhamento veterinário.</p>
         </div>
         <div className="bf-card-tinted mx-auto mt-10 grid max-w-4xl items-center gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[240px_1fr]">
           <img
