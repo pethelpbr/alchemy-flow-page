@@ -19,6 +19,8 @@ import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca-v2.png.as
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
 import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
+import marleyAntes from "@/assets/pata-marley-antes.png.asset.json";
+import marleyDepois from "@/assets/pata-marley-depois.png.asset.json";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
