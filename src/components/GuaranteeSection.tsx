@@ -21,7 +21,7 @@ export function GuaranteeSection({ tone = "brown" }: { tone?: "brown" | "yellow"
               </h2>
 
               <p className={`mt-4 text-sm leading-relaxed md:text-base ${yellow ? "text-[#5A4C38]" : "text-white/85"}`}>
-                Você tem 60 dias para testar os três produtos. Se o seu pet não se adaptar ou você não vir diferença nenhuma, devolvemos 100% do valor pago
+                Você tem 60 dias para testar os três produtos. Se o seu pet não se adaptar ou você não notar diferença nenhuma, devolvemos 100% do valor pago
               </p>
             </div>
           </div>
