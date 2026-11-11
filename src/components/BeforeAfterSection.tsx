@@ -77,15 +77,15 @@ const cases: BeforeAfterCase[] = [
   },
 ];
 
-function Tag({ children }: { children: string }) {
+function Tag({ children, result = false }: { children: string; result?: boolean }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-card/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-foreground shadow-sm">
+    <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] shadow-sm ${result ? "bg-gift text-gift-foreground" : "bg-card/95 text-foreground"}`}>
       {children}
     </span>
   );
 }
 
-export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", firstCase }: { className?: string; title?: string; firstCase?: BeforeAfterCase }) {
+export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", firstCase, resultStyle = false }: { className?: string; title?: string; firstCase?: BeforeAfterCase; resultStyle?: boolean }) {
   const displayedCases = firstCase ? [firstCase, ...cases.slice(1)] : cases;
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -151,7 +151,7 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                           <Tag>Antes</Tag>
                         </div>
                       </div>
-                      <div className={c.fullImages ? "relative" : "relative border-l-2 border-card"}>
+                      <div className={c.fullImages || resultStyle ? "relative" : "relative border-l-2 border-card"}>
                         <img
                           src={c.after}
                           alt={`${c.name} depois do ${c.product?.name ?? "NutraHelp"}`}
@@ -162,14 +162,15 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                           className={c.fullImages ? "absolute inset-0 block h-full w-full" : "aspect-[3/4] h-full w-full object-cover"}
                         />
                         <div className="absolute left-2.5 top-2.5">
-                          <Tag>{c.afterLabel ?? "Depois"}</Tag>
+                          <Tag result={resultStyle}>{c.afterLabel ?? (resultStyle ? c.weeks ?? "Depois" : "Depois")}</Tag>
                         </div>
                       </div>
                     </div>
+                    {resultStyle && <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-background" />}
                     {c.product && (
                       <img src={c.product.image} alt={c.product.name} loading="lazy" draggable={false} className={c.productPosition === "center" ? "absolute left-1/2 top-1/2 h-auto w-16 -translate-x-1/2 -translate-y-1/2" : "absolute bottom-2 left-1/2 h-auto w-20 -translate-x-1/2"} />
                     )}
-                    {c.weeks && <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
+                    {c.weeks && !resultStyle && <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gift px-3 py-1 text-[11px] font-bold text-gift-foreground">
                       {c.weeks}
                     </span>}
                   </div>

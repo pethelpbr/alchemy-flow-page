@@ -302,7 +302,7 @@ function BlackFridayPage() {
         <SignsSection />
         <KitContents />
         <KitStatsSection />
-        <BeforeAfterSection className="bf-dark" title="Veja os resultados" firstCase={{ name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } }} />
+        <BeforeAfterSection className="bf-dark" title="Veja os resultados" resultStyle firstCase={{ name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } }} />
         <KitVetSection />
         <GuaranteeSection tone="yellow" />
         <ReviewsCarousel className="bf-light" />
