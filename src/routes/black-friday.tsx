@@ -122,7 +122,7 @@ function KitGallery({ selected }: { selected: Variant }) {
 }
 
 const signs: { product: string; title: string; text: string; img?: string }[] = [
-  { product: "NutraHelp", title: "Coceira frequente", text: "Coça, morde e se esfrega nos móveis, e piora de noite.", img: sinalCoceira.url },
+  { product: "NutraHelp", title: "Coceira frequente", text: "Se coça, até a pele ficar ferida. Também esfrega o bumbum no chão. ", img: sinalCoceira.url },
   { product: "NutraHelp", title: "Queda de pelos", text: "Pelo espalhado pela casa e falhas aparecendo na pelagem.", img: sinalQueda.url },
   { product: "PataHelp", title: "Lambe a pata", text: "De madrugada você escuta o barulho. O pelo da pata fica escuro e úmido.", img: sinalLambePata.url },
   { product: "PataHelp", title: "Patas ou focinho ressecados", text: "A pata fica áspera, com rachaduras, e o focinho ressecado.", img: sinalPatasRessecadas.url },
@@ -199,16 +199,16 @@ const productDetails = [
     ...products[0],
     video: { mp4: nutraMp4.url, webm: nutraWebm.url, poster: nutraPoster.url },
     what: "Suplemento multifuncional em pó 8 em 1, com 44 nutrientes.",
-    ingredients: "Ômega 3, biotina, pré e probióticos",
-    change: "Se coça e se lambe menos, e o pelo volta a crescer nas falhas.",
+    ingredients: "Ômega 3, vitaminas, minerais, pré e probióticos",
+    change: "Se coça e se lambe menos, e o pelos voltam a crescer sem falhas.",
     use: "misture na comida, uma vez por dia. Tem sabor de carne.",
   },
   {
     ...products[1],
     video: { mp4: pataMp4.url, webm: pataWebm.url, poster: pataPoster.url },
-    what: "Balm natural para patas, focinho e áreas ressecadas.",
+    what: "Balm natural para patas, focinho e pele ressecada.",
     ingredients: "Manteiga de karité, cera de abelha e óleos vegetais",
-    change: "A pata ressecada de tanto lamber volta a ficar macia e as rachaduras fecham.",
+    change: "A pata ressecada de tanto lamber volta a ficar macia e as rachaduras cicatrizam.",
     use: "passe direto na região, quantas vezes precisar. É lambível e atóxico.",
   },
   {
@@ -216,7 +216,7 @@ const productDetails = [
     video: { mp4: bocaMp4.url, webm: bocaWebm.url, poster: bocaPoster.url },
     what: "Solução para higiene bucal de quem não consegue escovar os dentes do pet.",
     ingredients: "Clorexidina, extrato de menta e aloe vera",
-    change: "O hálito melhora e a formação de tártaro desacelera.",
+    change: "O hálito melhora e a formação de tártaro diminui.",
     use: "10 ml para cada litro de água. Não tem gosto, o pet nem percebe.",
   },
 ];
