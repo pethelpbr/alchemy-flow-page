@@ -134,7 +134,8 @@ function SignsSection() {
   return (
     <section className="section bf-light">
       <div className="container-x">
-        <h2 className="text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">
+        <p className="text-center text-xs font-bold uppercase text-primary">Indicação</p>
+        <h2 className="mt-3 text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">
           Reconhece algum
           <br className="sm:hidden" /> desses sinais?
         </h2>
