@@ -24,7 +24,7 @@
 <!-- PROJECT:END -->
 
 - Mobile product gallery navigation uses a native scroll-snap track with a next-slide preview; calculate selection from slide offsets so spacing cannot desynchronize the active image. Temporarily suspend snapping during touch scrolling and animate the final alignment after release to avoid an abrupt native snap.
-- Black Friday uses a dedicated mobile-only kit gallery keyed by the selected kit, so kit changes reset its native scroll track without altering either desktop galleries or the skin page.
+- Black Friday uses separate desktop and mobile galleries keyed by the selected kit, sharing a shot list with the selected kit first and common images afterward; this resets selection on kit changes without altering the skin page.
 
 - Each pain-point landing page (/pele, /mobilidade, /intestino) is its own route wrapped in `LandingLayout` (shared Header, Footer, sticky mobile buy bar) with `useCart` and `scrollToOffer`; keeps every page on the same purchase base.
 
