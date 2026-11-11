@@ -10,4 +10,4 @@
 - [x] Acrescentar as próximas seis fotos ao carrossel Black Friday
 - [x] Reordenar as fotos do carrossel Black Friday conforme a pasta CARROSSEL (sinais → benefícios → veterinário → fórmulas → modo de uso → antes e depois)
 - [x] Aplicar a ordem definitiva de 12 cards no carrossel Black Friday, com as novas artes enviadas
-- [ ] Substituir as três artes de "Antes e depois" do carrossel Black Friday (Nutra "O que muda em 60 dias", Pata "Não é promessa, é resultado", Boca "O próximo pode ser o seu") pelas imagens que faltam (aguardando envio)
+- [x] Substituir as três artes de "Antes e depois" do carrossel Black Friday (Nutra "O que muda em 60 dias", Pata "Não é promessa, é resultado", Boca "O próximo pode ser o seu") pelas imagens que faltam (aguardando envio)
