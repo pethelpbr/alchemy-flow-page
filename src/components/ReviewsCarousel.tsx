@@ -138,7 +138,7 @@ export function ReviewsCarousel({ className }: { className?: string }) {
       <div className="container-x">
         <Reveal>
           <div className="text-center md:text-left">
-            <p className="eyebrow">Avaliações</p>
+            <p className="eyebrow text-primary!">Avaliações</p>
             <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
               Quem comprou, aprovou.
             </h2>
