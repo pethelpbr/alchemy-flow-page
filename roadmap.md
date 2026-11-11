@@ -8,3 +8,4 @@
 - [x] Trocar o título dos produtos por “Cuida por dentro / Protege por fora” em duas linhas
 - [x] Carrossel Black Friday no estilo desktop da /pele, com foto inicial por kit e seis fotos compartilhadas
 - [x] Acrescentar as próximas seis fotos ao carrossel Black Friday
+- [x] Reordenar as fotos do carrossel Black Friday conforme a pasta CARROSSEL (sinais → benefícios → veterinário → fórmulas → modo de uso → antes e depois)
