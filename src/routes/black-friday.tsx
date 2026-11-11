@@ -310,7 +310,7 @@ function BlackFridayPage() {
           resultStyle
           extraCases={[
             { name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } },
-            { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "20 dias", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } },
+            { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } },
           ]}
         />
         <KitVetSection />
