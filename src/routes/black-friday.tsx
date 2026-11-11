@@ -23,7 +23,8 @@ import marleyAntes from "@/assets/pata-marley-antes.png.asset.json";
 import marleyDepois from "@/assets/pata-marley-depois.png.asset.json";
 import pandoraAntes from "@/assets/pandora-antes.png.asset.json";
 import pandoraDepois from "@/assets/pandora-depois.png.asset.json";
-import bocahelpCutout from "@/assets/bocahelp-cutout.png.asset.json";
+import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
+import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { FinalOffer } from "@/components/FinalOffer";
@@ -312,9 +313,9 @@ function BlackFridayPage() {
           title="Veja os resultados"
           resultStyle
           extraCases={[
-            { name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } },
-            { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: pataLata.url } },
-            { name: "Pandora", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutout.url } },
+            { name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
+            { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
+            { name: "Pandora", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 56 },
           ]}
         />
         <KitVetSection />
