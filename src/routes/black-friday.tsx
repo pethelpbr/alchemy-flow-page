@@ -21,6 +21,8 @@ import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
 import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
 import marleyAntes from "@/assets/pata-marley-antes-v2.png.asset.json";
 import marleyDepois from "@/assets/pata-marley-depois.png.asset.json";
+import bobAntes from "@/assets/bob-antes.png.asset.json";
+import bobDepois from "@/assets/bob-depois.png.asset.json";
 import pandoraAntes from "@/assets/pandora-antes.png.asset.json";
 import pandoraDepois from "@/assets/pandora-depois.png.asset.json";
 import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
@@ -316,6 +318,7 @@ function BlackFridayPage() {
             { name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
             { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
             { name: "Pandora", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
+            { name: "Bob", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
           ]}
         />
         <KitVetSection />
