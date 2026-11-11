@@ -299,7 +299,7 @@ function BlackFridayPage() {
         <SignsSection />
         <KitContents />
         <KitStatsSection />
-        <BeforeAfterSection className="bf-dark" />
+        <BeforeAfterSection className="bf-dark" title="Veja os resultados" />
         <KitVetSection />
         <GuaranteeSection tone="yellow" />
         <ReviewsCarousel className="bf-light" />

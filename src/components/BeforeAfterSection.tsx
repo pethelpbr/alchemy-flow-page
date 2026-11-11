@@ -81,7 +81,7 @@ function Tag({ children }: { children: string }) {
   );
 }
 
-export function BeforeAfterSection({ className }: { className?: string }) {
+export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou" }: { className?: string; title?: string }) {
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -113,7 +113,7 @@ export function BeforeAfterSection({ className }: { className?: string }) {
             id="before-after-title"
             className="font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl"
           >
-            Antes e depois de quem já usou
+            {title}
           </h2>
         </div>
 
