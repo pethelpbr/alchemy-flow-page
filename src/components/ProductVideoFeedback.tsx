@@ -14,6 +14,8 @@ import depo3Video from "@/assets/depoimento-3.mp4.asset.json";
 import depo3Cover from "@/assets/depoimento-3-capa.jpg.asset.json";
 import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
 import amoraCover from "@/assets/depoimento-amora-capa.jpg.asset.json";
+import mikeVideo from "@/assets/depoimento-mike.mp4.asset.json";
+import mikeCover from "@/assets/depoimento-mike-capa.jpg.asset.json";
 
 type Feedback = { image: string; name: string; caption: string; problem: string; video?: string };
 
@@ -23,11 +25,12 @@ const feedbacks: Feedback[] = [
   { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
 ];
 
-// O relato da Amora entra só na página /pele, no lugar do primeiro card.
-// A Black Friday continua com os três originais.
+// Os relatos da Amora e do Mike entram só na página /pele, no lugar do primeiro
+// e do segundo card. A Black Friday continua com os três originais.
 const peleFeedbacks: Feedback[] = [
   { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
-  ...feedbacks.slice(1),
+  { image: mikeCover.url, name: "Mike", caption: "Antes e depois", problem: "Dermatite", video: mikeVideo.url },
+  ...feedbacks.slice(2),
 ];
 
 function VideoTags({ problem, className }: { problem: string; className?: string }) {
