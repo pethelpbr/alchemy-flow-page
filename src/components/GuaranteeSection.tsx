@@ -17,12 +17,11 @@ export function GuaranteeSection({ tone = "brown" }: { tone?: "brown" | "yellow"
 
             <div className={`max-w-3xl text-center md:text-left ${yellow ? "text-[#3A2E22]" : "text-white"}`}>
               <h2 className="font-display text-3xl leading-tight md:text-4xl">
-                Você tem 60 dias para ver resultado. Ou o seu dinheiro de volta.
+                Você tem 60 dias para ver a diferença. Ou o seu dinheiro de volta.
               </h2>
 
               <p className={`mt-4 text-sm leading-relaxed md:text-base ${yellow ? "text-[#5A4C38]" : "text-white/85"}`}>
-                Use por dois meses, na dose certa para o peso do seu pet. Se não virar diferença,
-                você fala com a gente no WhatsApp e devolvemos 100% do valor.
+                Use por dois meses, na dose certa para o peso do seu pet. Se ele(a) não se adaptar ao produto ou os resultados não forem visíveis, devolvemos 100% do valor.
               </p>
             </div>
           </div>
