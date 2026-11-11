@@ -50,7 +50,7 @@ export function KitVetSection() {
     <section className="section bf-light">
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl text-foreground lg:text-5xl">Por que veterinários indicam</h2>
+          <h2 className="font-display text-4xl text-foreground lg:text-5xl">Por que os veterinários indicam</h2>
         </div>
         <div className="bf-card-tinted mx-auto mt-10 grid max-w-4xl items-center gap-6 rounded-2xl border border-border bg-card p-6 md:grid-cols-[240px_1fr]">
           <img
