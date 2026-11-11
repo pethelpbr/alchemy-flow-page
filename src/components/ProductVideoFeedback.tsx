@@ -12,10 +12,21 @@ import depo2Video from "@/assets/depoimento-2.mp4.asset.json";
 
 import depo3Video from "@/assets/depoimento-3.mp4.asset.json";
 import depo3Cover from "@/assets/depoimento-3-capa.jpg.asset.json";
-const feedbacks: { image: string; name: string; caption: string; problem: string; video?: string }[] = [
+import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
+import amoraCover from "@/assets/depoimento-amora-capa.jpg.asset.json";
+
+type Feedback = { image: string; name: string; caption: string; problem: string; video?: string };
+
+const feedbacks: Feedback[] = [
   { image: depo3Cover.url, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos", video: depo3Video.url },
   { image: depo2Cover.url, name: "Rodrigo", caption: "Prático para todos os dias", problem: "Dermatite", video: depo2Video.url },
   { image: depo1Cover.url, name: "Marina", caption: "Virou parte da minha manhã", problem: "Mau hálito", video: depo1Video.url },
+];
+
+// O relato da Amora entra só na página /pele. A Black Friday continua com os três originais.
+const peleFeedbacks: Feedback[] = [
+  ...feedbacks,
+  { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
 ];
 
 function VideoTags({ problem, className }: { problem: string; className?: string }) {
@@ -82,7 +93,7 @@ const details = [
   { title: "Como usar", content: <HowToUse /> },
 ];
 
-function Thumbnails({ className, onSelect, paused = false }: { className?: string; onSelect: (f: (typeof feedbacks)[number]) => void; paused?: boolean }) {
+function Thumbnails({ className, items, onSelect, paused = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     trackRef.current?.querySelectorAll("video").forEach((v) => { if (paused) v.pause(); else { v.muted = true; void v.play().catch(() => {}); } });
@@ -108,7 +119,7 @@ function Thumbnails({ className, onSelect, paused = false }: { className?: strin
   };
   return (
     <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
-      {feedbacks.map((feedback) => (
+      {items.map((feedback) => (
         <div key={feedback.name} className="w-[62%] shrink-0 md:w-auto md:shrink">
           <Button type="button" variant="ghost" aria-label={`Assistir ao relato de ${feedback.name}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
             {feedback.video ? (
@@ -247,6 +258,8 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
 
 export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  // Black Friday (kitCta definido) mantém os três relatos originais; /pele ganha o da Amora.
+  const items = kitCta ? feedbacks : peleFeedbacks;
   const contentRef = useRef<HTMLDivElement>(null);
   const goingToKits = useRef(false);
   const pauseVideos = () => contentRef.current?.querySelectorAll("video").forEach((v) => v.pause());
@@ -279,16 +292,16 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { on
     }, 50);
   };
   const [openDetail, setOpenDetail] = useState<number | null>(0);
-  const selectedVideo = selectedIndex === null ? null : feedbacks[selectedIndex];
-  const selectFeedback = (feedback: (typeof feedbacks)[number]) => { const index = feedbacks.indexOf(feedback); setSelectedIndex(index >= 0 ? index : 0); };
-  const showPrevious = () => { setSelectedIndex((current) => current === null ? 0 : (current - 1 + feedbacks.length) % feedbacks.length); };
-  const showNext = () => { setSelectedIndex((current) => current === null ? 0 : (current + 1) % feedbacks.length); };
+  const selectedVideo = selectedIndex === null ? null : items[selectedIndex];
+  const selectFeedback = (feedback: Feedback) => { const index = items.indexOf(feedback); setSelectedIndex(index >= 0 ? index : 0); };
+  const showPrevious = () => { setSelectedIndex((current) => current === null ? 0 : (current - 1 + items.length) % items.length); };
+  const showNext = () => { setSelectedIndex((current) => current === null ? 0 : (current + 1) % items.length); };
 
   return (
     <div>
       <div>
         <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>
-        <Thumbnails className="mt-2 grid-cols-3" onSelect={selectFeedback} paused={selectedVideo !== null} />
+        <Thumbnails items={items} className={cn("mt-2 grid-cols-3", items.length > 3 && "md:grid-cols-4")} onSelect={selectFeedback} paused={selectedVideo !== null} />
         <IngredientsButton />
       </div>
       {showDetails && (
@@ -304,7 +317,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { on
                 <DialogTitle className="pr-10 font-display text-lg font-bold text-ink sm:text-xl">{kitCta ? "Feedbacks" : "Tutores que já passaram por isso"}</DialogTitle>
                 <DialogDescription className="sr-only">Relatos em vídeo de clientes PetHelp</DialogDescription>
                 <div className="mt-2 flex gap-2">
-                  {feedbacks.map((feedback, index) => (
+                  {items.map((feedback, index) => (
                     <Button key={feedback.name} type="button" variant="ghost" aria-label={`Ver relato de ${feedback.name}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={cn("h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90", selectedIndex === index ? "border-primary" : "border-transparent")}>
                       <img src={feedback.image} alt="" className="h-full w-full object-cover" />
                     </Button>
