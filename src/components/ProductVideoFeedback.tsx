@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import { BuyButton } from "@/components/ui/BuyButton";
 import depo1Cover from "@/assets/depoimento-1-capa.jpg.asset.json";
 import depo2Cover from "@/assets/depoimento-2-capa.jpg.asset.json";
-import customer3 from "@/assets/customer-3.jpg";
 import depo1Video from "@/assets/depoimento-1.mp4.asset.json";
 import depo2Video from "@/assets/depoimento-2.mp4.asset.json";
 
