@@ -97,7 +97,7 @@ const details = [
   { title: "Como usar", content: <HowToUse /> },
 ];
 
-function Thumbnails({ className, items, onSelect, paused = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean }) {
+function Thumbnails({ className, items, onSelect, paused = false, store = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean; store?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     trackRef.current?.querySelectorAll("video").forEach((v) => { if (paused) v.pause(); else { v.muted = true; void v.play().catch(() => {}); } });
@@ -122,14 +122,14 @@ function Thumbnails({ className, items, onSelect, paused = false }: { className?
     if (!el || !wasActive) return;
   };
   return (
-    <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
+    <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", store ? "md:mx-0 md:justify-center md:overflow-visible md:px-0 md:pb-0" : "md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
       {items.map((feedback) => (
-        <div key={feedback.name} className="w-[62%] shrink-0 md:w-auto md:shrink">
+        <div key={feedback.name} className={store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
           <Button type="button" variant="ghost" aria-label={`Assistir ao relato de ${feedback.name}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
             {feedback.video ? (
-              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato de ${feedback.name}`} className="aspect-[9/14] w-full object-cover" />
+              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato de ${feedback.name}`} className={cn("w-full object-cover", store ? "aspect-[5/3]" : "aspect-[9/14]")} />
             ) : (
-              <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className="aspect-[9/14] w-full object-cover" />
+              <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className={cn("w-full object-cover", store ? "aspect-[5/3]" : "aspect-[9/14]")} />
             )}
             <span className="absolute inset-0 rounded-xl border border-transparent bg-ink/15 transition-colors group-hover:border-primary" />
             <VideoTags problem={feedback.problem} />
@@ -260,7 +260,7 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
   );
 }
 
-export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined }) {
+export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeLayout = false }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined; storeLayout?: boolean }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   // Black Friday (kitCta definido) mantém os três relatos originais; /pele ganha o da Amora.
   const items = kitCta ? feedbacks : peleFeedbacks;
@@ -304,9 +304,9 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta }: { on
   return (
     <div>
       <div>
-        <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>
-        <Thumbnails items={items} className={cn("mt-2 grid-cols-3", items.length > 3 && "md:grid-cols-4")} onSelect={selectFeedback} paused={selectedVideo !== null} />
-        <IngredientsButton />
+        {!storeLayout && <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>}
+        <Thumbnails items={items} store={storeLayout} className={storeLayout ? "" : cn("mt-2 grid-cols-3", items.length > 3 && "md:grid-cols-4")} onSelect={selectFeedback} paused={selectedVideo !== null} />
+        {!storeLayout && <IngredientsButton />}
       </div>
       {showDetails && (
         <div id="duvidas-compra" className="mt-7 pt-2">
