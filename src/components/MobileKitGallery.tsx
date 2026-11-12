@@ -60,12 +60,14 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
 
   const release = () => {
     interacting.current = false;
+    pausedUntil.current = Date.now() + 4500;
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(settle, 100);
   };
 
   const start = (el: HTMLDivElement) => {
     interacted.current = true;
+    startIndex.current = nearestSlide(el);
     animationRef.current?.stop();
     aligning.current = false;
     interacting.current = true;
@@ -103,6 +105,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     if (!el || shots.length < 2) return;
     const id = setInterval(() => {
       if (interacting.current || aligning.current || document.hidden) return;
+      if (Date.now() < pausedUntil.current) return;
       const current = nearestSlide(el);
       const next = (current + 1) % shots.length;
       const slide = el.children.item(next);
