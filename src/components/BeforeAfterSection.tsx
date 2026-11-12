@@ -175,8 +175,17 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                       {c.weeks}
                     </span>}
                   </div>
-                  <p className="mt-3 text-sm font-bold text-foreground">{c.name}</p>
-                  {c.quote && <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>}
+                  {c.fullImages ? (
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      <span className="font-bold text-foreground">{c.name}</span>
+                      {c.quote && <> · {c.quote}</>}
+                    </p>
+                  ) : (
+                    <>
+                      <p className="mt-3 text-sm font-bold text-foreground">{c.name}</p>
+                      {c.quote && <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>}
+                    </>
+                  )}
                 </article>
               </CarouselItem>
             ))}
