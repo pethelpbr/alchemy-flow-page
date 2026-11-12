@@ -83,6 +83,20 @@ function ensure(): Promise<boolean> {
   return allowedPromise;
 }
 
+/** Verdadeiro quando o rastreio está liberado para a região do visitante. */
+export function trackingAllowed(): Promise<boolean> {
+  return ensure();
+}
+
+/** Dispara um evento padrão do pixel (ex.: ViewContent) quando o rastreio é permitido. */
+export function trackMetaEvent(
+  event: string,
+  params: Record<string, unknown>,
+  custom?: Record<string, unknown>,
+) {
+  void ensure().then((ok) => ok && dispatch("track", event, params, custom));
+}
+
 /** PageView — chamado a cada carregamento/navegação de página. */
 export function trackPageView() {
   void ensure().then((ok) => ok && dispatch("track", "PageView"));
@@ -116,14 +130,5 @@ export async function trackAddToCart(data: {
   await new Promise((r) => setTimeout(r, 300));
 }
 
-/** Dispara AddToCart da variante e então vai para o checkout. */
-export async function goToCheckout(
-  url: string,
-  v: { id: string; label: string; units: number; total: number },
-) {
-  try {
-    await trackAddToCart({ id: v.id, name: `NutraHelp ${v.label}`, value: v.total, quantity: v.units });
-  } finally {
-    window.location.href = url;
-  }
-}
+// O redirecionamento para o checkout (com UTMs e eventos) ficou em
+// `src/lib/tracking.ts`, no `goToCheckout`.
