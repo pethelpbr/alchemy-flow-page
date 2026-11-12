@@ -130,9 +130,9 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
           className="mt-8 cursor-grab select-none active:cursor-grabbing"
         >
           <CarouselContent className="-ml-5 touch-pan-y">
-            {displayedCases.map((c) => (
+            {displayedCases.map((c, i) => (
               <CarouselItem
-                key={c.name}
+                key={`${c.name}-${i}`}
                 className={c.fullImages ? "basis-[78%] pl-5 sm:basis-[38%] lg:basis-[28%]" : "basis-[92%] pl-5 sm:basis-[54%] lg:basis-[38%]"}
               >
                 <article className="flex h-full flex-col">
