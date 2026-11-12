@@ -83,6 +83,7 @@
 
 :root {
   --radius: 1rem;
+  --bf-page-background: #17120E;
   --background: oklch(0.973 0.006 90); /* #F9F7F2 */
   --foreground: oklch(0.3 0.004 60); /* #353534 */
   --card: oklch(1 0 0); /* #FFFFFF */
@@ -211,8 +212,15 @@
 
 /* Tema Black Friday: fundos copiados do código de referência
    (#17120E base, #FDFAF7/#F7F1E8 claros, #1E1813 escuro, #FDDB7A garantia). */
+/* Safari paints its safe-area and pull-to-refresh canvas from the document,
+   not the nested landing layout. Keep that canvas in the active page theme. */
+html:has(.theme-bf),
+body:has(.theme-bf) {
+  background-color: var(--bf-page-background);
+}
+
 .theme-bf {
-  --background: #17120E;
+  --background: var(--bf-page-background);
   --foreground: #FDFAF7;
   --card: #2A211A;
   --card-foreground: #FDFAF7;
