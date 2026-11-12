@@ -82,6 +82,7 @@ export const Route = createFileRoute("/black-friday")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#17120E" },
     ],
   }),
   component: BlackFridayPage,
