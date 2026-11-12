@@ -328,9 +328,9 @@ function BlackFridayPage() {
             { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
             { name: "Pandora", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
             { name: "Bob", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
-            { name: "Floki", before: flokiAntes.url, after: flokiDepois.url, fullImages: true, afterLabel: "60 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 52 },
-            { name: "Simba", before: simbaAntes.url, after: simbaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 52 },
-            { name: "Zeca", before: zecaAntes.url, after: zecaDepois.url, fullImages: true, afterLabel: "25 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 52 },
+            { name: "Floki", before: flokiAntes.url, after: flokiDepois.url, fullImages: true, afterLabel: "60 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
+            { name: "Simba", before: simbaAntes.url, after: simbaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
+            { name: "Zeca", before: zecaAntes.url, after: zecaDepois.url, fullImages: true, afterLabel: "25 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
           ]}
         />
         <KitVetSection />
