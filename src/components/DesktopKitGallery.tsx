@@ -43,7 +43,7 @@ export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: stri
   if (!current) return null;
 
   return (
-    <div role="region" aria-label="Galeria Black Friday no computador" className="hidden w-full min-w-0 flex-col gap-3 [contain:inline-size] md:flex">
+    <div role="region" aria-label="Galeria Black Friday no computador" onPointerEnter={() => { hovering.current = true; }} onPointerLeave={() => { hovering.current = false; }} className="hidden w-full min-w-0 flex-col gap-3 [contain:inline-size] md:flex">
       <motion.div initial={false} animate={{ aspectRatio: current.ratio ?? 1 }} transition={{ duration: 0.5 }} className="relative mx-auto w-[min(100%,720px,calc(100svh-220px))] overflow-hidden rounded-2xl">
         <motion.img key={current.src} src={current.src} alt={current.alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="block h-auto w-full" />
         {active === 0 && <img src={badge} alt="Black Friday" className="absolute left-4 top-4 h-8 w-auto" />}
