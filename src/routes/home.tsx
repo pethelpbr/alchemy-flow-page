@@ -13,7 +13,7 @@ import sinalPatas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
 import sinalLambe from "@/assets/sinal-lambe-pata.png.asset.json";
 import sintoma6 from "@/assets/sintoma-6-scooting.jpg.asset.json";
 import vetFoto from "@/assets/vet-rivaldo-nova.png.asset.json";
-import sobreFoto from "@/assets/customer-2.jpg.asset.json";
+import sobreFoto from "@/assets/lifestyle-1.jpg";
 import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
 import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
 import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
@@ -226,7 +226,7 @@ function HomeStore() {
 
         <section id="sobre" className="scroll-mt-28 bg-ink text-background">
           <div className="grid md:grid-cols-2">
-            <img src={sobreFoto.url} alt="Tutora brincando com seu cachorro" className="h-full max-h-[620px] w-full object-cover" loading="lazy" />
+            <img src={sobreFoto} alt="Tutora brincando com seu cachorro" className="h-full max-h-[620px] w-full object-cover" loading="lazy" />
             <div className="flex flex-col justify-center p-8 md:p-14">
               <p className="eyebrow text-primary!">Quem somos</p>
               <h2 className="mt-3 font-display text-4xl md:text-5xl">Sobre nós</h2>
