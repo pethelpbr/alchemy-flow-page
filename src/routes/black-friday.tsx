@@ -15,7 +15,7 @@ import cardUsoPata from "@/assets/bf-card-11-uso-pata.webp.asset.json";
 import cardUsoBoca from "@/assets/bf-card-12-uso-boca.png.asset.json";
 import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra-v3.png.asset.json";
 import galleryResultadosPata from "@/assets/bf-gallery-resultados-pata-v3.png.asset.json";
-import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca-v2.png.asset.json";
+import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca-v3.png.asset.json";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
 import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
