@@ -36,7 +36,7 @@ const reviews = [
     photo: mariaHelena.url,
   },
   {
-    text: "Peguei o kit na promoção e valeu muito a pena. Já queria comprar o NutraHelp e acabei aproveitando pra testar os outros também. Aqui em casa estou usando os 3",
+    text: "Peguei o kit na promoção e valeu muito a pena. Já queria comprar o NutraHelp e acabei aproveitando pra testar os outros também. Aqui em casa estou usando os 3.",
     name: "Marisa Bucker",
     city: "Belo Horizonte, MG",
     photo: marisa.url,
