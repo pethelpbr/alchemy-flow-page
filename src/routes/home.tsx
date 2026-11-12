@@ -13,7 +13,7 @@ import sinalPatas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
 import sinalLambe from "@/assets/sinal-lambe-pata.png.asset.json";
 import sintoma6 from "@/assets/sintoma-6-scooting.jpg.asset.json";
 import vetFoto from "@/assets/vet-rivaldo-nova.png.asset.json";
-import sobreFoto from "@/assets/lifestyle-1.jpg.asset.json";
+import sobreFoto from "@/assets/customer-2.jpg.asset.json";
 import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
 import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
 import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
