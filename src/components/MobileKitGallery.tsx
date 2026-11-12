@@ -213,7 +213,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     const el = trackRef.current;
     if (!el) return;
     const onTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 1) e.preventDefault();
+      void e;
     };
     el.addEventListener("touchmove", onTouchMove, { passive: false });
     return () => el.removeEventListener("touchmove", onTouchMove);
@@ -262,7 +262,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         role="region"
         aria-label="Fotos do kit Black Friday"
         aria-roledescription="carrossel"
-        className="relative flex w-full items-start touch-pan-y gap-1 overflow-x-hidden pr-[10%] select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="relative flex w-full items-start touch-pan-y touch-pinch-zoom gap-1 overflow-x-hidden pr-[10%] select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onScroll={(e) => {
           const el = e.currentTarget;
           if (!interacted.current) { el.scrollLeft = 0; return; }
@@ -285,9 +285,10 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
           const el = e.currentTarget;
           pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
           if (pointers.current.size >= 2) {
-            interacting.current = true;
-            clearTimeout(timerRef.current);
-            startPinch(el);
+            // Two fingers: let the browser zoom the whole page.
+            drag.current.active = false;
+            interacting.current = false;
+            pausedUntil.current = Date.now() + RESUME_DELAY_MS;
             return;
           }
           start(el);
