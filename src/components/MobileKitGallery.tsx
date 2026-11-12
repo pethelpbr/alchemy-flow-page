@@ -155,11 +155,16 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     const dist = Math.hypot(a.x - b.x, a.y - b.y);
     if (pinch.current.startDist <= 0) return;
     const index = startIndex.current;
+    const img = imgRefs.current[index];
     const nextScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, pinch.current.startScale * (dist / pinch.current.startDist)));
     const k = nextScale / pinch.current.startScale;
+    const ox = img ? img.offsetWidth / 2 : 0;
+    const oy = img ? img.offsetHeight / 2 : 0;
+    const ax = pinch.current.cx - ox;
+    const ay = pinch.current.cy - oy;
     zoom.current.scale = nextScale;
-    zoom.current.tx = pinch.current.cx - (pinch.current.cx - pinch.current.startTx) * k;
-    zoom.current.ty = pinch.current.cy - (pinch.current.cy - pinch.current.startTy) * k;
+    zoom.current.tx = ax - (ax - pinch.current.startTx) * k;
+    zoom.current.ty = ay - (ay - pinch.current.startTy) * k;
     if (nextScale <= MIN_ZOOM) { zoom.current.tx = 0; zoom.current.ty = 0; }
     else clampZoomPan(index);
     applyZoom(index);
