@@ -48,7 +48,7 @@ export function Header({ onBuy, marqueeItems, topStrip }: { onBuy: () => void; m
 
   return (
     <>
-      <div ref={marqueeRef} className={cn("pt-[env(safe-area-inset-top)]", !topStrip && "bg-gift")}>
+      <div ref={marqueeRef} className={cn("pt-[env(safe-area-inset-top)]", topStrip ? "bg-background" : "bg-gift")}>
         {topStrip ?? <MarqueeStrip tone="gift" size="slim" items={marqueeItems} />}
       </div>
       <header
