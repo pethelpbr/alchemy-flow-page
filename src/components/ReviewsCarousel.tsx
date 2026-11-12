@@ -18,7 +18,7 @@ import silvana from "@/assets/SILVANA_MUNIZ.png.asset.json";
 
 const reviews = [
   {
-    text: "Comecei a usar no meu golden e já percebi diferença na pelagem. O pelo está mais bonito e ele também aceitou super bem na comida. Vou continuar usando porque gostei bastante do resultado.",
+    text: "Comecei a usar no meu golden e já percebi diferença na pelagem. O pelo está mais bonito e ele também aceitou super bem na comida. Recomendo.",
     name: "Lindaci Barros",
     city: "São Paulo, SP",
     photo: lindaci.url,
@@ -48,7 +48,7 @@ const reviews = [
     photo: rejane.url,
   },
   {
-    text: "Luna\u00a0estava soltando bastante pelo. Depois que comecei a usar o suplemento, fui percebendo a pele e o pelo bem mais bonitos. Gostei muito do resultado e vou continuar usando.",
+    text: "Luna\u00a0estava se coçando muito, principalmente na hora de dormir. Depois que comecei a usar o suplemento, a coceira diminuiu 90%. Gostei muito do resultado e vou continuar usando.",
     name: "Silvana Muniz",
     city: "Porto Alegre, RS",
     photo: silvana.url,
