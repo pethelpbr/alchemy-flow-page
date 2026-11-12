@@ -4,7 +4,8 @@ import galleryDragIcon from "@/assets/gallery-drag-icon.png.asset.json";
 
 type GalleryShot = { src: string; alt: string };
 
-const AUTOPLAY_MS = 15000;
+const FIRST_SHOT_MS = 3000;
+const AUTOPLAY_MS = 10000;
 const RESUME_DELAY_MS = 4500;
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 4;
@@ -13,6 +14,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const autoplayRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const animationRef = useRef<{ stop: () => void } | undefined>(undefined);
   const interacting = useRef(false);
   const aligning = useRef(false);
@@ -219,14 +221,20 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     return () => el.removeEventListener("touchmove", onTouchMove);
   }, []);
 
+  // Passada automática: a primeira foto (fixa) fica 3 s; as demais, 10 s.
+  // Pausa enquanto o usuário toca/arrasta, dá zoom ou logo após interagir.
   useEffect(() => {
     const el = trackRef.current;
     if (!el || shots.length < 2) return;
-    const id = setInterval(() => {
-      if (interacting.current || aligning.current || document.hidden) return;
-      if (zoom.current.scale > 1.001) return;
-      if (Date.now() < pausedUntil.current) return;
+    let cancelled = false;
+    const delayFor = (index: number) => (index === 0 ? FIRST_SHOT_MS : AUTOPLAY_MS);
+    const tick = () => {
+      if (cancelled) return;
       const current = nearestSlide(el);
+      if (interacting.current || aligning.current || document.hidden || zoom.current.scale > 1.001 || Date.now() < pausedUntil.current) {
+        autoplayRef.current = setTimeout(tick, delayFor(current));
+        return;
+      }
       const next = (current + 1) % shots.length;
       const slide = el.children.item(next);
       if (!(slide instanceof HTMLElement)) return;
@@ -239,6 +247,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         el.style.scrollSnapType = "none";
         setActive(next);
         progress.set(((next + 1) / shots.length) * 100);
+        if (!cancelled) autoplayRef.current = setTimeout(tick, delayFor(next));
       };
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         el.scrollLeft = slide.offsetLeft;
@@ -251,8 +260,9 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         onUpdate: (left) => { el.scrollLeft = left; },
         onComplete: finish,
       });
-    }, AUTOPLAY_MS);
-    return () => clearInterval(id);
+    };
+    autoplayRef.current = setTimeout(tick, FIRST_SHOT_MS);
+    return () => { cancelled = true; clearTimeout(autoplayRef.current); };
   }, [shots, progress]);
 
   return (

@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
-const AUTOPLAY_MS = 18000;
+const FIRST_SHOT_MS = 3000;
+const AUTOPLAY_MS = 10000;
 
 export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: string }) {
   const [active, setActive] = useState(0);
@@ -27,16 +28,17 @@ export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: stri
     strip.scrollTo({ left: thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2, behavior: "smooth" });
   }, [active]);
 
-  // Passada automática: 18 s por imagem, pausada enquanto o mouse está sobre a
-  // galeria ou enquanto o usuário arrasta a tira de miniaturas.
+  // Passada automática: a primeira foto (fixa) fica 3 s; as demais, 10 s.
+  // Pausada enquanto o mouse está sobre a galeria ou enquanto o usuário
+  // arrasta a tira de miniaturas.
   useEffect(() => {
-    const schedule = () => {
+    const schedule = (delay: number) => {
       timerRef.current = setTimeout(() => {
-        if (hovering.current || drag.current.active || document.hidden) { schedule(); return; }
+        if (hovering.current || drag.current.active || document.hidden) { schedule(delay); return; }
         setActive((prev) => (prev + 1) % shots.length);
-      }, AUTOPLAY_MS);
+      }, delay);
     };
-    schedule();
+    schedule(active === 0 ? FIRST_SHOT_MS : AUTOPLAY_MS);
     return () => clearTimeout(timerRef.current);
   }, [active, shots.length]);
 
