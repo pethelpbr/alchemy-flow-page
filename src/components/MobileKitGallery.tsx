@@ -11,6 +11,8 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const interacting = useRef(false);
   const aligning = useRef(false);
   const interacted = useRef(false);
+  const startIndex = useRef(0);
+  const pausedUntil = useRef(0);
   const drag = useRef({ x: 0, left: 0, active: false, captured: false });
   const [active, setActive] = useState(0);
   const progress = useMotionValue(100 / shots.length);
@@ -30,7 +32,9 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const settle = () => {
     const el = trackRef.current;
     if (!el || interacting.current || aligning.current) return;
-    const index = nearestSlide(el);
+    const nearest = nearestSlide(el);
+    const index = Math.max(startIndex.current - 1, Math.min(startIndex.current + 1, nearest));
+    startIndex.current = index;
     const slide = el.children.item(index);
     if (!(slide instanceof HTMLElement)) return;
     setActive(index);
@@ -56,12 +60,14 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
 
   const release = () => {
     interacting.current = false;
+    pausedUntil.current = Date.now() + 4500;
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(settle, 100);
   };
 
   const start = (el: HTMLDivElement) => {
     interacted.current = true;
+    startIndex.current = nearestSlide(el);
     animationRef.current?.stop();
     aligning.current = false;
     interacting.current = true;
@@ -99,6 +105,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     if (!el || shots.length < 2) return;
     const id = setInterval(() => {
       if (interacting.current || aligning.current || document.hidden) return;
+      if (Date.now() < pausedUntil.current) return;
       const current = nearestSlide(el);
       const next = (current + 1) % shots.length;
       const slide = el.children.item(next);
