@@ -19,7 +19,7 @@ import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca-v3.png.as
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
 import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
-import marleyAntes from "@/assets/pata-marley-antes-v2.png.asset.json";
+import marleyAntes from "@/assets/pata-marley-antes-v3.jpg.asset.json";
 import marleyDepois from "@/assets/pata-marley-depois.png.asset.json";
 import bobAntes from "@/assets/bob-antes-enquadrado.png.asset.json";
 import bobDepois from "@/assets/bob-depois-enquadrado.png.asset.json";

@@ -18,7 +18,7 @@ import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
 import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
 import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
 import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
-import marleyAntes from "@/assets/pata-marley-antes-v2.png.asset.json";
+import marleyAntes from "@/assets/pata-marley-antes-v3.jpg.asset.json";
 import marleyDepois from "@/assets/pata-marley-depois.png.asset.json";
 import pandoraAntes from "@/assets/pandora-antes.png.asset.json";
 import pandoraDepois from "@/assets/pandora-depois.png.asset.json";
