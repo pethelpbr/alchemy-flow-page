@@ -40,6 +40,7 @@ import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
 import { KitStatsSection, KitVetSection } from "@/components/kit-bf/PlaceholderSections";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
+import kit1Potes from "@/assets/kit-bf-1-potes.png.asset.json";
 import badgeBlackFriday from "@/assets/badge-black-friday.png.asset.json";
 import kit2Potes from "@/assets/kit-bf-2-potes-v3.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v6.png.asset.json";
@@ -104,7 +105,7 @@ const products = [
 
 function KitGallery({ selected }: { selected: Variant }) {
   const kitImage = {
-    "bf-1": kitCompleto.url,
+    "bf-1": kit1Potes.url,
     "bf-2": kit2Potes.url,
     "bf-3": kit3Potes.url,
   }[selected.id];
