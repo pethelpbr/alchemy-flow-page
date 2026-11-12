@@ -31,6 +31,8 @@ import simbaAntes from "@/assets/simba_antes_v2.jpg.asset.json";
 import simbaDepois from "@/assets/simba_depois_30_v2.jpg.asset.json";
 import zecaAntes from "@/assets/zeca_antes.jpg.asset.json";
 import zecaDepois from "@/assets/zeca_depois_25.jpg.asset.json";
+import estopinhaAntes from "@/assets/estopinha_antes.jpg.asset.json";
+import estopinhaDepois from "@/assets/estopinha_depois_30.jpg.asset.json";
 import nutrahelpPoteThumb from "@/assets/nutrahelp-pote-thumb.png.asset.json";
 import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
 import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
@@ -341,6 +343,7 @@ function BlackFridayPage() {
             { name: "Floki", quote: "A pele do pescoço cicatrizou e os pelos voltaram a crescer.", before: flokiAntes.url, after: flokiDepois.url, fullImages: true, afterLabel: "60 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
             { name: "Simba", quote: "A otite diminuiu e ele voltou a dormir a noite toda.", before: simbaAntes.url, after: simbaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
             { name: "Zeca", quote: "As falhas da perna fecharam e o pelo preencheu.", before: zecaAntes.url, after: zecaDepois.url, fullImages: true, afterLabel: "25 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
+            { name: "Estopinha", quote: "O focinho estava ressecado e rachado, mas recuperou a hidratação e a maciez.", before: estopinhaAntes.url, after: estopinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
           ]}
         />
         <KitVetSection />
