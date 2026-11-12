@@ -127,9 +127,9 @@ function Thumbnails({ className, items, onSelect, paused = false, store = false 
         <div key={feedback.name} className={store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
           <Button type="button" variant="ghost" aria-label={`Assistir ao relato de ${feedback.name}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
             {feedback.video ? (
-              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato de ${feedback.name}`} className={cn("w-full object-cover", store ? "aspect-[5/3]" : "aspect-[9/14]")} />
+              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato de ${feedback.name}`} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
             ) : (
-              <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className={cn("w-full object-cover", store ? "aspect-[5/3]" : "aspect-[9/14]")} />
+              <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
             )}
             <span className="absolute inset-0 rounded-xl border border-transparent bg-ink/15 transition-colors group-hover:border-primary" />
             <VideoTags problem={feedback.problem} />
