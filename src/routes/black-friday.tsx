@@ -34,7 +34,7 @@ import zecaDepois from "@/assets/zeca_depois_25.jpg.asset.json";
 import estopinhaAntes from "@/assets/estopinha_antes.jpg.asset.json";
 import estopinhaDepois from "@/assets/estopinha_depois_30.jpg.asset.json";
 import nutrahelpPoteThumb from "@/assets/nutrahelp-pote-thumb.png.asset.json";
-import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
+import bocahelpCutoutThumb from "@/assets/bocahelp-thumb-cap-fixed.png";
 import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
@@ -338,10 +338,10 @@ function BlackFridayPage() {
           extraCases={[
             { name: "Floki", quote: "A pele do pescoço cicatrizou e os pelos voltaram a crescer.", before: flokiAntes.url, after: flokiDepois.url, fullImages: true, afterLabel: "60 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
             { name: "Dorinha", quote: "A vermelhidão da barriga sumiu e a pele ficou lisa de novo.", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
-            { name: "Pandora", quote: "O tártaro diminuiu e os dentes clarearam.", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
+            { name: "Pandora", quote: "O tártaro diminuiu e os dentes clarearam.", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb }, productHeight: 68 },
             { name: "Simba", quote: "A otite diminuiu e ele voltou a dormir a noite toda.", before: simbaAntes.url, after: simbaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
             { name: "Marley", quote: "Ele parou de lamber a pata e o vermelho entre os coxins sumiu.", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
-            { name: "Bob", quote: "A gengiva desinchou e os dentes ficaram brancos de novo.", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
+            { name: "Bob", quote: "A gengiva desinchou e os dentes ficaram brancos de novo.", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb }, productHeight: 68 },
             { name: "Zeca", quote: "As falhas da perna fecharam e o pelo preencheu.", before: zecaAntes.url, after: zecaDepois.url, fullImages: true, afterLabel: "25 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
             { name: "Estopinha", quote: "O focinho estava ressecado e rachado, mas recuperou a hidratação e a maciez.", before: estopinhaAntes.url, after: estopinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
           ]}
