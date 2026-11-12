@@ -142,8 +142,9 @@ export function kitFromVariant(v: Variant): Kit {
   return {
     id: v.id,
     name: BF_KIT_NAMES[v.id] ?? `NutraHelp ${v.label}`,
+    // `total` já é o preço cheio do kit, então o valor do evento é ele mesmo:
+    // quantity fica em 1 para não multiplicar o preço pelo número de potes.
     price: variantTotals(v).total,
-    quantity: v.units,
   };
 }
 
