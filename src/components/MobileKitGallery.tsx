@@ -10,6 +10,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const animationRef = useRef<{ stop: () => void } | undefined>(undefined);
   const interacting = useRef(false);
   const aligning = useRef(false);
+  const interacted = useRef(false);
   const drag = useRef({ x: 0, left: 0, active: false, captured: false });
   const [active, setActive] = useState(0);
   const progress = useMotionValue(100 / shots.length);
@@ -60,12 +61,33 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   };
 
   const start = (el: HTMLDivElement) => {
+    interacted.current = true;
     animationRef.current?.stop();
     aligning.current = false;
     interacting.current = true;
     clearTimeout(timerRef.current);
     el.style.scrollSnapType = "none";
   };
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const toStart = () => {
+      if (interacted.current) return;
+      el.scrollLeft = 0;
+      setActive(0);
+      progress.set(100 / shots.length);
+    };
+    toStart();
+    const raf = requestAnimationFrame(toStart);
+    const timer = setTimeout(toStart, 400);
+    window.addEventListener("load", toStart);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+      window.removeEventListener("load", toStart);
+    };
+  }, [shots, progress]);
 
   useEffect(() => () => {
     clearTimeout(timerRef.current);
@@ -82,6 +104,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         className="relative flex w-full snap-x snap-mandatory items-start gap-1 overflow-x-auto overscroll-x-contain pr-[10%] select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onScroll={(e) => {
           const el = e.currentTarget;
+          if (!interacted.current) { el.scrollLeft = 0; return; }
           const index = nearestSlide(el);
           setActive(index);
           const slide = el.children.item(index);
