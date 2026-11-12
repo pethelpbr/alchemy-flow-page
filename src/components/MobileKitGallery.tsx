@@ -131,7 +131,8 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const startPinch = (el: HTMLDivElement) => {
     const points = Array.from(pointers.current.values());
     if (points.length < 2) return;
-    const [a, b] = points;
+    const a = points[0]!;
+    const b = points[1]!;
     const rect = el.getBoundingClientRect();
     pinch.current = {
       active: true,
@@ -149,7 +150,8 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     if (!pinch.current.active) return;
     const points = Array.from(pointers.current.values());
     if (points.length < 2) return;
-    const [a, b] = points;
+    const a = points[0]!;
+    const b = points[1]!;
     const dist = Math.hypot(a.x - b.x, a.y - b.y);
     if (pinch.current.startDist <= 0) return;
     const index = startIndex.current;
