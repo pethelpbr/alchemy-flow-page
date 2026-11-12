@@ -6,11 +6,15 @@ import { cn } from "@/lib/utils";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
+const AUTOPLAY_MS = 18000;
+
 export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: string }) {
   const [active, setActive] = useState(0);
   const [scrolledLeft, setScrolledLeft] = useState(false);
   const stripRef = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, captured: false, moved: false, x: 0, left: 0 });
+  const hovering = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const current = shots[active];
 
   useEffect(() => {
@@ -23,10 +27,23 @@ export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: stri
     strip.scrollTo({ left: thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2, behavior: "smooth" });
   }, [active]);
 
+  // Passada automática: 18 s por imagem, pausada enquanto o mouse está sobre a
+  // galeria ou enquanto o usuário arrasta a tira de miniaturas.
+  useEffect(() => {
+    const schedule = () => {
+      timerRef.current = setTimeout(() => {
+        if (hovering.current || drag.current.active || document.hidden) { schedule(); return; }
+        setActive((prev) => (prev + 1) % shots.length);
+      }, AUTOPLAY_MS);
+    };
+    schedule();
+    return () => clearTimeout(timerRef.current);
+  }, [active, shots.length]);
+
   if (!current) return null;
 
   return (
-    <div role="region" aria-label="Galeria Black Friday no computador" className="hidden w-full min-w-0 flex-col gap-3 [contain:inline-size] md:flex">
+    <div role="region" aria-label="Galeria Black Friday no computador" onPointerEnter={() => { hovering.current = true; }} onPointerLeave={() => { hovering.current = false; }} className="hidden w-full min-w-0 flex-col gap-3 [contain:inline-size] md:flex">
       <motion.div initial={false} animate={{ aspectRatio: current.ratio ?? 1 }} transition={{ duration: 0.5 }} className="relative mx-auto w-[min(100%,720px,calc(100svh-220px))] overflow-hidden rounded-2xl">
         <motion.img key={current.src} src={current.src} alt={current.alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="block h-auto w-full" />
         {active === 0 && <img src={badge} alt="Black Friday" className="absolute left-4 top-4 h-8 w-auto" />}
