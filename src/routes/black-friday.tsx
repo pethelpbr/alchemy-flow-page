@@ -13,7 +13,7 @@ import cardFormulas from "@/assets/bf-card-09-formulas.webp.asset.json";
 import cardUsoNutra from "@/assets/bf-card-10-uso-nutra.png.asset.json";
 import cardUsoPata from "@/assets/bf-card-11-uso-pata.webp.asset.json";
 import cardUsoBoca from "@/assets/bf-card-12-uso-boca.png.asset.json";
-import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra-v2.png.asset.json";
+import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra-v3.png.asset.json";
 import galleryResultadosPata from "@/assets/bf-gallery-resultados-pata-v2.png.asset.json";
 import galleryResultadosBoca from "@/assets/bf-gallery-resultados-boca-v2.png.asset.json";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
