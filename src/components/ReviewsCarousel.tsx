@@ -18,7 +18,7 @@ import silvana from "@/assets/SILVANA_MUNIZ.png.asset.json";
 
 const reviews = [
   {
-    text: "Comecei a usar no meu golden e já percebi diferença na pelagem. O pelo está mais bonito e ele também aceitou super bem na comida. Recomendo.",
+    text: "Comecei a usar no meu golden e percebi uma grande diferença na queda de pelo. A pelagem ficou mais bonita também. Ele come super bem na comida. Recomendo.",
     name: "Lindaci Barros",
     city: "São Paulo, SP",
     photo: lindaci.url,
