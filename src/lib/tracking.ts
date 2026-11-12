@@ -64,7 +64,8 @@ export function getTrackingParams(): Record<string, string> {
       if (Date.now() - d.ts < TTL_DAYS * 86400000) return d.params;
     }
     const m = document.cookie.match(new RegExp(`(?:^|; )${STORAGE}=([^;]*)`));
-    if (m) return JSON.parse(decodeURIComponent(m[1]));
+    const value = m?.[1];
+    if (value) return JSON.parse(decodeURIComponent(value));
   } catch {}
   return {};
 }
