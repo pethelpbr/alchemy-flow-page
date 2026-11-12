@@ -6,11 +6,15 @@ import { cn } from "@/lib/utils";
 
 type Shot = { src: string; alt: string; ratio?: number };
 
+const AUTOPLAY_MS = 18000;
+
 export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: string }) {
   const [active, setActive] = useState(0);
   const [scrolledLeft, setScrolledLeft] = useState(false);
   const stripRef = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, captured: false, moved: false, x: 0, left: 0 });
+  const hovering = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const current = shots[active];
 
   useEffect(() => {
@@ -22,6 +26,19 @@ export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: stri
     if (item.left >= bounds.left + 28 && item.right <= bounds.right - 80) return;
     strip.scrollTo({ left: thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2, behavior: "smooth" });
   }, [active]);
+
+  // Passada automática: 18 s por imagem, pausada enquanto o mouse está sobre a
+  // galeria ou enquanto o usuário arrasta a tira de miniaturas.
+  useEffect(() => {
+    const schedule = () => {
+      timerRef.current = setTimeout(() => {
+        if (hovering.current || drag.current.active || document.hidden) { schedule(); return; }
+        setActive((prev) => (prev + 1) % shots.length);
+      }, AUTOPLAY_MS);
+    };
+    schedule();
+    return () => clearTimeout(timerRef.current);
+  }, [active, shots.length]);
 
   if (!current) return null;
 
