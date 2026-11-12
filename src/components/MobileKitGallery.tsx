@@ -42,7 +42,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     el.style.scrollSnapType = "none";
     const finish = () => {
       aligning.current = false;
-      el.style.scrollSnapType = "x mandatory";
+      el.style.scrollSnapType = "none";
       progress.set(((index + 1) / shots.length) * 100);
     };
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -63,6 +63,32 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     pausedUntil.current = Date.now() + 4500;
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(settle, 100);
+  };
+
+  const goStep = (dx: number) => {
+    const el = trackRef.current;
+    interacting.current = false;
+    pausedUntil.current = Date.now() + 4500;
+    clearTimeout(timerRef.current);
+    if (!el) return;
+    const width = el.children.item(0) instanceof HTMLElement ? (el.children.item(0) as HTMLElement).offsetWidth : el.clientWidth;
+    const dir = Math.abs(dx) > Math.min(50, width * 0.15) ? (dx < 0 ? 1 : -1) : 0;
+    const index = Math.max(0, Math.min(shots.length - 1, startIndex.current + dir));
+    startIndex.current = index;
+    const slide = el.children.item(index);
+    if (!(slide instanceof HTMLElement)) return;
+    setActive(index);
+    aligning.current = true;
+    const finish = () => {
+      aligning.current = false;
+      progress.set(((index + 1) / shots.length) * 100);
+    };
+    animationRef.current = animate(el.scrollLeft, slide.offsetLeft, {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (left) => { el.scrollLeft = left; },
+      onComplete: finish,
+    });
   };
 
   const start = (el: HTMLDivElement) => {
@@ -115,7 +141,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
       el.style.scrollSnapType = "none";
       const finish = () => {
         aligning.current = false;
-        el.style.scrollSnapType = "x mandatory";
+        el.style.scrollSnapType = "none";
         setActive(next);
         progress.set(((next + 1) / shots.length) * 100);
       };
@@ -141,7 +167,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         role="region"
         aria-label="Fotos do kit Black Friday"
         aria-roledescription="carrossel"
-        className="relative flex w-full snap-x snap-mandatory items-start gap-1 overflow-x-auto overscroll-x-contain pr-[10%] select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="relative flex w-full items-start touch-pan-y gap-1 overflow-x-hidden pr-[10%] select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         onScroll={(e) => {
           const el = e.currentTarget;
           if (!interacted.current) { el.scrollLeft = 0; return; }
@@ -159,32 +185,29 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
           clearTimeout(timerRef.current);
           if (!interacting.current && !aligning.current) timerRef.current = setTimeout(settle, 100);
         }}
-        onTouchStart={(e) => start(e.currentTarget)}
-        onTouchEnd={release}
-        onTouchCancel={release}
         onPointerDown={(e) => {
-          if (e.pointerType !== "mouse") return;
+          if (e.pointerType === "mouse" && e.button !== 0) return;
           start(e.currentTarget);
           drag.current = { x: e.clientX, left: e.currentTarget.scrollLeft, active: true, captured: false };
         }}
         onPointerMove={(e) => {
           if (!drag.current.active) return;
           const dx = e.clientX - drag.current.x;
-          if (Math.abs(dx) > 4 && !drag.current.captured) {
+          if (e.pointerType === "mouse" && Math.abs(dx) > 4 && !drag.current.captured) {
             e.currentTarget.setPointerCapture(e.pointerId);
             drag.current.captured = true;
           }
-          if (drag.current.captured) e.currentTarget.scrollLeft = drag.current.left - dx;
+          if (e.pointerType !== "mouse" || drag.current.captured) e.currentTarget.scrollLeft = drag.current.left - dx;
         }}
         onPointerUp={(e) => {
           if (!drag.current.active) return;
           drag.current.active = false;
           if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
-          release();
+          goStep(e.clientX - drag.current.x);
         }}
-        onPointerCancel={() => { drag.current.active = false; release(); }}
-        onPointerLeave={() => {
-          if (drag.current.active && !drag.current.captured) { drag.current.active = false; release(); }
+        onPointerCancel={(e) => { if (!drag.current.active) return; drag.current.active = false; goStep(e.clientX - drag.current.x); }}
+        onPointerLeave={(e) => {
+          if (e.pointerType === "mouse" && drag.current.active && !drag.current.captured) { drag.current.active = false; goStep(0); }
         }}
       >
         {shots.map((shot, i) => (
