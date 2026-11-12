@@ -320,6 +320,7 @@ function BlackFridayPage() {
         <KitContents />
         <KitStatsSection />
         <BeforeAfterSection
+          onlyExtra
           className="bf-dark"
           title="Veja os resultados"
           resultStyle
