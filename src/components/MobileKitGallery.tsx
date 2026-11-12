@@ -58,13 +58,6 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     });
   };
 
-  const release = () => {
-    interacting.current = false;
-    pausedUntil.current = Date.now() + 4500;
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(settle, 100);
-  };
-
   const goStep = (dx: number) => {
     const el = trackRef.current;
     interacting.current = false;
