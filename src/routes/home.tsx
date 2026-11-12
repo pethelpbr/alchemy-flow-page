@@ -61,7 +61,7 @@ const parcela = (v: number, n = 6) => `${n}x ${brl(v / n)}`;
 const goTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 function Stars({ className = "h-4 w-4" }: { className?: string }) {
-  return <span className="flex text-primary">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className={`${className} fill-current`} />)}</span>;
+  return <span className="flex text-gift">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className={`${className} fill-current`} />)}</span>;
 }
 
 function SectionTitle({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {

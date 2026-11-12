@@ -18,7 +18,7 @@ function StarShape({ size, fill }: { size: number; fill: number }) {
       {fill > 0 && fill < 1 && (
         <defs>
           <linearGradient id={id} x1="0" y1="0" x2="1" y2="0">
-            <stop offset={pct} style={{ stopColor: "var(--primary)" }} />
+            <stop offset={pct} style={{ stopColor: "var(--gift)" }} />
             <stop offset={pct} style={{ stopColor: "transparent" }} />
           </linearGradient>
         </defs>
@@ -28,7 +28,7 @@ function StarShape({ size, fill }: { size: number; fill: number }) {
         style={{
           fill:
             fill >= 1
-              ? "var(--primary)"
+              ? "var(--gift)"
               : fill > 0
                 ? `url(#${id})`
                 : "none",
@@ -39,7 +39,7 @@ function StarShape({ size, fill }: { size: number; fill: number }) {
         fill="none"
         strokeWidth={1}
         strokeLinejoin="round"
-        style={{ stroke: "var(--primary)" }}
+        style={{ stroke: "var(--gift)" }}
       />
     </svg>
   );
