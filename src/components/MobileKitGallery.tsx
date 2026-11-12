@@ -149,7 +149,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         onUpdate: (left) => { el.scrollLeft = left; },
         onComplete: finish,
       });
-    }, 4500);
+    }, 12000);
     return () => clearInterval(id);
   }, [shots, progress]);
 
