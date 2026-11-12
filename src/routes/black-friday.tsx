@@ -25,6 +25,13 @@ import bobAntes from "@/assets/bob-antes-enquadrado.png.asset.json";
 import bobDepois from "@/assets/bob-depois-enquadrado.png.asset.json";
 import pandoraAntes from "@/assets/pandora-antes.png.asset.json";
 import pandoraDepois from "@/assets/pandora-depois.png.asset.json";
+import flokiAntes from "@/assets/floki_antes.jpg.asset.json";
+import flokiDepois from "@/assets/floki_depois_60.jpg.asset.json";
+import simbaAntes from "@/assets/simba_antes.jpg.asset.json";
+import simbaDepois from "@/assets/simba_depois_30.jpg.asset.json";
+import zecaAntes from "@/assets/zeca_antes.jpg.asset.json";
+import zecaDepois from "@/assets/zeca_depois_25.jpg.asset.json";
+import nutrahelpPoteThumb from "@/assets/nutrahelp-pote-thumb.png.asset.json";
 import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
 import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
@@ -321,6 +328,9 @@ function BlackFridayPage() {
             { name: "Marley", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
             { name: "Pandora", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
             { name: "Bob", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
+            { name: "Floki", before: flokiAntes.url, after: flokiDepois.url, fullImages: true, afterLabel: "60 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 52 },
+            { name: "Simba", before: simbaAntes.url, after: simbaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 52 },
+            { name: "Zeca", before: zecaAntes.url, after: zecaDepois.url, fullImages: true, afterLabel: "25 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 52 },
           ]}
         />
         <KitVetSection />
