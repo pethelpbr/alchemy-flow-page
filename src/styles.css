@@ -233,7 +233,8 @@
   background-color: var(--background);
   color: var(--foreground);
 }
-.theme-bf header img[alt="PetHelp"] { filter: brightness(0) invert(1); }
+.theme-bf header img[alt="PetHelp"],
+.theme-bf aside img[alt="PetHelp"] { filter: brightness(0) invert(1); }
 
 /* Seção clara (#FDFAF7) — "Reconhece algum desses sinais?", depoimentos, FAQ. */
 .bf-light {
