@@ -286,10 +286,9 @@ function KitContents() {
 
 const kitFaqs = [
   { q: "Serve para o meu pet?", a: "Cães e gatos, de todas as raças e tamanhos, a partir de 3 meses de idade." },
-  { q: "Dá para usar os três ao mesmo tempo?", a: "Dá. O NutraHelp vai na comida, o BocaHelp na água e o PataHelp passa direto na pata. Podem ser usados no mesmo dia, sem problema." },
   { q: "Meu pet não tem todos esses sinais. Vale levar o kit?", a: "Vale. Os três produtos são de uso diário e também servem para prevenir, em pet saudável. E no kit cada um sai por uma fração do preço avulso." },
+  { q: "Dá para usar os três ao mesmo tempo?", a: "Dá. O NutraHelp vai na comida, o BocaHelp na água e o PataHelp passa direto na pata. Podem ser usados no mesmo dia, sem problema." },
   { q: "E se eu não gostar?", a: "Você tem 60 dias de garantia. Devolvemos o valor integral." },
-  { q: "Em quanto tempo chega?", a: "[PRAZO REAL POR REGIÃO — PREENCHER]" },
 ];
 
 function BlackFridayPage() {
