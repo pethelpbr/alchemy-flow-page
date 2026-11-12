@@ -31,3 +31,4 @@
 - The root viewport meta keeps `viewport-fit=cover` and the sticky mobile buy bar has no bottom safe-area padding, so the bar reaches the physical bottom of the screen instead of leaving an empty band; the yellow top strip carries the matching top safe-area padding because with cover the document extends under the status bar.
 - BeforeAfterSection accepts page-specific cases via `extraCases` (array, shown before the shared defaults) with optional full photos in equal square halves, an after label and product overlay position; keep default cases unchanged for other pages.
 - Black Friday sets a route-scoped browser theme color and applies its canvas token to html/body via :has; Safari safe areas and overscroll must match the landing without changing other pages or native zoom.
+- /home is the store-style home listing every product; each product card links to its own pain-point landing page (NutraHelp → /pele) so new product pages plug in by adding a route and a link.
