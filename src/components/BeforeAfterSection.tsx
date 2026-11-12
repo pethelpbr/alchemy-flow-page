@@ -86,8 +86,8 @@ function Tag({ children, result = false }: { children: string; result?: boolean 
   );
 }
 
-export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", extraCases, resultStyle = false }: { className?: string; title?: string; extraCases?: BeforeAfterCase[]; resultStyle?: boolean }) {
-  const displayedCases = extraCases ? [...extraCases, ...cases.slice(1)] : cases;
+export function BeforeAfterSection({ className, title = "Antes e depois de quem já usou", extraCases, resultStyle = false, onlyExtra = false }: { className?: string; title?: string; extraCases?: BeforeAfterCase[]; resultStyle?: boolean; onlyExtra?: boolean }) {
+  const displayedCases = onlyExtra ? (extraCases ?? []) : extraCases ? [...extraCases, ...cases.slice(1)] : cases;
   const [api, setApi] = useState<CarouselApi>();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -175,8 +175,17 @@ export function BeforeAfterSection({ className, title = "Antes e depois de quem 
                       {c.weeks}
                     </span>}
                   </div>
-                  <p className="mt-3 text-sm font-bold text-foreground">{c.name}</p>
-                  {c.quote && <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>}
+                  {c.fullImages ? (
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      <span className="font-bold text-foreground">{c.name}</span>
+                      {c.quote && <> · {c.quote}</>}
+                    </p>
+                  ) : (
+                    <>
+                      <p className="mt-3 text-sm font-bold text-foreground">{c.name}</p>
+                      {c.quote && <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.quote}</p>}
+                    </>
+                  )}
                 </article>
               </CarouselItem>
             ))}
