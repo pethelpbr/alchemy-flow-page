@@ -343,7 +343,7 @@ function BlackFridayPage() {
             { name: "Marley", quote: "Ele parou de lamber a pata e o vermelho entre os coxins sumiu.", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
             { name: "Bob", quote: "A gengiva desinchou e os dentes ficaram brancos de novo.", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb }, productHeight: 68 },
             { name: "Zeca", quote: "As falhas da perna fecharam e o pelo preencheu.", before: zecaAntes.url, after: zecaDepois.url, fullImages: true, afterLabel: "25 dias", productPosition: "center", product: { name: "NutraHelp", image: nutrahelpPoteThumb.url }, productHeight: 44 },
-            { name: "Estopinha", quote: "O focinho estava ressecado e rachado, mas recuperou a hidratação e a maciez.", before: estopinhaAntes.url, after: estopinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
+            { name: "Estopinha", quote: "O focinho estava ressecado e rachado, mas recuperou a hidratação.", before: estopinhaAntes.url, after: estopinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
           ]}
         />
         <KitVetSection />

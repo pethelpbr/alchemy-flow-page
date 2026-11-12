@@ -18,7 +18,7 @@ import silvana from "@/assets/SILVANA_MUNIZ.png.asset.json";
 
 const reviews = [
   {
-    text: "Comecei a usar no meu cachorro e já percebi diferença na pelagem. O pelo está mais bonito e ele também aceitou super bem na comida. Vou continuar usando porque gostei bastante do resultado.",
+    text: "Comecei a usar no meu golden e já percebi diferença na pelagem. O pelo está mais bonito e ele também aceitou super bem na comida. Vou continuar usando porque gostei bastante do resultado.",
     name: "Lindaci Barros",
     city: "São Paulo, SP",
     photo: lindaci.url,
@@ -36,19 +36,19 @@ const reviews = [
     photo: mariaHelena.url,
   },
   {
-    text: "Peguei o kit na promoção e valeu muito a pena. Já queria comprar o NutraHelp e acabei aproveitando pra testar os outros também. Aqui em casa os três estão sendo usados.",
+    text: "Peguei o kit na promoção e valeu muito a pena. Já queria comprar o NutraHelp e acabei aproveitando pra testar os outros também. Aqui em casa estou usando os 3",
     name: "Marisa Bucker",
     city: "Belo Horizonte, MG",
     photo: marisa.url,
   },
   {
-    text: "Meu cachorro tinha um bafo muito forte e eu já tinha tentado de tudo. Comecei a colocar na água e em pouco tempo já senti uma diferença boa no hálito. E o melhor é que ele nem percebe.",
+    text: "Meu cachorro tinha um bafo muito forte e eu já tinha tentado de tudo. Comecei a colocar na água e em pouco tempo já senti uma diferença boa no hálito.",
     name: "Rejane Pereira",
     city: "Fortaleza, CE",
     photo: rejane.url,
   },
   {
-    text: "Minha cachorrinha estava com a pele bem ressecada e soltando bastante pelo. Depois que comecei a usar o suplemento, fui percebendo a pele e o pelo bem mais bonitos. Gostei muito do resultado e vou continuar usando.",
+    text: "Luna\u00a0estava soltando bastante pelo. Depois que comecei a usar o suplemento, fui percebendo a pele e o pelo bem mais bonitos. Gostei muito do resultado e vou continuar usando.",
     name: "Silvana Muniz",
     city: "Porto Alegre, RS",
     photo: silvana.url,
