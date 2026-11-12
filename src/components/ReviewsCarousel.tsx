@@ -9,52 +9,49 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import c1 from "@/assets/customer-1.jpg";
-import c2 from "@/assets/customer-2.jpg";
-import c3 from "@/assets/customer-3.jpg";
+import lindaci from "@/assets/LINDACI_BARROS.jpg.asset.json";
+import marcelo from "@/assets/MARCELO_ANDRADE.jpg.asset.json";
+import mariaHelena from "@/assets/MARIA_HELENA.png.asset.json";
+import marisa from "@/assets/MARISA_BUCKER.png.asset.json";
+import rejane from "@/assets/REJANE_PEREIRA.jpg.asset.json";
+import silvana from "@/assets/SILVANA_MUNIZ.png.asset.json";
 
 const reviews = [
   {
-    text: "Produto incrível, virou parte da minha rotina. Tomo assim que acordo e nem penso mais no assunto.",
-    name: "Marina L.",
+    text: "Comecei a usar no meu cachorro e já percebi diferença na pelagem. O pelo está mais bonito e ele também aceitou super bem na comida. Vou continuar usando porque gostei bastante do resultado.",
+    name: "Lindaci Barros",
     city: "São Paulo, SP",
-    photo: c1,
+    photo: lindaci.url,
   },
   {
-    text: "Dissolve de verdade, sem grumos. O sabor é leve e a embalagem é linda na bancada.",
-    name: "Rodrigo A.",
+    text: "Meu cachorro não deixa escovar os dentes de jeito nenhum, é uma luta toda vez kkk. Aí eu só coloco o produto na água e pronto, o hálito dele melhorou bastante.",
+    name: "Marcelo Andrade",
     city: "Curitiba, PR",
-    photo: c2,
+    photo: marcelo.url,
   },
   {
-    text: "Comprei o kit de 3 e valeu muito a pena. Praticidade é o que eu mais precisava.",
-    name: "Júlia F.",
+    text: "Minha cachorra lambia muito as patinhas e já estavam bem ressecadas. Comecei a passar o PataHelp e gostei bastante, principalmente porque ela parou de ficar lambendo toda hora.",
+    name: "Maria Helena",
     city: "Recife, PE",
-    photo: c3,
+    photo: mariaHelena.url,
   },
   {
-    text: "Já testei várias marcas e essa é a primeira que consegui manter por meses seguidos.",
-    name: "Camila R.",
+    text: "Peguei o kit na promoção e valeu muito a pena. Já queria comprar o NutraHelp e acabei aproveitando pra testar os outros também. Aqui em casa os três estão sendo usados.",
+    name: "Marisa Bucker",
     city: "Belo Horizonte, MG",
-    photo: c1,
+    photo: marisa.url,
   },
   {
-    text: "Consigo sentir a diferença na disposição desde a primeira semana. Recomendo demais.",
-    name: "Fernanda T.",
-    city: "Rio de Janeiro, RJ",
-    photo: c2,
+    text: "Meu cachorro tinha um bafo muito forte e eu já tinha tentado de tudo. Comecei a colocar na água e em pouco tempo já senti uma diferença boa no hálito. E o melhor é que ele nem percebe.",
+    name: "Rejane Pereira",
+    city: "Fortaleza, CE",
+    photo: rejane.url,
   },
   {
-    text: "Finalmente um suplemento que não fica aquele gosto ruim na boca. Uso todo dia sem falta.",
-    name: "Lucas M.",
+    text: "Minha cachorrinha estava com a pele bem ressecada e soltando bastante pelo. Depois que comecei a usar o suplemento, fui percebendo a pele e o pelo bem mais bonitos. Gostei muito do resultado e vou continuar usando.",
+    name: "Silvana Muniz",
     city: "Porto Alegre, RS",
-    photo: c3,
-  },
-  {
-    text: "Comentário provisório para apresentar uma nova experiência com o produto e completar o carrossel.",
-    name: "Cliente Nutraflow",
-    city: "Brasil",
-    photo: c1,
+    photo: silvana.url,
   },
 ];
 
