@@ -177,7 +177,15 @@ function HomeStore() {
 
         <ChallengesCarousel />
 
-        <div className="bg-primary/10 py-4"><ProductVideoFeedback onBuy={() => goTo("combos")} showDetails={false} /></div>
+        <section id="depoimentos" className="scroll-mt-28 pt-14">
+          <div className="container-x text-center">
+            <p className="eyebrow text-primary!">Depoimentos</p>
+            <h2 className="mt-3 font-display text-3xl leading-tight text-ink md:text-5xl">Tutores que já passaram por isso</h2>
+          </div>
+          <div className="paw-band mt-8 bg-primary py-7 md:py-9">
+            <ProductVideoFeedback onBuy={() => goTo("combos")} showDetails={false} storeLayout />
+          </div>
+        </section>
 
         <BeforeAfterSection title="Eles tinham um problema. Agora têm uma nova vida!" resultStyle extraCases={[
           { name: "Dorinha", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
