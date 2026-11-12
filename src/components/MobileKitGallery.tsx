@@ -4,8 +4,14 @@ import galleryDragIcon from "@/assets/gallery-drag-icon.png.asset.json";
 
 type GalleryShot = { src: string; alt: string };
 
+const AUTOPLAY_MS = 15000;
+const RESUME_DELAY_MS = 4500;
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+
 export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const animationRef = useRef<{ stop: () => void } | undefined>(undefined);
   const interacting = useRef(false);
@@ -13,7 +19,10 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const interacted = useRef(false);
   const startIndex = useRef(0);
   const pausedUntil = useRef(0);
-  const drag = useRef({ x: 0, left: 0, active: false, captured: false });
+  const drag = useRef({ x: 0, y: 0, left: 0, active: false, captured: false });
+  const pointers = useRef(new Map<number, { x: number; y: number }>());
+  const pinch = useRef({ active: false, startDist: 0, startScale: 1, cx: 0, cy: 0, startTx: 0, startTy: 0 });
+  const zoom = useRef({ scale: 1, tx: 0, ty: 0 });
   const [active, setActive] = useState(0);
   const progress = useMotionValue(100 / shots.length);
   const progressWidth = useTransform(progress, (value) => `${value}%`);
@@ -29,6 +38,29 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     return index;
   };
 
+  const applyZoom = (index: number) => {
+    const img = imgRefs.current[index];
+    if (!img) return;
+    const { scale, tx, ty } = zoom.current;
+    img.style.transform = scale > 1.001 ? `translate(${tx}px, ${ty}px) scale(${scale})` : "";
+  };
+
+  const clampZoomPan = (index: number) => {
+    const img = imgRefs.current[index];
+    if (!img) return;
+    const { scale } = zoom.current;
+    const maxX = (img.offsetWidth * (scale - 1)) / 2;
+    const maxY = (img.offsetHeight * (scale - 1)) / 2;
+    zoom.current.tx = Math.max(-maxX, Math.min(maxX, zoom.current.tx));
+    zoom.current.ty = Math.max(-maxY, Math.min(maxY, zoom.current.ty));
+  };
+
+  const resetZoom = () => {
+    zoom.current = { scale: 1, tx: 0, ty: 0 };
+    pinch.current.active = false;
+    imgRefs.current.forEach((img) => { if (img) img.style.transform = ""; });
+  };
+
   const settle = () => {
     const el = trackRef.current;
     if (!el || interacting.current || aligning.current) return;
@@ -38,6 +70,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     const slide = el.children.item(index);
     if (!(slide instanceof HTMLElement)) return;
     setActive(index);
+    resetZoom();
     aligning.current = true;
     el.style.scrollSnapType = "none";
     const finish = () => {
@@ -61,7 +94,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
   const goStep = (dx: number) => {
     const el = trackRef.current;
     interacting.current = false;
-    pausedUntil.current = Date.now() + 4500;
+    pausedUntil.current = Date.now() + RESUME_DELAY_MS;
     clearTimeout(timerRef.current);
     if (!el) return;
     const width = el.children.item(0) instanceof HTMLElement ? (el.children.item(0) as HTMLElement).offsetWidth : el.clientWidth;
@@ -71,6 +104,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     const slide = el.children.item(index);
     if (!(slide instanceof HTMLElement)) return;
     setActive(index);
+    resetZoom();
     aligning.current = true;
     const finish = () => {
       aligning.current = false;
@@ -92,6 +126,55 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     interacting.current = true;
     clearTimeout(timerRef.current);
     el.style.scrollSnapType = "none";
+  };
+
+  const startPinch = (el: HTMLDivElement) => {
+    const points = Array.from(pointers.current.values());
+    if (points.length < 2) return;
+    const [a, b] = points;
+    const rect = el.getBoundingClientRect();
+    pinch.current = {
+      active: true,
+      startDist: Math.hypot(a.x - b.x, a.y - b.y),
+      startScale: zoom.current.scale,
+      cx: (a.x + b.x) / 2 - rect.left,
+      cy: (a.y + b.y) / 2 - rect.top,
+      startTx: zoom.current.tx,
+      startTy: zoom.current.ty,
+    };
+    drag.current.active = false;
+  };
+
+  const movePinch = (el: HTMLDivElement) => {
+    if (!pinch.current.active) return;
+    const points = Array.from(pointers.current.values());
+    if (points.length < 2) return;
+    const [a, b] = points;
+    const dist = Math.hypot(a.x - b.x, a.y - b.y);
+    if (pinch.current.startDist <= 0) return;
+    const index = startIndex.current;
+    const nextScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, pinch.current.startScale * (dist / pinch.current.startDist)));
+    const k = nextScale / pinch.current.startScale;
+    zoom.current.scale = nextScale;
+    zoom.current.tx = pinch.current.cx - (pinch.current.cx - pinch.current.startTx) * k;
+    zoom.current.ty = pinch.current.cy - (pinch.current.cy - pinch.current.startTy) * k;
+    if (nextScale <= MIN_ZOOM) { zoom.current.tx = 0; zoom.current.ty = 0; }
+    else clampZoomPan(index);
+    applyZoom(index);
+    pausedUntil.current = Date.now() + RESUME_DELAY_MS;
+  };
+
+  const endPinch = () => {
+    if (!pinch.current.active) return;
+    pinch.current.active = false;
+    if (zoom.current.scale < 1.05) {
+      resetZoom();
+      applyZoom(startIndex.current);
+    } else {
+      clampZoomPan(startIndex.current);
+      applyZoom(startIndex.current);
+    }
+    pausedUntil.current = Date.now() + RESUME_DELAY_MS;
   };
 
   useEffect(() => {
@@ -121,9 +204,20 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
 
   useEffect(() => {
     const el = trackRef.current;
+    if (!el) return;
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 1) e.preventDefault();
+    };
+    el.addEventListener("touchmove", onTouchMove, { passive: false });
+    return () => el.removeEventListener("touchmove", onTouchMove);
+  }, []);
+
+  useEffect(() => {
+    const el = trackRef.current;
     if (!el || shots.length < 2) return;
     const id = setInterval(() => {
       if (interacting.current || aligning.current || document.hidden) return;
+      if (zoom.current.scale > 1.001) return;
       if (Date.now() < pausedUntil.current) return;
       const current = nearestSlide(el);
       const next = (current + 1) % shots.length;
@@ -132,6 +226,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
       interacted.current = true;
       aligning.current = true;
       el.style.scrollSnapType = "none";
+      resetZoom();
       const finish = () => {
         aligning.current = false;
         el.style.scrollSnapType = "none";
@@ -149,7 +244,7 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         onUpdate: (left) => { el.scrollLeft = left; },
         onComplete: finish,
       });
-    }, 12000);
+    }, AUTOPLAY_MS);
     return () => clearInterval(id);
   }, [shots, progress]);
 
@@ -180,12 +275,33 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
         }}
         onPointerDown={(e) => {
           if (e.pointerType === "mouse" && e.button !== 0) return;
-          start(e.currentTarget);
-          drag.current = { x: e.clientX, left: e.currentTarget.scrollLeft, active: true, captured: false };
+          const el = e.currentTarget;
+          pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          if (pointers.current.size >= 2) {
+            interacting.current = true;
+            clearTimeout(timerRef.current);
+            startPinch(el);
+            return;
+          }
+          start(el);
+          drag.current = { x: e.clientX, y: e.clientY, left: el.scrollLeft, active: true, captured: false };
         }}
         onPointerMove={(e) => {
+          if (pointers.current.has(e.pointerId)) pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          if (pinch.current.active) { movePinch(e.currentTarget); return; }
           if (!drag.current.active) return;
           const dx = e.clientX - drag.current.x;
+          const dy = e.clientY - drag.current.y;
+          if (zoom.current.scale > 1.001) {
+            zoom.current.tx += dx;
+            zoom.current.ty += dy;
+            drag.current.x = e.clientX;
+            drag.current.y = e.clientY;
+            clampZoomPan(startIndex.current);
+            applyZoom(startIndex.current);
+            pausedUntil.current = Date.now() + RESUME_DELAY_MS;
+            return;
+          }
           if (e.pointerType === "mouse" && Math.abs(dx) > 4 && !drag.current.captured) {
             e.currentTarget.setPointerCapture(e.pointerId);
             drag.current.captured = true;
@@ -193,19 +309,34 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
           if (e.pointerType !== "mouse" || drag.current.captured) e.currentTarget.scrollLeft = drag.current.left - dx;
         }}
         onPointerUp={(e) => {
+          pointers.current.delete(e.pointerId);
+          if (pinch.current.active) { endPinch(); return; }
           if (!drag.current.active) return;
           drag.current.active = false;
           if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
+          if (zoom.current.scale > 1.001) { interacting.current = false; pausedUntil.current = Date.now() + RESUME_DELAY_MS; return; }
           goStep(e.clientX - drag.current.x);
         }}
-        onPointerCancel={(e) => { if (!drag.current.active) return; drag.current.active = false; goStep(e.clientX - drag.current.x); }}
+        onPointerCancel={(e) => {
+          pointers.current.delete(e.pointerId);
+          if (pinch.current.active) { endPinch(); return; }
+          if (!drag.current.active) return;
+          drag.current.active = false;
+          goStep(e.clientX - drag.current.x);
+        }}
         onPointerLeave={(e) => {
-          if (e.pointerType === "mouse" && drag.current.active && !drag.current.captured) { drag.current.active = false; goStep(0); }
+          if (e.pointerType === "mouse" && drag.current.active && !drag.current.captured && zoom.current.scale <= 1.001) { drag.current.active = false; goStep(0); }
         }}
       >
         {shots.map((shot, i) => (
-          <div key={shot.src} className="relative w-full shrink-0 snap-start" aria-label={`Foto ${i + 1} de ${shots.length}`} aria-current={active === i ? "true" : undefined}>
-            <img src={shot.src} alt={shot.alt} draggable={false} className="block h-auto w-full" />
+          <div key={shot.src} className="relative w-full shrink-0 snap-start overflow-hidden" aria-label={`Foto ${i + 1} de ${shots.length}`} aria-current={active === i ? "true" : undefined}>
+            <img
+              ref={(node) => { imgRefs.current[i] = node; }}
+              src={shot.src}
+              alt={shot.alt}
+              draggable={false}
+              className="block h-auto w-full origin-center will-change-transform"
+            />
             {i === 0 && (
               <div className="pointer-events-none absolute right-2 top-[3%] grid h-12 w-12 place-items-center rounded-full bg-card">
                 <img src={galleryDragIcon.url} alt="" aria-hidden="true" className="h-[34px] w-[34px]" />
