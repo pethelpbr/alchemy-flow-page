@@ -12,7 +12,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { trackPageView } from "../lib/meta-pixel";
+import { trackPageView, trackingAllowed } from "../lib/meta-pixel";
+import { captureTrackingParams, loadGoogleTag } from "../lib/tracking";
 import { useRouterState } from "@tanstack/react-router";
 
 function NotFoundComponent() {
@@ -104,11 +105,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+/**
+ * Stub do dataLayer: só empilha as chamadas, sem fazer rede. A tag do Google
+ * (GA4 + Google Ads) é carregada depois, em `RootComponent`, quando o rastreio
+ * está liberado para a região do visitante.
+ */
+const GTAG_STUB =
+  "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;";
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: GTAG_STUB }} />
       </head>
       <body>
         {children}
@@ -124,6 +134,11 @@ function RootComponent() {
   useEffect(() => {
     trackPageView();
   }, [pathname]);
+  // UTMs da visita + tag do Google, uma vez por carregamento.
+  useEffect(() => {
+    captureTrackingParams();
+    void trackingAllowed().then((ok) => ok && loadGoogleTag());
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

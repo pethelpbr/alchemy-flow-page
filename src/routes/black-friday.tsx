@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { MobileKitGallery } from "@/components/MobileKitGallery";
@@ -42,6 +42,7 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 import { BlackFridayTopStrip } from "@/components/BlackFridayTopStrip";
 import { LandingLayout } from "@/components/layout/LandingLayout";
 import { useCart } from "@/lib/use-cart";
+import { kitFromVariant, trackViewContent } from "@/lib/tracking";
 import { blackFridayVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
@@ -292,6 +293,14 @@ const kitFaqs = [
 function BlackFridayPage() {
   const cart = useCart(blackFridayVariants);
   const { selected, setSelected, checkout, addonIds, toggleAddon } = cart;
+
+  // ViewContent uma vez por carregamento, com o kit que já vem selecionado.
+  const viewed = useRef(false);
+  useEffect(() => {
+    if (viewed.current) return;
+    viewed.current = true;
+    trackViewContent(kitFromVariant(selected));
+  }, [selected]);
 
   return (
     <OfferProvider offer={offer}>
