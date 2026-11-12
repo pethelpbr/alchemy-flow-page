@@ -94,6 +94,39 @@ export function MobileKitGallery({ shots }: { shots: GalleryShot[] }) {
     animationRef.current?.stop();
   }, []);
 
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el || shots.length < 2) return;
+    const id = setInterval(() => {
+      if (interacting.current || aligning.current || document.hidden) return;
+      const current = nearestSlide(el);
+      const next = (current + 1) % shots.length;
+      const slide = el.children.item(next);
+      if (!(slide instanceof HTMLElement)) return;
+      interacted.current = true;
+      aligning.current = true;
+      el.style.scrollSnapType = "none";
+      const finish = () => {
+        aligning.current = false;
+        el.style.scrollSnapType = "x mandatory";
+        setActive(next);
+        progress.set(((next + 1) / shots.length) * 100);
+      };
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.scrollLeft = slide.offsetLeft;
+        finish();
+        return;
+      }
+      animationRef.current = animate(el.scrollLeft, slide.offsetLeft, {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+        onUpdate: (left) => { el.scrollLeft = left; },
+        onComplete: finish,
+      });
+    }, 4500);
+    return () => clearInterval(id);
+  }, [shots, progress]);
+
   return (
     <div className="relative -mx-4 w-[calc(100%+2rem)] overflow-hidden md:hidden">
       <div
