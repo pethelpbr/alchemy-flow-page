@@ -24,7 +24,7 @@ const reviews = [
     photo: lindaci.url,
   },
   {
-    text: "Meu cachorro não deixa escovar os dentes de jeito nenhum, é uma luta toda vez kkk. Aí eu só coloco o produto na água e pronto, o hálito dele melhorou bastante.",
+    text: "Meu cachorro não deixa escovar os dentes de jeito nenhum, é uma luta toda vez kkk. Aí eu só coloco o produto na água e pronto, o tártaro que ele tem tá melhorando bastante.",
     name: "Marcelo Andrade",
     city: "Curitiba, PR",
     photo: marcelo.url,
