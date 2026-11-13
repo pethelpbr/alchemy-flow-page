@@ -55,8 +55,8 @@ const products: Product[] = [
   { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground", logo: pataWordmark.url },
 ];
 
-// Ordem dos cards em "Campeões de venda": PataHelp à esquerda, NutraHelp no meio, BocaHelp à direita.
-const CARDS_ORDER = ["patahelp", "nutrahelp", "bocahelp"];
+// Ordem dos cards em "Campeões de venda": BocaHelp à esquerda, NutraHelp no meio, PataHelp à direita.
+const CARDS_ORDER = ["bocahelp", "nutrahelp", "patahelp"];
 const campeoesProducts = [...products].sort(
   (a, b) => CARDS_ORDER.indexOf(a.id) - CARDS_ORDER.indexOf(b.id),
 );
