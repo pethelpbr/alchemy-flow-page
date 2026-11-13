@@ -30,6 +30,7 @@ import bobAntes from "@/assets/bob-antes-enquadrado.png.asset.json";
 import bobDepois from "@/assets/bob-depois-enquadrado.png.asset.json";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { MiniBanners } from "@/components/home/MiniBanners";
+import { KitCompleteBanner } from "@/components/home/KitCompleteBanner";
 import { Footer } from "@/components/Footer";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
@@ -227,6 +228,8 @@ function HomeStore() {
           { name: "Pandora", quote: "O tártaro diminuiu e os dentes clarearam.", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
           { name: "Bob", quote: "A gengiva desinchou e os dentes ficaram brancos de novo.", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
         ]} />
+
+        <KitCompleteBanner goTo={goTo} />
 
         <section id="combos" className="container-x scroll-mt-28 py-14">
           <SectionTitle eyebrow="Economize">Combos para economizar</SectionTitle>
