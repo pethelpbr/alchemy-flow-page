@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
-const EASE_SOFT = "cubic-bezier(0.32, 0.72, 0, 1)";
-const EASE_CLOSE = "cubic-bezier(0.4, 0, 0.2, 1)";
+const EASE_SOFT = "cubic-bezier(0.4, 0, 0.2, 1)";
 
 function useReducedMotion() {
   const [r, setR] = useState(false);
@@ -68,7 +67,7 @@ export function HomeHeader({ goTo }: Props) {
   }, [search]);
 
   const t = (ms: number, ease: string) => (reduced ? "none" : `${ms}ms ${ease}`);
-  const wrapStyle = { width: search ? fullW : 196, transition: reduced ? "none" : `width ${t(search ? 520 : 560, search ? EASE_SOFT : EASE_CLOSE)}` };
+  const wrapStyle = { width: search ? fullW : 196, transition: reduced ? "none" : `width ${t(560, EASE_SOFT)}` };
 
   const links: { id: string; label: string; cls: string }[] = [
     { id: "campeoes", label: "NutraHelp", cls: "text-primary" },
@@ -139,13 +138,13 @@ export function HomeHeader({ goTo }: Props) {
               aria-hidden={search}
               tabIndex={search ? -1 : 0}
               className={`absolute inset-0 flex items-center gap-2.5 rounded-full border border-border bg-card px-[18px] font-body text-[15px] text-muted-foreground ${search ? "pointer-events-none opacity-0" : "opacity-100"}`}
-              style={{ transition: reduced ? "none" : `opacity ${search ? 140 : 240}ms linear ${search ? 0 : 80}ms` }}
+              style={{ transition: reduced ? "none" : `opacity 240ms linear ${search ? 0 : 80}ms` }}
             >
               <Search className="h-[19px] w-[19px] flex-none" strokeWidth={2.2} /> Buscar
             </button>
             <div
               className={`absolute inset-0 ${search ? "" : "pointer-events-none"}`}
-              style={{ opacity: search ? 1 : 0, transition: reduced ? "none" : `opacity ${search ? 220 : 240}ms linear ${search ? 140 : 0}ms` }}
+              style={{ opacity: search ? 1 : 0, transition: reduced ? "none" : `opacity 240ms linear ${search ? 80 : 0}ms` }}
             >
               {form(inputRef, "header")}
             </div>
