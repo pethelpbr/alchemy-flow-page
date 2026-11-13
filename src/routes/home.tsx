@@ -96,7 +96,7 @@ function HeroCarousel() {
           <div key={p.id} className={`flex w-full shrink-0 items-center justify-center ${p.banner ? "" : p.tone}`} style={p.banner ? { backgroundColor: BANNER_TEAL } : undefined}>
             {p.banner ? (
               <Link to="/black-friday" aria-label="Ver BocaHelp" className="block w-full">
-                <img src={p.banner} alt="BocaHelp: boca cheirosa, dentes limpinhos e zero esforço" className="block aspect-[800/762] w-full object-cover object-left md:hidden" loading="lazy" />
+                <img src={p.banner} alt="BocaHelp: boca cheirosa, dentes limpinhos e zero esforço" className="block aspect-[900/762] w-full object-cover object-left md:hidden" loading="lazy" />
                 <img src={p.banner} alt="" aria-hidden="true" className="hidden max-h-[760px] w-full object-cover md:block" loading="lazy" />
               </Link>
             ) : (
@@ -108,7 +108,7 @@ function HeroCarousel() {
                     ? <Link to={p.page} className="mt-7 inline-block rounded-full bg-ink px-8 py-4 font-bold uppercase text-background hover:opacity-90">Ajude seu pet agora</Link>
                     : <button onClick={() => goTo("campeoes")} className="mt-7 rounded-full bg-ink px-8 py-4 font-bold uppercase text-background hover:opacity-90">Ajude seu pet agora</button>}
                 </div>
-                <img src={p.image} alt={p.name} className="mx-auto max-h-[200px] w-auto object-contain md:max-h-[470px]" />
+                <img src={p.image} alt={p.name} className="mx-auto max-h-[220px] w-auto object-contain md:max-h-[470px]" />
                 <ul className="hidden space-y-4 md:block">
                   {p.bullets.map((b) => <li key={b} className="flex items-center gap-3 font-bold"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-background/25"><Check className="h-4 w-4" /></span>{b}</li>)}
                 </ul>
