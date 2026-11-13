@@ -20,11 +20,12 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
             Montar meu kit
           </button>
         </div>
-        <div className="flex w-full flex-1 items-center justify-center rounded-2xl bg-clay p-4 md:h-[250px] md:w-[440px] md:flex-none md:p-6">
+        {/* A foto do trio é quadrada: o cartão quadrado mostra a arte inteira, sem recorte nem emenda. */}
+        <div className="relative h-[250px] w-[250px] shrink-0 overflow-hidden rounded-2xl bg-clay md:h-[260px] md:w-[260px]">
           <img
             src={kitTrio.url}
             alt="NutraHelp, PataHelp e BocaHelp juntos"
-            className="max-h-[200px] w-auto max-w-full object-contain md:max-h-[210px]"
+            className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"
           />
         </div>
