@@ -41,11 +41,14 @@ export const Route = createFileRoute("/home")({
   component: HomeStore,
 });
 
-type Product = { id: string; name: string; headline: string; text: string; bullets: string[]; price: number; image: string; tone: string; page?: "/pele" };
+type Product = { id: string; name: string; headline: string; text: string; bullets: string[]; price: number; image: string; tone: string; page?: "/pele"; banner?: string };
+
+// Verde exato do fundo da arte do BocaHelp: usada para preencher as sobras do quadro sem emenda.
+const BANNER_TEAL = "#22B6B6";
 
 const products: Product[] = [
   { id: "nutrahelp", name: "NutraHelp", headline: "Pele forte, pelo bonito e zero coceira.", text: "Fortalece a imunidade, reduz coceiras e cuida do seu pet por dentro.", bullets: ["Reduz coceira e alergias", "Fecha falhas no pelo", "Fortalece a imunidade", "44 nutrientes em um pote"], price: 139, image: nutraFoto.url, tone: "bg-primary text-primary-foreground", page: "/pele" },
-  { id: "bocahelp", name: "BocaHelp", headline: "Boca cheirosa, dentes limpinhos e zero esforço.", text: "Reduz o mau hálito e o tártaro sem precisar escovar os dentes.", bullets: ["Acaba com o cheiro na boca", "Ajuda a controlar o tártaro", "Combate bactérias bucais", "É só colocar na água"], price: 49.9, image: bocaFoto.url, tone: "bg-secondary text-secondary-foreground" },
+  { id: "bocahelp", name: "BocaHelp", headline: "Boca cheirosa, dentes limpinhos e zero esforço.", text: "Reduz o mau hálito e o tártaro sem precisar escovar os dentes.", bullets: ["Acaba com o cheiro na boca", "Ajuda a controlar o tártaro", "Combate bactérias bucais", "É só colocar na água"], price: 49.9, image: bocaFoto.url, tone: "bg-secondary text-secondary-foreground", banner: bocaBanner.url },
   { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground" },
 ];
 
@@ -90,20 +93,27 @@ function HeroCarousel() {
       onTouchStart={(e) => (touch.current = e.touches[0]!.clientX)} onTouchEnd={(e) => { if (touch.current === null) return; const dx = e.changedTouches[0]!.clientX - touch.current; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); touch.current = null; }}>
       <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${i * 100}%)` }}>
         {products.map((p) => (
-          <div key={p.id} className={`w-full shrink-0 ${p.tone}`}>
-            <div className="container-x grid items-center gap-8 py-10 md:grid-cols-[1.1fr_1fr_0.9fr] md:py-16">
-              <div>
-                <p className="font-display text-5xl md:text-7xl">{p.name}</p>
-                <h1 className="mt-4 max-w-md font-display text-2xl leading-snug md:text-3xl">{p.headline}</h1>
-                {p.page
-                  ? <Link to={p.page} className="mt-7 inline-block rounded-full bg-ink px-8 py-4 font-bold uppercase text-background hover:opacity-90">Ajude seu pet agora</Link>
-                  : <button onClick={() => goTo("campeoes")} className="mt-7 rounded-full bg-ink px-8 py-4 font-bold uppercase text-background hover:opacity-90">Ajude seu pet agora</button>}
+          <div key={p.id} className={`w-full shrink-0 ${p.banner ? "flex items-center justify-center" : p.tone}`} style={p.banner ? { backgroundColor: BANNER_TEAL } : undefined}>
+            {p.banner ? (
+              <Link to="/black-friday" aria-label="Ver BocaHelp" className="block w-full">
+                <img src={p.banner} alt="BocaHelp: boca cheirosa, dentes limpinhos e zero esforço" className="block aspect-[900/762] w-full object-cover object-left md:hidden" loading="lazy" />
+                <img src={p.banner} alt="" aria-hidden="true" className="hidden max-h-[760px] w-full object-cover md:block" loading="lazy" />
+              </Link>
+            ) : (
+              <div className="container-x grid items-center gap-8 py-10 md:grid-cols-[1.1fr_1fr_0.9fr] md:py-16">
+                <div>
+                  <p className="font-display text-5xl md:text-7xl">{p.name}</p>
+                  <h1 className="mt-4 max-w-md font-display text-2xl leading-snug md:text-3xl">{p.headline}</h1>
+                  {p.page
+                    ? <Link to={p.page} className="mt-7 inline-block rounded-full bg-ink px-8 py-4 font-bold uppercase text-background hover:opacity-90">Ajude seu pet agora</Link>
+                    : <button onClick={() => goTo("campeoes")} className="mt-7 rounded-full bg-ink px-8 py-4 font-bold uppercase text-background hover:opacity-90">Ajude seu pet agora</button>}
+                </div>
+                <img src={p.image} alt={p.name} className="mx-auto max-h-[380px] w-auto object-contain" />
+                <ul className="hidden space-y-4 md:block">
+                  {p.bullets.map((b) => <li key={b} className="flex items-center gap-3 font-bold"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-background/25"><Check className="h-4 w-4" /></span>{b}</li>)}
+                </ul>
               </div>
-              <img src={p.image} alt={p.name} className="mx-auto max-h-[380px] w-auto object-contain" />
-              <ul className="hidden space-y-4 md:block">
-                {p.bullets.map((b) => <li key={b} className="flex items-center gap-3 font-bold"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-background/25"><Check className="h-4 w-4" /></span>{b}</li>)}
-              </ul>
-            </div>
+            )}
           </div>
         ))}
       </div>
