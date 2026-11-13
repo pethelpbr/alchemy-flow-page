@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Menu, Search, ShoppingCart, X } from "lucide-react";
+import { ChevronRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -94,6 +94,20 @@ export function HomeHeader({ goTo }: Props) {
     </button>
   );
 
+  /* CTA "Descubra o produto ideal": some with the search field open, otherwise
+     the row overflows on 1280px screens. */
+  const cta = (
+    <span
+      className="hidden overflow-hidden xl:block"
+      style={{ maxWidth: search ? 0 : 250, opacity: search ? 0 : 1, transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}, opacity ${t(search ? 160 : 280, "linear")}` }}
+    >
+      <button type="button" onClick={() => go("campeoes")} className="flex h-[50px] items-center gap-3 rounded-full bg-shipping pl-6 pr-2 font-body text-[15px] font-semibold text-shipping-foreground hover:opacity-90">
+        <span className="whitespace-nowrap">Descubra o <strong className="font-extrabold">produto ideal</strong></span>
+        <span aria-hidden className="grid h-[32px] w-[32px] place-items-center rounded-full bg-shipping-foreground text-shipping"><ChevronRight className="h-4 w-4" strokeWidth={3} /></span>
+      </button>
+    </span>
+  );
+
   return (
     <header className="sticky top-0 z-40 h-[78px] border-b border-border bg-background">
       {/* Desktop */}
@@ -111,7 +125,7 @@ export function HomeHeader({ goTo }: Props) {
             </button>
           )}
         </div>
-        <div className="flex flex-none items-center gap-2">{cart}</div>
+        <div className="flex flex-none items-center gap-2">{cart}{cta}</div>
       </div>
 
       {/* Mobile */}
