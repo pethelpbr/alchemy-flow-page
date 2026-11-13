@@ -25,7 +25,7 @@ function Busca() {
   const found = term ? items.filter((i) => (i.name + " " + i.tags).toLowerCase().includes(term)) : items;
   return (
     <main className="container-x min-h-screen bg-background py-14 text-foreground">
-      <Link to="/home" className="text-sm font-semibold text-primary">← Voltar</Link>
+      <Link to="/" className="text-sm font-semibold text-primary">← Voltar</Link>
       <h1 className="mt-6 font-display text-3xl text-ink">{term ? `Resultados para "${q}"` : "Nossos produtos"}</h1>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         {(found.length ? found : items).map((i) => (

@@ -123,7 +123,7 @@ export function HomeHeader({ goTo }: Props) {
     <header className="sticky top-0 z-40 h-[78px] border-b border-border bg-background">
       {/* Desktop */}
       <div className="hidden h-full items-center px-11 lg:flex">
-        <Link to="/home" className="flex-none"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
+        <Link to="/" className="flex-none"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
         <nav ref={navRef} className="ml-[26px] flex flex-none items-center gap-[18px] whitespace-nowrap">
           {links.map((l) => (
             <button key={l.label} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
@@ -160,7 +160,7 @@ export function HomeHeader({ goTo }: Props) {
         ) : (
           <>
             <button aria-label={menu ? "Fechar menu" : "Abrir menu"} onClick={() => setMenu(!menu)} className="grid h-[46px] w-[46px] place-items-center text-ink">{menu ? <X /> : <Menu />}</button>
-            <Link to="/home" className="absolute left-1/2 -translate-x-1/2"><img src={petHelpLogo.url} alt="PetHelp" className="h-7 w-auto" /></Link>
+            <Link to="/" className="absolute left-1/2 -translate-x-1/2"><img src={petHelpLogo.url} alt="PetHelp" className="h-7 w-auto" /></Link>
             <div className="flex items-center gap-1">
               <button ref={mOpenBtn} aria-label="Buscar" onClick={() => { setMenu(false); open(); }} className="grid h-[46px] w-[46px] place-items-center text-ink"><Search className="h-5 w-5" /></button>
               {cart}
