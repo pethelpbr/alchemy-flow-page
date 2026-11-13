@@ -59,7 +59,7 @@ const banners: Banner[] = [
 
 export function MiniBanners({ goTo }: { goTo: (id: string) => void }) {
   return (
-    <section className="container-x py-10 md:py-12">
+    <section className="mx-auto w-full max-w-[1600px] px-5 py-10 md:px-10 md:py-12">
       <div className="grid gap-5 md:grid-cols-3">
         {banners.map((b) => {
           const inner = (
