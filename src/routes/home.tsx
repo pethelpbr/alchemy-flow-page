@@ -169,13 +169,6 @@ function HomeStore() {
         <MarqueeStrip items={["Desenvolvidos por veterinários", "+150 mil pets transformados", "Fórmulas seguras e naturais", "Registrado no MAPA", "Garantia de 60 dias"]} />
         <MiniBanners goTo={goTo} />
 
-        <section aria-label="Destaque BocaHelp" className="w-full">
-          <Link to="/black-friday" className="block w-full" aria-label="Ver BocaHelp">
-            <img src={bocaBanner.url} alt="BocaHelp: boca cheirosa, dentes limpinhos e zero esforço" className="block aspect-[900/762] w-full object-cover object-left md:hidden" loading="lazy" />
-            <img src={bocaBanner.url} alt="" aria-hidden="true" className="hidden w-full md:block" loading="lazy" />
-          </Link>
-        </section>
-
         <section id="campeoes" className="container-x scroll-mt-28 py-14">
           <SectionTitle eyebrow="Mais vendidos">Campeões de venda</SectionTitle>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
