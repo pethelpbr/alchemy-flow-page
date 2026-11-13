@@ -79,6 +79,12 @@
   --color-pata-foreground: var(--pata-foreground);
   --color-boca: var(--boca);
   --color-boca-foreground: var(--boca-foreground);
+
+  /* Superfície escura reutilizada por blocos de destaque. */
+  --color-night: #1E1813;
+  --color-night-foreground: #FDFAF7;
+  --color-night-muted: #C3B3A0;
+  --color-night-eyebrow: #FFB06B;
 }
 
 :root {
