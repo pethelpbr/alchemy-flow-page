@@ -73,11 +73,11 @@ function Stars({ className = "h-4 w-4" }: { className?: string }) {
   return <span className="flex text-gift">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className={`${className} fill-current`} />)}</span>;
 }
 
-function SectionTitle({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
+function SectionTitle({ eyebrow, children }: { eyebrow?: string; children: React.ReactNode }) {
   return (
     <div className="text-center">
-      <p className="eyebrow text-primary!">{eyebrow}</p>
-      <h2 className="mt-3 font-display text-3xl leading-tight text-ink md:text-5xl">{children}</h2>
+      {eyebrow && <p className="eyebrow text-primary!">{eyebrow}</p>}
+      <h2 className={`${eyebrow ? "mt-3 " : ""}font-display text-3xl leading-tight text-ink md:text-5xl`}>{children}</h2>
     </div>
   );
 }
@@ -183,7 +183,7 @@ function HomeStore() {
         <MiniBanners goTo={goTo} />
 
         <section id="campeoes" className="container-x scroll-mt-28 py-14">
-          <SectionTitle eyebrow="Mais vendidos">Campeões de venda</SectionTitle>
+          <SectionTitle>Campeões de venda</SectionTitle>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {products.map((p) => (
               <article key={p.id} className="flex flex-col rounded-3xl bg-card p-5 shadow-sm">
