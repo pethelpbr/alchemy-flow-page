@@ -18,23 +18,13 @@ import sinalLambe from "@/assets/sinal-lambe-pata.png.asset.json";
 import sintoma6 from "@/assets/sintoma-6-scooting.jpg.asset.json";
 import vetFoto from "@/assets/vet-rivaldo-nova.png.asset.json";
 import sobreFoto from "@/assets/lifestyle-1.jpg";
-import patahelpLataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
-import bocahelpCutoutThumb from "@/assets/bocahelp-cutout-thumb.png.asset.json";
-import dorinhaAntes from "@/assets/dorinha-antes.png.asset.json";
-import dorinhaDepois from "@/assets/dorinha-depois.png.asset.json";
-import marleyAntes from "@/assets/pata-marley-antes-v3.jpg.asset.json";
-import marleyDepois from "@/assets/pata-marley-depois.png.asset.json";
-import pandoraAntes from "@/assets/pandora-antes.png.asset.json";
-import pandoraDepois from "@/assets/pandora-depois.png.asset.json";
-import bobAntes from "@/assets/bob-antes-enquadrado.png.asset.json";
-import bobDepois from "@/assets/bob-depois-enquadrado.png.asset.json";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { MiniBanners } from "@/components/home/MiniBanners";
 import { KitCompleteBanner } from "@/components/home/KitCompleteBanner";
 import { Footer } from "@/components/Footer";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
-import { BeforeAfterSection } from "@/components/BeforeAfterSection";
+import { HomeBeforeAfter } from "@/components/home/HomeBeforeAfter";
 import { blackFridayVariants } from "@/lib/product";
 
 const title = "PetHelp | Loja oficial de suplementos para cães";
@@ -222,12 +212,7 @@ function HomeStore() {
           </div>
         </section>
 
-        <BeforeAfterSection title="Eles tinham um problema. Agora têm uma nova vida!" resultStyle onlyExtra extraCases={[
-          { name: "Dorinha", quote: "A vermelhidão da barriga sumiu e a pele ficou lisa de novo.", before: dorinhaAntes.url, after: dorinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
-          { name: "Marley", quote: "Ele parou de lamber a pata e o vermelho entre os coxins sumiu.", before: marleyAntes.url, after: marleyDepois.url, fullImages: true, afterLabel: "15 DIAS", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
-          { name: "Pandora", quote: "O tártaro diminuiu e os dentes clarearam.", before: pandoraAntes.url, after: pandoraDepois.url, fullImages: true, afterLabel: "30 DIAS", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
-          { name: "Bob", quote: "A gengiva desinchou e os dentes ficaram brancos de novo.", before: bobAntes.url, after: bobDepois.url, fullImages: true, afterLabel: "90 dias", productPosition: "center", product: { name: "BocaHelp", image: bocahelpCutoutThumb.url }, productHeight: 68 },
-        ]} />
+        <HomeBeforeAfter />
 
         <KitCompleteBanner goTo={goTo} />
 
