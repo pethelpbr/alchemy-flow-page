@@ -5,6 +5,7 @@ import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
+import bocaBanner from "@/assets/bocahelp-destaque-home.jpeg.asset.json";
 import sintoma1 from "@/assets/sintoma-1-nova.jpg.asset.json";
 import sintoma3 from "@/assets/sintoma-3-sofa.jpg.asset.json";
 import sintoma5 from "@/assets/sintoma-5-feridas.png.asset.json";
@@ -167,6 +168,13 @@ function HomeStore() {
         <HeroCarousel />
         <MarqueeStrip items={["Desenvolvidos por veterinários", "+150 mil pets transformados", "Fórmulas seguras e naturais", "Registrado no MAPA", "Garantia de 60 dias"]} />
         <MiniBanners goTo={goTo} />
+
+        <section aria-label="Destaque BocaHelp" className="w-full">
+          <Link to="/black-friday" className="block w-full" aria-label="Ver BocaHelp">
+            <img src={bocaBanner.url} alt="BocaHelp: boca cheirosa, dentes limpinhos e zero esforço" className="block aspect-[900/762] w-full object-cover object-left md:hidden" loading="lazy" />
+            <img src={bocaBanner.url} alt="" aria-hidden="true" className="hidden w-full md:block" loading="lazy" />
+          </Link>
+        </section>
 
         <section id="campeoes" className="container-x scroll-mt-28 py-14">
           <SectionTitle eyebrow="Mais vendidos">Campeões de venda</SectionTitle>
