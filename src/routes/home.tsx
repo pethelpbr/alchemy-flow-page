@@ -6,6 +6,9 @@ import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import bocaBanner from "@/assets/bocahelp-destaque-home.jpeg.asset.json";
+import nutraThumb from "@/assets/nutrahelp-pote-thumb.png.asset.json";
+import pataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
+import bocaThumb from "@/assets/bocahelp-cutout.png.asset.json";
 import nutraWordmark from "@/assets/nutrahelp-wordmark.png.asset.json";
 import bocaWordmark from "@/assets/bocahelp-wordmark.png.asset.json";
 import pataWordmark from "@/assets/patahelp-wordmark.png.asset.json";
@@ -53,11 +56,11 @@ const campeoesProducts = [...products].sort(
 );
 
 // Conteúdo dos cards de produto: tarja, peso, subtítulo, benefícios e cores de cada marca.
-type CardSpec = { tag: string; weight: string; subtitle: string; perks: string[]; accent: string; tagBg: string; tint: string; featured?: boolean };
+type CardSpec = { tag: string; weight: string; subtitle: string; perks: string[]; accent: string; tagBg: string; tint: string; thumb: string; featured?: boolean };
 const cardSpecs: Record<string, CardSpec> = {
-  bocahelp: { tag: "Sem escovar", weight: "250 ml", subtitle: "Solução para higiene bucal · cães e gatos", perks: ["Reduz o mau hálito", "Previne e combate o tártaro", "É só diluir na água"], accent: "text-boca", tagBg: "bg-boca text-boca-foreground", tint: "bg-boca/10" },
-  nutrahelp: { tag: "Mais vendido", weight: "150 g", subtitle: "Suplemento 8 em 1 · 44 nutrientes", perks: ["Menos coceira e queda de pelo", "Pele e pelo mais fortes", "Intestino equilibrado"], accent: "text-primary", tagBg: "bg-primary text-primary-foreground", tint: "bg-primary/10", featured: true },
-  patahelp: { tag: "100% natural", weight: "40 g", subtitle: "Balm 3 em 1 · patas, focinho e pele", perks: ["Alívio na pata lambida", "Combate ressecamento e rachaduras", "Lambível e atóxico"], accent: "text-pata", tagBg: "bg-pata text-pata-foreground", tint: "bg-pata/10" },
+  bocahelp: { tag: "Sem escovar", weight: "250 ml", subtitle: "Solução para higiene bucal · cães e gatos", perks: ["Reduz o mau hálito", "Previne e combate o tártaro", "É só diluir na água"], accent: "text-boca", tagBg: "bg-boca text-boca-foreground", tint: "bg-boca/10", thumb: bocaThumb.url },
+  nutrahelp: { tag: "Mais vendido", weight: "150 g", subtitle: "Suplemento 8 em 1 · 44 nutrientes", perks: ["Menos coceira e queda de pelo", "Pele e pelo mais fortes", "Intestino equilibrado"], accent: "text-primary", tagBg: "bg-primary text-primary-foreground", tint: "bg-primary/10", thumb: nutraThumb.url, featured: true },
+  patahelp: { tag: "100% natural", weight: "40 g", subtitle: "Balm 3 em 1 · patas, focinho e pele", perks: ["Alívio na pata lambida", "Combate ressecamento e rachaduras", "Lambível e atóxico"], accent: "text-pata", tagBg: "bg-pata text-pata-foreground", tint: "bg-pata/10", thumb: pataThumb.url },
 };
 
 const challenges = [
@@ -197,7 +200,7 @@ function HomeStore() {
                   <div className={`relative flex h-[230px] items-center justify-center ${spec.tint}`}>
                     <span className={`absolute left-3.5 top-3.5 rounded-full px-3 py-1.5 text-[10.5px] font-extrabold uppercase tracking-[0.08em] ${spec.tagBg}`}>{spec.tag}</span>
                     <span className={`absolute right-3.5 top-3.5 rounded-full bg-card px-3 py-1.5 text-[10.5px] font-extrabold tracking-[0.06em] ${spec.accent}`}>{spec.weight}</span>
-                    <img src={p.image} alt={p.name} className="max-h-[196px] max-w-[76%] object-contain mix-blend-multiply" loading="lazy" />
+                    <img src={spec.thumb} alt={p.name} className="max-h-[196px] max-w-[76%] object-contain" loading="lazy" />
                   </div>
                   <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
                     {p.logo
