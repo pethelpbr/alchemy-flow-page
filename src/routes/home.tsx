@@ -140,10 +140,12 @@ function ChallengesCarousel() {
           </article>
         ))}
       </div>
-      <div className="mt-5 flex items-center justify-center gap-4">
+      <div className="mx-auto mt-5 flex max-w-[1400px] items-center justify-between gap-4 px-5 md:px-10">
         <p className="text-xs text-muted-foreground" aria-live="polite">{String(index + 1).padStart(2, "0")} / {String(challenges.length).padStart(2, "0")}</p>
-        <button aria-label="Anterior" onClick={() => scroll(-1)} className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"><ChevronLeft /></button>
-        <button aria-label="Próximo" onClick={() => scroll(1)} className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"><ChevronRight /></button>
+        <div className="flex gap-3">
+          <button aria-label="Anterior" onClick={() => scroll(-1)} className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"><ChevronLeft /></button>
+          <button aria-label="Próximo" onClick={() => scroll(1)} className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"><ChevronRight /></button>
+        </div>
       </div>
     </section>
   );
