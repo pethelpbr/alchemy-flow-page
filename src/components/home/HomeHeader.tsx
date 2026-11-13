@@ -80,7 +80,7 @@ export function HomeHeader({ goTo }: Props) {
   const go = (id: string) => { setMenu(false); goTo(id); };
 
   const form = (ref: React.RefObject<HTMLInputElement | null>, idSuffix: string) => (
-    <form role="search" action="/busca" method="get" className="relative flex h-[46px] w-full items-center gap-2.5 rounded-full border border-primary bg-card pl-[18px] pr-1.5">
+    <form role="search" action="/busca" method="get" className="relative flex h-[46px] lg:h-[50px] w-full items-center gap-2.5 rounded-full border border-primary bg-card pl-[18px] pr-1.5">
       <Search className="h-[19px] w-[19px] flex-none text-terracotta" strokeWidth={2.2} />
       <label htmlFor={`busca-${idSuffix}`} className="sr-only">Buscar produto</label>
       <input
@@ -103,8 +103,8 @@ export function HomeHeader({ goTo }: Props) {
   );
 
   const cart = (
-    <button type="button" aria-label="Ver combos" onClick={() => go("combos")} className="grid h-[46px] w-[46px] flex-none place-items-center rounded-full bg-gift/60 text-terracotta">
-      <ShoppingCart className="h-[21px] w-[21px]" />
+    <button type="button" aria-label="Ver combos" onClick={() => go("combos")} className="grid h-[46px] w-[46px] lg:h-[50px] lg:w-[50px] flex-none place-items-center rounded-full bg-gift/60 text-terracotta">
+      <ShoppingCart className="h-[21px] w-[21px] lg:h-[22px] lg:w-[22px]" />
     </button>
   );
 
@@ -122,15 +122,15 @@ export function HomeHeader({ goTo }: Props) {
   return (
     <header className="sticky top-0 z-40 h-[78px] border-b border-border bg-background">
       {/* Desktop */}
-      <div className="hidden h-full items-center gap-[26px] px-11 lg:flex">
+      <div className="hidden h-full items-center px-11 lg:flex">
         <Link to="/home" className="flex-none"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
-        <nav ref={navRef} className="flex flex-none items-center gap-[18px] whitespace-nowrap">
+        <nav ref={navRef} className="ml-[26px] flex flex-none items-center gap-[18px] whitespace-nowrap">
           {links.map((l) => (
             <button key={l.label} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
           ))}
         </nav>
         <div ref={wrapRef} className="ml-auto flex-none min-w-0" style={wrapStyle}>
-          <div className="relative h-[46px] w-full">
+          <div className="relative h-[46px] lg:h-[50px] w-full">
             <button
               ref={openBtn}
               type="button"
@@ -150,7 +150,7 @@ export function HomeHeader({ goTo }: Props) {
             </div>
           </div>
         </div>
-        <div className="flex flex-none items-center gap-4">{cart}{cta}</div>
+        <div className="ml-[16px] flex flex-none items-center gap-4">{cart}{cta}</div>
       </div>
 
       {/* Mobile */}
