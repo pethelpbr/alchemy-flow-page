@@ -44,13 +44,13 @@ export const Route = createFileRoute("/home")({
   component: HomeStore,
 });
 
-type Product = { id: string; name: string; headline: string; text: string; bullets: string[]; price: number; image: string; tone: string; page?: "/pele"; banner?: string; logo?: string };
+type Product = { id: string; name: string; headline: string; text: string; bullets: string[]; price: number; image: string; tone: string; page?: "/pele"; banner?: string; logo?: string; logoSize?: number };
 
 // Verde exato do fundo da arte do BocaHelp: usada para preencher as sobras do quadro sem emenda.
 const BANNER_TEAL = "#22B6B6";
 
 const products: Product[] = [
-  { id: "nutrahelp", name: "NutraHelp", headline: "Pele forte, pelo bonito e zero coceira.", text: "Fortalece a imunidade, reduz coceiras e cuida do seu pet por dentro.", bullets: ["Reduz coceira e alergias", "Fecha falhas no pelo", "Fortalece a imunidade", "44 nutrientes em um pote"], price: 139, image: nutraFoto.url, tone: "bg-primary text-primary-foreground", page: "/pele", logo: nutraWordmark.url },
+  { id: "nutrahelp", name: "NutraHelp", headline: "Pele forte, pelo bonito e zero coceira.", text: "Fortalece a imunidade, reduz coceiras e cuida do seu pet por dentro.", bullets: ["Reduz coceira e alergias", "Fecha falhas no pelo", "Fortalece a imunidade", "44 nutrientes em um pote"], price: 139, image: nutraFoto.url, tone: "bg-primary text-primary-foreground", page: "/pele", logo: nutraWordmark.url, logoSize: 54 },
   { id: "bocahelp", name: "BocaHelp", headline: "Boca cheirosa, dentes limpinhos e zero esforço.", text: "Reduz o mau hálito e o tártaro sem precisar escovar os dentes.", bullets: ["Acaba com o cheiro na boca", "Ajuda a controlar o tártaro", "Combate bactérias bucais", "É só colocar na água"], price: 49.9, image: bocaFoto.url, tone: "bg-secondary text-secondary-foreground", banner: bocaBanner.url, logo: bocaWordmark.url },
   { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground", logo: pataWordmark.url },
 ];
@@ -188,7 +188,7 @@ function HomeStore() {
             {products.map((p) => (
               <article key={p.id} className="flex flex-col rounded-3xl bg-card p-5 shadow-sm">
                 {p.logo
-                  ? <p className="flex h-12 items-center justify-center"><img src={p.logo} alt={p.name} className="h-full w-auto object-contain" loading="lazy" /></p>
+                  ? <p className="flex h-12 items-center justify-center"><img src={p.logo} alt={p.name} className="w-auto object-contain" style={{ height: p.logoSize ?? 48 }} loading="lazy" /></p>
                   : <p className="text-center font-display text-3xl text-primary">{p.name}</p>}
                 <div className="mt-3 grid aspect-square place-items-center rounded-2xl bg-background"><img src={p.image} alt={p.name} className="max-h-[85%] w-auto object-contain" loading="lazy" /></div>
                 <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><Stars className="h-3.5 w-3.5" />4,8</div>
