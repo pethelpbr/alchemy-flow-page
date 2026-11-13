@@ -8,6 +8,7 @@ import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import bocaBanner from "@/assets/bocahelp-destaque-home.jpeg.asset.json";
 import nutraWordmark from "@/assets/nutrahelp-wordmark.png.asset.json";
 import bocaWordmark from "@/assets/bocahelp-wordmark.png.asset.json";
+import pataWordmark from "@/assets/patahelp-wordmark.png.asset.json";
 import sintoma1 from "@/assets/sintoma-1-nova.jpg.asset.json";
 import sintoma3 from "@/assets/sintoma-3-sofa.jpg.asset.json";
 import sintoma5 from "@/assets/sintoma-5-feridas.png.asset.json";
@@ -51,7 +52,7 @@ const BANNER_TEAL = "#22B6B6";
 const products: Product[] = [
   { id: "nutrahelp", name: "NutraHelp", headline: "Pele forte, pelo bonito e zero coceira.", text: "Fortalece a imunidade, reduz coceiras e cuida do seu pet por dentro.", bullets: ["Reduz coceira e alergias", "Fecha falhas no pelo", "Fortalece a imunidade", "44 nutrientes em um pote"], price: 139, image: nutraFoto.url, tone: "bg-primary text-primary-foreground", page: "/pele", logo: nutraWordmark.url },
   { id: "bocahelp", name: "BocaHelp", headline: "Boca cheirosa, dentes limpinhos e zero esforço.", text: "Reduz o mau hálito e o tártaro sem precisar escovar os dentes.", bullets: ["Acaba com o cheiro na boca", "Ajuda a controlar o tártaro", "Combate bactérias bucais", "É só colocar na água"], price: 49.9, image: bocaFoto.url, tone: "bg-secondary text-secondary-foreground", banner: bocaBanner.url, logo: bocaWordmark.url },
-  { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground" },
+  { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground", logo: pataWordmark.url },
 ];
 
 const challenges = [
