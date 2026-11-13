@@ -4,6 +4,7 @@ import { ChevronRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+const EASE_SOFT = "cubic-bezier(0.32, 0.72, 0, 1)";
 
 function useReducedMotion() {
   const [r, setR] = useState(false);
@@ -28,6 +29,25 @@ export function HomeHeader({ goTo }: Props) {
   const mInputRef = useRef<HTMLInputElement>(null);
   const openBtn = useRef<HTMLButtonElement>(null);
   const mOpenBtn = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [fullW, setFullW] = useState(196);
+
+  /* The bar's right edge is fixed, so the open width is the space between the
+     menu's last item and that edge. Measuring it keeps the width animation
+     honest instead of easing a max-width that the layout then clamps. */
+  useEffect(() => {
+    const measure = () => {
+      const w = wrapRef.current;
+      const n = navRef.current;
+      if (!w || !n) return;
+      const target = Math.round(w.getBoundingClientRect().right - n.getBoundingClientRect().right - 26);
+      setFullW(Math.max(196, target));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   const isDesktop = () => window.matchMedia("(min-width: 1024px)").matches;
   const open = () => {
@@ -48,7 +68,7 @@ export function HomeHeader({ goTo }: Props) {
   }, [search]);
 
   const t = (ms: number, ease: string) => (reduced ? "none" : `${ms}ms ${ease}`);
-  const wrapStyle = { maxWidth: search ? 800 : 196, transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}` };
+  const wrapStyle = { width: search ? fullW : 196, transition: reduced ? "none" : `width ${t(search ? 520 : 420, EASE_SOFT)}` };
 
   const links: { id: string; label: string; cls: string }[] = [
     { id: "campeoes", label: "NutraHelp", cls: "text-primary" },
@@ -105,17 +125,31 @@ export function HomeHeader({ goTo }: Props) {
       {/* Desktop */}
       <div className="hidden h-full items-center gap-[26px] px-11 lg:flex">
         <Link to="/home" className="flex-none"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
-        <nav className="flex flex-none items-center gap-[18px] whitespace-nowrap">
+        <nav ref={navRef} className="flex flex-none items-center gap-[18px] whitespace-nowrap">
           {links.map((l) => (
             <button key={l.label} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
           ))}
         </nav>
-        <div className="ml-auto min-w-0 flex-1" style={wrapStyle}>
-          {search ? form(inputRef, "header") : (
-            <button ref={openBtn} type="button" onClick={open} className="flex h-[46px] w-full items-center gap-2.5 rounded-full border border-border bg-card px-[18px] font-body text-[15px] text-muted-foreground">
+        <div ref={wrapRef} className="ml-auto flex-none min-w-0" style={wrapStyle}>
+          <div className="relative h-[46px] w-full">
+            <button
+              ref={openBtn}
+              type="button"
+              onClick={open}
+              aria-hidden={search}
+              tabIndex={search ? -1 : 0}
+              className={`absolute inset-0 flex items-center gap-2.5 rounded-full border border-border bg-card px-[18px] font-body text-[15px] text-muted-foreground ${search ? "pointer-events-none opacity-0" : "opacity-100"}`}
+              style={{ transition: reduced ? "none" : `opacity ${search ? 140 : 200}ms linear ${search ? 0 : 120}ms` }}
+            >
               <Search className="h-[19px] w-[19px] flex-none" strokeWidth={2.2} /> Buscar
             </button>
-          )}
+            <div
+              className={`absolute inset-0 ${search ? "" : "pointer-events-none"}`}
+              style={{ opacity: search ? 1 : 0, transition: reduced ? "none" : `opacity ${search ? 220 : 160}ms linear ${search ? 140 : 0}ms` }}
+            >
+              {form(inputRef, "header")}
+            </div>
+          </div>
         </div>
         <div className="flex flex-none items-center gap-4">{cart}{cta}</div>
       </div>
