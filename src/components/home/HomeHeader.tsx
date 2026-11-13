@@ -125,7 +125,7 @@ export function HomeHeader({ goTo }: Props) {
             </button>
           )}
         </div>
-        <div className="flex flex-none items-center gap-2">{cart}</div>
+        <div className="flex flex-none items-center gap-2">{cart}{cta}</div>
       </div>
 
       {/* Mobile */}
