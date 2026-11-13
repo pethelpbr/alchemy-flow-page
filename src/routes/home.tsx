@@ -188,7 +188,7 @@ function HomeStore() {
             {products.map((p) => (
               <article key={p.id} className="flex flex-col rounded-3xl bg-card p-5 shadow-sm">
                 {p.logo
-                  ? <p className="flex h-9 items-center justify-center"><img src={p.logo} alt={p.name} className="h-full w-auto object-contain" loading="lazy" /></p>
+                  ? <p className="flex h-12 items-center justify-center"><img src={p.logo} alt={p.name} className="h-full w-auto object-contain" loading="lazy" /></p>
                   : <p className="text-center font-display text-3xl text-primary">{p.name}</p>}
                 <div className="mt-3 grid aspect-square place-items-center rounded-2xl bg-background"><img src={p.image} alt={p.name} className="max-h-[85%] w-auto object-contain" loading="lazy" /></div>
                 <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><Stars className="h-3.5 w-3.5" />4,8</div>
