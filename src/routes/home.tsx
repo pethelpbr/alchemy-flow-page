@@ -134,9 +134,9 @@ function ChallengesCarousel() {
         {challenges.map((c) => (
           <article key={c.label} className="relative w-[46%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[30%] lg:w-[18%]">
             <img src={c.img} alt={c.label} className="aspect-[3/4] w-full object-cover" loading="lazy" draggable={false} />
-            <div className="absolute inset-x-0 bottom-0 flex min-h-[34%] flex-col justify-end gap-1 bg-background/85 px-4 py-3 backdrop-blur-md">
-              <h3 className="font-display text-[13px] uppercase leading-tight tracking-[0.12em] text-ink lg:text-[15px]">{c.label}</h3>
-              <p className="text-[12px] leading-[1.3] text-ink/70 line-clamp-3 lg:text-[13px]">{c.description}</p>
+            <div className="absolute inset-x-0 bottom-0 flex min-h-[26%] flex-col justify-end gap-1 bg-background/85 px-3 py-2.5 backdrop-blur-md lg:min-h-[34%] lg:px-4 lg:py-3">
+              <h3 className="font-display text-[11px] uppercase leading-tight tracking-[0.08em] text-ink lg:text-[15px] lg:tracking-[0.12em]">{c.label}</h3>
+              <p className="line-clamp-2 text-[11px] leading-[1.25] text-ink/70 lg:line-clamp-3 lg:text-[13px] lg:leading-[1.3]">{c.description}</p>
             </div>
           </article>
         ))}
