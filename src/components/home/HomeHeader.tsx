@@ -48,11 +48,6 @@ export function HomeHeader({ goTo }: Props) {
   }, [search]);
 
   const t = (ms: number, ease: string) => (reduced ? "none" : `${ms}ms ${ease}`);
-  const navStyle = {
-    maxWidth: search ? 0 : 760,
-    opacity: search ? 0 : 1,
-    transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}, opacity ${t(search ? 160 : 280, "linear")}`,
-  };
   const wrapStyle = { maxWidth: search ? 800 : 196, transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}` };
 
   const links: { id: string; label: string; cls: string }[] = [
@@ -110,9 +105,9 @@ export function HomeHeader({ goTo }: Props) {
       {/* Desktop */}
       <div className="hidden h-full items-center gap-[26px] px-11 lg:flex">
         <Link to="/home" className="flex-none"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
-        <nav aria-hidden={search} className="flex flex-none items-center gap-[18px] overflow-hidden whitespace-nowrap" style={navStyle}>
+        <nav className="flex flex-none items-center gap-[18px] whitespace-nowrap">
           {links.map((l) => (
-            <button key={l.label} tabIndex={search ? -1 : 0} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
+            <button key={l.label} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
           ))}
         </nav>
         <div className="ml-auto min-w-0 flex-1" style={wrapStyle}>
