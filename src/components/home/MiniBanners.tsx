@@ -59,15 +59,15 @@ const banners: Banner[] = [
 
 export function MiniBanners({ goTo }: { goTo: (id: string) => void }) {
   return (
-    <section className="container-x py-8 md:py-10">
-      <div className="grid gap-4 md:grid-cols-3">
+    <section className="container-x py-10 md:py-12">
+      <div className="grid gap-5 md:grid-cols-3">
         {banners.map((b) => {
           const inner = (
             <>
-              <div className="relative z-10 flex w-[54%] flex-col justify-center p-5 md:p-6">
-                <p className={`text-[11px] font-extrabold uppercase tracking-[0.14em] ${b.eyebrowColor}`}>{b.eyebrow}</p>
-                <h3 className={`mt-2 font-display text-[22px] leading-[1.12] md:text-[26px] ${b.titleColor}`}>{b.title}</h3>
-                <span className={`mt-3 inline-flex items-center gap-1.5 text-[13px] font-bold ${b.ctaColor}`}>
+              <div className="relative z-10 flex w-[54%] flex-col justify-center p-6 md:p-8">
+                <p className={`text-[12px] font-extrabold uppercase tracking-[0.14em] ${b.eyebrowColor}`}>{b.eyebrow}</p>
+                <h3 className={`mt-2 font-display text-[26px] leading-[1.12] md:text-[32px] ${b.titleColor}`}>{b.title}</h3>
+                <span className={`mt-3.5 inline-flex items-center gap-1.5 text-[14px] font-bold ${b.ctaColor}`}>
                   {b.cta}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
@@ -82,7 +82,7 @@ export function MiniBanners({ goTo }: { goTo: (id: string) => void }) {
               </div>
             </>
           );
-          const cls = `group relative flex h-[200px] overflow-hidden rounded-3xl md:h-[240px] ${b.card}`;
+          const cls = `group relative flex h-[230px] overflow-hidden rounded-3xl md:h-[290px] ${b.card}`;
           return b.to ? (
             <Link key={b.eyebrow} to={b.to} className={cls}>
               {inner}
