@@ -122,15 +122,15 @@ export function HomeHeader({ goTo }: Props) {
   return (
     <header className="sticky top-0 z-40 h-[78px] border-b border-border bg-background">
       {/* Desktop */}
-      <div className="hidden h-full items-center gap-[26px] px-11 lg:flex">
+      <div className="hidden h-full items-center px-11 lg:flex">
         <Link to="/home" className="flex-none"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
-        <nav ref={navRef} className="flex flex-none items-center gap-[18px] whitespace-nowrap">
+        <nav ref={navRef} className="ml-[26px] flex flex-none items-center gap-[18px] whitespace-nowrap">
           {links.map((l) => (
             <button key={l.label} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
           ))}
         </nav>
         <div ref={wrapRef} className="ml-auto flex-none min-w-0" style={wrapStyle}>
-          <div className="relative h-[46px] w-full">
+          <div className="relative h-[46px] lg:h-[50px] w-full">
             <button
               ref={openBtn}
               type="button"
@@ -150,7 +150,7 @@ export function HomeHeader({ goTo }: Props) {
             </div>
           </div>
         </div>
-        <div className="flex flex-none items-center gap-4">{cart}{cta}</div>
+        <div className="ml-[16px] flex flex-none items-center gap-4">{cart}{cta}</div>
       </div>
 
       {/* Mobile */}
