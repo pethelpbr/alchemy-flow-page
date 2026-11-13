@@ -85,6 +85,10 @@
   --color-night-foreground: #FDFAF7;
   --color-night-muted: #C3B3A0;
   --color-night-eyebrow: #FFB06B;
+
+  /* Selo verde de frete grátis nos cards de produto. */
+  --color-success: #1A7A2E;
+  --color-success-soft: #E4F4E6;
 }
 
 :root {

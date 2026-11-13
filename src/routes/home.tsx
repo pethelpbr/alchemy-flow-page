@@ -217,7 +217,7 @@ function HomeStore() {
                       ))}
                     </div>
                     <div className="mt-auto border-t border-border pt-3.5">
-                      <span className="mb-1 inline-block rounded-full bg-[#E4F4E6] px-2.5 py-1 text-[10.5px] font-extrabold tracking-[0.06em] text-[#1A7A2E]">FRETE GRÁTIS</span>
+                      <span className="mb-1 inline-block rounded-full bg-success-soft px-2.5 py-1 text-[10.5px] font-extrabold tracking-[0.06em] text-success">FRETE GRÁTIS</span>
                       <p className="font-display text-3xl leading-none text-terracotta">{parcela(p.price)}</p>
                       <p className="mb-3.5 mt-1 text-[13px] text-muted-foreground">ou <strong className="font-bold text-ink">{brl(p.price)}</strong> à vista</p>
                       {p.page
