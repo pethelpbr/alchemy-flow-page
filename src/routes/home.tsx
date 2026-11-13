@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Star, ChevronLeft, ChevronRight, ShoppingCart, Check, Stethoscope, Leaf, ShieldCheck } from "lucide-react";
+import { Truck, CreditCard, Star, ChevronLeft, ChevronRight, ShoppingCart, Check, Stethoscope, Leaf, ShieldCheck } from "lucide-react";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
@@ -155,7 +155,11 @@ function ChallengesCarousel() {
 function HomeStore() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="bg-gift py-2 text-center text-xs font-bold uppercase tracking-wide text-gift-foreground">Frete grátis nos combos · Garantia de 60 dias · Até 10x sem juros</div>
+      <div className="flex h-[42px] items-center justify-center gap-6 overflow-hidden whitespace-nowrap bg-primary px-4 font-body text-[12px] text-primary-foreground sm:gap-10 sm:text-[13px]">
+        <span className="flex items-center gap-2"><Truck className="h-[17px] w-[17px]" /><span><strong className="font-extrabold">Frete grátis</strong> nos combos</span></span>
+        <span className="hidden items-center gap-2 sm:flex"><ShieldCheck className="h-[17px] w-[17px]" /><span>Garantia de <strong className="font-extrabold">60 dias</strong></span></span>
+        <span className="hidden items-center gap-2 md:flex"><CreditCard className="h-[17px] w-[17px]" /><span>Até <strong className="font-extrabold">10x sem juros</strong></span></span>
+      </div>
       <HomeHeader goTo={goTo} />
 
       <main>
