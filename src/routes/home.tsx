@@ -6,6 +6,9 @@ import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
 import bocaFoto from "@/assets/bocahelp-foto.png.asset.json";
 import bocaBanner from "@/assets/bocahelp-destaque-home.jpeg.asset.json";
+import nutraThumb from "@/assets/nutrahelp-pote-thumb.png.asset.json";
+import pataThumb from "@/assets/patahelp-lata-thumb.png.asset.json";
+import bocaThumb from "@/assets/bocahelp-cutout.png.asset.json";
 import nutraWordmark from "@/assets/nutrahelp-wordmark.png.asset.json";
 import bocaWordmark from "@/assets/bocahelp-wordmark.png.asset.json";
 import pataWordmark from "@/assets/patahelp-wordmark.png.asset.json";
@@ -51,6 +54,14 @@ const CARDS_ORDER = ["bocahelp", "nutrahelp", "patahelp"];
 const campeoesProducts = [...products].sort(
   (a, b) => CARDS_ORDER.indexOf(a.id) - CARDS_ORDER.indexOf(b.id),
 );
+
+// Conteúdo dos cards de produto: tarja, peso, subtítulo, benefícios e cores de cada marca.
+type CardSpec = { tag: string; weight: string; subtitle: string; perks: string[]; accent: string; tagBg: string; tint: string; thumb: string; featured?: boolean };
+const cardSpecs: Record<string, CardSpec> = {
+  bocahelp: { tag: "Sem escovar", weight: "250 ml", subtitle: "Solução para higiene bucal · cães e gatos", perks: ["Reduz o mau hálito", "Previne e combate o tártaro", "É só diluir na água"], accent: "text-boca", tagBg: "bg-boca text-boca-foreground", tint: "bg-boca/10", thumb: bocaThumb.url },
+  nutrahelp: { tag: "Mais vendido", weight: "150 g", subtitle: "Suplemento 8 em 1 · 44 nutrientes", perks: ["Menos coceira e queda de pelo", "Pele e pelo mais fortes", "Intestino equilibrado"], accent: "text-primary", tagBg: "bg-primary text-primary-foreground", tint: "bg-primary/10", thumb: nutraThumb.url, featured: true },
+  patahelp: { tag: "100% natural", weight: "40 g", subtitle: "Balm 3 em 1 · patas, focinho e pele", perks: ["Alívio na pata lambida", "Combate ressecamento e rachaduras", "Lambível e atóxico"], accent: "text-pata", tagBg: "bg-pata text-pata-foreground", tint: "bg-pata/10", thumb: pataThumb.url },
+};
 
 const challenges = [
   { img: sintoma1.url, label: "Coceira sem parar" },
@@ -181,22 +192,45 @@ function HomeStore() {
 
         <section id="campeoes" className="container-x scroll-mt-28 py-14">
           <SectionTitle>Campeões de venda</SectionTitle>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {campeoesProducts.map((p) => (
-              <article key={p.id} className="flex flex-col rounded-3xl bg-card p-5 shadow-sm">
-                {p.logo
-                  ? <p className="flex h-12 items-center justify-center"><img src={p.logo} alt={p.name} className="w-auto object-contain" style={{ height: p.logoSize ?? 48 }} loading="lazy" /></p>
-                  : <p className="text-center font-display text-3xl text-primary">{p.name}</p>}
-                <div className="mt-3 grid aspect-square place-items-center rounded-2xl bg-background"><img src={p.image} alt={p.name} className="max-h-[85%] w-auto object-contain" loading="lazy" /></div>
-                <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><Stars className="h-3.5 w-3.5" />4,8</div>
-                <p className="mt-2 text-2xl font-bold text-primary">{parcela(p.price)}</p>
-                <p className="text-xs text-muted-foreground">ou {brl(p.price)} à vista</p>
-                <p className="mt-3 flex-1 text-sm">{p.text}</p>
-                {p.page
-                  ? <Link to={p.page} className="mt-5 flex items-center justify-center gap-2 rounded-full bg-primary py-3 text-sm font-bold uppercase text-primary-foreground hover:opacity-90">Comprar agora <ShoppingCart className="h-4 w-4" /></Link>
-                  : <span className="mt-5 rounded-full border border-border py-3 text-center text-sm font-bold uppercase text-muted-foreground">Página em breve</span>}
-              </article>
-            ))}
+          <div className="mt-10 grid items-start gap-5 md:grid-cols-3">
+            {campeoesProducts.map((p) => {
+              const spec = cardSpecs[p.id]!;
+              return (
+                <article key={p.id} className={`flex flex-col overflow-hidden rounded-[20px] bg-card ${spec.featured ? "border-2 border-primary shadow-[0_12px_30px_rgba(255,106,27,0.16)]" : "border border-border"}`}>
+                  <div className={`relative flex h-[230px] items-center justify-center ${spec.tint}`}>
+                    <span className={`absolute left-3.5 top-3.5 rounded-full px-3 py-1.5 text-[10.5px] font-extrabold uppercase tracking-[0.08em] ${spec.tagBg}`}>{spec.tag}</span>
+                    <span className={`absolute right-3.5 top-3.5 rounded-full bg-card px-3 py-1.5 text-[10.5px] font-extrabold tracking-[0.06em] ${spec.accent}`}>{spec.weight}</span>
+                    <img src={spec.thumb} alt={p.name} className="max-h-[196px] max-w-[76%] object-contain" loading="lazy" />
+                  </div>
+                  <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
+                    {p.logo
+                      ? <p className="flex h-9 items-center"><img src={p.logo} alt={p.name} className="w-auto object-contain" style={{ height: p.logoSize ? 34 : 30 }} loading="lazy" /></p>
+                      : <p className={`font-display text-[27px] leading-none ${spec.accent}`}>{p.name}</p>}
+                    <p className="mb-2.5 mt-1 text-[13px] text-muted-foreground">{spec.subtitle}</p>
+                    <div className="mb-3.5 flex items-center gap-1.5">
+                      <Stars className="h-3.5 w-3.5" />
+                      <span className="text-[13px] font-bold text-ink">4,8</span>
+                      <span className="text-[13px] text-muted-foreground">· 1522 avaliações</span>
+                    </div>
+                    <div className="mb-4 flex flex-col gap-1.5">
+                      {spec.perks.map((perk) => (
+                        <span key={perk} className="flex items-start gap-2 text-sm leading-snug text-ink">
+                          <Check className={`mt-0.5 h-[15px] w-[15px] shrink-0 ${spec.accent}`} strokeWidth={3.4} />{perk}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-auto border-t border-border pt-3.5">
+                      <span className="mb-1 inline-block rounded-full bg-success-soft px-2.5 py-1 text-[10.5px] font-extrabold tracking-[0.06em] text-success">FRETE GRÁTIS</span>
+                      <p className="font-display text-3xl leading-none text-terracotta">{parcela(p.price)}</p>
+                      <p className="mb-3.5 mt-1 text-[13px] text-muted-foreground">ou <strong className="font-bold text-ink">{brl(p.price)}</strong> à vista</p>
+                      {p.page
+                        ? <Link to={p.page} className="flex h-[50px] items-center justify-center gap-2 rounded-full bg-primary text-sm font-extrabold uppercase tracking-[0.04em] text-primary-foreground hover:opacity-90">Comprar agora <ShoppingCart className="h-[17px] w-[17px]" /></Link>
+                        : <span className="flex h-[50px] items-center justify-center rounded-full border border-border text-sm font-extrabold uppercase tracking-[0.04em] text-muted-foreground">Página em breve</span>}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
