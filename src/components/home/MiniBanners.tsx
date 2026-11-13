@@ -21,7 +21,7 @@ type Banner = {
 const banners: Banner[] = [
   {
     eyebrow: "Combo",
-    title: "Leve os 3 e economize",
+    title: "Leve os 3\u00A0e economize",
     cta: "Ver kits",
     card: "bg-ink",
     eyebrowColor: "text-gift",
@@ -45,7 +45,7 @@ const banners: Banner[] = [
   },
   {
     eyebrow: "Lançamento",
-    title: "BocaHelp, sem escovar",
+    title: "BocaHelp,\u00A0sem escovar",
     cta: "Ver produto",
     card: "bg-boca/10",
     eyebrowColor: "text-boca",
