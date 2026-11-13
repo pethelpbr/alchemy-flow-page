@@ -53,7 +53,7 @@ export function HomeHeader({ goTo }: Props) {
     opacity: search ? 0 : 1,
     transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}, opacity ${t(search ? 160 : 280, "linear")}`,
   };
-  const wrapStyle = { width: search ? 800 : 196, maxWidth: "100%", transition: reduced ? "none" : `width ${t(search ? 440 : 320, EASE)}` };
+  const wrapStyle = { maxWidth: search ? 800 : 196, transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}` };
 
   const links: { id: string; label: string; cls: string }[] = [
     { id: "campeoes", label: "NutraHelp", cls: "text-primary" },
@@ -94,13 +94,10 @@ export function HomeHeader({ goTo }: Props) {
     </button>
   );
 
-  /* CTA "Descubra o produto ideal": some with the search field open, otherwise
-     the row overflows on 1280px screens. */
+  /* CTA "Descubra o produto ideal": stays visible while the search is open; the
+     search field grows leftward into the space freed by the nav. */
   const cta = (
-    <span
-      className="hidden overflow-hidden xl:block"
-      style={{ maxWidth: search ? 0 : 250, opacity: search ? 0 : 1, transition: reduced ? "none" : `max-width ${t(search ? 440 : 320, EASE)}, opacity ${t(search ? 160 : 280, "linear")}` }}
-    >
+    <span className="hidden overflow-hidden xl:block">
       <button type="button" onClick={() => go("campeoes")} className="flex h-[50px] items-center gap-3 rounded-full bg-shipping pl-6 pr-2 font-body text-[15px] font-semibold text-shipping-foreground hover:opacity-90">
         <span className="whitespace-nowrap">Descubra o <strong className="font-extrabold">produto ideal</strong></span>
         <span aria-hidden className="grid h-[32px] w-[32px] place-items-center rounded-full bg-shipping-foreground text-shipping"><ChevronRight className="h-4 w-4" strokeWidth={3} /></span>
@@ -118,14 +115,14 @@ export function HomeHeader({ goTo }: Props) {
             <button key={l.label} tabIndex={search ? -1 : 0} onClick={() => go(l.id)} className={`font-body text-sm font-semibold hover:opacity-75 ${l.cls}`}>{l.label}</button>
           ))}
         </nav>
-        <div className="ml-auto flex-none" style={wrapStyle}>
+        <div className="ml-auto min-w-0 flex-1" style={wrapStyle}>
           {search ? form(inputRef, "header") : (
             <button ref={openBtn} type="button" onClick={open} className="flex h-[46px] w-full items-center gap-2.5 rounded-full border border-border bg-card px-[18px] font-body text-[15px] text-muted-foreground">
               <Search className="h-[19px] w-[19px] flex-none" strokeWidth={2.2} /> Buscar
             </button>
           )}
         </div>
-        <div className="flex flex-none items-center gap-2">{cart}{cta}</div>
+        <div className="flex flex-none items-center gap-4">{cart}{cta}</div>
       </div>
 
       {/* Mobile */}
