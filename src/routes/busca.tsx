@@ -7,7 +7,7 @@ const items = [
 ] as const;
 
 export const Route = createFileRoute("/busca")({
-  validateSearch: (s: Record<string, unknown>) => ({ q: typeof s.q === "string" ? s.q : "" }),
+  validateSearch: (s: Record<string, unknown>) => ({ q: typeof s["q"] === "string" ? s["q"] : "" }),
   head: () => ({ meta: [
     { title: "Buscar | PetHelp" },
     { name: "description", content: "Encontre o produto PetHelp certo para o seu pet." },
