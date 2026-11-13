@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlackFridayRouteImport } from './routes/black-friday'
+import { Route as BuscaRouteImport } from './routes/busca'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as PeleRouteImport } from './routes/pele'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const BlackFridayRoute = BlackFridayRouteImport.update({
   id: '/black-friday',
   path: '/black-friday',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuscaRoute = BuscaRouteImport.update({
+  id: '/busca',
+  path: '/busca',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -44,6 +50,7 @@ const PrivacidadeRoute = PrivacidadeRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/black-friday': typeof BlackFridayRoute
+  '/busca': typeof BuscaRoute
   '/home': typeof HomeRoute
   '/pele': typeof PeleRoute
   '/privacidade': typeof PrivacidadeRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/black-friday': typeof BlackFridayRoute
+  '/busca': typeof BuscaRoute
   '/home': typeof HomeRoute
   '/pele': typeof PeleRoute
   '/privacidade': typeof PrivacidadeRoute
@@ -59,21 +67,31 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/black-friday': typeof BlackFridayRoute
+  '/busca': typeof BuscaRoute
   '/home': typeof HomeRoute
   '/pele': typeof PeleRoute
   '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/black-friday' | '/home' | '/pele' | '/privacidade'
+  fullPaths:
+    '/' | '/black-friday' | '/busca' | '/home' | '/pele' | '/privacidade'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/black-friday' | '/home' | '/pele' | '/privacidade'
-  id: '__root__' | '/' | '/black-friday' | '/home' | '/pele' | '/privacidade'
+  to: '/' | '/black-friday' | '/busca' | '/home' | '/pele' | '/privacidade'
+  id:
+    | '__root__'
+    | '/'
+    | '/black-friday'
+    | '/busca'
+    | '/home'
+    | '/pele'
+    | '/privacidade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlackFridayRoute: typeof BlackFridayRoute
+  BuscaRoute: typeof BuscaRoute
   HomeRoute: typeof HomeRoute
   PeleRoute: typeof PeleRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
@@ -93,6 +111,13 @@ declare module '@tanstack/react-router' {
       path: '/black-friday'
       fullPath: '/black-friday'
       preLoaderRoute: typeof BlackFridayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/busca': {
+      id: '/busca'
+      path: '/busca'
+      fullPath: '/busca'
+      preLoaderRoute: typeof BuscaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -122,6 +147,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlackFridayRoute: BlackFridayRoute,
+  BuscaRoute: BuscaRoute,
   HomeRoute: HomeRoute,
   PeleRoute: PeleRoute,
   PrivacidadeRoute: PrivacidadeRoute,

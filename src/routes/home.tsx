@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Star, ChevronLeft, ChevronRight, ShoppingCart, Check, Stethoscope, Leaf, ShieldCheck } from "lucide-react";
+import { Truck, CreditCard, Star, ChevronLeft, ChevronRight, ShoppingCart, Check, Stethoscope, Leaf, ShieldCheck } from "lucide-react";
 import petHelpLogo from "@/assets/pethelp-logo.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
@@ -24,6 +24,7 @@ import pandoraAntes from "@/assets/pandora-antes.png.asset.json";
 import pandoraDepois from "@/assets/pandora-depois.png.asset.json";
 import bobAntes from "@/assets/bob-antes-enquadrado.png.asset.json";
 import bobDepois from "@/assets/bob-depois-enquadrado.png.asset.json";
+import { HomeHeader } from "@/components/home/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
@@ -152,23 +153,14 @@ function ChallengesCarousel() {
 }
 
 function HomeStore() {
-  const [open, setOpen] = useState(false);
-  const links: [string, string][] = [["campeoes", "Produtos"], ["combos", "Combos"], ["especialistas", "Especialistas"], ["sobre", "Sobre nós"]];
-  const nav = links.map(([id, label]) => <button key={id} onClick={() => { setOpen(false); goTo(id); }} className="text-left hover:text-primary">{label}</button>);
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="bg-gift py-2 text-center text-xs font-bold uppercase tracking-wide text-gift-foreground">Frete grátis nos combos · Garantia de 60 dias · Até 10x sem juros</div>
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="container-x flex items-center justify-between py-4">
-          <Link to="/home"><img src={petHelpLogo.url} alt="PetHelp" className="h-8 w-auto" /></Link>
-          <nav className="hidden gap-8 text-sm font-bold uppercase text-ink md:flex">{nav}</nav>
-          <div className="flex items-center gap-3">
-            <Link to="/pele" className="hidden rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase text-primary-foreground md:inline-block">Conheça o NutraHelp</Link>
-            <button className="md:hidden" aria-label="Abrir menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-          </div>
-        </div>
-        {open && <nav className="flex flex-col gap-4 border-t border-border px-5 py-5 text-sm font-bold uppercase text-ink md:hidden">{nav}<Link to="/pele" className="text-primary">Conheça o NutraHelp</Link></nav>}
-      </header>
+      <div className="flex h-[42px] items-center justify-center gap-6 overflow-hidden whitespace-nowrap bg-primary px-4 font-body text-[12px] text-primary-foreground sm:gap-10 sm:text-[13px]">
+        <span className="flex items-center gap-2"><Truck className="h-[17px] w-[17px]" /><span><strong className="font-extrabold">Frete grátis</strong> nos combos</span></span>
+        <span className="hidden items-center gap-2 sm:flex"><ShieldCheck className="h-[17px] w-[17px]" /><span>Garantia de <strong className="font-extrabold">60 dias</strong></span></span>
+        <span className="hidden items-center gap-2 md:flex"><CreditCard className="h-[17px] w-[17px]" /><span>Até <strong className="font-extrabold">10x sem juros</strong></span></span>
+      </div>
+      <HomeHeader goTo={goTo} />
 
       <main>
         <HeroCarousel />
