@@ -151,7 +151,7 @@ function ChallengesCarousel() {
   };
   return (
     <section className="py-14">
-      <div className="container-x"><SectionTitle eyebrow="Sinais">Desafios de saúde</SectionTitle></div>
+      <div className="container-x"><SectionTitle>Desafios de saúde</SectionTitle></div>
       <div ref={ref} onScroll={onScroll} className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:px-10">
         {challenges.map((c) => (
           <article key={c.label} className="relative w-[46%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[30%] lg:w-[18%]">
