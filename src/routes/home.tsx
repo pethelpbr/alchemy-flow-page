@@ -55,6 +55,12 @@ const products: Product[] = [
   { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground", logo: pataWordmark.url },
 ];
 
+// Ordem dos cards em "Campeões de venda": PataHelp à esquerda, NutraHelp no meio, BocaHelp à direita.
+const CARDS_ORDER = ["patahelp", "nutrahelp", "bocahelp"];
+const campeoesProducts = [...products].sort(
+  (a, b) => CARDS_ORDER.indexOf(a.id) - CARDS_ORDER.indexOf(b.id),
+);
+
 const challenges = [
   { img: sintoma1.url, label: "Coceira sem parar" },
   { img: sintoma3.url, label: "Queda de pelo e falhas" },
@@ -185,7 +191,7 @@ function HomeStore() {
         <section id="campeoes" className="container-x scroll-mt-28 py-14">
           <SectionTitle>Campeões de venda</SectionTitle>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {products.map((p) => (
+            {campeoesProducts.map((p) => (
               <article key={p.id} className="flex flex-col rounded-3xl bg-card p-5 shadow-sm">
                 {p.logo
                   ? <p className="flex h-12 items-center justify-center"><img src={p.logo} alt={p.name} className="w-auto object-contain" style={{ height: p.logoSize ?? 48 }} loading="lazy" /></p>
