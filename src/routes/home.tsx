@@ -197,7 +197,7 @@ function HomeStore() {
                   <div className={`relative flex h-[230px] items-center justify-center ${spec.tint}`}>
                     <span className={`absolute left-3.5 top-3.5 rounded-full px-3 py-1.5 text-[10.5px] font-extrabold uppercase tracking-[0.08em] ${spec.tagBg}`}>{spec.tag}</span>
                     <span className={`absolute right-3.5 top-3.5 rounded-full bg-card px-3 py-1.5 text-[10.5px] font-extrabold tracking-[0.06em] ${spec.accent}`}>{spec.weight}</span>
-                    <img src={p.image} alt={p.name} className="max-h-[196px] max-w-[76%] object-contain" loading="lazy" />
+                    <img src={p.image} alt={p.name} className="max-h-[196px] max-w-[76%] object-contain mix-blend-multiply" loading="lazy" />
                   </div>
                   <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
                     {p.logo
