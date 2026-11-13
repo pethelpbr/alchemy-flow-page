@@ -47,13 +47,13 @@ const products: Product[] = [
 ];
 
 const challenges = [
-  { img: sintoma1.url, label: "Coceira sem parar", description: "Ele se coa, se esfrega e não consegue descansar. É o primeiro sinal de que a pele está pedindo socorro." },
-  { img: sintoma3.url, label: "Queda de pelo e falhas", description: "Tufos pelo chão e áreas mais ralas. Faltam nutrientes para o fio se manter forte." },
-  { img: sintoma5.url, label: "Feridas e irritações", description: "A pele fica vermelha, sensível e com feridas que demoram a fechar." },
-  { img: sinalLambe.url, label: "Lambe as patas", description: "A lambedura vira mania e mantém a pata úmida, o que só irrita mais." },
-  { img: sinalPatas.url, label: "Patas ressecadas", description: "Coxins rachados e ásperos. A hidratação natural da pele caiu." },
-  { img: sinalHalito.url, label: "Mau hálito e tártaro", description: "O bafo forte e a crosta amarelada mostram as bactérias se acumulando na boca." },
-  { img: sintoma6.url, label: "Vive se esfregando", description: "Ele arrasta o corpo no chão e esfrega o focinho. É incômodo, não brincadeira." },
+  { img: sintoma1.url, label: "Coceira sem parar" },
+  { img: sintoma3.url, label: "Queda de pelo e falhas" },
+  { img: sintoma5.url, label: "Feridas e irritações" },
+  { img: sinalLambe.url, label: "Lambe as patas" },
+  { img: sinalPatas.url, label: "Patas ressecadas" },
+  { img: sinalHalito.url, label: "Mau hálito e tártaro" },
+  { img: sintoma6.url, label: "Vive se esfregando" },
 ];
 
 const brl = (v: number) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -134,9 +134,8 @@ function ChallengesCarousel() {
         {challenges.map((c) => (
           <article key={c.label} className="relative w-[46%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[30%] lg:w-[18%]">
             <img src={c.img} alt={c.label} className="aspect-[3/4] w-full object-cover" loading="lazy" draggable={false} />
-            <div className="absolute inset-x-0 bottom-0 flex min-h-[26%] flex-col justify-end gap-1 bg-background/85 px-3 py-2.5 backdrop-blur-md lg:min-h-[34%] lg:px-4 lg:py-3">
-              <h3 className="font-display text-[11px] uppercase leading-tight tracking-[0.08em] text-ink lg:text-[15px] lg:tracking-[0.12em]">{c.label}</h3>
-              <p className="line-clamp-2 text-[11px] leading-[1.25] text-ink/70 lg:line-clamp-3 lg:text-[13px] lg:leading-[1.3]">{c.description}</p>
+            <div className="absolute inset-x-0 bottom-0 flex min-h-[17%] items-center justify-center bg-background/85 px-3 py-2.5 backdrop-blur-md">
+              <p className="text-center font-bold text-ink">{c.label}</p>
             </div>
           </article>
         ))}
