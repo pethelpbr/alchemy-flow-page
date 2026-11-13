@@ -67,7 +67,7 @@ export function HomeHeader({ goTo }: Props) {
   }, [search]);
 
   const t = (ms: number, ease: string) => (reduced ? "none" : `${ms}ms ${ease}`);
-  const wrapStyle = { width: search ? fullW : 196, transition: reduced ? "none" : `width ${t(560, EASE_SOFT)}` };
+  const wrapStyle = { width: search ? fullW : 196, transition: reduced ? "none" : `width ${t(460, EASE_SOFT)}` };
 
   const links: { id: string; label: string; cls: string }[] = [
     { id: "campeoes", label: "NutraHelp", cls: "text-primary" },
