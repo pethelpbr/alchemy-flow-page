@@ -22,7 +22,6 @@ import sintoma6 from "@/assets/sintoma-6-scooting.jpg.asset.json";
 import vetFoto from "@/assets/vet-rivaldo-nova.png.asset.json";
 import sobreFoto from "@/assets/lifestyle-1.jpg";
 import { HomeHeader } from "@/components/home/HomeHeader";
-import { MiniBanners } from "@/components/home/MiniBanners";
 import { KitCompleteBanner } from "@/components/home/KitCompleteBanner";
 import { Footer } from "@/components/Footer";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
@@ -188,7 +187,6 @@ function HomeStore() {
       <main>
         <HeroCarousel />
         <MarqueeStrip items={["Desenvolvidos por veterinários", "+150 mil pets transformados", "Fórmulas seguras e naturais", "Registrado no MAPA", "Garantia de 60 dias"]} />
-        <MiniBanners goTo={goTo} />
 
         <section id="campeoes" className="container-x scroll-mt-28 py-14">
           <SectionTitle>Campeões de venda</SectionTitle>
