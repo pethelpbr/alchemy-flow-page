@@ -80,7 +80,7 @@ export function HomeHeader({ goTo }: Props) {
   const go = (id: string) => { setMenu(false); goTo(id); };
 
   const form = (ref: React.RefObject<HTMLInputElement | null>, idSuffix: string) => (
-    <form role="search" action="/busca" method="get" className="relative flex h-[46px] w-full items-center gap-2.5 rounded-full border border-primary bg-card pl-[18px] pr-1.5">
+    <form role="search" action="/busca" method="get" className="relative flex h-[46px] lg:h-[50px] w-full items-center gap-2.5 rounded-full border border-primary bg-card pl-[18px] pr-1.5">
       <Search className="h-[19px] w-[19px] flex-none text-terracotta" strokeWidth={2.2} />
       <label htmlFor={`busca-${idSuffix}`} className="sr-only">Buscar produto</label>
       <input
@@ -103,8 +103,8 @@ export function HomeHeader({ goTo }: Props) {
   );
 
   const cart = (
-    <button type="button" aria-label="Ver combos" onClick={() => go("combos")} className="grid h-[46px] w-[46px] flex-none place-items-center rounded-full bg-gift/60 text-terracotta">
-      <ShoppingCart className="h-[21px] w-[21px]" />
+    <button type="button" aria-label="Ver combos" onClick={() => go("combos")} className="grid h-[46px] w-[46px] lg:h-[50px] lg:w-[50px] flex-none place-items-center rounded-full bg-gift/60 text-terracotta">
+      <ShoppingCart className="h-[21px] w-[21px] lg:h-[22px] lg:w-[22px]" />
     </button>
   );
 
