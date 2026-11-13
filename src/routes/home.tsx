@@ -47,13 +47,13 @@ const products: Product[] = [
 ];
 
 const challenges = [
-  { img: sintoma1.url, label: "Coceira sem parar" },
-  { img: sintoma3.url, label: "Queda de pelo e falhas" },
-  { img: sintoma5.url, label: "Feridas e irritações" },
-  { img: sinalLambe.url, label: "Lambe as patas" },
-  { img: sinalPatas.url, label: "Patas ressecadas" },
-  { img: sinalHalito.url, label: "Mau hálito e tártaro" },
-  { img: sintoma6.url, label: "Vive se esfregando" },
+  { img: sintoma1.url, label: "Coceira sem parar", description: "Ele se coa, se esfrega e não consegue descansar. É o primeiro sinal de que a pele está pedindo socorro." },
+  { img: sintoma3.url, label: "Queda de pelo e falhas", description: "Tufos pelo chão e áreas mais ralas. Faltam nutrientes para o fio se manter forte." },
+  { img: sintoma5.url, label: "Feridas e irritações", description: "A pele fica vermelha, sensível e com feridas que demoram a fechar." },
+  { img: sinalLambe.url, label: "Lambe as patas", description: "A lambedura vira mania e mantém a pata úmida, o que só irrita mais." },
+  { img: sinalPatas.url, label: "Patas ressecadas", description: "Coxins rachados e ásperos. A hidratação natural da pele caiu." },
+  { img: sinalHalito.url, label: "Mau hálito e tártaro", description: "O bafo forte e a crosta amarelada mostram as bactérias se acumulando na boca." },
+  { img: sintoma6.url, label: "Vive se esfregando", description: "Ele arrasta o corpo no chão e esfrega o focinho. É incômodo, não brincadeira." },
 ];
 
 const brl = (v: number) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -113,19 +113,36 @@ function HeroCarousel() {
 
 function ChallengesCarousel() {
   const ref = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
   const scroll = (d: number) => ref.current?.scrollBy({ left: d * ref.current.clientWidth * 0.8, behavior: "smooth" });
+  const onScroll = () => {
+    const el = ref.current;
+    if (!el) return;
+    const base = el.getBoundingClientRect().left - el.scrollLeft;
+    let best = 0;
+    let dist = Infinity;
+    Array.from(el.children).forEach((node, n) => {
+      const d = Math.abs((node as HTMLElement).getBoundingClientRect().left - base - el.scrollLeft);
+      if (d < dist) { dist = d; best = n; }
+    });
+    setIndex(best);
+  };
   return (
     <section className="py-14">
       <div className="container-x"><SectionTitle eyebrow="Sinais">Desafios de saúde</SectionTitle></div>
-      <div ref={ref} className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:px-10">
+      <div ref={ref} onScroll={onScroll} className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:px-10">
         {challenges.map((c) => (
-          <div key={c.label} className="relative w-[46%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[30%] lg:w-[18%]">
-            <img src={c.img} alt={c.label} className="aspect-[3/4] w-full object-cover" loading="lazy" />
-            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-4 pt-12 text-center font-bold text-background">{c.label}</p>
-          </div>
+          <article key={c.label} className="relative w-[46%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[30%] lg:w-[18%]">
+            <img src={c.img} alt={c.label} className="aspect-[3/4] w-full object-cover" loading="lazy" draggable={false} />
+            <div className="absolute inset-x-0 bottom-0 flex min-h-[34%] flex-col justify-end gap-1 bg-background/85 px-4 py-3 backdrop-blur-md">
+              <h3 className="font-display text-[13px] uppercase leading-tight tracking-[0.12em] text-ink lg:text-[15px]">{c.label}</h3>
+              <p className="text-[12px] leading-[1.3] text-ink/70 line-clamp-3 lg:text-[13px]">{c.description}</p>
+            </div>
+          </article>
         ))}
       </div>
-      <div className="mt-5 flex justify-center gap-3">
+      <div className="mt-5 flex items-center justify-center gap-4">
+        <p className="text-xs text-muted-foreground" aria-live="polite">{String(index + 1).padStart(2, "0")} / {String(challenges.length).padStart(2, "0")}</p>
         <button aria-label="Anterior" onClick={() => scroll(-1)} className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"><ChevronLeft /></button>
         <button aria-label="Próximo" onClick={() => scroll(1)} className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground"><ChevronRight /></button>
       </div>
