@@ -103,7 +103,7 @@ export function HomeHeader({ goTo }: Props) {
   );
 
   const cart = (
-    <button type="button" aria-label="Ver combos" onClick={() => go("combos")} className="grid h-[46px] w-[46px] lg:h-[50px] lg:w-[50px] flex-none place-items-center rounded-full bg-gift/60 text-terracotta">
+    <button type="button" aria-label="Ver combos" onClick={() => go("combos")} className="grid h-[46px] w-[46px] lg:h-[50px] lg:w-[50px] flex-none place-items-center text-terracotta">
       <ShoppingCart className="h-[21px] w-[21px] lg:h-[22px] lg:w-[22px]" />
     </button>
   );
