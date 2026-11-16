@@ -22,7 +22,7 @@ const items: Item[] = [
   { video: mikeVideo.url, cover: mikeCover.url, name: "Mike", problem: "Dermatite", product: "NutraHelp", thumb: nutraThumb.url, price: 139, page: "/pele" },
   { video: depo1Video.url, cover: depo1Cover.url, name: "Marina", problem: "Mau hálito", product: "BocaHelp", thumb: bocaThumb.url, price: 49.9 },
   { video: depo3Video.url, cover: depo3Cover.url, name: "Júlia", problem: "Queda de pelos", product: "NutraHelp", thumb: nutraThumb.url, price: 139, page: "/pele" },
-  { video: depo2Video.url, cover: depo2Cover.url, name: "Rodrigo", problem: "Patas ressecadas", product: "PataHelp", thumb: pataThumb.url, price: 29.9 },
+  { video: depo2Video.url, cover: depo2Cover.url, name: "Rodrigo", problem: "Dermatite", product: "NutraHelp", thumb: nutraThumb.url, price: 139, page: "/pele" },
 ];
 
 const brl = (n: number) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
