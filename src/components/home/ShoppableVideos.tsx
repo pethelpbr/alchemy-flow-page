@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, Instagram, Pause, Play, Share2, Volume2, VolumeX } from "lucide-react";
+import { ChevronLeft, ChevronRight, Instagram, Play, Share2 } from "lucide-react";
 import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
 import amoraCover from "@/assets/depoimento-amora-capa.jpg.asset.json";
 import mikeVideo from "@/assets/depoimento-mike.mp4.asset.json";
@@ -30,7 +30,6 @@ const brl = (n: number) => n.toLocaleString("pt-BR", { style: "currency", curren
 function Card({ it, onBuy }: { it: Item; onBuy: () => void }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
   const toggle = () => {
     const v = ref.current; if (!v) return;
     if (v.paused) { void v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
@@ -39,7 +38,7 @@ function Card({ it, onBuy }: { it: Item; onBuy: () => void }) {
   const btn = "flex h-9 w-9 items-center justify-center rounded-full bg-ink/40 text-background backdrop-blur-md transition hover:bg-ink/60";
   return (
     <article className="relative aspect-[9/16] w-[78vw] max-w-[300px] shrink-0 snap-start overflow-hidden rounded-3xl bg-ink shadow-card sm:w-[280px]">
-      <video ref={ref} src={it.video} poster={it.cover} muted={muted} loop playsInline preload="metadata" onClick={toggle} className="absolute inset-0 h-full w-full cursor-pointer object-cover" />
+      <video ref={ref} src={it.video} poster={it.cover}  loop playsInline preload="metadata" onClick={toggle} className="absolute inset-0 h-full w-full cursor-pointer object-cover" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/60 to-transparent" />
       <div className="absolute inset-x-3 top-3 flex items-center justify-between">
         <span className="flex items-center gap-2 rounded-full bg-ink/40 py-1 pl-1 pr-3 text-xs font-semibold text-background backdrop-blur-md">
@@ -51,10 +50,6 @@ function Card({ it, onBuy }: { it: Item; onBuy: () => void }) {
       {!playing && (
         <button onClick={toggle} aria-label="Reproduzir" className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-background/85 text-primary shadow-card"><Play className="ml-0.5 h-6 w-6 fill-current" /></button>
       )}
-      <div className="absolute bottom-[92px] right-3 flex flex-col gap-2">
-        <button onClick={() => setMuted((m) => !m)} aria-label={muted ? "Ativar som" : "Silenciar"} className={btn}>{muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}</button>
-        <button onClick={toggle} aria-label={playing ? "Pausar" : "Reproduzir"} className={btn}>{playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}</button>
-      </div>
       <div className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl border border-background/40 bg-background/75 p-2 backdrop-blur-xl">
         <img src={it.thumb} alt={it.product} className="h-12 w-12 shrink-0 rounded-xl bg-card object-contain p-1" />
         <div className="min-w-0 flex-1">
