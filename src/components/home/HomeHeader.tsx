@@ -70,9 +70,9 @@ export function HomeHeader({ goTo }: Props) {
   const wrapStyle = { width: search ? fullW : 196, transition: reduced ? "none" : `width ${t(460, EASE_SOFT)}` };
 
   const links: { id: string; label: string; cls: string }[] = [
-    { id: "campeoes", label: "NutraHelp", cls: "text-primary" },
-    { id: "campeoes", label: "PataHelp", cls: "text-secondary" },
-    { id: "campeoes", label: "BocaHelp", cls: "text-terracotta" },
+    { id: "campeoes", label: "NutraHelp", cls: "text-ink" },
+    { id: "campeoes", label: "PataHelp", cls: "text-ink" },
+    { id: "campeoes", label: "BocaHelp", cls: "text-ink" },
     { id: "combos", label: "Combos", cls: "text-ink" },
     { id: "depoimentos", label: "Depoimentos", cls: "text-ink" },
     { id: "sobre", label: "Sobre", cls: "text-ink" },
