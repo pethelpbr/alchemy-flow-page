@@ -25,7 +25,7 @@ import { HomeHeader } from "@/components/home/HomeHeader";
 import { KitCompleteBanner } from "@/components/home/KitCompleteBanner";
 import { Footer } from "@/components/Footer";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
-import { ProductVideoFeedback } from "@/components/ProductVideoFeedback";
+import { ShoppableVideos } from "@/components/home/ShoppableVideos";
 import { HomeBeforeAfter } from "@/components/home/HomeBeforeAfter";
 import { blackFridayVariants } from "@/lib/product";
 
@@ -240,7 +240,7 @@ function HomeStore() {
             <h2 className="mt-3 font-display text-3xl leading-tight text-ink md:text-5xl">Tutores que já passaram por isso</h2>
           </div>
           <div className="paw-band mt-8 bg-primary py-7 md:py-9">
-            <ProductVideoFeedback onBuy={() => goTo("combos")} showDetails={false} storeLayout />
+            <ShoppableVideos onBuy={() => goTo("combos")} />
           </div>
         </section>
 
