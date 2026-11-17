@@ -732,44 +732,9 @@ body:has(.theme-bf) {
   }
 }
 
-/* Parallax por rolagem (inspirado na referência): cada camada anda numa
-   velocidade; --kp vai de 0 (cena entrando) a 1 (cena saindo). Usa a
-   propriedade `translate`, separada do `transform` da entrada. */
-.kit-scene { --kp: 0.5; }
-.kit-scene .kit-cloud-1 { translate: calc((var(--kp) - 0.5) * -90px) 0; }
-.kit-scene .kit-cloud-2 { translate: calc((var(--kp) - 0.5) * 60px) 0; }
-.kit-scene .kit-cloud-3 { translate: calc((var(--kp) - 0.5) * 80px) 0; }
-.kit-scene .kit-cloud-4 { translate: calc((var(--kp) - 0.5) * -50px) 0; }
-.kit-scene .kit-hill-back { translate: 0 calc((var(--kp) - 0.5) * 30px); }
-.kit-scene .kit-hill-front { translate: 0 calc((var(--kp) - 0.5) * 14px); }
-.kit-scene .kit-products-wrap { translate: 0 calc((var(--kp) - 0.5) * -36px); }
-.kit-scene .kit-dog { translate: calc((var(--kp) - 0.5) * -24px) 0; }
-.kit-scene .kit-cat { translate: calc((var(--kp) - 0.5) * 24px) 0; }
-
-/* Vegetação que se abre para os lados e revela a cena */
-.kit-bush {
-  position: absolute;
-  bottom: -10px;
-  width: 46%;
-  height: 78%;
-  pointer-events: none;
-  z-index: 5;
-  will-change: translate;
-}
-.kit-bush-left {
-  left: -6%;
-  border-radius: 0 70% 0 0 / 0 85% 0 0;
-  background: radial-gradient(120% 90% at 0% 100%, #d9b77f 55%, #cfa96c 100%);
-  translate: calc(min(var(--kp) * 2.2, 1) * -105%) 0;
-}
-.kit-bush-right {
-  right: -6%;
-  border-radius: 70% 0 0 0 / 85% 0 0 0;
-  background: radial-gradient(120% 90% at 100% 100%, #d9b77f 55%, #cfa96c 100%);
-  translate: calc(min(var(--kp) * 2.2, 1) * 105%) 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kit-scene { --kp: 0.5 !important; }
-  .kit-bush { display: none; }
-}
+/* Cena presa à rolagem: morros e mascotes ancorados embaixo da tela. */
+.kit-ingredients .kit-hill-back { bottom: 12vh; height: 32vh; }
+.kit-ingredients .kit-hill-front { height: 22vh; }
+.kit-ingredients .kit-dog { left: 4%; bottom: 8vh; height: 13vh; }
+.kit-ingredients .kit-cat { right: 4%; bottom: 8vh; height: 15vh; }
+.kit-ingredients .kit-cloud, .kit-ingredients .kit-hill-back, .kit-ingredients .kit-hill-front { transform: none; transition: none; }

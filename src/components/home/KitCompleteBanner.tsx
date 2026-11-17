@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import type { CSSProperties } from "react";
 import kitTrio from "@/assets/kit-trio-crop.png.asset.json";
 import dogMascot from "@/assets/mascote-cachorro.png.asset.json";
 import catMascot from "@/assets/mascote-gata.png.asset.json";
@@ -92,22 +91,68 @@ const CLOUDS = [
   { cls: "kit-cloud-4", opacity: 0.78 },
 ];
 
-export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [shown, setShown] = useState(false);
-  const sceneRef = useRef<HTMLDivElement | null>(null);
+/* Arbusto em SVG (folhas sobrepostas), espelhado para o lado direito. */
+function Bush({ flip }: { flip?: boolean }) {
+  return (
+    <svg viewBox="0 0 400 560" preserveAspectRatio="none" className="h-full w-full" style={flip ? { transform: "scaleX(-1)" } : undefined} aria-hidden="true">
+      <path d="M0 560V60c60-30 120 10 140 70 40-40 110-30 130 30 50-20 110 20 110 90 20 30 20 80 0 110 20 40 10 100-30 130 10 40-10 70-30 70z" fill="#cfa96c" />
+      <path d="M0 560V180c50-20 100 10 115 60 45-30 105-5 115 50 45 0 80 45 70 95 30 30 25 90-15 115 0 30-15 50-35 60z" fill="#ddbd86" />
+      <path d="M0 560V330c40-10 80 15 90 55 40-15 85 15 85 60 35 20 40 75 5 115z" fill="#e9cf9f" />
+    </svg>
+  );
+}
 
-  // Parallax: progresso da cena na tela (0 → 1) vira a variável --kp.
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+const range = (p: number, a: number, b: number) => clamp01((p - a) / (b - a));
+const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+
+export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const L = {
+    clouds: useRef<HTMLDivElement | null>(null),
+    background: useRef<HTMLDivElement | null>(null),
+    midground: useRef<HTMLDivElement | null>(null),
+    foreground: useRef<HTMLDivElement | null>(null),
+    grassL: useRef<HTMLDivElement | null>(null),
+    grassR: useRef<HTMLDivElement | null>(null),
+    header: useRef<HTMLDivElement | null>(null),
+    cards: useRef<HTMLDivElement | null>(null),
+  };
+  const [reduced, setReduced] = useState(false);
+
+  // Linha do tempo presa à rolagem, como na referência: a cena fica fixa
+  // enquanto o título sobe, a vegetação se abre e as camadas se encaixam;
+  // no fim aparecem os três cards e o botão.
   useEffect(() => {
-    const el = sceneRef.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setReduced(true);
+      return;
+    }
+    const el = sectionRef.current;
+    if (!el) return;
     let raf = 0;
+    const set = (r: { current: HTMLElement | null }, t: string, o?: number) => {
+      if (!r.current) return;
+      r.current.style.transform = t;
+      if (o !== undefined) r.current.style.opacity = String(o);
+    };
     const update = () => {
       raf = 0;
-      const r = el.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
-      el.style.setProperty("--kp", p.toFixed(4));
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const p = clamp01(-rect.top / total);
+      const enter = ease(range(p, 0, 0.45));
+      const split = ease(range(p, 0.12, 0.5));
+      set(L.clouds, `translate(${(-6 * enter).toFixed(2)}%, 0)`);
+      set(L.background, `translate(0, ${(30 - 30 * enter).toFixed(2)}%)`);
+      set(L.midground, `translate(0, calc(${(35 - 35 * enter).toFixed(2)}% - ${(22 * ease(range(p, 0.6, 0.85))).toFixed(2)}vh)) scale(${(1 - 0.25 * ease(range(p, 0.6, 0.85))).toFixed(3)})`);
+      set(L.foreground, `translate(0, ${(30 - 30 * enter).toFixed(2)}%) scale(${(1 + 0.12 * range(p, 0.4, 1)).toFixed(3)})`);
+      set(L.grassL, `translate(${(-100 * split).toFixed(2)}%, 0)`);
+      set(L.grassR, `translate(${(100 * split).toFixed(2)}%, 0)`);
+      set(L.header, `translate(0, ${(-120 * ease(range(p, 0.2, 0.55))).toFixed(2)}%)`, 1 - range(p, 0.4, 0.55));
+      const c = ease(range(p, 0.62, 0.85));
+      set(L.cards, `translate(0, ${(40 - 40 * c).toFixed(2)}px)`, c);
+      if (L.cards.current) L.cards.current.style.pointerEvents = c > 0.5 ? "auto" : "none";
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -120,113 +165,93 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
-
-  // A cena se monta uma única vez, quando entra na tela.
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setShown(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setShown(true);
-          io.unobserve(el);
-        }
-      },
-      { threshold: 0.25 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <section ref={ref} className={`container-x pt-14 ${shown ? "kit-in" : ""}`}>
-      {/* Título centralizado */}
-      <div className="kit-anim kit-reveal mx-auto max-w-[60ch] text-center">
-        <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-kit-eyebrow">O kit completo</p>
-        <h2 className="mt-3 font-display text-[clamp(30px,7vw,44px)] leading-[1.08] tracking-[-0.02em] text-kit-ink">
-          Por dentro, por fora
-          <br />e <span className="text-kit-accent">na boca</span>
-        </h2>
-        <p className="mx-auto mt-4 max-w-[54ch] text-[17px] leading-[1.55] text-kit-body">
-          Cada um age numa frente diferente do mesmo problema. Juntos, o resultado aparece mais rápido — e sai mais
-          barato do que comprar um por um.
-        </p>
-      </div>
-
-      {/* Cena: céu, nuvens, morros, mascotes e o trio */}
-      <div ref={sceneRef} className="kit-scene relative mt-10 h-[280px] overflow-hidden rounded-[24px] md:h-[400px]">
-        {CLOUDS.map((c) => (
-          <span
-            key={c.cls}
-            className={`kit-anim kit-cloud absolute bg-card ${c.cls}`}
-            style={{ "--kit-cloud-o": c.opacity, transitionDelay: "140ms" } as unknown as CSSProperties}
-          />
-        ))}
-
-        <span className="kit-anim kit-hill-back" />
-        <span className="kit-anim kit-hill-front" style={{ transitionDelay: "80ms" }} />
-
-        <div className="kit-products-wrap absolute inset-x-0 bottom-[22px] flex justify-center md:bottom-[34px]">
-          <img
-            src={kitTrio.url}
-            alt="BocaHelp, NutraHelp e PataHelp juntos"
-            loading="lazy"
-            className="kit-anim kit-pop kit-products w-auto max-w-[92%] object-contain"
-            style={{ transitionDelay: "220ms" }}
-          />
+    <section ref={sectionRef} className={`kit-ingredients relative ${reduced ? "" : "h-[320vh]"}`}>
+      <div className={`kit-scene ${reduced ? "relative h-[100svh]" : "sticky top-0 h-[100svh]"} overflow-hidden`}>
+        {/* Nuvens */}
+        <div ref={L.clouds} className="absolute inset-0 will-change-transform">
+          {CLOUDS.map((c) => (
+            <span key={c.cls} className={`kit-cloud absolute bg-card ${c.cls}`} style={{ opacity: c.opacity }} />
+          ))}
         </div>
 
-        <img
-          src={dogMascot.url}
-          alt="Ilustração de um cachorro sentado"
-          loading="lazy"
-          className="kit-anim kit-pop kit-dog w-auto object-contain"
-          style={{ transitionDelay: "300ms" }}
-        />
-        <img
-          src={catMascot.url}
-          alt="Ilustração de uma gata sentada"
-          loading="lazy"
-          className="kit-anim kit-pop kit-cat w-auto object-contain"
-          style={{ transitionDelay: "300ms" }}
-        />
+        {/* Fundo: morro de trás */}
+        <div ref={L.background} className="absolute inset-0 will-change-transform">
+          <span className="kit-hill-back" />
+        </div>
 
-        <span className="kit-bush kit-bush-left" aria-hidden="true" />
-        <span className="kit-bush kit-bush-right" aria-hidden="true" />
-      </div>
-
-      {/* As três frentes */}
-      <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
-        {PILLARS.map(({ title, titleClass, circleClass, detail, text, Icon, delay }) => (
-          <div
-            key={title}
-            className="kit-anim kit-reveal flex flex-col items-center text-center"
-            style={{ transitionDelay: delay }}
-          >
-            <span className={`flex h-[66px] w-[66px] items-center justify-center rounded-full ${circleClass}`}>
-              <Icon detail={detail} />
-            </span>
-            <h3 className={`mt-4 font-display text-[22px] leading-tight ${titleClass}`}>{title}</h3>
-            <p className="mt-2 max-w-[34ch] text-[15px] leading-relaxed text-kit-body">{text}</p>
+        {/* Título (sobe como rolagem natural, atrás dos produtos) */}
+        <div ref={L.header} className="absolute inset-x-0 top-[12vh] z-[1] px-5 will-change-transform">
+          <div className="mx-auto max-w-[900px] text-center">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-kit-eyebrow">O kit completo</p>
+            <h2 className="mt-3 font-display text-[clamp(34px,8vw,72px)] leading-[1.04] tracking-[-0.02em] text-kit-ink">
+              Por dentro, por fora
+              <br />e <span className="text-kit-accent">na boca</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-[54ch] text-[17px] leading-[1.55] text-kit-body">
+              Cada um age numa frente diferente do mesmo problema. Juntos, o resultado aparece mais rápido — e sai mais
+              barato do que comprar um por um.
+            </p>
           </div>
-        ))}
-      </div>
+        </div>
 
-      {/* Chamada final */}
-      <div className="kit-anim kit-reveal mt-10 flex flex-col items-center" style={{ transitionDelay: "620ms" }}>
-        <button
-          type="button"
-          onClick={() => goTo("combos")}
-          className="inline-flex h-[56px] items-center justify-center rounded-full bg-kit-accent px-[38px] text-[15px] font-extrabold uppercase tracking-[0.04em] text-primary-foreground transition-opacity hover:opacity-90"
+        {/* Meio: os três produtos */}
+        <div ref={L.midground} className="absolute inset-x-0 bottom-[18vh] z-[2] flex origin-bottom justify-center will-change-transform">
+          <img src={kitTrio.url} alt="BocaHelp, NutraHelp e PataHelp juntos" loading="lazy" className="h-[34vh] max-h-[420px] w-auto max-w-[92%] object-contain" />
+        </div>
+
+        {/* Frente: morro e mascotes */}
+        <div ref={L.foreground} className="absolute inset-0 z-[3] origin-bottom will-change-transform">
+          <span className="kit-hill-front" />
+          <img src={dogMascot.url} alt="Ilustração de um cachorro sentado" loading="lazy" className="kit-dog w-auto object-contain" />
+          <img src={catMascot.url} alt="Ilustração de uma gata sentada" loading="lazy" className="kit-cat w-auto object-contain" />
+        </div>
+
+        {/* Vegetação que se abre para revelar a cena */}
+        {!reduced && (
+          <div className="pointer-events-none absolute inset-0 z-[4]">
+            <div ref={L.grassL} className="absolute bottom-0 left-0 h-[62%] w-[55%] will-change-transform">
+              <Bush />
+            </div>
+            <div ref={L.grassR} className="absolute bottom-0 right-0 h-[62%] w-[55%] will-change-transform">
+              <Bush flip />
+            </div>
+          </div>
+        )}
+
+        {/* Cards e botão (aparecem no fim) */}
+        <div
+          ref={L.cards}
+          className="absolute inset-x-0 bottom-0 z-[5] px-4 pb-5 md:pb-8"
+          style={reduced ? undefined : { opacity: 0, pointerEvents: "none" }}
         >
-          Montar meu kit
-        </button>
-        <p className="mt-3 text-sm text-kit-note">Frete grátis · garantia de 60 dias</p>
+          <div className="mx-auto grid max-w-[1100px] gap-3 rounded-[24px] bg-card/90 p-5 shadow-lg backdrop-blur-md md:grid-cols-3 md:gap-8 md:p-8">
+            {PILLARS.map(({ title, titleClass, circleClass, detail, text, Icon }) => (
+              <div key={title} className="flex items-center gap-4 text-left md:flex-col md:text-center">
+                <span className={`flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full md:h-[66px] md:w-[66px] ${circleClass}`}>
+                  <Icon detail={detail} />
+                </span>
+                <div>
+                  <h3 className={`font-display text-[18px] leading-tight md:mt-1 md:text-[22px] ${titleClass}`}>{title}</h3>
+                  <p className="mt-1 max-w-[34ch] text-[13px] leading-snug text-kit-body md:text-[15px] md:leading-relaxed">{text}</p>
+                </div>
+              </div>
+            ))}
+            <div className="flex flex-col items-center md:col-span-3">
+              <button
+                type="button"
+                onClick={() => goTo("combos")}
+                className="inline-flex h-[50px] items-center justify-center rounded-full bg-kit-accent px-[38px] text-[15px] font-extrabold uppercase tracking-[0.04em] text-primary-foreground transition-opacity hover:opacity-90 md:h-[56px]"
+              >
+                Montar meu kit
+              </button>
+              <p className="mt-2 text-sm text-kit-note">Frete grátis · garantia de 60 dias</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
