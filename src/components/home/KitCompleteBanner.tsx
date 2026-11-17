@@ -128,7 +128,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       const c = ease(range(p, 0.62, 0.85));
       // Quando o cartão sobe, a cena sobe junto para os potes ficarem visíveis acima dele
       const lift = c * (L.cards.current?.offsetHeight ?? 0) * (window.innerWidth < 768 ? 0.55 : 0.4);
-      set(L.clouds, `translate(-50%, calc(${(-50 - 6 * zoom).toFixed(2)}% - ${lift.toFixed(1)}px)) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.45) * zoom).toFixed(3)})`);
+      set(L.clouds, `translate(-50%, calc(${(-50 - 6 * zoom).toFixed(2)}% - ${lift.toFixed(1)}px)) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.22) * zoom).toFixed(3)})`);
       set(L.background, "none", 0.85 - 0.6 * enter);
       set(L.grassL, `translate(${(-12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
       set(L.grassR, `translate(${(12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
@@ -160,7 +160,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
           style={{ transform: "translate(-50%, -50%)" }}
         >
           <img src={roomPhoto.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full" />
-          <div ref={L.midground} className="absolute bottom-[29%] left-1/2 flex h-[16%] md:h-[26%] -translate-x-1/2 items-end justify-center">
+          <div ref={L.midground} className="absolute bottom-[29%] left-1/2 flex h-[16%] md:h-[22%] -translate-x-1/2 items-end justify-center">
             <img src={kitTrio.url} alt="BocaHelp, NutraHelp e PataHelp juntos" loading="lazy" className="h-full w-auto max-w-none object-contain drop-shadow-[0_12px_14px_rgba(60,30,10,0.35)]" />
           </div>
         </div>
