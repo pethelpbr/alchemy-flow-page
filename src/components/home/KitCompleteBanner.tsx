@@ -183,11 +183,11 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
         {/* Vegetação que se abre para revelar a cena */}
         {!reduced && (
           <div className="pointer-events-none absolute inset-0 z-[4]">
-            <div ref={L.grassL} className="absolute inset-y-0 left-0 w-[55%] will-change-transform">
-              <img src={plantLeft.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-left" />
+            <div ref={L.grassL} className="absolute bottom-0 left-0 h-[55%] w-[55%] md:top-0 md:h-auto will-change-transform">
+              <img src={plantLeft.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-left-top" />
             </div>
-            <div ref={L.grassR} className="absolute inset-y-0 right-0 w-[55%] will-change-transform">
-              <img src={plantRight.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-right" />
+            <div ref={L.grassR} className="absolute bottom-0 right-0 h-[55%] w-[55%] md:top-0 md:h-auto will-change-transform">
+              <img src={plantRight.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-right-top" />
             </div>
           </div>
         )}
