@@ -127,7 +127,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       const zoom = ease(range(p, 0, 0.85));
       const c = ease(range(p, 0.62, 0.85));
       // Quando o cartão sobe, a cena sobe junto para os potes ficarem visíveis acima dele
-      const lift = c * (L.cards.current?.offsetHeight ?? 0) * (window.innerWidth < 768 ? 0.55 : 0.4);
+      const lift = c * (L.cards.current?.offsetHeight ?? 0) * (window.innerWidth < 768 ? 0.55 : 0.25);
       set(L.clouds, `translate(-50%, calc(${(-50 - 6 * zoom).toFixed(2)}% - ${lift.toFixed(1)}px)) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.22) * zoom).toFixed(3)})`);
       set(L.background, "none", 0.85 - 0.6 * enter);
       set(L.grassL, `translate(${(-12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
@@ -156,7 +156,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
         {/* Fundo: sala com pedestal; os potes ficam presos no pedestal e o conjunto dá zoom */}
         <div
           ref={L.clouds}
-          className="absolute left-1/2 top-1/2 aspect-[1672/941] w-[max(112vw,calc(112svh*1.777))] origin-[50%_70%] will-change-transform"
+          className="absolute left-1/2 top-1/2 aspect-[1672/941] w-[max(122vw,calc(122svh*1.777))] origin-[50%_70%] will-change-transform"
           style={{ transform: "translate(-50%, -50%)" }}
         >
           <img src={roomPhoto.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full" />
