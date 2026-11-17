@@ -89,6 +89,18 @@
   /* Selo verde de frete grátis nos cards de produto. */
   --color-success: #1A7A2E;
   --color-success-soft: #E4F4E6;
+
+  /* Bloco "Por dentro, por fora e na boca" da home. */
+  --color-kit-ink: #4A3B2F;
+  --color-kit-body: #6B5C4D;
+  --color-kit-note: #7A6B5C;
+  --color-kit-eyebrow: #C94E12;
+  --color-kit-accent: #F2661E;
+  --color-kit-pink: #E8529B;
+  --color-kit-teal: #15969A;
+  --color-kit-cream: #FFEFD6;
+  --color-kit-blush: #FDE6F0;
+  --color-kit-mint: #DFF1F2;
 }
 
 :root {
@@ -536,3 +548,186 @@ body:has(.theme-bf) {
   70% { transform: scale(1.01); box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 35%, transparent); }
 }
 .kit-highlight { animation: kit-highlight-pulse 1s ease-in-out; }
+
+/* ---------- Bloco "Por dentro, por fora e na boca" (home) ---------- */
+
+.kit-scene {
+  background: linear-gradient(180deg, #ffeefd 0%, #ffe1bb 54%, #fad6a8 100%);
+}
+
+.kit-cloud {
+  border-radius: 999px;
+}
+
+.kit-cloud-1 {
+  left: 5%;
+  top: 11%;
+  width: 74px;
+  height: 22px;
+}
+.kit-cloud-2 {
+  left: 27%;
+  top: 29%;
+  width: 46px;
+  height: 15px;
+}
+.kit-cloud-3 {
+  right: 7%;
+  top: 9%;
+  width: 86px;
+  height: 26px;
+}
+.kit-cloud-4 {
+  right: 24%;
+  top: 31%;
+  width: 52px;
+  height: 17px;
+}
+
+.kit-hill-back {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 58px;
+  height: 118px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: #efdbae;
+}
+
+.kit-hill-front {
+  position: absolute;
+  left: -14%;
+  right: -14%;
+  bottom: 0;
+  height: 92px;
+  border-radius: 50% 50% 0 0 / 72% 72% 0 0;
+  background: #e4c795;
+}
+
+.kit-dog {
+  position: absolute;
+  left: 8px;
+  bottom: 24px;
+  height: 54px;
+}
+
+.kit-cat {
+  position: absolute;
+  right: 10px;
+  bottom: 22px;
+  height: 60px;
+}
+
+.kit-products {
+  height: 176px;
+}
+
+@media (min-width: 768px) {
+  .kit-cloud-1 {
+    left: 6%;
+    top: 13%;
+    width: 122px;
+    height: 34px;
+  }
+  .kit-cloud-2 {
+    left: 21%;
+    top: 21%;
+    width: 78px;
+    height: 24px;
+  }
+  .kit-cloud-3 {
+    right: 11%;
+    top: 11%;
+    width: 142px;
+    height: 38px;
+  }
+  .kit-cloud-4 {
+    right: 27%;
+    top: 23%;
+    width: 86px;
+    height: 26px;
+  }
+  .kit-hill-back {
+    bottom: 92px;
+    height: 200px;
+  }
+  .kit-hill-front {
+    height: 158px;
+  }
+  .kit-dog {
+    left: 96px;
+    bottom: 44px;
+    height: 112px;
+  }
+  .kit-cat {
+    right: 104px;
+    bottom: 42px;
+    height: 136px;
+  }
+  .kit-products {
+    height: 288px;
+  }
+}
+
+/* Entrada: só transform e opacidade, 900ms, uma vez só. */
+.kit-anim {
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kit-cloud {
+  opacity: 0;
+  transform: translateY(-24px);
+}
+
+.kit-hill-back {
+  transform: translateY(60px);
+}
+
+.kit-hill-front {
+  transform: translateY(90px);
+}
+
+.kit-pop {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.kit-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.kit-in .kit-cloud {
+  opacity: var(--kit-cloud-o, 0.85);
+  transform: none;
+}
+
+.kit-in .kit-hill-back,
+.kit-in .kit-hill-front {
+  transform: none;
+}
+
+.kit-in .kit-pop,
+.kit-in .kit-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kit-anim {
+    transition: none;
+  }
+  .kit-hill-back,
+  .kit-hill-front,
+  .kit-pop,
+  .kit-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .kit-cloud {
+    opacity: var(--kit-cloud-o, 0.85);
+    transform: none;
+  }
+}
