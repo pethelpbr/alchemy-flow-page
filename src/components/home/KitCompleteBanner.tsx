@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import kitTrio from "@/assets/kit-trio-crop.png.asset.json";
-import dogMascot from "@/assets/mascote-cachorro.png.asset.json";
-import catMascot from "@/assets/mascote-gata.png.asset.json";
+import roomPhoto from "@/assets/kit-sala-room.jpg.asset.json";
+import plantLeft from "@/assets/kit-sala-plant-l.png.asset.json";
+import plantRight from "@/assets/kit-sala-plant-r.png.asset.json";
 
 /* ---------- Ícones desenhados à mão (SVG inline, sem biblioteca) ---------- */
 
@@ -83,25 +84,6 @@ const PILLARS = [
   },
 ];
 
-/* Nuvens: cada uma tem posição/tamanho no CSS e opacidade final aqui. */
-const CLOUDS = [
-  { cls: "kit-cloud-1", opacity: 0.9 },
-  { cls: "kit-cloud-2", opacity: 0.72 },
-  { cls: "kit-cloud-3", opacity: 0.85 },
-  { cls: "kit-cloud-4", opacity: 0.78 },
-];
-
-/* Arbusto em SVG (folhas sobrepostas), espelhado para o lado direito. */
-function Bush({ flip }: { flip?: boolean }) {
-  return (
-    <svg viewBox="0 0 400 560" preserveAspectRatio="none" className="h-full w-full" style={flip ? { transform: "scaleX(-1)" } : undefined} aria-hidden="true">
-      <path d="M0 560V60c60-30 120 10 140 70 40-40 110-30 130 30 50-20 110 20 110 90 20 30 20 80 0 110 20 40 10 100-30 130 10 40-10 70-30 70z" fill="#cfa96c" />
-      <path d="M0 560V180c50-20 100 10 115 60 45-30 105-5 115 50 45 0 80 45 70 95 30 30 25 90-15 115 0 30-15 50-35 60z" fill="#ddbd86" />
-      <path d="M0 560V330c40-10 80 15 90 55 40-15 85 15 85 60 35 20 40 75 5 115z" fill="#e9cf9f" />
-    </svg>
-  );
-}
-
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const range = (p: number, a: number, b: number) => clamp01((p - a) / (b - a));
 const ease = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -112,8 +94,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
     clouds: useRef<HTMLDivElement | null>(null),
     background: useRef<HTMLDivElement | null>(null),
     midground: useRef<HTMLDivElement | null>(null),
-    foreground: useRef<HTMLDivElement | null>(null),
-    grassL: useRef<HTMLDivElement | null>(null),
+        grassL: useRef<HTMLDivElement | null>(null),
     grassR: useRef<HTMLDivElement | null>(null),
     header: useRef<HTMLDivElement | null>(null),
     cards: useRef<HTMLDivElement | null>(null),
@@ -143,10 +124,10 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       const p = clamp01(-rect.top / total);
       const enter = ease(range(p, 0, 0.45));
       const split = ease(range(p, 0.12, 0.5));
-      set(L.clouds, `translate(${(-6 * enter).toFixed(2)}%, 0)`);
-      set(L.background, `translate(0, ${(30 - 30 * enter).toFixed(2)}%)`);
+      set(L.clouds, `scale(${(1.18 - 0.18 * enter).toFixed(3)})`);
+      set(L.background, "none", 0.85 - 0.6 * enter);
       set(L.midground, `translate(0, calc(${(35 - 35 * enter).toFixed(2)}% - ${(22 * ease(range(p, 0.6, 0.85))).toFixed(2)}vh)) scale(${(1 - 0.25 * ease(range(p, 0.6, 0.85))).toFixed(3)})`);
-      set(L.foreground, `translate(0, ${(30 - 30 * enter).toFixed(2)}%) scale(${(1 + 0.12 * range(p, 0.4, 1)).toFixed(3)})`);
+      
       set(L.grassL, `translate(${(-100 * split).toFixed(2)}%, 0)`);
       set(L.grassR, `translate(${(100 * split).toFixed(2)}%, 0)`);
       set(L.header, `translate(0, ${(-120 * ease(range(p, 0.2, 0.55))).toFixed(2)}%)`, 1 - range(p, 0.4, 0.55));
@@ -171,17 +152,13 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
   return (
     <section ref={sectionRef} className={`kit-ingredients relative ${reduced ? "" : "h-[320vh]"}`}>
       <div className={`kit-scene ${reduced ? "relative h-[100svh]" : "sticky top-0 h-[100svh]"} overflow-hidden`}>
-        {/* Nuvens */}
+        {/* Fundo: a sala (afasta o zoom conforme rola) */}
         <div ref={L.clouds} className="absolute inset-0 will-change-transform">
-          {CLOUDS.map((c) => (
-            <span key={c.cls} className={`kit-cloud absolute bg-card ${c.cls}`} style={{ opacity: c.opacity }} />
-          ))}
+          <img src={roomPhoto.url} alt="" aria-hidden="true" className="h-full w-full object-cover" />
         </div>
 
-        {/* Fundo: morro de trás */}
-        <div ref={L.background} className="absolute inset-0 will-change-transform">
-          <span className="kit-hill-back" />
-        </div>
+        {/* Véu claro para o título ficar legível */}
+        <div ref={L.background} className="pointer-events-none absolute inset-0 bg-gradient-to-b from-kit-cream via-kit-cream/40 to-transparent" />
 
         {/* Título (sobe como rolagem natural, atrás dos produtos) */}
         <div ref={L.header} className="absolute inset-x-0 top-[12vh] z-[1] px-5 will-change-transform">
@@ -203,21 +180,14 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
           <img src={kitTrio.url} alt="BocaHelp, NutraHelp e PataHelp juntos" loading="lazy" className="h-[34vh] max-h-[420px] w-auto max-w-[92%] object-contain" />
         </div>
 
-        {/* Frente: morro e mascotes */}
-        <div ref={L.foreground} className="absolute inset-0 z-[3] origin-bottom will-change-transform">
-          <span className="kit-hill-front" />
-          <img src={dogMascot.url} alt="Ilustração de um cachorro sentado" loading="lazy" className="kit-dog w-auto object-contain" />
-          <img src={catMascot.url} alt="Ilustração de uma gata sentada" loading="lazy" className="kit-cat w-auto object-contain" />
-        </div>
-
         {/* Vegetação que se abre para revelar a cena */}
         {!reduced && (
           <div className="pointer-events-none absolute inset-0 z-[4]">
-            <div ref={L.grassL} className="absolute bottom-0 left-0 h-[62%] w-[55%] will-change-transform">
-              <Bush />
+            <div ref={L.grassL} className="absolute inset-y-0 left-0 w-[55%] will-change-transform">
+              <img src={plantLeft.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-left" />
             </div>
-            <div ref={L.grassR} className="absolute bottom-0 right-0 h-[62%] w-[55%] will-change-transform">
-              <Bush flip />
+            <div ref={L.grassR} className="absolute inset-y-0 right-0 w-[55%] will-change-transform">
+              <img src={plantRight.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-right" />
             </div>
           </div>
         )}
