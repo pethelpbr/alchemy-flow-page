@@ -125,12 +125,14 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       const enter = ease(range(p, 0, 0.45));
       // Câmera avançando: sala + pedestal + potes crescem juntos, plantas ficam
       const zoom = ease(range(p, 0, 0.85));
-      set(L.clouds, `translate(-50%, ${(-50 - 6 * zoom).toFixed(2)}%) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.45) * zoom).toFixed(3)})`);
+      const c = ease(range(p, 0.62, 0.85));
+      // Quando o cartão sobe, a cena sobe junto para os potes ficarem visíveis acima dele
+      const lift = c * (L.cards.current?.offsetHeight ?? 0) * (window.innerWidth < 768 ? 0.55 : 0.4);
+      set(L.clouds, `translate(-50%, calc(${(-50 - 6 * zoom).toFixed(2)}% - ${lift.toFixed(1)}px)) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.45) * zoom).toFixed(3)})`);
       set(L.background, "none", 0.85 - 0.6 * enter);
       set(L.grassL, `translate(${(-12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
       set(L.grassR, `translate(${(12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
       set(L.header, `translate(0, ${(-120 * ease(range(p, 0.2, 0.55))).toFixed(2)}%)`, 1 - range(p, 0.4, 0.55));
-      const c = ease(range(p, 0.62, 0.85));
       set(L.cards, `translate(0, ${(40 - 40 * c).toFixed(2)}px)`, c);
       if (L.cards.current) L.cards.current.style.pointerEvents = c > 0.5 ? "auto" : "none";
     };
@@ -154,7 +156,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
         {/* Fundo: sala com pedestal; os potes ficam presos no pedestal e o conjunto dá zoom */}
         <div
           ref={L.clouds}
-          className="absolute left-1/2 top-1/2 aspect-[1672/941] w-[max(100vw,calc(100svh*1.777))] origin-[50%_70%] will-change-transform"
+          className="absolute left-1/2 top-1/2 aspect-[1672/941] w-[max(112vw,calc(112svh*1.777))] origin-[50%_70%] will-change-transform"
           style={{ transform: "translate(-50%, -50%)" }}
         >
           <img src={roomPhoto.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full" />
@@ -199,7 +201,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
           className="absolute inset-x-0 bottom-0 z-[5] px-4 pb-5 md:pb-8"
           style={reduced ? undefined : { opacity: 0, pointerEvents: "none" }}
         >
-          <div className="mx-auto grid max-w-[1100px] gap-3 rounded-[24px] bg-card/90 p-5 shadow-lg backdrop-blur-md md:grid-cols-3 md:gap-8 md:p-8">
+          <div className="mx-auto grid max-w-[1100px] gap-3 rounded-[24px] bg-card/90 p-5 shadow-lg backdrop-blur-md md:grid-cols-3 md:gap-6 md:px-8 md:py-6">
             {PILLARS.map(({ title, titleClass, circleClass, detail, text, Icon }) => (
               <div key={title} className="flex items-center gap-4 text-left md:flex-col md:text-center">
                 <span className={`flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full md:h-[66px] md:w-[66px] ${circleClass}`}>
