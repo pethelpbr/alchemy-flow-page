@@ -95,6 +95,32 @@ const CLOUDS = [
 export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
+  const sceneRef = useRef<HTMLDivElement | null>(null);
+
+  // Parallax: progresso da cena na tela (0 → 1) vira a variável --kp.
+  useEffect(() => {
+    const el = sceneRef.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+      el.style.setProperty("--kp", p.toFixed(4));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   // A cena se monta uma única vez, quando entra na tela.
   useEffect(() => {
@@ -133,7 +159,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       </div>
 
       {/* Cena: céu, nuvens, morros, mascotes e o trio */}
-      <div className="kit-scene relative mt-10 h-[280px] overflow-hidden rounded-[24px] md:h-[400px]">
+      <div ref={sceneRef} className="kit-scene relative mt-10 h-[280px] overflow-hidden rounded-[24px] md:h-[400px]">
         {CLOUDS.map((c) => (
           <span
             key={c.cls}
@@ -145,7 +171,7 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
         <span className="kit-anim kit-hill-back" />
         <span className="kit-anim kit-hill-front" style={{ transitionDelay: "80ms" }} />
 
-        <div className="absolute inset-x-0 bottom-[22px] flex justify-center md:bottom-[34px]">
+        <div className="kit-products-wrap absolute inset-x-0 bottom-[22px] flex justify-center md:bottom-[34px]">
           <img
             src={kitTrio.url}
             alt="BocaHelp, NutraHelp e PataHelp juntos"
@@ -169,6 +195,9 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
           className="kit-anim kit-pop kit-cat w-auto object-contain"
           style={{ transitionDelay: "300ms" }}
         />
+
+        <span className="kit-bush kit-bush-left" aria-hidden="true" />
+        <span className="kit-bush kit-bush-right" aria-hidden="true" />
       </div>
 
       {/* As três frentes */}
