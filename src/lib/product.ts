@@ -73,7 +73,7 @@ export const variants: [Variant, ...Variant[]] = [
     badge: "Maior economia",
     unitPrice: 99.5,
     total: 199,
-    installments: 6,
+    installments: 9,
     installmentValue: 33.17,
     compareAt: 297.8,
     savings: 98,
