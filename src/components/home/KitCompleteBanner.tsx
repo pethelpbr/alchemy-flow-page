@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import kitTrio from "@/assets/kit-trio-crop.png.asset.json";
-import roomPhoto from "@/assets/kit-sala-room.jpg.asset.json";
+import roomPhoto from "@/assets/kit-sala-pedestal.jpg.asset.json";
 import plantLeft from "@/assets/kit-sala-plant-l.png.asset.json";
 import plantRight from "@/assets/kit-sala-plant-r.png.asset.json";
 
@@ -123,13 +123,12 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
       const total = rect.height - window.innerHeight;
       const p = clamp01(-rect.top / total);
       const enter = ease(range(p, 0, 0.45));
-      const split = ease(range(p, 0.12, 0.5));
-      set(L.clouds, `scale(${(1.18 - 0.18 * enter).toFixed(3)})`);
+      // Câmera avançando: sala + pedestal + potes crescem juntos, plantas ficam
+      const zoom = ease(range(p, 0, 0.85));
+      set(L.clouds, `translate(-50%, ${(-50 - 6 * zoom).toFixed(2)}%) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.45) * zoom).toFixed(3)})`);
       set(L.background, "none", 0.85 - 0.6 * enter);
-      set(L.midground, `translate(0, calc(${(35 - 35 * enter).toFixed(2)}% - ${(22 * ease(range(p, 0.6, 0.85))).toFixed(2)}vh)) scale(${(1 - 0.25 * ease(range(p, 0.6, 0.85))).toFixed(3)})`);
-      
-      set(L.grassL, `translate(${(-100 * split).toFixed(2)}%, 0)`);
-      set(L.grassR, `translate(${(100 * split).toFixed(2)}%, 0)`);
+      set(L.grassL, `translate(${(-12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
+      set(L.grassR, `translate(${(12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
       set(L.header, `translate(0, ${(-120 * ease(range(p, 0.2, 0.55))).toFixed(2)}%)`, 1 - range(p, 0.4, 0.55));
       const c = ease(range(p, 0.62, 0.85));
       set(L.cards, `translate(0, ${(40 - 40 * c).toFixed(2)}px)`, c);
@@ -152,9 +151,16 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
   return (
     <section ref={sectionRef} className={`kit-ingredients relative ${reduced ? "" : "h-[320vh]"}`}>
       <div className={`kit-scene ${reduced ? "relative h-[100svh]" : "sticky top-0 h-[100svh]"} overflow-hidden`}>
-        {/* Fundo: a sala (afasta o zoom conforme rola) */}
-        <div ref={L.clouds} className="absolute inset-0 will-change-transform">
-          <img src={roomPhoto.url} alt="" aria-hidden="true" className="h-full w-full object-cover" />
+        {/* Fundo: sala com pedestal; os potes ficam presos no pedestal e o conjunto dá zoom */}
+        <div
+          ref={L.clouds}
+          className="absolute left-1/2 top-1/2 aspect-[1672/941] w-[max(100vw,calc(100svh*1.777))] origin-[50%_70%] will-change-transform"
+          style={{ transform: "translate(-50%, -50%)" }}
+        >
+          <img src={roomPhoto.url} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full" />
+          <div ref={L.midground} className="absolute bottom-[29%] left-1/2 flex h-[16%] md:h-[26%] -translate-x-1/2 items-end justify-center">
+            <img src={kitTrio.url} alt="BocaHelp, NutraHelp e PataHelp juntos" loading="lazy" className="h-full w-auto max-w-none object-contain drop-shadow-[0_12px_14px_rgba(60,30,10,0.35)]" />
+          </div>
         </div>
 
         {/* Véu claro para o título ficar legível */}
@@ -175,18 +181,13 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
           </div>
         </div>
 
-        {/* Meio: os três produtos */}
-        <div ref={L.midground} className="absolute inset-x-0 bottom-[18vh] z-[2] flex origin-bottom justify-center will-change-transform">
-          <img src={kitTrio.url} alt="BocaHelp, NutraHelp e PataHelp juntos" loading="lazy" className="h-[34vh] max-h-[420px] w-auto max-w-[92%] object-contain" />
-        </div>
-
         {/* Vegetação que se abre para revelar a cena */}
         {!reduced && (
           <div className="pointer-events-none absolute inset-0 z-[4]">
-            <div ref={L.grassL} className="absolute bottom-0 left-0 h-[55%] w-[55%] md:top-0 md:h-auto will-change-transform">
+            <div ref={L.grassL} className="absolute bottom-0 left-0 h-[36%] w-[42%] md:w-[55%] md:top-0 md:h-auto will-change-transform">
               <img src={plantLeft.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-left-top" />
             </div>
-            <div ref={L.grassR} className="absolute bottom-0 right-0 h-[55%] w-[55%] md:top-0 md:h-auto will-change-transform">
+            <div ref={L.grassR} className="absolute bottom-0 right-0 h-[36%] w-[42%] md:w-[55%] md:top-0 md:h-auto will-change-transform">
               <img src={plantRight.url} alt="" aria-hidden="true" className="h-full w-full object-cover object-right-top" />
             </div>
           </div>
