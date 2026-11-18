@@ -99,7 +99,7 @@ export function PricingCard({
 
       {!compact && (
         <div className="px-5 sm:px-7">
-          <ProductVideoFeedback onBuy={onBuy} showDetails={showDetails} kitCta={selected.id.startsWith("bf-") ? "QUERO MEU KIT BLACK FRIDAY" : undefined} />
+          {!selected.id.startsWith("pata-") && <ProductVideoFeedback onBuy={onBuy} showDetails={showDetails} kitCta={selected.id.startsWith("bf-") ? "QUERO MEU KIT BLACK FRIDAY" : undefined} />}
         </div>
       )}
     </div>

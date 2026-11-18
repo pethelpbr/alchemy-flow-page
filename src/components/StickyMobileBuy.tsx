@@ -169,7 +169,7 @@ export function StickyMobileBuy({
               style={{ paddingBottom: `max(0.75rem, calc(0.75rem + ${SAFE_BOTTOM}))` }}
             >
               <img
-                src={productHero.url}
+                src={selected.image ?? productHero.url}
                 alt=""
                 loading="lazy"
                 className="h-12 w-12 shrink-0 rounded-lg object-cover"

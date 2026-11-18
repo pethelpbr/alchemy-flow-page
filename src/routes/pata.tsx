@@ -22,9 +22,6 @@ import { OfferProvider, type Offer } from "@/lib/offer-context";
 
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
-import cardPata from "@/assets/bf-card-04-pata.webp.asset.json";
-import cardUsoPata from "@/assets/bf-card-11-uso-pata.webp.asset.json";
-import resultadosPata from "@/assets/bf-gallery-resultados-pata-v3.png.asset.json";
 import sinalLambe from "@/assets/sinal-lambe-pata.png.asset.json";
 import sinalPatas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
 import pataMp4 from "@/assets/produto-pata.mp4.asset.json";
@@ -51,9 +48,9 @@ const offer: Offer = { variants: pataVariants, showAddons: false, buyLabel: "Que
 function PataGallery({ selected }: { selected: Variant }) {
   const shots = [
     { src: pataLata.url, alt: `PataHelp ${selected.label}` },
-    { src: cardPata.url, alt: "PataHelp: mais que hidratação" },
-    { src: resultadosPata.url, alt: "Antes e depois do PataHelp" },
-    { src: cardUsoPata.url, alt: "Como usar PataHelp: massageie na pele" },
+    { src: sinalLambe.url, alt: "Pet lambendo a pata" },
+    { src: pataPoster.url, alt: "PataHelp sendo aplicado" },
+    { src: sinalPatas.url, alt: "Patas ressecadas" },
     { src: pataFoto.url, alt: "PataHelp balm 40 g" },
   ];
   return (
@@ -202,7 +199,7 @@ function PataPage() {
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
         <ReviewsCarousel />
-        <FinalOffer selected={selected} onSelect={setSelected} addonIds={addonIds} onToggleAddon={toggleAddon} />
+        <FinalOffer selected={selected} onSelect={setSelected} addonIds={addonIds} onToggleAddon={toggleAddon} unboxed heading={<>Hoje à noite ele vai lamber a pata de novo.<br />Ou não.</>} subheading="Uma camada fina, duas vezes por dia, e a pata volta a ficar macia." />
         <TrustBadgesStrip />
         <FAQAccordion items={faqs} />
       </LandingLayout>
