@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
   component: HomeStore,
 });
 
-type Product = { id: string; name: string; headline: string; text: string; bullets: string[]; price: number; image: string; tone: string; page?: "/pele"; banner?: string; logo?: string; logoSize?: number };
+type Product = { id: string; name: string; headline: string; text: string; bullets: string[]; price: number; image: string; tone: string; page?: "/pele" | "/pata"; banner?: string; logo?: string; logoSize?: number };
 
 // Verde exato do fundo da arte do BocaHelp: usada para preencher as sobras do quadro sem emenda.
 const BANNER_TEAL = "#22B6B6";
@@ -45,7 +45,7 @@ const BANNER_TEAL = "#22B6B6";
 const products: Product[] = [
   { id: "nutrahelp", name: "NutraHelp", headline: "Pele forte, pelo bonito e zero coceira.", text: "Fortalece a imunidade, reduz coceiras e cuida do seu pet por dentro.", bullets: ["Reduz coceira e alergias", "Fecha falhas no pelo", "Fortalece a imunidade", "44 nutrientes em um pote"], price: 139, image: nutraFoto.url, tone: "bg-primary text-primary-foreground", page: "/pele", logo: nutraWordmark.url, logoSize: 54 },
   { id: "bocahelp", name: "BocaHelp", headline: "Boca cheirosa, dentes limpinhos e zero esforço.", text: "Reduz o mau hálito e o tártaro sem precisar escovar os dentes.", bullets: ["Acaba com o cheiro na boca", "Ajuda a controlar o tártaro", "Combate bactérias bucais", "É só colocar na água"], price: 49.9, image: bocaFoto.url, tone: "bg-secondary text-secondary-foreground", banner: bocaBanner.url, logo: bocaWordmark.url },
-  { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground", logo: pataWordmark.url },
+  { id: "patahelp", name: "PataHelp", headline: "Patinhas macias, focinho protegido.", text: "Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais.", bullets: ["Reduz lambeduras", "Trata ressecamento e rachaduras", "Alivia irritações", "Cria barreira protetora"], price: 29.9, image: pataFoto.url, tone: "bg-gift text-gift-foreground", page: "/pata", logo: pataWordmark.url },
 ];
 
 // Ordem dos cards em "Campeões de venda": BocaHelp à esquerda, NutraHelp no meio, PataHelp à direita.

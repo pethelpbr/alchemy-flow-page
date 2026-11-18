@@ -9,7 +9,7 @@ type Shot = { src: string; alt: string; ratio?: number };
 const FIRST_SHOT_MS = 3000;
 const AUTOPLAY_MS = 10000;
 
-export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: string }) {
+export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge?: string }) {
   const [active, setActive] = useState(0);
   const [scrolledLeft, setScrolledLeft] = useState(false);
   const stripRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ export function DesktopKitGallery({ shots, badge }: { shots: Shot[]; badge: stri
     <div role="region" aria-label="Galeria Black Friday no computador" onPointerEnter={() => { hovering.current = true; }} onPointerLeave={() => { hovering.current = false; }} className="hidden w-full min-w-0 flex-col gap-3 [contain:inline-size] md:flex">
       <motion.div initial={false} animate={{ aspectRatio: current.ratio ?? 1 }} transition={{ duration: 0.5 }} className="relative mx-auto w-[min(100%,720px,calc(100svh-220px))] overflow-hidden rounded-2xl">
         <motion.img key={current.src} src={current.src} alt={current.alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="block h-auto w-full" />
-        {active === 0 && <img src={badge} alt="Black Friday" className="absolute left-4 top-4 h-8 w-auto" />}
+        {active === 0 && badge && <img src={badge} alt="Black Friday" className="absolute left-4 top-4 h-8 w-auto" />}
       </motion.div>
       <div className="relative w-full min-w-0">
         <Button variant="outline" size="icon" title="Imagem anterior" aria-label="Imagem anterior" onClick={() => setActive((active - 1 + shots.length) % shots.length)} className="absolute left-0 top-1/2 z-20 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-border/60 bg-card/80 text-ink/70 backdrop-blur-md">

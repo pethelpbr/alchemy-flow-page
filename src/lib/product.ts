@@ -157,3 +157,14 @@ export const blackFridayVariants: [Variant, ...Variant[]] = [
   { id: "bf-2", units: 2, label: "2 NutraHelps", detail: "+ 1 PataHelp\n+ 1 BocaHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 8, externalId: null, image: kitBf2.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/34LLBM8TUX" },
   { id: "bf-3", units: 3, label: "3 NutraHelps", detail: "+ 2 PataHelps\n+ 1 BocaHelp", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 10, externalId: null, image: kitBf3.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/QFWI9P4574" },
 ];
+
+/**
+ * Kits do PataHelp (página /pata).
+ * PREÇOS PROVISÓRIOS e sem link de checkout: o botão de compra rola até a
+ * oferta até os valores e links definitivos serem enviados.
+ */
+export const pataVariants: [Variant, ...Variant[]] = [
+  { id: "pata-1", units: 1, label: "1 lata", sublabel: "Balm 40 g", unitPrice: 29.9, shipping: 9.9, installments: 3, externalId: null },
+  { id: "pata-2", units: 2, label: "2 latas", sublabel: "Para patas e focinho", badge: "Maior economia", unitPrice: 27.45, total: 54.9, installments: 5, externalId: null },
+  { id: "pata-3", units: 3, label: "3 latas", sublabel: "Cuidado contínuo", badge: "Mais vendido", unitPrice: 26.63, total: 79.9, installments: 6, freeShipping: true, externalId: null },
+];
