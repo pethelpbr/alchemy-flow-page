@@ -246,7 +246,7 @@ function HomeStore() {
 
         <HomeBeforeAfter />
 
-        <KitCompleteBanner goTo={goTo} />
+        <KitCompleteBanner />
 
         <section id="combos" className="container-x scroll-mt-28 py-14">
           <SectionTitle eyebrow="Economize">Combos para economizar</SectionTitle>

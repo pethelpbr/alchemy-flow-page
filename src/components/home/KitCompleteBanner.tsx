@@ -88,7 +88,7 @@ const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const range = (p: number, a: number, b: number) => clamp01((p - a) / (b - a));
 const ease = (t: number) => 1 - Math.pow(1 - t, 3);
 
-export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
+export function KitCompleteBanner() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const L = {
     clouds: useRef<HTMLDivElement | null>(null),
@@ -213,16 +213,6 @@ export function KitCompleteBanner({ goTo }: { goTo: (id: string) => void }) {
                 </div>
               </div>
             ))}
-            <div className="flex flex-col items-center md:col-span-3">
-              <button
-                type="button"
-                onClick={() => goTo("combos")}
-                className="inline-flex h-[50px] items-center justify-center rounded-full bg-kit-accent px-[38px] text-[15px] font-extrabold uppercase tracking-[0.04em] text-primary-foreground transition-opacity hover:opacity-90 md:h-[56px]"
-              >
-                Montar meu kit
-              </button>
-              <p className="mt-2 text-sm text-kit-note">Frete grátis · garantia de 60 dias</p>
-            </div>
           </div>
         </div>
       </div>
