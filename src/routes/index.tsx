@@ -20,7 +20,7 @@ import sinalPatas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
 import sinalLambe from "@/assets/sinal-lambe-pata.png.asset.json";
 import sintoma6 from "@/assets/sintoma-6-scooting.jpg.asset.json";
 import vetFoto from "@/assets/vet-rivaldo-nova.png.asset.json";
-import sobreFoto from "@/assets/lifestyle-1.jpg";
+import sobreFoto from "@/assets/sobre-produtos-laranja.png.asset.json";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { KitCompleteBanner } from "@/components/home/KitCompleteBanner";
 import { Footer } from "@/components/Footer";
@@ -287,15 +287,19 @@ function HomeStore() {
         </section>
 
         <section id="sobre" className="scroll-mt-28 bg-ink text-background">
-          <div className="grid md:grid-cols-2">
-            <img src={sobreFoto} alt="Tutora brincando com seu cachorro" className="h-full max-h-[620px] w-full object-cover" loading="lazy" />
-            <div className="flex flex-col justify-center p-8 md:p-14">
-              <p className="eyebrow text-primary!">Quem somos</p>
-              <h2 className="mt-3 font-display text-4xl md:text-5xl">Sobre nós</h2>
-              <div className="mt-6 space-y-4 text-lg opacity-90">
-                <p>Não somos apenas uma marca de suplementos, <strong className="text-primary">somos uma missão em forma de cuidado</strong>, criada para prolongar a vida, o conforto e a saúde dos pets que fazem parte da sua família.</p>
-                <p>Nossos produtos são desenvolvidos por <strong className="text-primary">veterinários e especialistas em nutrição animal</strong>, com fórmulas completas, seguras e comprovadas, que unem o poder da ciência, da natureza e da inovação.</p>
-                <p>Por isso, cada produto PetHelp nasceu para <strong className="text-primary">devolver aos pets o amor que eles nos dão todos os dias.</strong></p>
+          <div
+            className="relative bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${sobreFoto.url})` }}
+          >
+            <div className="min-h-[420px] bg-gradient-to-b from-[#FBF3EC] via-[#FBF3EC]/90 to-transparent p-8 md:min-h-[560px] md:bg-none md:p-14">
+              <div className="max-w-xl text-ink">
+                <p className="eyebrow text-primary!">Quem somos</p>
+                <h2 className="mt-3 font-display text-4xl md:text-5xl">Sobre nós</h2>
+                <div className="mt-6 space-y-4 text-lg text-ink/80">
+                  <p>Não somos apenas uma marca de suplementos, <strong className="text-primary">somos uma missão em forma de cuidado</strong>, criada para prolongar a vida, o conforto e a saúde dos pets que fazem parte da sua família.</p>
+                  <p>Nossos produtos são desenvolvidos por <strong className="text-primary">veterinários e especialistas em nutrição animal</strong>, com fórmulas completas, seguras e comprovadas, que unem o poder da ciência, da natureza e da inovação.</p>
+                  <p>Por isso, cada produto PetHelp nasceu para <strong className="text-primary">devolver aos pets o amor que eles nos dão todos os dias.</strong></p>
+                </div>
               </div>
             </div>
           </div>
