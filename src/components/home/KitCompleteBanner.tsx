@@ -128,7 +128,7 @@ export function KitCompleteBanner() {
       const c = ease(range(p, 0.62, 0.85));
       // Quando o cartão sobe, a cena sobe junto para os potes ficarem visíveis acima dele
       const lift = c * (L.cards.current?.offsetHeight ?? 0) * (window.innerWidth < 768 ? 0.55 : window.innerWidth >= 1500 ? 0.42 : 0.25);
-      set(L.clouds, `translate(-50%, calc(${(-50 - 6 * zoom).toFixed(2)}% - ${lift.toFixed(1)}px)) scale(${(1 + (window.innerWidth < 768 ? 0.12 : 0.22) * zoom).toFixed(3)})`);
+      set(L.clouds, `translate(-50%, calc(${(-50 - 6 * zoom).toFixed(2)}% - ${lift.toFixed(1)}px)) scale(${(1 + (window.innerWidth < 768 ? 0.26 : 0.38) * zoom).toFixed(3)})`);
       set(L.background, "none", 0.85 - 0.6 * enter);
       set(L.grassL, `translate(${(-12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
       set(L.grassR, `translate(${(12 * zoom).toFixed(2)}%, 0) scale(${(1 + 0.08 * zoom).toFixed(3)})`);
