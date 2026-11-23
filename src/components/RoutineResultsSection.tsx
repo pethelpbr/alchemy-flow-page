@@ -188,9 +188,7 @@ export function RoutineResultsSection() {
           <div>
             <p className="eyebrow text-center text-primary md:text-left">O que esperar</p>
             <h2 className="mx-auto mt-2 max-w-lg text-center font-display text-[clamp(24px,calc(12.1vw-15.6px),32px)] leading-tight text-ink sm:text-5xl md:mx-0 md:text-left">
-              Em quanto tempo
-              <br className="sm:hidden" />
-              vou ver os resultados?
+              Em quanto tempo aparecem os resultados?
             </h2>
 
             <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
