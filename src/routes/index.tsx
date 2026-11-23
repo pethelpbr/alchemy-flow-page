@@ -20,7 +20,7 @@ import sinalPatas from "@/assets/sinal-patas-ressecadas-v4.webp.asset.json";
 import sinalLambe from "@/assets/sinal-lambe-pata.png.asset.json";
 import sintoma6 from "@/assets/sintoma-6-scooting.jpg.asset.json";
 import vetFoto from "@/assets/vet-rivaldo-nova.png.asset.json";
-import sobreFoto from "@/assets/sobre-produtos-laranja-v2.png.asset.json";
+import sobreFoto from "@/assets/sobre-produtos-laranja-v3.png.asset.json";
 import { HomeHeader } from "@/components/home/HomeHeader";
 import { KitCompleteBanner } from "@/components/home/KitCompleteBanner";
 import { Footer } from "@/components/Footer";
