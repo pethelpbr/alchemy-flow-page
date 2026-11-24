@@ -17,11 +17,15 @@ export type Offer = {
   buyLabel?: string;
 };
 
-const OfferContext = createContext<Offer>({
+const globalForOffer = globalThis as typeof globalThis & {
+  __pethelpOfferContext?: ReturnType<typeof createContext<Offer>>;
+};
+
+const OfferContext = (globalForOffer.__pethelpOfferContext ??= createContext<Offer>({
   variants: defaultVariants,
   showAddons: true,
   addons: addonCatalog,
-});
+}));
 
 export function OfferProvider({ offer, children }: { offer: Offer; children: ReactNode }) {
   return <OfferContext.Provider value={offer}>{children}</OfferContext.Provider>;
