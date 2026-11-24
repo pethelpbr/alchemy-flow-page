@@ -97,6 +97,35 @@ const details = [
   { title: "Como usar", content: <HowToUse /> },
 ];
 
+const pataWhoForBullets = [
+  "Cães e gatos que lambem as patas sem parar.",
+  "Patinhas ásperas, ressecadas ou com rachaduras.",
+  "Focinho seco, descamando ou sem hidratação.",
+  "Pele irritada por chão quente, frio ou produtos de limpeza.",
+  "Pets de todas as raças, portes e idades.",
+];
+
+const pataDetails = [
+  {
+    title: "O que é o PataHelp?",
+    content: "Um balm natural 3 em 1 em lata de 40 g, feito para cães e gatos. Combina manteiga de karité, cera de abelha e óleos vegetais para hidratar, acalmar e proteger patas, focinho e pele ressecada. É lambível e atóxico: se ele lamber, não faz mal.",
+  },
+  {
+    title: "Para quem é?",
+    content: (
+      <ul className="space-y-2">
+        {pataWhoForBullets.map((text) => (
+          <li key={text} className="flex gap-2 leading-relaxed"><span aria-hidden="true" className="shrink-0">&ndash;</span><span className="min-w-0">{text}</span></li>
+        ))}
+      </ul>
+    ),
+  },
+  {
+    title: "Como usar",
+    content: "Limpe e seque bem a região das patas, do focinho ou da pele. Passe uma camada fina do balm e massageie até absorver. Repita de 2 a 3 vezes por dia — o uso é contínuo e seguro mesmo se o pet lamber.",
+  },
+];
+
 function Thumbnails({ className, items, onSelect, paused = false, store = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean; store?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -260,10 +289,11 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
   );
 }
 
-export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeLayout = false }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined; storeLayout?: boolean }) {
+export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeLayout = false, variant = "default" }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined; storeLayout?: boolean; variant?: "default" | "pata" }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   // Black Friday (kitCta definido) mantém os três relatos originais; /pele ganha o da Amora.
   const items = kitCta ? feedbacks : peleFeedbacks;
+  const detailItems = variant === "pata" ? pataDetails : details;
   const contentRef = useRef<HTMLDivElement>(null);
   const goingToKits = useRef(false);
   const pauseVideos = () => contentRef.current?.querySelectorAll("video").forEach((v) => v.pause());
@@ -310,7 +340,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeL
       </div>
       {showDetails && (
         <div id="duvidas-compra" className="mt-7 pt-2">
-          <AccordionBlock items={details} openIndex={openDetail} onOpenChange={setOpenDetail} />
+          <AccordionBlock items={detailItems} openIndex={openDetail} onOpenChange={setOpenDetail} />
         </div>
       )}
       <Dialog open={selectedVideo !== null} onOpenChange={(open) => !open && closeDialog()}>

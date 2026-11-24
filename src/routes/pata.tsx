@@ -179,14 +179,12 @@ function PataPage() {
           onBuy={checkout}
           addonIds={addonIds}
           onToggleAddon={toggleAddon}
-          showDetails={false}
           gallery={<PataGallery selected={selected} />}
           title="Alívio para a pata lambida e o focinho ressecado"
           eyebrow="PataHelp · balm 3 em 1 · cães e gatos"
           intro="Hidrata, acalma e protege patas, focinho e pele com ingredientes naturais."
           bullets={["Reduz as lambeduras", "Trata ressecamento e rachaduras", "Lambível e atóxico"]}
         />
-        <div id="duvidas-compra" />
         <SignsSection />
         <ProductSection />
         <BeforeAfterSection
