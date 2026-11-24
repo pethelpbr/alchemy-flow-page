@@ -14,3 +14,4 @@
 - [x] Reordenar as fotos do carrossel Black Friday conforme a pasta CARROSSEL (sinais → benefícios → veterinário → fórmulas → modo de uso → antes e depois)
 - [x] Aplicar a ordem definitiva de 12 cards no carrossel Black Friday, com as novas artes enviadas
 - [x] Substituir as três artes de "Antes e depois" do carrossel Black Friday (Nutra "O que muda em 60 dias", Pata "Não é promessa, é resultado", Boca "O próximo pode ser o seu") pelas imagens que faltam (aguardando envio)
+- [x] Exibir na /pata o parcelamento de 6x no kit de R$ 169,90, 5x no de R$ 159,80 e 3x no de R$ 79,90, e validar os três seletores.

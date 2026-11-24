@@ -36,7 +36,9 @@ export function FinalOffer({
   unboxed?: boolean;
 }) {
   const { variants, bundleImages } = useOffer();
-  const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
+  const orderedVariants = variants[0]?.id.startsWith("pata-")
+    ? [...variants]
+    : [...variants].sort((a, b) => b.units - a.units);
 
   return (
     <section className={`section bg-background ${className ?? ""}`}>
@@ -84,7 +86,7 @@ export function FinalOffer({
                   <div>
                     <img
                       src={unboxedCardImages[variant.id] ?? variant.image ?? kit3PotesBrinde.url}
-                      alt={`${variant.units} NutraHelp`}
+                      alt={variant.id.startsWith("pata-") ? variant.label : `${variant.units} NutraHelp`}
                       loading="lazy"
                       className="mx-auto h-56 w-full object-contain sm:h-60"
                       // Normalize against the PataHelp tin, not the overall kit width.

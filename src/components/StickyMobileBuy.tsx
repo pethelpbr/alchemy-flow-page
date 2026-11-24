@@ -172,13 +172,18 @@ export function StickyMobileBuy({
                 src={selected.image ?? productHero.url}
                 alt=""
                 loading="lazy"
-                className="h-12 w-12 shrink-0 rounded-lg object-cover"
+                className={cn(
+                  "h-12 w-12 shrink-0 rounded-lg",
+                  selected.id.startsWith("pata-") ? "object-contain" : "object-cover",
+                )}
               />
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium text-ink">{brl(grandTotal)}</p>
-                <p className="truncate text-[11px] text-muted-foreground">
-                  {selected.installments}x de {brl(installmentValue)}
-                </p>
+                {!selected.hideInstallments && (
+                  <p className="truncate text-[11px] text-muted-foreground">
+                    {selected.installments}x de {brl(installmentValue)}
+                  </p>
+                )}
               </div>
               <BuyButton size="sm" onClick={onBuy} className="shrink-0">
                 Comprar

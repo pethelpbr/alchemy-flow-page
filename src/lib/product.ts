@@ -10,6 +10,8 @@
 import kitBf1 from "@/assets/kit-bf-1-sem-fundo-v2.png.asset.json";
 import kitBf2 from "@/assets/kit-bf-2-sem-fundo-v2.png.asset.json";
 import pataLataImg from "@/assets/patahelp-lata.png.asset.json";
+import pataNutraKitImg from "@/assets/patahelp-nutrahelp-kit.webp.asset.json";
+import pataTrioKitImg from "@/assets/patahelp-trio.webp.asset.json";
 import kitBf3 from "@/assets/kit-bf-3-sem-fundo-v2.png.asset.json";
 
 export type Variant = {
@@ -160,12 +162,48 @@ export const blackFridayVariants: [Variant, ...Variant[]] = [
 ];
 
 /**
- * Kits do PataHelp (página /pata).
- * PREÇOS PROVISÓRIOS e sem link de checkout: o botão de compra rola até a
- * oferta até os valores e links definitivos serem enviados.
+ * Kits do PataHelp (página /pata), na ordem comercial definida para a oferta.
+ * Sem link de checkout: o botão de compra rola até a oferta até os links serem enviados.
  */
 export const pataVariants: [Variant, ...Variant[]] = [
-  { id: "pata-1", units: 1, label: "1 pote", sublabel: "Balm 40 g", image: pataLataImg.url, unitPrice: 29.9, shipping: 9.9, installments: 3, externalId: null },
-  { id: "pata-2", units: 2, label: "2 potes", sublabel: "Para patas e focinho", detail: "R$ 27,45 por lata", image: pataLataImg.url, badge: "Maior economia", unitPrice: 27.45, total: 54.9, installments: 5, externalId: null },
-  { id: "pata-3", units: 3, label: "3 potes", sublabel: "Cuidado contínuo", detail: "R$ 26,63 por lata", image: pataLataImg.url, badge: "Mais vendido", unitPrice: 26.63, total: 79.9, installments: 6, freeShipping: true, externalId: null },
+  {
+    id: "pata-nutra",
+    units: 2,
+    label: "1 PataHelp + 1 NutraHelp",
+    sublabel: "2 produtos",
+    detail: "2 produtos",
+    image: pataNutraKitImg.url,
+    unitPrice: 84.95,
+    total: 169.9,
+    installments: 6,
+    freeShipping: false,
+    externalId: null,
+  },
+  {
+    id: "pata-3",
+    units: 3,
+    label: "3 PataHelps",
+    sublabel: "Compre 2, leve 3",
+    detail: "R$ 53,27 por pote",
+    tag: "Compre 2, leve 3",
+    image: pataTrioKitImg.url,
+    unitPrice: 53.27,
+    total: 159.8,
+    perPot: 53.27,
+    installments: 5,
+    freeShipping: false,
+    externalId: null,
+  },
+  {
+    id: "pata-1",
+    units: 1,
+    label: "1 PataHelp",
+    sublabel: "Balm 40 g",
+    detail: "Balm 40 g",
+    image: pataLataImg.url,
+    unitPrice: 79.9,
+    installments: 3,
+    freeShipping: false,
+    externalId: null,
+  },
 ];

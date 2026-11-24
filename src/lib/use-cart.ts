@@ -7,7 +7,11 @@ import { goToCheckout, kitFromVariant } from "./tracking";
  * integração com Shopify/Yampi aconteça em um único lugar.
  */
 export function useCart(list: Variant[] = variants) {
-  const [selected, setSelected] = useState<Variant>(() => list[2] ?? list[0]!);
+  const [selected, setSelected] = useState<Variant>(() => {
+    const first = list[0];
+    if (first?.id.startsWith("pata-")) return first;
+    return list[2] ?? first!;
+  });
   const [addonIds, setAddonIds] = useState<string[]>([]);
 
   const toggleAddon = useCallback((id: string) => {

@@ -11,7 +11,9 @@ export function ProductSelector({
   onSelect: (v: Variant) => void;
 }) {
   const { variants } = useOffer();
-  const orderedVariants = [...variants].sort((a, b) => b.units - a.units);
+  const orderedVariants = variants[0]?.id.startsWith("pata-")
+    ? [...variants]
+    : [...variants].sort((a, b) => b.units - a.units);
 
   if (orderedVariants[0]?.id.startsWith("bf-")) {
     return <BlackFridaySelector variants={orderedVariants} selected={selected} onSelect={onSelect} />;
