@@ -67,29 +67,31 @@ function PataGallery({ selected }: { selected: Variant }) {
 }
 
 const signs = [
-  { title: "Lambeduras e coceiras" },
-  { title: "Desconforto ao andar" },
-  { title: "Ressecamento e rachaduras" },
-  { title: "Feridas e queimaduras" },
-  { title: "Escurecimento e falha no pelo" },
-  { title: "Vermelhidão e irritação na pele" },
+  { title: "Lambeduras e coceiras", text: "Ele lambe e coça a mesma região várias vezes ao dia. Você tenta distrair, mas logo ele volta." },
+  { title: "Desconforto ao andar", text: "Ele evita apoiar a pata, anda com cuidado ou para no meio do passeio. Brincar já não parece tão confortável." },
+  { title: "Ressecamento e rachaduras", text: "As almofadinhas ficam ásperas e rachadas. O focinho também perde a maciez e começa a descamar." },
+  { title: "Feridas e queimaduras", text: "Você percebe machucados nas patas ou na pele. Depois do contato com o chão quente, ele fica sensível ao toque." },
+  { title: "Escurecimento e falha no pelo", text: "O pelo da região lambida vai ficando escuro e úmido. Aos poucos, aparecem áreas com menos pelo." },
+  { title: "Vermelhidão e irritação na pele", text: "Entre os dedos, na barriga ou nas dobrinhas, a pele fica vermelha e sensível. Ele tenta aliviar lambendo ou se coçando." },
 ];
 
 function SignsSection() {
   return (
-    <section className="section">
+    <section className="bg-background py-10 md:py-12">
       <div className="container-x">
-        <p className="text-center text-xs font-bold uppercase text-primary!">Indicação</p>
-        <h2 className="mt-3 text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">
-          Reconhece algum
-          <br className="sm:hidden" /> desses sinais?
-        </h2>
-        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow text-primary!">Indicação</p>
+          <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
+            Reconhece algum desses sinais?
+          </h2>
+        </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((s) => (
-            <article key={s.title} className="overflow-hidden rounded-2xl border border-border bg-card">
-              <div aria-hidden="true" className="aspect-square w-full border-b border-border bg-muted" />
-              <div className="p-5">
-                <h3 className="font-display text-xl text-foreground">{s.title}</h3>
+            <article key={s.title} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
+              <div aria-hidden="true" className="aspect-4/3 w-full bg-muted" />
+              <div className="flex flex-1 flex-col gap-1.5 p-4">
+                <h3 className="text-[20px] font-bold leading-snug text-primary">{s.title}</h3>
+                <p className="text-[15px] leading-relaxed text-muted-foreground">{s.text}</p>
               </div>
             </article>
           ))}
