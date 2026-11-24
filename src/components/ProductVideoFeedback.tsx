@@ -23,6 +23,8 @@ import mikeVideo from "@/assets/depoimento-mike.mp4.asset.json";
 import mikeCover from "@/assets/depoimento-mike-capa.jpg.asset.json";
 import pataDepoVideo from "@/assets/depoimento-pata.mp4.asset.json";
 import pataDepoCover from "@/assets/depoimento-pata-capa.jpg.asset.json";
+import pataDepo2Video from "@/assets/depoimento-pata-2.mp4.asset.json";
+import pataDepo2Cover from "@/assets/depoimento-pata-2-capa.jpg.asset.json";
 
 type Feedback = { image: string; name?: string; caption: string; problem: string; video?: string };
 
@@ -43,12 +45,13 @@ const peleFeedbacks: Feedback[] = [
   ...feedbacks.slice(2),
 ];
 
-// Só na /pata: o segundo relato passa a ser o vídeo gravado para o PataHelp.
-// Sem nome no card — fica apenas a etiqueta laranja "Dermatite".
+// Só na /pata: o segundo relato é o vídeo gravado para o PataHelp (sem nome no
+// card, só a etiqueta laranja "Dermatite") e o terceiro é o relato de feridas,
+// também sem nome. A Black Friday e a /pele continuam com os três originais.
 export const pataFeedbacks: Feedback[] = [
   { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
   { caption: "Antes e depois", problem: "Dermatite", image: pataDepoCover.url, video: pataDepoVideo.url },
-  ...feedbacks.slice(2),
+  { caption: "Antes e depois", problem: "Feridas", image: pataDepo2Cover.url, video: pataDepo2Video.url },
 ];
 
 function VideoTags({ problem, className }: { problem: string; className?: string }) {
