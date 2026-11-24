@@ -1,12 +1,22 @@
 import { useCallback, useState } from "react";
-import { addonsTotal, buildCheckoutUrl, variants, type Variant } from "./product";
+import {
+  addonCatalog,
+  addonsTotal,
+  buildCheckoutUrl,
+  variants,
+  type Addon,
+  type Variant,
+} from "./product";
 import { goToCheckout, kitFromVariant } from "./tracking";
 
 /**
  * Estado de seleção de oferta. Concentra a ação de compra para que a
  * integração com Shopify/Yampi aconteça em um único lugar.
  */
-export function useCart(list: Variant[] = variants) {
+export function useCart(
+  list: Variant[] = variants,
+  addonList: Omit<Addon, "image">[] = addonCatalog,
+) {
   const [selected, setSelected] = useState<Variant>(() => {
     const first = list[0];
     if (first?.id.startsWith("pata-")) return first;
@@ -20,7 +30,7 @@ export function useCart(list: Variant[] = variants) {
     );
   }, []);
 
-  const addonsExtra = addonsTotal(addonIds);
+  const addonsExtra = addonsTotal(addonIds, addonList);
 
   const checkout = useCallback((variantOverride?: Variant) => {
     // Botões passam o evento de clique como primeiro argumento; ignora

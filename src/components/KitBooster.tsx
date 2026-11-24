@@ -1,18 +1,16 @@
 import { Check } from "lucide-react";
-import { brl, addonCatalog, addonSavings, type Addon } from "@/lib/product";
+import { addonCatalog, addonSavings, brl, type Addon } from "@/lib/product";
+import { useOffer } from "@/lib/offer-context";
 import { cn } from "@/lib/utils";
 import addonBocahelp from "@/assets/addon-bocahelp.png.asset.json";
 import addonPatahelp from "@/assets/addon-patahelp.png.asset.json";
+import addonNutrahelp from "@/assets/nutrahelp-foto.png.asset.json";
 
 const images: Record<string, string> = {
   collagen: addonBocahelp.url,
   vitc: addonPatahelp.url,
+  nutra: addonNutrahelp.url,
 };
-
-export const addons: Addon[] = addonCatalog.map((a) => ({
-  ...a,
-  image: images[a.id]!,
-}));
 
 export function KitBooster({
   selectedIds,
@@ -21,6 +19,12 @@ export function KitBooster({
   selectedIds: string[];
   onToggle: (id: string) => void;
 }) {
+  const { addons: catalog = addonCatalog } = useOffer();
+  const items: Addon[] = catalog.map((a) => ({
+    ...a,
+    image: images[a.id] ?? addonBocahelp.url,
+  }));
+
   return (
     <div className="mt-6">
       <p className="flex items-center gap-2 text-lg font-semibold text-ink">
@@ -31,7 +35,7 @@ export function KitBooster({
       </p>
 
       <div className="mt-3 grid grid-cols-2 gap-2.5">
-        {addons.map((a) => {
+        {items.map((a) => {
           const isActive = selectedIds.includes(a.id);
           return (
             <div
@@ -112,10 +116,4 @@ export function KitBooster({
       </div>
     </div>
   );
-}
-
-export function addonsTotal(selectedIds: string[]) {
-  return addons
-    .filter((a) => selectedIds.includes(a.id))
-    .reduce((sum, a) => sum + a.price, 0);
 }

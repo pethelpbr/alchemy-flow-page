@@ -1,5 +1,37 @@
 import { describe, expect, it } from "vitest";
-import { pataVariants, variantTotals, pataSelectorPricing } from "./product";
+import {
+  addonCatalog,
+  addonsTotal,
+  pataAddonCatalog,
+  pataVariants,
+  variantTotals,
+  pataSelectorPricing,
+} from "./product";
+
+describe("bloco Complete o cuidado na /pata", () => {
+  it("mostra BocaHelp e NutraHelp, não PataHelp", () => {
+    expect(pataAddonCatalog.map((addon) => addon.id)).toEqual(["collagen", "nutra"]);
+    expect(pataAddonCatalog.map((addon) => addon.name)).toEqual([
+      "Contra mau hálito e tártaro",
+      "Cuida de pele, pelo e imunidade",
+    ]);
+  });
+
+  it("usa o preço do pote avulso de NutraHelp, sem desconto inventado", () => {
+    const nutra = pataAddonCatalog.find((addon) => addon.id === "nutra");
+    expect(nutra?.price).toBe(139);
+    expect(nutra?.compareAt).toBeUndefined();
+  });
+
+  it("soma os adicionais com o catálogo da própria página", () => {
+    expect(addonsTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(188.9, 2);
+    expect(addonsTotal(["nutra"], addonCatalog)).toBe(0);
+  });
+
+  it("mantém os adicionais da /pele com BocaHelp e PataHelp", () => {
+    expect(addonCatalog.map((addon) => addon.id)).toEqual(["collagen", "vitc"]);
+  });
+});
 
 describe("ofertas da página /pata", () => {
   it("compara o combo com os produtos avulsos sem incluir frete", () => {
