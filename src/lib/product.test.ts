@@ -1,7 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { pataVariants, variantTotals } from "./product";
+import { pataVariants, variantTotals, pataSelectorPricing } from "./product";
 
 describe("ofertas da página /pata", () => {
+  it("compara o combo com os produtos avulsos sem incluir frete", () => {
+    const combo = pataVariants[0];
+    expect(pataSelectorPricing(combo, pataVariants)).toEqual({ perPot: 84.95, compareAt: 218.9, savings: 49 });
+  });
+
+  it("mostra a economia de um PataHelp no compre 2 leve 3", () => {
+    const trio = pataVariants[1];
+    if (!trio) throw new Error("Kit de três não encontrado");
+    const pricing = pataSelectorPricing(trio, pataVariants);
+    expect(pricing?.compareAt).toBeCloseTo(239.7);
+    expect(pricing?.savings).toBe(79.9);
+    expect(pricing?.perPot).toBeCloseTo(53.2667, 4);
+  });
+
   it("mantém os três kits na ordem definida", () => {
     expect(pataVariants.map((variant) => variant.id)).toEqual([
       "pata-nutra",

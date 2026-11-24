@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { brl, variantTotals, type Variant } from "@/lib/product";
+import { brl, variantTotals, pataSelectorPricing, type Variant } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import { useOffer } from "@/lib/offer-context";
 
@@ -27,6 +27,11 @@ export function ProductSelector({
         const hasFreeShipping = v.freeShipping ?? v.units > 1;
         const hasGift = v.id === "3-un-brinde" || !!v.tag;
         const displayedTotal = total + (v.shipping ?? 0);
+        const pataPricing = pataSelectorPricing(v, variants);
+        const label = v.id === "pata-nutra" ? "1 PataHelp" : v.label;
+        const detail = pataPricing ? `${brl(pataPricing.perPot)} por pote` : v.detail;
+        const savings = pataPricing?.savings ?? v.savings;
+        const compareAt = pataPricing?.compareAt ?? v.compareAt;
         return (
           <button
             type="button"
@@ -69,29 +74,32 @@ export function ProductSelector({
 
                 <span className="min-w-0 flex-1">
                   <span className="block text-base font-bold leading-snug text-ink">
-                    {v.label}
+                    {label}
                   </span>
                   <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
-                    {v.detail ?? (v.units === 1
+                    {detail ?? (v.units === 1
                       ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
                       : `${brl(v.perPot ?? v.unitPrice)} por pote`)}
                   </span>
+                  {v.id === "pata-nutra" && (
+                    <span className="block text-[13px] leading-snug text-muted-foreground">+ 1 NutraHelp</span>
+                  )}
                   {hasGift && !v.tag && (
                     <span className="block text-[13px] leading-snug text-muted-foreground">
                       + PataHelp de brinde
                     </span>
                   )}
-                  {v.savings != null && (
+                  {savings != null && (
                     <span className="mt-0.5 block text-[13px] font-semibold text-terracotta">
-                      Economize {brl(v.savings).replace(",00", "")}
+                      Economize {brl(savings).replace(",00", "")}
                     </span>
                   )}
                 </span>
 
                 <span className="shrink-0 text-right">
-                  {v.compareAt != null && (
+                  {compareAt != null && (
                     <span className="mb-0.5 block text-[11px] text-muted-foreground line-through">
-                      {brl(v.compareAt)}
+                      {brl(compareAt)}
                     </span>
                   )}
                   <span
@@ -122,7 +130,7 @@ export function ProductSelector({
 
               <span className="min-w-0">
                 <span className="flex flex-wrap items-center gap-2">
-                  <span className="text-lg font-bold leading-snug text-ink">{v.label}</span>
+                  <span className="text-lg font-bold leading-snug text-ink">{label}</span>
                   {hasFreeShipping && (
                     <span className="rounded-full bg-shipping px-2 py-0.5 text-[10px] font-bold uppercase text-shipping-foreground">
                       Frete grátis
@@ -135,21 +143,24 @@ export function ProductSelector({
                   )}
                 </span>
                 <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
-                  {v.detail ?? (v.units === 1
+                  {detail ?? (v.units === 1
                     ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
                     : `${brl(v.perPot ?? v.unitPrice)} por pote${hasGift ? " · PataHelp de brinde" : ""}`)}
                 </span>
-                {v.savings != null && (
+                {v.id === "pata-nutra" && (
+                  <span className="block text-[13px] leading-snug text-muted-foreground">+ 1 NutraHelp</span>
+                )}
+                {savings != null && (
                   <span className="mt-0.5 block text-[13px] font-semibold text-terracotta">
-                    Economize {brl(v.savings).replace(",00", "")}
+                    Economize {brl(savings).replace(",00", "")}
                   </span>
                 )}
               </span>
 
               <span className="shrink-0 text-right">
-                {v.compareAt != null && (
+                {compareAt != null && (
                   <span className="mb-0.5 block text-xs text-muted-foreground line-through">
-                    {brl(v.compareAt)}
+                    {brl(compareAt)}
                   </span>
                 )}
                 <span

@@ -148,6 +148,22 @@ export function variantTotals(variant: Variant) {
   return { total, installmentValue };
 }
 
+/** Presentation-only comparisons for the PataHelp selector, based on single-product offers. */
+export function pataSelectorPricing(variant: Variant, offers: Variant[]) {
+  const singlePata = offers.find((offer) => offer.id === "pata-1");
+  const singleNutra = variants.find((offer) => offer.id === "1-un");
+  if (!singlePata || !singleNutra || !variant.id.startsWith("pata-")) return null;
+  const total = variantTotals(variant).total;
+  const compareAt = variant.id === "pata-nutra"
+    ? singlePata.unitPrice + singleNutra.unitPrice
+    : singlePata.unitPrice * variant.units;
+  return {
+    perPot: total / variant.units,
+    compareAt: compareAt > total ? compareAt : undefined,
+    savings: compareAt > total ? Math.round((compareAt - total) * 100) / 100 : undefined,
+  };
+}
+
 /** URL de checkout da variante (checkout pronto vence; substituir na integração). */
 export function buildCheckoutUrl(variant: Variant) {
   if (variant.checkoutUrl) return variant.checkoutUrl;
