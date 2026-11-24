@@ -116,19 +116,10 @@ export type Addon = {
   image: string;
 };
 
-/** Produtos complementares exibidos no bloco "Complete o cuidado". */
+/** Produtos complementares exibidos no bloco "Turbine seu kit". */
 export const addonCatalog: Omit<Addon, "image">[] = [
   { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
   { id: "vitc", name: "Protege patas, focinho e pele", price: 29.9, compareAt: 59.9 },
-];
-
-/**
- * Adicionais da página /pata: o BocaHelp continua igual e o NutraHelp entra no
- * lugar do PataHelp, cobrado pelo preço de um pote avulso, sem desconto inventado.
- */
-export const pataAddonCatalog: Omit<Addon, "image">[] = [
-  { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
-  { id: "nutra", name: "Nutre a pele, o pelo e o intestino", price: 139 },
 ];
 
 /** Economia exibida no card do adicional. */
@@ -137,22 +128,16 @@ export function addonSavings(addon: Addon) {
   return Math.round((addon.compareAt - addon.price) * 100) / 100;
 }
 
-/** Soma dos adicionais selecionados no bloco "Complete o cuidado". */
-export function addonsTotal(
-  selectedIds: string[],
-  catalog: Omit<Addon, "image">[] = addonCatalog,
-) {
-  return catalog
+/** Soma dos adicionais selecionados no bloco "Turbine seu kit". */
+export function addonsTotal(selectedIds: string[]) {
+  return addonCatalog
     .filter((a) => selectedIds.includes(a.id))
     .reduce((sum, a) => sum + a.price, 0);
 }
 
 /** Soma dos preços originais (riscados) dos adicionais selecionados. */
-export function addonsCompareAtTotal(
-  selectedIds: string[],
-  catalog: Omit<Addon, "image">[] = addonCatalog,
-) {
-  return catalog
+export function addonsCompareAtTotal(selectedIds: string[]) {
+  return addonCatalog
     .filter((a) => selectedIds.includes(a.id))
     .reduce((sum, a) => sum + (a.compareAt ?? a.price), 0);
 }

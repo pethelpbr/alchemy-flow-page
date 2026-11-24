@@ -17,7 +17,7 @@ import { LazyLoopVideo } from "@/components/LazyLoopVideo";
 import { LandingLayout } from "@/components/layout/LandingLayout";
 import { useCart } from "@/lib/use-cart";
 import { kitFromVariant, trackViewContent } from "@/lib/tracking";
-import { pataVariants, pataAddonCatalog, type Variant } from "@/lib/product";
+import { pataVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 
 import pataLata from "@/assets/patahelp-lata.png.asset.json";
@@ -43,13 +43,7 @@ export const Route = createFileRoute("/pata")({
   component: PataPage,
 });
 
-const offer: Offer = {
-  variants: pataVariants,
-  showAddons: true,
-  // Na /pata o adicional é o NutraHelp (não o PataHelp, que já é o produto da página).
-  addons: pataAddonCatalog,
-  buyLabel: "Quero meu PataHelp",
-};
+const offer: Offer = { variants: pataVariants, showAddons: false, buyLabel: "Quero meu PataHelp" };
 
 function PataGallery({ selected }: { selected: Variant }) {
   const shots = [
@@ -161,7 +155,7 @@ const faqs = [
 ];
 
 function PataPage() {
-  const cart = useCart(pataVariants, pataAddonCatalog);
+  const cart = useCart(pataVariants);
   const { selected, setSelected, checkout, addonIds, toggleAddon } = cart;
 
   const viewed = useRef(false);

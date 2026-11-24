@@ -1,28 +1,26 @@
 import { Check } from "lucide-react";
-import { brl, addonSavings, type Addon } from "@/lib/product";
+import { brl, addonCatalog, addonSavings, type Addon } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import addonBocahelp from "@/assets/addon-bocahelp.png.asset.json";
 import addonPatahelp from "@/assets/addon-patahelp.png.asset.json";
-import addonNutrahelp from "@/assets/addon-nutrahelp.png.asset.json";
 
 const images: Record<string, string> = {
   collagen: addonBocahelp.url,
   vitc: addonPatahelp.url,
-  nutra: addonNutrahelp.url,
 };
+
+export const addons: Addon[] = addonCatalog.map((a) => ({
+  ...a,
+  image: images[a.id]!,
+}));
 
 export function KitBooster({
   selectedIds,
   onToggle,
-  items,
 }: {
   selectedIds: string[];
   onToggle: (id: string) => void;
-  /** Adicionais daquela página: /pele mostra BocaHelp + PataHelp, /pata mostra BocaHelp + NutraHelp. */
-  items: Omit<Addon, "image">[];
 }) {
-  const addons: Addon[] = items.map((a) => ({ ...a, image: images[a.id] ?? "" }));
-
   return (
     <div className="mt-6">
       <p className="flex items-center gap-2 text-lg font-semibold text-ink">
@@ -114,4 +112,10 @@ export function KitBooster({
       </div>
     </div>
   );
+}
+
+export function addonsTotal(selectedIds: string[]) {
+  return addons
+    .filter((a) => selectedIds.includes(a.id))
+    .reduce((sum, a) => sum + a.price, 0);
 }
