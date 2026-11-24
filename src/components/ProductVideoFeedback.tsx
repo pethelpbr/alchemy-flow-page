@@ -154,7 +154,7 @@ const pataDetails = [
   },
 ];
 
-function Thumbnails({ className, items, onSelect, paused = false, store = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean; store?: boolean }) {
+function Thumbnails({ className, items, onSelect, paused = false, store = false, horizontal = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean; store?: boolean; horizontal?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     trackRef.current?.querySelectorAll("video").forEach((v) => { if (paused) v.pause(); else { v.muted = true; void v.play().catch(() => {}); } });
@@ -179,9 +179,9 @@ function Thumbnails({ className, items, onSelect, paused = false, store = false 
     if (!el || !wasActive) return;
   };
   return (
-    <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", store ? "md:mx-0 md:justify-center md:overflow-visible md:px-0 md:pb-0" : "md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
+    <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", horizontal ? "cursor-grab scroll-auto active:cursor-grabbing md:mx-0 md:px-0 md:pb-0" : store ? "md:mx-0 md:justify-center md:overflow-visible md:px-0 md:pb-0" : "md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
       {items.map((feedback, index) => (
-        <div key={feedback.name ?? `${feedback.problem}-${index}`} className={store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
+        <div key={feedback.name ?? `${feedback.problem}-${index}`} className={horizontal ? "w-[62%] shrink-0 md:w-[calc((100%_-_1.25rem)/3)]" : store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
           <Button type="button" variant="ghost" aria-label={`Assistir ao relato ${feedbackLabel(feedback)}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
             {feedback.video ? (
               <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato ${feedbackLabel(feedback)}`} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
@@ -370,7 +370,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeL
     <div>
       <div>
         {!storeLayout && <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>}
-        <Thumbnails items={items} store={storeLayout} className={storeLayout ? "" : cn("mt-2 grid-cols-3", items.length > 3 && "md:grid-cols-4")} onSelect={selectFeedback} paused={selectedVideo !== null} />
+        <Thumbnails items={items} store={storeLayout} horizontal={variant === "pata" && !kitCta && !storeLayout} className={storeLayout ? "" : "mt-2 grid-cols-3"} onSelect={selectFeedback} paused={selectedVideo !== null} />
         {!storeLayout && <IngredientsButton variant={variant} />}
       </div>
       {showDetails && (
