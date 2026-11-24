@@ -17,3 +17,4 @@
 - [x] Exibir na /pata o parcelamento de 6x no kit de R$ 169,90, 5x no de R$ 159,80 e 3x no de R$ 79,90, e validar os três seletores.
 - [x] Bloco "Complete o cuidado" na /pata com BocaHelp + NutraHelp (R$ 139, sem desconto inventado), mantendo a /pele com BocaHelp + PataHelp.
 - [x] Vídeo enviado no segundo card de depoimentos da /pata, com capa própria e só a etiqueta "Dermatite" (sem nome), sem tocar /pele e /black-friday.
+- [x] Vídeo do Theo no primeiro card de depoimentos da /pata, no lugar da Amora, com etiqueta "Lambedura" (sem nome), sem tocar /pele e /black-friday.

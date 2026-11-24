@@ -25,6 +25,8 @@ import pataDepoVideo from "@/assets/depoimento-pata.mp4.asset.json";
 import pataDepoCover from "@/assets/depoimento-pata-capa.jpg.asset.json";
 import pataDepo2Video from "@/assets/depoimento-pata-2.mp4.asset.json";
 import pataDepo2Cover from "@/assets/depoimento-pata-2-capa.jpg.asset.json";
+import pataDepo3Video from "@/assets/depoimento-pata-3.mp4.asset.json";
+import pataDepo3Cover from "@/assets/depoimento-pata-3-capa.jpg.asset.json";
 
 type Feedback = { image: string; name?: string; caption: string; problem: string; video?: string };
 
@@ -45,11 +47,12 @@ const peleFeedbacks: Feedback[] = [
   ...feedbacks.slice(2),
 ];
 
-// Só na /pata: o segundo relato é o vídeo gravado para o PataHelp (sem nome no
-// card, só a etiqueta laranja "Dermatite") e o terceiro é o relato de feridas,
-// também sem nome. A Black Friday e a /pele continuam com os três originais.
+// Só na /pata: o primeiro relato é o vídeo da lambedura, o segundo é o vídeo
+// gravado para o PataHelp e o terceiro é o relato de feridas — todos sem nome
+// no card, só a etiqueta laranja. A Black Friday e a /pele continuam com os
+// três originais.
 export const pataFeedbacks: Feedback[] = [
-  { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
+  { caption: "Antes e depois", problem: "Lambedura", image: pataDepo3Cover.url, video: pataDepo3Video.url },
   { caption: "Antes e depois", problem: "Dermatite", image: pataDepoCover.url, video: pataDepoVideo.url },
   { caption: "Antes e depois", problem: "Feridas", image: pataDepo2Cover.url, video: pataDepo2Video.url },
 ];
