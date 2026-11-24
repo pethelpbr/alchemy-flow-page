@@ -188,6 +188,7 @@ export const pataVariants: [Variant, ...Variant[]] = [
     label: "1 PataHelp + 1 NutraHelp",
     sublabel: "2 produtos",
     detail: "2 produtos",
+    tag: "Brinde",
     image: pataNutraKitImg.url,
     unitPrice: 84.95,
     total: 169.9,

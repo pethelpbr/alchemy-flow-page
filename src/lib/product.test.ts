@@ -53,7 +53,7 @@ describe("ofertas da página /pata", () => {
   it("aplica o compre 2, leve 3 somente ao kit de três PataHelps", () => {
     expect(pataVariants[1]?.units).toBe(3);
     expect(pataVariants[1]?.tag).toBe("Compre 2, leve 3");
-    expect(pataVariants[0]?.tag).toBeUndefined();
+    expect(pataVariants[0]?.tag).toBe("Brinde");
     expect(pataVariants[2]?.tag).toBeUndefined();
   });
 });
