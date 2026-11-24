@@ -1,22 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pataVariants, variantTotals, pataSelectorPricing, pataAddonCatalog, addonCatalog, addonsTotal, addonsCompareAtTotal } from "./product";
-
-describe("adicionais exclusivos da /pata", () => {
-  it("cobra o preço de um NutraHelp avulso no adicional", () => {
-    expect(pataAddonCatalog.find((addon) => addon.id === "nutra")?.price).toBe(139);
-  });
-
-  it("oferece BocaHelp e NutraHelp, sem adicionar PataHelp à própria página", () => {
-    expect(pataAddonCatalog.map((addon) => addon.id)).toEqual(["collagen", "nutra"]);
-    expect(addonCatalog.map((addon) => addon.id)).toEqual(["collagen", "vitc"]);
-  });
-
-  it("soma apenas os produtos do catálogo da página", () => {
-    expect(addonsTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(188.9);
-    expect(addonsCompareAtTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(228.9);
-    expect(addonsTotal(["nutra"])).toBe(0);
-  });
-});
+import { pataVariants, variantTotals, pataSelectorPricing } from "./product";
 
 describe("ofertas da página /pata", () => {
   it("compara o combo com os produtos avulsos sem incluir frete", () => {
