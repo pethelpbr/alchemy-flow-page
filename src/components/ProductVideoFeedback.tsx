@@ -156,9 +156,38 @@ const pataDetails = [
 
 function Thumbnails({ className, items, onSelect, paused = false, store = false, horizontal = false }: { className?: string; items: Feedback[]; onSelect: (f: Feedback) => void; paused?: boolean; store?: boolean; horizontal?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const [scrollable, setScrollable] = useState(false);
   useEffect(() => {
     trackRef.current?.querySelectorAll("video").forEach((v) => { if (paused) v.pause(); else { v.muted = true; void v.play().catch(() => {}); } });
   }, [paused]);
+  // A fileira arrastável da /pata precisa avisar que há mais vídeo adiante: as
+  // bolinhas acompanham a posição do arraste e a dica só aparece quando cabe
+  // mais card fora da tela.
+  useEffect(() => {
+    if (!horizontal) return;
+    const el = trackRef.current;
+    if (!el) return;
+    const measure = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      setScrollable(max > 8);
+      setActive(max > 8 ? Math.round((el.scrollLeft / max) * (items.length - 1)) : 0);
+    };
+    measure();
+    el.addEventListener("scroll", measure, { passive: true });
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => { el.removeEventListener("scroll", measure); observer.disconnect(); };
+  }, [horizontal, items.length]);
+  const goToSlide = (index: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const slides = Array.from(el.querySelectorAll<HTMLElement>("[data-slide]"));
+    const target = slides[index];
+    const first = slides[0];
+    if (!target || !first) return;
+    el.scrollTo({ left: target.offsetLeft - first.offsetLeft, behavior: "smooth" });
+  };
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0, moved: false });
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== "mouse") return;
@@ -179,9 +208,10 @@ function Thumbnails({ className, items, onSelect, paused = false, store = false,
     if (!el || !wasActive) return;
   };
   return (
+    <>
     <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", horizontal ? "cursor-grab scroll-auto active:cursor-grabbing md:mx-0 md:px-0 md:pb-0" : store ? "md:mx-0 md:justify-center md:overflow-visible md:px-0 md:pb-0" : "md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
       {items.map((feedback, index) => (
-        <div key={feedback.name ?? `${feedback.problem}-${index}`} className={horizontal ? "w-[62%] shrink-0 md:w-[calc((100%_-_1.25rem)/3)]" : store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
+        <div key={feedback.name ?? `${feedback.problem}-${index}`} data-slide className={horizontal ? "w-[62%] shrink-0 md:w-[27%]" : store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
           <Button type="button" variant="ghost" aria-label={`Assistir ao relato ${feedbackLabel(feedback)}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
             {feedback.video ? (
               <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato ${feedbackLabel(feedback)}`} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
@@ -195,6 +225,27 @@ function Thumbnails({ className, items, onSelect, paused = false, store = false,
         </div>
       ))}
     </div>
+    {horizontal && scrollable && (
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-1.5">
+          {items.map((feedback, index) => (
+            <button
+              key={feedback.name ?? `${feedback.problem}-${index}`}
+              type="button"
+              onClick={() => goToSlide(index)}
+              aria-label={`Ver o ${index + 1}º relato${index === active ? " (o que está mostrando agora)" : ""}`}
+              aria-current={index === active ? "true" : undefined}
+              className={cn("h-1.5 rounded-full transition-all", index === active ? "w-6 bg-primary" : "w-1.5 bg-ink/20 hover:bg-ink/40")}
+            />
+          ))}
+        </div>
+        <p className="flex shrink-0 items-center gap-1 text-[11px] font-medium text-muted-foreground sm:text-xs">
+          Arraste para ver mais
+          <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+        </p>
+      </div>
+    )}
+    </>
   );
 }
 

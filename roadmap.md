@@ -19,3 +19,4 @@
 - [x] Vídeo enviado no segundo card de depoimentos da /pata, com capa própria e só a etiqueta "Dermatite" (sem nome), sem tocar /pele e /black-friday.
 - [x] Vídeo do Theo no primeiro card de depoimentos da /pata, no lugar da Amora, com etiqueta "Lambedura" (sem nome), sem tocar /pele e /black-friday.
 - [x] Quarto vídeo de depoimentos na /pata, com etiqueta "Ressecamento", sem tocar /pele e /black-friday.
+- [x] Fileira de depoimentos da /pata com indicativo de que há mais vídeo: próxima capa encostada na borda, bolinhas de progresso e a dica "Arraste para ver mais", sem tocar /pele e /black-friday.
