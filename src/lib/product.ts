@@ -165,7 +165,7 @@ export const blackFridayVariants: [Variant, ...Variant[]] = [
  * oferta até os valores e links definitivos serem enviados.
  */
 export const pataVariants: [Variant, ...Variant[]] = [
-  { id: "pata-1", units: 1, label: "1 lata", sublabel: "Balm 40 g", image: pataLataImg.url, unitPrice: 29.9, shipping: 9.9, installments: 3, externalId: null },
-  { id: "pata-2", units: 2, label: "2 latas", sublabel: "Para patas e focinho", detail: "R$ 27,45 por lata", image: pataLataImg.url, badge: "Maior economia", unitPrice: 27.45, total: 54.9, installments: 5, externalId: null },
-  { id: "pata-3", units: 3, label: "3 latas", sublabel: "Cuidado contínuo", detail: "R$ 26,63 por lata", image: pataLataImg.url, badge: "Mais vendido", unitPrice: 26.63, total: 79.9, installments: 6, freeShipping: true, externalId: null },
+  { id: "pata-1", units: 1, label: "1 pote", sublabel: "Balm 40 g", image: pataLataImg.url, unitPrice: 29.9, shipping: 9.9, installments: 3, externalId: null },
+  { id: "pata-2", units: 2, label: "2 potes", sublabel: "Para patas e focinho", detail: "R$ 27,45 por lata", image: pataLataImg.url, badge: "Maior economia", unitPrice: 27.45, total: 54.9, installments: 5, externalId: null },
+  { id: "pata-3", units: 3, label: "3 potes", sublabel: "Cuidado contínuo", detail: "R$ 26,63 por lata", image: pataLataImg.url, badge: "Mais vendido", unitPrice: 26.63, total: 79.9, installments: 6, freeShipping: true, externalId: null },
 ];
