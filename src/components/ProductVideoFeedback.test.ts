@@ -12,57 +12,51 @@ import mikeVideo from "@/assets/depoimento-mike.mp4.asset.json";
 import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
 import depo1Video from "@/assets/depoimento-1.mp4.asset.json";
 
+// Regra: na fileira "Tutores que já passaram por isso" da página /pata, a ordem
+// é dermatite, feridas, lambedura e ressecamento — todos sem nome no card, só a
+// etiqueta laranja. As outras páginas não mudam.
 const first = pataFeedbacks[0];
 const second = pataFeedbacks[1];
 const third = pataFeedbacks[2];
-if (!first || !second || !third) throw new Error("a fileira de relatos da /pata precisa de três cards");
+const fourth = pataFeedbacks[3];
+if (!first || !second || !third || !fourth) throw new Error("a fileira de relatos da /pata precisa de quatro cards");
 
-// Regra: na fileira "Tutores que já passaram por isso" da página /pata, o
-// primeiro relato é o vídeo da lambedura, o segundo é o vídeo do PataHelp e o
-// terceiro é o vídeo de feridas. As outras páginas não mudam.
 describe("relatos em vídeo da página /pata", () => {
-  it("mostra o vídeo do PataHelp no segundo card", () => {
-    expect(second.video).toBe(pataVideo.url);
-    expect(second.image).toBe(pataCover.url);
-  });
-
-  it("não reaproveita o vídeo do Mike na /pata", () => {
-    expect(second.video).not.toBe(mikeVideo.url);
-  });
-
-  it("não mostra nome no segundo card da /pata, só a etiqueta", () => {
-    expect(second.name).toBeUndefined();
-    expect(second.problem).toBe("Dermatite");
-  });
-
-  it("mostra o vídeo de feridas no terceiro card, com a etiqueta Feridas", () => {
-    expect(third.video).toBe(pata2Video.url);
-    expect(third.image).toBe(pata2Cover.url);
-    expect(third.problem).toBe("Feridas");
-    expect(third.name).toBeUndefined();
-  });
-
-  it("não reaproveita o vídeo da Marina no terceiro card da /pata", () => {
-    expect(third.video).not.toBe(depo1Video.url);
-  });
-
-  it("mostra o vídeo da lambedura no primeiro card, com a etiqueta Lambedura", () => {
-    expect(first.video).toBe(pata3Video.url);
-    expect(first.image).toBe(pata3Cover.url);
-    expect(first.problem).toBe("Lambedura");
+  it("mostra o vídeo do PataHelp no primeiro card, com a etiqueta Dermatite", () => {
+    expect(first.video).toBe(pataVideo.url);
+    expect(first.image).toBe(pataCover.url);
+    expect(first.problem).toBe("Dermatite");
     expect(first.name).toBeUndefined();
   });
 
-  it("não reaproveita o vídeo da Amora no primeiro card da /pata", () => {
-    expect(first.video).not.toBe(amoraVideo.url);
+  it("mostra o vídeo de feridas no segundo card, com a etiqueta Feridas", () => {
+    expect(second.video).toBe(pata2Video.url);
+    expect(second.image).toBe(pata2Cover.url);
+    expect(second.problem).toBe("Feridas");
+    expect(second.name).toBeUndefined();
   });
 
-  it("acrescenta o vídeo de Ressecamento no quarto card sem substituir os anteriores", () => {
+  it("mostra o vídeo da lambedura no terceiro card, com a etiqueta Lambedura", () => {
+    expect(third.video).toBe(pata3Video.url);
+    expect(third.image).toBe(pata3Cover.url);
+    expect(third.problem).toBe("Lambedura");
+    expect(third.name).toBeUndefined();
+  });
+
+  it("mostra o vídeo de Ressecamento no quarto card", () => {
+    expect(fourth.video).toBe(ressecamentoVideo.url);
+    expect(fourth.image).toBe(ressecamentoCover.url);
+    expect(fourth.problem).toBe("Ressecamento");
+    expect(fourth.name).toBeUndefined();
+  });
+
+  it("não reaproveita os vídeos das outras páginas na /pata", () => {
+    expect(pataFeedbacks.map((f) => f.video)).not.toContain(mikeVideo.url);
+    expect(pataFeedbacks.map((f) => f.video)).not.toContain(amoraVideo.url);
+    expect(pataFeedbacks.map((f) => f.video)).not.toContain(depo1Video.url);
+  });
+
+  it("mantém a fileira com exatamente quatro cards", () => {
     expect(pataFeedbacks).toHaveLength(4);
-    const fourth = pataFeedbacks[3];
-    expect(fourth?.video).toBe(ressecamentoVideo.url);
-    expect(fourth?.image).toBe(ressecamentoCover.url);
-    expect(fourth?.problem).toBe("Ressecamento");
-    expect(fourth?.name).toBeUndefined();
   });
 });

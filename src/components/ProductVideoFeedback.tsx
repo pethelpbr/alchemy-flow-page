@@ -49,15 +49,13 @@ const peleFeedbacks: Feedback[] = [
   ...feedbacks.slice(2),
 ];
 
-// Só na /pata: o primeiro relato é o vídeo da lambedura, o segundo é o vídeo
-// gravado para o PataHelp, o terceiro é o relato de feridas e o quarto de
-// ressecamento — todos sem nome
-// no card, só a etiqueta laranja. A Black Friday e a /pele continuam com os
-// três originais.
+// Só na /pata: a ordem da fileira é dermatite, feridas, lambedura e
+// ressecamento — todos sem nome no card, só a etiqueta laranja. A Black Friday
+// e a /pele continuam com os três originais.
 export const pataFeedbacks: Feedback[] = [
-  { caption: "Antes e depois", problem: "Lambedura", image: pataDepo3Cover.url, video: pataDepo3Video.url },
   { caption: "Antes e depois", problem: "Dermatite", image: pataDepoCover.url, video: pataDepoVideo.url },
   { caption: "Antes e depois", problem: "Feridas", image: pataDepo2Cover.url, video: pataDepo2Video.url },
+  { caption: "Antes e depois", problem: "Lambedura", image: pataDepo3Cover.url, video: pataDepo3Video.url },
   { caption: "Antes e depois", problem: "Ressecamento", image: pataRessecamentoCover.url, video: pataRessecamentoVideo.url },
 ];
 
