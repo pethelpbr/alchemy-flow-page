@@ -1,10 +1,11 @@
 import { createContext, useContext, type ReactNode } from "react";
-import { variants as defaultVariants, type Variant } from "./product";
+import { variants as defaultVariants, type Variant, type Addon } from "./product";
 
 export type Offer = {
   variants: Variant[];
   /** Mostra o bloco de adicionais ("Complete o cuidado") no card de compra. */
   showAddons: boolean;
+  addonCatalog?: Omit<Addon, "image">[];
   /** Fotos extras exibidas junto ao kit (ex.: PataHelp e BocaHelp). */
   bundleImages?: { src: string; alt: string }[];
   buyLabel?: string;

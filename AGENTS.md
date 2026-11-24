@@ -32,3 +32,4 @@
 - BeforeAfterSection accepts page-specific cases via `extraCases` (array, shown before the shared defaults) with optional full photos in equal square halves, an after label and product overlay position; keep default cases unchanged for other pages.
 - Black Friday sets a route-scoped browser theme color and applies its canvas token to html/body via :has; Safari safe areas and overscroll must match the landing without changing other pages or native zoom.
 - /home is the store-style home listing every product; each product card links to its own pain-point landing page (NutraHelp → /pele) so new product pages plug in by adding a route and a link.
+- Page-specific add-on catalogs are passed through Offer and useCart; shared cards and mobile totals use that catalog so other landing pages retain their own complements.

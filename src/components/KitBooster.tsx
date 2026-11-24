@@ -3,15 +3,19 @@ import { brl, addonCatalog, addonSavings, type Addon } from "@/lib/product";
 import { cn } from "@/lib/utils";
 import addonBocahelp from "@/assets/addon-bocahelp.png.asset.json";
 import addonPatahelp from "@/assets/addon-patahelp.png.asset.json";
+import addonNutrahelp from "@/assets/nutrahelp-foto.png.asset.json";
+import { useOffer } from "@/lib/offer-context";
+import { Button } from "@/components/ui/button";
 
 const images: Record<string, string> = {
   collagen: addonBocahelp.url,
   vitc: addonPatahelp.url,
+  nutra: addonNutrahelp.url,
 };
 
 export const addons: Addon[] = addonCatalog.map((a) => ({
   ...a,
-  image: images[a.id]!,
+  image: images[a.id] ?? "",
 }));
 
 export function KitBooster({
@@ -21,6 +25,10 @@ export function KitBooster({
   selectedIds: string[];
   onToggle: (id: string) => void;
 }) {
+  const { addonCatalog: offerCatalog } = useOffer();
+  const displayedAddons = offerCatalog
+    ? offerCatalog.map((a) => ({ ...a, image: images[a.id] ?? "" }))
+    : addons;
   return (
     <div className="mt-6">
       <p className="flex items-center gap-2 text-lg font-semibold text-ink">
@@ -31,7 +39,7 @@ export function KitBooster({
       </p>
 
       <div className="mt-3 grid grid-cols-2 gap-2.5">
-        {addons.map((a) => {
+        {displayedAddons.map((a) => {
           const isActive = selectedIds.includes(a.id);
           return (
             <div
@@ -49,7 +57,7 @@ export function KitBooster({
               >
                 <img
                   src={a.image}
-                  alt={a.name}
+                  alt={a.id === "nutra" ? "NutraHelp" : a.id === "collagen" ? "BocaHelp" : "PataHelp"}
                   loading="lazy"
                   width={768}
                   height={768}
@@ -87,8 +95,10 @@ export function KitBooster({
                   <span className="text-[11px] font-semibold text-ink lg:text-base">{brl(a.price)}</span>
                 </div>
                 <div className="flex flex-1 justify-center">
-                  <button
+                  <Button
                     type="button"
+                    variant="ghost"
+                    aria-pressed={isActive}
                     onClick={() => onToggle(a.id)}
                     className={cn(
                       "whitespace-nowrap rounded-lg border border-transparent px-2 py-1.5 text-center text-[9px] font-semibold uppercase tracking-wider transition-colors lg:px-3 lg:py-2 lg:text-[13px]",
@@ -98,7 +108,7 @@ export function KitBooster({
                     )}
                   >
                     {isActive ? "ADICIONADO" : "ADICIONAR"}
-                  </button>
+                  </Button>
                 </div>
               </div>
               {a.compareAt != null && (

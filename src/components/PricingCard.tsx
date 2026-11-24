@@ -31,13 +31,13 @@ export function PricingCard({
 }) {
   const { total, installmentValue } = variantTotals(selected);
   const toggleAddon = onToggleAddon;
-  const { showAddons, buyLabel } = useOffer();
+  const { showAddons, buyLabel, addonCatalog } = useOffer();
 
-  const extra = addonsTotal(addonIds);
+  const extra = addonsTotal(addonIds, addonCatalog);
   const grandTotal = total + (selected.shipping ?? 0) + extra;
   const originalTotal =
     (selected.compareAt ?? total + (selected.shipping ?? 0)) +
-    addonsCompareAtTotal(addonIds);
+    addonsCompareAtTotal(addonIds, addonCatalog);
   return (
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
       <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
