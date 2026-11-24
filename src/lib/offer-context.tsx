@@ -1,16 +1,27 @@
 import { createContext, useContext, type ReactNode } from "react";
-import { variants as defaultVariants, type Variant } from "./product";
+import {
+  addonCatalog,
+  variants as defaultVariants,
+  type Addon,
+  type Variant,
+} from "./product";
 
 export type Offer = {
   variants: Variant[];
   /** Mostra o bloco de adicionais ("Complete o cuidado") no card de compra. */
   showAddons: boolean;
+  /** Quais adicionais o bloco mostra (padrão: os da página da pele). */
+  addons?: Omit<Addon, "image">[];
   /** Fotos extras exibidas junto ao kit (ex.: PataHelp e BocaHelp). */
   bundleImages?: { src: string; alt: string }[];
   buyLabel?: string;
 };
 
-const OfferContext = createContext<Offer>({ variants: defaultVariants, showAddons: true });
+const OfferContext = createContext<Offer>({
+  variants: defaultVariants,
+  showAddons: true,
+  addons: addonCatalog,
+});
 
 export function OfferProvider({ offer, children }: { offer: Offer; children: ReactNode }) {
   return <OfferContext.Provider value={offer}>{children}</OfferContext.Provider>;

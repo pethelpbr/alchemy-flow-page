@@ -1,6 +1,13 @@
 import { motion } from "motion/react";
 import { RefreshCw, Lock } from "lucide-react";
-import { brl, variantTotals, addonsTotal, addonsCompareAtTotal, type Variant } from "@/lib/product";
+import {
+  brl,
+  variantTotals,
+  addonsTotal,
+  addonsCompareAtTotal,
+  addonCatalog,
+  type Variant,
+} from "@/lib/product";
 import { ProductSelector } from "@/components/ProductSelector";
 import { BuyButton } from "@/components/ui/BuyButton";
 import { KitBooster } from "@/components/KitBooster";
@@ -31,13 +38,14 @@ export function PricingCard({
 }) {
   const { total, installmentValue } = variantTotals(selected);
   const toggleAddon = onToggleAddon;
-  const { showAddons, buyLabel } = useOffer();
+  const { showAddons, buyLabel, addons: offerAddons } = useOffer();
+  const addonItems = offerAddons ?? addonCatalog;
 
-  const extra = addonsTotal(addonIds);
+  const extra = addonsTotal(addonIds, addonItems);
   const grandTotal = total + (selected.shipping ?? 0) + extra;
   const originalTotal =
     (selected.compareAt ?? total + (selected.shipping ?? 0)) +
-    addonsCompareAtTotal(addonIds);
+    addonsCompareAtTotal(addonIds, addonItems);
   return (
     <div id="comprar" className="scroll-mt-28 flex flex-col gap-6">
       <div className="overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card sm:p-7">
@@ -93,7 +101,7 @@ export function PricingCard({
           ))}
         </div>
 
-        {showAddons && <KitBooster selectedIds={addonIds} onToggle={toggleAddon} />}
+        {showAddons && <KitBooster selectedIds={addonIds} onToggle={toggleAddon} items={addonItems} />}
 
       </div>
 

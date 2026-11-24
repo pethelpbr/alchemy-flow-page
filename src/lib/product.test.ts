@@ -1,5 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { pataVariants, variantTotals, pataSelectorPricing } from "./product";
+import {
+  addonCatalog,
+  addonsCompareAtTotal,
+  addonsTotal,
+  pataAddonCatalog,
+  pataVariants,
+  variantTotals,
+  pataSelectorPricing,
+  variants,
+} from "./product";
 
 describe("ofertas da página /pata", () => {
   it("compara o combo com os produtos avulsos sem incluir frete", () => {
@@ -55,5 +64,33 @@ describe("ofertas da página /pata", () => {
     expect(pataVariants[1]?.tag).toBe("Compre 2, leve 3");
     expect(pataVariants[0]?.tag).toBe("Brinde");
     expect(pataVariants[2]?.tag).toBeUndefined();
+  });
+});
+
+describe("adicionais do bloco Complete o cuidado", () => {
+  it("mostra BocaHelp e NutraHelp na /pata, sem PataHelp", () => {
+    expect(pataAddonCatalog.map((a) => a.id)).toEqual(["collagen", "nutra"]);
+    expect(pataAddonCatalog.map((a) => a.name)).toEqual([
+      "Contra mau hálito e tártaro",
+      "Nutre a pele, o pelo e o intestino",
+    ]);
+  });
+
+  it("cobra o NutraHelp pelo preço de um pote avulso, sem desconto inventado", () => {
+    const nutra = pataAddonCatalog.find((a) => a.id === "nutra");
+    const singlePot = variants.find((v) => v.id === "1-un");
+    expect(nutra?.price).toBe(139);
+    expect(nutra?.price).toBe(singlePot?.unitPrice);
+    expect(nutra?.compareAt).toBeUndefined();
+  });
+
+  it("soma os adicionais da /pata pelo catálogo dela", () => {
+    expect(addonsTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(188.9);
+    expect(addonsCompareAtTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(228.9);
+  });
+
+  it("mantém BocaHelp e PataHelp no bloco da página da pele", () => {
+    expect(addonCatalog.map((a) => a.id)).toEqual(["collagen", "vitc"]);
+    expect(addonsTotal(["collagen", "vitc"])).toBeCloseTo(79.8);
   });
 });
