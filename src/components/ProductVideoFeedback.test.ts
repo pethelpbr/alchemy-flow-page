@@ -6,6 +6,8 @@ import pata2Video from "@/assets/depoimento-pata-2.mp4.asset.json";
 import pata2Cover from "@/assets/depoimento-pata-2-capa.jpg.asset.json";
 import pata3Video from "@/assets/depoimento-pata-3.mp4.asset.json";
 import pata3Cover from "@/assets/depoimento-pata-3-capa.jpg.asset.json";
+import ressecamentoVideo from "@/assets/depoimento-pata-ressecamento.mp4.asset.json";
+import ressecamentoCover from "@/assets/depoimento-pata-ressecamento-capa.jpg.asset.json";
 import mikeVideo from "@/assets/depoimento-mike.mp4.asset.json";
 import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
 import depo1Video from "@/assets/depoimento-1.mp4.asset.json";
@@ -53,5 +55,14 @@ describe("relatos em vídeo da página /pata", () => {
 
   it("não reaproveita o vídeo da Amora no primeiro card da /pata", () => {
     expect(first.video).not.toBe(amoraVideo.url);
+  });
+
+  it("acrescenta o vídeo de Ressecamento no quarto card sem substituir os anteriores", () => {
+    expect(pataFeedbacks).toHaveLength(4);
+    const fourth = pataFeedbacks[3];
+    expect(fourth?.video).toBe(ressecamentoVideo.url);
+    expect(fourth?.image).toBe(ressecamentoCover.url);
+    expect(fourth?.problem).toBe("Ressecamento");
+    expect(fourth?.name).toBeUndefined();
   });
 });

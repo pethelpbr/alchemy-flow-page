@@ -18,4 +18,4 @@
 - [x] Bloco "Complete o cuidado" na /pata com BocaHelp + NutraHelp (R$ 139, sem desconto inventado), mantendo a /pele com BocaHelp + PataHelp.
 - [x] Vídeo enviado no segundo card de depoimentos da /pata, com capa própria e só a etiqueta "Dermatite" (sem nome), sem tocar /pele e /black-friday.
 - [x] Vídeo do Theo no primeiro card de depoimentos da /pata, no lugar da Amora, com etiqueta "Lambedura" (sem nome), sem tocar /pele e /black-friday.
-- [ ] Quarto vídeo de depoimentos na /pata, com etiqueta "Ressecamento", sem tocar /pele e /black-friday.
+- [x] Quarto vídeo de depoimentos na /pata, com etiqueta "Ressecamento", sem tocar /pele e /black-friday.

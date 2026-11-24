@@ -27,6 +27,8 @@ import pataDepo2Video from "@/assets/depoimento-pata-2.mp4.asset.json";
 import pataDepo2Cover from "@/assets/depoimento-pata-2-capa.jpg.asset.json";
 import pataDepo3Video from "@/assets/depoimento-pata-3.mp4.asset.json";
 import pataDepo3Cover from "@/assets/depoimento-pata-3-capa.jpg.asset.json";
+import pataRessecamentoVideo from "@/assets/depoimento-pata-ressecamento.mp4.asset.json";
+import pataRessecamentoCover from "@/assets/depoimento-pata-ressecamento-capa.jpg.asset.json";
 
 type Feedback = { image: string; name?: string; caption: string; problem: string; video?: string };
 
@@ -48,13 +50,15 @@ const peleFeedbacks: Feedback[] = [
 ];
 
 // Só na /pata: o primeiro relato é o vídeo da lambedura, o segundo é o vídeo
-// gravado para o PataHelp e o terceiro é o relato de feridas — todos sem nome
+// gravado para o PataHelp, o terceiro é o relato de feridas e o quarto de
+// ressecamento — todos sem nome
 // no card, só a etiqueta laranja. A Black Friday e a /pele continuam com os
 // três originais.
 export const pataFeedbacks: Feedback[] = [
   { caption: "Antes e depois", problem: "Lambedura", image: pataDepo3Cover.url, video: pataDepo3Video.url },
   { caption: "Antes e depois", problem: "Dermatite", image: pataDepoCover.url, video: pataDepoVideo.url },
   { caption: "Antes e depois", problem: "Feridas", image: pataDepo2Cover.url, video: pataDepo2Video.url },
+  { caption: "Antes e depois", problem: "Ressecamento", image: pataRessecamentoCover.url, video: pataRessecamentoVideo.url },
 ];
 
 function VideoTags({ problem, className }: { problem: string; className?: string }) {
