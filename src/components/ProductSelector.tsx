@@ -55,7 +55,10 @@ export function ProductSelector({
                     </span>
                   )}
                   {hasGift && (
-                    <span className="rounded-full bg-gift px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gift-foreground">
+                    <span className={cn(
+                      "rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide",
+                      v.tag === "Brinde" ? "bg-shipping text-shipping-foreground" : "bg-gift text-gift-foreground",
+                    )}>
                       {v.tag ?? "Brinde"}
                     </span>
                   )}
@@ -137,7 +140,10 @@ export function ProductSelector({
                     </span>
                   )}
                   {hasGift && (
-                    <span className="rounded-full bg-gift px-2 py-0.5 text-[10px] font-bold uppercase text-gift-foreground">
+                    <span className={cn(
+                      "rounded-full px-2 py-0.5 text-[10px] font-bold uppercase",
+                      v.tag === "Brinde" ? "bg-shipping text-shipping-foreground" : "bg-gift text-gift-foreground",
+                    )}>
                       {v.tag ?? "Brinde"}
                     </span>
                   )}

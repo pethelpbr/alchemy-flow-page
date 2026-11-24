@@ -143,7 +143,10 @@ export function FinalOffer({
                     {hasFreeShipping ? "Frete grátis" : "Frete fixo"}
                   </span>
                   {(variant.tag || (isBestChoice && !variant.id.startsWith("bf-") && !variant.id.startsWith("pata-"))) && (
-                    <span className="rounded-full bg-gift px-3 py-1.5 text-xs font-bold uppercase text-gift-foreground">
+                    <span className={cn(
+                      "rounded-full px-3 py-1.5 text-xs font-bold uppercase",
+                      variant.tag === "Brinde" ? "bg-shipping text-shipping-foreground" : "bg-gift text-gift-foreground",
+                    )}>
                       {variant.tag ?? "Brinde"}
                     </span>
                   )}
