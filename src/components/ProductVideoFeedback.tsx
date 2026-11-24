@@ -21,8 +21,13 @@ import amoraVideo from "@/assets/depoimento-amora.mp4.asset.json";
 import amoraCover from "@/assets/depoimento-amora-capa.jpg.asset.json";
 import mikeVideo from "@/assets/depoimento-mike.mp4.asset.json";
 import mikeCover from "@/assets/depoimento-mike-capa.jpg.asset.json";
+import pataDepoVideo from "@/assets/depoimento-pata.mp4.asset.json";
+import pataDepoCover from "@/assets/depoimento-pata-capa.jpg.asset.json";
 
-type Feedback = { image: string; name: string; caption: string; problem: string; video?: string };
+type Feedback = { image: string; name?: string; caption: string; problem: string; video?: string };
+
+// O nome é opcional: sem nome confirmado, o card mostra só a etiqueta laranja.
+const feedbackLabel = (f: Feedback) => (f.name ? `de ${f.name}` : `sobre ${f.problem}`);
 
 const feedbacks: Feedback[] = [
   { image: depo3Cover.url, name: "Júlia", caption: "Leve e fácil de preparar", problem: "Queda de pelos", video: depo3Video.url },
@@ -35,6 +40,14 @@ const feedbacks: Feedback[] = [
 const peleFeedbacks: Feedback[] = [
   { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
   { image: mikeCover.url, name: "Mike", caption: "Antes e depois", problem: "Dermatite", video: mikeVideo.url },
+  ...feedbacks.slice(2),
+];
+
+// Só na /pata: o segundo relato passa a ser o vídeo gravado para o PataHelp.
+// Sem nome no card — fica apenas a etiqueta laranja "Dermatite".
+export const pataFeedbacks: Feedback[] = [
+  { image: amoraCover.url, name: "Amora", caption: "Cuidado diário", problem: "Lágrima ácida", video: amoraVideo.url },
+  { caption: "Antes e depois", problem: "Dermatite", image: pataDepoCover.url, video: pataDepoVideo.url },
   ...feedbacks.slice(2),
 ];
 
@@ -157,13 +170,13 @@ function Thumbnails({ className, items, onSelect, paused = false, store = false 
   };
   return (
     <div ref={trackRef} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag} onClickCapture={(e) => { if (drag.current.moved) { e.preventDefault(); e.stopPropagation(); drag.current.moved = false; } }} className={cn("-mx-4 flex gap-2.5 overflow-x-auto scroll-smooth px-4 pb-1 [touch-action:pan-x_pan-y] [-webkit-overflow-scrolling:touch] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", store ? "md:mx-0 md:justify-center md:overflow-visible md:px-0 md:pb-0" : "md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0", className)}>
-      {items.map((feedback) => (
-        <div key={feedback.name} className={store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
-          <Button type="button" variant="ghost" aria-label={`Assistir ao relato de ${feedback.name}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
+      {items.map((feedback, index) => (
+        <div key={feedback.name ?? `${feedback.problem}-${index}`} className={store ? "w-[46%] shrink-0 sm:w-[30%] md:w-[22%] lg:w-[17%]" : "w-[62%] shrink-0 md:w-auto md:shrink"}>
+          <Button type="button" variant="ghost" aria-label={`Assistir ao relato ${feedbackLabel(feedback)}`} onClick={() => onSelect(feedback)} className="group relative block h-auto w-full overflow-hidden rounded-xl p-0 shadow-none">
             {feedback.video ? (
-              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato de ${feedback.name}`} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
+              <video src={feedback.video} poster={feedback.image} autoPlay muted loop playsInline preload="metadata" aria-label={`Relato ${feedbackLabel(feedback)}`} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
             ) : (
-              <img src={feedback.image} alt={`Relato de ${feedback.name}`} loading="lazy" draggable={false} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
+              <img src={feedback.image} alt={`Relato ${feedbackLabel(feedback)}`} loading="lazy" draggable={false} className={cn("w-full object-cover", store ? "aspect-[3/5]" : "aspect-[9/14]")} />
             )}
             <span className="absolute inset-0 rounded-xl border border-transparent bg-ink/15 transition-colors group-hover:border-primary" />
             <VideoTags problem={feedback.problem} />
@@ -303,8 +316,8 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
 
 export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeLayout = false, variant = "default" }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined; storeLayout?: boolean; variant?: "default" | "pata" }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  // Black Friday (kitCta definido) mantém os três relatos originais; /pele ganha o da Amora.
-  const items = kitCta ? feedbacks : peleFeedbacks;
+  // Black Friday (kitCta definido) mantém os três relatos originais; /pele ganha o da Amora; /pata troca o segundo vídeo.
+  const items = kitCta ? feedbacks : variant === "pata" ? pataFeedbacks : peleFeedbacks;
   const detailItems = variant === "pata" ? pataDetails : details;
   const contentRef = useRef<HTMLDivElement>(null);
   const goingToKits = useRef(false);
@@ -364,7 +377,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeL
                 <DialogDescription className="sr-only">Relatos em vídeo de clientes PetHelp</DialogDescription>
                 <div className="mt-2 flex gap-2">
                   {items.map((feedback, index) => (
-                    <Button key={feedback.name} type="button" variant="ghost" aria-label={`Ver relato de ${feedback.name}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={cn("h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90", selectedIndex === index ? "border-primary" : "border-transparent")}>
+                    <Button key={feedback.name ?? `${feedback.problem}-${index}`} type="button" variant="ghost" aria-label={`Ver relato ${feedbackLabel(feedback)}`} aria-pressed={selectedIndex === index} onClick={() => setSelectedIndex(index)} className={cn("h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 p-0 transition-opacity hover:opacity-90", selectedIndex === index ? "border-primary" : "border-transparent")}>
                       <img src={feedback.image} alt="" className="h-full w-full object-cover" />
                     </Button>
                   ))}
@@ -375,7 +388,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeL
                   <DialogVideo key={selectedVideo.video} src={selectedVideo.video} poster={selectedVideo.image} />
                 ) : (
                   <>
-                    <img src={selectedVideo.image} alt={`Prévia do relato de ${selectedVideo.name}`} className="absolute inset-0 h-full w-full object-cover" />
+                    <img src={selectedVideo.image} alt={`Prévia do relato ${feedbackLabel(selectedVideo)}`} className="absolute inset-0 h-full w-full object-cover" />
                     <VideoTags problem={selectedVideo.problem} className="md:inset-1.5" />
                   </>
                 )}
