@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { AccordionBlock } from "@/components/ui/AccordionBlock";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import {
+  ingredientsDialogTitle,
+  ingredientsProducts,
+  type IngredientsVariant,
+} from "@/lib/ingredients";
 import { BuyButton } from "@/components/ui/BuyButton";
 import depo1Cover from "@/assets/depoimento-1-capa.jpg.asset.json";
 import depo2Cover from "@/assets/depoimento-2-capa.jpg.asset.json";
@@ -218,15 +223,17 @@ function CompositionList({ text }: { text: string }) {
   );
 }
 
-function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
+function GuaranteeTableDialog({ open, onOpenChange, variant = "default" }: { open: boolean; onOpenChange: (open: boolean) => void; variant?: IngredientsVariant }) {
+  const products = ingredientsProducts(variant);
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent onOpenAutoFocus={(event) => event.preventDefault()} className="flex max-h-[92dvh] w-[calc(100%_-_1.25rem)] max-w-[720px] flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-card p-0 shadow-soft [&>button]:right-4 [&>button]:top-4 [&>button]:text-ink [&>button]:opacity-100">
         <div className="border-b border-border px-6 py-5">
-          <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">Informação nutricional e ingredientes</DialogTitle>
+          <DialogTitle className="pr-10 font-display text-lg font-bold uppercase tracking-wide text-ink sm:text-xl">{ingredientsDialogTitle(variant)}</DialogTitle>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
           <div className="space-y-6">
+            {products.includes("nutra") && (
             <ProductSection name="NutraHelp" accent="nutra">
               <div className="overflow-hidden rounded-lg border border-border">
                 <TableTitle>Níveis de garantia por kg do produto</TableTitle>
@@ -243,14 +250,19 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
                 <div className="px-4 pb-3 pt-1.5"><p className="text-sm leading-relaxed text-muted-foreground">{qualitativeComposition}</p></div>
               </div>
             </ProductSection>
+            )}
 
+            {products.includes("pata") && (
             <ProductSection name="PataHelp" accent="pata">
               <CompositionList text={pataComposition} />
             </ProductSection>
+            )}
 
+            {products.includes("boca") && (
             <ProductSection name="BocaHelp" accent="boca">
               <CompositionList text={bocaComposition} />
             </ProductSection>
+            )}
           </div>
         </div>
       </DialogContent>
@@ -258,12 +270,12 @@ function GuaranteeTableDialog({ open, onOpenChange }: { open: boolean; onOpenCha
   );
 }
 
-function IngredientsButton() {
+function IngredientsButton({ variant = "default" }: { variant?: IngredientsVariant }) {
   const [open, setOpen] = useState(false);
   return (
     <>
       <BuyButton type="button" onClick={() => setOpen(true)} className="mt-4 h-12 w-full text-base normal-case tracking-normal">Ver tabela completa e ingredientes</BuyButton>
-      <GuaranteeTableDialog open={open} onOpenChange={setOpen} />
+      <GuaranteeTableDialog open={open} onOpenChange={setOpen} variant={variant} />
     </>
   );
 }
@@ -336,7 +348,7 @@ export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeL
       <div>
         {!storeLayout && <h3 className="text-base font-semibold text-ink">Tutores que já passaram por isso</h3>}
         <Thumbnails items={items} store={storeLayout} className={storeLayout ? "" : cn("mt-2 grid-cols-3", items.length > 3 && "md:grid-cols-4")} onSelect={selectFeedback} paused={selectedVideo !== null} />
-        {!storeLayout && <IngredientsButton />}
+        {!storeLayout && <IngredientsButton variant={variant} />}
       </div>
       {showDetails && (
         <div id="duvidas-compra" className="mt-7 pt-2">
