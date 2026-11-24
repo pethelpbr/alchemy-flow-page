@@ -67,8 +67,12 @@ function PataGallery({ selected }: { selected: Variant }) {
 }
 
 const signs = [
-  { title: "Lambe a pata sem parar", text: "De madrugada você escuta o barulho. O pelo da pata fica escuro e úmido.", img: sinalLambe.url },
-  { title: "Patas e focinho ressecados", text: "A almofadinha fica áspera, com rachaduras, e o focinho perde a hidratação.", img: sinalPatas.url },
+  { title: "Lambeduras e coceiras" },
+  { title: "Desconforto ao andar" },
+  { title: "Ressecamento e rachaduras" },
+  { title: "Feridas e queimaduras" },
+  { title: "Escurecimento e falha no pelo" },
+  { title: "Vermelhidão e irritação na pele" },
 ];
 
 function SignsSection() {
@@ -80,13 +84,12 @@ function SignsSection() {
           Reconhece algum
           <br className="sm:hidden" /> desses sinais?
         </h2>
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((s) => (
             <article key={s.title} className="overflow-hidden rounded-2xl border border-border bg-card">
-              <img src={s.img} alt={s.title} loading="lazy" className="aspect-[4/3] w-full border-b border-border object-cover" />
+              <div aria-hidden="true" className="aspect-square w-full border-b border-border bg-muted" />
               <div className="p-5">
                 <h3 className="font-display text-xl text-foreground">{s.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{s.text}</p>
               </div>
             </article>
           ))}
