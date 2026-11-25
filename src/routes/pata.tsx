@@ -6,6 +6,7 @@ import { MobileKitGallery } from "@/components/MobileKitGallery";
 import { DesktopKitGallery } from "@/components/DesktopKitGallery";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
+import { PataItchingOriginsSection } from "@/components/PataItchingOriginsSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
@@ -180,6 +181,7 @@ function PataPage() {
         />
         <SignsSection />
         <BenefitsSection content={pataTriedEverything} />
+        <PataItchingOriginsSection />
         <ProductSection />
         <BeforeAfterSection
           onlyExtra
