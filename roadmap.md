@@ -21,3 +21,4 @@
 - [x] Quarto vídeo de depoimentos na /pata, com etiqueta "Ressecamento", sem tocar /pele e /black-friday.
 - [x] Fileira de depoimentos da /pata com indicativo de que há mais vídeo: próxima capa encostada na borda, bolinhas de progresso e a dica "Arraste para ver mais", sem tocar /pele e /black-friday.
 - [x] Ordem dos depoimentos da /pata trocada para Dermatite, Feridas, Lambedura e Ressecamento, sem tocar /pele e /black-friday.
+- [x] Bloco "Você já tentou de tudo" na /pata, logo depois dos sinais, com texto do PataHelp; /pele e /black-friday intactas.

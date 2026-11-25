@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { MobileKitGallery } from "@/components/MobileKitGallery";
 import { DesktopKitGallery } from "@/components/DesktopKitGallery";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
+import { BenefitsSection } from "@/components/BenefitsSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
@@ -74,6 +75,18 @@ const signs = [
   { title: "Escurecimento e falha no pelo", text: "O pelo da região lambida vai ficando escuro e úmido. Aos poucos, aparecem áreas com menos pelo." },
   { title: "Vermelhidão e irritação na pele", text: "Entre os dedos, na barriga ou nas dobrinhas, a pele fica vermelha e sensível. Ele tenta aliviar lambendo ou se coçando." },
 ];
+
+const pataTriedEverything = {
+  lead: "Foi pomada atrás de pomada, foi remédio que só resolveu por um tempo, foi a bota que ele não deixa tirar.",
+  body: " É acordar de madrugada com o barulho da lambedura. É ver ele tirando a pata do chão de dor e não poder fazer nada. É se sentir o pior tutor do mundo por já não aguentar mais. ",
+  cardsTitle: "É isso que muda com o PataHelp",
+  benefits: [
+    { title: "Pisa firme de novo", text: "As almofadinhas voltam a ficar macias e ele apoia a pata sem hesitar no meio do passeio." },
+    { title: "Lambe menos", text: "Com a irritação acalmada, a lambedura deixa de ser o passatempo dele." },
+    { title: "Focinho macio", text: "A rachadura do focinho fecha e ele volta a encostar o nariz em você sem incomodo." },
+    { title: "Volta a brincar", text: "Sem dor na pata, ele corre, brinca e aceita o passeio sem parar no meio da calçada." },
+  ],
+};
 
 function SignsSection() {
   return (
@@ -191,6 +204,7 @@ function PataPage() {
           bullets={["Reduz as lambeduras", "Trata ressecamento e rachaduras", "Lambível e atóxico"]}
         />
         <SignsSection />
+        <BenefitsSection content={pataTriedEverything} />
         <ProductSection />
         <BeforeAfterSection
           onlyExtra
