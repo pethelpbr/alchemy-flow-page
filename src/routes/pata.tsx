@@ -154,7 +154,7 @@ function HowToUse() {
     <section className="section">
       <div className="container-x">
         <p className="text-center text-xs font-bold uppercase text-primary!">Como usar</p>
-        <h2 className="mt-3 text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">É só passar e massagear</h2>
+        <h2 className="mt-3 text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">Aplique e massageie</h2>
         <div className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-3">
           {steps.map((s) => (
             <div key={s.n} className="rounded-2xl border border-border bg-card p-6">
