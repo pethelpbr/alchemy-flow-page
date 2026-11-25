@@ -7,6 +7,7 @@ import { DesktopKitGallery } from "@/components/DesktopKitGallery";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { PataItchingOriginsSection } from "@/components/PataItchingOriginsSection";
+import { RoutineResultsSection } from "@/components/RoutineResultsSection";
 import { StatsBanner } from "@/components/StatsBanner";
 import { VeterinaryAuthoritySection } from "@/components/VeterinaryAuthoritySection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
@@ -120,6 +121,35 @@ const steps = [
   { n: "03", t: "Repita quando precisar", d: "De 2 a 3 vezes por dia, sem limite." },
 ];
 
+const pataResults = {
+  timeline: [
+    {
+      badge: "Primeiras semanas",
+      label: "O alívio começa",
+      text: "Ele lambe e coça menos a pata. As almofadinhas já ficam menos ásperas quando você toca.",
+    },
+    {
+      badge: "Depois do 1º mês",
+      label: "A pele se recupera",
+      text: "As rachaduras do focinho fecham e as feridas das patas cicatrizam. Ele volta a apoiar o peso sem hesitar.",
+    },
+    {
+      badge: "Entre o 2º e o 3º mês",
+      label: "Menos lambedura",
+      text: "A lambedura vira exceção, não rotina. O pelo da região lambida clareia e começa a preencher as falhas.",
+    },
+    {
+      badge: "A partir do 4º mês",
+      label: "Pata saudável de novo",
+      text: "As almofadinhas estão macias e resistentes. Agora é só manter o uso contínuo — para evitar que as crises voltem.",
+    },
+  ],
+  before: marleyAntes.url,
+  after: marleyDepois.url,
+  beforeAlt: "Pata do Marley antes de usar o PataHelp",
+  afterAlt: "Pata do Marley depois do uso contínuo do PataHelp",
+};
+
 function ProductSection() {
   return (
     <section className="section bg-sand">
@@ -183,6 +213,7 @@ function PataPage() {
         <BenefitsSection content={pataTriedEverything} />
         <PataItchingOriginsSection />
         <ProductSection />
+        <RoutineResultsSection content={pataResults} />
         <BeforeAfterSection
           onlyExtra
           resultStyle

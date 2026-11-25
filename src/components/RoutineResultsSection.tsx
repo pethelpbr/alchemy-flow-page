@@ -28,6 +28,19 @@ const timeline = [
 
 type Step = (typeof timeline)[number];
 
+export type RoutineContent = {
+  timeline?: Step[];
+  before?: string;
+  after?: string;
+  beforeAlt?: string;
+  afterAlt?: string;
+};
+
+const defaultBefore = beforePhoto.url;
+const defaultAfter = afterPhoto.url;
+const defaultBeforeAlt = "Pet antes de usar o NutraHelp";
+const defaultAfterAlt = "Pet depois do uso contínuo do NutraHelp";
+
 function StepItem({ item }: { item: Step }) {
   return (
     <li className="relative pb-12 last:pb-0 sm:pb-14">
@@ -45,7 +58,17 @@ function StepItem({ item }: { item: Step }) {
   );
 }
 
-function Images() {
+function Images({
+  before = defaultBefore,
+  after = defaultAfter,
+  beforeAlt = defaultBeforeAlt,
+  afterAlt = defaultAfterAlt,
+}: {
+  before?: string;
+  after?: string;
+  beforeAlt?: string;
+  afterAlt?: string;
+}) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<{
@@ -119,16 +142,16 @@ function Images() {
         className="relative aspect-[4/5] cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-2xl bg-muted shadow-soft"
       >
         <img
-          src={afterPhoto.url}
-          alt="Pet depois do uso contínuo do NutraHelp"
+          src={after}
+          alt={afterAlt}
           loading="lazy"
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
         />
 
         <img
-          src={beforePhoto.url}
-          alt="Pet antes de usar o NutraHelp"
+          src={before}
+          alt={beforeAlt}
           loading="lazy"
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover"
@@ -180,7 +203,13 @@ function Images() {
   );
 }
 
-export function RoutineResultsSection() {
+export function RoutineResultsSection({ content }: { content?: RoutineContent }) {
+  const steps = content?.timeline ?? timeline;
+  const before = content?.before ?? defaultBefore;
+  const after = content?.after ?? defaultAfter;
+  const beforeAlt = content?.beforeAlt ?? defaultBeforeAlt;
+  const afterAlt = content?.afterAlt ?? defaultAfterAlt;
+
   return (
     <>
       <section className="bg-card py-10 md:py-12">
@@ -193,12 +222,12 @@ export function RoutineResultsSection() {
             </h2>
 
             <ol className="relative mt-10 ml-2 border-l border-dotted border-primary/60 py-1 pl-8 sm:mt-12 sm:pl-10">
-              {timeline.map((item, index) => (
+              {steps.map((item, index) => (
                 <Fragment key={item.label}>
                   <StepItem item={item} />
                   {index === 1 && (
                     <li className="mb-12 -ml-8 lg:hidden">
-                      <Images />
+                      <Images before={before} after={after} beforeAlt={beforeAlt} afterAlt={afterAlt} />
                     </li>
                   )}
                 </Fragment>
@@ -207,7 +236,7 @@ export function RoutineResultsSection() {
           </div>
 
           <div className="hidden lg:sticky lg:top-28 lg:block">
-            <Images />
+            <Images before={before} after={after} beforeAlt={beforeAlt} afterAlt={afterAlt} />
           </div>
         </div>
       </section>
