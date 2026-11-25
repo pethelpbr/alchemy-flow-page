@@ -144,7 +144,6 @@ const pataResults = {
       text: "As almofadinhas estão macias e resistentes. Agora é só manter o uso contínuo — para evitar que as crises voltem.",
     },
   ],
-  showImages: false,
 };
 
 function ProductSection() {
