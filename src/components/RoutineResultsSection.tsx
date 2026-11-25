@@ -1,5 +1,5 @@
 import { Fragment, useRef, useState } from "react";
-import { ChevronsLeftRight } from "lucide-react";
+import { ChevronsLeftRight, Image as ImageIcon } from "lucide-react";
 import beforePhoto from "@/assets/cachorro-ruim.png.asset.json";
 import afterPhoto from "@/assets/cachorro-top.png.asset.json";
 
@@ -34,6 +34,7 @@ export type RoutineContent = {
   after?: string;
   beforeAlt?: string;
   afterAlt?: string;
+  showImages?: boolean;
 };
 
 const defaultBefore = beforePhoto.url;
@@ -63,11 +64,13 @@ function Images({
   after = defaultAfter,
   beforeAlt = defaultBeforeAlt,
   afterAlt = defaultAfterAlt,
+  showImages = true,
 }: {
   before?: string;
   after?: string;
   beforeAlt?: string;
   afterAlt?: string;
+  showImages?: boolean;
 }) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -141,22 +144,35 @@ function Images({
         onPointerCancel={endDrag}
         className="relative aspect-[4/5] cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-2xl bg-muted shadow-soft"
       >
-        <img
-          src={after}
-          alt={afterAlt}
-          loading="lazy"
-          draggable={false}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {showImages ? (
+          <>
+            <img
+              src={after}
+              alt={afterAlt}
+              loading="lazy"
+              draggable={false}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
 
-        <img
-          src={before}
-          alt={beforeAlt}
-          loading="lazy"
-          draggable={false}
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-        />
+            <img
+              src={before}
+              alt={beforeAlt}
+              loading="lazy"
+              draggable={false}
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+            />
+          </>
+        ) : (
+          <div className="absolute inset-0 grid place-items-center px-6">
+            <div className="flex w-full max-w-[220px] flex-col items-center gap-3 rounded-xl border border-dashed border-primary/40 px-5 py-8 text-center">
+              <ImageIcon className="h-6 w-6 text-primary/60" aria-hidden="true" />
+              <p className="text-sm leading-snug text-muted-foreground">
+                Foto aqui
+              </p>
+            </div>
+          </div>
+        )}
 
         <div
           aria-hidden={position <= 0}
@@ -177,27 +193,31 @@ function Images({
           </span>
         </div>
 
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 z-10 w-0.5 -translate-x-1/2 bg-card shadow-card"
-          style={{ left: `${position}%` }}
-        >
-          <span className="absolute top-1/2 left-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-card bg-primary text-primary-foreground shadow-soft">
-            <ChevronsLeftRight className="h-5 w-5" aria-hidden="true" />
-          </span>
-        </div>
+        {showImages && (
+          <>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 z-10 w-0.5 -translate-x-1/2 bg-card shadow-card"
+              style={{ left: `${position}%` }}
+            >
+              <span className="absolute top-1/2 left-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-card bg-primary text-primary-foreground shadow-soft">
+                <ChevronsLeftRight className="h-5 w-5" aria-hidden="true" />
+              </span>
+            </div>
 
-        <div className="absolute right-4 bottom-4 z-20 w-32 opacity-100 sm:w-40">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={position}
-            onChange={(event) => setPosition(Number(event.target.value))}
-            aria-label="Comparar imagens antes e depois"
-            className="h-1.5 w-full cursor-ew-resize appearance-none rounded-full bg-card/70 accent-primary"
-          />
-        </div>
+            <div className="absolute right-4 bottom-4 z-20 w-32 opacity-100 sm:w-40">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={position}
+                onChange={(event) => setPosition(Number(event.target.value))}
+                aria-label="Comparar imagens antes e depois"
+                className="h-1.5 w-full cursor-ew-resize appearance-none rounded-full bg-card/70 accent-primary"
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -209,6 +229,7 @@ export function RoutineResultsSection({ content }: { content?: RoutineContent })
   const after = content?.after ?? defaultAfter;
   const beforeAlt = content?.beforeAlt ?? defaultBeforeAlt;
   const afterAlt = content?.afterAlt ?? defaultAfterAlt;
+  const showImages = content?.showImages ?? true;
 
   return (
     <>
@@ -227,7 +248,7 @@ export function RoutineResultsSection({ content }: { content?: RoutineContent })
                   <StepItem item={item} />
                   {index === 1 && (
                     <li className="mb-12 -ml-8 lg:hidden">
-                      <Images before={before} after={after} beforeAlt={beforeAlt} afterAlt={afterAlt} />
+                      <Images before={before} after={after} beforeAlt={beforeAlt} afterAlt={afterAlt} showImages={showImages} />
                     </li>
                   )}
                 </Fragment>
@@ -236,7 +257,7 @@ export function RoutineResultsSection({ content }: { content?: RoutineContent })
           </div>
 
           <div className="hidden lg:sticky lg:top-28 lg:block">
-            <Images before={before} after={after} beforeAlt={beforeAlt} afterAlt={afterAlt} />
+            <Images before={before} after={after} beforeAlt={beforeAlt} afterAlt={afterAlt} showImages={showImages} />
           </div>
         </div>
       </section>

@@ -144,10 +144,7 @@ const pataResults = {
       text: "As almofadinhas estão macias e resistentes. Agora é só manter o uso contínuo — para evitar que as crises voltem.",
     },
   ],
-  before: marleyAntes.url,
-  after: marleyDepois.url,
-  beforeAlt: "Pata do Marley antes de usar o PataHelp",
-  afterAlt: "Pata do Marley depois do uso contínuo do PataHelp",
+  showImages: false,
 };
 
 function ProductSection() {
