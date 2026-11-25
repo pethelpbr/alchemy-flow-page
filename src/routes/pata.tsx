@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { Check } from "lucide-react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { MobileKitGallery } from "@/components/MobileKitGallery";
@@ -114,55 +113,31 @@ function SignsSection() {
   );
 }
 
-const benefits = [
-  { t: "Hidrata", d: "Devolve a maciez da almofadinha e do focinho ressecado." },
-  { t: "Acalma", d: "Alivia a irritação que faz o pet lamber a pata o tempo todo." },
-  { t: "Protege", d: "Cria uma barreira contra chão quente, frio e produtos de limpeza." },
-];
-
-function ProductSection() {
-  return (
-    <section className="section bg-sand">
-      <div className="container-x grid items-center gap-10 md:grid-cols-2">
-        <LazyLoopVideo mp4={pataMp4.url} webm={pataWebm.url} poster={pataPoster.url} label="PataHelp" className="aspect-square w-full rounded-3xl object-cover" />
-        <div>
-          <p className="text-xs font-bold uppercase text-primary!">Balm 3 em 1 · 40 g</p>
-          <h2 className="mt-3 font-display text-4xl leading-tight text-foreground lg:text-5xl">Patinhas macias, focinho protegido.</h2>
-          <p className="mt-4 text-muted-foreground">Manteiga de karité, cera de abelha e óleos vegetais. Ingredientes naturais, lambível e atóxico: se ele lamber, não faz mal.</p>
-          <ul className="mt-6 space-y-4">
-            {benefits.map((b) => (
-              <li key={b.t} className="flex gap-3">
-                <Check className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                <p className="text-foreground"><strong>{b.t}.</strong> {b.d}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const steps = [
   { n: "01", t: "Limpe a região", d: "Patas e focinho secos e limpos." },
   { n: "02", t: "Passe uma camada fina", d: "Massageie até a pele absorver." },
   { n: "03", t: "Repita quando precisar", d: "De 2 a 3 vezes por dia, sem limite." },
 ];
 
-function HowToUse() {
+function ProductSection() {
   return (
-    <section className="section">
-      <div className="container-x">
-        <p className="text-center text-xs font-bold uppercase text-primary!">Como usar</p>
-        <h2 className="mt-3 text-center font-display text-4xl leading-tight text-foreground lg:text-5xl">Aplique e massageie</h2>
-        <div className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-3">
-          {steps.map((s) => (
-            <div key={s.n} className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-display text-3xl text-primary">{s.n}</p>
-              <h3 className="mt-2 font-display text-xl text-foreground">{s.t}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
-            </div>
-          ))}
+    <section className="section bg-sand">
+      <div className="container-x grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+        <LazyLoopVideo mp4={pataMp4.url} webm={pataWebm.url} poster={pataPoster.url} label="PataHelp" className="aspect-square w-full rounded-3xl object-cover" />
+        <div>
+          <p className="text-xs font-bold uppercase text-primary!">Como usar</p>
+          <h2 className="mt-3 font-display text-4xl leading-tight text-foreground lg:text-5xl">Aplique e massageie</h2>
+          <div className="mt-8 space-y-3">
+            {steps.map((s) => (
+              <div key={s.n} className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 sm:p-5">
+                <p className="w-9 shrink-0 font-display text-3xl leading-none text-primary">{s.n}</p>
+                <div>
+                  <h3 className="font-display text-xl text-foreground">{s.t}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -216,7 +191,6 @@ function PataPage() {
             { name: "Estopinha", quote: "O focinho estava ressecado e rachado, mas recuperou a hidratação.", before: estopinhaAntes.url, after: estopinhaDepois.url, fullImages: true, afterLabel: "30 dias", productPosition: "center", product: { name: "PataHelp", image: patahelpLataThumb.url }, productHeight: 42 },
           ]}
         />
-        <HowToUse />
         <StatsBanner />
         <VeterinaryAuthoritySection />
         <GuaranteeSection />
