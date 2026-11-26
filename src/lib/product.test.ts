@@ -35,9 +35,9 @@ describe("bloco Complete o cuidado na /pata", () => {
 });
 
 describe("ofertas da página /pata", () => {
-  it("oferece só dois kits: compre 2 leve 3 e 1 PataHelp", () => {
+  it("oferece só dois kits: compre 2 leve 3 e 1 pote", () => {
     expect(pataVariants.map((variant) => variant.id)).toEqual(["pata-3", "pata-1"]);
-    expect(pataVariants.map((variant) => variant.label)).toEqual(["3 PataHelps", "1 PataHelp"]);
+    expect(pataVariants.map((variant) => variant.label)).toEqual(["3 potes", "1 pote"]);
   });
 
   it("usa os preços informados para cada kit", () => {

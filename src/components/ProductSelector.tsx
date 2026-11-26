@@ -129,19 +129,23 @@ export function ProductSelector({
               </span>
 
               <span className="min-w-0">
-                <span className="flex flex-wrap items-center gap-2">
+                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                   <span className="text-lg font-bold leading-snug text-ink">{label}</span>
-                  {hasFreeShipping && (
-                    <span className="rounded-full bg-shipping px-2 py-0.5 text-[10px] font-bold uppercase text-shipping-foreground">
-                      Frete grátis
-                    </span>
-                  )}
-                  {hasGift && (
-                    <span className={cn(
-                      "rounded-full px-2 py-0.5 text-[10px] font-bold uppercase",
-                      v.tag === "Brinde" ? "bg-shipping text-shipping-foreground" : "bg-gift text-gift-foreground",
-                    )}>
-                      {v.tag ?? "Brinde"}
+                  {(hasFreeShipping || hasGift) && (
+                    <span className="flex shrink-0 items-center gap-2">
+                      {hasFreeShipping && (
+                        <span className="rounded-full bg-shipping px-2 py-0.5 text-[10px] font-bold uppercase text-shipping-foreground">
+                          Frete grátis
+                        </span>
+                      )}
+                      {hasGift && (
+                        <span className={cn(
+                          "rounded-full px-2 py-0.5 text-[10px] font-bold uppercase",
+                          v.tag === "Brinde" ? "bg-shipping text-shipping-foreground" : "bg-gift text-gift-foreground",
+                        )}>
+                          {v.tag ?? "Brinde"}
+                        </span>
+                      )}
                     </span>
                   )}
                 </span>

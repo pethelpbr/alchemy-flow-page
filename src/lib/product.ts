@@ -197,7 +197,7 @@ export const pataVariants: [Variant, ...Variant[]] = [
   {
     id: "pata-3",
     units: 3,
-    label: "3 PataHelps",
+    label: "3 potes",
     sublabel: "Compre 2, leve 3",
     detail: "R$ 53,27 por pote",
     tag: "Compre 2, leve 3",
@@ -212,7 +212,7 @@ export const pataVariants: [Variant, ...Variant[]] = [
   {
     id: "pata-1",
     units: 1,
-    label: "1 PataHelp",
+    label: "1 pote",
     sublabel: "Balm 40 g",
     image: pataLataImg.url,
     unitPrice: 79.9,

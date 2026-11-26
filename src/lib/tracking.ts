@@ -135,6 +135,8 @@ const BF_KIT_NAMES: Record<string, string> = {
   "bf-1": "Kit Black Friday 1 NutraHelp + 1 PataHelp + 1 BocaHelp",
   "bf-2": "Kit Black Friday 2 NutraHelps + 1 PataHelp + 1 BocaHelp",
   "bf-3": "Kit Black Friday 3 NutraHelps + 2 PataHelps + 1 BocaHelp",
+  "pata-3": "PataHelp 3 potes (compre 2, leve 3)",
+  "pata-1": "PataHelp 1 pote",
 };
 
 /** Kit de rastreamento a partir da variante selecionada na página. */
