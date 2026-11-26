@@ -24,7 +24,7 @@ describe("bloco Complete o cuidado na /pata", () => {
     expect(nutra?.price).toBe(79.9);
     expect(nutra?.compareAt).toBe(139);
     if (!nutra) throw new Error("NutraHelp não encontrado nos adicionais da /pata");
-    expect(addonSavings(nutra)).toBe(59.1);
+    expect(addonSavings({ ...nutra, image: "" })).toBe(59.1);
   });
 
   it("soma os adicionais com o catálogo da própria página", () => {
