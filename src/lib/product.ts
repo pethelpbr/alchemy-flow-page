@@ -127,7 +127,7 @@ export const addonCatalog: Omit<Addon, "image">[] = [
  */
 export const pataAddonCatalog: Omit<Addon, "image">[] = [
   { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
-  { id: "nutra", name: "Cuida de pele, pelo e imunidade", price: 79.9, compareAt: 139 },
+  { id: "nutra", name: "Cuida da pele, pelos e intestino", price: 79.9, compareAt: 139 },
 ];
 
 /** Economia exibida no card do adicional. */
