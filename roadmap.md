@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Compactar os seis sinais em duas linhas de três na /pele e /pata somente no computador; conferido em 1024, 1280, 1334 e 1920 px, com celular/tablet preservados.
 - [x] Corrigir Estopinha para PataHelp e alternar os resultados Black Friday em NutraHelp / PataHelp / BocaHelp, priorizando os casos mais evidentes.
 - [x] Igualar as metades da Dorinha, mostrar “30 dias” e centralizar a miniatura do PataHelp somente na Black Friday.
 - [x] Testar as fotos completas da Dorinha em um cartão mais estreito, com miniatura do PataHelp, somente na Black Friday.
