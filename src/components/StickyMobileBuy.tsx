@@ -23,9 +23,8 @@ export function StickyMobileBuy({
 }) {
   const [visible, setVisible] = useState(false);
   const { total, installmentValue } = variantTotals(selected);
-  // No layout do 1 pote, o preço da tarja inclui o frete, como no card de compra.
-  const grandTotal =
-    total + addonsExtra + (selected.id === "1-un" ? (selected.shipping ?? 0) : 0);
+  // Quando o kit cobra frete (pote único), o preço da tarja inclui o frete, como no card.
+  const grandTotal = total + addonsExtra + (selected.shipping ?? 0);
   const singlePot = selected.id === "1-un";
   const twoPots = selected.id === "2-un";
   const withGift = selected.id === "3-un-brinde";

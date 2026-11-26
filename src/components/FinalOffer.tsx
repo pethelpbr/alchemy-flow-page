@@ -56,7 +56,14 @@ export function FinalOffer({
             </p>
           )}
         </div>
-        <div className="mx-auto grid max-w-5xl gap-4 pt-12 md:grid-cols-3 md:items-stretch">
+        <div
+          className={cn(
+            "mx-auto grid gap-4 pt-12 md:items-stretch",
+            orderedVariants.length === 2
+              ? "max-w-3xl md:grid-cols-2"
+              : "max-w-5xl md:grid-cols-3",
+          )}
+        >
           {orderedVariants.map((variant) => {
             const isActive = selected.id === variant.id;
             const isBestChoice = variant.id === "3-un-brinde" || variant.badge === "Mais vendido";

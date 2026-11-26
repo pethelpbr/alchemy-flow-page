@@ -22,3 +22,4 @@
 - [x] Fileira de depoimentos da /pata com indicativo de que há mais vídeo: próxima capa encostada na borda, bolinhas de progresso e a dica "Arraste para ver mais", sem tocar /pele e /black-friday.
 - [x] Ordem dos depoimentos da /pata trocada para Dermatite, Feridas, Lambedura e Ressecamento, sem tocar /pele e /black-friday.
 - [x] Bloco "Você já tentou de tudo" na /pata, logo depois dos sinais, com texto do PataHelp; /pele e /black-friday intactas.
+- [x] /pata com só dois kits: "compre 2, leve 3" com tag de frete grátis e "1 PataHelp" com frete de R$ 9,90 (o mesmo da /pele); combo com NutraHelp removido.

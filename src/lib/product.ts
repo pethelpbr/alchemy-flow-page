@@ -10,7 +10,6 @@
 import kitBf1 from "@/assets/kit-bf-1-sem-fundo-v2.png.asset.json";
 import kitBf2 from "@/assets/kit-bf-2-sem-fundo-v2.png.asset.json";
 import pataLataImg from "@/assets/patahelp-lata.png.asset.json";
-import pataNutraKitImg from "@/assets/patahelp-nutrahelp-kit.webp.asset.json";
 import pataTrioKitImg from "@/assets/patahelp-trio.webp.asset.json";
 import kitBf3 from "@/assets/kit-bf-3-sem-fundo-v2.png.asset.json";
 
@@ -163,15 +162,13 @@ export function variantTotals(variant: Variant) {
   return { total, installmentValue };
 }
 
-/** Presentation-only comparisons for the PataHelp selector, based on single-product offers. */
+/** Presentation-only comparisons for the PataHelp selector, based on the single-product offer. */
 export function pataSelectorPricing(variant: Variant, offers: Variant[]) {
   const singlePata = offers.find((offer) => offer.id === "pata-1");
-  const singleNutra = variants.find((offer) => offer.id === "1-un");
-  if (!singlePata || !singleNutra || !variant.id.startsWith("pata-")) return null;
+  // O pote único não tem linha "por pote": mostra o preço com frete, como na /pele.
+  if (!singlePata || !variant.id.startsWith("pata-") || variant.units === 1) return null;
   const total = variantTotals(variant).total;
-  const compareAt = variant.id === "pata-nutra"
-    ? singlePata.unitPrice + singleNutra.unitPrice
-    : singlePata.unitPrice * variant.units;
+  const compareAt = singlePata.unitPrice * variant.units;
   return {
     perPot: total / variant.units,
     compareAt: compareAt > total ? compareAt : undefined,
@@ -198,20 +195,6 @@ export const blackFridayVariants: [Variant, ...Variant[]] = [
  */
 export const pataVariants: [Variant, ...Variant[]] = [
   {
-    id: "pata-nutra",
-    units: 2,
-    label: "1 PataHelp + 1 NutraHelp",
-    sublabel: "2 produtos",
-    detail: "2 produtos",
-    tag: "Brinde",
-    image: pataNutraKitImg.url,
-    unitPrice: 84.95,
-    total: 169.9,
-    installments: 6,
-    freeShipping: false,
-    externalId: null,
-  },
-  {
     id: "pata-3",
     units: 3,
     label: "3 PataHelps",
@@ -223,7 +206,7 @@ export const pataVariants: [Variant, ...Variant[]] = [
     total: 159.8,
     perPot: 53.27,
     installments: 5,
-    freeShipping: false,
+    freeShipping: true,
     externalId: null,
   },
   {
@@ -231,10 +214,12 @@ export const pataVariants: [Variant, ...Variant[]] = [
     units: 1,
     label: "1 PataHelp",
     sublabel: "Balm 40 g",
-    detail: "Balm 40 g",
     image: pataLataImg.url,
     unitPrice: 79.9,
+    // Mesmo frete do pote único da /pele: soma ao preço total, como lá.
+    shipping: 9.9,
     installments: 3,
+    installmentValue: 29.93,
     freeShipping: false,
     externalId: null,
   },

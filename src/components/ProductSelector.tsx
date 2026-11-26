@@ -28,7 +28,7 @@ export function ProductSelector({
         const hasGift = v.id === "3-un-brinde" || !!v.tag;
         const displayedTotal = total + (v.shipping ?? 0);
         const pataPricing = pataSelectorPricing(v, variants);
-        const label = v.id === "pata-nutra" ? "1 PataHelp" : v.label;
+        const label = v.label;
         const detail = pataPricing ? `${brl(pataPricing.perPot)} por pote` : v.detail;
         const savings = pataPricing?.savings ?? v.savings;
         const compareAt = pataPricing?.compareAt ?? v.compareAt;
@@ -84,9 +84,6 @@ export function ProductSelector({
                       ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
                       : `${brl(v.perPot ?? v.unitPrice)} por pote`)}
                   </span>
-                  {v.id === "pata-nutra" && (
-                    <span className="block text-[13px] leading-snug text-muted-foreground">+ 1 NutraHelp</span>
-                  )}
                   {hasGift && !v.tag && (
                     <span className="block text-[13px] leading-snug text-muted-foreground">
                       + PataHelp de brinde
@@ -153,9 +150,6 @@ export function ProductSelector({
                     ? `${brl(v.unitPrice)} + ${brl(v.shipping ?? 0)} de frete`
                     : `${brl(v.perPot ?? v.unitPrice)} por pote${hasGift ? " · PataHelp de brinde" : ""}`)}
                 </span>
-                {v.id === "pata-nutra" && (
-                  <span className="block text-[13px] leading-snug text-muted-foreground">+ 1 NutraHelp</span>
-                )}
                 {savings != null && (
                   <span className="mt-0.5 block text-[13px] font-semibold text-terracotta">
                     Economize {brl(savings).replace(",00", "")}

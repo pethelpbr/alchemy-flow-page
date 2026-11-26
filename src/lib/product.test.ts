@@ -6,6 +6,7 @@ import {
   pataVariants,
   variantTotals,
   pataSelectorPricing,
+  variants,
 } from "./product";
 
 describe("bloco Complete o cuidado na /pata", () => {
@@ -34,13 +35,38 @@ describe("bloco Complete o cuidado na /pata", () => {
 });
 
 describe("ofertas da página /pata", () => {
-  it("compara o combo com os produtos avulsos sem incluir frete", () => {
-    const combo = pataVariants[0];
-    expect(pataSelectorPricing(combo, pataVariants)).toEqual({ perPot: 84.95, compareAt: 218.9, savings: 49 });
+  it("oferece só dois kits: compre 2 leve 3 e 1 PataHelp", () => {
+    expect(pataVariants.map((variant) => variant.id)).toEqual(["pata-3", "pata-1"]);
+    expect(pataVariants.map((variant) => variant.label)).toEqual(["3 PataHelps", "1 PataHelp"]);
+  });
+
+  it("usa os preços informados para cada kit", () => {
+    expect(pataVariants.map((variant) => variantTotals(variant).total)).toEqual([159.8, 79.9]);
+  });
+
+  it("dá frete grátis ao compre 2, leve 3", () => {
+    const trio = pataVariants.find((variant) => variant.id === "pata-3");
+    expect(trio?.freeShipping).toBe(true);
+    expect(trio?.tag).toBe("Compre 2, leve 3");
+  });
+
+  it("cobra no PataHelp avulso o mesmo frete do pote único da /pele", () => {
+    const single = pataVariants.find((variant) => variant.id === "pata-1");
+    const peleSingle = variants.find((variant) => variant.id === "1-un");
+    expect(single?.shipping).toBe(9.9);
+    expect(single?.shipping).toBe(peleSingle?.shipping);
+    expect(single?.freeShipping).toBe(false);
+  });
+
+  it("soma o frete ao preço e à parcela do PataHelp avulso", () => {
+    const single = pataVariants.find((variant) => variant.id === "pata-1");
+    if (!single) throw new Error("Kit de um PataHelp não encontrado");
+    expect(variantTotals(single).total + (single.shipping ?? 0)).toBeCloseTo(89.8, 2);
+    expect(variantTotals(single).installmentValue).toBe(29.93);
   });
 
   it("mostra a economia de um PataHelp no compre 2 leve 3", () => {
-    const trio = pataVariants[1];
+    const trio = pataVariants.find((variant) => variant.id === "pata-3");
     if (!trio) throw new Error("Kit de três não encontrado");
     const pricing = pataSelectorPricing(trio, pataVariants);
     expect(pricing?.compareAt).toBeCloseTo(239.7);
@@ -48,44 +74,15 @@ describe("ofertas da página /pata", () => {
     expect(pricing?.perPot).toBeCloseTo(53.2667, 4);
   });
 
-  it("mantém os três kits na ordem definida", () => {
-    expect(pataVariants.map((variant) => variant.id)).toEqual([
-      "pata-nutra",
-      "pata-3",
-      "pata-1",
-    ]);
-    expect(pataVariants.map((variant) => variant.label)).toEqual([
-      "1 PataHelp + 1 NutraHelp",
-      "3 PataHelps",
-      "1 PataHelp",
-    ]);
+  it("não mostra 'por pote' no PataHelp avulso, para sobrar a linha de frete", () => {
+    const single = pataVariants.find((variant) => variant.id === "pata-1");
+    if (!single) throw new Error("Kit de um PataHelp não encontrado");
+    expect(pataSelectorPricing(single, pataVariants)).toBeNull();
   });
 
-  it("usa os preços informados para cada kit", () => {
-    expect(pataVariants.map((variant) => variantTotals(variant).total)).toEqual([
-      169.9,
-      159.8,
-      79.9,
-    ]);
-  });
-
-  it("não oferece frete grátis em nenhum kit", () => {
-    expect(pataVariants.every((variant) => variant.freeShipping === false)).toBe(true);
-  });
-
-  it("parcela o kit mais caro em 6x, o médio em 5x e o mais barato em 3x", () => {
-    expect(pataVariants.map((variant) => variant.installments)).toEqual([6, 5, 3]);
-    expect(pataVariants.map((variant) => variantTotals(variant).installmentValue)).toEqual([
-      169.9 / 6,
-      31.96,
-      79.9 / 3,
-    ]);
-  });
-
-  it("aplica o compre 2, leve 3 somente ao kit de três PataHelps", () => {
-    expect(pataVariants[1]?.units).toBe(3);
-    expect(pataVariants[1]?.tag).toBe("Compre 2, leve 3");
-    expect(pataVariants[0]?.tag).toBe("Brinde");
-    expect(pataVariants[2]?.tag).toBeUndefined();
+  it("mantém os três kits da /pele inalterados", () => {
+    expect(variants.map((variant) => variant.id)).toEqual(["1-un", "2-un", "3-un-brinde"]);
+    expect(variants.find((variant) => variant.id === "1-un")?.shipping).toBe(9.9);
+    expect(variants.find((variant) => variant.id === "2-un")?.freeShipping).toBeUndefined();
   });
 });
