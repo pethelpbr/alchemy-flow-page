@@ -15,7 +15,7 @@ describe("bloco Complete o cuidado na /pata", () => {
     expect(pataAddonCatalog.map((addon) => addon.id)).toEqual(["collagen", "nutra"]);
     expect(pataAddonCatalog.map((addon) => addon.name)).toEqual([
       "Contra mau hálito e tártaro",
-      "Cuida de pele, pelo e imunidade",
+      "Cuida da pele, pelos e intestino",
     ]);
   });
 

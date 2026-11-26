@@ -49,6 +49,8 @@ const offer: Offer = {
   variants: pataVariants,
   showAddons: true,
   addons: pataAddonCatalog,
+  // Rótulo do NutraHelp ("Cuida da pele, pelos e intestino") cabe em uma linha só a 14 px.
+  addonNameSizeClass: "lg:text-[14px]",
   buyLabel: "Quero meu PataHelp",
 };
 

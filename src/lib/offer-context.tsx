@@ -12,6 +12,8 @@ export type Offer = {
   showAddons: boolean;
   /** Catálogo de adicionais exibido no bloco; padrão: os da página /pele. */
   addons?: Omit<Addon, "image">[];
+  /** Classe de tamanho do rótulo dos adicionais no desktop (ex.: rótulos mais longos). */
+  addonNameSizeClass?: string;
   /** Fotos extras exibidas junto ao kit (ex.: PataHelp e BocaHelp). */
   bundleImages?: { src: string; alt: string }[];
   buyLabel?: string;

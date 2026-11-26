@@ -19,7 +19,7 @@ export function KitBooster({
   selectedIds: string[];
   onToggle: (id: string) => void;
 }) {
-  const { addons: catalog = addonCatalog } = useOffer();
+  const { addons: catalog = addonCatalog, addonNameSizeClass = "lg:text-[15px]" } = useOffer();
   const items: Addon[] = catalog.map((a) => ({
     ...a,
     image: images[a.id] ?? addonBocahelp.url,
@@ -77,7 +77,12 @@ export function KitBooster({
                 </span>
               </span>
 
-              <span className="mt-2 block text-[11px] font-medium leading-snug text-ink lg:text-[15px]">
+              <span
+                className={cn(
+                  "mt-2 block text-[11px] font-medium leading-snug text-ink",
+                  addonNameSizeClass,
+                )}
+              >
                 {a.name}
               </span>
 
