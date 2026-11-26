@@ -93,21 +93,21 @@ const pataTriedEverything = {
 
 function SignsSection() {
   return (
-    <section className="bg-background py-10 md:py-12 lg:py-6">
+    <section className="bg-background py-10 md:py-12">
       <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center lg:max-w-4xl">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow text-primary!">Indicação</p>
-          <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl lg:mt-2 lg:text-4xl">
+          <h2 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">
             Reconhece algum desses sinais?
           </h2>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-5 lg:grid-cols-3 lg:gap-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((s) => (
             <article key={s.title} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
-              <div aria-hidden="true" className="aspect-4/3 w-full bg-muted lg:aspect-auto lg:h-[min(18vh,152px)]" />
-              <div className="flex flex-1 flex-col gap-1.5 p-4 lg:p-3">
-                <h3 className="text-[20px] font-bold leading-snug text-primary lg:text-[18px]">{s.title}</h3>
-                <p className="text-[15px] leading-relaxed text-muted-foreground lg:leading-snug">{s.text}</p>
+              <div aria-hidden="true" className="aspect-4/3 w-full bg-muted" />
+              <div className="flex flex-1 flex-col gap-1.5 p-4">
+                <h3 className="text-[20px] font-bold leading-snug text-primary">{s.title}</h3>
+                <p className="text-[15px] leading-relaxed text-muted-foreground">{s.text}</p>
               </div>
             </article>
           ))}
