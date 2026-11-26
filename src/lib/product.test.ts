@@ -12,10 +12,10 @@ import {
 
 describe("bloco Complete o cuidado na /pata", () => {
   it("mostra BocaHelp e NutraHelp, não PataHelp", () => {
-    expect(pataAddonCatalog.map((addon) => addon.id)).toEqual(["collagen", "nutra"]);
+    expect(pataAddonCatalog.map((addon) => addon.id)).toEqual(["nutra", "collagen"]);
     expect(pataAddonCatalog.map((addon) => addon.name)).toEqual([
-      "Contra mau hálito e tártaro",
       "Cuida da pele, pelos e intestino",
+      "Contra mau hálito e tártaro",
     ]);
   });
 

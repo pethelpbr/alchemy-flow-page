@@ -126,8 +126,8 @@ export const addonCatalog: Omit<Addon, "image">[] = [
  * O NutraHelp sai de R$ 139,00 por R$ 79,90 (economia de R$ 59,10).
  */
 export const pataAddonCatalog: Omit<Addon, "image">[] = [
-  { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
   { id: "nutra", name: "Cuida da pele, pelos e intestino", price: 79.9, compareAt: 139 },
+  { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
 ];
 
 /** Economia exibida no card do adicional. */
