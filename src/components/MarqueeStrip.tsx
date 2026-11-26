@@ -67,7 +67,7 @@ export function MarqueeStrip({
   return (
     <div
       className={cn(
-        "relative overflow-hidden py-3",
+        "relative overflow-clip py-3 touch-pan-y",
         slim ? "sm:py-2" : "sm:py-4",
         colors.strip,
       )}

@@ -79,7 +79,7 @@ export function ShoppableVideos({ onBuy }: { onBuy: () => void }) {
           <button onClick={() => scroll(1)} aria-label="Próximo" className={arrow}><ChevronRight className="h-5 w-5" /></button>
         </div>
       </div>
-      <div ref={track} className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-2 [scrollbar-width:none] md:scroll-px-10 md:px-10 [&::-webkit-scrollbar]:hidden">
+      <div ref={track} className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-2 [overscroll-behavior-x:contain] [scrollbar-width:none] md:scroll-px-10 md:px-10 [&::-webkit-scrollbar]:hidden">
         {items.map((it) => <Card key={it.name} it={it} onBuy={onBuy} />)}
       </div>
     </div>

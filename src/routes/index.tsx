@@ -99,7 +99,7 @@ function HeroCarousel() {
   }, []);
   const go = (d: number) => setI((v) => (v + d + products.length) % products.length);
   return (
-    <section aria-label="Produtos em destaque" className="relative overflow-hidden" onMouseEnter={() => (hover.current = true)} onMouseLeave={() => (hover.current = false)}
+    <section aria-label="Produtos em destaque" className="relative overflow-clip touch-pan-y" onMouseEnter={() => (hover.current = true)} onMouseLeave={() => (hover.current = false)}
       onTouchStart={(e) => (touch.current = e.touches[0]!.clientX)} onTouchEnd={(e) => { if (touch.current === null) return; const dx = e.changedTouches[0]!.clientX - touch.current; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); touch.current = null; }}>
       <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${i * 100}%)` }}>
         {products.map((p) => (
@@ -153,7 +153,7 @@ function ChallengesCarousel() {
   return (
     <section className="py-14">
       <div className="container-x"><SectionTitle>Desafios de saúde</SectionTitle></div>
-      <div ref={ref} onScroll={onScroll} className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:px-10">
+      <div ref={ref} onScroll={onScroll} className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [overscroll-behavior-x:contain] [scrollbar-width:none] md:px-10">
         {challenges.map((c) => (
           <article key={c.label} className="relative w-[46%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[30%] lg:w-[18%]">
             <img src={c.img} alt={c.label} className="aspect-[3/4] w-full object-cover" loading="lazy" draggable={false} />

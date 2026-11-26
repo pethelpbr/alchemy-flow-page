@@ -152,7 +152,7 @@ export function KitCompleteBanner() {
 
   return (
     <section ref={sectionRef} className={`kit-ingredients relative ${reduced ? "" : "h-[320vh]"}`}>
-      <div className={`kit-scene ${reduced ? "relative h-[100svh]" : "sticky top-0 h-[100svh]"} overflow-hidden`}>
+      <div className={`kit-scene ${reduced ? "relative h-[100svh]" : "sticky top-0 h-[100svh]"} overflow-clip touch-pan-y`}>
         {/* Fundo: sala com pedestal; os potes ficam presos no pedestal e o conjunto dá zoom */}
         <div
           ref={L.clouds}

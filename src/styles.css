@@ -157,6 +157,17 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Celular: trava a página na vertical, para um arrasto diagonal não
+     empurrar a tela para os lados. `clip` (e não `hidden`) porque não cria
+     uma área rolável e por isso não quebra o fixo da tarja de compra. */
+  @media (max-width: 767px) {
+    html,
+    body {
+      overflow-x: clip;
+      overscroll-behavior-x: none;
+    }
+  }
+
   h1,
   h2,
   h2 {
