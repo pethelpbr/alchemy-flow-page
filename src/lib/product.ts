@@ -123,11 +123,11 @@ export const addonCatalog: Omit<Addon, "image">[] = [
 
 /**
  * Adicionais do bloco "Complete o cuidado" na página /pata: BocaHelp + NutraHelp.
- * O NutraHelp usa o preço do pote avulso, sem desconto inventado.
+ * O NutraHelp sai de R$ 139,00 por R$ 79,90 (economia de R$ 59,10).
  */
 export const pataAddonCatalog: Omit<Addon, "image">[] = [
   { id: "collagen", name: "Contra mau hálito e tártaro", price: 49.9, compareAt: 89.9 },
-  { id: "nutra", name: "Cuida de pele, pelo e imunidade", price: 139 },
+  { id: "nutra", name: "Cuida de pele, pelo e imunidade", price: 79.9, compareAt: 139 },
 ];
 
 /** Economia exibida no card do adicional. */

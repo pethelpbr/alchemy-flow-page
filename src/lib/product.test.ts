@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   addonCatalog,
+  addonSavings,
   addonsTotal,
   pataAddonCatalog,
   pataVariants,
@@ -18,14 +19,16 @@ describe("bloco Complete o cuidado na /pata", () => {
     ]);
   });
 
-  it("usa o preço do pote avulso de NutraHelp, sem desconto inventado", () => {
+  it("mostra o NutraHelp de R$ 139,00 por R$ 79,90, com a economia", () => {
     const nutra = pataAddonCatalog.find((addon) => addon.id === "nutra");
-    expect(nutra?.price).toBe(139);
-    expect(nutra?.compareAt).toBeUndefined();
+    expect(nutra?.price).toBe(79.9);
+    expect(nutra?.compareAt).toBe(139);
+    if (!nutra) throw new Error("NutraHelp não encontrado nos adicionais da /pata");
+    expect(addonSavings(nutra)).toBe(59.1);
   });
 
   it("soma os adicionais com o catálogo da própria página", () => {
-    expect(addonsTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(188.9, 2);
+    expect(addonsTotal(["collagen", "nutra"], pataAddonCatalog)).toBeCloseTo(129.8, 2);
     expect(addonsTotal(["nutra"], addonCatalog)).toBe(0);
   });
 

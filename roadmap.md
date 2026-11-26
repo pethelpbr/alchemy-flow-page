@@ -24,3 +24,4 @@
 - [x] Bloco "Você já tentou de tudo" na /pata, logo depois dos sinais, com texto do PataHelp; /pele e /black-friday intactas.
 - [x] /pata com só dois kits: "compre 2, leve 3" com tag de frete grátis e "1 PataHelp" com frete de R$ 9,90 (o mesmo da /pele); combo com NutraHelp removido.
 - [x] /pata com os kits chamados "3 potes" e "1 pote", com as duas tags do "3 potes" na mesma linha.
+- [x] /pata: NutraHelp no "Complete o cuidado" de R$ 139,00 riscado por R$ 79,90, com "Economize R$ 59,10".
