@@ -26,12 +26,17 @@ const stats = [
   { product: "BocaHelp", percentage: 98, text: "notaram o hálito mais fresco" },
 ];
 
-export function KitStatsSection() {
+export function KitStatsSection({ excludeBoca = false }: { excludeBoca?: boolean } = {}) {
+  const items = excludeBoca ? stats.filter((s) => s.product !== "BocaHelp") : stats;
   return (
     <section className="bg-primary">
       <div className="container-x py-10 md:py-12">
-        <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/25">
-          {stats.map((s) => (
+        <div
+          className={`mx-auto grid gap-8 sm:gap-0 sm:divide-x sm:divide-white/25 ${
+            items.length === 2 ? "max-w-2xl sm:grid-cols-2" : "max-w-4xl sm:grid-cols-3"
+          }`}
+        >
+          {items.map((s) => (
             <div key={s.product} className="text-center">
               <p className="font-display text-5xl leading-none text-white">{s.percentage}%</p>
               <p className="mx-auto mt-2 max-w-[230px] text-sm text-[#FFEBD9]">{s.text}</p>
