@@ -324,7 +324,7 @@ function DialogVideo({ src, poster }: { src: string; poster: string }) {
   );
 }
 
-export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeLayout = false, variant = "default" }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined; storeLayout?: boolean; variant?: "default" | "pata" }) {
+export function ProductVideoFeedback({ onBuy, showDetails = true, kitCta, storeLayout = false, variant = "default" }: { onBuy: () => void; showDetails?: boolean; kitCta?: string | undefined; storeLayout?: boolean; variant?: IngredientsVariant }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   // Black Friday (kitCta definido) mantém os três relatos originais; /pele ganha o da Amora; /pata troca o segundo vídeo.
   const items = kitCta ? feedbacks : variant === "pata" ? pataFeedbacks : peleFeedbacks;
