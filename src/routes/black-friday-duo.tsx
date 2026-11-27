@@ -41,7 +41,7 @@ import { blackFridayDuoVariants, type Variant } from "@/lib/product";
 import { OfferProvider, type Offer } from "@/lib/offer-context";
 import { KitStatsSection, KitVetSection } from "@/components/kit-bf/PlaceholderSections";
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
-import kit1Potes from "@/assets/kit-bf-1-potes.png.asset.json";
+import kit1Potes from "@/assets/bf-duo-kit-1-potes.png.asset.json";
 import badgeBlackFriday from "@/assets/badge-black-friday.png.asset.json";
 import kit2Potes from "@/assets/kit-bf-2-potes-v3.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v6.png.asset.json";
