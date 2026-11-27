@@ -43,7 +43,7 @@ import { KitStatsSection, KitVetSection } from "@/components/kit-bf/PlaceholderS
 import kitCompleto from "@/assets/kit-bf-completo.png.asset.json";
 import kit1Potes from "@/assets/bf-duo-kit-1-potes.png.asset.json";
 import badgeBlackFriday from "@/assets/badge-black-friday.png.asset.json";
-import kit2Potes from "@/assets/kit-bf-2-potes-v3.png.asset.json";
+import kit2Potes from "@/assets/bf-duo-kit-2-potes.png.asset.json";
 import kit3Potes from "@/assets/kit-bf-3-potes-v6.png.asset.json";
 import nutraFoto from "@/assets/nutrahelp-foto.png.asset.json";
 import pataFoto from "@/assets/patahelp-foto.png.asset.json";
