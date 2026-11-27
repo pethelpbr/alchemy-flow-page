@@ -1,8 +1,12 @@
 import { describe, expect, it } from "vitest";
+import kitDuo1 from "@/assets/bf-duo-kit-1-potes.png.asset.json";
+import kitDuo2 from "@/assets/bf-duo-kit-2-potes.png.asset.json";
+import kitDuo3 from "@/assets/bf-duo-kit-3-potes.png.asset.json";
 import {
   addonCatalog,
   addonSavings,
   addonsTotal,
+  blackFridayDuoVariants,
   pataAddonCatalog,
   pataVariants,
   variantTotals,
@@ -87,5 +91,15 @@ describe("ofertas da página /pata", () => {
     expect(variants.map((variant) => variant.id)).toEqual(["1-un", "2-un", "3-un-brinde"]);
     expect(variants.find((variant) => variant.id === "1-un")?.shipping).toBe(9.9);
     expect(variants.find((variant) => variant.id === "2-un")?.freeShipping).toBeUndefined();
+  });
+});
+
+describe("fotos dos kits da /black-friday-duo", () => {
+  it("usa as fotos novas enviadas pelo usuário nos três kits", () => {
+    expect(blackFridayDuoVariants.map((variant) => variant.image)).toEqual([
+      kitDuo1.url,
+      kitDuo2.url,
+      kitDuo3.url,
+    ]);
   });
 });

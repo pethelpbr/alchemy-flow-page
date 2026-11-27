@@ -12,6 +12,9 @@ import kitBf2 from "@/assets/kit-bf-2-sem-fundo-v2.png.asset.json";
 import pataLataImg from "@/assets/patahelp-lata.png.asset.json";
 import pataTrioKitImg from "@/assets/patahelp-trio.webp.asset.json";
 import kitBf3 from "@/assets/kit-bf-3-sem-fundo-v2.png.asset.json";
+import kitDuo1 from "@/assets/bf-duo-kit-1-potes.png.asset.json";
+import kitDuo2 from "@/assets/bf-duo-kit-2-potes.png.asset.json";
+import kitDuo3 from "@/assets/bf-duo-kit-3-potes.png.asset.json";
 
 export type Variant = {
   id: string;
@@ -191,9 +194,9 @@ export const blackFridayVariants: [Variant, ...Variant[]] = [
 
 /** Kits da Black Friday (NutraHelp + PataHelp, sem BocaHelp). */
 export const blackFridayDuoVariants: [Variant, ...Variant[]] = [
-  { id: "bf-duo-1", units: 1, label: "1 NutraHelp", detail: "+ 1 PataHelp", freeShipping: true, unitPrice: 159.9, total: 159.9, compareAt: 348.5, savings: 188.6, installments: 7, externalId: null, image: kitBf1.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/AZ2WG32KDI" },
-  { id: "bf-duo-2", units: 2, label: "2 NutraHelps", detail: "+ 1 PataHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 8, externalId: null, image: kitBf2.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/34LLBM8TUX" },
-  { id: "bf-duo-3", units: 3, label: "3 NutraHelps", detail: "+ 2 PataHelps", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 10, externalId: null, image: kitBf3.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/QFWI9P4574" },
+  { id: "bf-duo-1", units: 1, label: "1 NutraHelp", detail: "+ 1 PataHelp", freeShipping: true, unitPrice: 159.9, total: 159.9, compareAt: 348.5, savings: 188.6, installments: 7, externalId: null, image: kitDuo1.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/AZ2WG32KDI" },
+  { id: "bf-duo-2", units: 2, label: "2 NutraHelps", detail: "+ 1 PataHelp", freeShipping: true, unitPrice: 98.5, total: 197, compareAt: 497.4, savings: 300.4, installments: 8, externalId: null, image: kitDuo2.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/34LLBM8TUX" },
+  { id: "bf-duo-3", units: 3, label: "3 NutraHelps", detail: "+ 2 PataHelps", freeShipping: true, badge: "Mais vendido", unitPrice: 82.33, total: 247, compareAt: 746.1, savings: 499.1, installments: 10, externalId: null, image: kitDuo3.url, checkoutUrl: "https://seguro.pethelpoficial.com.br/r/QFWI9P4574" },
 ];
 
 /**
