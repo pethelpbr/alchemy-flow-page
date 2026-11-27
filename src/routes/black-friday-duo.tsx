@@ -8,7 +8,7 @@ import cardSinais from "@/assets/bf-card-01-sinais.png.asset.json";
 import cardNutra from "@/assets/bf-card-02-nutra.webp.asset.json";
 import cardPata from "@/assets/bf-card-04-pata.webp.asset.json";
 import cardVet from "@/assets/bf-card-08-veterinario.webp.asset.json";
-import cardFormulas from "@/assets/bf-card-09-formulas.webp.asset.json";
+import cardFormulas from "@/assets/bf-card-09-formulas-duo.png.asset.json";
 import cardUsoNutra from "@/assets/bf-card-10-uso-nutra.png.asset.json";
 import cardUsoPata from "@/assets/bf-card-11-uso-pata.webp.asset.json";
 import galleryResultadosNutra from "@/assets/bf-gallery-resultados-nutra-v3.png.asset.json";

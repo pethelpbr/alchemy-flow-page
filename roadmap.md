@@ -1,4 +1,5 @@
 # Roadmap
+- [x] /black-friday-duo: oitava foto do carrossel trocada pela nova arte "Fórmulas" (NutraHelp + PataHelp); /black-friday intacta.
 - [ ] Sinais da /pele e /pata: compactação revertida a pedido (26/11/2026); o usuário vai retocar isso depois.
 - [x] Corrigir Estopinha para PataHelp e alternar os resultados Black Friday em NutraHelp / PataHelp / BocaHelp, priorizando os casos mais evidentes.
 - [x] Igualar as metades da Dorinha, mostrar “30 dias” e centralizar a miniatura do PataHelp somente na Black Friday.
